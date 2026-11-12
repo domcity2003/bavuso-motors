@@ -159,7 +159,7 @@
     "IPM motor + 2-stage gear case (drive-study.md)"
   ],
   "solid_objects": 153,
-  "total_solids": 1200,
+  "total_solids": 1215,
   "cell_count": 594,
   "all_cell_points_inside_inner_case": true,
   "critical_pair_checks": [
@@ -235,7 +235,7 @@
     },
     {
       "check": "bms_vs_body_top",
-      "gap_mm": 72.38,
+      "gap_mm": 37.89,
       "overlap_mm3": 0.0,
       "required_mm": 8,
       "passed": true
@@ -305,14 +305,14 @@
     },
     {
       "check": "cabinet_vs_seat",
-      "gap_mm": 365.51,
+      "gap_mm": 374.0,
       "overlap_mm3": 0.0,
       "required_mm": 10,
       "passed": true
     },
     {
       "check": "seat_vs_rear_bump",
-      "gap_mm": 37.82,
+      "gap_mm": 54.81,
       "overlap_mm3": 0.0,
       "required_mm": 20,
       "passed": true
@@ -460,7 +460,7 @@
     },
     {
       "check": "shock_vs_seat",
-      "gap_mm": 78.47,
+      "gap_mm": 71.54,
       "overlap_mm3": 0.0,
       "required_mm": 10,
       "passed": true

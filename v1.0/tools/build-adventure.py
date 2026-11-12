@@ -567,7 +567,7 @@ lamp_cut=Part.makeCompound(list(lamps.values()))
 seam=[(690,668),(800,645),(900,622),(1000,600),(1095,579)]
 # Upper body: tall tank (top Z955), cockpit cheeks either side of the screen, beak nose with the headlamp,
 # fairing front edge dropping to Z575 ahead of the battery box. Open underneath.
-UB_TOP=[(690,846),(712,890),(745,928),(800,950),(900,957),(1000,955),(1060,945),(1110,937),
+UB_TOP=[(690,846),(725,866),(770,897),(820,925),(870,945),(920,956),(1000,955),(1060,945),(1110,937),
         (1170,962),(1215,985),(1258,972),(1300,948),(1360,922),(1410,900),(1462,872)]
 # Front re-trace (Nov 11, close crop of the baseline): the side shroud now drops to a point at Z532 beside the fork,
 # over the battery cover's front corner (its walls sit at Y+-205+, outside the tyre and fender at any lock), and the
@@ -592,7 +592,7 @@ VENT=[(1000,610),(1090,610),(1140,730),(1050,730)]
 def vent_x(z):return 1000+(z-610)*50/120
 for side in [-1,1]:
     upper_body=upper_body.cut(xz_prism(VENT,side*185,side*245))
-add('Upper_body_fairing_tank_STUDY',upper_body,'BodyStudy',
+ub_obj=add('Upper_body_fairing_tank_STUDY',upper_body,'BodyStudy',
     'PROPOSED 3mm shell traced from baseline image; open below, steering cavity, frame notches and grilles cut; tooling/CFD/fixings unresolved',color=(.11,.12,.13))
 # Lower body: battery side covers and belly pan, open top, open rear onto the motor. Its front wall follows
 # the front tyre's travel envelope 22mm off (x_cover), and the seam line is cut short where it meets that wall.
@@ -696,32 +696,48 @@ undertray=Part.makeCompound([s for s in (ring.cut(tube_holes),floor_.cut(stadium
 # edges, sides tucking in to a pan 82% as wide. The narrower pan clears the tail rails (Y166 inner at X470), so it drops
 # 13mm under the rider: foam at the rider's sit point is ~78mm (was ~65; touring seats use 70-90).
 SEAT_TOP=[(-112,862),(-100,874),(-20,889),(100,881),(216,866),(270,856),(300,836),(351,825),
-          (420,813),(486,810),(560,812),(621,818),(682,838)]   # rider pad +10 (comfort-study.md)
-SEAT_BOT=[(-112,822),(0,800),(300,768),(470,732),(620,732),(682,770)]
-SEAT_HALF=[(-112,95),(0,128),(150,140),(300,152),(470,165),(600,150),(682,115)]
+          (420,813),(486,810),(560,812),(621,818),(670,834),(710,866),(740,886),(762,898)]   # rider pad +10 (comfort-study.md); nose rides up the tank (Nov 12)
+SEAT_BOT=[(-112,822),(0,800),(300,768),(470,732),(620,732),(682,770),(762,790)]
+SEAT_HALF=[(-112,92),(-60,118),(0,138),(100,161),(200,183),(300,208),(400,217),(470,221),(560,223),(621,223),(682,216),(720,208),(762,184)]
+# Nov 12 (seat "still does not look comfortable"): the 330mm seat sat sunk in the 440mm tail like a cushion in a tub,
+# with the tail walls up to ~40mm below its top. Now the seat is as wide as the tail (3mm proud) and its upholstered
+# sides ARE the top of the side profile, as in the baseline: ~60mm of visible side, rolled edge, flat-crowned top.
+# The pan edge rides 8mm over the subframe rails; a centre pan between the rails drops to SEAT_BOT for foam depth.
+def rail_top(x):   # top of the subframe rail (tail rail behind X568, upper rail ahead) under the seat edge
+    return 737.0+(568-x)*75/628 if x<=568 else 756.0+(x-570)*40/480
+def rail_y(x):return 195.0-95*(568-x)/628 if x<=568 else 195.0
 def lerp(pts,x):
     for (x0,v0),(x1,v1) in zip(pts,pts[1:]):
         if x0<=x<=x1:return v0+(v1-v0)*(x-x0)/(x1-x0)
     return pts[0][1] if x<pts[0][0] else pts[-1][1]
 def seat_section(x,shrink=1.0):
-    zt,zb,w=lerp(SEAT_TOP,x),lerp(SEAT_BOT,x),lerp(SEAT_HALF,x)*shrink;h=zt-zb
-    zt=zb+h*(.55+.45*shrink)
-    prof=[(0,zt),(.45*w,zt-.04*h),(.78*w,zt-.13*h),(.95*w,zt-.30*h),(w,zt-.50*h),(.96*w,zt-.70*h),(.88*w,zb+.12*h),(.82*w,zb)]
-    pts=[V(x,y,z) for y,z in prof]+[V(x,.4*w,zb),V(x,-.4*w,zb)]+[V(x,-y,z) for y,z in reversed(prof[1:])]
+    zt,w=lerp(SEAT_TOP,x),lerp(SEAT_HALF,x)*shrink;ze=min(rail_top(x)+8,zt-40);d=zt-ze
+    zt=ze+d*(.55+.45*shrink);d=zt-ze;c=min(.75*d,48)   # c: depth of the rolled top edge
+    prof=[(0,zt),(.40*w,zt-.05*c),(.70*w,zt-.18*c),(.86*w,zt-.38*c),(.95*w,zt-.65*c),(.995*w,zt-c),(w,ze+.3*(d-c)),(.975*w,ze+2),(.86*w,ze)]
+    pts=[V(x,y,z) for y,z in prof]+[V(x,.4*w,ze),V(x,-.4*w,ze)]+[V(x,-y,z) for y,z in reversed(prof[1:])]
     c=Part.BSplineCurve();c.interpolate(pts,PeriodicFlag=True);return Part.Wire(c.toShape())
-SEAT_X=[-112,-104,-80,-20,60,150,230,284,318,380,440,486,540,600,650,672,682]
-seat=Part.makeLoft([seat_section(x,.72 if x in (-112,682) else .9 if x in (-104,672) else 1.0) for x in SEAT_X],True,False)
+SEAT_X=[-112,-104,-80,-20,60,150,230,284,318,380,440,486,540,600,650,690,725,752,762]
+seat=Part.makeLoft([seat_section(x,.72 if x in (-112,762) else .9 if x in (-104,752) else 1.0) for x in SEAT_X],True,False)
 seat=seat if seat.isValid() and seat.Volume>0 else seat.reversed()
+# Centre pan between the rails (8mm off their inner faces): drops to SEAT_BOT under the rider for ~78mm of foam.
+def pan_sec(x):
+    b=rail_y(x)-(14 if x<=568 else 16)-8;zb=lerp(SEAT_BOT,x);zu=min(rail_top(x)+8,lerp(SEAT_TOP,x)-40)+6
+    return Part.makePolygon([V(x,y,z) for y,z in [(-b+12,zb),(b-12,zb),(b,zb+12),(b,zu),(-b,zu),(-b,zb+12),(-b+12,zb)]])
+seat=seat.fuse(Part.makeLoft([pan_sec(x) for x in (330,380,440,486,540,600,640)],True,True)).removeSplitter()
 # Pan relief over the shock-top cross tube: the dropped pan (Z732) would sit 6 mm into it. A 48 mm wide channel
 # moulded into the pan keeps 10 mm over the bracket plates (14 over the tube) and 10 mm fore/aft, and leaves ~66 mm of foam over it (78 elsewhere).
 seat=seat.cut(box(SHOCK_TUBE[0]-24,-200,600,48,400,SHOCK_TUBE[1]+14-600))   # +14: the bracket plates stand 4 mm proud of the tube
 # Piped welt along each top edge, rider and pillion pads, as on a stitched production seat (short segments + spheres).
 welts=[]
-for xs in ((-96,270),(306,668)):
+for xs in ((-96,270),(306,720)):
     for sy in (-1,1):
-        pts=[V(x,sy*.97*lerp(SEAT_HALF,x),lerp(SEAT_TOP,x)-.30*(lerp(SEAT_TOP,x)-lerp(SEAT_BOT,x))) for x in range(xs[0],xs[1]+1,12)]
+        pts=[V(x,sy*.985*lerp(SEAT_HALF,x),lerp(SEAT_TOP,x)-.8*min(.75*(lerp(SEAT_TOP,x)-min(rail_top(x)+8,lerp(SEAT_TOP,x)-40)),48)) for x in range(xs[0],xs[1]+1,12)]
         welts+=[Part.makeCylinder(2.6,(b-a).Length,a,b-a) for a,b in zip(pts,pts[1:])]+[Part.makeSphere(2.6,p) for p in pts]
 seat_welt=Part.makeCompound(welts)
+# The seat nose laps over the tank's rear slope (as in the baseline) instead of butting into a wall: the tank shell
+# is cut where the nose sits. The BMS below starts at X775, 13mm ahead of the nose tip.
+upper_body=upper_body.cut(seat);ub_obj.Shape=upper_body
+seat_welt=seat_welt.cut(upper_body)   # the piping runs into the tank skin where the nose laps over it
 tail_body=tail_body.cut(seat)   # seat pan nests into the tail top
 add('Tail_side_panels_STUDY',tail_body,'BodyStudy','PROPOSED 3mm subframe covers traced from baseline; passenger rating not established',color=(.11,.12,.13))
 add('Seat_two_level_STUDY',seat,'BodyStudy','PROPOSED stepped rider/passenger saddle traced from baseline; foam/pan/fit unresolved',color=(.06,.065,.07))

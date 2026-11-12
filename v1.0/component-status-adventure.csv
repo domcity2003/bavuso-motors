@@ -74,7 +74,7 @@ Shock_reservoir_STUDY,Chassis,Remote reservoir under the seat (hose not modelled
 Swingarm_shock_tower,Chassis,"PROPOSED twin 8mm plates, brace to shock lower eye; section/fatigue NOT qualified",,2,115404.15383642243,False
 Tail_shock_cross_tube,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,86331.26627281182,False
 Shock_top_bracket,Chassis,"PROPOSED twin 8mm plates, cross tube to shock top eye",,2,53331.621411750915,False
-Upper_body_fairing_tank_STUDY,BodyStudy,"PROPOSED 3mm shell traced from baseline image; open below, steering cavity, frame notches and grilles cut; tooling/CFD/fixings unresolved",,1,1993617.7449054322,False
+Upper_body_fairing_tank_STUDY,BodyStudy,"PROPOSED 3mm shell traced from baseline image; open below, steering cavity, frame notches and grilles cut; tooling/CFD/fixings unresolved",,1,1954182.3190530364,False
 Lower_body_battery_covers_STUDY,BodyStudy,"PROPOSED 3mm battery side covers/belly pan; 414mm wide, front wall follows the front-tyre travel envelope; impact protection unresolved",,1,2432871.988228564,False
 Motor_side_covers_STUDY,BodyStudy,PROPOSED 3mm motor side covers/belly behind the battery covers; swingarm and shock pass the open rear; cooling/belt access unresolved,,3,463407.15578894306,False
 Pivot_cover_cap_m1,BodyStudy,"Pivot/motor-axis cover cap on the motor cover, illustrative",,1,34255.926294743105,False
@@ -89,15 +89,15 @@ Panel_bolts_m1,BodyStudy,"M6 button-head positions, illustrative",,8,2280.796266
 Battery_side_panel_1,BodyStudy,Proud battery cover plate traced from baseline; fixings/seal unresolved,,1,468993.08153289696,False
 Belly_side_panel_1,BodyStudy,Proud belly fairing plate traced from baseline,,1,217120.0550549705,False
 Panel_bolts_1,BodyStudy,"M6 button-head positions, illustrative",,8,2280.7962665061937,False
-Tail_side_panels_STUDY,BodyStudy,PROPOSED 3mm subframe covers traced from baseline; passenger rating not established,,2,1172927.066973976,False
-Seat_two_level_STUDY,BodyStudy,PROPOSED stepped rider/passenger saddle traced from baseline; foam/pan/fit unresolved,,1,15500616.445525594,False
-Seat_welt,BodyStudy,"Piped welt along the seat top edges, illustrative",,244,40523.865024186234,False
+Tail_side_panels_STUDY,BodyStudy,PROPOSED 3mm subframe covers traced from baseline; passenger rating not established,,1,1188234.5517012926,False
+Seat_two_level_STUDY,BodyStudy,PROPOSED stepped rider/passenger saddle traced from baseline; foam/pan/fit unresolved,,1,21384470.022732265,False
+Seat_welt,BodyStudy,"Piped welt along the seat top edges, illustrative",,260,43556.5859148575,False
 Tail_undertray_STUDY,BodyStudy,"PROPOSED 3mm undertray/inner fender, 25mm outside the rear tyre travel envelope; drainage and fixings unresolved",,2,347629.1640031935,False
 Rear_rack_STUDY,BodyStudy,PROPOSED aluminium luggage/grab rack on two posts; load rating and subframe mounts unresolved,,1,112376.19957978671,False
 Belly_skid_plate_STUDY,BodyStudy,PROPOSED 4mm aluminium skid plate under the belly; sets the static ground clearance,,1,630000.0,False
-Windscreen_STUDY,BodyStudy,PROPOSED 6mm screen traced from baseline; optics/buffeting unresolved,,2,643656.102040378,False
-Headlamp_installation_STUDY,BodyStudy,Full-width LED light band (smoked lens) flush with the beak; approved optical unit not selected,,1,559021.295797345,False
-Headlamp_DRL_blade,BodyStudy,DRL light blade along the top of the lamp band; optics not selected,,1,69920.35865224923,False
+Windscreen_STUDY,BodyStudy,PROPOSED 6mm screen traced from baseline; optics/buffeting unresolved,,2,643656.101298074,False
+Headlamp_installation_STUDY,BodyStudy,Full-width LED light band (smoked lens) flush with the beak; approved optical unit not selected,,1,559021.2957973448,False
+Headlamp_DRL_blade,BodyStudy,DRL light blade along the top of the lamp band; optics not selected,,1,69920.35865224914,False
 Taillamp_installation_STUDY,BodyStudy,Tail stop lamp reservation,,1,31999.999999999996,False
 Front_fender_STUDY,BodyStudy,Proposed fender on fork lowers; steering/bump mounts not validated,,1,397075.1108256636,False
 Rear_hugger_STUDY,BodyStudy,Proposed swingarm-mounted hugger; bump clearance follows wheel,,1,651993.5729554115,False

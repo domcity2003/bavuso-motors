@@ -33,6 +33,23 @@ The score is the number of degrees outside the target bands, summed over all thr
 
 Both pass in the full build: controls 62.5 mm, hose and harness 13.6 mm. The dash has its own 15 mm check (19.9 mm), since no hand goes between the risers. All 58 checks pass. The results are in `adventure-layout.md`.
 
+## Update, November 12, 2026 (later): the seat as part of the body
+
+*Claude Opus 5.5 (claude-opus-5-5).* Dominic said the seat "still does not look comfortable". Put next to the baseline image, the reason was clear:
+- **It sat in a tub.** The seat was 330 mm wide, but the tail panels around it were 440 mm wide and came up to about 40 mm below its top. You saw a thin cushion sunk in a box.
+- **A wall stood in front of the rider.** The seat ended against the tank's rear face, and the tank rose steeply from there.
+
+**What changed:**
+- **Width:** the seat is now as wide as the tail, 3 mm proud: about 440 mm at the hips, 432 mm at the front. Its upholstered sides are now the top of the side profile, as in the baseline, with about 60 mm of visible side.
+- **Top:** the top is flatter, with a rolled edge, so the sit bones rest on a wide flat area instead of a dome.
+- **Pan:** the pan edge rides 8 mm over the subframe rails. A centre pan between the rails still drops to Z732 under the rider, so the foam depth at the sit point stays about 78 mm.
+- **Nose:** the seat now climbs up over the tank's rear slope to X762, as in the baseline. The tank's rear top was eased to about 35°. The rider can slide forward without meeting a wall.
+- **Unchanged:** the 850 mm seat height and the sit point.
+
+**What it costs:**
+- **Reaching the ground:** the front of the seat is wider, so a rider's legs take a slightly longer path to the ground. The width there is set by the frame rails (±195 mm, the pack's width), so the body was already about 440 mm wide at the thighs.
+- **Low-seat option:** a narrowed seat nose for short riders is a reasonable accessory.
+
 ## The plain answer
 
 **The bike was uncomfortable because the legs were folded too tight.** The footpegs sat almost directly under the seat's lowest point, only 420 mm below it. An average man's knee closed to about **61°**, close to a squat. A tall rider got about 56°. The arms and back were fine, because the bars already put the rider upright.

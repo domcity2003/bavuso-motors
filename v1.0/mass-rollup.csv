@@ -16,13 +16,13 @@ Fasteners (titanium where visible),Allowance,3.0,750,0,600,,estimate,allowance,p
 "Coolant pump, hoses, 2 L coolant",Allowance,2.8,880,0,600,,estimate,allowance,"motor, inverter, charger, pack loop"
 Fork_outer_tube_m1,RunningGear,2.6,1234,-100,867,,estimate,kg,48 mm USD outer tube with cartridge and oil
 Fork_outer_tube_1,RunningGear,2.6,1234,100,867,,estimate,kg,48 mm USD outer tube with cartridge and oil
-Seat_two_level_STUDY,BodyStudy,2.6,294,0,845,,estimate,kg,foam (CAD 15.7 L at 0.05) + base and cover
+Seat_two_level_STUDY,BodyStudy,2.6,376,0,847,,estimate,kg,foam (CAD 15.7 L at 0.05) + base and cover
 Lower_body_battery_covers_STUDY,BodyStudy,2.555,879,0,384,,CAD,vol,3 mm painted panel
 HV cables and lugs,Allowance,2.2,640,0,520,,estimate,allowance,"pack-cabinet-inverter-motor, charge inlet"
-Upper_body_fairing_tank_STUDY,BodyStudy,2.093,994,-1,871,,CAD,vol,3 mm painted panel
 Shock_body_STUDY,Chassis,2.0,425,0,618,R0.5,estimate,kg,semi-active damper body (with valves)
 Body brackets and fixings,Allowance,2.0,850,0,700,,estimate,allowance,
 Head_tube,Chassis,1.906,1171,0,917,,CAD,vol,head tube
+Upper_body_fairing_tank_STUDY,BodyStudy,1.898,1024,-1,866,,CAD,vol,3 mm painted panel
 Belly_skid_plate_STUDY,BodyStudy,1.701,865,0,218,,CAD,vol,4 mm aluminium skid plate
 Rear_pulley_PITCH_STUDY,Drive,1.6,0,-94,312,R1.0,estimate,kg,62T 14 mm aluminium pulley
 "ABS module (Bosch 10 class), lines, fluid",Allowance,1.6,700,0,760,,estimate,allowance,under the tank
@@ -34,7 +34,7 @@ Battery_side_panel_m1,BodyStudy,1.266,828,-209,516,,CAD,vol,proud bolted alumini
 Battery_side_panel_1,BodyStudy,1.266,828,209,516,,CAD,vol,proud bolted aluminium panel
 Swingarm_m1,Chassis,1.259,299,-133,355,R0.5,CAD,shell,"fabricated box arm, 3.5 mm walls (CAD area x t)"
 Swingarm_1,Chassis,1.259,299,125,355,R0.5,CAD,shell,"fabricated box arm, 3.5 mm walls (CAD area x t)"
-Tail_side_panels_STUDY,BodyStudy,1.232,375,6,768,,CAD,vol,3 mm panel
+Tail_side_panels_STUDY,BodyStudy,1.248,320,0,773,,CAD,vol,3 mm panel
 Front_disc_m1,RunningGear,1.2,1487,-56,325,F1.0,estimate,kg,320 mm floating disc
 Front_disc_p1,RunningGear,1.2,1487,56,325,F1.0,estimate,kg,320 mm floating disc
 Shock_spring_STUDY,Chassis,1.2,393,2,578,R0.5,estimate,kg,"97 N/mm steel spring, 88 OD"
@@ -148,7 +148,7 @@ Side_grille_louvres_m1,BodyStudy,0.062,1069,-197,709,,CAD,vol,grille
 Side_grille_louvres_1,BodyStudy,0.062,1069,197,709,,CAD,vol,grille
 Panel_bolts_m1,BodyStudy,0.05,844,-213,514,,estimate,kg,panel bolts
 Panel_bolts_1,BodyStudy,0.05,844,213,514,,estimate,kg,panel bolts
-Seat_welt,BodyStudy,0.05,287,0,863,,estimate,kg,seat piping
+Seat_welt,BodyStudy,0.05,309,0,852,,estimate,kg,seat piping
 Mirror_glass_m1,BodyStudy,0.05,827,-350,1271,,estimate,kg,mirror glass
 Front_indicator_reserve_m1,BodyStudy,0.05,1405,-118,844,,estimate,kg,indicator
 Rear_indicator_reserve_m1,BodyStudy,0.05,-300,-131,715,,estimate,kg,indicator
@@ -172,4 +172,4 @@ Fork_reflector_m1,RunningGear,0.01,1439,-127,427,F1.0,estimate,kg,side reflector
 Fork_reflector_1,RunningGear,0.01,1439,127,427,F1.0,estimate,kg,side reflector
 Fork_top_cap_m1,RunningGear,0.0,1135,-100,1079,,estimate,kg,fork cap/adjuster: included in the outer tube figure
 Fork_top_cap_1,RunningGear,0.0,1135,100,1079,,estimate,kg,fork cap/adjuster: included in the outer tube figure
-Headlamp_DRL_blade,BodyStudy,0.0,1422,0,899,,estimate,kg,DRL: included in the headlamp figure
+Headlamp_DRL_blade,BodyStudy,0.0,1422,0,900,,estimate,kg,DRL: included in the headlamp figure
