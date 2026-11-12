@@ -25,13 +25,13 @@ Prepared November 11, 2026 (US Central) by Claude Opus 5.5 (claude-opus-5-5).
 
 The score is the number of degrees outside the target bands, summed over all three riders. It doesn't move until the 95th-percentile rider's elbow drops below 95°. **50 up, 20 back** is the highest bar that keeps every rider's elbows in the band. It cuts the standing reach by 20 mm. The seated leg angles are unchanged.
 
-**Seat.** The seat is now lofted through crowned cross-sections: a domed top, rolled edges, and sides tucking in to a pan 82% as wide as the top. Both pads get a piped welt along the top edges. The narrower pan clears the tail rails, so it drops 13 mm under the rider, giving about **78 mm of foam** at the sit point (was ~65 mm). That closes the earlier foam item. The seat top and the 850 mm seat height are unchanged.
+**Seat.** The seat is now lofted through crowned cross-sections: a domed top, rolled edges, and sides tucking in to a pan 82% as wide as the top. Both pads get a piped welt along the top edges. The narrower pan clears the tail rails, so it drops 13 mm under the rider, giving about **78 mm of foam** at the sit point (was ~65 mm). That closes the earlier foam item. Directly over the shock-top cross tube the pan has a 48 mm wide moulded channel, which leaves about 66 mm of foam in that strip. The seat top and the 850 mm seat height are unchanged.
 
 **What the bar move touched.** The mirrors moved with the bars. Two new checks were added:
 - the controls at full lock against the tank, fairing and screen (30 mm, for gloved hands);
 - the brake hose and harness at lock against the body.
 
-The results are in `adventure-layout.md`.
+Both pass in the full build: controls 62.5 mm, hose and harness 13.6 mm. The dash has its own 15 mm check (19.9 mm), since no hand goes between the risers. All 58 checks pass. The results are in `adventure-layout.md`.
 
 ## The plain answer
 

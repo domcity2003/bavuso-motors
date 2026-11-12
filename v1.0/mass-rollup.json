@@ -1,22 +1,22 @@
 {
  "prepared": "2026-11-05 US Central, Claude Opus 5.5",
  "model": "cad/Bavuso-V1.0-adventure.FCStd",
- "total_kg": 284.4,
- "total_lb": 627,
+ "total_kg": 287.2,
+ "total_lb": 633,
  "cog_mm": {
-  "x_from_rear_axle": 796,
-  "y": -0.1,
-  "height": 502
+  "x_from_rear_axle": 797,
+  "y": -0.5,
+  "height": 507
  },
  "front_rear_split_pct": [
-  53.5,
-  46.5
+  53.6,
+  46.4
  ],
  "unsprung_kg": {
   "front": 17.1,
   "rear": 19.3
  },
- "pitch_inertia_point_mass_kgm2": 39.0,
+ "pitch_inertia_point_mass_kgm2": 40.3,
  "cells_kg": 106.9,
  "pack_kg": 133.7,
  "by_group": {
@@ -31,24 +31,24 @@
    "z": 539
   },
   "RunningGear": {
-   "kg": 39.3,
-   "x": 916,
-   "z": 499
+   "kg": 41.8,
+   "x": 919,
+   "z": 530
   },
   "Drive": {
    "kg": 23.5,
    "x": 524,
    "z": 486
   },
+  "BodyStudy": {
+   "kg": 21.2,
+   "x": 686,
+   "z": 664
+  },
   "Chassis": {
    "kg": 21.0,
    "x": 586,
    "z": 632
-  },
-  "BodyStudy": {
-   "kg": 20.8,
-   "x": 688,
-   "z": 658
   },
   "Electronics": {
    "kg": 18.5,
@@ -57,9 +57,9 @@
   }
  },
  "by_source": {
-  "CAD geometry x density": 57.2,
+  "CAD geometry x density": 57.4,
   "supplier/catalogue": 111.9,
-  "engineering estimate": 115.3
+  "engineering estimate": 117.9
  },
  "optimiser_reference_kg": 222.5
 }

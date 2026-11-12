@@ -57,8 +57,8 @@ Fork_top_cap_1,RunningGear,"Fork cap with preload/rebound adjuster, illustrative
 Fork_reflector_1,RunningGear,"Side reflector (amber), illustrative",,1,2076.2234231171205,False
 Lower_triple_clamp,RunningGear,"Lower triple clamp, illustrative",,1,364440.43632723996,False
 Upper_triple_clamp,RunningGear,"Upper triple clamp, illustrative",,1,286346.0571142599,False
-Bar_riser_m1,RunningGear,"Pull-back bar riser with clamp, illustrative",,1,88241.71259277676,False
-Bar_riser_1,RunningGear,"Pull-back bar riser with clamp, illustrative",,1,88241.65301810847,False
+Bar_riser_m1,RunningGear,"Pull-back bar riser with clamp, illustrative",,1,118642.20407939775,False
+Bar_riser_1,RunningGear,"Pull-back bar riser with clamp, illustrative",,1,118642.19883971252,False
 Independent_hollow_pivot_stub_m1,Chassis,Proposed 40OD/30ID fixed frame stub; loads/fits not approved,,1,21991.148575128558,False
 Pivot_6008_size_reference_m1,Chassis,6008 dimensional reference only,,1,35625.66069170826,False
 Independent_hollow_pivot_stub_1,Chassis,Proposed 40OD/30ID fixed frame stub; loads/fits not approved,,1,21991.148575128558,False
@@ -89,8 +89,9 @@ Panel_bolts_m1,BodyStudy,"M6 button-head positions, illustrative",,8,2280.796266
 Battery_side_panel_1,BodyStudy,Proud battery cover plate traced from baseline; fixings/seal unresolved,,1,468993.08153289696,False
 Belly_side_panel_1,BodyStudy,Proud belly fairing plate traced from baseline,,1,217120.0550549705,False
 Panel_bolts_1,BodyStudy,"M6 button-head positions, illustrative",,8,2280.7962665061937,False
-Tail_side_panels_STUDY,BodyStudy,PROPOSED 3mm subframe covers traced from baseline; passenger rating not established,,1,957854.218877798,False
-Seat_two_level_STUDY,BodyStudy,PROPOSED stepped rider/passenger saddle traced from baseline; foam/pan/fit unresolved,,1,16778467.009505108,False
+Tail_side_panels_STUDY,BodyStudy,PROPOSED 3mm subframe covers traced from baseline; passenger rating not established,,2,1172927.066973976,False
+Seat_two_level_STUDY,BodyStudy,PROPOSED stepped rider/passenger saddle traced from baseline; foam/pan/fit unresolved,,1,15500616.445525594,False
+Seat_welt,BodyStudy,"Piped welt along the seat top edges, illustrative",,244,40523.865024186234,False
 Tail_undertray_STUDY,BodyStudy,"PROPOSED 3mm undertray/inner fender, 25mm outside the rear tyre travel envelope; drainage and fixings unresolved",,2,347629.1640031935,False
 Rear_rack_STUDY,BodyStudy,PROPOSED aluminium luggage/grab rack on two posts; load rating and subframe mounts unresolved,,1,112376.19957978671,False
 Belly_skid_plate_STUDY,BodyStudy,PROPOSED 4mm aluminium skid plate under the belly; sets the static ground clearance,,1,630000.0,False
@@ -101,36 +102,60 @@ Taillamp_installation_STUDY,BodyStudy,Tail stop lamp reservation,,1,31999.999999
 Front_fender_STUDY,BodyStudy,Proposed fender on fork lowers; steering/bump mounts not validated,,1,397075.1108256636,False
 Rear_hugger_STUDY,BodyStudy,Proposed swingarm-mounted hugger; bump clearance follows wheel,,1,651993.5729554115,False
 Bar_half_m1,RunningGear,"28.6mm tapered bar half: straight centre run, bent back ~29 deg / down ~11 deg to the grip; illustrative",,3,156009.0355126597,False
-Hand_grip_reserve_m1,RunningGear,Grip on the bar-end axis; throttle unselected,,1,118029.63599536856,False
-Mirror_stalk_m1,BodyStudy,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,14936.55748133033,False
-Mirror_body_m1,BodyStudy,Mirror head envelope; field of view unvalidated,,1,311484.300506401,False
+Hand_grip_reserve_m1,RunningGear,Grip on the bar-end axis; throttle unselected,,1,118029.63599536855,False
+Mirror_stalk_m1,BodyStudy,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,14936.557481330326,False
+Mirror_glass_m1,BodyStudy,"Mirror glass, illustrative",,1,14774.39999999986,False
+Mirror_body_m1,BodyStudy,Mirror head envelope; field of view unvalidated,,1,289553.0518089782,False
 Peg_reference_m1,RunningGear,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,18095.573684677216,False
 Peg_rubber_m1,RunningGear,"Rider peg with rubber, illustrative",,1,38757.828567337274,False
 Peg_bracket_m1,Chassis,"Machined peg hanger plate, illustrative",,1,33720.351141433806,False
 Hand_lever_m1,RunningGear,Brake (right) / regen-or-rear (left) lever envelope,,1,11405.59312395055,False
-Front_indicator_reserve_m1,BodyStudy,Lamp reservation under nose,,1,22400.0,False
-Rear_indicator_reserve_m1,BodyStudy,Lamp reservation,,1,23760.0,False
+Front_indicator_reserve_m1,BodyStudy,Lamp reservation under nose,,1,18251.137778040502,False
+Rear_indicator_reserve_m1,BodyStudy,Lamp reservation,,1,18617.57422727557,False
 Front_caliper_reserve_m1,RunningGear,Radial 4-piston caliper envelope straddling the 320mm disc; Kawasaki 43080-0177/0178 candidate,,1,176813.41471534318,False
-Bar_half_1,RunningGear,"28.6mm tapered bar half: straight centre run, bent back ~29 deg / down ~11 deg to the grip; illustrative",,3,156009.03551265967,False
+Bar_half_1,RunningGear,"28.6mm tapered bar half: straight centre run, bent back ~29 deg / down ~11 deg to the grip; illustrative",,3,156009.03551265973,False
 Hand_grip_reserve_1,RunningGear,Grip on the bar-end axis; throttle unselected,,1,118029.63599536856,False
 Mirror_stalk_1,BodyStudy,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,14936.557481330326,False
-Mirror_body_1,BodyStudy,Mirror head envelope; field of view unvalidated,,1,311484.300506401,False
+Mirror_glass_1,BodyStudy,"Mirror glass, illustrative",,1,14774.39999999986,False
+Mirror_body_1,BodyStudy,Mirror head envelope; field of view unvalidated,,1,289553.0518089782,False
 Peg_reference_1,RunningGear,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,18095.573684677216,False
 Peg_rubber_1,RunningGear,"Rider peg with rubber, illustrative",,1,38757.828567337274,False
 Peg_bracket_1,Chassis,"Machined peg hanger plate, illustrative",,1,33720.351141433806,False
-Hand_lever_1,RunningGear,Brake (right) / regen-or-rear (left) lever envelope,,1,11405.59312395055,False
-Front_indicator_reserve_1,BodyStudy,Lamp reservation under nose,,1,22400.0,False
-Rear_indicator_reserve_1,BodyStudy,Lamp reservation,,1,23760.0,False
+Hand_lever_1,RunningGear,Brake (right) / regen-or-rear (left) lever envelope,,1,11405.593123950548,False
+Front_indicator_reserve_1,BodyStudy,Lamp reservation under nose,,1,18251.137778040502,False
+Rear_indicator_reserve_1,BodyStudy,Lamp reservation,,1,18617.57422727557,False
 Front_caliper_reserve_1,RunningGear,Radial 4-piston caliper envelope straddling the 320mm disc; Kawasaki 43080-0177/0178 candidate,,1,176813.41471554252,False
 Plate_hanger_arm,BodyStudy,"Cast plate hanger from inside the tail tip, with plate bracket; 20mm+ off the tyre at full bump",,1,317677.18083842436,False
-Licence_plate_US,BodyStudy,US 7x4in motorcycle plate envelope,,1,72624.0,False
+Licence_plate_US,BodyStudy,US 7x4in motorcycle plate envelope,,1,72404.24771931898,False
 Plate_lamp,BodyStudy,Plate lamp reservation above the plate,,1,2880.0,False
 Rear_indicator_stalk_m1,BodyStudy,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,6558.0746643687,False
 Rear_indicator_stalk_1,BodyStudy,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,6558.0746643687,False
-Bar_centre,RunningGear,Bar centre section (28.6mm),,1,51393.94253860609,False
+Bar_centre,RunningGear,Bar centre section (28.6mm),,1,51393.942538606076,False
 Rear_caliper_reserve,RunningGear,2-piston caliper shaped to the Kawasaki 43080-0156 candidate reserve,,1,141870.5520088665,False
 Rear_caliper_bracket,RunningGear,"Floating caliper bracket on the axle, torque-arm stop on the swingarm; illustrative",,1,30465.94680304946,False
-Display_reserve,RunningGear,"Instrument reserve behind screen; mount to fairing, sightline unvalidated",,1,448000.00000000006,False
+Lever_perch_m1,RunningGear,"Lever perch clamp with pivot boss, illustrative",,1,29477.013035679138,False
+Switch_cube_m1,RunningGear,"Handlebar switch housing (indicators/horn/lights left, start/mode right), illustrative",,1,32431.536378969857,False
+Harness_connector_m1,RunningGear,"Switch-harness connector on the top clamp, illustrative",,1,12167.362697409253,False
+Harness_bar_m1,RunningGear,Switch harness leg to the steering-head connector; routing PROPOSED,,1,11294.38140318826,False
+Front_master_cylinder,RunningGear,"Front brake master cylinder (19mm bore class), illustrative; supplier not selected",,1,26050.697163274366,False
+Front_brake_reservoir,RunningGear,"Brake fluid reservoir with cap, illustrative",,1,31137.110187891856,False
+Front_master_banjo,RunningGear,Banjo fitting,,1,2814.867017616469,False
+Front_brake_hose_upper,RunningGear,"Front brake hose, master cylinder to the clamp splitter; routing PROPOSED",,1,45624.81232608226,False
+Front_brake_splitter,RunningGear,"Hose splitter on the lower clamp, illustrative",,1,22588.3007072908,False
+Front_brake_hose_caliper_m1,RunningGear,"Front brake hose, splitter to caliper; travel slack not validated",,1,43759.870893773565,False
+Front_caliper_banjo_m1,RunningGear,Banjo bolt,,1,2814.867017616459,False
+Lever_perch_1,RunningGear,"Lever perch clamp with pivot boss, illustrative",,1,29477.01523841867,False
+Switch_cube_1,RunningGear,"Handlebar switch housing (indicators/horn/lights left, start/mode right), illustrative",,1,30766.470641232212,False
+Harness_connector_1,RunningGear,"Switch-harness connector on the top clamp, illustrative",,1,12167.362697409253,False
+Harness_bar_1,RunningGear,Switch harness leg to the steering-head connector; routing PROPOSED,,1,11294.38140315367,False
+Front_brake_hose_caliper_1,RunningGear,"Front brake hose, splitter to caliper; travel slack not validated",,1,43759.8708937271,False
+Front_caliper_banjo_1,RunningGear,Banjo bolt,,1,2814.8670176164596,False
+Rear_brake_hose,RunningGear,"Rear brake hose, caliper to frame junction; arm-travel loop not validated",,1,55663.355952212,False
+Rear_caliper_banjo,RunningGear,Banjo bolt,,1,2412.7431579569616,False
+Rear_brake_junction,RunningGear,"Hose-to-hard-line junction on the tail brace, illustrative",,1,5978.430628670096,False
+Display_reserve,RunningGear,"7in TFT housing on the top clamp, faces the rider at the steering-axis tilt; supplier not selected",,1,517631.8269834064,False
+Display_glass,RunningGear,TFT cover glass,,1,23091.200000000084,False
+Display_mount,RunningGear,"Display bracket on the top clamp, illustrative",,1,41360.00000000003,False
 Front_pulley_PITCH_STUDY,Drive,"14mm 20:62 pulley, illustrative flanges; supplier not selected",,1,117594.34901269563,False
 Rear_pulley_PITCH_STUDY,Drive,"14mm 20:62 pulley, illustrative flanges; supplier not selected",,1,1204889.6815053574,False
 Drive_belt_14mm_STUDY,Drive,Closed 14mm-pitch belt loop at rest position; length/tension not computed,,1,169573.07767779814,False

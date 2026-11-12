@@ -16,7 +16,7 @@ Fasteners (titanium where visible),Allowance,3.0,750,0,600,,estimate,allowance,p
 "Coolant pump, hoses, 2 L coolant",Allowance,2.8,880,0,600,,estimate,allowance,"motor, inverter, charger, pack loop"
 Fork_outer_tube_m1,RunningGear,2.6,1234,-100,867,,estimate,kg,48 mm USD outer tube with cartridge and oil
 Fork_outer_tube_1,RunningGear,2.6,1234,100,867,,estimate,kg,48 mm USD outer tube with cartridge and oil
-Seat_two_level_STUDY,BodyStudy,2.6,280,0,851,,estimate,kg,foam (CAD 15.7 L at 0.05) + base and cover
+Seat_two_level_STUDY,BodyStudy,2.6,294,0,845,,estimate,kg,foam (CAD 15.7 L at 0.05) + base and cover
 Lower_body_battery_covers_STUDY,BodyStudy,2.555,879,0,384,,CAD,vol,3 mm painted panel
 HV cables and lugs,Allowance,2.2,640,0,520,,estimate,allowance,"pack-cabinet-inverter-motor, charge inlet"
 Upper_body_fairing_tank_STUDY,BodyStudy,2.093,994,-1,871,,CAD,vol,3 mm painted panel
@@ -34,6 +34,7 @@ Battery_side_panel_m1,BodyStudy,1.266,828,-209,516,,CAD,vol,proud bolted alumini
 Battery_side_panel_1,BodyStudy,1.266,828,209,516,,CAD,vol,proud bolted aluminium panel
 Swingarm_m1,Chassis,1.259,299,-133,355,R0.5,CAD,shell,"fabricated box arm, 3.5 mm walls (CAD area x t)"
 Swingarm_1,Chassis,1.259,299,125,355,R0.5,CAD,shell,"fabricated box arm, 3.5 mm walls (CAD area x t)"
+Tail_side_panels_STUDY,BodyStudy,1.232,375,6,768,,CAD,vol,3 mm panel
 Front_disc_m1,RunningGear,1.2,1487,-56,325,F1.0,estimate,kg,320 mm floating disc
 Front_disc_p1,RunningGear,1.2,1487,56,325,F1.0,estimate,kg,320 mm floating disc
 Shock_spring_STUDY,Chassis,1.2,393,2,578,R0.5,estimate,kg,"97 N/mm steel spring, 88 OD"
@@ -41,7 +42,6 @@ Headlamp_installation_STUDY,BodyStudy,1.2,1422,0,876,,estimate,kg,LED headlamp
 DC-DC converter 1 kW,Allowance,1.2,640,0,620,,estimate,allowance,in the cabinet area
 Side_radiator_m1,Electronics,1.15,1015,-153,710,,estimate,kg,"aluminium core + fan, unsized"
 Side_radiator_1,Electronics,1.15,1015,153,710,,estimate,kg,"aluminium core + fan, unsized"
-Tail_side_panels_STUDY,BodyStudy,1.006,361,0,759,,CAD,vol,3 mm panel
 Fork_inner_tube_m1,RunningGear,1.0,1398,-100,515,F1.0,estimate,kg,inner tube
 Fork_inner_tube_1,RunningGear,1.0,1398,100,515,F1.0,estimate,kg,inner tube
 12 V lithium battery,Allowance,1.0,300,0,720,,estimate,allowance,under the seat (premium package)
@@ -76,7 +76,7 @@ Tail_shock_cross_tube,Chassis,0.678,490,0,764,,CAD,vol,28x3 chromoly
 Rear_disc_p1,RunningGear,0.65,0,69,312,R1.0,estimate,kg,240 mm disc
 Shock_reservoir_STUDY,Chassis,0.6,430,0,745,,estimate,kg,remote reservoir + hose
 Rear_caliper_reserve,RunningGear,0.6,-107,71,312,R1.0,estimate,kg,2-piston caliper + bracket
-Display_reserve,RunningGear,0.6,1208,0,1035,,estimate,kg,7 in TFT
+Display_reserve,RunningGear,0.6,1110,0,1152,,estimate,kg,7 in TFT
 "Front axle, spacers",Allowance,0.6,1487,0,325,F1.0,estimate,allowance,
 Swingarm pivot bolt and hardware,Allowance,0.6,540,0,390,R0.5,estimate,allowance,
 Belly_side_panel_m1,BodyStudy,0.586,837,-209,299,,CAD,vol,proud bolted aluminium panel
@@ -85,8 +85,8 @@ Drive_belt_14mm_STUDY,Drive,0.5,203,-94,341,R0.5,estimate,kg,"14 mm pitch carbon
 Motor_side_covers_STUDY,BodyStudy,0.487,517,4,353,,CAD,vol,3 mm panel
 GX14_main_positive_OUTLINE,Electronics,0.45,509,18,281,,estimate,kg,Gigavac GX14 main contactor
 GX14_main_negative_OUTLINE,Electronics,0.45,509,18,345,,estimate,kg,Gigavac GX14 main contactor
-Hand_lever_m1,RunningGear,0.45,945,-384,1075,,estimate,kg,lever with radial master cylinder
-Hand_lever_1,RunningGear,0.45,945,384,1075,,estimate,kg,lever with radial master cylinder
+Hand_lever_m1,RunningGear,0.45,925,-384,1125,,estimate,kg,lever with radial master cylinder
+Hand_lever_1,RunningGear,0.45,925,384,1125,,estimate,kg,lever with radial master cylinder
 Plate_hanger_arm,BodyStudy,0.45,-250,0,753,,estimate,kg,cast plate hanger with plate bracket
 Swingarm_cross_brace,Chassis,0.435,380,-4,367,R0.5,CAD,vol,50x5 aluminium tube
 Shock_top_bracket,Chassis,0.419,490,0,732,,CAD,vol,twin 8 mm plates
@@ -95,52 +95,77 @@ Upper_rail_2_m1,Chassis,0.4,1117,-115,855,,CAD,vol,32x2.5 chromoly
 Upper_rail_2_1,Chassis,0.4,1117,115,855,,CAD,vol,32x2.5 chromoly
 Front_pulley_PITCH_STUDY,Drive,0.4,540,-94,390,,estimate,kg,20T 14 mm steel pulley
 Tail_undertray_STUDY,BodyStudy,0.365,84,0,785,,CAD,vol,3 mm undertray / inner fender
-Hand_grip_reserve_m1,RunningGear,0.35,921,-351,1079,,estimate,kg,"grip, throttle or switch housing"
+Hand_grip_reserve_m1,RunningGear,0.35,901,-351,1129,,estimate,kg,"grip, throttle or switch housing"
 Peg_bracket_m1,Chassis,0.35,490,-227,369,,estimate,kg,machined aluminium hanger
-Hand_grip_reserve_1,RunningGear,0.35,921,351,1079,,estimate,kg,"grip, throttle or switch housing"
+Hand_grip_reserve_1,RunningGear,0.35,901,351,1129,,estimate,kg,"grip, throttle or switch housing"
 Peg_bracket_1,Chassis,0.35,490,227,369,,estimate,kg,machined aluminium hanger
+Front_master_cylinder,RunningGear,0.35,976,-286,1147,,estimate,kg,radial master cylinder
 Swingarm_shock_tower,Chassis,0.312,347,0,423,R0.5,CAD,vol,twin 8 mm aluminium plates
 Shock_rod_STUDY,Chassis,0.3,349,0,522,R0.5,estimate,kg,damper shaft
-Mirror_body_m1,BodyStudy,0.3,863,-350,1221,,estimate,kg,mirror head
-Mirror_body_1,BodyStudy,0.3,863,350,1221,,estimate,kg,mirror head
+Mirror_body_m1,BodyStudy,0.3,843,-350,1271,,estimate,kg,mirror head
+Mirror_body_1,BodyStudy,0.3,843,350,1271,,estimate,kg,mirror head
 Rear_caliper_bracket,RunningGear,0.3,-55,92,337,R1.0,estimate,kg,floating caliper bracket
 Front_disc_carrier_m1,RunningGear,0.25,1487,-56,325,F1.0,estimate,kg,disc carrier
 Front_disc_carrier_p1,RunningGear,0.25,1487,56,325,F1.0,estimate,kg,disc carrier
-Bar_riser_m1,RunningGear,0.25,1045,-40,1084,,estimate,kg,bar section / riser
-Bar_riser_1,RunningGear,0.25,1045,40,1084,,estimate,kg,bar section / riser
+Bar_riser_m1,RunningGear,0.25,1036,-40,1111,,estimate,kg,bar section / riser
+Bar_riser_1,RunningGear,0.25,1036,40,1111,,estimate,kg,bar section / riser
 Taillamp_installation_STUDY,BodyStudy,0.25,-178,0,856,,estimate,kg,LED tail lamp
-Bar_half_m1,RunningGear,0.25,999,-162,1109,,estimate,kg,bar section / riser
+Bar_half_m1,RunningGear,0.25,979,-162,1159,,estimate,kg,bar section / riser
 Peg_reference_m1,RunningGear,0.25,420,-194,340,,estimate,kg,rider peg
-Bar_half_1,RunningGear,0.25,999,162,1109,,estimate,kg,bar section / riser
+Bar_half_1,RunningGear,0.25,979,162,1159,,estimate,kg,bar section / riser
 Peg_reference_1,RunningGear,0.25,420,194,340,,estimate,kg,rider peg
-Bar_centre,RunningGear,0.25,1015,0,1115,,estimate,kg,bar section / riser
+Bar_centre,RunningGear,0.25,995,0,1165,,estimate,kg,bar section / riser
 Lower_pack_rear_link_1,Chassis,0.235,602,185,405,,CAD,vol,32x2.5 chromoly
 Lower_pack_rear_link_m1,Chassis,0.235,602,-185,405,,CAD,vol,32x2.5 chromoly
 Licence_plate_US,BodyStudy,0.2,-340,0,611,,supplier,kg,US motorcycle plate
+Front_brake_hose_upper,RunningGear,0.18,1171,-112,1028,,estimate,kg,braided hose with fluid
+Front_brake_hose_caliper_m1,RunningGear,0.18,1321,-113,615,,estimate,kg,braided hose with fluid
+Front_brake_hose_caliper_1,RunningGear,0.18,1321,113,615,,estimate,kg,braided hose with fluid
 Independent_hollow_pivot_stub_m1,Chassis,0.173,540,-130,390,,CAD,vol,pivot stub
 Independent_hollow_pivot_stub_1,Chassis,0.173,540,130,390,,CAD,vol,pivot stub
 Shock_Upper_eye_STUDY,Chassis,0.15,490,0,700,,estimate,kg,eye and bearing
 Shock_Lower_eye_STUDY,Chassis,0.15,315,0,479,R1.0,estimate,kg,eye and bearing
+Switch_cube_m1,RunningGear,0.15,956,-250,1145,,estimate,kg,switch housing
+Switch_cube_1,RunningGear,0.15,955,256,1145,,estimate,kg,switch housing
+Rear_brake_hose,RunningGear,0.15,168,124,386,,estimate,kg,braided hose with fluid
+Display_mount,RunningGear,0.15,1141,0,1085,,estimate,kg,display bracket
 Pivot_6008_size_reference_m1,Chassis,0.12,540,-132,390,R0.5,supplier,kg,6008 bearing (catalogue 0.12 kg)
 Pivot_6008_size_reference_1,Chassis,0.12,540,132,390,R0.5,supplier,kg,6008 bearing (catalogue 0.12 kg)
+Lever_perch_m1,RunningGear,0.12,944,-285,1144,,estimate,kg,forged perch
+Lever_perch_1,RunningGear,0.12,944,285,1144,,estimate,kg,forged perch
 Rear_disc_carrier_p1,RunningGear,0.1,0,68,312,R1.0,estimate,kg,disc carrier
 Peg_rubber_m1,RunningGear,0.1,420,-269,340,,estimate,kg,peg rubber
 Peg_rubber_1,RunningGear,0.1,420,269,340,,estimate,kg,peg rubber
-Mirror_stalk_m1,BodyStudy,0.08,926,-280,1156,,estimate,kg,mirror stalk
-Mirror_stalk_1,BodyStudy,0.08,926,280,1156,,estimate,kg,mirror stalk
+Front_brake_reservoir,RunningGear,0.1,955,-280,1182,,estimate,kg,reservoir with fluid
+Mirror_stalk_m1,BodyStudy,0.08,906,-280,1206,,estimate,kg,mirror stalk
+Mirror_stalk_1,BodyStudy,0.08,906,280,1206,,estimate,kg,mirror stalk
+Harness_connector_m1,RunningGear,0.08,1076,-30,1000,,estimate,kg,bar harness leg and connector
+Harness_bar_m1,RunningGear,0.08,1020,-137,1087,,estimate,kg,bar harness leg and connector
+Front_brake_splitter,RunningGear,0.08,1305,0,833,,estimate,kg,splitter
+Harness_connector_1,RunningGear,0.08,1076,30,1000,,estimate,kg,bar harness leg and connector
+Harness_bar_1,RunningGear,0.08,1020,137,1087,,estimate,kg,bar harness leg and connector
 Side_grille_louvres_m1,BodyStudy,0.062,1069,-197,709,,CAD,vol,grille
 Side_grille_louvres_1,BodyStudy,0.062,1069,197,709,,CAD,vol,grille
 Panel_bolts_m1,BodyStudy,0.05,844,-213,514,,estimate,kg,panel bolts
 Panel_bolts_1,BodyStudy,0.05,844,213,514,,estimate,kg,panel bolts
+Seat_welt,BodyStudy,0.05,287,0,863,,estimate,kg,seat piping
+Mirror_glass_m1,BodyStudy,0.05,827,-350,1271,,estimate,kg,mirror glass
 Front_indicator_reserve_m1,BodyStudy,0.05,1405,-118,844,,estimate,kg,indicator
 Rear_indicator_reserve_m1,BodyStudy,0.05,-300,-131,715,,estimate,kg,indicator
+Mirror_glass_1,BodyStudy,0.05,827,350,1271,,estimate,kg,mirror glass
 Front_indicator_reserve_1,BodyStudy,0.05,1405,118,844,,estimate,kg,indicator
 Rear_indicator_reserve_1,BodyStudy,0.05,-300,131,715,,estimate,kg,indicator
 Plate_lamp,BodyStudy,0.05,-342,0,668,,estimate,kg,plate lamp
+Rear_brake_junction,RunningGear,0.05,473,167,454,,estimate,kg,junction
+Display_glass,RunningGear,0.05,1097,0,1146,,estimate,kg,TFT cover glass
 Pivot_cover_cap_m1,BodyStudy,0.04,540,-215,390,,estimate,kg,moulded cap
 Pivot_cover_cap_1,BodyStudy,0.04,540,215,390,,estimate,kg,moulded cap
 Seam_trim_m1,BodyStudy,0.039,894,-200,662,,CAD,vol,trim
 Seam_trim_1,BodyStudy,0.039,894,200,662,,CAD,vol,trim
+Front_master_banjo,RunningGear,0.03,991,-261,1152,,estimate,kg,banjo bolt
+Front_caliper_banjo_m1,RunningGear,0.03,1339,-81,351,,estimate,kg,banjo bolt
+Front_caliper_banjo_1,RunningGear,0.03,1339,81,351,,estimate,kg,banjo bolt
+Rear_caliper_banjo,RunningGear,0.03,-116,92,291,,estimate,kg,banjo bolt
 Rear_indicator_stalk_m1,BodyStudy,0.02,-300,-74,715,,estimate,kg,indicator stalk
 Rear_indicator_stalk_1,BodyStudy,0.02,-300,74,715,,estimate,kg,indicator stalk
 Fork_reflector_m1,RunningGear,0.01,1439,-127,427,F1.0,estimate,kg,side reflector

@@ -483,6 +483,7 @@ add('Swingarm_shock_tower',tower,'Chassis','PROPOSED twin 8mm plates, brace to s
 # Top mount: cross tube between the tail rails at X490 (rail Y+-183, Z724) and twin plates down to the eye.
 t_=(568-SHOCK_TOP[0])/628;yt=195-95*t_;zt=715+75*t_
 tube('Tail_shock_cross_tube',(SHOCK_TOP[0],-yt,zt),(SHOCK_TOP[0],yt,zt),14,11)
+SHOCK_TUBE=(SHOCK_TOP[0],zt+14)   # X and top Z of the cross tube, for the seat-pan relief
 add('Shock_top_bracket',Part.makeCompound([stadium((SHOCK_TOP[0],zt),SHOCK_TOP,18,sy*30 if sy<0 else 22,sy*22 if sy<0 else 30) for sy in (-1,1)]),
     'Chassis','PROPOSED twin 8mm plates, cross tube to shock top eye',color=(.13,.14,.15))
 # Swingarm rotation about the pivot (= motor axis) to a given rear axle height, for sweeps of arm-mounted parts.
@@ -711,6 +712,9 @@ def seat_section(x,shrink=1.0):
 SEAT_X=[-112,-104,-80,-20,60,150,230,284,318,380,440,486,540,600,650,672,682]
 seat=Part.makeLoft([seat_section(x,.72 if x in (-112,682) else .9 if x in (-104,672) else 1.0) for x in SEAT_X],True,False)
 seat=seat if seat.isValid() and seat.Volume>0 else seat.reversed()
+# Pan relief over the shock-top cross tube: the dropped pan (Z732) would sit 6 mm into it. A 48 mm wide channel
+# moulded into the pan keeps 10 mm over the bracket plates (14 over the tube) and 10 mm fore/aft, and leaves ~66 mm of foam over it (78 elsewhere).
+seat=seat.cut(box(SHOCK_TUBE[0]-24,-200,600,48,400,SHOCK_TUBE[1]+14-600))   # +14: the bracket plates stand 4 mm proud of the tube
 # Piped welt along each top edge, rider and pillion pads, as on a stitched production seat (short segments + spheres).
 welts=[]
 for xs in ((-96,270),(306,668)):
@@ -821,7 +825,7 @@ for side in (-1,1):
             'RunningGear','Brake fluid reservoir with cap, illustrative',color=(.12,.12,.13))
         add('Front_master_banjo',cyl(tuple(e1+gd*4),tuple(e1-gd*10),8),'RunningGear','Banjo fitting',color=(.6,.61,.62))
         # Bar to a splitter on the front of the lower clamp, down the front of the clamps (clear of the dash).
-        hose('Front_brake_hose_upper',[e1-gd*8,e1-gd*20+fwd*16+V(0,0,6),Ls(98,-80,238),Ls(90,-80,175),Ls(88,-80,40),Ls(88,-55,-30),Ls(88,-12,-42)],5,
+        hose('Front_brake_hose_upper',[e1-gd*8,e1-gd*20+V(0,0,-6),Ls(62,-92,246),Ls(84,-82,175),Ls(88,-80,40),Ls(88,-55,-30),Ls(88,-12,-42)],5,
              'Front brake hose, master cylinder to the clamp splitter; routing PROPOSED')
         spl=steer(rounded(box(76,-22,-58,24,44,20),3).fuse(box(54,-6,-52,24,12,8)))
         add('Front_brake_splitter',spl,'RunningGear','Hose splitter on the lower clamp, illustrative',color=(.6,.61,.62))
@@ -979,9 +983,13 @@ if not fast:
     check('frame_vs_tyre_fender_lock_sweep',Part.makeCompound([O(o.Name) for o in visible if o.Name.startswith(('Upper_rail','Lower_downlink','Head_tube'))]),steerSweep,20)
     # Bars at full lock (+-35 deg): hands, levers, master cylinder and switches vs the tank/fairing, screen and dash.
     # 30mm so a gloved hand is not pinched (Nov 11, bars raised 50 / back 20).
-    barset=Part.makeCompound([O(o.Name) for o in visible if o.Name.startswith(('Bar_','Hand_','Switch_cube','Lever_perch','Front_master','Front_brake_reservoir','Display_'))])
+    barset=Part.makeCompound([O(o.Name) for o in visible if o.Name.startswith(('Bar_','Hand_','Switch_cube','Lever_perch','Front_master','Front_brake_reservoir'))])
     barLock=Part.makeCompound([barset.transformGeometry(A.Placement(V(),A.Rotation(sd,a),sa).toMatrix()) for a in (-35,-20,20,35)])
     check('bars_at_lock_vs_tank_fairing_screen',barLock,Part.makeCompound([upper_body,O('Windscreen_STUDY')]),30)
+    # The dash sits between the risers, where no hand goes: 15 mm rigid-to-rigid (screen on rubber mounts) is enough.
+    dash=Part.makeCompound([O(o.Name) for o in visible if o.Name.startswith('Display_')])
+    check('dash_at_lock_vs_fairing_screen',Part.makeCompound([dash.transformGeometry(A.Placement(V(),A.Rotation(sd,a),sa).toMatrix()) for a in (-35,-20,20,35)]),
+          Part.makeCompound([upper_body,O('Windscreen_STUDY')]),15)
     # Hoses and harness legs steer with the bars: they stay inside the 140mm steering keep-out the body is cut to.
     lines_=Part.makeCompound([O(o.Name) for o in visible if o.Name.startswith(('Front_brake_hose_upper','Harness_bar','Harness_connector','Front_brake_splitter'))])
     lineLock=Part.makeCompound([lines_.transformGeometry(A.Placement(V(),A.Rotation(sd,a),sa).toMatrix()) for a in (-35,-20,0,20,35)])
