@@ -1,0 +1,37 @@
+# Compliance source record
+
+Research checked October 25, 2026, US Central, by Codex (GPT-6 family). This is an applicability work list, not a certification determination. Intended first sale market, manufacture date, legal manufacturer, production volume and designated seating positions are not approved inputs yet. No application, filing or outside contact has been made.
+
+## Findings that affect the architecture
+
+- NHTSA describes U.S. vehicle certification as the manufacturer's responsibility, rather than advance agency product approval. Registration of a manufacturer does not establish vehicle compliance. [NHTSA certification FAQ](https://www.nhtsa.gov/importing-vehicle/importation-and-certification-faqs-0)
+- Current FMVSS 122 includes motorcycle braking categories irrespective of propulsion. This bike's speed indicates category 3-3 under that standard's definitions. Full vehicle testing, applicable loading conditions and the electric-drive test interpretation must be assigned before the brake system is frozen. [Current FMVSS 122](https://www.ecfr.gov/current/title-49/subtitle-B/chapter-V/part-571/subpart-B/section-571.122)
+- Control locations, identification, illumination, stands and footrests require attention while the rider layout is being designed. [Current FMVSS 123](https://www.ecfr.gov/current/title-49/subtitle-B/chapter-V/part-571/subpart-B/section-571.123)
+- FMVSS 305a is an existing final standard with mandatory applicability dates beginning September 2027, not merely the 2024 proposal. Its S3 application lists passenger cars, multipurpose passenger vehicles, trucks and buses; it does not list motorcycles. Its engineering ideas may inform voluntary safety requirements, but it is not the motorcycle certification basis by default. [Current FMVSS 305a](https://www.ecfr.gov/current/title-49/subtitle-B/chapter-V/part-571/subpart-B/section-571.305a)
+- UN Regulation 136 concerns L-category electric powertrains and REESS. The 2019 publication is a useful detailed reference, not proof of the amendments or transition dates required by a future destination market. Obtain the applicable current series and amendments before a test laboratory quotation is approved. [Official UN treaty record](https://treaties.un.org/Pages/ViewDetails.aspx?src=TREATY&mtdsg_no=XI-B-16-136&chapter=11&clang=_en), [2019 EU publication](https://eur-lex.europa.eu/eli/reg/2019/1120/oj/eng). The latter page returned a browser verification barrier during this review; no new numerical test thresholds have been copied from an inaccessible text.
+- Transport evidence belongs to the shipped cell/battery design and shipping configuration. Cell test paperwork alone is not a finished-pack transport qualification. A specialist must classify production packs, development prototypes, complete motorcycles and damaged returns separately. [PHMSA lithium battery guidance](https://www.phmsa.dot.gov/lithiumbatteries), [PHMSA test-summary guidance](https://www.phmsa.dot.gov/training/hazmat/new-un-requirement-test-summaries)
+
+## First U.S. applicability worksheet
+
+The following are **standards/federal duties to screen**, not a statement that every clause applies. The compliance lead shall record the applicable paragraph, edition, manufacture-date transitions, evidence, responsible party and signed determination for every row. Source text for the first row was reviewed directly; other component-standard rows are assigned for clause-level review, not marked complete.
+
+| Work item | Required engineering output | Starting official reference |
+|---|---|---|
+| Braking | Category, brake topology, ABS telltale, hydraulic labeling, full applicable dry/wet/high-speed/fade/failure/ABS test schedule | [49 CFR 571.122](https://www.ecfr.gov/current/title-49/subtitle-B/chapter-V/part-571/subpart-B/section-571.122) |
+| Controls, stands, footrests | Control map with legal placement/operation; illuminated display symbols; stand/footrest behavior | [49 CFR 571.123](https://www.ecfr.gov/current/title-49/subtitle-B/chapter-V/part-571/subpart-B/section-571.123) |
+| Lamps/reflectors | Approved component functions plus installed position, orientation, visibility, photometry and wiring tests | [49 CFR 571.108](https://www.ecfr.gov/current/title-49/subtitle-B/chapter-V/part-571/subpart-B/section-571.108) |
+| Mirrors | Installed field-of-view and attachment evaluation; styling mirror selection alone is insufficient | [49 CFR 571.111](https://www.ecfr.gov/current/title-49/subtitle-B/chapter-V/part-571/subpart-B/section-571.111) |
+| Brake hoses/fluid | Correct marked hose assemblies and compatible fluid; qualified fittings and routing | [49 CFR 571.106](https://www.ecfr.gov/current/title-49/subtitle-B/chapter-V/part-571/subpart-B/section-571.106), [571.116](https://www.ecfr.gov/current/title-49/subtitle-B/chapter-V/part-571/subpart-B/section-571.116) |
+| Tires/rims | Tire compliance, rim pairing, load/speed ratings and vehicle tire/rim labeling | [49 CFR 571.119](https://www.ecfr.gov/current/title-49/subtitle-B/chapter-V/part-571/subpart-B/section-571.119), [571.120](https://www.ecfr.gov/current/title-49/subtitle-B/chapter-V/part-571/subpart-B/section-571.120) |
+| Windscreen/glazing | Determine glazing material/marking applicability to actual screen installation and sight line | [49 CFR 571.205](https://www.ecfr.gov/current/title-49/subtitle-B/chapter-V/part-571/subpart-B/section-571.205) |
+| Identity, VIN, certification | Legal manufacturer, VIN schema, GVWR/GAWR, label content/location and filings | [49 CFR Part 565](https://www.ecfr.gov/current/title-49/subtitle-B/chapter-V/part-565), [566](https://www.ecfr.gov/current/title-49/subtitle-B/chapter-V/part-566), [567.4](https://www.ecfr.gov/current/title-49/subtitle-B/chapter-V/part-567/section-567.4) |
+| Defect reporting/recall and records | Traceability, reporting responsibility, remedy and retention process | [49 CFR Part 573](https://www.ecfr.gov/current/title-49/subtitle-B/chapter-V/part-573), [Part 579](https://www.ecfr.gov/current/title-49/subtitle-B/chapter-V/part-579) |
+| Battery/vehicle transport | Classification and mode-specific approved shipping/return instructions | [49 CFR 173.185](https://www.ecfr.gov/current/title-49/subtitle-B/chapter-I/subchapter-C/part-173/subpart-E/section-173.185), [PHMSA resources](https://www.phmsa.dot.gov/lithiumbatteries) |
+
+Separate work packages remain for state titling/registration, prototype operating permissions, licensing and insurance; FCC/radio authorization if wireless is fitted; environmental, battery recycling and producer responsibilities; workplace/facility rules; consumer warranty and claim substantiation; and destination-market vehicle type approval. Exclusion from a particular crash standard does not remove the obligation to engineer electrical protection and crash/fire behavior.
+
+## Evidence management
+
+Archive authorized copies or stable references with title, issuer, issue/revision date, access date and applicable manufacturing dates. Supplier component compliance evidence must identify the ordered suffix and actual installation restrictions. Create a regulation-to-drawing-to-test cross-reference. Where a laboratory or specialist determines non-applicability, preserve its rationale and approval rather than deleting the row.
+
+Current eCFR pages reviewed displayed Title 49 current through October 22, 2026. Recheck at detailed-design freeze and production release; requirements effective on the future manufacturing date can differ from today's.

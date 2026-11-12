@@ -1,0 +1,256 @@
+{
+ "prepared": "2026-11-03 US Central, Claude Opus 5.5",
+ "assumptions": {
+  "bike_kg": 282.9,
+  "bike_cog_x_mm": 803.0,
+  "bike_cog_h_mm": 501.0,
+  "riders": {
+   "rider": [
+    85.0,
+    520.0,
+    1090.0
+   ],
+   "passenger": [
+    85.0,
+    150.0,
+    1150.0
+   ],
+   "luggage": [
+    30.0,
+    -100.0,
+    750.0
+   ]
+  },
+  "unsprung_rear_kg": 19.0,
+  "travel_mm": 170.0,
+  "sag_mm": 51.0,
+  "belt": "20:62 14mm",
+  "target_freq_Hz": 1.75
+ },
+ "cog_1up": {
+  "mass_kg": 367.9,
+  "x_mm": 738,
+  "h_mm": 637,
+  "rear_share_pct": 50.4
+ },
+ "cog_2up_loaded": {
+  "mass_kg": 482.9,
+  "x_mm": 582,
+  "h_mm": 734,
+  "rear_share_pct": 60.8
+ },
+ "anti_squat_sensitivity_to_cog_h": [
+  {
+   "h_mm": 600,
+   "static_pct": 188
+  },
+  {
+   "h_mm": 650,
+   "static_pct": 173
+  },
+  {
+   "h_mm": 700,
+   "static_pct": 161
+  },
+  {
+   "h_mm": 750,
+   "static_pct": 150
+  }
+ ],
+ "pivot_sweep": [
+  {
+   "pivot_z_model": 470,
+   "pivot_above_ground": 510.0,
+   "swingarm_angle_static_deg": 20.1,
+   "swingarm_mm": 575.2,
+   "anti_squat_static_pct": 177,
+   "anti_squat_range_pct": [
+    152,
+    192
+   ],
+   "motor_housing_bottom_above_ground": 386
+  },
+  {
+   "pivot_z_model": 460,
+   "pivot_above_ground": 500.0,
+   "swingarm_angle_static_deg": 19.2,
+   "swingarm_mm": 571.8,
+   "anti_squat_static_pct": 173,
+   "anti_squat_range_pct": [
+    148,
+    187
+   ],
+   "motor_housing_bottom_above_ground": 376
+  },
+  {
+   "pivot_z_model": 450,
+   "pivot_above_ground": 490.0,
+   "swingarm_angle_static_deg": 18.3,
+   "swingarm_mm": 568.6,
+   "anti_squat_static_pct": 168,
+   "anti_squat_range_pct": [
+    145,
+    182
+   ],
+   "motor_housing_bottom_above_ground": 366
+  },
+  {
+   "pivot_z_model": 440,
+   "pivot_above_ground": 480.0,
+   "swingarm_angle_static_deg": 17.3,
+   "swingarm_mm": 565.6,
+   "anti_squat_static_pct": 164,
+   "anti_squat_range_pct": [
+    141,
+    177
+   ],
+   "motor_housing_bottom_above_ground": 356
+  },
+  {
+   "pivot_z_model": 430,
+   "pivot_above_ground": 470.0,
+   "swingarm_angle_static_deg": 16.3,
+   "swingarm_mm": 562.7,
+   "anti_squat_static_pct": 160,
+   "anti_squat_range_pct": [
+    138,
+    172
+   ],
+   "motor_housing_bottom_above_ground": 346
+  },
+  {
+   "pivot_z_model": 420,
+   "pivot_above_ground": 460.0,
+   "swingarm_angle_static_deg": 15.3,
+   "swingarm_mm": 559.9,
+   "anti_squat_static_pct": 155,
+   "anti_squat_range_pct": [
+    134,
+    168
+   ],
+   "motor_housing_bottom_above_ground": 336
+  },
+  {
+   "pivot_z_model": 410,
+   "pivot_above_ground": 450.0,
+   "swingarm_angle_static_deg": 14.3,
+   "swingarm_mm": 557.4,
+   "anti_squat_static_pct": 151,
+   "anti_squat_range_pct": [
+    130,
+    163
+   ],
+   "motor_housing_bottom_above_ground": 326
+  },
+  {
+   "pivot_z_model": 400,
+   "pivot_above_ground": 440.0,
+   "swingarm_angle_static_deg": 13.3,
+   "swingarm_mm": 555.0,
+   "anti_squat_static_pct": 147,
+   "anti_squat_range_pct": [
+    127,
+    158
+   ],
+   "motor_housing_bottom_above_ground": 316
+  },
+  {
+   "pivot_z_model": 390,
+   "pivot_above_ground": 430.0,
+   "swingarm_angle_static_deg": 12.3,
+   "swingarm_mm": 552.8,
+   "anti_squat_static_pct": 142,
+   "anti_squat_range_pct": [
+    123,
+    153
+   ],
+   "motor_housing_bottom_above_ground": 306
+  },
+  {
+   "pivot_z_model": 380,
+   "pivot_above_ground": 420.0,
+   "swingarm_angle_static_deg": 11.3,
+   "swingarm_mm": 550.7,
+   "anti_squat_static_pct": 138,
+   "anti_squat_range_pct": [
+    119,
+    149
+   ],
+   "motor_housing_bottom_above_ground": 296
+  },
+  {
+   "pivot_z_model": 370,
+   "pivot_above_ground": 410.0,
+   "swingarm_angle_static_deg": 10.3,
+   "swingarm_mm": 548.8,
+   "anti_squat_static_pct": 134,
+   "anti_squat_range_pct": [
+    115,
+    144
+   ],
+   "motor_housing_bottom_above_ground": 286
+  },
+  {
+   "pivot_z_model": 360,
+   "pivot_above_ground": 400.0,
+   "swingarm_angle_static_deg": 9.3,
+   "swingarm_mm": 547.1,
+   "anti_squat_static_pct": 129,
+   "anti_squat_range_pct": [
+    112,
+    139
+   ],
+   "motor_housing_bottom_above_ground": 276
+  },
+  {
+   "pivot_z_model": 350,
+   "pivot_above_ground": 390.0,
+   "swingarm_angle_static_deg": 8.2,
+   "swingarm_mm": 545.6,
+   "anti_squat_static_pct": 125,
+   "anti_squat_range_pct": [
+    108,
+    135
+   ],
+   "motor_housing_bottom_above_ground": 266
+  },
+  {
+   "pivot_z_model": 340,
+   "pivot_above_ground": 380.0,
+   "swingarm_angle_static_deg": 7.2,
+   "swingarm_mm": 544.3,
+   "anti_squat_static_pct": 121,
+   "anti_squat_range_pct": [
+    104,
+    130
+   ],
+   "motor_housing_bottom_above_ground": 256
+  },
+  {
+   "pivot_z_model": 330,
+   "pivot_above_ground": 370.0,
+   "swingarm_angle_static_deg": 6.1,
+   "swingarm_mm": 543.1,
+   "anti_squat_static_pct": 116,
+   "anti_squat_range_pct": [
+    100,
+    125
+   ],
+   "motor_housing_bottom_above_ground": 246
+  },
+  {
+   "pivot_z_model": 320,
+   "pivot_above_ground": 360.0,
+   "swingarm_angle_static_deg": 5.1,
+   "swingarm_mm": 542.1,
+   "anti_squat_static_pct": 112,
+   "anti_squat_range_pct": [
+    96,
+    121
+   ],
+   "motor_housing_bottom_above_ground": 236
+  }
+ ],
+ "pivot_z_used": 470.0,
+ "shock_candidates": []
+}

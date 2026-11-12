@@ -1,0 +1,518 @@
+{
+  "release_state": "ENGINEERING DEVELOPMENT; no build authorization",
+  "parameters": {
+    "wheelbase_mm": 1480,
+    "pack_origin_mm": [
+      670,
+      -165,
+      150
+    ],
+    "pack_outer_mm": [
+      420,
+      330,
+      570
+    ],
+    "motor_axis_mm": [
+      540,
+      0,
+      470
+    ],
+    "pivot_mm": [
+      540,
+      0,
+      470
+    ],
+    "rear_tire_radius_mm": 311.9,
+    "front_tire_radius_mm": 299.9,
+    "front_travel_mm": 125,
+    "rear_vertical_travel_mm": 130,
+    "rake_deg": 25,
+    "proposed_trail_mm": 100,
+    "seat_reference_mm": [
+      470,
+      0,
+      805
+    ],
+    "grip_reference_mm": [
+      970,
+      340,
+      1060
+    ],
+    "peg_reference_mm": [
+      500,
+      200,
+      380
+    ],
+    "cell_count": 700,
+    "series": 100,
+    "parallel": 7,
+    "cartridges": 10,
+    "cell_max_catalog_dimensions_mm": [
+      8.55,
+      126.4,
+      43.2
+    ],
+    "cell_pitch_mm": [
+      10,
+      144,
+      50
+    ],
+    "cell_tolerance_basis": "30% SOC manufacturing size; NOT aged/swollen dimensions",
+    "physical_cartridge": "2 series columns Y, 5 series rows Z, 7 parallel cells X; 10s7p",
+    "cartridge_placement": "5 X columns and 2 Z tiers; NOT electrical joining or insulation design"
+  },
+  "actual_supplier_geometry": [
+    "EMRAX208LC2022",
+    "CM200manufacturerCAD"
+  ],
+  "solid_objects": 89,
+  "total_solids": 955,
+  "shape_validity": [
+    {
+      "id": "EMRAX_208_LC_supplier_STEP",
+      "valid": true
+    },
+    {
+      "id": "Cascadia_CM200_supplier_STEP",
+      "valid": true
+    },
+    {
+      "id": "BROGEN_PV1776_body",
+      "valid": true
+    },
+    {
+      "id": "Cartridge_01_10s7p",
+      "valid": true
+    },
+    {
+      "id": "Cartridge_02_10s7p",
+      "valid": true
+    },
+    {
+      "id": "Cartridge_03_10s7p",
+      "valid": true
+    },
+    {
+      "id": "Cartridge_04_10s7p",
+      "valid": true
+    },
+    {
+      "id": "Cartridge_05_10s7p",
+      "valid": true
+    },
+    {
+      "id": "Cartridge_06_10s7p",
+      "valid": true
+    },
+    {
+      "id": "Cartridge_07_10s7p",
+      "valid": true
+    },
+    {
+      "id": "Cartridge_08_10s7p",
+      "valid": true
+    },
+    {
+      "id": "Cartridge_09_10s7p",
+      "valid": true
+    },
+    {
+      "id": "Cartridge_10_10s7p",
+      "valid": true
+    },
+    {
+      "id": "Pack_case_3mm_STUDY",
+      "valid": true
+    },
+    {
+      "id": "Battery_installation_keepout",
+      "valid": true
+    },
+    {
+      "id": "Rear_nominal_tire",
+      "valid": true
+    },
+    {
+      "id": "Rear_wheel_STUDY",
+      "valid": true
+    },
+    {
+      "id": "Rear_disc_p1",
+      "valid": true
+    },
+    {
+      "id": "Front_nominal_tire",
+      "valid": true
+    },
+    {
+      "id": "Front_wheel_STUDY",
+      "valid": true
+    },
+    {
+      "id": "Front_disc_m1",
+      "valid": true
+    },
+    {
+      "id": "Front_disc_p1",
+      "valid": true
+    },
+    {
+      "id": "Rear_bump_sampled_keepout",
+      "valid": true
+    },
+    {
+      "id": "Front_bump_sampled_keepout",
+      "valid": true
+    },
+    {
+      "id": "Upper_rail_m1_0",
+      "valid": true
+    },
+    {
+      "id": "Upper_rail_m1_1",
+      "valid": true
+    },
+    {
+      "id": "Upper_rail_m1_2",
+      "valid": true
+    },
+    {
+      "id": "Lower_rail_m1_0",
+      "valid": true
+    },
+    {
+      "id": "Lower_rail_m1_1",
+      "valid": true
+    },
+    {
+      "id": "Lower_rail_m1_2",
+      "valid": true
+    },
+    {
+      "id": "Tail_rail_m1",
+      "valid": true
+    },
+    {
+      "id": "Tail_brace_m1",
+      "valid": true
+    },
+    {
+      "id": "Swingarm_m1",
+      "valid": true
+    },
+    {
+      "id": "Fork_leg_m1",
+      "valid": true
+    },
+    {
+      "id": "Upper_rail_1_0",
+      "valid": true
+    },
+    {
+      "id": "Upper_rail_1_1",
+      "valid": true
+    },
+    {
+      "id": "Upper_rail_1_2",
+      "valid": true
+    },
+    {
+      "id": "Lower_rail_1_0",
+      "valid": true
+    },
+    {
+      "id": "Lower_rail_1_1",
+      "valid": true
+    },
+    {
+      "id": "Lower_rail_1_2",
+      "valid": true
+    },
+    {
+      "id": "Tail_rail_1",
+      "valid": true
+    },
+    {
+      "id": "Tail_brace_1",
+      "valid": true
+    },
+    {
+      "id": "Swingarm_1",
+      "valid": true
+    },
+    {
+      "id": "Fork_leg_1",
+      "valid": true
+    },
+    {
+      "id": "Head_tube",
+      "valid": true
+    },
+    {
+      "id": "Independent_hollow_pivot_stub_m1",
+      "valid": true
+    },
+    {
+      "id": "Pivot_6008_size_reference_m1",
+      "valid": true
+    },
+    {
+      "id": "Independent_hollow_pivot_stub_1",
+      "valid": true
+    },
+    {
+      "id": "Pivot_6008_size_reference_1",
+      "valid": true
+    },
+    {
+      "id": "Pivot_reference",
+      "valid": true
+    },
+    {
+      "id": "Shock_and_spring_keepout",
+      "valid": true
+    },
+    {
+      "id": "Shock_body_STUDY",
+      "valid": true
+    },
+    {
+      "id": "Shock_rod_STUDY",
+      "valid": true
+    },
+    {
+      "id": "Shock_Upper_eye_STUDY",
+      "valid": true
+    },
+    {
+      "id": "Shock_Lower_eye_STUDY",
+      "valid": true
+    },
+    {
+      "id": "Shock_spring_STUDY",
+      "valid": true
+    },
+    {
+      "id": "Side_radiator_m1",
+      "valid": true
+    },
+    {
+      "id": "Peg_reference_m1",
+      "valid": true
+    },
+    {
+      "id": "Bar_half_m1",
+      "valid": true
+    },
+    {
+      "id": "Side_radiator_1",
+      "valid": true
+    },
+    {
+      "id": "Peg_reference_1",
+      "valid": true
+    },
+    {
+      "id": "Bar_half_1",
+      "valid": true
+    },
+    {
+      "id": "Body_surface_DIRECTION_ONLY",
+      "valid": true
+    },
+    {
+      "id": "Seat_foam_STUDY",
+      "valid": true
+    },
+    {
+      "id": "Tail_body_STUDY",
+      "valid": true
+    },
+    {
+      "id": "Windscreen_STUDY",
+      "valid": true
+    },
+    {
+      "id": "Front_fender_STUDY",
+      "valid": true
+    },
+    {
+      "id": "Headlamp_installation_STUDY",
+      "valid": true
+    },
+    {
+      "id": "Taillamp_installation_STUDY",
+      "valid": true
+    },
+    {
+      "id": "Mirror_stalk_m1",
+      "valid": true
+    },
+    {
+      "id": "Mirror_body_m1",
+      "valid": true
+    },
+    {
+      "id": "Mirror_stalk_1",
+      "valid": true
+    },
+    {
+      "id": "Mirror_body_1",
+      "valid": true
+    },
+    {
+      "id": "Fork_lower_casting_m1",
+      "valid": true
+    },
+    {
+      "id": "Front_caliper_reserve_m1",
+      "valid": true
+    },
+    {
+      "id": "Hand_grip_reserve_m1",
+      "valid": true
+    },
+    {
+      "id": "Front_indicator_reserve_m1",
+      "valid": true
+    },
+    {
+      "id": "Rear_indicator_reserve_m1",
+      "valid": true
+    },
+    {
+      "id": "Fork_lower_casting_1",
+      "valid": true
+    },
+    {
+      "id": "Front_caliper_reserve_1",
+      "valid": true
+    },
+    {
+      "id": "Hand_grip_reserve_1",
+      "valid": true
+    },
+    {
+      "id": "Front_indicator_reserve_1",
+      "valid": true
+    },
+    {
+      "id": "Rear_indicator_reserve_1",
+      "valid": true
+    },
+    {
+      "id": "Rear_caliper_reserve",
+      "valid": true
+    },
+    {
+      "id": "Display_reserve",
+      "valid": true
+    },
+    {
+      "id": "Front_pulley_PITCH_STUDY",
+      "valid": true
+    },
+    {
+      "id": "Rear_pulley_PITCH_STUDY",
+      "valid": true
+    },
+    {
+      "id": "Belt_tangent_study_m1",
+      "valid": true
+    },
+    {
+      "id": "Belt_tangent_study_1",
+      "valid": true
+    }
+  ],
+  "cell_count": 700,
+  "all_cell_vertices_inside_inner_case": true,
+  "critical_pair_checks": [
+    {
+      "check": "battery_vs_motor_supplier_geometry",
+      "gap_mm": 24.25,
+      "overlap_mm3": 0.0,
+      "required_mm": 20,
+      "passed": true
+    },
+    {
+      "check": "battery_vs_front_bump_samples",
+      "gap_mm": 37.272717282412486,
+      "overlap_mm3": 0.0,
+      "required_mm": 20,
+      "passed": true
+    },
+    {
+      "check": "motor_vs_rear_bump_samples",
+      "gap_mm": 126.83412701283845,
+      "overlap_mm3": 0.0,
+      "required_mm": 20,
+      "passed": true
+    },
+    {
+      "check": "battery_vs_shock_reservation",
+      "gap_mm": 227.62746177838835,
+      "overlap_mm3": 0.0,
+      "required_mm": 20,
+      "passed": true
+    },
+    {
+      "check": "battery_vs_pivot_tube",
+      "gap_mm": 110.0,
+      "overlap_mm3": 0.0,
+      "required_mm": 20,
+      "passed": true
+    },
+    {
+      "check": "motor_vs_pivot_tube",
+      "gap_mm": 48.73414694600646,
+      "overlap_mm3": 0.0,
+      "required_mm": 20,
+      "passed": true
+    },
+    {
+      "check": "battery_vs_inverter",
+      "gap_mm": 20.0,
+      "overlap_mm3": 0.0,
+      "required_mm": 20,
+      "passed": true
+    },
+    {
+      "check": "inverter_vs_charger",
+      "gap_mm": 20.0,
+      "overlap_mm3": 0.0,
+      "required_mm": 20,
+      "passed": true
+    },
+    {
+      "check": "radiator_-1_vs_front_bump",
+      "gap_mm": 105.0,
+      "overlap_mm3": 0.0,
+      "required_mm": 20,
+      "passed": true
+    },
+    {
+      "check": "radiator_1_vs_front_bump",
+      "gap_mm": 105.0,
+      "overlap_mm3": 0.0,
+      "required_mm": 20,
+      "passed": true
+    }
+  ],
+  "checks_passed": 10,
+  "checks_total": 10,
+  "exclusions": [
+    "steering lock",
+    "rear droop",
+    "tire growth",
+    "real fork/yoke/hub dimensions",
+    "fullframe clash resolution",
+    "tab joining",
+    "wiring",
+    "hoses",
+    "mounts",
+    "structure",
+    "CFD",
+    "test validation"
+  ]
+}

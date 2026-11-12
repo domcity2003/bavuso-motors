@@ -1,0 +1,6 @@
+{"id": "Rear_nominal_tire", "native_volume": 20007721.221431307, "exchange_volume": 20007721.221429817, "delta": -1.4901161193847656e-06, "native_valid": true, "exchange_valid": true}
+{"id": "Front_nominal_tire", "native_volume": 12824168.904961841, "exchange_volume": 12824168.904950637, "delta": -1.1203810572624207e-05, "native_valid": true, "exchange_valid": true}
+{"id": "Seat_foam_STUDY", "native_volume": 11381378.960734198, "exchange_volume": 11381378.960733017, "delta": -1.1809170246124268e-06, "native_valid": true, "exchange_valid": true}
+{"id": "Tail_body_STUDY", "native_volume": 7158843.947594493, "exchange_volume": 7158843.947593848, "delta": -6.444752216339111e-07, "native_valid": true, "exchange_valid": true}
+{"id": "Shock_spring_STUDY", "native_volume": 107381.28815854443, "exchange_volume": 107381.2882600812, "delta": 0.00010153677430935204, "native_valid": true, "exchange_valid": true}
+{"id": "Front_fender_STUDY", "native_volume": 728997.4963890411, "exchange_volume": 728997.4963920423, "delta": 3.0011869966983795e-06, "native_valid": true, "exchange_valid": true}

@@ -1,0 +1,21 @@
+C:\Users\DomBa\DOM\5_Projects\Bavuso Motors\v1.0\tools\render-cycles.py:42: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m.use_nodes=True;nt=m.node_tree;b=nt.nodes['Principled BSDF']
+C:\Users\DomBa\DOM\5_Projects\Bavuso Motors\v1.0\tools\render-cycles.py:96: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  w=bpy.data.worlds.new('studio');sc.world=w;w.use_nodes=True;nt=w.node_tree
+00:10.500  cycles           | WARNING CUEW initialization failed: Error opening the library
+00:10.500  cycles           | WARNING HIPEW initialization failed: Error opening HIP dynamic library
+cycles device: CPU
+03:12.094  render           | Saved: 'C:\Users\DomBa\DOM\5_Projects\Bavuso Motors\v1.0\visuals\cycles-adventure-side.png'
+wrote C:\Users\DomBa\DOM\5_Projects\Bavuso Motors\v1.0\visuals\cycles-adventure-side.png
+06:59.125  render           | Saved: 'C:\Users\DomBa\DOM\5_Projects\Bavuso Motors\v1.0\visuals\cycles-adventure-front34.png'
+wrote C:\Users\DomBa\DOM\5_Projects\Bavuso Motors\v1.0\visuals\cycles-adventure-front34.png
+10:49.594  render           | Saved: 'C:\Users\DomBa\DOM\5_Projects\Bavuso Motors\v1.0\visuals\cycles-adventure-rear34.png'
+wrote C:\Users\DomBa\DOM\5_Projects\Bavuso Motors\v1.0\visuals\cycles-adventure-rear34.png
+14:57.031  render           | Saved: 'C:\Users\DomBa\DOM\5_Projects\Bavuso Motors\v1.0\visuals\cycles-adventure-hero.png'
+wrote C:\Users\DomBa\DOM\5_Projects\Bavuso Motors\v1.0\visuals\cycles-adventure-hero.png
+21:20.484  render           | Saved: 'C:\Users\DomBa\DOM\5_Projects\Bavuso Motors\v1.0\visuals\cycles-adventure-detail_front.png'
+wrote C:\Users\DomBa\DOM\5_Projects\Bavuso Motors\v1.0\visuals\cycles-adventure-detail_front.png
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:37:16)
+OBJ import of 'bavuso.obj' took 1349.14 ms
+
+Blender quit

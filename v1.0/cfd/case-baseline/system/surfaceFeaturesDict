@@ -1,0 +1,13 @@
+FoamFile
+{
+    version 2.0;
+    format ascii;
+    class dictionary;
+    object surfaceFeaturesDict;
+}
+// Bavuso V1.0 baseline aero case, written 2026-10-29 by Claude Opus 5.5
+
+surfaces ("bike.stl" "rider.stl" "wheel_front.stl" "wheel_rear.stl");
+includedAngle   150;
+subsetFeatures { nonManifoldEdges no; openEdges yes; }
+writeObj        no;

@@ -1,0 +1,70 @@
+{
+ "prepared": "2026-11-04 US Central, Claude Opus 5.5",
+ "assumptions": {
+  "rider_kg": 85.0,
+  "cda_launch": 0.4,
+  "cda_top": 0.38,
+  "crr": 0.015,
+  "tyre_rolling_radius_m": 0.305,
+  "rotating_mass_add": 0.05,
+  "launch_cap_g": "min(1.0, b/h)",
+  "targets": "0-60 about 3.0 s, 145-150 mph"
+ },
+ "options": [
+  {
+   "option": "EMRAX 228 MV, 20:62 belt (current CAD)",
+   "rider_on_kg": 360.1,
+   "wheel_force_N": 2124,
+   "launch_g_cap": 1.0,
+   "zero_60_s": 5.04,
+   "top_speed_mph": 150,
+   "top_limited_by": "rpm",
+   "ratio": 3.1,
+   "motor_mass_change_kg": 0.0
+  },
+  {
+   "option": "Same drive at the optimiser mass (222.5 kg)",
+   "rider_on_kg": 307.5,
+   "wheel_force_N": 2124,
+   "launch_g_cap": 1.0,
+   "zero_60_s": 4.29,
+   "top_speed_mph": 150,
+   "top_limited_by": "rpm",
+   "ratio": 3.1,
+   "motor_mass_change_kg": 0.0
+  },
+  {
+   "option": "EMRAX 228, short gearing for launch (ratio 4.6)",
+   "rider_on_kg": 360.1,
+   "wheel_force_N": 3152,
+   "launch_g_cap": 1.0,
+   "zero_60_s": 3.34,
+   "top_speed_mph": 101,
+   "top_limited_by": "rpm",
+   "ratio": 4.6,
+   "motor_mass_change_kg": 0.0
+  },
+  {
+   "option": "EMRAX 268 MV, 130 kW pack limit, ratio 2.2",
+   "rider_on_kg": 368.5,
+   "wheel_force_N": 3426,
+   "launch_g_cap": 1.0,
+   "zero_60_s": 3.13,
+   "top_speed_mph": 146,
+   "top_limited_by": "rpm",
+   "ratio": 2.2,
+   "motor_mass_change_kg": 8.4
+  },
+  {
+   "option": "High-speed radial IPM 300 Nm / 16k rpm, 2-stage ratio 7.3",
+   "rider_on_kg": 367.6,
+   "wheel_force_N": 6678,
+   "launch_g_cap": 1.0,
+   "zero_60_s": 2.74,
+   "top_speed_mph": 157,
+   "top_limited_by": "rpm",
+   "ratio": 7.3,
+   "motor_mass_change_kg": 7.5
+  }
+ ]
+}

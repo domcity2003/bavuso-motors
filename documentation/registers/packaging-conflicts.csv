@@ -1,0 +1,6 @@
+﻿item_a,item_b,issue,overlap_x_mm,overlap_y_mm,overlap_z_mm,status
+PKG01,PKG05,Reservation boxes overlap; not proof real parts collide,120,180,290,Open
+PKG01,Swingarm pivot,Proposed pivot point lies inside rectangular battery reservation,,,,Open - reshape pack or relocate architecture
+PKG06,PKG05,Cylinder/box reservations overlap with shared Y span; nearest side distance 98.615 mm < radius 104.000 mm; not detailed part collision,,,,Open - relocate or redefine package
+PKG08,PKG04,Cylinder/box reservations overlap with shared Y span; nearest side distance 259.642 mm < radius 299.900 mm; not detailed part collision,,,,Open - relocate or redefine package
+PKG06,PKG07,Circular body/tire envelopes overlap with shared Y span; center distance 350.761 mm < summed radii 415.900 mm; not detailed part collision,,,,Open - relocate or redefine package

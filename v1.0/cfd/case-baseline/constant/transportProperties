@@ -1,0 +1,11 @@
+FoamFile
+{
+    version 2.0;
+    format ascii;
+    class dictionary;
+    object transportProperties;
+}
+// Bavuso V1.0 baseline aero case, written 2026-10-29 by Claude Opus 5.5
+
+transportModel  Newtonian;
+nu              1.5e-05;    // air, 20 C

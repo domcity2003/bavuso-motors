@@ -1,0 +1,34 @@
+[
+  {
+    "id": "EMRAX_208_LC_supplier_STEP",
+    "native_volume": 1057791.1984134486,
+    "exchange_volume": 1057790.9264064303,
+    "delta": -0.272007018327713,
+    "native_valid": true,
+    "exchange_valid": true
+  },
+  {
+    "id": "Cascadia_CM200_supplier_STEP",
+    "native_volume": 3665637.494679698,
+    "exchange_volume": 3665637.796447952,
+    "delta": 0.3017682540230453,
+    "native_valid": true,
+    "exchange_valid": true
+  },
+  {
+    "id": "Pack_case_3mm_STUDY",
+    "native_volume": 3349296.0000000037,
+    "exchange_volume": 3349296.0000000037,
+    "delta": 0.0,
+    "native_valid": true,
+    "exchange_valid": true
+  },
+  {
+    "id": "Cartridge_01_10s7p",
+    "native_volume": 3268097.279999996,
+    "exchange_volume": 3268097.279999993,
+    "delta": -3.259629011154175e-09,
+    "native_valid": true,
+    "exchange_valid": true
+  }
+]

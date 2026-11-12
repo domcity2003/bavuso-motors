@@ -1,0 +1,79 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  12
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+/*   Windows 32 and 64 bit porting by blueCAPE: http://www.bluecape.com.pt   *\
+|  Based on Windows porting (2.0.x v4) by Symscape: http://www.symscape.com   |
+\*---------------------------------------------------------------------------*/
+Build  : 12-8e8552546d20
+Exec   : C:/Users/DomBa/DOM/5_PROJ~1/BAVUSO~1/TOOLS~1/BLUECF~2/OpenFOAM-12/platforms/mingw_w64Gcc122DPInt32Opt/bin/blockMesh.exe
+Date   : Oct 30 2026
+Time   : 09:46:02
+Host   : "DOM1"
+PID    : 14392
+I/O    : uncollated
+Case   : C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline
+nProcs : 1
+SigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Reading "blockMeshDict"
+
+Creating block mesh from
+    "system/blockMeshDict"
+No non-linear block edges defined
+No non-planar block faces defined
+Creating topology blocks
+Creating topology patches
+
+Creating block mesh topology
+
+Check topology
+
+	Basic statistics
+		Number of internal faces : 0
+		Number of boundary faces : 6
+		Number of defined boundary faces : 6
+		Number of undefined boundary faces : 0
+	Checking patch -> block consistency
+
+Creating block offsets
+Creating merge list .
+
+Creating polyMesh from blockMesh
+Creating patches
+Creating cells
+Creating points with scale 1
+    Block 0 cell size :
+        i : 0.25
+        j : 0.25
+        k : 0.24928571 .. 0.24928571
+
+No patch pairs to merge
+
+Writing polyMesh
+----------------
+Mesh Information
+----------------
+  boundingBox: (-8 -3 0.01) (5.5 3 3.5)
+  nPoints: 20625
+  nCells: 18144
+  nFaces: 56820
+  nInternalFaces: 52044
+----------------
+Patches
+----------------
+  patch 0 (start: 52044 size: 336) name: inlet
+  patch 1 (start: 52380 size: 336) name: outlet
+  patch 2 (start: 52716 size: 1296) name: ground
+  patch 3 (start: 54012 size: 2808) name: tunnel
+
+End
+

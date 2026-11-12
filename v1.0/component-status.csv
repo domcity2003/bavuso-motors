@@ -1,0 +1,58 @@
+id,group,basis,source,solids,volume_mm3
+EMRAX_208_LC_supplier_STEP,Drive,ACTUAL supplier STEP dated2022; ordered2026 revision/mount/shaft loads unverified,https://emrax.com/wp-content/uploads/2022/05/208_lc_resolver.step,93,1057791.19841277
+Cascadia_CM200_supplier_STEP,Drive,ACTUAL manufacturer CM200 CAD; DX variant and connector/service clearances unverified,https://www.cascadiamotion.com/cm-200,32,3665637.4946796936
+BROGEN_PV1776_body,Energy,"CATALOG body dimensions only; mounting, ports, supply and selected revision unverified",https://www.brogenmotors.com/wp-content/uploads/2024/06/Requirement_SheetOBC.pdf,1,6391728.0
+Cartridge_01_10s7p,Energy,"70 discrete CATALOG MAX bodies @30%SOC. Pitch allowances proposed; tab routes, compression, swelling and propagation unresolved",https://amprius.com/documents/Amprius_Product_Catalog.pdf#page=52,70,3268097.2799999937
+Cartridge_02_10s7p,Energy,"70 discrete CATALOG MAX bodies @30%SOC. Pitch allowances proposed; tab routes, compression, swelling and propagation unresolved",https://amprius.com/documents/Amprius_Product_Catalog.pdf#page=52,70,3268097.2799999956
+Cartridge_03_10s7p,Energy,"70 discrete CATALOG MAX bodies @30%SOC. Pitch allowances proposed; tab routes, compression, swelling and propagation unresolved",https://amprius.com/documents/Amprius_Product_Catalog.pdf#page=52,70,3268097.2799999947
+Cartridge_04_10s7p,Energy,"70 discrete CATALOG MAX bodies @30%SOC. Pitch allowances proposed; tab routes, compression, swelling and propagation unresolved",https://amprius.com/documents/Amprius_Product_Catalog.pdf#page=52,70,3268097.2799999965
+Cartridge_05_10s7p,Energy,"70 discrete CATALOG MAX bodies @30%SOC. Pitch allowances proposed; tab routes, compression, swelling and propagation unresolved",https://amprius.com/documents/Amprius_Product_Catalog.pdf#page=52,70,3268097.2799999937
+Cartridge_06_10s7p,Energy,"70 discrete CATALOG MAX bodies @30%SOC. Pitch allowances proposed; tab routes, compression, swelling and propagation unresolved",https://amprius.com/documents/Amprius_Product_Catalog.pdf#page=52,70,3268097.2799999956
+Cartridge_07_10s7p,Energy,"70 discrete CATALOG MAX bodies @30%SOC. Pitch allowances proposed; tab routes, compression, swelling and propagation unresolved",https://amprius.com/documents/Amprius_Product_Catalog.pdf#page=52,70,3268097.2800000124
+Cartridge_08_10s7p,Energy,"70 discrete CATALOG MAX bodies @30%SOC. Pitch allowances proposed; tab routes, compression, swelling and propagation unresolved",https://amprius.com/documents/Amprius_Product_Catalog.pdf#page=52,70,3268097.280000011
+Cartridge_09_10s7p,Energy,"70 discrete CATALOG MAX bodies @30%SOC. Pitch allowances proposed; tab routes, compression, swelling and propagation unresolved",https://amprius.com/documents/Amprius_Product_Catalog.pdf#page=52,70,3268097.2800000124
+Cartridge_10_10s7p,Energy,"70 discrete CATALOG MAX bodies @30%SOC. Pitch allowances proposed; tab routes, compression, swelling and propagation unresolved",https://amprius.com/documents/Amprius_Product_Catalog.pdf#page=52,70,3268097.280000011
+Pack_case_3mm_STUDY,Energy,"PROPOSED 3mm closed shell; no lid, mounts, joints, vent or thermal qualification. Cells are separate",,1,3861456.0
+Battery_installation_keepout,Keepouts,"PROPOSED outer battery boundary, not proof of completed pack",,1,83490000.0
+Rear_nominal_tire,RunningGear,Nominal 120/70ZR17 front or160/60ZR17 rear; no loaded radius/growth/tread geometry,,1,20007721.221431307
+Rear_wheel_STUDY,RunningGear,ILLUSTRATIVE wheel; OEM candidate hub/spokes/offset CAD absent; no fabrication use,,7,3041685.3827812555
+Rear_disc_m1,RunningGear,"300mm front /220mm rear OEM nominal diameter, thickness/offset PROPOSED; no holes/mounts",,1,135716.80263507905
+Front_nominal_tire,RunningGear,Nominal 120/70ZR17 front or160/60ZR17 rear; no loaded radius/growth/tread geometry,,1,12824168.904961841
+Front_wheel_STUDY,RunningGear,ILLUSTRATIVE wheel; OEM candidate hub/spokes/offset CAD absent; no fabrication use,,7,2408592.787335934
+Front_disc_m1,RunningGear,"300mm front /220mm rear OEM nominal diameter, thickness/offset PROPOSED; no holes/mounts",,1,282743.3388230814
+Front_disc_p1,RunningGear,"300mm front /220mm rear OEM nominal diameter, thickness/offset PROPOSED; no holes/mounts",,1,282743.3388230814
+Rear_bump_sampled_keepout,Keepouts,"21 samples; proposed pivot and130mm vertical travel; growth, droop/lateral compliance absent",,21,1026880482.7861018
+Front_bump_sampled_keepout,Keepouts,21 samples;125mm axial compression at25deg; steering sweep NOT included,,21,712038284.1930766
+Upper_rail_m1_0,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,65245.188622553105
+Upper_rail_m1_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,164603.59104880458
+Upper_rail_m1_2,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,39741.166664055825
+Lower_rail_m1_0,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,83449.49964342124
+Lower_rail_m1_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,159867.7961595506
+Lower_rail_m1_2,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,167467.494706613
+Tail_rail_m1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,110436.1648525935
+Tail_brace_m1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,76819.61730383823
+Swingarm_m1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,288272.31317879
+Fork_leg_m1,RunningGear,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,390178.1083328277
+Upper_rail_1_0,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,65245.188622553105
+Upper_rail_1_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,164603.59104880458
+Upper_rail_1_2,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,39741.16666405583
+Lower_rail_1_0,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,83449.49964342135
+Lower_rail_1_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,159867.7961595506
+Lower_rail_1_2,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,167467.494706613
+Tail_rail_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,110436.1648525935
+Tail_brace_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,76819.61730383825
+Swingarm_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,288272.3131787899
+Fork_leg_1,RunningGear,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,390178.1083328277
+Head_tube,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,151580.73591460963
+Pivot_reference,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,253338.0315854809
+Shock_and_spring_keepout,Keepouts,297mm eye distance reference;90mm maximum OD reservation NOT supplier size; linkage geometry unresolved,,1,1888264.6135565385
+Shock_visual,Chassis,VISUAL ONLY; Ka736 piston46mm is not outerbody; mounts and2.41 leverage unresolved,,1,537106.3789671931
+Side_radiator_m1,Energy,UNSIZED side heat-exchanger/fan reservation; deliberate alternative to B0 front radiator,,1,1375000.0000000002
+Peg_reference_m1,RunningGear,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,21362.8300444106
+Bar_half_m1,RunningGear,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,68913.17471966075
+Side_radiator_1,Energy,UNSIZED side heat-exchanger/fan reservation; deliberate alternative to B0 front radiator,,1,1375000.0000000002
+Peg_reference_1,RunningGear,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,21362.8300444106
+Bar_half_1,RunningGear,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,68913.17471966078
+Body_surface_DIRECTION_ONLY,BodyStudy,"PROPOSED faceted shell; not finished styling, mold thickness, fit or CFD-ready surface",,1,68899154.05496794
+Seat_foam_STUDY,BodyStudy,PROPOSED seat shape; pan/foam/support and human fit unvalidated,,1,11522000.0
+Windscreen_STUDY,BodyStudy,"PROPOSED5mm swept screen; visibility, optical quality, buffeting and brackets unresolved",,1,247500.00000000006

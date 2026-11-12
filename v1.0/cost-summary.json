@@ -1,0 +1,109 @@
+{
+  "date": "2026-10-25",
+  "currency": "USD",
+  "status": "Unquoted planning scenarios; not supplier commitments or build release",
+  "coverage": {
+    "component_index_records": 158,
+    "mapped_records": 158,
+    "bundles": 42,
+    "recurring_processes": 8,
+    "meaning": "Functional budget coverage only; exact installed leafparts remain unselected"
+  },
+  "material_per_bike": {
+    "100": {
+      "low": 40182.2,
+      "base": 65539.0,
+      "high": 111712.25
+    },
+    "1000": {
+      "low": 31174.25,
+      "base": 50445.0,
+      "high": 92367.0
+    },
+    "10000": {
+      "low": 22481.5,
+      "base": 35910.0,
+      "high": 74076.0
+    }
+  },
+  "recurring_delivered_per_bike": {
+    "100": {
+      "low": 44915.27,
+      "base": 79821.42,
+      "high": 161207.04
+    },
+    "1000": {
+      "low": 34196.06,
+      "base": 59377.22,
+      "high": 126247.88
+    },
+    "10000": {
+      "low": 24150.33,
+      "base": 41183.01,
+      "high": 96919.67
+    }
+  },
+  "launch_cash_24month": {
+    "100": {
+      "low": 9708902,
+      "base": 16705836,
+      "high": 32340634
+    },
+    "1000": {
+      "low": 27096074,
+      "base": 46847623,
+      "high": 93142478
+    },
+    "10000": {
+      "low": 110582626,
+      "base": 188441930,
+      "high": 410215900
+    }
+  },
+  "early_stage_cash": {
+    "Stage0A": {
+      "low": 71875,
+      "base": 163125,
+      "high": 355000
+    },
+    "Stage0B": {
+      "low": 176524,
+      "base": 379135,
+      "high": 829280
+    }
+  },
+  "early_stage_combined": {
+    "low": 248399,
+    "base": 542260,
+    "high": 1184280
+  },
+  "early_stage_scope": "A:nonriddenbuckandlimitedenergybenches; B:onecustomengineeringprototypeenvelopeandbenchwork. Not guaranteed toproduce rideablebikeorcloseallgoals.",
+  "cell_price_assumption_usd_each": {
+    "100": [
+      20,
+      40,
+      80
+    ],
+    "1000": [
+      15,
+      30,
+      70
+    ],
+    "10000": [
+      10,
+      20,
+      60
+    ]
+  },
+  "exchange_rate_assumption_usd_per_eur": 1.1,
+  "audits": [
+    "158recordIDs match source index",
+    "42singlebudgetowners; allincludedchildrowszero",
+    "low<=base<=high componentinputs",
+    "8recurringprocessformulasreconciled",
+    "inventoryandcashgaprecalculated",
+    "prelaunchreserveexcludesworkingcapital",
+    "Stage0nestednotaddedtolaunchcash"
+  ],
+  "exclusions": "No purchasedrealestate,cellfactory,financinginterest,worldwidehomologationorretailpriceforecast; see narrative."
+}

@@ -1,0 +1,23 @@
+FoamFile
+{
+    version 2.0;
+    format ascii;
+    class volScalarField;
+    object omega;
+    "proc.*"   { type processor; }
+}
+// Bavuso V1.0 baseline aero case, written 2026-10-29 by Claude Opus 5.5
+
+dimensions      [0 0 -1 0 0 0 0];
+internalField   uniform 6.2;
+boundaryField
+{
+    inlet       { type fixedValue; value uniform 6.2; }
+    outlet      { type inletOutlet; inletValue uniform 6.2; value uniform 6.2; }
+    ground      { type omegaWallFunction; value uniform 6.2; }
+    tunnel      { type symmetry; }
+    "(bike|rider).*" { type omegaWallFunction; value uniform 6.2; }
+    "wheel_front.*" { type omegaWallFunction; value uniform 6.2; }
+    "wheel_rear.*" { type omegaWallFunction; value uniform 6.2; }
+    "proc.*"   { type processor; }
+}

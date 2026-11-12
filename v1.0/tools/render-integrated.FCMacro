@@ -1,0 +1,75 @@
+"""Render the integrated model to v1.0/visuals, then exit FreeCAD.
+Run: freecad.exe v1.0/tools/render-integrated.FCMacro
+Set BAVUSO_MODEL=adventure to render cad/Bavuso-V1.0-adventure.FCStd to visuals/adventure-*.png instead.
+Beauty views use per-part materials (matte paint, rubber, chrome, glass), fine tessellation, no edges.
+Engineering views hide the body and show the pack case transparent.
+"""
+from pathlib import Path
+import json, os, traceback
+import FreeCAD as A
+import FreeCADGui as G
+R=Path(__file__).resolve().parents[1]
+out=R/'visuals'
+MODEL=os.environ.get('BAVUSO_MODEL','integrated')
+pv=A.ParamGet('User parameter:BaseApp/Preferences/View')
+pv.SetInt('AntiAliasing',4)            # MSAA for saved images
+pv.SetBool('UseBackgroundColorMid',False)
+try:
+    D=A.openDocument(str(R/f'cad/Bavuso-V1.0-{MODEL}.FCStd'))
+    A.setActiveDocument(D.Name);G.activateWorkbench('PartWorkbench')
+    G.getMainWindow().showMaximized()
+    def mat(rgb,spec=.18,shine=.15,emit=(0.,0.,0.),transp=0.0):
+        f=lambda t:tuple(float(c) for c in t)+(0.0,)
+        m=A.Material();m.DiffuseColor=f(rgb);m.AmbientColor=f(c*.5 for c in rgb)
+        m.SpecularColor=f((spec,spec,spec));m.Shininess=float(shine);m.EmissiveColor=f(emit);m.Transparency=float(transp)
+        return m
+    def kind(o):
+        n=o.Name
+        if 'tire' in n or 'grip' in n or 'Peg_rubber' in n or 'belt' in n.lower():return mat((.03,.03,.035),.08,.05)
+        if 'Seat' in n:return mat((.04,.04,.045),.12,.1)
+        if 'inner_tube' in n or 'Shock_rod' in n:return mat((.78,.79,.8),.95,.9)
+        if 'disc' in n and 'carrier' not in n:return mat((.62,.63,.64),.7,.6)
+        if 'Peg_bracket' in n or 'Hand_lever' in n or 'pulley' in n:return mat((.6,.61,.62),.6,.5)
+        if 'Headlamp' in n or 'Plate_lamp' in n:return mat((.85,.9,.95),.9,.9,(.5,.55,.6))
+        if 'Taillamp' in n:return mat((.7,.03,.03),.6,.6,(.45,0,0))
+        if 'indicator' in n:return mat((.9,.5,.1),.6,.6,(.3,.15,0))
+        if 'spring' in n or 'Shock_body' in n:return mat((.06,.06,.065),.35,.3)   # black shock, like the baseline
+        if 'Windscreen' in n:return mat((.75,.82,.86),.9,.9,transp=.75)
+        if 'Licence' in n:return mat((.9,.9,.9),.2,.1)
+        if n.startswith(('Pack_case','HV_cabinet','EMRAX','IPM_motor')):return mat((.13,.135,.14),.3,.25)   # black-anodised enclosures
+        c=o.RenderColor if hasattr(o,'RenderColor') else A.Vector(.35,.38,.42)
+        return mat((c.x,c.y,c.z),.22,.18)
+    body_names=('Upper','Lower','Tail','Seat','Belly','Front_fender','Rear_hugger','Motor_side','Battery_side','Side_grille','Panel_bolts')
+    def style(engineering):
+        for g in ('Energy','Electronics','Drive','Chassis','RunningGear','BodyStudy'):
+            for o in D.getObject(g).Group:
+                v=o.ViewObject;v.Visibility=True
+                v.DisplayMode='Flat Lines' if engineering else 'Shaded'
+                v.Deviation=0.05;v.AngularDeflection=4
+                v.ShapeAppearance=(kind(o),);v.LineColor=(.1,.11,.12)
+                if engineering and g=='BodyStudy' and o.Name.startswith(body_names):v.Visibility=False
+                if o.Name.startswith('Pack_case'):v.Transparency=70 if engineering else 0
+                if o.Name=='HV_cabinet_2mm_STUDY':v.Transparency=60 if engineering else 0
+        for o in D.getObject('Keepouts').Group:o.ViewObject.Visibility=False
+        G.Selection.clearSelection();G.updateGui()
+    view=G.activeDocument().activeView()
+    view.setCameraType('Orthographic')
+    def shot(name,orient,w=2400,h=1500,persp=False):
+        view.setCameraType('Perspective' if persp else 'Orthographic')
+        orient();G.updateGui();view.fitAll();G.updateGui()
+        view.saveImage(str(out/name.replace('integrated',MODEL)),w,h,'#f2f2f2')
+    q=lambda zr,xr:(lambda:view.setCameraOrientation(A.Rotation(A.Vector(0,0,1),zr).multiply(A.Rotation(A.Vector(1,0,0),xr)).Q))
+    style(False)
+    shot('integrated-side-left.png',view.viewRear)                 # looking from +Y: front of bike on the left, like the baseline image
+    shot('integrated-side-right.png',view.viewFront)               # belt side
+    shot('integrated-three-quarter.png',q(-140,72),persp=True)
+    shot('integrated-rear-right-three-quarter.png',q(-35,75),persp=True)   # belt side
+    shot('integrated-front-three-quarter.png',q(145,75),persp=True)
+    style(True)
+    shot('integrated-engineering-side.png',view.viewRear)
+    shot('integrated-engineering-three-quarter.png',q(-140,70))
+    shot('integrated-top.png',view.viewTop)
+    (R/'cad/render-status.json').write_text(json.dumps({'rendered':True}),encoding='utf-8')
+except Exception:
+    (R/'cad/render-status.json').write_text(json.dumps({'error':traceback.format_exc()},indent=2),encoding='utf-8')
+os._exit(0)

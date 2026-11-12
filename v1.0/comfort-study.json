@@ -1,0 +1,1321 @@
+{
+ "current": {
+  "5th female": {
+   "knee": 73.1,
+   "hip": 126.1,
+   "elbow": 130.2,
+   "trunk_fwd": 0.0,
+   "knee_point": [
+    720,
+    202,
+    644
+   ],
+   "grip_from_shoulder_mm": 532
+  },
+  "50th male": {
+   "knee": 60.9,
+   "hip": 124.5,
+   "elbow": 111.8,
+   "trunk_fwd": 0.0,
+   "knee_point": [
+    777,
+    221,
+    617
+   ],
+   "grip_from_shoulder_mm": 561
+  },
+  "95th male": {
+   "knee": 55.9,
+   "hip": 124.1,
+   "elbow": 106.1,
+   "trunk_fwd": 0.0,
+   "knee_point": [
+    804,
+    231,
+    600
+   ],
+   "grip_from_shoulder_mm": 580
+  }
+ },
+ "sweep": [
+  {
+   "peg_drop": 80,
+   "peg_back": 100,
+   "seat_change": 10,
+   "grip_up": 0,
+   "grip_fwd": -60,
+   "lean_clearance_deg": 48.1,
+   "stand_reach_mm": 462,
+   "score": 12.8,
+   "postures": {
+    "5th female": {
+     "knee": 96.1,
+     "hip": 139.3,
+     "elbow": 113.1,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      611,
+      204,
+      588
+     ],
+     "grip_from_shoulder_mm": 490
+    },
+    "50th male": {
+     "knee": 79.4,
+     "hip": 137.1,
+     "elbow": 100.9,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      673,
+      223,
+      552
+     ],
+     "grip_from_shoulder_mm": 523
+    },
+    "95th male": {
+     "knee": 72.8,
+     "hip": 136.3,
+     "elbow": 96.9,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      702,
+      233,
+      532
+     ],
+     "grip_from_shoulder_mm": 543
+    }
+   }
+  },
+  {
+   "peg_drop": 80,
+   "peg_back": 100,
+   "seat_change": 5,
+   "grip_up": 0,
+   "grip_fwd": -60,
+   "lean_clearance_deg": 48.1,
+   "stand_reach_mm": 462,
+   "score": 14.1,
+   "postures": {
+    "5th female": {
+     "knee": 95.1,
+     "hip": 139.0,
+     "elbow": 112.1,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      613,
+      205,
+      584
+     ],
+     "grip_from_shoulder_mm": 487
+    },
+    "50th male": {
+     "knee": 78.6,
+     "hip": 136.9,
+     "elbow": 100.0,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      675,
+      224,
+      548
+     ],
+     "grip_from_shoulder_mm": 519
+    },
+    "95th male": {
+     "knee": 72.2,
+     "hip": 136.1,
+     "elbow": 96.1,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      703,
+      234,
+      528
+     ],
+     "grip_from_shoulder_mm": 540
+    }
+   }
+  },
+  {
+   "peg_drop": 80,
+   "peg_back": 100,
+   "seat_change": 10,
+   "grip_up": 20,
+   "grip_fwd": -60,
+   "lean_clearance_deg": 48.1,
+   "stand_reach_mm": 462,
+   "score": 14.5,
+   "postures": {
+    "5th female": {
+     "knee": 96.1,
+     "hip": 139.3,
+     "elbow": 109.4,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      611,
+      204,
+      588
+     ],
+     "grip_from_shoulder_mm": 479
+    },
+    "50th male": {
+     "knee": 79.4,
+     "hip": 137.1,
+     "elbow": 97.5,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      673,
+      223,
+      552
+     ],
+     "grip_from_shoulder_mm": 510
+    },
+    "95th male": {
+     "knee": 72.8,
+     "hip": 136.3,
+     "elbow": 93.7,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      702,
+      233,
+      532
+     ],
+     "grip_from_shoulder_mm": 530
+    }
+   }
+  },
+  {
+   "peg_drop": 80,
+   "peg_back": 80,
+   "seat_change": 10,
+   "grip_up": 0,
+   "grip_fwd": -40,
+   "lean_clearance_deg": 48.1,
+   "stand_reach_mm": 462,
+   "score": 14.7,
+   "postures": {
+    "5th female": {
+     "knee": 94.4,
+     "hip": 138.1,
+     "elbow": 118.9,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      628,
+      201,
+      594
+     ],
+     "grip_from_shoulder_mm": 505
+    },
+    "50th male": {
+     "knee": 78.0,
+     "hip": 135.7,
+     "elbow": 104.9,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      691,
+      220,
+      560
+     ],
+     "grip_from_shoulder_mm": 537
+    },
+    "95th male": {
+     "knee": 71.5,
+     "hip": 134.9,
+     "elbow": 100.3,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      720,
+      229,
+      541
+     ],
+     "grip_from_shoulder_mm": 557
+    }
+   }
+  },
+  {
+   "peg_drop": 80,
+   "peg_back": 80,
+   "seat_change": 10,
+   "grip_up": 0,
+   "grip_fwd": -60,
+   "lean_clearance_deg": 48.1,
+   "stand_reach_mm": 442,
+   "score": 15.1,
+   "postures": {
+    "5th female": {
+     "knee": 94.4,
+     "hip": 138.1,
+     "elbow": 113.1,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      628,
+      201,
+      594
+     ],
+     "grip_from_shoulder_mm": 490
+    },
+    "50th male": {
+     "knee": 78.0,
+     "hip": 135.7,
+     "elbow": 100.9,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      691,
+      220,
+      560
+     ],
+     "grip_from_shoulder_mm": 523
+    },
+    "95th male": {
+     "knee": 71.5,
+     "hip": 134.9,
+     "elbow": 96.9,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      720,
+      229,
+      541
+     ],
+     "grip_from_shoulder_mm": 543
+    }
+   }
+  },
+  {
+   "peg_drop": 80,
+   "peg_back": 80,
+   "seat_change": 10,
+   "grip_up": 20,
+   "grip_fwd": -40,
+   "lean_clearance_deg": 48.1,
+   "stand_reach_mm": 462,
+   "score": 15.1,
+   "postures": {
+    "5th female": {
+     "knee": 94.4,
+     "hip": 138.1,
+     "elbow": 114.9,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      628,
+      201,
+      594
+     ],
+     "grip_from_shoulder_mm": 495
+    },
+    "50th male": {
+     "knee": 78.0,
+     "hip": 135.7,
+     "elbow": 101.4,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      691,
+      220,
+      560
+     ],
+     "grip_from_shoulder_mm": 525
+    },
+    "95th male": {
+     "knee": 71.5,
+     "hip": 134.9,
+     "elbow": 97.1,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      720,
+      229,
+      541
+     ],
+     "grip_from_shoulder_mm": 544
+    }
+   }
+  },
+  {
+   "peg_drop": 70,
+   "peg_back": 100,
+   "seat_change": 10,
+   "grip_up": 0,
+   "grip_fwd": -60,
+   "lean_clearance_deg": 48.9,
+   "stand_reach_mm": 462,
+   "score": 15.4,
+   "postures": {
+    "5th female": {
+     "knee": 94.2,
+     "hip": 138.7,
+     "elbow": 113.1,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      615,
+      206,
+      590
+     ],
+     "grip_from_shoulder_mm": 490
+    },
+    "50th male": {
+     "knee": 77.9,
+     "hip": 136.6,
+     "elbow": 100.9,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      676,
+      225,
+      554
+     ],
+     "grip_from_shoulder_mm": 523
+    },
+    "95th male": {
+     "knee": 71.5,
+     "hip": 135.9,
+     "elbow": 96.9,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      704,
+      235,
+      534
+     ],
+     "grip_from_shoulder_mm": 543
+    }
+   }
+  },
+  {
+   "peg_drop": 80,
+   "peg_back": 100,
+   "seat_change": 0,
+   "grip_up": 0,
+   "grip_fwd": -60,
+   "lean_clearance_deg": 48.1,
+   "stand_reach_mm": 462,
+   "score": 15.4,
+   "postures": {
+    "5th female": {
+     "knee": 94.2,
+     "hip": 138.7,
+     "elbow": 111.2,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      615,
+      206,
+      580
+     ],
+     "grip_from_shoulder_mm": 484
+    },
+    "50th male": {
+     "knee": 77.9,
+     "hip": 136.6,
+     "elbow": 99.2,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      676,
+      225,
+      544
+     ],
+     "grip_from_shoulder_mm": 516
+    },
+    "95th male": {
+     "knee": 71.5,
+     "hip": 135.9,
+     "elbow": 95.3,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      704,
+      235,
+      524
+     ],
+     "grip_from_shoulder_mm": 536
+    }
+   }
+  },
+  {
+   "peg_drop": 80,
+   "peg_back": 80,
+   "seat_change": 5,
+   "grip_up": 0,
+   "grip_fwd": -40,
+   "lean_clearance_deg": 48.1,
+   "stand_reach_mm": 462,
+   "score": 16.0,
+   "postures": {
+    "5th female": {
+     "knee": 93.5,
+     "hip": 137.8,
+     "elbow": 117.8,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      630,
+      202,
+      590
+     ],
+     "grip_from_shoulder_mm": 503
+    },
+    "50th male": {
+     "knee": 77.2,
+     "hip": 135.4,
+     "elbow": 104.0,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      692,
+      221,
+      556
+     ],
+     "grip_from_shoulder_mm": 534
+    },
+    "95th male": {
+     "knee": 70.9,
+     "hip": 134.7,
+     "elbow": 99.5,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      721,
+      231,
+      537
+     ],
+     "grip_from_shoulder_mm": 554
+    }
+   }
+  },
+  {
+   "peg_drop": 80,
+   "peg_back": 60,
+   "seat_change": 10,
+   "grip_up": 0,
+   "grip_fwd": -20,
+   "lean_clearance_deg": 48.1,
+   "stand_reach_mm": 462,
+   "score": 16.3,
+   "postures": {
+    "5th female": {
+     "knee": 92.9,
+     "hip": 136.8,
+     "elbow": 125.2,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      644,
+      199,
+      600
+     ],
+     "grip_from_shoulder_mm": 521
+    },
+    "50th male": {
+     "knee": 76.7,
+     "hip": 134.2,
+     "elbow": 109.1,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      708,
+      216,
+      569
+     ],
+     "grip_from_shoulder_mm": 552
+    },
+    "95th male": {
+     "knee": 70.4,
+     "hip": 133.3,
+     "elbow": 103.9,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      738,
+      226,
+      552
+     ],
+     "grip_from_shoulder_mm": 572
+    }
+   }
+  },
+  {
+   "peg_drop": 80,
+   "peg_back": 80,
+   "seat_change": 5,
+   "grip_up": 0,
+   "grip_fwd": -60,
+   "lean_clearance_deg": 48.1,
+   "stand_reach_mm": 442,
+   "score": 16.4,
+   "postures": {
+    "5th female": {
+     "knee": 93.5,
+     "hip": 137.8,
+     "elbow": 112.1,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      630,
+      202,
+      590
+     ],
+     "grip_from_shoulder_mm": 487
+    },
+    "50th male": {
+     "knee": 77.2,
+     "hip": 135.4,
+     "elbow": 100.0,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      692,
+      221,
+      556
+     ],
+     "grip_from_shoulder_mm": 519
+    },
+    "95th male": {
+     "knee": 70.9,
+     "hip": 134.7,
+     "elbow": 96.1,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      721,
+      231,
+      537
+     ],
+     "grip_from_shoulder_mm": 540
+    }
+   }
+  },
+  {
+   "peg_drop": 80,
+   "peg_back": 80,
+   "seat_change": 5,
+   "grip_up": 20,
+   "grip_fwd": -40,
+   "lean_clearance_deg": 48.1,
+   "stand_reach_mm": 462,
+   "score": 16.4,
+   "postures": {
+    "5th female": {
+     "knee": 93.5,
+     "hip": 137.8,
+     "elbow": 114.0,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      630,
+      202,
+      590
+     ],
+     "grip_from_shoulder_mm": 492
+    },
+    "50th male": {
+     "knee": 77.2,
+     "hip": 135.4,
+     "elbow": 100.6,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      692,
+      221,
+      556
+     ],
+     "grip_from_shoulder_mm": 522
+    },
+    "95th male": {
+     "knee": 70.9,
+     "hip": 134.7,
+     "elbow": 96.3,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      721,
+      231,
+      537
+     ],
+     "grip_from_shoulder_mm": 541
+    }
+   }
+  },
+  {
+   "peg_drop": 80,
+   "peg_back": 80,
+   "seat_change": 10,
+   "grip_up": 40,
+   "grip_fwd": -40,
+   "lean_clearance_deg": 48.1,
+   "stand_reach_mm": 462,
+   "score": 16.5,
+   "postures": {
+    "5th female": {
+     "knee": 94.4,
+     "hip": 138.1,
+     "elbow": 111.4,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      628,
+      201,
+      594
+     ],
+     "grip_from_shoulder_mm": 485
+    },
+    "50th male": {
+     "knee": 78.0,
+     "hip": 135.7,
+     "elbow": 98.3,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      691,
+      220,
+      560
+     ],
+     "grip_from_shoulder_mm": 513
+    },
+    "95th male": {
+     "knee": 71.5,
+     "hip": 134.9,
+     "elbow": 94.0,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      720,
+      229,
+      541
+     ],
+     "grip_from_shoulder_mm": 531
+    }
+   }
+  },
+  {
+   "peg_drop": 70,
+   "peg_back": 100,
+   "seat_change": 5,
+   "grip_up": 0,
+   "grip_fwd": -60,
+   "lean_clearance_deg": 48.9,
+   "stand_reach_mm": 462,
+   "score": 16.6,
+   "postures": {
+    "5th female": {
+     "knee": 93.2,
+     "hip": 138.4,
+     "elbow": 112.1,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      616,
+      206,
+      586
+     ],
+     "grip_from_shoulder_mm": 487
+    },
+    "50th male": {
+     "knee": 77.2,
+     "hip": 136.4,
+     "elbow": 100.0,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      677,
+      226,
+      550
+     ],
+     "grip_from_shoulder_mm": 519
+    },
+    "95th male": {
+     "knee": 70.9,
+     "hip": 135.7,
+     "elbow": 96.1,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      704,
+      236,
+      530
+     ],
+     "grip_from_shoulder_mm": 540
+    }
+   }
+  },
+  {
+   "peg_drop": 80,
+   "peg_back": 100,
+   "seat_change": 5,
+   "grip_up": 20,
+   "grip_fwd": -60,
+   "lean_clearance_deg": 48.1,
+   "stand_reach_mm": 462,
+   "score": 16.6,
+   "postures": {
+    "5th female": {
+     "knee": 95.1,
+     "hip": 139.0,
+     "elbow": 108.5,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      613,
+      205,
+      584
+     ],
+     "grip_from_shoulder_mm": 476
+    },
+    "50th male": {
+     "knee": 78.6,
+     "hip": 136.9,
+     "elbow": 96.7,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      675,
+      224,
+      548
+     ],
+     "grip_from_shoulder_mm": 507
+    },
+    "95th male": {
+     "knee": 72.2,
+     "hip": 136.1,
+     "elbow": 92.9,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      703,
+      234,
+      528
+     ],
+     "grip_from_shoulder_mm": 526
+    }
+   }
+  },
+  {
+   "peg_drop": 80,
+   "peg_back": 60,
+   "seat_change": 10,
+   "grip_up": 0,
+   "grip_fwd": -40,
+   "lean_clearance_deg": 48.1,
+   "stand_reach_mm": 442,
+   "score": 16.7,
+   "postures": {
+    "5th female": {
+     "knee": 92.9,
+     "hip": 136.8,
+     "elbow": 118.9,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      644,
+      199,
+      600
+     ],
+     "grip_from_shoulder_mm": 505
+    },
+    "50th male": {
+     "knee": 76.7,
+     "hip": 134.2,
+     "elbow": 104.9,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      708,
+      216,
+      569
+     ],
+     "grip_from_shoulder_mm": 537
+    },
+    "95th male": {
+     "knee": 70.4,
+     "hip": 133.3,
+     "elbow": 100.3,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      738,
+      226,
+      552
+     ],
+     "grip_from_shoulder_mm": 557
+    }
+   }
+  },
+  {
+   "peg_drop": 80,
+   "peg_back": 60,
+   "seat_change": 10,
+   "grip_up": 20,
+   "grip_fwd": -20,
+   "lean_clearance_deg": 48.1,
+   "stand_reach_mm": 462,
+   "score": 16.7,
+   "postures": {
+    "5th female": {
+     "knee": 92.9,
+     "hip": 136.8,
+     "elbow": 121.0,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      644,
+      199,
+      600
+     ],
+     "grip_from_shoulder_mm": 511
+    },
+    "50th male": {
+     "knee": 76.7,
+     "hip": 134.2,
+     "elbow": 105.6,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      708,
+      216,
+      569
+     ],
+     "grip_from_shoulder_mm": 540
+    },
+    "95th male": {
+     "knee": 70.4,
+     "hip": 133.3,
+     "elbow": 100.6,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      738,
+      226,
+      552
+     ],
+     "grip_from_shoulder_mm": 559
+    }
+   }
+  },
+  {
+   "peg_drop": 80,
+   "peg_back": 80,
+   "seat_change": 10,
+   "grip_up": 20,
+   "grip_fwd": -60,
+   "lean_clearance_deg": 48.1,
+   "stand_reach_mm": 442,
+   "score": 16.8,
+   "postures": {
+    "5th female": {
+     "knee": 94.4,
+     "hip": 138.1,
+     "elbow": 109.4,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      628,
+      201,
+      594
+     ],
+     "grip_from_shoulder_mm": 479
+    },
+    "50th male": {
+     "knee": 78.0,
+     "hip": 135.7,
+     "elbow": 97.5,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      691,
+      220,
+      560
+     ],
+     "grip_from_shoulder_mm": 510
+    },
+    "95th male": {
+     "knee": 71.5,
+     "hip": 134.9,
+     "elbow": 93.7,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      720,
+      229,
+      541
+     ],
+     "grip_from_shoulder_mm": 530
+    }
+   }
+  },
+  {
+   "peg_drop": 70,
+   "peg_back": 100,
+   "seat_change": 10,
+   "grip_up": 20,
+   "grip_fwd": -60,
+   "lean_clearance_deg": 48.9,
+   "stand_reach_mm": 462,
+   "score": 17.1,
+   "postures": {
+    "5th female": {
+     "knee": 94.2,
+     "hip": 138.7,
+     "elbow": 109.4,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      615,
+      206,
+      590
+     ],
+     "grip_from_shoulder_mm": 479
+    },
+    "50th male": {
+     "knee": 77.9,
+     "hip": 136.6,
+     "elbow": 97.5,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      676,
+      225,
+      554
+     ],
+     "grip_from_shoulder_mm": 510
+    },
+    "95th male": {
+     "knee": 71.5,
+     "hip": 135.9,
+     "elbow": 93.7,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      704,
+      235,
+      534
+     ],
+     "grip_from_shoulder_mm": 530
+    }
+   }
+  },
+  {
+   "peg_drop": 80,
+   "peg_back": 60,
+   "seat_change": 10,
+   "grip_up": 0,
+   "grip_fwd": -60,
+   "lean_clearance_deg": 48.1,
+   "stand_reach_mm": 422,
+   "score": 17.1,
+   "postures": {
+    "5th female": {
+     "knee": 92.9,
+     "hip": 136.8,
+     "elbow": 113.1,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      644,
+      199,
+      600
+     ],
+     "grip_from_shoulder_mm": 490
+    },
+    "50th male": {
+     "knee": 76.7,
+     "hip": 134.2,
+     "elbow": 100.9,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      708,
+      216,
+      569
+     ],
+     "grip_from_shoulder_mm": 523
+    },
+    "95th male": {
+     "knee": 70.4,
+     "hip": 133.3,
+     "elbow": 96.9,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      738,
+      226,
+      552
+     ],
+     "grip_from_shoulder_mm": 543
+    }
+   }
+  },
+  {
+   "peg_drop": 80,
+   "peg_back": 60,
+   "seat_change": 10,
+   "grip_up": 20,
+   "grip_fwd": -40,
+   "lean_clearance_deg": 48.1,
+   "stand_reach_mm": 442,
+   "score": 17.1,
+   "postures": {
+    "5th female": {
+     "knee": 92.9,
+     "hip": 136.8,
+     "elbow": 114.9,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      644,
+      199,
+      600
+     ],
+     "grip_from_shoulder_mm": 495
+    },
+    "50th male": {
+     "knee": 76.7,
+     "hip": 134.2,
+     "elbow": 101.4,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      708,
+      216,
+      569
+     ],
+     "grip_from_shoulder_mm": 525
+    },
+    "95th male": {
+     "knee": 70.4,
+     "hip": 133.3,
+     "elbow": 97.1,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      738,
+      226,
+      552
+     ],
+     "grip_from_shoulder_mm": 544
+    }
+   }
+  },
+  {
+   "peg_drop": 80,
+   "peg_back": 60,
+   "seat_change": 10,
+   "grip_up": 40,
+   "grip_fwd": -20,
+   "lean_clearance_deg": 48.1,
+   "stand_reach_mm": 462,
+   "score": 17.1,
+   "postures": {
+    "5th female": {
+     "knee": 92.9,
+     "hip": 136.8,
+     "elbow": 117.3,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      644,
+      199,
+      600
+     ],
+     "grip_from_shoulder_mm": 501
+    },
+    "50th male": {
+     "knee": 76.7,
+     "hip": 134.2,
+     "elbow": 102.4,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      708,
+      216,
+      569
+     ],
+     "grip_from_shoulder_mm": 528
+    },
+    "95th male": {
+     "knee": 70.4,
+     "hip": 133.3,
+     "elbow": 97.6,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      738,
+      226,
+      552
+     ],
+     "grip_from_shoulder_mm": 546
+    }
+   }
+  },
+  {
+   "peg_drop": 70,
+   "peg_back": 80,
+   "seat_change": 10,
+   "grip_up": 0,
+   "grip_fwd": -40,
+   "lean_clearance_deg": 48.9,
+   "stand_reach_mm": 462,
+   "score": 17.3,
+   "postures": {
+    "5th female": {
+     "knee": 92.5,
+     "hip": 137.5,
+     "elbow": 118.9,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      632,
+      203,
+      596
+     ],
+     "grip_from_shoulder_mm": 505
+    },
+    "50th male": {
+     "knee": 76.5,
+     "hip": 135.2,
+     "elbow": 104.9,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      693,
+      222,
+      562
+     ],
+     "grip_from_shoulder_mm": 537
+    },
+    "95th male": {
+     "knee": 70.2,
+     "hip": 134.4,
+     "elbow": 100.3,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      722,
+      232,
+      543
+     ],
+     "grip_from_shoulder_mm": 557
+    }
+   }
+  },
+  {
+   "peg_drop": 80,
+   "peg_back": 80,
+   "seat_change": 0,
+   "grip_up": 0,
+   "grip_fwd": -40,
+   "lean_clearance_deg": 48.1,
+   "stand_reach_mm": 462,
+   "score": 17.3,
+   "postures": {
+    "5th female": {
+     "knee": 92.5,
+     "hip": 137.5,
+     "elbow": 116.8,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      632,
+      203,
+      586
+     ],
+     "grip_from_shoulder_mm": 500
+    },
+    "50th male": {
+     "knee": 76.5,
+     "hip": 135.2,
+     "elbow": 103.1,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      693,
+      222,
+      552
+     ],
+     "grip_from_shoulder_mm": 531
+    },
+    "95th male": {
+     "knee": 70.2,
+     "hip": 134.4,
+     "elbow": 98.6,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      722,
+      232,
+      533
+     ],
+     "grip_from_shoulder_mm": 551
+    }
+   }
+  },
+  {
+   "peg_drop": 80,
+   "peg_back": 100,
+   "seat_change": -5,
+   "grip_up": 0,
+   "grip_fwd": -60,
+   "lean_clearance_deg": 48.1,
+   "stand_reach_mm": 462,
+   "score": 17.3,
+   "postures": {
+    "5th female": {
+     "knee": 93.2,
+     "hip": 138.4,
+     "elbow": 110.3,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      616,
+      206,
+      576
+     ],
+     "grip_from_shoulder_mm": 482
+    },
+    "50th male": {
+     "knee": 77.2,
+     "hip": 136.4,
+     "elbow": 98.3,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      677,
+      226,
+      540
+     ],
+     "grip_from_shoulder_mm": 513
+    },
+    "95th male": {
+     "knee": 70.9,
+     "hip": 135.7,
+     "elbow": 94.5,
+     "trunk_fwd": 0.0,
+     "knee_point": [
+      704,
+      236,
+      520
+     ],
+     "grip_from_shoulder_mm": 533
+    }
+   }
+  }
+ ],
+ "targets": {
+  "knee": [
+   80,
+   115
+  ],
+  "hip": [
+   90,
+   140
+  ],
+  "elbow": [
+   95,
+   150
+  ],
+  "trunk_fwd": [
+   0,
+   15
+  ],
+  "foam_mm": [
+   70,
+   100
+  ]
+ },
+ "recommended": {
+  "peg": [
+   420,
+   262,
+   340
+  ],
+  "seat": [
+   486,
+   850
+  ],
+  "grip": [
+   922,
+   351,
+   1079
+  ],
+  "lean_clearance_deg": 48.1,
+  "stand_reach_mm": 502,
+  "postures": {
+   "5th female": {
+    "knee": 94.4,
+    "hip": 138.1,
+    "elbow": 132.5,
+    "trunk_fwd": 0.0,
+    "knee_point": [
+     628,
+     201,
+     594
+    ],
+    "grip_from_shoulder_mm": 537
+   },
+   "50th male": {
+    "knee": 78.0,
+    "hip": 135.7,
+    "elbow": 113.7,
+    "trunk_fwd": 0.0,
+    "knee_point": [
+     691,
+     220,
+     560
+    ],
+    "grip_from_shoulder_mm": 567
+   },
+   "95th male": {
+    "knee": 71.5,
+    "hip": 134.9,
+    "elbow": 107.8,
+    "trunk_fwd": 0.0,
+    "knee_point": [
+     720,
+     229,
+     541
+    ],
+    "grip_from_shoulder_mm": 586
+   }
+  }
+ },
+ "current_lean_clearance_deg": 54.0
+}

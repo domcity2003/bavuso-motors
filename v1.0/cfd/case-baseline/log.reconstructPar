@@ -1,0 +1,70 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  12
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+/*   Windows 32 and 64 bit porting by blueCAPE: http://www.bluecape.com.pt   *\
+|  Based on Windows porting (2.0.x v4) by Symscape: http://www.symscape.com   |
+\*---------------------------------------------------------------------------*/
+Build  : 12-8e8552546d20
+Exec   : C:/Users/DomBa/DOM/5_PROJ~1/BAVUSO~1/TOOLS~1/BLUECF~2/OpenFOAM-12/platforms/mingw_w64Gcc122DPInt32Opt/bin/reconstructPar.exe -latestTime
+Date   : Nov 01 2026
+Time   : 19:00:18
+Host   : "DOM1"
+PID    : 29040
+I/O    : uncollated
+Case   : C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline
+nProcs : 1
+SigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Reconstructing meshes
+
+    Merging mesh 0 with 1
+    Merging mesh 2 with 3
+    Merging mesh 4 with 5
+    Merging mesh 6 with 7
+    Merging mesh 8 with 9
+    Merging mesh 10 with 11
+    Merging mesh 12 with 13
+    Merging mesh 0 with 2
+    Merging mesh 4 with 6
+    Merging mesh 8 with 10
+    Merging mesh 0 with 4
+    Merging mesh 8 with 12
+    Merging mesh 0 with 8
+
+Time = 800s
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        p
+        nut
+        k
+        omega
+        yPlus
+
+    Reconstructing volVectorFields
+
+        U
+
+    Reconstructing surfaceScalarFields
+
+        phi
+
+Reconstructing point fields
+
+    (no point fields)
+
+Collecting uniform files
+
+End
+

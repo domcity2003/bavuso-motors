@@ -1,0 +1,42 @@
+"""Open and present the Bavuso study in FreeCAD's real GUI."""
+from pathlib import Path
+import json, traceback
+import FreeCAD as App
+import FreeCADGui as Gui
+
+root = Path(__file__).resolve().parents[1]
+result = root / 'models' / 'studio-setup.json'
+try:
+    model = root / 'models' / 'Bavuso-B0-package.FCStd'
+    doc = next((d for d in App.listDocuments().values() if d.FileName == str(model)), None)
+    if doc is None:
+        doc = App.openDocument(str(model))
+    App.setActiveDocument(doc.Name)
+    doc.Label = 'Bavuso Motors - B0 packaging study'
+    palette = {'PKG01': (0.94,0.70,0.31), 'PKG02': (0.40,0.71,0.86),
+               'PKG03': (0.49,0.83,0.69), 'PKG04': (0.93,0.56,0.61),
+               'PKG05': (0.81,0.64,0.91), 'PKG06': (0.87,0.48,0.19),
+               'PKG07': (0.17,0.20,0.24), 'PKG08': (0.17,0.20,0.24),
+               'PivotReference': (1.0,0.1,0.1)}
+    for name,color in palette.items():
+        obj=doc.getObject(name)
+        if obj is not None:
+            obj.ViewObject.ShapeColor=color
+            obj.ViewObject.LineColor=(0.15,0.19,0.23)
+            obj.ViewObject.DisplayMode='Flat Lines'
+            obj.ViewObject.Transparency=50 if name.startswith('PKG0') and name not in ('PKG07','PKG08') else 15
+            obj.ViewObject.Visibility=True
+    Gui.activateWorkbench('PartWorkbench')
+    Gui.activeDocument().activeView().viewAxonometric()
+    Gui.activeDocument().activeView().fitAll()
+    Gui.Selection.clearSelection()
+    Gui.getMainWindow().showMaximized()
+    doc.recompute()
+    doc.save()
+    Gui.activeDocument().activeView().saveImage(str(root/'visuals'/'freecad-studio.png'),1600,1000,'White')
+    result.write_text(json.dumps({'status':'ready','document':str(model),'workbench':'PartWorkbench',
+        'view':'axonometric fitted','colors_saved':True,'gui_open':True,
+        'scope':'Packaging reservations only; not released construction geometry'},indent=2),encoding='utf-8')
+except Exception:
+    result.write_text(json.dumps({'status':'error','traceback':traceback.format_exc()},indent=2),encoding='utf-8')
+    raise

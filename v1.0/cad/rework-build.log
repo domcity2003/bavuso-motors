@@ -1,0 +1,99 @@
+{
+  "release_state": "ENGINEERING DEVELOPMENT; no build authorization",
+  "actual_supplier_geometry": [
+    "EMRAX208LC2022",
+    "CM200manufacturerCAD"
+  ],
+  "solid_objects": 89,
+  "total_solids": 955,
+  "cell_count": 700,
+  "all_cell_vertices_inside_inner_case": true,
+  "critical_pair_checks": [
+    {
+      "check": "battery_vs_motor_supplier_geometry",
+      "gap_mm": 24.25,
+      "overlap_mm3": 0.0,
+      "required_mm": 20,
+      "passed": true
+    },
+    {
+      "check": "battery_vs_front_bump_samples",
+      "gap_mm": 37.272717282412486,
+      "overlap_mm3": 0.0,
+      "required_mm": 20,
+      "passed": true
+    },
+    {
+      "check": "motor_vs_rear_bump_samples",
+      "gap_mm": 126.83412701283845,
+      "overlap_mm3": 0.0,
+      "required_mm": 20,
+      "passed": true
+    },
+    {
+      "check": "battery_vs_shock_reservation",
+      "gap_mm": 227.62746177838835,
+      "overlap_mm3": 0.0,
+      "required_mm": 20,
+      "passed": true
+    },
+    {
+      "check": "battery_vs_pivot_tube",
+      "gap_mm": 110.0,
+      "overlap_mm3": 0.0,
+      "required_mm": 20,
+      "passed": true
+    },
+    {
+      "check": "motor_vs_pivot_tube",
+      "gap_mm": 48.73414694600646,
+      "overlap_mm3": 0.0,
+      "required_mm": 20,
+      "passed": true
+    },
+    {
+      "check": "battery_vs_inverter",
+      "gap_mm": 20.0,
+      "overlap_mm3": 0.0,
+      "required_mm": 20,
+      "passed": true
+    },
+    {
+      "check": "inverter_vs_charger",
+      "gap_mm": 20.0,
+      "overlap_mm3": 0.0,
+      "required_mm": 20,
+      "passed": true
+    },
+    {
+      "check": "radiator_-1_vs_front_bump",
+      "gap_mm": 105.0,
+      "overlap_mm3": 0.0,
+      "required_mm": 20,
+      "passed": true
+    },
+    {
+      "check": "radiator_1_vs_front_bump",
+      "gap_mm": 105.0,
+      "overlap_mm3": 0.0,
+      "required_mm": 20,
+      "passed": true
+    }
+  ],
+  "checks_passed": 10,
+  "checks_total": 10,
+  "exclusions": [
+    "steering lock",
+    "rear droop",
+    "tire growth",
+    "real fork/yoke/hub dimensions",
+    "fullframe clash resolution",
+    "tab joining",
+    "wiring",
+    "hoses",
+    "mounts",
+    "structure",
+    "CFD",
+    "test validation"
+  ]
+}

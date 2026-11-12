@@ -1,0 +1,459 @@
+{"static_ground_clearance_mm": 216.0, "lowest_sprung_part": "Belly_skid_plate_STUDY", "seat_height_static_mm": 840.0, "peg_height_mm": 420.0, "seat_to_peg_mm": 420, "wheelbase_mm": 1486.8, "trail_mm": 111.9, "rake_deg": 25, "swingarm_mm": 545.6, "swingarm_angle_static_deg": 8.2, "shock_eye_to_eye_mm": 282.1, "rear_suspension": {"layout": "central direct-mount coil-over, no linkage", "pivot_above_ground_mm": 390.0, "eye_droop_static_bump_mm": [303.9, 282.1, 230.5], "stroke_used_mm": 73.5, "leverage_mean": 2.31, "wheel_travel_mm": 170, "sag_mm": 51.0, "anti_squat_static_pct": 124, "anti_squat_range_pct": [107, 133], "cog_height_rider_on_mm": 643}}
+{"cells": 594, "layout": "99s6p", "nominal_kwh": 32.7, "full_v": 416, "estimated_mass_kg": 133.7, "bands": [{"xlo": 590.0, "xhi": 1088.0, "zlo": 198.0, "zhi": 258.2}, {"xlo": 625.7, "xhi": 1081.7, "zlo": 246.5, "zhi": 306.7}, {"xlo": 633.4, "xhi": 1061.4, "zlo": 295.0, "zhi": 355.2}, {"xlo": 681.2, "xhi": 1053.2, "zlo": 343.5, "zhi": 403.7}, {"xlo": 702.9, "xhi": 1046.9, "zlo": 392.0, "zhi": 452.2}, {"xlo": 705.9, "xhi": 1049.9, "zlo": 440.5, "zhi": 500.7}, {"xlo": 705.6, "xhi": 1049.6, "zlo": 489.0, "zhi": 549.2}, {"xlo": 692.7, "xhi": 980.7, "zlo": 537.5, "zhi": 573.5}], "outer_bbox_mm": [590.0, 1088.0, -194.0, 194.0, 238.0, 613.5], "cell_centroid_height_mm": 409.0, "cell_centroid_x_mm": 859.2}
+{"check": "pack_vs_motor_supplier", "gap_mm": 9.47, "overlap_mm3": 0.0, "required_mm": 20, "passed": false}
+{"check": "pack_vs_front_bump", "gap_mm": 33.37, "overlap_mm3": 0.0, "required_mm": 20, "passed": true}
+{"check": "motor_vs_rear_bump", "gap_mm": 152.16, "overlap_mm3": 0.0, "required_mm": 20, "passed": true}
+{"check": "pack_vs_pivot_stubs", "gap_mm": 73.44, "overlap_mm3": 0.0, "required_mm": 20, "passed": true}
+{"check": "pack_vs_swingarm", "gap_mm": 55.44, "overlap_mm3": 0.0, "required_mm": 20, "passed": true}
+{"check": "charger_vs_pack", "gap_mm": 16.52, "overlap_mm3": 0.0, "required_mm": 10, "passed": true}
+{"check": "charger_vs_front_bump", "gap_mm": 48.36, "overlap_mm3": 0.0, "required_mm": 20, "passed": true}
+{"check": "frame_vs_front_bump", "gap_mm": 21.04, "overlap_mm3": 0.0, "required_mm": 20, "passed": true}
+{"check": "frame_vs_rear_bump", "gap_mm": 27.04, "overlap_mm3": 0.0, "required_mm": 20, "passed": true}
+{"check": "lower_clamp_vs_front_bump", "gap_mm": 27.44, "overlap_mm3": 0.0, "required_mm": 25, "passed": true}
+{"check": "bms_vs_body_top", "gap_mm": 72.38, "overlap_mm3": 0.0, "required_mm": 8, "passed": true}
+{"check": "lower_body_vs_pack", "gap_mm": 7.24, "overlap_mm3": 0.0, "required_mm": 5, "passed": true}
+{"check": "skid_vs_pack", "gap_mm": 18.0, "overlap_mm3": 0.0, "required_mm": 10, "passed": true}
+{"check": "bms_vs_inverter", "gap_mm": 8.01, "overlap_mm3": 0.0, "required_mm": 5, "passed": true}
+{"check": "bms_vs_rear_bump", "gap_mm": 453.98, "overlap_mm3": 0.0, "required_mm": 20, "passed": true}
+{"check": "inverter_vs_charger", "gap_mm": 8.5, "overlap_mm3": 0.0, "required_mm": 5, "passed": true}
+{"check": "charger_vs_steering_sweep", "gap_mm": 37.82, "overlap_mm3": 0.0, "required_mm": 10, "passed": true}
+{"check": "inverter_vs_steering_sweep", "gap_mm": 53.34, "overlap_mm3": 0.0, "required_mm": 10, "passed": true}
+{"check": "cabinet_vs_motor", "gap_mm": 0.0, "overlap_mm3": 98453.1, "required_mm": 10, "passed": false}
+{"check": "cabinet_vs_pack", "gap_mm": 7.05, "overlap_mm3": 0.0, "required_mm": 3, "passed": true}
+{"check": "cabinet_vs_seat", "gap_mm": 35.0, "overlap_mm3": 0.0, "required_mm": 10, "passed": true}
+{"check": "seat_vs_rear_bump", "gap_mm": 43.95, "overlap_mm3": 0.0, "required_mm": 20, "passed": true}
+{"check": "tail_vs_rear_bump", "gap_mm": 39.12, "overlap_mm3": 0.0, "required_mm": 20, "passed": true}
+{"check": "upper_body_vs_front_bump", "gap_mm": 81.85, "overlap_mm3": 0.0, "required_mm": 20, "passed": true}
+{"check": "lower_body_vs_front_bump", "gap_mm": 21.04, "overlap_mm3": 0.0, "required_mm": 20, "passed": true}
+{"check": "lower_body_vs_motor", "gap_mm": 54.0, "overlap_mm3": 0.0, "required_mm": 10, "passed": true}
+{"check": "motor_cover_vs_motor", "gap_mm": 52.41, "overlap_mm3": 0.0, "required_mm": 10, "passed": true}
+{"check": "motor_cover_vs_rear_bump", "gap_mm": 156.78, "overlap_mm3": 0.0, "required_mm": 20, "passed": true}
+{"check": "plate_vs_rear_bump", "gap_mm": 57.43, "overlap_mm3": 0.0, "required_mm": 20, "passed": true}
+{"check": "plate_arm_vs_rear_bump", "gap_mm": 41.61, "overlap_mm3": 0.0, "required_mm": 20, "passed": true}
+{"check": "cross_brace_vs_rear_bump", "gap_mm": 47.06, "overlap_mm3": 0.0, "required_mm": 20, "passed": true}
+{"check": "shock_vs_motor", "gap_mm": 25.33, "overlap_mm3": 0.0, "required_mm": 15, "passed": true, "method": "mesh points (0.3mm) to envelope axis; OCC solid distance unreliable on this STEP"}
+{"check": "shock_vs_pack", "gap_mm": 188.1, "overlap_mm3": 0.0, "required_mm": 15, "passed": true}
+{"check": "shock_vs_cabinet", "gap_mm": 42.01, "overlap_mm3": 0.0, "required_mm": 10, "passed": true}
+{"check": "shock_vs_charger", "gap_mm": 192.01, "overlap_mm3": 0.0, "required_mm": 10, "passed": true}
+{"check": "shock_vs_seat", "gap_mm": 82.16, "overlap_mm3": 0.0, "required_mm": 10, "passed": true}
+{"check": "shock_vs_frame", "gap_mm": 112.66, "overlap_mm3": 0.0, "required_mm": 10, "passed": true}
+{"check": "shock_vs_reservoir", "gap_mm": 16.88, "overlap_mm3": 0.0, "required_mm": 10, "passed": true}
+{"check": "shock_vs_rear_tyre_same_position", "gap_mm": 48.43, "overlap_mm3": 0.0, "required_mm": 20, "passed": true}
+{"check": "shock_vs_swingarm_arms_same_position", "gap_mm": 105.78, "overlap_mm3": 0.0, "required_mm": 10, "passed": true}
+{"check": "shock_tower_vs_rear_tyre", "gap_mm": 22.53, "overlap_mm3": 0.0, "required_mm": 20, "passed": true}
+{"check": "swingarm_sweep_vs_motor", "gap_mm": 0.0, "overlap_mm3": 48262.6, "required_mm": 10, "passed": false}
+{"check": "swingarm_sweep_vs_pack", "gap_mm": 55.44, "overlap_mm3": 0.0, "required_mm": 20, "passed": true}
+{"check": "swingarm_sweep_vs_pegs", "gap_mm": 8.0, "overlap_mm3": 0.0, "required_mm": 5, "passed": true}
+{"check": "swingarm_sweep_vs_motor_cover", "gap_mm": 52.54, "overlap_mm3": 0.0, "required_mm": 10, "passed": true}
+{"check": "radiator_vs_charger_m1", "gap_mm": 16.0, "overlap_mm3": 0.0, "required_mm": 5, "passed": true}
+{"check": "radiator_vs_charger_1", "gap_mm": 16.0, "overlap_mm3": 0.0, "required_mm": 5, "passed": true}
+OVERLAP IPM_motor_and_gear_case_ENVELOPE HV_cabinet_2mm_STUDY 39407
+OVERLAP IPM_motor_and_gear_case_ENVELOPE GX14_main_positive_OUTLINE 13490
+saved C:\Users\DomBa\DOM\5_Projects\Bavuso Motors\v1.0\cad\Bavuso-V1.0-adventure-ipm.FCStd
+{
+  "release_state": "ENGINEERING DEVELOPMENT; no build authorization",
+  "layout": {
+    "static_ground_clearance_mm": 216.0,
+    "lowest_sprung_part": "Belly_skid_plate_STUDY",
+    "seat_height_static_mm": 840.0,
+    "peg_height_mm": 420.0,
+    "seat_to_peg_mm": 420,
+    "wheelbase_mm": 1486.8,
+    "trail_mm": 111.9,
+    "rake_deg": 25,
+    "swingarm_mm": 545.6,
+    "swingarm_angle_static_deg": 8.2,
+    "shock_eye_to_eye_mm": 282.1,
+    "rear_suspension": {
+      "layout": "central direct-mount coil-over, no linkage",
+      "pivot_above_ground_mm": 390.0,
+      "eye_droop_static_bump_mm": [
+        303.9,
+        282.1,
+        230.5
+      ],
+      "stroke_used_mm": 73.5,
+      "leverage_mean": 2.31,
+      "wheel_travel_mm": 170,
+      "sag_mm": 51.0,
+      "anti_squat_static_pct": 124,
+      "anti_squat_range_pct": [
+        107,
+        133
+      ],
+      "cog_height_rider_on_mm": 643
+    }
+  },
+  "actual_supplier_geometry": [
+    "EMRAX 228 MV LC 2025 STEP",
+    "Cascadia CM200 STEP (inverter envelope)",
+    "Orion BMS2 108-cell STEP"
+  ],
+  "drawing_outline_only": [
+    "Sensata GX14 main contactors"
+  ],
+  "solid_objects": 116,
+  "total_solids": 918,
+  "cell_count": 594,
+  "all_cell_points_inside_inner_case": true,
+  "critical_pair_checks": [
+    {
+      "check": "pack_vs_motor_supplier",
+      "gap_mm": 9.47,
+      "overlap_mm3": 0.0,
+      "required_mm": 20,
+      "passed": false
+    },
+    {
+      "check": "pack_vs_front_bump",
+      "gap_mm": 33.37,
+      "overlap_mm3": 0.0,
+      "required_mm": 20,
+      "passed": true
+    },
+    {
+      "check": "motor_vs_rear_bump",
+      "gap_mm": 152.16,
+      "overlap_mm3": 0.0,
+      "required_mm": 20,
+      "passed": true
+    },
+    {
+      "check": "pack_vs_pivot_stubs",
+      "gap_mm": 73.44,
+      "overlap_mm3": 0.0,
+      "required_mm": 20,
+      "passed": true
+    },
+    {
+      "check": "pack_vs_swingarm",
+      "gap_mm": 55.44,
+      "overlap_mm3": 0.0,
+      "required_mm": 20,
+      "passed": true
+    },
+    {
+      "check": "charger_vs_pack",
+      "gap_mm": 16.52,
+      "overlap_mm3": 0.0,
+      "required_mm": 10,
+      "passed": true
+    },
+    {
+      "check": "charger_vs_front_bump",
+      "gap_mm": 48.36,
+      "overlap_mm3": 0.0,
+      "required_mm": 20,
+      "passed": true
+    },
+    {
+      "check": "frame_vs_front_bump",
+      "gap_mm": 21.04,
+      "overlap_mm3": 0.0,
+      "required_mm": 20,
+      "passed": true
+    },
+    {
+      "check": "frame_vs_rear_bump",
+      "gap_mm": 27.04,
+      "overlap_mm3": 0.0,
+      "required_mm": 20,
+      "passed": true
+    },
+    {
+      "check": "lower_clamp_vs_front_bump",
+      "gap_mm": 27.44,
+      "overlap_mm3": 0.0,
+      "required_mm": 25,
+      "passed": true
+    },
+    {
+      "check": "bms_vs_body_top",
+      "gap_mm": 72.38,
+      "overlap_mm3": 0.0,
+      "required_mm": 8,
+      "passed": true
+    },
+    {
+      "check": "lower_body_vs_pack",
+      "gap_mm": 7.24,
+      "overlap_mm3": 0.0,
+      "required_mm": 5,
+      "passed": true
+    },
+    {
+      "check": "skid_vs_pack",
+      "gap_mm": 18.0,
+      "overlap_mm3": 0.0,
+      "required_mm": 10,
+      "passed": true
+    },
+    {
+      "check": "bms_vs_inverter",
+      "gap_mm": 8.01,
+      "overlap_mm3": 0.0,
+      "required_mm": 5,
+      "passed": true
+    },
+    {
+      "check": "bms_vs_rear_bump",
+      "gap_mm": 453.98,
+      "overlap_mm3": 0.0,
+      "required_mm": 20,
+      "passed": true
+    },
+    {
+      "check": "inverter_vs_charger",
+      "gap_mm": 8.5,
+      "overlap_mm3": 0.0,
+      "required_mm": 5,
+      "passed": true
+    },
+    {
+      "check": "charger_vs_steering_sweep",
+      "gap_mm": 37.82,
+      "overlap_mm3": 0.0,
+      "required_mm": 10,
+      "passed": true
+    },
+    {
+      "check": "inverter_vs_steering_sweep",
+      "gap_mm": 53.34,
+      "overlap_mm3": 0.0,
+      "required_mm": 10,
+      "passed": true
+    },
+    {
+      "check": "cabinet_vs_motor",
+      "gap_mm": 0.0,
+      "overlap_mm3": 98453.1,
+      "required_mm": 10,
+      "passed": false
+    },
+    {
+      "check": "cabinet_vs_pack",
+      "gap_mm": 7.05,
+      "overlap_mm3": 0.0,
+      "required_mm": 3,
+      "passed": true
+    },
+    {
+      "check": "cabinet_vs_seat",
+      "gap_mm": 35.0,
+      "overlap_mm3": 0.0,
+      "required_mm": 10,
+      "passed": true
+    },
+    {
+      "check": "seat_vs_rear_bump",
+      "gap_mm": 43.95,
+      "overlap_mm3": 0.0,
+      "required_mm": 20,
+      "passed": true
+    },
+    {
+      "check": "tail_vs_rear_bump",
+      "gap_mm": 39.12,
+      "overlap_mm3": 0.0,
+      "required_mm": 20,
+      "passed": true
+    },
+    {
+      "check": "upper_body_vs_front_bump",
+      "gap_mm": 81.85,
+      "overlap_mm3": 0.0,
+      "required_mm": 20,
+      "passed": true
+    },
+    {
+      "check": "lower_body_vs_front_bump",
+      "gap_mm": 21.04,
+      "overlap_mm3": 0.0,
+      "required_mm": 20,
+      "passed": true
+    },
+    {
+      "check": "lower_body_vs_motor",
+      "gap_mm": 54.0,
+      "overlap_mm3": 0.0,
+      "required_mm": 10,
+      "passed": true
+    },
+    {
+      "check": "motor_cover_vs_motor",
+      "gap_mm": 52.41,
+      "overlap_mm3": 0.0,
+      "required_mm": 10,
+      "passed": true
+    },
+    {
+      "check": "motor_cover_vs_rear_bump",
+      "gap_mm": 156.78,
+      "overlap_mm3": 0.0,
+      "required_mm": 20,
+      "passed": true
+    },
+    {
+      "check": "plate_vs_rear_bump",
+      "gap_mm": 57.43,
+      "overlap_mm3": 0.0,
+      "required_mm": 20,
+      "passed": true
+    },
+    {
+      "check": "plate_arm_vs_rear_bump",
+      "gap_mm": 41.61,
+      "overlap_mm3": 0.0,
+      "required_mm": 20,
+      "passed": true
+    },
+    {
+      "check": "cross_brace_vs_rear_bump",
+      "gap_mm": 47.06,
+      "overlap_mm3": 0.0,
+      "required_mm": 20,
+      "passed": true
+    },
+    {
+      "check": "shock_vs_motor",
+      "gap_mm": 25.33,
+      "overlap_mm3": 0.0,
+      "required_mm": 15,
+      "passed": true,
+      "method": "mesh points (0.3mm) to envelope axis; OCC solid distance unreliable on this STEP"
+    },
+    {
+      "check": "shock_vs_pack",
+      "gap_mm": 188.1,
+      "overlap_mm3": 0.0,
+      "required_mm": 15,
+      "passed": true
+    },
+    {
+      "check": "shock_vs_cabinet",
+      "gap_mm": 42.01,
+      "overlap_mm3": 0.0,
+      "required_mm": 10,
+      "passed": true
+    },
+    {
+      "check": "shock_vs_charger",
+      "gap_mm": 192.01,
+      "overlap_mm3": 0.0,
+      "required_mm": 10,
+      "passed": true
+    },
+    {
+      "check": "shock_vs_seat",
+      "gap_mm": 82.16,
+      "overlap_mm3": 0.0,
+      "required_mm": 10,
+      "passed": true
+    },
+    {
+      "check": "shock_vs_frame",
+      "gap_mm": 112.66,
+      "overlap_mm3": 0.0,
+      "required_mm": 10,
+      "passed": true
+    },
+    {
+      "check": "shock_vs_reservoir",
+      "gap_mm": 16.88,
+      "overlap_mm3": 0.0,
+      "required_mm": 10,
+      "passed": true
+    },
+    {
+      "check": "shock_vs_rear_tyre_same_position",
+      "gap_mm": 48.43,
+      "overlap_mm3": 0.0,
+      "required_mm": 20,
+      "passed": true
+    },
+    {
+      "check": "shock_vs_swingarm_arms_same_position",
+      "gap_mm": 105.78,
+      "overlap_mm3": 0.0,
+      "required_mm": 10,
+      "passed": true
+    },
+    {
+      "check": "shock_tower_vs_rear_tyre",
+      "gap_mm": 22.53,
+      "overlap_mm3": 0.0,
+      "required_mm": 20,
+      "passed": true
+    },
+    {
+      "check": "swingarm_sweep_vs_motor",
+      "gap_mm": 0.0,
+      "overlap_mm3": 48262.6,
+      "required_mm": 10,
+      "passed": false
+    },
+    {
+      "check": "swingarm_sweep_vs_pack",
+      "gap_mm": 55.44,
+      "overlap_mm3": 0.0,
+      "required_mm": 20,
+      "passed": true
+    },
+    {
+      "check": "swingarm_sweep_vs_pegs",
+      "gap_mm": 8.0,
+      "overlap_mm3": 0.0,
+      "required_mm": 5,
+      "passed": true
+    },
+    {
+      "check": "swingarm_sweep_vs_motor_cover",
+      "gap_mm": 52.54,
+      "overlap_mm3": 0.0,
+      "required_mm": 10,
+      "passed": true
+    },
+    {
+      "check": "radiator_vs_charger_m1",
+      "gap_mm": 16.0,
+      "overlap_mm3": 0.0,
+      "required_mm": 5,
+      "passed": true
+    },
+    {
+      "check": "radiator_vs_charger_1",
+      "gap_mm": 16.0,
+      "overlap_mm3": 0.0,
+      "required_mm": 5,
+      "passed": true
+    }
+  ],
+  "checks_passed": 44,
+  "checks_total": 47,
+  "interferences": [
+    {
+      "a": "IPM_motor_and_gear_case_ENVELOPE",
+      "b": "HV_cabinet_2mm_STUDY",
+      "overlap_mm3": 39407.0
+    },
+    {
+      "a": "IPM_motor_and_gear_case_ENVELOPE",
+      "b": "GX14_main_positive_OUTLINE",
+      "overlap_mm3": 13489.8
+    }
+  ],
+  "exclusions": [
+    "steering lock beyond cylinder envelope",
+    "tire growth",
+    "real fork/yoke/hub CAD",
+    "busbars and cooling",
+    "wiring",
+    "hoses",
+    "mounts, lugs and fasteners",
+    "structure",
+    "shock supplier CAD (envelope per rear-suspension.md)",
+    "CFD of this shape",
+    "rider fit buck",
+    "test validation"
+  ]
+}

@@ -1,0 +1,97 @@
+"""Local FreeCAD live checkpoint viewer. Runs only while FreeCAD is open.
+Opens copies of successful checkpoints, preserving earlier documents/user edits.
+"""
+from pathlib import Path
+import json, shutil, time
+import FreeCAD as A
+import FreeCADGui as G
+from PySide import QtCore, QtWidgets
+
+R=Path(__file__).resolve().parents[1]
+cache=R/'cad/live-checkpoints';cache.mkdir(exist_ok=True)
+if hasattr(G,'bavuso_live'):
+    G.bavuso_live['timer'].stop()
+    G.getMainWindow().removeDockWidget(G.bavuso_live['dock'])
+state={'stamp':None,'doc':None,'mode':'Appearance','loading':False}
+dock=QtWidgets.QDockWidget('Bavuso - work in progress',G.getMainWindow())
+dock.setObjectName('BavusoLiveCheckpointPanel')
+panel=QtWidgets.QWidget();layout=QtWidgets.QVBoxLayout(panel)
+title=QtWidgets.QLabel('BAVUSO MOTORS\nLIVE ENGINEERING DEVELOPMENT')
+title.setStyleSheet('font-weight:600;font-size:14px;padding:8px;')
+layout.addWidget(title)
+follow=QtWidgets.QCheckBox('Follow saved checkpoints');follow.setChecked(True);layout.addWidget(follow)
+mode=QtWidgets.QComboBox();mode.addItems(['Appearance','Engineering','Battery','Motion reserves']);layout.addWidget(mode)
+fit=QtWidgets.QPushButton('Fit current model');layout.addWidget(fit)
+label=QtWidgets.QLabel('Waiting for checkpoint');label.setWordWrap(True);layout.addWidget(label)
+note=QtWidgets.QLabel('Bodywork and custom components are under development.\n\nActual supplier CAD and study geometry have separate source labels in the component tree.\n\nNot a fabrication or riding release.')
+note.setWordWrap(True);layout.addWidget(note);layout.addStretch()
+dock.setWidget(panel);G.getMainWindow().addDockWidget(QtCore.Qt.RightDockWidgetArea,dock)
+
+def present():
+    D=state['doc']
+    if D is None:return
+    selection=mode.currentText()
+    palette={'Energy':(.61,.60,.51),'Drive':(.32,.51,.60),'Chassis':(.22,.25,.28),
+             'RunningGear':(.31,.34,.37),'BodyStudy':(.16,.17,.19),'Keepouts':(.9,.22,.16)}
+    for gname,color in palette.items():
+        group=D.getObject(gname)
+        if group is None:continue
+        for o in group.Group:
+            if not hasattr(o,'Shape'):continue
+            visible=gname!='Keepouts'
+            if selection=='Battery':visible=gname=='Energy' or o.Name.startswith('EMRAX')
+            if selection=='Engineering':visible=visible and o.Name!='Body_surface_DIRECTION_ONLY'
+            if selection=='Motion reserves':visible=o.Name!='Body_surface_DIRECTION_ONLY'
+            o.ViewObject.Visibility=visible;o.ViewObject.ShapeColor=color
+            o.ViewObject.LineColor=(.1,.12,.14);o.ViewObject.DisplayMode='Flat Lines'
+            o.ViewObject.Transparency=85 if gname=='Keepouts' else 0
+            if o.Name.startswith('Cartridge'):o.ViewObject.ShapeColor=(.79,.60,.25)
+            if 'tire' in o.Name or 'grip' in o.Name:o.ViewObject.ShapeColor=(.07,.08,.09)
+            if 'lamp' in o.Name:o.ViewObject.ShapeColor=(.85,.88,.91)
+            if 'Taillamp' in o.Name:o.ViewObject.ShapeColor=(.72,.04,.04)
+            if 'indicator' in o.Name:o.ViewObject.ShapeColor=(.92,.45,.05)
+            if 'spring' in o.Name:o.ViewObject.ShapeColor=(.78,.67,.2)
+    D.getObject('Pack_case_3mm_STUDY').ViewObject.Transparency=75 if selection!='Appearance' else 0
+    D.getObject('Windscreen_STUDY').ViewObject.Transparency=72
+    D.getObject('Body_surface_DIRECTION_ONLY').ViewObject.DisplayMode='Flat Lines'
+    G.Selection.clearSelection();D.recompute();G.updateGui()
+
+def fitview():
+    if state['doc'] is not None:G.activeDocument().activeView().fitAll()
+def saveviews():
+    if state['doc'] is None:return
+    view=G.activeDocument().activeView()
+    view.saveImage(str(R/'visuals/compact-live-appearance.png'),1800,1200,'White')
+    mode.setCurrentText('Engineering');present();G.updateGui()
+    view.saveImage(str(R/'visuals/compact-live-engineering.png'),1800,1200,'White')
+    mode.setCurrentText('Appearance');present()
+def update():
+    if not follow.isChecked() or state['loading']:return
+    audit=R/'geometry-rework-audit.json';source=R/'cad/Bavuso-V1.0-rework.FCStd'
+    if not audit.exists() or not source.exists():return
+    stamp=audit.stat().st_mtime_ns
+    if stamp==state['stamp']:return
+    state['loading']=True
+    try:
+        info=json.loads(audit.read_text(encoding='utf-8'))
+        dest=cache/f'Bavuso-working-{stamp}.FCStd';shutil.copy2(source,dest)
+        D=A.openDocument(str(dest));D.Label='Bavuso - COMPACT DESIGN IN PROGRESS'
+        state.update(stamp=stamp,doc=D)
+        A.setActiveDocument(D.Name);G.activateWorkbench('PartWorkbench');present()
+        view=G.activeDocument().activeView()
+        view.setCameraOrientation(A.Rotation(A.Vector(1,0,0),A.Vector(0,0,1),A.Vector(1,-2,.65),'ZYX').Q)
+        G.updateGui();view.fitAll();G.updateGui()
+        p=info['parameters']
+        label.setText('Saved checkpoint: '+time.strftime('%H:%M:%S',time.localtime(audit.stat().st_mtime))+
+                      '\n'+str(p['wheelbase_mm'])+' mm proposed wheelbase\n'+str(p['cell_count'])+' catalog cell bodies\n'+
+                      str(info['checks_passed'])+'/'+str(info['checks_total'])+' scoped layout checks')
+        QtCore.QTimer.singleShot(700,saveviews)
+        (R/'cad/live-view-status.json').write_text(json.dumps({'running':True,'checkpoint':str(dest),'source':str(source),
+             'scope':'Local session live viewer; no engineering release','poll_seconds':2},indent=2),encoding='utf-8')
+    except Exception as e:label.setText('Checkpoint load pending: '+str(e))
+    finally:state['loading']=False
+mode.currentTextChanged.connect(lambda text:present())
+fit.clicked.connect(fitview)
+timer=QtCore.QTimer(G.getMainWindow());timer.timeout.connect(update);timer.start(2000)
+G.bavuso_live={'timer':timer,'dock':dock,'state':state,'update':update}
+update()

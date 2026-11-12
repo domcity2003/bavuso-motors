@@ -1,0 +1,105 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  12
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+/*   Windows 32 and 64 bit porting by blueCAPE: http://www.bluecape.com.pt   *\
+|  Based on Windows porting (2.0.x v4) by Symscape: http://www.symscape.com   |
+\*---------------------------------------------------------------------------*/
+Build  : 12-8e8552546d20
+Exec   : C:/Users/DomBa/DOM/5_PROJ~1/BAVUSO~1/TOOLS~1/BLUECF~2/OpenFOAM-12/platforms/mingw_w64Gcc122DPInt32Opt/bin/checkMesh.exe
+Date   : Oct 30 2026
+Time   : 10:47:54
+Host   : "DOM1"
+PID    : 22424
+I/O    : uncollated
+Case   : C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline
+nProcs : 1
+SigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create polyMesh for time = 0
+
+Time = 0s
+
+Mesh stats
+    points:           3894678
+    faces:            10258623
+    internal faces:   9533482
+    cells:            3197248
+    faces per cell:   6.1903565
+    boundary patches: 8
+    point zones:      0
+    face zones:       0
+    cell zones:       0
+
+Overall number of cells of each type:
+    hexahedra:     2811945
+    prisms:        87165
+    wedges:        0
+    pyramids:      0
+    tet wedges:    1340
+    tetrahedra:    5
+    polyhedra:     296793
+    Breakdown of polyhedra by number of faces:
+        faces   number of cells
+            4   26769
+            5   27918
+            6   60810
+            7   640
+            8   266
+            9   122389
+           10   76
+           11   134
+           12   38876
+           13   17
+           14   70
+           15   16423
+           16   1
+           17   9
+           18   2387
+           21   8
+
+Checking topology...
+    Boundary definition OK.
+    Cell to face addressing OK.
+    Point usage OK.
+    Upper triangular ordering OK.
+    Face vertices OK.
+    Number of regions: 1 (OK).
+
+Checking patch topology for multiply connected surfaces...
+                   Patch    Faces   Points                  Surface topology
+                   inlet      336      375  ok (non-closed singly connected)
+                  outlet      336      375  ok (non-closed singly connected)
+                  ground     8212     8634  ok (non-closed singly connected)
+                  tunnel     2808     2915  ok (non-closed singly connected)
+                    bike   580771   603829  multiply connected (shared edge)
+                   rider    37286    49389  ok (non-closed singly connected)
+             wheel_front    54740    59244  ok (non-closed singly connected)
+              wheel_rear    40652    44889  ok (non-closed singly connected)
+
+Checking geometry...
+    Overall domain bounding box (-8 -3 0.01) (5.5 3 3.5000004)
+    Mesh has 3 geometric (non-empty/wedge) directions (1 1 1)
+    Mesh has 3 solution (non-empty) directions (1 1 1)
+    Max cell openness = 4.4300389e-16 OK.
+    Max aspect ratio = 11.701192 OK.
+    Minimum face area = 1.4934382e-07. Maximum face area = 0.062508733.  Face area magnitudes OK.
+    Min volume = 3.4384187e-09. Max volume = 0.015582216.  Total volume = 282.43944.  Cell volumes OK.
+    Mesh non-orthogonality Max: 64.99773 average: 9.4192571
+    Non-orthogonality check OK.
+    Face pyramids OK.
+ ***Max skewness = 7.5111591, 11 highly skew faces detected which may impair the quality of the results
+    Coupled point location match (average 0) OK.
+
+Failed 1 mesh checks.
+
+End
+

@@ -1,0 +1,36 @@
+﻿id,side_a,side_b,interface,required_definition,status
+IF001,Pack,Frame,Mounting/retention,"Mount coordinates, reaction loads, crash/fatigue, tolerance, isolation, removal",Open - not released
+IF002,Cells,Pack restraints,Compression/growth,Supplier pressure/flatness/swelling/temperature and aged-cell tolerances,Open - not released
+IF003,Pack,Thermal,Cold plates/ports,"Flow resistance, thermal contact, coolant compatibility, leak isolation",Open - not released
+IF004,Pack,HV distribution,DC power,"Operating/fault voltage/current, disconnect, coordination, terminals and insulation",Open - not released
+IF005,HV distribution,Inverter,Traction feed,"DC-link capacitance, precharge, discharge, ripple and fault withstand",Open - not released
+IF006,Inverter,Motor,Three phase,"Exact winding/current conventions, phase cables, sensor and switching compatibility",Open - not released
+IF007,Motor,Frame,Mounts/airflow,"Register/bolt circle, shaft loads, rotor clearance, cooling air and service access",Open - not released
+IF008,Motor,Final drive,Torque/shaft,"Adapter, support, belt radial load and fatigue, concentricity",Open - not released
+IF009,Final drive,Swingarm/rear wheel,Belt geometry,"Tooth count, pitch, width, travel tension, alignment, guard clearance",Open - not released
+IF010,Swingarm,Frame,Pivot/linkage,"Axis, bearings/seals, rear motion ratio, stiffness, service/removal",Open - not released
+IF011,Fork/yokes,Frame,Steering,"Bearing fits, rake/trail, steering lock/stops, clamp joints",Open - not released
+IF012,Wheels,Axles,Rotating support,"Bearing/spacer/seal stack, fits, retention and axle torque",Open - not released
+IF013,Tires,Wheels,Bead/load/speed,"Approved rim widths, load/speed/radius/growth, TPMS if selected",Open - not released
+IF014,Calipers/rotors,Wheels/fork/swingarm,Friction braking,"Offset, rotor attachment, carrier loads and swept clearance",Open - not released
+IF015,Master cylinders,Calipers/ABS,Hydraulics,"Bore/ratio, pressure/volume, hose movement, fluid, bleeding",Open - not released
+IF016,ABS/IMU,VCU/inverter,Regen coordination,"Wheel speeds, slip intervention, priorities, limits, loss-of-comms response",Open - not released
+IF017,Throttle/brake/stand,VCU,Rider/permission inputs,"Redundancy, plausibility, default states, timing and diagnostics",Open - not released
+IF018,BMS,VCU/inverter/EVCC,Limits/status,"SOC/SOH, cell/temperature/voltage/current limits, validity, timeouts",Open - not released
+IF019,NACS inlet,Charge routing,Shared AC/DC contacts,"Selected inlet drawing, CP/PP/PE, locking, temperature, drainage and sequencing",Open - not released
+IF020,Charge routing,OBC,AC path,"Input protection, isolation, voltage/frequency, conductive leakage and EMC",Open - not released
+IF021,Charge routing,HV distribution,DC path,"Interlocks, polarity, weld detection and fault coordination",Open - not released
+IF022,EVCC,Station/BMS/VCU,Protocol/session,"Protocol versions, permission sequence, limits and station compatibility",Open - not released
+IF023,HV distribution,DC/DC,LV supply,"Operating window, startup, isolation, quiescent drain and protection",Open - not released
+IF024,LV battery,LV distribution,Reserve power,"Chemistry, current/time budget, cold behavior, charging and fuse coordination",Open - not released
+IF025,Thermal,Motor/inverter/OBC,Drive heat rejection,"Hot inlet limits, pressure drop, parallel/series routing, airflow",Open - not released
+IF026,Thermal,Body,Radiators/ducts,"Pressure drop, inlet/exhaust, stationary fans, rain/debris and service",Open - not released
+IF027,Body/screen,Frame,Panels/brackets,"Mount loads/fatigue, edge treatment, finish, fasteners and removal sequence",Open - not released
+IF028,Seat/bar/pegs,Rider,Human package,"Anthropometry, adjustment, reach, support, clearance and local loads",Open - not released
+IF029,Bags,Subframe,Accessory retention,"Rated load, mounting proof/fatigue, wheel/heat clearance and loaded CG",Open - not released
+IF030,Lighting/mirrors,Body/harness,Road visibility,"Approved functions, fields/angles, adjustment, power and EMC",Open - not released
+IF031,Harness,Moving assemblies,Movement/environment,"Bend/torsion, clips, chafe, water path, shield, full steering/travel",Open - not released
+IF032,Charger cable,Parked bike/stand,User handling,"Cable reach/force, inlet position, tip stability and lock access",Open - not released
+IF033,Service tools,Pack/vehicle,Workshop isolation,"Access, lifting points/load, zero-energy verification and discharge test provisions",Open - not released
+IF034,VCU/BMS/inverter/EVCC,Release configuration,Firmware/calibration,"Compatibility matrix, versions/checksums, secure diagnostic access and recovery",Open - not released
+IF035,Manufacturing,Custom parts,Datum/inspection,"Released CAD/drawings, materials/process, joint/torque specs and FAI",Open - not released

@@ -1,0 +1,54 @@
+{
+  "freecad_version": [
+    "1",
+    "1",
+    "4",
+    "20260928 (Git shallow)",
+    "Unknown",
+    "2026/09/28 13:46:34",
+    "(HEAD detached at 4fd3bf320)",
+    "4fd3bf320d9566a27e60069fc8387448aaa3a094"
+  ],
+  "native_file": "Bavuso-B0-package.FCStd",
+  "step_file": "Bavuso-B0-package.step",
+  "primitive_count": 9,
+  "native_document_object_count": 11,
+  "native_reopen": true,
+  "all_shapes_valid": true,
+  "step_reimport_valid": true,
+  "reservation_interferences": [
+    {
+      "item_a": "PKG01",
+      "item_b": "PKG05",
+      "shared_reservation_volume_mm3": 6264000.0,
+      "status": "Unresolved envelope interference; not a real-part fit evaluation"
+    },
+    {
+      "item_a": "PKG01",
+      "item_b": "PivotReference",
+      "shared_reservation_volume_mm3": 24429.024474314236,
+      "status": "Unresolved envelope interference; not a real-part fit evaluation"
+    },
+    {
+      "item_a": "PKG04",
+      "item_b": "PKG08",
+      "shared_reservation_volume_mm3": 276531.8391619757,
+      "status": "Unresolved envelope interference; not a real-part fit evaluation"
+    },
+    {
+      "item_a": "PKG05",
+      "item_b": "PKG06",
+      "shared_reservation_volume_mm3": 2721.0311979083313,
+      "status": "Unresolved envelope interference; not a real-part fit evaluation"
+    },
+    {
+      "item_a": "PKG06",
+      "item_b": "PKG07",
+      "shared_reservation_volume_mm3": 698599.9366414753,
+      "status": "Unresolved envelope interference; not a real-part fit evaluation"
+    }
+  ],
+  "summed_reservation_volume_mm3": 216329339.21691576,
+  "step_volume_mm3": 216329339.21691576,
+  "status": "CAD connection verified; reservation geometry only; known conflicts remain"
+}

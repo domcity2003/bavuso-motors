@@ -1,0 +1,6 @@
+{"step_valid": true, "native_sum": 118687395.77494042, "step_volume": 121412684.80221935, "relative_volume_error": 0.022961907702876278, "step_solids": 908, "native_solids": 908, "bbox_error_mm": 9.390532795805484e-11}
+Traceback (most recent call last):
+  File "C:\Users\DomBa\DOM\5_Projects\Bavuso Motors\v1.0\tools\verify-cad.py", line 43, in <module>
+    assert exchange.isValid() and relative_volume_error<=1e-4 and bbox_error<=.01 and native_solids==len(exchange.Solids)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

@@ -1,0 +1,90 @@
+id,group,basis,source,solids,volume_mm3
+EMRAX_208_LC_supplier_STEP,Drive,ACTUAL supplier STEP dated2022; ordered2026 revision/mount/shaft loads unverified,https://emrax.com/wp-content/uploads/2022/05/208_lc_resolver.step,93,1057791.19841277
+Cascadia_CM200_supplier_STEP,Drive,ACTUAL manufacturer CM200 CAD; DX variant and connector/service clearances unverified,https://www.cascadiamotion.com/cm-200,32,3665637.494679696
+BROGEN_PV1776_body,Energy,"CATALOG body dimensions only; mounting, ports, supply and selected revision unverified",https://www.brogenmotors.com/wp-content/uploads/2024/06/Requirement_SheetOBC.pdf,1,6391728.0
+Cartridge_01_10s7p,Energy,"70 CATALOG MAX pouch bodies at30%SOC, rotated; physical joining/compression/cooling unresolved",https://amprius.com/documents/Amprius_Product_Catalog.pdf#page=52,70,3268097.279999996
+Cartridge_02_10s7p,Energy,"70 CATALOG MAX pouch bodies at30%SOC, rotated; physical joining/compression/cooling unresolved",https://amprius.com/documents/Amprius_Product_Catalog.pdf#page=52,70,3268097.279999994
+Cartridge_03_10s7p,Energy,"70 CATALOG MAX pouch bodies at30%SOC, rotated; physical joining/compression/cooling unresolved",https://amprius.com/documents/Amprius_Product_Catalog.pdf#page=52,70,3268097.279999994
+Cartridge_04_10s7p,Energy,"70 CATALOG MAX pouch bodies at30%SOC, rotated; physical joining/compression/cooling unresolved",https://amprius.com/documents/Amprius_Product_Catalog.pdf#page=52,70,3268097.279999993
+Cartridge_05_10s7p,Energy,"70 CATALOG MAX pouch bodies at30%SOC, rotated; physical joining/compression/cooling unresolved",https://amprius.com/documents/Amprius_Product_Catalog.pdf#page=52,70,3268097.2799999947
+Cartridge_06_10s7p,Energy,"70 CATALOG MAX pouch bodies at30%SOC, rotated; physical joining/compression/cooling unresolved",https://amprius.com/documents/Amprius_Product_Catalog.pdf#page=52,70,3268097.279999995
+Cartridge_07_10s7p,Energy,"70 CATALOG MAX pouch bodies at30%SOC, rotated; physical joining/compression/cooling unresolved",https://amprius.com/documents/Amprius_Product_Catalog.pdf#page=52,70,3268097.2799999965
+Cartridge_08_10s7p,Energy,"70 CATALOG MAX pouch bodies at30%SOC, rotated; physical joining/compression/cooling unresolved",https://amprius.com/documents/Amprius_Product_Catalog.pdf#page=52,70,3268097.2799999956
+Cartridge_09_10s7p,Energy,"70 CATALOG MAX pouch bodies at30%SOC, rotated; physical joining/compression/cooling unresolved",https://amprius.com/documents/Amprius_Product_Catalog.pdf#page=52,70,3268097.279999994
+Cartridge_10_10s7p,Energy,"70 CATALOG MAX pouch bodies at30%SOC, rotated; physical joining/compression/cooling unresolved",https://amprius.com/documents/Amprius_Product_Catalog.pdf#page=52,70,3268097.2799999947
+Pack_case_3mm_STUDY,Energy,"PROPOSED 3mm closed shell; no lid, mounts, joints, vent or thermal qualification. Cells are separate",,1,3349296.0000000037
+Battery_installation_keepout,Keepouts,"PROPOSED outer battery boundary, not proof of completed pack",,1,79002000.0
+Rear_nominal_tire,RunningGear,Nominal 120/70ZR17 front or160/60ZR17 rear; no loaded radius/growth/tread geometry,,1,20007721.221431307
+Rear_wheel_STUDY,RunningGear,ILLUSTRATIVE wheel; OEM candidate hub/spokes/offset CAD absent; no fabrication use,,7,3041685.3827812555
+Rear_disc_p1,RunningGear,"300mm front /220mm rear OEM nominal diameter, thickness/offset PROPOSED; no holes/mounts",,1,135716.80263507908
+Front_nominal_tire,RunningGear,Nominal 120/70ZR17 front or160/60ZR17 rear; no loaded radius/growth/tread geometry,,1,12824168.904961841
+Front_wheel_STUDY,RunningGear,ILLUSTRATIVE wheel; OEM candidate hub/spokes/offset CAD absent; no fabrication use,,7,2408592.7873359337
+Front_disc_m1,RunningGear,"300mm front /220mm rear OEM nominal diameter, thickness/offset PROPOSED; no holes/mounts",,1,282743.3388230814
+Front_disc_p1,RunningGear,"300mm front /220mm rear OEM nominal diameter, thickness/offset PROPOSED; no holes/mounts",,1,282743.3388230814
+Rear_bump_sampled_keepout,Keepouts,"21 samples; proposed pivot and130mm vertical travel; growth, droop/lateral compliance absent",,21,1026880482.7861018
+Front_bump_sampled_keepout,Keepouts,21 samples;125mm axial compression at25deg; steering sweep NOT included,,21,712038284.1930766
+Upper_rail_m1_0,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,67826.95310563798
+Upper_rail_m1_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,108994.00329862232
+Upper_rail_m1_2,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,51001.82041084442
+Lower_rail_m1_0,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,79191.7230069837
+Lower_rail_m1_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,101944.68160898885
+Lower_rail_m1_2,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,175316.49468923855
+Tail_rail_m1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,108942.91416108783
+Tail_brace_m1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,83158.73492381268
+Swingarm_m1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,311110.7263310744
+Fork_leg_m1,RunningGear,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,390061.8776116094
+Upper_rail_1_0,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,67826.95310563798
+Upper_rail_1_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,108994.00329862232
+Upper_rail_1_2,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,51001.82041084442
+Lower_rail_1_0,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,79191.7230069837
+Lower_rail_1_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,101944.68160898885
+Lower_rail_1_2,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,175316.4946892385
+Tail_rail_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,108942.9141610878
+Tail_brace_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,83158.73492381268
+Swingarm_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,311110.7263310744
+Fork_leg_1,RunningGear,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,390061.8776116094
+Head_tube,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,151410.77796262293
+Independent_hollow_pivot_stub_m1,Chassis,"Proposed40OD30ID fixed frame stub; rotor adapter passes separately, actual loads/fits not approved",,1,21991.148575128558
+Pivot_6008_size_reference_m1,Chassis,6008 dimensional reference40x68x15; load/life/oscillation/seal/retention selection open,https://cdn.skfmediahub.skf.com/api/public/0901d196802809de/pdf_preview_medium/0901d196802809de_pdf_preview_medium.pdf,1,35625.66069170826
+Independent_hollow_pivot_stub_1,Chassis,"Proposed40OD30ID fixed frame stub; rotor adapter passes separately, actual loads/fits not approved",,1,21991.148575128558
+Pivot_6008_size_reference_1,Chassis,6008 dimensional reference40x68x15; load/life/oscillation/seal/retention selection open,https://cdn.skfmediahub.skf.com/api/public/0901d196802809de/pdf_preview_medium/0901d196802809de_pdf_preview_medium.pdf,1,35625.66069170826
+Pivot_reference,Keepouts,Independent outboard pivots; no shaft through motor/stator,,2,43982.2971502571
+Shock_and_spring_keepout,Keepouts,297mm eye distance reference;90mm maximum OD reservation NOT supplier size; linkage geometry unresolved,,1,1889434.0354500967
+Shock_body_STUDY,Chassis,297mm mounted length and54mm catalogue stroke reference; body dimensions illustrative; not supplier CAD,,1,382268.99408880604
+Shock_rod_STUDY,Chassis,Illustrative damper shaft; spring/damper sizing not approved,,1,21111.55553135834
+Shock_Upper_eye_STUDY,Chassis,Illustrative eye and10mm reference hole; actual joint dimensions unknown,,1,12566.37061435918
+Shock_Lower_eye_STUDY,Chassis,Illustrative eye and10mm reference hole; actual joint dimensions unknown,,1,12566.370614359173
+Shock_spring_STUDY,Chassis,Visual coil only; required spring rate differs from KA736 stock130N/mm; see suspension study,,1,107381.28815854447
+Side_radiator_m1,Energy,UNSIZED side heat-exchanger/fan reservation; deliberate alternative to B0 front radiator,,1,1375000.0000000002
+Peg_reference_m1,RunningGear,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,21362.8300444106
+Bar_half_m1,RunningGear,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,67026.07621179556
+Side_radiator_1,Energy,UNSIZED side heat-exchanger/fan reservation; deliberate alternative to B0 front radiator,,1,1375000.0000000002
+Peg_reference_1,RunningGear,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,21362.8300444106
+Bar_half_1,RunningGear,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,67026.07621179559
+Body_surface_DIRECTION_ONLY,BodyStudy,"PROPOSED flowing exterior; correct reference intent only, not wall-thickness/tooling/CFD definition",,1,4421777.407542106
+Seat_foam_STUDY,BodyStudy,"PROPOSED shaped two-level saddle; broad fit, pan, foam and supports unresolved",,1,11381378.960734198
+Tail_body_STUDY,BodyStudy,Proposed compact tail shell; passenger rating not established,,1,7158843.947594493
+Windscreen_STUDY,BodyStudy,PROPOSED5mm swept screen; optical/mount/buffeting checks unresolved,,1,545337.0000000034
+Front_fender_STUDY,BodyStudy,Proposed fender; full steering/bump mounts not validated,,1,728997.4963890411
+Headlamp_installation_STUDY,BodyStudy,Lamp location reservation; approved lamp optical unit not selected,,1,806400.0
+Taillamp_installation_STUDY,BodyStudy,Tail stop lamp location reservation; approved optical unit not selected,,1,57200.0
+Mirror_stalk_m1,BodyStudy,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,13303.967963224284
+Mirror_body_m1,BodyStudy,Mirror body reserve; regulatory field of view/approved assembly unselected,,1,167200.0
+Mirror_stalk_1,BodyStudy,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,13303.967963224291
+Mirror_body_1,BodyStudy,Mirror body reserve; regulatory field of view/approved assembly unselected,,1,167200.0
+Fork_lower_casting_m1,RunningGear,Proposed lower casting envelope; actual matched OEM casting CAD required,,1,389557.4890451355
+Front_caliper_reserve_m1,RunningGear,"Kawasaki43080-0177/0178candidate body RESERVE, not measured geometry or approved carrier",,1,486200.0
+Hand_grip_reserve_m1,RunningGear,Grip reference; actual dual-channel throttle and left grip unselected,,1,108950.43322649415
+Front_indicator_reserve_m1,BodyStudy,"Lamp position reservation, actual approved unit unselected",,1,35000.0
+Rear_indicator_reserve_m1,BodyStudy,Lamp position reservation; visibility and mounting unvalidated,,1,31500.0
+Fork_lower_casting_1,RunningGear,Proposed lower casting envelope; actual matched OEM casting CAD required,,1,389557.4890451355
+Front_caliper_reserve_1,RunningGear,"Kawasaki43080-0177/0178candidate body RESERVE, not measured geometry or approved carrier",,1,486200.0
+Hand_grip_reserve_1,RunningGear,Grip reference; actual dual-channel throttle and left grip unselected,,1,108950.43322649415
+Front_indicator_reserve_1,BodyStudy,"Lamp position reservation, actual approved unit unselected",,1,35000.0
+Rear_indicator_reserve_1,BodyStudy,Lamp position reservation; visibility and mounting unvalidated,,1,31500.0
+Rear_caliper_reserve,RunningGear,Kawasaki43080-0156candidate right-side installation reserve; actual holder and hose route required,,1,403750.0
+Display_reserve,RunningGear,Instrument installation reserve; selected display and sightline unvalidated,,1,490000.0
+Front_pulley_PITCH_STUDY,Drive,14mm/20:62 mathematical ratio study; no available belt/tooth profile/width/shaft adapter selected,,1,139502.62781745862
+Rear_pulley_PITCH_STUDY,Drive,14mm/20:62 mathematical ratio study; no available belt/tooth profile/width/shaft adapter selected,,1,1643570.3160967487
+Belt_tangent_study_m1,Drive,"Pitchline/tangent visualization only; not actual belt crosssection, integer length or guard",,1,27888.864821113126
+Belt_tangent_study_1,Drive,"Pitchline/tangent visualization only; not actual belt crosssection, integer length or guard",,1,27888.864821113122

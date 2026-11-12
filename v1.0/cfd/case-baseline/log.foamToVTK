@@ -1,0 +1,56 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  12
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+/*   Windows 32 and 64 bit porting by blueCAPE: http://www.bluecape.com.pt   *\
+|  Based on Windows porting (2.0.x v4) by Symscape: http://www.symscape.com   |
+\*---------------------------------------------------------------------------*/
+Build  : 12-8e8552546d20
+Exec   : C:/Users/DomBa/DOM/5_PROJ~1/BAVUSO~1/TOOLS~1/BLUECF~2/OpenFOAM-12/platforms/mingw_w64Gcc122DPInt32Opt/bin/foamToVTK.exe -latestTime -fields (p U)
+Date   : Nov 01 2026
+Time   : 19:01:46
+Host   : "DOM1"
+PID    : 5964
+I/O    : uncollated
+Case   : C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline
+nProcs : 1
+SigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 800
+
+Keeping old VTK files in "C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline/VTK"
+
+Time: 800
+    volScalarFields            : p
+    volVectorFields            : U
+
+    Internal  : "C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline/VTK/case-baseline_800.vtk"
+    Original cells:3197248 points:3894678   Additional cells:4220290  additional points:296793
+
+Combining patches:
+    patch 0 inlet
+    patch 1 outlet
+    patch 2 ground
+    patch 3 tunnel
+    patch 4 bike
+    patch 5 rider
+    patch 6 wheel_front
+    patch 7 wheel_rear
+    Patch     : "C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline/VTK/inlet/inlet_800.vtk"
+    Patch     : "C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline/VTK/outlet/outlet_800.vtk"
+    Patch     : "C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline/VTK/ground/ground_800.vtk"
+    Patch     : "C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline/VTK/tunnel/tunnel_800.vtk"
+    Patch     : "C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline/VTK/bike/bike_800.vtk"
+    Patch     : "C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline/VTK/rider/rider_800.vtk"
+    Patch     : "C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline/VTK/wheel_front/wheel_front_800.vtk"
+    Patch     : "C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline/VTK/wheel_rear/wheel_rear_800.vtk"
+End
+

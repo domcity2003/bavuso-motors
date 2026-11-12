@@ -1,0 +1,134 @@
+{
+  "status": "Reservation study only. Known conflicts intentional and unresolved.",
+  "units": "mm",
+  "coordinates": "X forward Y left Z up; rear contact origin",
+  "wheelbase": 1420,
+  "points": {
+    "rear_axle": [
+      0,
+      0,
+      311.9
+    ],
+    "front_axle": [
+      1420,
+      0,
+      299.9
+    ],
+    "swingarm_pivot": [
+      550,
+      0,
+      390
+    ],
+    "motor_axis": [
+      350,
+      0,
+      335
+    ],
+    "seat_reference": [
+      450,
+      0,
+      810
+    ],
+    "grip_reference": [
+      950,
+      340,
+      1080
+    ],
+    "peg_reference": [
+      410,
+      180,
+      350
+    ]
+  },
+  "boxes": [
+    {
+      "id": "PKG01",
+      "name": "Battery reservation",
+      "x": 470,
+      "y": -130,
+      "z": 160,
+      "l": 600,
+      "w": 260,
+      "h": 560,
+      "color": "#f0b34f",
+      "basis": "Earlier 87.36 L reservation; not a validated pack"
+    },
+    {
+      "id": "PKG02",
+      "name": "Inverter reservation",
+      "x": 700,
+      "y": -175,
+      "z": 740,
+      "l": 330,
+      "w": 350,
+      "h": 110,
+      "color": "#65b6db",
+      "basis": "Body plus installation allowance; orientation speculative"
+    },
+    {
+      "id": "PKG03",
+      "name": "OBC reservation",
+      "x": 300,
+      "y": -150,
+      "z": 750,
+      "l": 390,
+      "w": 300,
+      "h": 100,
+      "color": "#7dd3b0",
+      "basis": "Compact charger body plus services; not selected"
+    },
+    {
+      "id": "PKG04",
+      "name": "Front radiator study",
+      "x": 1080,
+      "y": -160,
+      "z": 370,
+      "l": 90,
+      "w": 320,
+      "h": 310,
+      "color": "#ee8e9b",
+      "basis": "Unsized heat exchanger/fan reservation"
+    },
+    {
+      "id": "PKG05",
+      "name": "Rear shock/linkage keepout",
+      "x": 400,
+      "y": -90,
+      "z": 420,
+      "l": 190,
+      "w": 180,
+      "h": 290,
+      "color": "#cfa4e8",
+      "basis": "Unsolved linkage path; not supplier dimensions"
+    }
+  ],
+  "cylinders": [
+    {
+      "id": "PKG06",
+      "name": "Motor body envelope",
+      "x": 350,
+      "y": 0,
+      "z": 335,
+      "r": 104,
+      "w": 85
+    },
+    {
+      "id": "PKG07",
+      "name": "Rear tire envelope",
+      "x": 0,
+      "y": 0,
+      "z": 311.9,
+      "r": 311.9,
+      "w": 160
+    },
+    {
+      "id": "PKG08",
+      "name": "Front tire envelope",
+      "x": 1420,
+      "y": 0,
+      "z": 299.9,
+      "r": 299.9,
+      "w": 120
+    }
+  ]
+}

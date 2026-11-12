@@ -1,0 +1,31 @@
+id,assembly,function,quantity,status,definition_required,mass_owner
+RE001,Road equipment,Headlamp low/high beam assembly,1,UNSELECTED,Exact approved optical functions supplier drawing aiming mounting and electrical configuration,Body 11kg allocation
+RE002,Road equipment,Front position or running lamp,TBD,UNSELECTED,Resolve integrated versus separate function and applicable market installation,Body 11kg allocation
+RE003,Road equipment,Rear position and stop lamp,1,UNSELECTED,Approved assembly and brake demand control including regen behavior,Body 11kg allocation
+RE004,Road equipment,Front direction indicators,2,UNSELECTED,Approved side-specific lamps spacing field of view and flash controller,Body 11kg allocation
+RE005,Road equipment,Rear direction indicators,2,UNSELECTED,Approved side-specific lamps spacing luggage clearance and flash controller,Body 11kg allocation
+RE006,Road equipment,License plate lamp,1,UNSELECTED,Approved illumination pattern voltage and plate location,Body 11kg allocation
+RE007,Road equipment,Rear reflector,TBD,UNSELECTED,Market required number color position and visibility,Body 11kg allocation
+RE008,Road equipment,Side reflectors,TBD,UNSELECTED,Market required front/rear pairs integration with other parts,Body 11kg allocation
+RE009,Road equipment,Horn,1,UNSELECTED,Sound level current draw mounting and protection,Body 11kg allocation
+RE010,Road equipment,Direction indicator control and telltale,1,UNSELECTED,Integrated VCU or separate controller with failure indication,Body 11kg allocation
+RE011,Road equipment,Stop lamp switching,TBD,UNSELECTED,Front/rear demand sensing and applicable regenerative deceleration lamp policy,Body 11kg allocation
+RE012,Road equipment,High beam and running lamp switching,1,UNSELECTED,Protected outputs input switches telltales and fault behavior,Body 11kg allocation
+RE013,Road equipment,Reflector/lamp fasteners and sealing,TBD,UNEXPANDED,Component specific mounting inserts gaskets and retaining joints,Body 11kg allocation
+RE014,Road equipment,Speedometer odometer and warning display,1,REFERENCE EL041,Shared item with EL041 not additional assembly; approved local indication and calibration,Body 11kg allocation
+RE015,Road equipment,Controls and switchgear,1,REFERENCE EL030,Shared electrical functions with EL030 and mechanical housings M-064; release one assembly tree,Body 11kg allocation
+RE016,Road equipment,Diagnostic/service connector,1,UNSELECTED,Keyed protected local access pinout seal protocol and recovery permissions,Vehicle harness within body allocation
+RE017,Road equipment,Vehicle identification and certification labels,TBD,UNSELECTED,Jurisdiction-specific data location substrate durability and serialized content,Body 11kg allocation
+RE018,Road equipment,HV warning and service labels,TBD,UNSELECTED,Defined warning content location durability and isolation references,Pack or body by installed location
+RE019,Road equipment,Tire/load labels,TBD,UNSELECTED,Released payload tire pressures sizes loads and location,Body 11kg allocation
+RE020,Road equipment,Charging instruction/limits labels,TBD,UNSELECTED,Inlet ratings approved supply and user indication under actual charge capability,Charging allocation
+RE021,Road equipment,Key or authentication system and steering lock,1,UNSELECTED,Mechanical steering lock M-023 with electronic authorization distinct from safe torque interlock,Body or suspension per exact part
+RE022,Optional luggage,Left bag assembly,1,OPTION OPEN,Capacity shell closure weather resistance latch theft retention and payload open,Accessory excluded from base
+RE023,Optional luggage,Right bag assembly,1,OPTION OPEN,Capacity shell closure weather resistance latch theft retention and payload open,Accessory excluded from base
+RE024,Optional luggage,Removable bag carriers and retention,1,OPTION OPEN,Interfaces to M-010 structural hardpoints with secondary retention and keyed attachment,Accessory excluded from base
+RE025,Finish,Black coating stack,1,FINISH OPEN,Physical color gloss texture substrate pretreatment coating cure thickness repair and adhesion spec,Included in part mass not extra assembly
+RE026,Finish,Silver coating stack,1,FINISH OPEN,Physical color gloss metallic orientation texture process repair and weathering spec,Alternative to RE025 not additive
+RE027,Finish,Tan coating stack,1,FINISH OPEN,Physical color gloss texture process repair and weathering spec,Alternative to RE025 not additive
+RE028,Finish,Side BAVUSO wordmarks,2,ARTWORK OPEN,Vector master dimensions location material adhesion corrosion and finish durability,Body 11kg allocation
+RE029,Workshop,Pack support and lifting fixture,1,TOOLING OPEN,Rated mass CG restraint interfaces proof inspection and lifting equipment compatibility,Workshop tooling not vehicle mass
+RE030,Workshop,Assembly and test adapters,TBD,TOOLING OPEN,Released fixture drawings simulator interfaces test leads and equipment ratings,Workshop tooling not vehicle mass

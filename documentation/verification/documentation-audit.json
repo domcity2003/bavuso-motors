@@ -1,0 +1,245 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-10-25T21:36:40.147268+00:00",
+  "status": "PASS_DOCUMENTATION_DATA_CHECKS",
+  "scope": "Document existence, CSV structure/identifiers, explicit index aliases and screening arithmetic only",
+  "physical_verification_performed": false,
+  "manufacturing_release": false,
+  "engineering_goals_proven": false,
+  "component_index_records": 158,
+  "component_records_are_selected_parts": false,
+  "mass_rollup_authorized": false,
+  "canonical_reference_aliases": {
+    "M-038": "EL016",
+    "RE014": "EL041",
+    "RE015": "EL030"
+  },
+  "checks": [
+    {
+      "check": "csv_headers",
+      "passed": true,
+      "detail": "registers\\electrical-components.csv"
+    },
+    {
+      "check": "csv_row_shapes",
+      "passed": true,
+      "detail": "registers\\electrical-components.csv"
+    },
+    {
+      "check": "csv_identifiers",
+      "passed": true,
+      "detail": "registers\\electrical-components.csv"
+    },
+    {
+      "check": "csv_headers",
+      "passed": true,
+      "detail": "registers\\interfaces.csv"
+    },
+    {
+      "check": "csv_row_shapes",
+      "passed": true,
+      "detail": "registers\\interfaces.csv"
+    },
+    {
+      "check": "csv_identifiers",
+      "passed": true,
+      "detail": "registers\\interfaces.csv"
+    },
+    {
+      "check": "csv_headers",
+      "passed": true,
+      "detail": "registers\\mechanical-components.csv"
+    },
+    {
+      "check": "csv_row_shapes",
+      "passed": true,
+      "detail": "registers\\mechanical-components.csv"
+    },
+    {
+      "check": "csv_identifiers",
+      "passed": true,
+      "detail": "registers\\mechanical-components.csv"
+    },
+    {
+      "check": "csv_headers",
+      "passed": true,
+      "detail": "registers\\packaging-conflicts.csv"
+    },
+    {
+      "check": "csv_row_shapes",
+      "passed": true,
+      "detail": "registers\\packaging-conflicts.csv"
+    },
+    {
+      "check": "csv_headers",
+      "passed": true,
+      "detail": "registers\\release-deliverables.csv"
+    },
+    {
+      "check": "csv_row_shapes",
+      "passed": true,
+      "detail": "registers\\release-deliverables.csv"
+    },
+    {
+      "check": "csv_identifiers",
+      "passed": true,
+      "detail": "registers\\release-deliverables.csv"
+    },
+    {
+      "check": "csv_headers",
+      "passed": true,
+      "detail": "registers\\requirements.csv"
+    },
+    {
+      "check": "csv_row_shapes",
+      "passed": true,
+      "detail": "registers\\requirements.csv"
+    },
+    {
+      "check": "csv_identifiers",
+      "passed": true,
+      "detail": "registers\\requirements.csv"
+    },
+    {
+      "check": "csv_headers",
+      "passed": true,
+      "detail": "registers\\road-equipment-components.csv"
+    },
+    {
+      "check": "csv_row_shapes",
+      "passed": true,
+      "detail": "registers\\road-equipment-components.csv"
+    },
+    {
+      "check": "csv_identifiers",
+      "passed": true,
+      "detail": "registers\\road-equipment-components.csv"
+    },
+    {
+      "check": "csv_headers",
+      "passed": true,
+      "detail": "research\\configuration-trades.csv"
+    },
+    {
+      "check": "csv_row_shapes",
+      "passed": true,
+      "detail": "research\\configuration-trades.csv"
+    },
+    {
+      "check": "csv_headers",
+      "passed": true,
+      "detail": "verification\\hazard-analysis.csv"
+    },
+    {
+      "check": "csv_row_shapes",
+      "passed": true,
+      "detail": "verification\\hazard-analysis.csv"
+    },
+    {
+      "check": "csv_identifiers",
+      "passed": true,
+      "detail": "verification\\hazard-analysis.csv"
+    },
+    {
+      "check": "component_register_count",
+      "passed": true,
+      "detail": {
+        "register": "mechanical-components.csv",
+        "actual": 86,
+        "expected": 86
+      }
+    },
+    {
+      "check": "component_register_count",
+      "passed": true,
+      "detail": {
+        "register": "electrical-components.csv",
+        "actual": 42,
+        "expected": 42
+      }
+    },
+    {
+      "check": "component_register_count",
+      "passed": true,
+      "detail": {
+        "register": "road-equipment-components.csv",
+        "actual": 30,
+        "expected": 30
+      }
+    },
+    {
+      "check": "component_index_count",
+      "passed": true,
+      "detail": "158 indexed records, not selected parts or additive quantities"
+    },
+    {
+      "check": "component_index_ids",
+      "passed": true,
+      "detail": "IDs unique across component registers"
+    },
+    {
+      "check": "canonical_aliases",
+      "passed": true,
+      "detail": {
+        "M-038": "EL016",
+        "RE014": "EL041",
+        "RE015": "EL030"
+      }
+    },
+    {
+      "check": "local_markdown_links",
+      "passed": true,
+      "detail": {
+        "markdown_files": 13,
+        "local_targets_checked": 65,
+        "broken": [],
+        "scope": "Existence only; no heading-anchor or external-link validation"
+      }
+    },
+    {
+      "check": "configuration_count",
+      "passed": true,
+      "detail": 72
+    },
+    {
+      "check": "summary_requirements",
+      "passed": true,
+      "detail": 35
+    },
+    {
+      "check": "summary_interfaces",
+      "passed": true,
+      "detail": 35
+    },
+    {
+      "check": "summary_conflict_count",
+      "passed": true,
+      "detail": "Conflict count only; does not prove clearance coverage"
+    },
+    {
+      "check": "independent_screening_arithmetic",
+      "passed": true,
+      "detail": {
+        "rows_checked": 72,
+        "failures": [],
+        "scope": "Given assumptions only; supplier and physical performance unverified"
+      }
+    },
+    {
+      "check": "summary_case_aero_led_focused",
+      "passed": true,
+      "detail": "Summary reproduces an exported scenario; not evidence goals achieved"
+    },
+    {
+      "check": "summary_case_aero_led_reference",
+      "passed": true,
+      "detail": "Summary reproduces an exported scenario; not evidence goals achieved"
+    },
+    {
+      "check": "summary_case_aero_led_stretch",
+      "passed": true,
+      "detail": "Summary reproduces an exported scenario; not evidence goals achieved"
+    }
+  ],
+  "error_count": 0
+}

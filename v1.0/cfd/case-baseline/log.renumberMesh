@@ -1,0 +1,80 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  12
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+/*   Windows 32 and 64 bit porting by blueCAPE: http://www.bluecape.com.pt   *\
+|  Based on Windows porting (2.0.x v4) by Symscape: http://www.symscape.com   |
+\*---------------------------------------------------------------------------*/
+Build  : 12-8e8552546d20
+Exec   : renumberMesh -parallel -overwrite
+Date   : Oct 30 2026
+Time   : 11:01:09
+Host   : "DOM1"
+PID    : 20796
+I/O    : uncollated
+Case   : C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline
+nProcs : 14
+Slaves : 
+13
+(
+"DOM1.18736"
+"DOM1.38908"
+"DOM1.23924"
+"DOM1.31624"
+"DOM1.18644"
+"DOM1.30156"
+"DOM1.25760"
+"DOM1.4380"
+"DOM1.30808"
+"DOM1.41604"
+"DOM1.42216"
+"DOM1.33896"
+"DOM1.6284"
+)
+
+Pstream initialised with:
+    floatTransfer      : false
+    nProcsSimpleSum    : 0
+    commsType          : nonBlocking
+    polling iterations : 0
+SigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 0
+
+Mesh size: 3197248
+Before renumbering :
+    band           : 229819
+    profile        : 1.9665634e+11
+
+Using default renumberMethod.
+
+Selecting renumberMethod CuthillMcKee
+
+Reading geometric fields
+
+Reading volScalarField p
+Reading volScalarField nut
+Reading volScalarField k
+Reading volScalarField omega
+Reading volVectorField U
+
+Renumbering processor cell decomposition map cellProcAddressing
+Renumbering processor face decomposition map faceProcAddressing
+Renumbering processor point decomposition map pointProcAddressing
+After renumbering :
+    band           : 9691
+    profile        : 1.3882984e+10
+
+Writing mesh to "constant"
+
+End
+
+Finalising parallel run

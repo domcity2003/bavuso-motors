@@ -1,0 +1,61 @@
+cells,build,light,drive,series,parallel,cells_n,nominal_kwh,full_v,pack_kg,bike_kg,bike_lb,range_mi_cda040,range_mi_cda038,charge_10_80_min,cell_ready,bike_usd_1000,bike_usd_10000
+P50B,module,none,AXIAL+SiC,98,19,1862,33.52,412,181.0,280.6,619,200,209,21.0,In volume production,31551,21562
+P50B,module,none,RADIAL,104,18,1872,33.7,437,182.0,289.1,637,201,209,21.0,In volume production,28784,19278
+P50B,module,premium,AXIAL+SiC,109,17,1853,33.35,458,180.2,272.8,601,200,208,21.0,In volume production,36009,24842
+P50B,module,premium,RADIAL,98,19,1862,33.52,412,181.0,281.1,620,200,209,21.0,In volume production,33238,22555
+P50B,module,carbon,AXIAL+SiC,109,17,1853,33.35,458,180.2,266.8,588,201,209,21.0,In volume production,41069,28703
+P50B,module,carbon,RADIAL,109,17,1853,33.35,458,180.2,274.3,605,200,208,21.0,In volume production,38258,26386
+P50B,structural,none,AXIAL+SiC,97,19,1843,33.17,407,165.4,261.0,575,200,209,21.0,In volume production,32254,21941
+P50B,structural,none,RADIAL,109,17,1853,33.35,458,166.3,269.4,594,201,209,21.0,In volume production,29487,19657
+P50B,structural,premium,AXIAL+SiC,102,18,1836,33.05,428,164.8,253.4,559,200,209,21.0,In volume production,36721,25228
+P50B,structural,premium,RADIAL,97,19,1843,33.17,407,165.4,261.5,577,200,209,21.0,In volume production,33941,22934
+P50B,structural,carbon,AXIAL+SiC,102,18,1836,33.05,428,164.8,247.4,545,201,209,21.0,In volume production,41781,29089
+P50B,structural,carbon,RADIAL,102,18,1836,33.05,428,164.8,254.9,562,200,208,21.0,In volume production,38970,26772
+LCYL,module,none,AXIAL+SiC,100,6,600,33.0,420,145.9,245.5,541,201,209,14.0,Prototypes; EVE / A123 industrialising 2026-27,31309,21128
+LCYL,module,none,RADIAL,101,6,606,33.33,424,147.4,254.5,561,202,210,14.0,Prototypes; EVE / A123 industrialising 2026-27,28578,18868
+LCYL,module,premium,AXIAL+SiC,100,6,600,33.0,420,145.9,238.5,526,201,210,14.0,Prototypes; EVE / A123 industrialising 2026-27,35807,24438
+LCYL,module,premium,RADIAL,100,6,600,33.0,420,145.9,246.0,542,201,209,14.0,Prototypes; EVE / A123 industrialising 2026-27,32996,22121
+LCYL,module,carbon,AXIAL+SiC,99,6,594,32.67,416,144.5,231.1,509,200,209,14.0,Prototypes; EVE / A123 industrialising 2026-27,40787,28242
+LCYL,module,carbon,RADIAL,100,6,600,33.0,420,145.9,240.0,529,201,210,14.0,Prototypes; EVE / A123 industrialising 2026-27,38056,25982
+LCYL,structural,none,AXIAL+SiC,99,6,594,32.67,416,133.7,229.2,505,200,209,14.0,Prototypes; EVE / A123 industrialising 2026-27,32016,21513
+LCYL,structural,none,RADIAL,100,6,600,33.0,420,135.0,238.1,525,201,210,14.0,Prototypes; EVE / A123 industrialising 2026-27,29285,19253
+LCYL,structural,premium,AXIAL+SiC,99,6,594,32.67,416,133.7,222.2,490,201,210,14.0,Prototypes; EVE / A123 industrialising 2026-27,36514,24823
+LCYL,structural,premium,RADIAL,99,6,594,32.67,416,133.7,229.8,507,200,209,14.0,Prototypes; EVE / A123 industrialising 2026-27,33703,22506
+LCYL,structural,carbon,AXIAL+SiC,99,6,594,32.67,416,133.7,216.2,477,202,210,14.0,Prototypes; EVE / A123 industrialising 2026-27,41575,28684
+LCYL,structural,carbon,RADIAL,99,6,594,32.67,416,133.7,223.8,493,201,209,14.0,Prototypes; EVE / A123 industrialising 2026-27,38763,26367
+LCYL330,module,none,AXIAL+SiC,100,6,600,33.0,420,135.4,235.0,518,202,210,14.0,Makers' prototype claim; needs production data,31309,21128
+LCYL330,module,none,RADIAL,100,6,600,33.0,420,135.4,242.5,535,201,209,14.0,Makers' prototype claim; needs production data,28498,18812
+LCYL330,module,premium,AXIAL+SiC,99,6,594,32.67,416,134.1,226.7,500,201,209,14.0,Makers' prototype claim; needs production data,35727,24381
+LCYL330,module,premium,RADIAL,100,6,600,33.0,420,135.4,235.5,519,202,210,14.0,Makers' prototype claim; needs production data,32996,22121
+LCYL330,module,carbon,AXIAL+SiC,99,6,594,32.67,416,134.1,220.7,486,201,210,14.0,Makers' prototype claim; needs production data,40787,28242
+LCYL330,module,carbon,RADIAL,99,6,594,32.67,416,134.1,228.2,503,200,209,14.0,Makers' prototype claim; needs production data,37976,25926
+LCYL330,structural,none,AXIAL+SiC,99,6,594,32.67,416,124.0,219.6,484,201,210,14.0,Makers' prototype claim; needs production data,32016,21513
+LCYL330,structural,none,RADIAL,99,6,594,32.67,416,124.0,227.1,501,201,209,14.0,Makers' prototype claim; needs production data,29205,19197
+LCYL330,structural,premium,AXIAL+SiC,98,6,588,32.34,412,122.7,211.3,466,200,209,14.0,Makers' prototype claim; needs production data,36434,24766
+LCYL330,structural,premium,RADIAL,99,6,594,32.67,416,124.0,220.1,485,201,210,14.0,Makers' prototype claim; needs production data,33703,22506
+LCYL330,structural,carbon,AXIAL+SiC,98,6,588,32.34,412,122.7,205.3,453,201,209,14.0,Makers' prototype claim; needs production data,41494,28627
+LCYL330,structural,carbon,RADIAL,99,6,594,32.67,416,124.0,214.1,472,202,210,14.0,Makers' prototype claim; needs production data,38763,26367
+SA504,module,none,AXIAL+SiC,96,9,864,32.46,403,105.1,204.7,451,201,210,28.0,Sampling; supply and price open,52992,34933
+SA504,module,none,RADIAL,96,9,864,32.46,403,105.1,212.2,468,201,209,28.0,Sampling; supply and price open,50181,32617
+SA504,module,premium,AXIAL+SiC,107,8,856,32.16,449,104.1,196.7,434,200,209,28.0,Sampling; supply and price open,57215,38063
+SA504,module,premium,RADIAL,96,9,864,32.46,403,105.1,205.2,452,201,210,28.0,Sampling; supply and price open,54679,35926
+SA504,module,carbon,AXIAL+SiC,107,8,856,32.16,449,104.1,190.7,420,201,210,28.0,Sampling; supply and price open,62275,41924
+SA504,module,carbon,RADIAL,107,8,856,32.16,449,104.1,198.2,437,200,209,28.0,Sampling; supply and price open,59464,39607
+SA504,structural,none,AXIAL+SiC,107,8,856,32.16,449,96.8,192.4,424,201,210,28.0,Sampling; supply and price open,53504,35195
+SA504,structural,none,RADIAL,107,8,856,32.16,449,96.8,199.9,441,200,209,28.0,Sampling; supply and price open,50693,32878
+SA504,structural,premium,AXIAL+SiC,107,8,856,32.16,449,96.8,185.4,409,202,210,28.0,Sampling; supply and price open,58002,38504
+SA504,structural,premium,RADIAL,107,8,856,32.16,449,96.8,192.9,425,201,209,28.0,Sampling; supply and price open,55191,36188
+SA504,structural,carbon,AXIAL+SiC,106,8,848,31.86,445,95.9,178.5,394,200,209,28.0,Sampling; supply and price open,62787,42185
+SA504,structural,carbon,RADIAL,107,8,856,32.16,449,96.8,186.9,412,201,210,28.0,Sampling; supply and price open,60251,40048
+SA504@350,module,none,AXIAL+SiC,96,9,864,32.46,403,105.1,204.7,451,201,210,28.0,Hypothetical price; ask Amprius,40289,28416
+SA504@350,module,none,RADIAL,96,9,864,32.46,403,105.1,212.2,468,201,209,28.0,Hypothetical price; ask Amprius,37478,26100
+SA504@350,module,premium,AXIAL+SiC,107,8,856,32.16,449,104.1,196.7,434,200,209,28.0,Hypothetical price; ask Amprius,44630,31606
+SA504@350,module,premium,RADIAL,96,9,864,32.46,403,105.1,205.2,452,201,210,28.0,Hypothetical price; ask Amprius,41976,29409
+SA504@350,module,carbon,AXIAL+SiC,107,8,856,32.16,449,104.1,190.7,420,201,210,28.0,Hypothetical price; ask Amprius,49690,35467
+SA504@350,module,carbon,RADIAL,107,8,856,32.16,449,104.1,198.2,437,200,209,28.0,Hypothetical price; ask Amprius,46879,33151
+SA504@350,structural,none,AXIAL+SiC,107,8,856,32.16,449,96.8,192.4,424,201,210,28.0,Hypothetical price; ask Amprius,40919,28738
+SA504@350,structural,none,RADIAL,107,8,856,32.16,449,96.8,199.9,441,200,209,28.0,Hypothetical price; ask Amprius,38108,26421
+SA504@350,structural,premium,AXIAL+SiC,107,8,856,32.16,449,96.8,185.4,409,202,210,28.0,Hypothetical price; ask Amprius,45417,32047
+SA504@350,structural,premium,RADIAL,107,8,856,32.16,449,96.8,192.9,425,201,209,28.0,Hypothetical price; ask Amprius,42606,29731
+SA504@350,structural,carbon,AXIAL+SiC,106,8,848,31.86,445,95.9,178.5,394,200,209,28.0,Hypothetical price; ask Amprius,50320,35789
+SA504@350,structural,carbon,RADIAL,107,8,856,32.16,449,96.8,186.9,412,201,210,28.0,Hypothetical price; ask Amprius,47666,33592

@@ -1,0 +1,6 @@
+{"step_valid": true, "native_sum": 105375196.3069062, "step_volume": 105379057.71607156, "delta": 3861.409165367484, "step_solids": 877}
+Traceback (most recent call last):
+  File "C:\Users\DomBa\DOM\5_Projects\Bavuso Motors\v1.0\tools\verify-cad.py", line 30, in <module>
+    assert exchange.isValid() and math.isclose(total,exchange.Volume,rel_tol=1e-7)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

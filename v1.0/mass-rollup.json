@@ -1,0 +1,65 @@
+{
+ "prepared": "2026-11-05 US Central, Claude Opus 5.5",
+ "model": "cad/Bavuso-V1.0-adventure.FCStd",
+ "total_kg": 284.4,
+ "total_lb": 627,
+ "cog_mm": {
+  "x_from_rear_axle": 796,
+  "y": -0.1,
+  "height": 502
+ },
+ "front_rear_split_pct": [
+  53.5,
+  46.5
+ ],
+ "unsprung_kg": {
+  "front": 17.1,
+  "rear": 19.3
+ },
+ "pitch_inertia_point_mass_kgm2": 39.0,
+ "cells_kg": 106.9,
+ "pack_kg": 133.7,
+ "by_group": {
+  "Energy": {
+   "kg": 117.4,
+   "x": 860,
+   "z": 410
+  },
+  "Allowance": {
+   "kg": 43.9,
+   "x": 785,
+   "z": 539
+  },
+  "RunningGear": {
+   "kg": 39.3,
+   "x": 916,
+   "z": 499
+  },
+  "Drive": {
+   "kg": 23.5,
+   "x": 524,
+   "z": 486
+  },
+  "Chassis": {
+   "kg": 21.0,
+   "x": 586,
+   "z": 632
+  },
+  "BodyStudy": {
+   "kg": 20.8,
+   "x": 688,
+   "z": 658
+  },
+  "Electronics": {
+   "kg": 18.5,
+   "x": 868,
+   "z": 696
+  }
+ },
+ "by_source": {
+  "CAD geometry x density": 57.2,
+  "supplier/catalogue": 111.9,
+  "engineering estimate": 115.3
+ },
+ "optimiser_reference_kg": 222.5
+}

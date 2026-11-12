@@ -1,0 +1,3 @@
+{
+  "error": "Traceback (most recent call last):\n  File \"C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/tools/open-v1.FCMacro\", line 35, in <module>\n    view.fitAll();D.recompute();D.save()\n                                ^^^^^^^^\nOSError: Unable to save document because file is marked as read-only or write permission is not available.\n"
+}

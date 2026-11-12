@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="940" viewBox="0 0 1400 940">
+<rect width="1400" height="940" fill="#101923"/>
+<style>text{font-family:Arial,sans-serif;fill:#e8eef5} .small{font-size:16px} .label{font-size:19px;font-weight:bold}</style>
+<text x="50" y="52" font-size="32" font-weight="bold">BAVUSO / B0 PACKAGING STUDY</text>
+<text x="50" y="85" font-size="18" fill="#f4c66c">Dimensioned reservations, not a fitted motorcycle. Unresolved overlaps are shown.</text>
+<line x1="35" y1="680" x2="1330" y2="680" stroke="#607587"/>
+<circle cx="210.0" cy="514.693" r="165.307" fill="none" stroke="#9aabb9" stroke-width="22"/>
+<circle cx="210.0" cy="514.693" r="4" fill="white"/>
+<circle cx="962.6" cy="521.053" r="158.947" fill="none" stroke="#9aabb9" stroke-width="22"/>
+<circle cx="962.6" cy="521.053" r="4" fill="white"/>
+<rect x="459.1" y="298.4" width="318.0" height="296.8" fill="#f0b34f" fill-opacity=".25" stroke="#f0b34f" stroke-width="2"/>
+<text class="small" x="467.1" y="322.4">PKG01</text>
+<rect x="581.0" y="229.5" width="174.9" height="58.300000000000004" fill="#65b6db" fill-opacity=".25" stroke="#65b6db" stroke-width="2"/>
+<text class="small" x="589.0" y="253.5">PKG02</text>
+<rect x="369.0" y="229.5" width="206.70000000000002" height="53.0" fill="#7dd3b0" fill-opacity=".25" stroke="#7dd3b0" stroke-width="2"/>
+<text class="small" x="377.0" y="253.5">PKG03</text>
+<rect x="782.4" y="319.59999999999997" width="47.7" height="164.3" fill="#ee8e9b" fill-opacity=".25" stroke="#ee8e9b" stroke-width="2"/>
+<text class="small" x="790.4" y="343.59999999999997">PKG04</text>
+<rect x="422.0" y="303.7" width="100.7" height="153.70000000000002" fill="#cfa4e8" fill-opacity=".25" stroke="#cfa4e8" stroke-width="2"/>
+<text class="small" x="430.0" y="327.7">PKG05</text>
+<circle cx="395.5" cy="502.45" r="55.120000000000005" fill="#e3c19d" fill-opacity=".35" stroke="#e3c19d"/>
+<line x1="210.0" y1="514.693" x2="501.5" y2="473.29999999999995" stroke="#b8c6d6" stroke-width="6"/>
+<circle cx="501.5" cy="473.29999999999995" r="12" fill="#ff6262"/>
+<path d="M501.5 473.29999999999995 L581.0 430 L1150 430" fill="none" stroke="#ff6262"/>
+<text x="1100" y="453" class="small" fill="#ff6262">Pivot inside pack box</text>
+<line x1="210.0" y1="720" x2="962.6" y2="720" stroke="#becfdd"/>
+<text x="475.0" y="748" class="label">1420 mm wheelbase / study value</text>
+<text x="60" y="790" class="small">PKG01 — 600 × 260 × 560 mm battery region</text>
+<text x="60" y="815" class="small">PKG02 — Inverter plus installation reservation</text>
+<text x="60" y="840" class="small">PKG03 — Charger plus installation reservation</text>
+<text x="60" y="865" class="small">PKG04 — Unsized radiator/fan volume</text>
+<text x="60" y="890" class="small">PKG05 — Shock/linkage movement reservation</text>
+<text x="790" y="805" class="small">Motor body: Ø208 × 85 mm reference</text>
+<text x="790" y="835" class="small">No fork, rider, service or tire sweep clearance earned.</text>
+<text x="790" y="865" class="small">Coordinates are inputs for engineering, not drawing dimensions.</text>
+</svg>

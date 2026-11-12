@@ -1,0 +1,36 @@
+﻿id,title,origin,requirement,owner,closure_evidence,status
+R001,200 mile highway range,Owner,200 mi at 70 mph baseline; claim conditions open,Vehicle energy,"Measured road load, usable energy and full-distance test",Open
+R002,125+ mph top speed,Owner,Strictly above 125 mph; duration/SOC conditions open,Drive/chassis,Mapped drive and closed-course speed/thermal test,Open
+R003,Tesla charging,Owner,"Actual authorized station use, not only connector fit",Charging,Network eligibility and successful approved-site AC/DC sessions,Open
+R004,Complete bike mass,Owner preference,Less than 400 lb; no relaxed ceiling approved,Systems,Configuration-specific reconciled BOM and calibrated weighing,Open gap
+R005,Highway comfort and wind confidence,Owner,77 mph design speed; quantified comfort/handling limits open,Chassis/aero,"Rider trials, aero moments and closed-course handling",Open
+R006,Broad rider fit,Owner intent,Adjustable comfortable ordinary upright posture; population bounds open,Human factors,Adjustable buck with measured rider sample and gear,Open
+R007,Appearance variants,Owner direction,Common body in matte black/silver/tan; physical standards open,Body,Owner visual review and physical finish samples,Open
+R008,Optional saddlebags,Owner direction,Discreet removable mounts; capacity/rating open,Chassis/body,"Structural proof/fatigue, loaded handling/clearance/aero",Open
+R009,Independent friction braking,Proposed safety function,Required stopping/fade with zero regenerative braking,Brakes,Applicable brake tests in regen unavailable cases,Open
+R010,Unintended torque prevention,Proposed safety function,"Demand plausibility, torque arbitration and fault response defined",Controls,"Safety analysis, HIL and fault-injection evidence",Open
+R011,HV protection,Proposed safety function,Touch/isolation/overcurrent protection across full fault envelope,Electrical,Coordination study and instrumented fault/environmental tests,Open
+R012,Charge/drive exclusion,Proposed safety function,No propulsion while connected; safe AC/DC route selection,Charging/controls,Interlock/state-machine faults and physical integration tests,Open
+R013,Thermal capability,Proposed,Cell/drive limits at speed and stationary charging; ambient envelope open,Thermal,Calibrated heat rejection model and thermal tests,Open
+R014,Pack retention and fault containment,Proposed safety function,Impact/fatigue/vent/seal/swelling boundaries defined,Pack/chassis,"Supplier cell data, structural analysis and pack tests",Open
+R015,Dynamic clearance,Proposed,No contact throughout motion/tolerance envelope; numerical margins open,Packaging,Steer/bump/lean/drive/gear/service swept CAD and physical checks,Open
+R016,Structural durability,Proposed,GVWR/duty spectrum must precede strength and fatigue limits,Chassis,"Correlated FEA, coupons, weld/joint and rig tests",Open
+R017,Serviceability,Proposed,"Pack removal, fault isolation and normal service by defined equipment",Manufacturing/service,Dry-run access/removal and released service instructions,Open
+R018,Road equipment,Proposed,Complete lamps/reflectors/mirrors/horn/instruments/plate equipment,Compliance/body,Jurisdiction matrix and installation compliance tests,Open
+R019,Service life and battery retention,Product decision needed,"Life, cycles, calendar aging and range retention limits unset",Systems/pack,Owner limits then supplier/vehicle aging evidence,Open
+R020,Market compliance,Product decision needed,US-first study; sales markets and classification need confirmation,Compliance,Current applicability review and required compliance records,Open
+R021,Configuration reproducibility,Proposed,Every installed part revision/calibration/finish and deviation traceable,Quality,Build configuration audit against serialized unit,Open
+R022,Software release,Proposed,"Versioned source/configuration, compatible firmware and reproducible artifacts",Controls,"Reviewed releases, checksums, HIL/integration evidence",Open
+R023,EMC,Proposed,No unsafe disturbance or excess emissions under applicable regime,Electrical,Harness-aware EMC precompliance and required final tests,Open
+R024,Environmental durability,Proposed,Rain/wash/salt/vibration/temperature limits to be set,Systems,Rated component installation and vehicle environmental tests,Open
+R025,Supply assurance,Proposed,"Actual specified cell, motor and safety systems obtainable and supported",Procurement,Dated supplier confirmations/configured quotations,Open
+R026,Low voltage reserve,Proposed,Critical controls and fault response survive defined DC/DC failures,Electrical,LV load/duration budget and brownout tests,Open
+R027,120 V AC charging,Unresolved capability,Do not claim until exact OBC input supports it,Charging,Datasheet/configuration and charge tests at selected supply,Open
+R028,Range claim definition,Product decision needed,"Temperature, wind, payload, SOH, reserve and repeatability set before claim",Systems,Approved claim protocol and traceable evidence,Open
+R029,Low-SOC drive capability,Proposed,"Power/speed/derating across loaded voltage window, not nominal only",Drive/pack,Dynamometer map with loaded pack constraints,Open
+R030,Brake thermal endurance,Proposed,Repeated stops at defined load/speed/interval without unacceptable fade,Brakes,Instrumented fade/recovery test and rotor/pad limits,Open
+R031,Incoming traceability,Proposed,"Cell lots, safety hardware, materials and firmware tied to build",Quality,Incoming acceptance and serialized traveler,Open
+R032,Payload and GVWR,Product decision needed,Rated rider/luggage/passenger and axle loads unset,Systems/chassis,Owner decision plus load/tire/structure/brake reconciliation,Open
+R033,Finish durability,Proposed,Paint/seat/panel durability and repair criteria unset,Body,"Physical coupons, weathering, cleaning and abrasion tests",Open
+R034,Diagnostics and security,Proposed,Gloved local fault indication; no remote/cloud dependency for safety,Controls,Threat/fault analysis and diagnostic access tests,Open
+R035,Manufacturing definition,Proposed,Every custom part drawing/process/inspection and joint specification released,Manufacturing,First article and manufacturing readiness review,Open

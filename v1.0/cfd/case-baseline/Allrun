@@ -1,0 +1,19 @@
+#!/bin/sh
+# Bavuso V1.0 baseline aero run (OpenFOAM 12 / blueCFD-Core 2024).
+# Pipeline copied from OpenFOAM's incompressibleFluid/motorBike tutorial.
+# Run through ../../../.tools/ofrun.sh "<this folder>" "./Allrun" (handles the space in "Bavuso Motors").
+cd ${0%/*} || exit 1
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+mkdir -p constant/geometry && cp ../geometry/*.stl constant/geometry/
+rm -rf 0 && cp -r 0.orig 0
+runApplication blockMesh
+runApplication surfaceFeatures
+runApplication decomposePar -copyZero
+runParallel snappyHexMesh -overwrite
+find . -type f -iname "*level*" -exec rm {} \;
+runParallel checkMesh
+runParallel renumberMesh -overwrite
+runParallel potentialFoam -initialiseUBCs
+runParallel foamRun
+runApplication reconstructPar -latestTime
+runApplication foamToVTK -latestTime -fields '(p U)'

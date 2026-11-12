@@ -1,0 +1,11 @@
+cells,build,light,drive,series,parallel,cells_n,nominal_kwh,full_v,pack_kg,bike_kg,bike_lb,range_mi_cda040,range_mi_cda038,charge_10_80_min,cell_ready,bike_usd_1000,bike_usd_10000,evidence,usd_per_lb_saved
+LCYL,module,none,RADIAL,101,6,606,33.33,424,147.4,254.5,561,202,210,14.0,Prototypes; EVE / A123 industrialising 2026-27,28578,18868,today,
+LCYL,structural,none,RADIAL,100,6,600,33.0,420,135.0,238.1,525,201,210,14.0,Prototypes; EVE / A123 industrialising 2026-27,29285,19253,today,11
+LCYL,structural,none,AXIAL+SiC,99,6,594,32.67,416,133.7,229.2,505,200,209,14.0,Prototypes; EVE / A123 industrialising 2026-27,32016,21513,today,113
+LCYL,structural,premium,AXIAL+SiC,99,6,594,32.67,416,133.7,222.2,490,201,210,14.0,Prototypes; EVE / A123 industrialising 2026-27,36514,24823,today,221
+LCYL,structural,carbon,AXIAL+SiC,99,6,594,32.67,416,133.7,216.2,477,202,210,14.0,Prototypes; EVE / A123 industrialising 2026-27,41575,28684,today,297
+LCYL330,module,none,RADIAL,100,6,600,33.0,420,135.4,242.5,535,201,209,14.0,Makers' prototype claim; needs production data,28498,18812,if claims or price hold,
+LCYL330,structural,none,RADIAL,99,6,594,32.67,416,124.0,227.1,501,201,209,14.0,Makers' prototype claim; needs production data,29205,19197,if claims or price hold,11
+LCYL330,structural,none,AXIAL+SiC,99,6,594,32.67,416,124.0,219.6,484,201,210,14.0,Makers' prototype claim; needs production data,32016,21513,if claims or price hold,136
+LCYL330,structural,premium,AXIAL+SiC,98,6,588,32.34,412,122.7,211.3,466,200,209,14.0,Makers' prototype claim; needs production data,36434,24766,if claims or price hold,181
+LCYL330,structural,carbon,AXIAL+SiC,98,6,588,32.34,412,122.7,205.3,453,201,209,14.0,Makers' prototype claim; needs production data,41494,28627,if claims or price hold,297

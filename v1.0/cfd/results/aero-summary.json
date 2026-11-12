@@ -1,0 +1,121 @@
+{
+  "prepared": "2026-11-01 (US Central) by Claude Opus 5.5",
+  "speed_kmh": 100,
+  "speed_ms": 27.78,
+  "rho": 1.204,
+  "dynamic_pressure_Pa": 464.6,
+  "averaged_over_last_iterations": 250,
+  "total": {
+    "drag_N": 204.7,
+    "CdA_m2": 0.4407,
+    "pressure_drag_share": 0.971,
+    "side_force_N": -3.4,
+    "lift_N": -27.3,
+    "ClA_m2": -0.0588,
+    "drag_std_last_N": 1.9,
+    "iterations": 800,
+    "front_axle_lift_N": 81.7,
+    "rear_axle_lift_N": -109.0,
+    "drag_power_kW_at_100kmh": 5.69,
+    "drag_power_kW_at_80kmh": 2.91,
+    "drag_power_kW_at_130kmh": 12.49
+  },
+  "bike": {
+    "drag_N": 139.7,
+    "CdA_m2": 0.3006,
+    "pressure_drag_share": 0.975,
+    "side_force_N": -1.2,
+    "lift_N": -41.1,
+    "ClA_m2": -0.0884,
+    "drag_std_last_N": 1.7,
+    "iterations": 800
+  },
+  "rider": {
+    "drag_N": 54.1,
+    "CdA_m2": 0.1164,
+    "pressure_drag_share": 0.969,
+    "side_force_N": -0.6,
+    "lift_N": 19.9,
+    "ClA_m2": 0.0428,
+    "drag_std_last_N": 1.2,
+    "iterations": 800
+  },
+  "wheels": {
+    "drag_N": 11.0,
+    "CdA_m2": 0.0236,
+    "pressure_drag_share": 0.931,
+    "side_force_N": -1.6,
+    "lift_N": -6.1,
+    "ClA_m2": -0.0132,
+    "drag_std_last_N": 0.4,
+    "iterations": 800
+  },
+  "pressure_drag_by_zone": [
+    {
+      "zone": "Helmet and shoulders",
+      "pressure_drag_N": 11.3,
+      "CdA_m2": 0.0244,
+      "share": 0.057
+    },
+    {
+      "zone": "Rider torso and arms",
+      "pressure_drag_N": 23.2,
+      "CdA_m2": 0.05,
+      "share": 0.116
+    },
+    {
+      "zone": "Rider legs and hips",
+      "pressure_drag_N": 18.1,
+      "CdA_m2": 0.039,
+      "share": 0.091
+    },
+    {
+      "zone": "Screen, headlight, nose",
+      "pressure_drag_N": 30.8,
+      "CdA_m2": 0.0664,
+      "share": 0.154
+    },
+    {
+      "zone": "Front fender and fork",
+      "pressure_drag_N": 20.9,
+      "CdA_m2": 0.045,
+      "share": 0.105
+    },
+    {
+      "zone": "Pack and belly front face",
+      "pressure_drag_N": 16.6,
+      "CdA_m2": 0.0358,
+      "share": 0.083
+    },
+    {
+      "zone": "Tank, shroud, dash area",
+      "pressure_drag_N": 30.3,
+      "CdA_m2": 0.0652,
+      "share": 0.152
+    },
+    {
+      "zone": "Mid body: pack sides, motor, pegs",
+      "pressure_drag_N": 32.3,
+      "CdA_m2": 0.0696,
+      "share": 0.162
+    },
+    {
+      "zone": "Seat, tail, rear fender, plate",
+      "pressure_drag_N": 6.4,
+      "CdA_m2": 0.0138,
+      "share": 0.032
+    },
+    {
+      "zone": "Front wheel",
+      "pressure_drag_N": 5.3,
+      "CdA_m2": 0.0115,
+      "share": 0.027
+    },
+    {
+      "zone": "Rear wheel",
+      "pressure_drag_N": 4.5,
+      "CdA_m2": 0.0097,
+      "share": 0.023
+    }
+  ]
+}

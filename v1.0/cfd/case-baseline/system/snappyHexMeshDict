@@ -1,0 +1,107 @@
+FoamFile
+{
+    version 2.0;
+    format ascii;
+    class dictionary;
+    object snappyHexMeshDict;
+}
+// Bavuso V1.0 baseline aero case, written 2026-10-29 by Claude Opus 5.5
+
+castellatedMesh true;
+snap            true;
+addLayers       false;   // wall functions on a 3.9-7.8 mm surface mesh (y+ about 100-300)
+
+geometry
+{
+    bike        { type triSurfaceMesh; file "bike.stl"; }
+    rider       { type triSurfaceMesh; file "rider.stl"; }
+    wheel_front { type triSurfaceMesh; file "wheel_front.stl"; }
+    wheel_rear  { type triSurfaceMesh; file "wheel_rear.stl"; }
+    nearBox     { type searchableBox; min (-2.0 -0.9 0.0); max (2.6 0.9 2.0); }
+    wakeBox     { type searchableBox; min (-1.0 -0.6 0.0); max (2.2 0.6 1.85); }
+}
+
+castellatedMeshControls
+{
+    maxLocalCells       3000000;
+    maxGlobalCells      20000000;
+    minRefinementCells  10;
+    maxLoadUnbalance    0.10;
+    nCellsBetweenLevels 3;
+    features
+    (
+        { file "bike.eMesh";        level 6; }
+        { file "rider.eMesh";       level 5; }
+        { file "wheel_front.eMesh"; level 5; }
+        { file "wheel_rear.eMesh";  level 5; }
+    );
+    refinementSurfaces      // level 5 = 7.8 mm, level 6 = 3.9 mm
+    {
+        bike        { level (5 6); patchInfo { type wall; } }
+        rider       { level (5 5); patchInfo { type wall; } }
+        wheel_front { level (5 6); patchInfo { type wall; } }
+        wheel_rear  { level (5 6); patchInfo { type wall; } }
+    }
+    resolveFeatureAngle 30;
+    refinementRegions
+    {
+        nearBox { mode inside; level 2; }   // 62 mm
+        wakeBox { mode inside; level 3; }   // 31 mm
+    }
+    insidePoint (4.0 2.0 2.0);
+    allowFreeStandingZoneFaces true;
+}
+
+snapControls
+{
+    nSmoothPatch 3;
+    tolerance 2.0;
+    nSolveIter 100;
+    nRelaxIter 5;
+    nFeatureSnapIter 10;
+    implicitFeatureSnap false;
+    explicitFeatureSnap true;
+    multiRegionFeatureSnap false;
+}
+
+addLayersControls
+{
+    relativeSizes true;
+    layers {}
+    expansionRatio 1.2;
+    finalLayerThickness 0.3;
+    minThickness 0.1;
+    nGrow 0;
+    featureAngle 120;
+    nRelaxIter 3;
+    nSmoothSurfaceNormals 1;
+    nSmoothNormals 3;
+    nSmoothThickness 10;
+    maxFaceThicknessRatio 0.5;
+    maxThicknessToMedialRatio 0.3;
+    minMedialAxisAngle 90;
+    minMedianAxisAngle 90;
+    nBufferCellsNoExtrude 0;
+    nLayerIter 50;
+}
+
+meshQualityControls
+{
+    maxNonOrtho 65;
+    maxBoundarySkewness 20;
+    maxInternalSkewness 4;
+    maxConcave 80;
+    minVol 1e-13;
+    minTetQuality 1e-15;
+    minArea -1;
+    minTwist 0.02;
+    minDeterminant 0.001;
+    minFaceWeight 0.05;
+    minVolRatio 0.01;
+    minTriangleTwist -1;
+    nSmoothScale 4;
+    errorReduction 0.75;
+    relaxed { maxNonOrtho 75; }
+}
+
+mergeTolerance 1e-6;

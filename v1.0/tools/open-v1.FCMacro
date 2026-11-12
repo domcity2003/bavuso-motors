@@ -1,0 +1,39 @@
+"""Open actual native V1 development model and save engineering views."""
+from pathlib import Path
+import json, traceback
+import FreeCAD as A
+import FreeCADGui as G
+R=Path(__file__).resolve().parents[1]
+try:
+    p=R/'cad/Bavuso-V1.0-development.FCStd'
+    D=next((d for d in A.listDocuments().values() if d.FileName==str(p)),None)
+    if D is None:D=A.openDocument(str(p))
+    A.setActiveDocument(D.Name)
+    colors={'Energy':(.6,.58,.46),'Drive':(.27,.52,.62),'Chassis':(.29,.32,.36),'RunningGear':(.3,.33,.36),'BodyStudy':(.16,.18,.2),'Keepouts':(.9,.2,.2)}
+    for group,color in colors.items():
+        for o in D.getObject(group).Group:
+            o.ViewObject.ShapeColor=color;o.ViewObject.LineColor=(.12,.14,.17)
+            o.ViewObject.Visibility=group!='Keepouts'
+            o.ViewObject.DisplayMode='Flat Lines'
+            if o.Name.startswith('Cartridge'):o.ViewObject.ShapeColor=(.83,.64,.27)
+            if 'tire' in o.Name:o.ViewObject.ShapeColor=(.08,.09,.10)
+            if 'supplier_STEP' in o.Name:o.ViewObject.ShapeColor=(.35,.55,.63)
+    D.getObject('Pack_case_3mm_STUDY').ViewObject.Transparency=78
+    D.getObject('Body_surface_DIRECTION_ONLY').ViewObject.Visibility=False
+    D.getObject('Windscreen_STUDY').ViewObject.Transparency=65
+    G.activateWorkbench('PartWorkbench');G.Selection.clearSelection()
+    G.getMainWindow().showMaximized()
+    view=G.activeDocument().activeView()
+    view.setCameraOrientation(A.Rotation(A.Vector(1,0,0),90).Q);G.updateGui();view.fitAll();G.updateGui()
+    view.saveImage(str(R/'visuals/V1-side.png'),2000,1200,'White')
+    view.setCameraOrientation(A.Rotation(A.Vector(1,0,0),A.Vector(0,0,1),A.Vector(1,-2,1),'ZYX').Q);G.updateGui();view.fitAll();G.updateGui()
+    view.saveImage(str(R/'visuals/V1-engineering.png'),2000,1400,'White')
+    D.getObject('Body_surface_DIRECTION_ONLY').ViewObject.Visibility=True
+    D.getObject('Body_surface_DIRECTION_ONLY').ViewObject.Transparency=45
+    view.fitAll();G.updateGui();view.saveImage(str(R/'visuals/V1-body-study.png'),2000,1400,'White')
+    D.getObject('Body_surface_DIRECTION_ONLY').ViewObject.Visibility=False
+    view.fitAll();D.recompute();D.save()
+    status={'gui_model_open':True,'model':str(p),'views_generated':True,'CFD_workbench_registered':'CfdOFWorkbench' in G.listWorkbenches(),'solver_installed':False,'scope':'engineering development; source and clearance limitations in README'}
+    (R/'cad/gui-status.json').write_text(json.dumps(status,indent=2),encoding='utf-8')
+except Exception:
+    (R/'cad/gui-status.json').write_text(json.dumps({'error':traceback.format_exc()},indent=2),encoding='utf-8');raise

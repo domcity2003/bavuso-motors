@@ -1,0 +1,115 @@
+{
+ "prepared": "2026-11-05 US Central, Claude Opus 5.5",
+ "assumptions": {
+  "bike_kg": 282.9,
+  "rider_kg": 85.0,
+  "pack_kw": 130.0,
+  "v_design": 360.0,
+  "v_full": 416.0,
+  "cda_launch": 0.4,
+  "cda_top": 0.38,
+  "tyre_rolling_radius_m": 0.305,
+  "launch_cap_g": 1.0,
+  "eta_belt": 0.95,
+  "eta_two_stage": 0.93,
+  "inverter_kg": "6.5 (<=400 A), 9 (650 A), 12 (880 A): estimates from Leadrive 400 V 10 kg and BorgWarner 650 A ~7 kg"
+ },
+ "options": [
+  {
+   "option": "EMRAX 228 MV (earlier CAD), belt only",
+   "motor": "axial flux SPM",
+   "inverter_peak_A": 360,
+   "drive_kg_motor_plus_inverter": 20.0,
+   "mass_change_vs_now_kg": -7.5,
+   "full_torque_to_rpm_at_360V": 3125,
+   "speed_limit_rpm_at_360V": 5591,
+   "at_ratio_3_1": {
+    "zero_60_s": 5.05,
+    "top_mph": 114
+   },
+   "best_ratio_meeting_145mph": {
+    "ratio": 1.7,
+    "zero_60_s": 9.66,
+    "top_mph": 145
+   }
+  },
+  {
+   "option": "EMRAX 228 LV+43%, belt only",
+   "motor": "axial flux SPM",
+   "inverter_peak_A": 650,
+   "drive_kg_motor_plus_inverter": 22.5,
+   "mass_change_vs_now_kg": -5.0,
+   "full_torque_to_rpm_at_360V": 5515,
+   "speed_limit_rpm_at_360V": 6500,
+   "at_ratio_3_1": {
+    "zero_60_s": 5.08,
+    "top_mph": 150
+   },
+   "best_ratio_meeting_145mph": {
+    "ratio": 3.2,
+    "zero_60_s": 4.92,
+    "top_mph": 145
+   }
+  },
+  {
+   "option": "EMRAX 268 LV+100%, belt only",
+   "motor": "axial flux SPM",
+   "inverter_peak_A": 650,
+   "drive_kg_motor_plus_inverter": 30.9,
+   "mass_change_vs_now_kg": 3.4,
+   "full_torque_to_rpm_at_360V": 2387,
+   "speed_limit_rpm_at_360V": 4241,
+   "at_ratio_3_1": {
+    "zero_60_s": 2.74,
+    "top_mph": 94
+   },
+   "best_ratio_meeting_145mph": {
+    "ratio": 1.75,
+    "zero_60_s": 4.01,
+    "top_mph": 147
+   }
+  },
+  {
+   "option": "EMRAX 268 LV+43%, belt only",
+   "motor": "axial flux SPM",
+   "inverter_peak_A": 880,
+   "drive_kg_motor_plus_inverter": 33.9,
+   "mass_change_vs_now_kg": 6.4,
+   "full_torque_to_rpm_at_360V": 3337,
+   "speed_limit_rpm_at_360V": 4500,
+   "at_ratio_3_1": {
+    "zero_60_s": 2.74,
+    "top_mph": 104
+   },
+   "best_ratio_meeting_145mph": {
+    "ratio": 2.2,
+    "zero_60_s": 3.18,
+    "top_mph": 146
+   }
+  },
+  {
+   "option": "Radial IPM 180 Nm / 15000 rpm / 130 kW + 2-stage reduction",
+   "motor": "radial IPM (field weakening)",
+   "inverter_peak_A": 400,
+   "drive_kg_motor_plus_inverter": 27.5,
+   "mass_change_vs_now_kg": 0.0,
+   "best_ratio_meeting_145mph": {
+    "ratio": 7.3,
+    "zero_60_s": 2.74,
+    "top_mph": 147
+   }
+  },
+  {
+   "option": "Radial IPM 150 Nm / 16000 rpm / 130 kW + 2-stage reduction",
+   "motor": "radial IPM (field weakening)",
+   "inverter_peak_A": 400,
+   "drive_kg_motor_plus_inverter": 27.5,
+   "mass_change_vs_now_kg": 0.0,
+   "best_ratio_meeting_145mph": {
+    "ratio": 7.8,
+    "zero_60_s": 3.0,
+    "top_mph": 147
+   }
+  }
+ ]
+}

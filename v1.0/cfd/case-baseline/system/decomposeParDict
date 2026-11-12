@@ -1,0 +1,11 @@
+FoamFile
+{
+    version 2.0;
+    format ascii;
+    class dictionary;
+    object decomposeParDict;
+}
+// Bavuso V1.0 baseline aero case, written 2026-10-29 by Claude Opus 5.5
+
+numberOfSubdomains 14;   // 16 logical CPUs, two left for Windows
+method          scotch;

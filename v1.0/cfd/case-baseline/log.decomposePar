@@ -1,0 +1,284 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  12
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+/*   Windows 32 and 64 bit porting by blueCAPE: http://www.bluecape.com.pt   *\
+|  Based on Windows porting (2.0.x v4) by Symscape: http://www.symscape.com   |
+\*---------------------------------------------------------------------------*/
+Build  : 12-8e8552546d20
+Exec   : C:/Users/DomBa/DOM/5_PROJ~1/BAVUSO~1/TOOLS~1/BLUECF~2/OpenFOAM-12/platforms/mingw_w64Gcc122DPInt32Opt/bin/decomposePar.exe -copyZero
+Date   : Oct 30 2026
+Time   : 10:59:57
+Host   : "DOM1"
+PID    : 35516
+I/O    : uncollated
+Case   : C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline
+nProcs : 1
+SigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Calculating distribution of cells
+
+Selecting decomposer scotch
+
+Finished decomposition in 15.472 s
+
+Calculating original mesh data
+
+Distributing cells to processors
+
+Distributing faces to processors
+
+Distributing points to processors
+
+Constructing processor meshes
+
+Processor 0
+    Number of cells = 228739
+    Number of faces shared with processor 1 = 628
+    Number of faces shared with processor 3 = 951
+    Number of faces shared with processor 4 = 3590
+    Number of faces shared with processor 5 = 216
+    Number of faces shared with processor 6 = 185
+    Number of faces shared with processor 7 = 2374
+    Number of faces shared with processor 8 = 2153
+    Number of faces shared with processor 9 = 678
+    Number of faces shared with processor 10 = 1405
+    Number of faces shared with processor 11 = 2309
+    Number of faces shared with processor 12 = 2834
+    Number of faces shared with processor 13 = 3861
+    Number of processor patches = 12
+    Number of processor faces = 21184
+    Number of boundary faces = 76081
+
+Processor 1
+    Number of cells = 229754
+    Number of faces shared with processor 0 = 628
+    Number of faces shared with processor 2 = 3295
+    Number of faces shared with processor 3 = 5144
+    Number of faces shared with processor 4 = 3465
+    Number of faces shared with processor 5 = 441
+    Number of faces shared with processor 7 = 48
+    Number of faces shared with processor 9 = 340
+    Number of faces shared with processor 10 = 1205
+    Number of faces shared with processor 11 = 1853
+    Number of faces shared with processor 12 = 312
+    Number of faces shared with processor 13 = 297
+    Number of processor patches = 11
+    Number of processor faces = 17028
+    Number of boundary faces = 29706
+
+Processor 2
+    Number of cells = 230587
+    Number of faces shared with processor 1 = 3295
+    Number of faces shared with processor 3 = 1280
+    Number of faces shared with processor 4 = 866
+    Number of faces shared with processor 5 = 428
+    Number of processor patches = 4
+    Number of processor faces = 5869
+    Number of boundary faces = 46880
+
+Processor 3
+    Number of cells = 230547
+    Number of faces shared with processor 0 = 951
+    Number of faces shared with processor 1 = 5144
+    Number of faces shared with processor 2 = 1280
+    Number of faces shared with processor 4 = 2422
+    Number of faces shared with processor 5 = 173
+    Number of faces shared with processor 7 = 217
+    Number of faces shared with processor 11 = 3198
+    Number of processor patches = 7
+    Number of processor faces = 13385
+    Number of boundary faces = 50662
+
+Processor 4
+    Number of cells = 229898
+    Number of faces shared with processor 0 = 3590
+    Number of faces shared with processor 1 = 3465
+    Number of faces shared with processor 2 = 866
+    Number of faces shared with processor 3 = 2422
+    Number of faces shared with processor 5 = 1981
+    Number of faces shared with processor 7 = 509
+    Number of faces shared with processor 8 = 159
+    Number of faces shared with processor 9 = 2894
+    Number of faces shared with processor 11 = 394
+    Number of processor patches = 9
+    Number of processor faces = 16280
+    Number of boundary faces = 52451
+
+Processor 5
+    Number of cells = 226146
+    Number of faces shared with processor 0 = 216
+    Number of faces shared with processor 1 = 441
+    Number of faces shared with processor 2 = 428
+    Number of faces shared with processor 3 = 173
+    Number of faces shared with processor 4 = 1981
+    Number of faces shared with processor 6 = 2462
+    Number of faces shared with processor 7 = 2505
+    Number of faces shared with processor 8 = 104
+    Number of faces shared with processor 9 = 5208
+    Number of faces shared with processor 11 = 248
+    Number of faces shared with processor 12 = 3882
+    Number of processor patches = 11
+    Number of processor faces = 17648
+    Number of boundary faces = 50350
+
+Processor 6
+    Number of cells = 227496
+    Number of faces shared with processor 0 = 185
+    Number of faces shared with processor 5 = 2462
+    Number of faces shared with processor 7 = 293
+    Number of faces shared with processor 9 = 91
+    Number of faces shared with processor 12 = 6571
+    Number of processor patches = 5
+    Number of processor faces = 9602
+    Number of boundary faces = 49988
+
+Processor 7
+    Number of cells = 227453
+    Number of faces shared with processor 0 = 2374
+    Number of faces shared with processor 1 = 48
+    Number of faces shared with processor 3 = 217
+    Number of faces shared with processor 4 = 509
+    Number of faces shared with processor 5 = 2505
+    Number of faces shared with processor 6 = 293
+    Number of faces shared with processor 8 = 1189
+    Number of faces shared with processor 9 = 1965
+    Number of faces shared with processor 10 = 292
+    Number of faces shared with processor 11 = 830
+    Number of faces shared with processor 12 = 871
+    Number of faces shared with processor 13 = 456
+    Number of processor patches = 12
+    Number of processor faces = 11549
+    Number of boundary faces = 57556
+
+Processor 8
+    Number of cells = 229641
+    Number of faces shared with processor 0 = 2153
+    Number of faces shared with processor 4 = 159
+    Number of faces shared with processor 5 = 104
+    Number of faces shared with processor 7 = 1189
+    Number of faces shared with processor 9 = 1730
+    Number of faces shared with processor 13 = 851
+    Number of processor patches = 6
+    Number of processor faces = 6186
+    Number of boundary faces = 82473
+
+Processor 9
+    Number of cells = 229423
+    Number of faces shared with processor 0 = 678
+    Number of faces shared with processor 1 = 340
+    Number of faces shared with processor 4 = 2894
+    Number of faces shared with processor 5 = 5208
+    Number of faces shared with processor 6 = 91
+    Number of faces shared with processor 7 = 1965
+    Number of faces shared with processor 8 = 1730
+    Number of faces shared with processor 11 = 1007
+    Number of faces shared with processor 12 = 418
+    Number of faces shared with processor 13 = 902
+    Number of processor patches = 10
+    Number of processor faces = 15233
+    Number of boundary faces = 67613
+
+Processor 10
+    Number of cells = 226787
+    Number of faces shared with processor 0 = 1405
+    Number of faces shared with processor 1 = 1205
+    Number of faces shared with processor 7 = 292
+    Number of faces shared with processor 11 = 3911
+    Number of faces shared with processor 12 = 3299
+    Number of faces shared with processor 13 = 2113
+    Number of processor patches = 6
+    Number of processor faces = 12225
+    Number of boundary faces = 32279
+
+Processor 11
+    Number of cells = 228022
+    Number of faces shared with processor 0 = 2309
+    Number of faces shared with processor 1 = 1853
+    Number of faces shared with processor 3 = 3198
+    Number of faces shared with processor 4 = 394
+    Number of faces shared with processor 5 = 248
+    Number of faces shared with processor 7 = 830
+    Number of faces shared with processor 9 = 1007
+    Number of faces shared with processor 10 = 3911
+    Number of faces shared with processor 12 = 483
+    Number of faces shared with processor 13 = 1181
+    Number of processor patches = 10
+    Number of processor faces = 15414
+    Number of boundary faces = 40682
+
+Processor 12
+    Number of cells = 226533
+    Number of faces shared with processor 0 = 2834
+    Number of faces shared with processor 1 = 312
+    Number of faces shared with processor 5 = 3882
+    Number of faces shared with processor 6 = 6571
+    Number of faces shared with processor 7 = 871
+    Number of faces shared with processor 9 = 418
+    Number of faces shared with processor 10 = 3299
+    Number of faces shared with processor 11 = 483
+    Number of faces shared with processor 13 = 3628
+    Number of processor patches = 9
+    Number of processor faces = 22298
+    Number of boundary faces = 37429
+
+Processor 13
+    Number of cells = 226222
+    Number of faces shared with processor 0 = 3861
+    Number of faces shared with processor 1 = 297
+    Number of faces shared with processor 7 = 456
+    Number of faces shared with processor 8 = 851
+    Number of faces shared with processor 9 = 902
+    Number of faces shared with processor 10 = 2113
+    Number of faces shared with processor 11 = 1181
+    Number of faces shared with processor 12 = 3628
+    Number of processor patches = 8
+    Number of processor faces = 13289
+    Number of boundary faces = 50991
+
+Number of processor faces = 98595
+Max number of cells = 230587 (0.96864554% above average 228374.86)
+Max number of processor patches = 12 (40% above average 8.5714286)
+Max number of faces between processors = 22298 (58.310259% above average 14085)
+
+Time = 0s
+
+Processor 0: copying "C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline/0"
+ to "C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline/processor0/0"
+Processor 1: copying "C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline/0"
+ to "C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline/processor1/0"
+Processor 2: copying "C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline/0"
+ to "C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline/processor2/0"
+Processor 3: copying "C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline/0"
+ to "C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline/processor3/0"
+Processor 4: copying "C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline/0"
+ to "C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline/processor4/0"
+Processor 5: copying "C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline/0"
+ to "C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline/processor5/0"
+Processor 6: copying "C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline/0"
+ to "C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline/processor6/0"
+Processor 7: copying "C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline/0"
+ to "C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline/processor7/0"
+Processor 8: copying "C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline/0"
+ to "C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline/processor8/0"
+Processor 9: copying "C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline/0"
+ to "C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline/processor9/0"
+Processor 10: copying "C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline/0"
+ to "C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline/processor10/0"
+Processor 11: copying "C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline/0"
+ to "C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline/processor11/0"
+Processor 12: copying "C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline/0"
+ to "C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline/processor12/0"
+Processor 13: copying "C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline/0"
+ to "C:/Users/DomBa/DOM/5_Projects/Bavuso Motors/v1.0/cfd/case-baseline/processor13/0"
+
+End
+
