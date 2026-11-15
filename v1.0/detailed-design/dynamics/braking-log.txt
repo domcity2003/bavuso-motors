@@ -1,0 +1,17 @@
+rotating equivalent mass 17.2 kg (wheels 10.1, rotor 7.1)
+solo: m 372 kg, CoG 734/640 mm; rear lifts at 1.17 g; mean ABS decel 0.94 g -> 100-0 in 44.4 m; front share 0.90
+twoup: m 487 kg, CoG 581/736 mm; rear lifts at 1.23 g; mean ABS decel 0.94 g -> 100-0 in 44.4 m; front share 0.86
+front 320 {'solo': (27.8, 154), 'twoup': (36.4, 201), 'R78_front_only_laden': (17.3, 96)} r_eff 142 mm, ring 1.15 kg
+front 330 {'solo': (26.9, 149), 'twoup': (35.2, 195), 'R78_front_only_laden': (16.7, 92)} r_eff 147 mm, ring 1.19 kg
+rear only twoup 2.9 m/s2: Fx 1412 N, mu needed 0.64, 57.4 bar, pedal 191 N
+rear only solo 2.9 m/s2: Fx 1079 N, mu needed 0.78, 43.9 bar, pedal 146 N
+60 {'front_only_limit': 37.31999999999999, 'rear_only_limit': 53.879999999999995, 'split_limit': 33.36, 'ours_both': 16.648559550926752}
+100 {'front_only_limit': 97.0, 'rear_only_limit': 143.0, 'split_limit': 86.0, 'ours_both': 44.394146900722454}
+R78 heat fade, front only, laden, 100 km/h, 3.25 m/s2: peak 287 C, first-stop rise 139 K
+Repeated 130->0 at 0.6 g, two-up laden, no regen, 320 mm: peak 340 C, first-stop rise 164 K
+Repeated 130->0 at 0.6 g, two-up laden, no regen, 330 mm: peak 331 C, first-stop rise 159 K
+Repeated 130->0 at 0.6 g, solo, no regen, 320 mm: peak 294 C, first-stop rise 138 K
+Repeated 130->0 at 0.6 g, two-up, 20% regen (rear), 320 mm: peak 280 C, first-stop rise 131 K
+R78 heat fade, REAR only, laden, 80 km/h, 3.25 m/s2, 240x5 mm (CAD): peak 506 C, first-stop rise 276 K
+R78 heat fade, REAR only, laden, 80 km/h, 3.25 m/s2, 267x6 mm: peak 443 C, first-stop rise 215 K
+energy check {'E_per_disc_kJ': 104.19982944599118, 'adiabatic_rise_K': 174.51744475249762}

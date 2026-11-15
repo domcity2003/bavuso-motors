@@ -1,0 +1,293 @@
+{
+ "prepared": "2026-11-12 US Central, Claude Opus 5.5 (claude-opus-5-5)",
+ "source": "cad\\Bavuso-V1.0-adventure.FCStd",
+ "source_sha256": "bcc7a6c4b1c62ed2812da6ba50081266515773d390f8bf6474085aaaf0d3ee8f",
+ "source_mtime": "2026-11-12 09:54",
+ "tessellation_mm": {
+  "linear": 0.8,
+  "angular_rad": 0.3
+ },
+ "patches": {
+  "lower_body": {
+   "objects": [
+    "Pack_case_structural_4mm_STUDY",
+    "HV_cabinet_2mm_STUDY",
+    "GX14_main_positive_OUTLINE",
+    "GX14_main_negative_OUTLINE",
+    "IPM_motor_and_gear_case_ENVELOPE",
+    "Upper_rail_0_m1",
+    "Upper_rail_1_m1",
+    "Lower_downlink_m1",
+    "Lower_pack_rear_link_m1",
+    "Upper_rail_0_1",
+    "Upper_rail_1_1",
+    "Lower_downlink_1",
+    "Lower_pack_rear_link_1",
+    "Lower_body_battery_covers_STUDY",
+    "Motor_side_covers_STUDY",
+    "Pivot_cover_cap_m1",
+    "Pivot_cover_cap_1",
+    "Seam_trim_m1",
+    "Seam_trim_1",
+    "Battery_side_panel_m1",
+    "Belly_side_panel_m1",
+    "Panel_bolts_m1",
+    "Battery_side_panel_1",
+    "Belly_side_panel_1",
+    "Panel_bolts_1",
+    "Belly_skid_plate_STUDY"
+   ],
+   "triangles": 8852
+  },
+  "fairing_tank": {
+   "objects": [
+    "Cascadia_CM200_supplier_STEP",
+    "BROGEN_PV1776_body",
+    "Orion_BMS2_108_supplier_STEP",
+    "Side_radiator_m1",
+    "Side_radiator_1",
+    "Upper_rail_2_m1",
+    "Upper_rail_2_1",
+    "Head_tube",
+    "Display_reserve",
+    "Display_glass",
+    "Display_mount",
+    "Upper_body_fairing_tank_STUDY",
+    "Side_grille_louvres_m1",
+    "Side_grille_louvres_1",
+    "Headlamp_installation_STUDY",
+    "Headlamp_DRL_blade",
+    "Front_indicator_reserve_m1",
+    "Front_indicator_reserve_1"
+   ],
+   "triangles": 15174
+  },
+  "swingarm_pegs": {
+   "objects": [
+    "Front_pulley_PITCH_STUDY",
+    "Drive_belt_14mm_STUDY",
+    "Swingarm_m1",
+    "Swingarm_1",
+    "Swingarm_cross_brace",
+    "Independent_hollow_pivot_stub_m1",
+    "Pivot_6008_size_reference_m1",
+    "Independent_hollow_pivot_stub_1",
+    "Pivot_6008_size_reference_1",
+    "Shock_body_STUDY",
+    "Shock_rod_STUDY",
+    "Shock_Upper_eye_STUDY",
+    "Shock_Lower_eye_STUDY",
+    "Shock_spring_STUDY",
+    "Shock_reservoir_STUDY",
+    "Swingarm_shock_tower",
+    "Peg_bracket_m1",
+    "Peg_bracket_1",
+    "Peg_reference_m1",
+    "Peg_rubber_m1",
+    "Peg_reference_1",
+    "Peg_rubber_1",
+    "Rear_caliper_reserve",
+    "Rear_caliper_bracket",
+    "Rear_brake_hose",
+    "Rear_caliper_banjo",
+    "Rear_brake_junction"
+   ],
+   "triangles": 49128
+  },
+  "wheel_rear": {
+   "objects": [
+    "Rear_pulley_PITCH_STUDY",
+    "Rear_nominal_tire",
+    "Rear_wheel_STUDY",
+    "Rear_disc_p1",
+    "Rear_disc_carrier_p1"
+   ],
+   "triangles": 66776
+  },
+  "seat_tail": {
+   "objects": [
+    "Tail_rail_m1",
+    "Tail_brace_m1",
+    "Tail_rail_1",
+    "Tail_brace_1",
+    "Tail_shock_cross_tube",
+    "Shock_top_bracket",
+    "Tail_side_panels_STUDY",
+    "Seat_two_level_STUDY",
+    "Seat_welt",
+    "Tail_undertray_STUDY",
+    "Rear_rack_STUDY",
+    "Taillamp_installation_STUDY",
+    "Rear_hugger_STUDY",
+    "Rear_indicator_reserve_m1",
+    "Rear_indicator_reserve_1",
+    "Plate_hanger_arm",
+    "Licence_plate_US",
+    "Plate_lamp",
+    "Rear_indicator_stalk_m1",
+    "Rear_indicator_stalk_1"
+   ],
+   "triangles": 163516
+  },
+  "wheel_front": {
+   "objects": [
+    "Front_nominal_tire",
+    "Front_wheel_STUDY",
+    "Front_disc_m1",
+    "Front_disc_carrier_m1",
+    "Front_disc_p1",
+    "Front_disc_carrier_p1"
+   ],
+   "triangles": 94604
+  },
+  "fork_fender": {
+   "objects": [
+    "Fork_outer_tube_m1",
+    "Fork_inner_tube_m1",
+    "Fork_axle_clamp_m1",
+    "Fork_top_cap_m1",
+    "Fork_reflector_m1",
+    "Fork_outer_tube_1",
+    "Fork_inner_tube_1",
+    "Fork_axle_clamp_1",
+    "Fork_top_cap_1",
+    "Fork_reflector_1",
+    "Lower_triple_clamp",
+    "Front_caliper_reserve_m1",
+    "Front_caliper_reserve_1",
+    "Front_brake_hose_upper",
+    "Front_brake_splitter",
+    "Front_brake_hose_caliper_m1",
+    "Front_caliper_banjo_m1",
+    "Front_brake_hose_caliper_1",
+    "Front_caliper_banjo_1",
+    "Front_fender_STUDY"
+   ],
+   "triangles": 42042
+  },
+  "bars_controls": {
+   "objects": [
+    "Upper_triple_clamp",
+    "Bar_riser_m1",
+    "Bar_riser_1",
+    "Bar_half_m1",
+    "Hand_grip_reserve_m1",
+    "Hand_lever_m1",
+    "Bar_half_1",
+    "Hand_grip_reserve_1",
+    "Hand_lever_1",
+    "Bar_centre",
+    "Lever_perch_m1",
+    "Switch_cube_m1",
+    "Harness_connector_m1",
+    "Harness_bar_m1",
+    "Front_master_cylinder",
+    "Front_brake_reservoir",
+    "Front_master_banjo",
+    "Lever_perch_1",
+    "Switch_cube_1",
+    "Harness_connector_1",
+    "Harness_bar_1"
+   ],
+   "triangles": 24642
+  },
+  "screen": {
+   "objects": [
+    "Windscreen_STUDY"
+   ],
+   "triangles": 24
+  },
+  "mirrors": {
+   "objects": [
+    "Mirror_stalk_m1",
+    "Mirror_glass_m1",
+    "Mirror_body_m1",
+    "Mirror_stalk_1",
+    "Mirror_glass_1",
+    "Mirror_body_1"
+   ],
+   "triangles": 3440
+  },
+  "rider_helmet": {
+   "objects": [
+    "rider buck"
+   ],
+   "triangles": 6206
+  },
+  "rider_torso_arms": {
+   "objects": [
+    "rider buck"
+   ],
+   "triangles": 11668
+  },
+  "rider_legs": {
+   "objects": [
+    "rider buck"
+   ],
+   "triangles": 10778
+  }
+ },
+ "unmatched_objects_put_in_lower_body": [],
+ "bounds_m": {
+  "min": [
+   -0.346,
+   -0.4617,
+   0.0
+  ],
+  "max": [
+   1.8121,
+   0.4617,
+   1.7954
+  ]
+ },
+ "frontal_area_m2": {
+  "total": 0.7659,
+  "bike_only": 0.4991,
+  "rider_only": 0.5234
+ },
+ "rider": {
+  "stature_mm": 1755.0,
+  "trunk_lean_deg": 0.0,
+  "seat_sit_point_z_mm": 850.0,
+  "hip": [
+   486.0,
+   90.0,
+   915.0
+  ],
+  "knee": [
+   691.0,
+   220.0,
+   560.0
+  ],
+  "ankle": [
+   277.0,
+   262.0,
+   445.0
+  ],
+  "shoulder": [
+   486.0,
+   228.0,
+   1420.0
+  ],
+  "elbow": [
+   560.0,
+   412.0,
+   1183.0
+  ],
+  "grip": [
+   901.0,
+   351.0,
+   1129.0
+  ],
+  "helmet_centre": [
+   521,
+   0,
+   1645
+  ],
+  "peg": [
+   420,
+   268,
+   340
+  ]
+ }
+}

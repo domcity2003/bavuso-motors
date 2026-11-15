@@ -1,0 +1,76 @@
+id,location,x_mm,y_mm,z_mm,input
+T01,"cell can S001P4, mid-group, busbar end",692.0,-128.0,256.0,Orion thermistor expansion module
+T02,"cell can S003P4, mid-group, busbar end",1028.0,-128.0,256.0,Orion thermistor expansion module
+T03,"cell can S005P4, mid-group, busbar end",790.0,-128.0,280.25,Orion thermistor expansion module
+T04,"cell can S007P4, mid-group, busbar end",783.7,-128.0,304.5,Orion thermistor expansion module
+T05,"cell can S009P4, mid-group, busbar end",1021.7,-128.0,328.75,Orion thermistor expansion module
+T06,"cell can S011P4, mid-group, busbar end",685.7,-128.0,328.75,Orion thermistor expansion module
+T07,"cell can S013P4, mid-group, busbar end",944.01,-128.0,352.99,Orion thermistor expansion module
+T08,"cell can S015P4, mid-group, busbar end",818.01,-128.0,377.24,Orion thermistor expansion module
+T09,"cell can S017P4, mid-group, busbar end",867.17,-128.0,401.49,Orion thermistor expansion module
+T10,"cell can S019P4, mid-group, busbar end",881.17,-128.0,425.74,Orion thermistor expansion module
+T11,"cell can S021P4, mid-group, busbar end",860.87,-128.0,449.99,Orion thermistor expansion module
+T12,"cell can S023P4, mid-group, busbar end",874.87,-128.0,474.24,Orion thermistor expansion module
+T13,"cell can S025P4, mid-group, busbar end",891.94,-128.0,498.49,Orion thermistor expansion module
+T14,"cell can S027P4, mid-group, busbar end",849.94,-128.0,522.74,Orion thermistor expansion module
+T15,"cell can S029P4, mid-group, busbar end",919.65,-128.0,546.98,Orion thermistor expansion module
+T16,"cell can S031P4, mid-group, busbar end",821.65,-128.0,571.23,Orion thermistor expansion module
+T17,"cell can S033P4, mid-group, busbar end",934.83,-128.0,595.48,Orion thermistor expansion module
+T18,"cell can S034P4, mid-group, busbar end",906.83,0.0,595.48,Orion thermistor expansion module
+T19,"cell can S035P4, mid-group, busbar end",738.83,0.0,595.48,Orion thermistor expansion module
+T20,"cell can S036P4, mid-group, busbar end",849.65,0.0,571.23,Orion thermistor expansion module
+T21,"cell can S037P4, mid-group, busbar end",1017.65,0.0,571.23,Orion thermistor expansion module
+T22,"cell can S038P4, mid-group, busbar end",891.65,0.0,546.98,Orion thermistor expansion module
+T23,"cell can S039P4, mid-group, busbar end",723.65,0.0,546.98,Orion thermistor expansion module
+T24,"cell can S040P4, mid-group, busbar end",877.94,0.0,522.74,Orion thermistor expansion module
+T25,"cell can S041P4, mid-group, busbar end",1031.94,0.0,498.49,Orion thermistor expansion module
+T26,"cell can S042P4, mid-group, busbar end",863.94,0.0,498.49,Orion thermistor expansion module
+T27,"cell can S043P4, mid-group, busbar end",734.87,0.0,474.24,Orion thermistor expansion module
+T28,"cell can S044P4, mid-group, busbar end",902.87,0.0,474.24,Orion thermistor expansion module
+T29,"cell can S045P4, mid-group, busbar end",1000.87,0.0,449.99,Orion thermistor expansion module
+T30,"cell can S046P4, mid-group, busbar end",832.87,0.0,449.99,Orion thermistor expansion module
+T31,"cell can S047P4, mid-group, busbar end",741.17,0.0,425.74,Orion thermistor expansion module
+T32,"cell can S048P4, mid-group, busbar end",909.17,0.0,425.74,Orion thermistor expansion module
+T33,"cell can S049P4, mid-group, busbar end",1007.17,0.0,401.49,Orion thermistor expansion module
+T34,"cell can S050P4, mid-group, busbar end",839.17,0.0,401.49,Orion thermistor expansion module
+T35,"cell can S051P4, mid-group, busbar end",678.01,0.0,377.24,Orion thermistor expansion module
+T36,"cell can S052P4, mid-group, busbar end",846.01,0.0,377.24,Orion thermistor expansion module
+T37,"cell can S053P4, mid-group, busbar end",1014.01,0.0,377.24,Orion thermistor expansion module
+T38,"cell can S054P4, mid-group, busbar end",916.01,0.0,352.99,Orion thermistor expansion module
+T39,"cell can S055P4, mid-group, busbar end",748.01,0.0,352.99,Orion thermistor expansion module
+T40,"cell can S056P4, mid-group, busbar end",713.7,0.0,328.75,Orion thermistor expansion module
+T41,"cell can S057P4, mid-group, busbar end",881.7,0.0,328.75,Orion thermistor expansion module
+T42,"cell can S058P4, mid-group, busbar end",1049.7,0.0,328.75,Orion thermistor expansion module
+T43,"cell can S059P4, mid-group, busbar end",923.7,0.0,304.5,Orion thermistor expansion module
+T44,"cell can S060P4, mid-group, busbar end",755.7,0.0,304.5,Orion thermistor expansion module
+T45,"cell can S061P4, mid-group, busbar end",650.0,0.0,280.25,Orion thermistor expansion module
+T46,"cell can S062P4, mid-group, busbar end",818.0,0.0,280.25,Orion thermistor expansion module
+T47,"cell can S063P4, mid-group, busbar end",986.0,0.0,280.25,Orion thermistor expansion module
+T48,"cell can S064P4, mid-group, busbar end",1000.0,0.0,256.0,Orion thermistor expansion module
+T49,"cell can S065P4, mid-group, busbar end",832.0,0.0,256.0,Orion thermistor expansion module
+T50,"cell can S066P4, mid-group, busbar end",664.0,0.0,256.0,Orion thermistor expansion module
+T51,"cell can S067P4, mid-group, busbar end",692.0,128.0,256.0,Orion thermistor expansion module
+T52,"cell can S069P4, mid-group, busbar end",1028.0,128.0,256.0,Orion thermistor expansion module
+T53,"cell can S071P4, mid-group, busbar end",790.0,128.0,280.25,Orion thermistor expansion module
+T54,"cell can S073P4, mid-group, busbar end",783.7,128.0,304.5,Orion thermistor expansion module
+T55,"cell can S075P4, mid-group, busbar end",1021.7,128.0,328.75,Orion thermistor expansion module
+T56,"cell can S077P4, mid-group, busbar end",685.7,128.0,328.75,Orion thermistor expansion module
+T57,"cell can S079P4, mid-group, busbar end",944.01,128.0,352.99,Orion thermistor expansion module
+T58,"cell can S081P4, mid-group, busbar end",818.01,128.0,377.24,Orion thermistor expansion module
+T59,"cell can S083P4, mid-group, busbar end",867.17,128.0,401.49,Orion thermistor expansion module
+T60,"cell can S085P4, mid-group, busbar end",881.17,128.0,425.74,Orion thermistor expansion module
+T61,"cell can S087P4, mid-group, busbar end",860.87,128.0,449.99,Orion thermistor expansion module
+T62,"cell can S089P4, mid-group, busbar end",874.87,128.0,474.24,Orion thermistor expansion module
+T63,"cell can S091P4, mid-group, busbar end",891.94,128.0,498.49,Orion thermistor expansion module
+T64,"cell can S093P4, mid-group, busbar end",849.94,128.0,522.74,Orion thermistor expansion module
+T65,"cell can S095P4, mid-group, busbar end",919.65,128.0,546.98,Orion thermistor expansion module
+T66,"cell can S097P4, mid-group, busbar end",821.65,128.0,571.23,Orion thermistor expansion module
+T67,"cell can S099P4, mid-group, busbar end",934.83,128.0,595.48,Orion thermistor expansion module
+T68,pack+ terminal busbar,,,,Orion local 1
+T69,pack- terminal busbar,,,,Orion local 2
+T70,MSD link S066/S067,,,,Orion local 3
+T71,lane link S033/S034,,,,Orion local 4
+T72,coolant inlet,,,,Orion local 5
+T73,coolant outlet,,,,Orion local 6
+T74,BDU contactor bay air,,,,Orion local 7
+T75,pack interior air (top),,,,Orion local 8

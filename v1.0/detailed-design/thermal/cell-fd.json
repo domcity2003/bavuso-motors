@@ -1,0 +1,53 @@
+{
+ "kr=0.2": {
+  "R_mean_K_per_W": [
+   0.4476,
+   0.4385,
+   0.4361
+  ],
+  "R_peak_K_per_W": [
+   1.0479,
+   1.0508,
+   1.0515
+  ],
+  "peak_over_mean": 2.411,
+  "convergence_pct": 0.54,
+  "hand_radial_only": 1.715,
+  "hand_axial_only": 0.7877,
+  "hand_parallel": 0.5398
+ },
+ "kr=0.6": {
+  "R_mean_K_per_W": [
+   0.2756,
+   0.2706,
+   0.2694
+  ],
+  "R_peak_K_per_W": [
+   0.7102,
+   0.7124,
+   0.713
+  ],
+  "peak_over_mean": 2.647,
+  "convergence_pct": 0.47,
+  "hand_radial_only": 0.5717,
+  "hand_axial_only": 0.7877,
+  "hand_parallel": 0.3313
+ },
+ "kr=1.0": {
+  "R_mean_K_per_W": [
+   0.2015,
+   0.1979,
+   0.197
+  ],
+  "R_peak_K_per_W": [
+   0.5238,
+   0.5253,
+   0.5257
+  ],
+  "peak_over_mean": 2.669,
+  "convergence_pct": 0.47,
+  "hand_radial_only": 0.343,
+  "hand_axial_only": 0.7877,
+  "hand_parallel": 0.239
+ }
+}

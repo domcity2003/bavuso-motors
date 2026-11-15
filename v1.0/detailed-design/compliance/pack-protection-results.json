@@ -1,0 +1,204 @@
+{
+ "bottom_loads": {
+  "S1_static_highcentre_1g_kN": 3.798432,
+  "S2_bottom_out_3g_kN": 11.395296
+ },
+ "skid": {
+  "CAD_4mm_5052H32": {
+   "t_mm": 4,
+   "sy_MPa": 193,
+   "P_collapse_kN": 4.850619057142641,
+   "S1_elastic_sigma_MPa": 402.7691725000989,
+   "S1_elastic_w_mm": 15.987540937500004,
+   "S1_margin": 1.2770056320983607,
+   "S2_margin": 0.4256685440327869,
+   "mass_kg_extended": 2.47632
+  },
+  "6mm_5083H321": {
+   "t_mm": 6,
+   "sy_MPa": 215,
+   "P_collapse_kN": 12.157963569392498,
+   "S1_elastic_sigma_MPa": 179.00852111115506,
+   "S1_elastic_w_mm": 4.737049166666668,
+   "S1_margin": 3.2007848421118235,
+   "S2_margin": 1.066928280703941,
+   "mass_kg_extended": 3.6867599999999996
+  },
+  "8mm_5083H321": {
+   "t_mm": 8,
+   "sy_MPa": 215,
+   "P_collapse_kN": 21.614157456697775,
+   "S1_elastic_sigma_MPa": 100.69229312502472,
+   "S1_elastic_w_mm": 1.9984426171875005,
+   "S1_margin": 5.690284163754353,
+   "S2_margin": 1.8967613879181178,
+   "mass_kg_extended": 4.915679999999999
+  },
+  "5mm_7020T6": {
+   "t_mm": 5,
+   "sy_MPa": 280,
+   "P_collapse_kN": 10.995574287564276,
+   "S1_elastic_sigma_MPa": 257.7722704000633,
+   "S1_elastic_w_mm": 8.185620960000003,
+   "S1_margin": 2.894766653072709,
+   "S2_margin": 0.9649222176909029,
+   "mass_kg_extended": 3.210899999999999
+  }
+ },
+ "pack_floor_4mm_6061T6": {
+  "P_collapse_kN": 6.031857894892402,
+  "S2_margin": 0.5293287594190096,
+  "gap_floor_to_cell_mm": 1
+ },
+ "wall_inertia": {
+  "UN38.3_T4_large_battery_gn": {
+   "g": 14.979417441811144,
+   "force_kN": 15.71168925933757,
+   "q_side_kPa": 98.8472681944985,
+   "q_floor_kPa": 81.31334233499757,
+   "side_4mm_span375": {
+    "sigma_MPa": 369.5351064351533,
+    "w_mm": 31.178156285127532
+   },
+   "side_6mm_span375": {
+    "sigma_MPa": 164.23782508229036,
+    "w_mm": 9.23797223263038
+   },
+   "side_4mm_span150": {
+    "sigma_MPa": 100.39311590997522,
+    "w_mm": 1.5144234408016446
+   },
+   "side_6mm_span150": {
+    "sigma_MPa": 44.61916262665565,
+    "w_mm": 0.44871805653382063
+   },
+   "side_4mm_span100": {
+    "sigma_MPa": 46.17823116425338,
+    "w_mm": 0.3125735958937907
+   },
+   "side_6mm_span100": {
+    "sigma_MPa": 20.523658295223726,
+    "w_mm": 0.09261439878334539
+   },
+   "floor_4mm_span388": {
+    "sigma_MPa": 312.35500788676444,
+    "w_mm": 27.984046516885897
+   },
+   "floor_4mm_span125": {
+    "sigma_MPa": 56.87728539025942,
+    "w_mm": 0.5945641120442328
+   }
+  },
+  "tipover_sidewall_gn_est": {
+   "g": 15.0,
+   "force_kN": 15.733278,
+   "q_side_kPa": 98.98308987496945,
+   "q_floor_kPa": 81.4250714196994,
+   "side_4mm_span375": {
+    "sigma_MPa": 370.04286835984584,
+    "w_mm": 31.220996817374715
+   },
+   "side_6mm_span375": {
+    "sigma_MPa": 164.46349704882036,
+    "w_mm": 9.250665723666582
+   },
+   "side_4mm_span150": {
+    "sigma_MPa": 100.53106167175163,
+    "w_mm": 1.5165043433944156
+   },
+   "side_6mm_span150": {
+    "sigma_MPa": 44.680471854111836,
+    "w_mm": 0.44933462026501203
+   },
+   "side_4mm_span100": {
+    "sigma_MPa": 46.24168263916479,
+    "w_mm": 0.3130030895140049
+   },
+   "side_6mm_span100": {
+    "sigma_MPa": 20.55185895073991,
+    "w_mm": 0.09274165615229775
+   },
+   "floor_4mm_span388": {
+    "sigma_MPa": 312.78420115481924,
+    "w_mm": 28.022498163489036
+   },
+   "floor_4mm_span125": {
+    "sigma_MPa": 56.9554379646647,
+    "w_mm": 0.5953810764208979
+   }
+  },
+  "road_vertical_pothole_gn": {
+   "g": 8.0,
+   "force_kN": 8.391081600000001,
+   "q_side_kPa": 52.790981266650384,
+   "q_floor_kPa": 43.42670475717303,
+   "side_4mm_span375": {
+    "sigma_MPa": 197.3561964585845,
+    "w_mm": 16.651198302599852
+   },
+   "side_6mm_span375": {
+    "sigma_MPa": 87.71386509270422,
+    "w_mm": 4.933688385955511
+   },
+   "side_4mm_span150": {
+    "sigma_MPa": 53.6165662249342,
+    "w_mm": 0.8088023164770217
+   },
+   "side_6mm_span150": {
+    "sigma_MPa": 23.829584988859647,
+    "w_mm": 0.23964513080800645
+   },
+   "side_4mm_span100": {
+    "sigma_MPa": 24.662230740887896,
+    "w_mm": 0.166934981074136
+   },
+   "side_6mm_span100": {
+    "sigma_MPa": 10.96099144039462,
+    "w_mm": 0.04946221661455882
+   },
+   "floor_4mm_span388": {
+    "sigma_MPa": 166.81824061590368,
+    "w_mm": 14.945332353860824
+   },
+   "floor_4mm_span125": {
+    "sigma_MPa": 30.376233581154523,
+    "w_mm": 0.31753657409114555
+   }
+  }
+ },
+ "side_crush": {
+  "target_kN": 100.0,
+  "crush_zone_now_mm": 15,
+  "crush_zone_proposed_mm": 25,
+  "note": "cell caps face the side wall; without a crush zone, side intrusion shorts cells"
+ },
+ "breakover_deg_flat_skid": 32.403174789623115,
+ "skid_clearance_full_bump_mm": 76.59539945941663,
+ "component_heights_mm": {
+  "pack_case_bottom": 238,
+  "hv_cabinet_bottom": 245,
+  "gear_case_bottom_at_pivot": 315,
+  "motor_bottom": 410.3999865490242,
+  "front_wheel_bearing": 325.3,
+  "rear_wheel_bearing": 311.9,
+  "pack_case_top": 613.5,
+  "charger_bottom": 630,
+  "radiator_bottom": 640,
+  "inverter_bottom": 715,
+  "bms_bottom": 820,
+  "pack_vent_proposed": 650
+ },
+ "fording": {
+  "rated_depth_mm": 450,
+  "bow_wave_allowance_mm": 100,
+  "ip67_required_below_mm": 550,
+  "below": [
+   "pack_case_bottom",
+   "hv_cabinet_bottom",
+   "gear_case_bottom_at_pivot",
+   "motor_bottom",
+   "front_wheel_bearing",
+   "rear_wheel_bearing"
+  ]
+ }
+}

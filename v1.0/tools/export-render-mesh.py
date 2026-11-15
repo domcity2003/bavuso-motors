@@ -14,6 +14,7 @@ D=A.openDocument(str(R/f"cad/Bavuso-V1.0-{os.environ.get('BAVUSO_MODEL','integra
 def kind(o):
     """Material key for a part, mirroring render-integrated.FCMacro."""
     n=o.Name
+    if n.startswith('Rider_'):return 'rider'
     if 'tire' in n:return 'tyre'
     if 'hose' in n or 'Harness_bar' in n:return 'hose'
     if 'banjo' in n or 'splitter' in n or 'Rear_brake_junction' in n:return 'alu'
@@ -52,7 +53,8 @@ out.mkdir(exist_ok=True)
 objf=(out/'bavuso.obj').open('w');mtl=set()
 objf.write('mtllib bavuso.mtl\n')
 base=1;count=0
-for g in ('Energy','Electronics','Drive','Chassis','RunningGear','BodyStudy'):
+for g in ('Energy','Electronics','Drive','Chassis','RunningGear','BodyStudy','Cooling','Protection','RiderStudy'):
+    if D.getObject(g) is None:continue   # RiderStudy exists only in the *-rider model (tools/rider-figure.py)
     for o in D.getObject(g).Group:
         if o.Name.startswith(('Cell_column','Cell_lane')) or not hasattr(o,'Shape') or o.Shape.isNull():continue
         k=kind(o);mtl.add(k)

@@ -1,0 +1,180 @@
+{
+ "battery_loop": {
+  "flow_lpm": 15.0,
+  "ribbon": {
+   "count": 6,
+   "flow_each_lpm": 2.5,
+   "length_m": 2.0,
+   "velocity_m_s": 0.421,
+   "Dh_mm": 1.92,
+   "Re": 391.0,
+   "h_W_m2K": 1126.0,
+   "dp_Pa": 20381.0
+  },
+  "hose": {
+   "ID_mm": 16,
+   "length_m": 2.2,
+   "velocity_m_s": 1.24,
+   "Re": 9631.0,
+   "dp_Pa": 8550.0
+  },
+  "dp_total_kPa": 42.4,
+  "hydraulic_W": 10.6,
+  "pump_electrical_W": 42.0
+ },
+ "drive_loop": {
+  "flow_lpm": 12.0,
+  "hose": {
+   "ID_mm": 16,
+   "length_m": 3.2,
+   "velocity_m_s": 0.99,
+   "Re": 7705.0,
+   "dp_Pa": 7769.0
+  },
+  "dp_total_kPa": 33.3,
+  "hydraulic_W": 6.7,
+  "pump_electrical_W": 27.0
+ },
+ "pump_check": "Pierburg CWA50 class: ~25 L/min at 0.53 bar, 24 L/min / 0.6 bar max, <6.5 A at 12 V (Rheinmetall / tecomotive datasheet). Both loops sit at 15-25 % of its pressure capability at the design flow.",
+ "coolant_volume_L": {
+  "ribbons": 1.19,
+  "pack_manifolds": 0.35,
+  "radiators": 0.33,
+  "hoses": 1.09,
+  "inverter": 0.2,
+  "obc_plate": 0.12,
+  "oil_hx": 0.1,
+  "heater": 0.15,
+  "pumps": 0.1,
+  "reservoir_working": 0.3,
+  "total": 3.93
+ },
+ "parts": [
+  {
+   "item": "Radiator core 32 mm, brazed Al, plastic tanks",
+   "qty": 2,
+   "mass_each_kg": 0.81,
+   "mass_kg": 1.61,
+   "usd_10k_each": 55,
+   "usd_10k": 110
+  },
+  {
+   "item": "Puller fan 190 mm (7.5 in) BLDC, shroud",
+   "qty": 2,
+   "mass_each_kg": 0.55,
+   "mass_kg": 1.1,
+   "usd_10k_each": 35,
+   "usd_10k": 70
+  },
+  {
+   "item": "Coolant pump 12 V BLDC, CWA50 class",
+   "qty": 2,
+   "mass_each_kg": 0.55,
+   "mass_kg": 1.1,
+   "usd_10k_each": 75,
+   "usd_10k": 150
+  },
+  {
+   "item": "Cooling ribbons, Al multiport 105x1.6 mm, 6 serpentines x 2.0 m, dielectric-coated",
+   "qty": 1,
+   "mass_each_kg": 2.18,
+   "mass_kg": 2.18,
+   "usd_10k_each": 180,
+   "usd_10k": 180
+  },
+  {
+   "item": "Pack inlet/outlet manifolds + bulkhead quick-connects",
+   "qty": 1,
+   "mass_each_kg": 0.7,
+   "mass_kg": 0.7,
+   "usd_10k_each": 60,
+   "usd_10k": 60
+  },
+  {
+   "item": "Thermal adhesive 0.2 mm, cells to ribbon",
+   "qty": 1,
+   "mass_each_kg": 0.41,
+   "mass_kg": 0.41,
+   "usd_10k_each": 40,
+   "usd_10k": 40
+  },
+  {
+   "item": "HV PTC coolant heater 5 kW",
+   "qty": 1,
+   "mass_each_kg": 1.9,
+   "mass_kg": 1.9,
+   "usd_10k_each": 190,
+   "usd_10k": 190
+  },
+  {
+   "item": "4-port coolant valve (battery/drive radiator cross-connect + heater bypass)",
+   "qty": 1,
+   "mass_each_kg": 0.45,
+   "mass_kg": 0.45,
+   "usd_10k_each": 45,
+   "usd_10k": 45
+  },
+  {
+   "item": "Oil-to-water plate HX on gear case (in drive-unit allowance)",
+   "qty": 1,
+   "mass_each_kg": 0.0,
+   "mass_kg": 0.0,
+   "usd_10k_each": 0,
+   "usd_10k": 0
+  },
+  {
+   "item": "Hoses 16 mm ID EPDM, 5.4 m, clamps, P-clips",
+   "qty": 1,
+   "mass_each_kg": 0.95,
+   "mass_kg": 0.95,
+   "usd_10k_each": 35,
+   "usd_10k": 35
+  },
+  {
+   "item": "Reservoir/degas bottle 0.6 L with cap",
+   "qty": 1,
+   "mass_each_kg": 0.25,
+   "mass_kg": 0.25,
+   "usd_10k_each": 12,
+   "usd_10k": 12
+  },
+  {
+   "item": "Coolant 50/50 EGW",
+   "qty": 1,
+   "mass_each_kg": 4.19,
+   "mass_kg": 4.19,
+   "usd_10k_each": 8,
+   "usd_10k": 8
+  },
+  {
+   "item": "Temperature sensors (coolant x4, cell NTC on BMS)",
+   "qty": 1,
+   "mass_each_kg": 0.1,
+   "mass_kg": 0.1,
+   "usd_10k_each": 20,
+   "usd_10k": 20
+  },
+  {
+   "item": "Fire barrier: intumescent foam in non-ribbon gaps (~8 L)",
+   "qty": 1,
+   "mass_each_kg": 2.4,
+   "mass_kg": 2.4,
+   "usd_10k_each": 70,
+   "usd_10k": 70
+  },
+  {
+   "item": "Pack vent valve with burst disc + vent plenum liners (mica)",
+   "qty": 1,
+   "mass_each_kg": 0.5,
+   "mass_kg": 0.5,
+   "usd_10k_each": 45,
+   "usd_10k": 45
+  }
+ ],
+ "totals": {
+  "mass_kg": 17.84,
+  "usd_10k": 1035,
+  "usd_1k_estimate": 1656
+ },
+ "vs_rollup": "mass-rollup.csv allows 2.8 kg (pump, hoses, 2 L coolant) + 2 x 1.15 kg side radiators + 16.3 kg pack internals allowance (cooling ribbon included there)"
+}

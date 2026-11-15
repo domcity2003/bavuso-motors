@@ -1,0 +1,25 @@
+{
+ "total_kg": 137.6,
+ "total_usd_proto": 21984,
+ "total_usd_vol": 8305,
+ "cells_usd_vol": 4900,
+ "noncell_usd_vol": 3404,
+ "rollup_lines_compared": [
+  "Pack internals (busbars, cooling ribbon, potting, slave boards)",
+  "HV cables and lugs",
+  "DC-DC converter 1 kW",
+  "12 V lithium battery",
+  "LV wiring harness",
+  "Orion_BMS2_108_supplier_STEP",
+  "HV_cabinet_2mm_STUDY",
+  "GX14_main_positive_OUTLINE",
+  "GX14_main_negative_OUTLINE",
+  "BROGEN_PV1776_body"
+ ],
+ "rollup_kg": 33.43,
+ "bom_noncell_kg": 30.73,
+ "delta_kg": -2.7,
+ "pack_internal_electrical_kg": 7.26,
+ "pack_internal_allowance_kg": 16.294,
+ "note": "pack-internal electrical mass excludes cooling ribbon, potting and cell restraints, which share the same allowance"
+}

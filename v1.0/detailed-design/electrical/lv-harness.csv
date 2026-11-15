@@ -1,0 +1,38 @@
+circuit,I_A,run_length_m,gauge_mm2,vdrop_pct,fuse_or_channel_A
+DC-DC output -> PDM main (+ and return),55.6,1.2,16.0,1.49,150 A MIDI fuse at DC-DC
+12 V battery -> PDM main,77.2,0.5,10.0,1.35,100 A MIDI fuse at battery
+Chassis/HV-box bonding straps,0,0.3,6.0,0,none (bonding <0.1 ohm)
+Headlamp low beam LED,1.85,1.47,0.5,1.95,3
+Headlamp high beam LED (adds),2.22,1.47,0.5,2.34,5
+DRL blade,0.59,1.51,0.5,0.64,2
+Aux fog / cornering lamps (adventure pack),2.22,1.37,0.5,2.17,5
+Tail / stop LED,0.44,1.28,0.5,0.41,2
+"Indicators LED (2 flashing, 50%)",0.37,1.01,0.5,0.27,2
+Plate lamp,0.15,1.41,0.5,0.15,2
+TFT dash 7 in + switch cubes,0.89,1.42,0.5,0.9,2
+VCU (AEM VCU200 class),0.44,0.38,0.5,0.12,2
+BMS Orion BMS2,0.15,0.84,0.5,0.09,2
+Thermistor expansion module,0.07,0.84,0.5,0.04,2
+Isolation monitor Bender iso175,0.15,0.52,0.5,0.06,2
+Current sensor IVT-S,0.11,0.87,0.5,0.07,2
+Inverter control board,1.11,0.68,0.5,0.54,2
+OBC / DC-DC / EVCC control,0.59,0.75,0.5,0.32,2
+Main contactors GX14 x2 (economised hold),0.41,0.4,0.5,0.12,2
+Contactor pull-in x2 (75 ms),4.44,0.4,0.5,1.26,7.5
+DC charge contactors GX14 x2 (hold),0.41,0.83,0.5,0.25,2
+ABS / cornering ABS ECU + IMU (Bosch MSC class),0.74,0.58,0.5,0.31,2
+ABS pump motor (pressure modulation),22.22,0.58,4.0,1.18,30
+"Coolant pump drive loop (motor oil HX, inverter, OBC)",3.33,1.03,0.5,2.45,5
+Coolant pump battery loop,3.33,1.03,0.5,2.45,5
+Gearbox / motor oil pump,2.96,0.75,0.5,1.58,5
+Radiator fans x2,9.63,0.86,1.0,2.95,15
+Heated grips,2.96,1.15,0.5,2.44,5
+Heated seat (rider),2.96,0.64,0.5,1.36,5
+USB-C PD outlet,4.44,1.25,0.5,3.96,7.5
+Keyless (KESSY-class) + immobiliser + steering lock,0.07,1.18,0.5,0.06,2
+Steering lock actuator (transient),2.22,1.18,0.5,1.87,5
+Horn,3.33,1.2,0.5,2.86,5
+Telematics / LTE + GNSS,0.3,0.72,0.5,0.15,2
+TPMS receiver + radar (future ARAS),0.59,1.33,0.5,0.56,2
+Electric screen adjust (transient),2.96,1.46,0.5,3.1,5
+Battery-pack heater control relay,0.07,0.45,0.5,0.02,2

@@ -27,8 +27,10 @@ groups={}
 records=[]
 def group(name):
     g=D.addObject('App::DocumentObjectGroup',name);groups[name]=g;return g
-for n in ['Energy','Electronics','Drive','Chassis','RunningGear','BodyStudy','Keepouts']:group(n)
+for n in ['Energy','Electronics','Drive','Chassis','RunningGear','BodyStudy','Cooling','Protection','Keepouts']:group(n)
+import time as _time;_T0=_time.time();_TRACE=os.environ.get('BAVUSO_TRACE')
 def add(name,shape,g,basis,source='',color=(.35,.38,.42),hide=False):
+    if _TRACE:print(f'[{_time.time()-_T0:7.1f}s] {name}',flush=True)
     o=D.addObject('Part::Feature',name)
     o.Label=name.replace('_',' ');o.Shape=shape
     for prop,value in [('Definition',basis),('Source',source),('ReleaseState','DEVELOPMENT - NOT FOR FABRICATION')]:
@@ -54,19 +56,21 @@ def rounded(s,r):
     return s
 frame_segs=[]
 def tube(name,a,b,ro,ri,g='Chassis'):
-    if g=='Chassis' and name.split('_')[0] in ('Upper','Lower','Tail'):frame_segs.append((a,b))
+    if g=='Chassis' and name.split('_')[0] in ('Upper','Lower','Tail'):frame_segs.append((a,b,ro))
     return add(name,cyl(a,b,ro,ri),g,'PROPOSED centerline and section; material/joints/fatigue NOT qualified',color=(.1,.105,.11))
 def sname(base,side):return f'{base}_{side}'.replace('-','m')
 
 # Adventure layout. Ground is at Z=-LIFT in these coordinates (see module docstring).
-LIFT=40.0                                   # sprung mass raised vs the V1.0 road model; equals the extra rear travel
-RF,RR=325.3,311.9                           # 120/70ZR19 front (241.3 bead + 84), 160/60ZR17 rear (215.9 + 96)
+LIFT=53.1                                   # 40 + 13.1: the bigger real rear tyre keeps the rear axle where it was in the frame
+RF,RR=331.5,325.0                           # Metzeler Tourance Next 2 max in-service: 120/70R19 663x133, 170/60R17 650x190 (supplier-parts.md)
 FRONT_TRAVEL,REAR_TRAVEL=170,170         # 180 front left the lower clamp 17mm off the 19in tyre at full bump
 REAR_SAG=0.30*REAR_TRAVEL                   # rider-on static is the model position; droop below it
 RAKE=math.radians(25);FORK_OFF=36.1         # tube axis 36.1mm ahead of the steering axis (V1.0 value)
 SA0=(1206.954,800.0)                        # steering axis lower reference point (sprung, unchanged)
 RZ=RR-LIFT                                  # rear axle height in model coordinates
 PZ=float(os.environ.get('BAVUSO_PIVOT_Z','350'))   # swingarm pivot = motor axis (model Z). At 470 anti-squat was 175%; see rear-kinematics.py
+TAIL_RAIL_END=827.0   # Nov 14: tail rail rear end 10 up (its front node is lower now) so it stays 20+ mm off the tyre at full bump
+RAIL_LIFT=lambda x:(TAIL_RAIL_END-817.0)*max(0.0,568-x)/628   # tail top and pillion rise with the rail
 FZ=RF-LIFT
 W_AXLE=(FZ-SA0[1]-math.sin(RAKE)*FORK_OFF)/math.cos(RAKE)          # front axle along the steering frame
 FX=SA0[0]+math.cos(RAKE)*FORK_OFF-math.sin(RAKE)*W_AXLE
@@ -86,9 +90,9 @@ def x_cover(z,gap=22.0):
     return lo
 P=dict(wheelbase_mm=round(FX,1),motor_axis_mm=[540,0,PZ],pivot_mm=[540,0,PZ],rear_tire_radius_mm=RR,
        front_tire_radius_mm=RF,front_travel_mm=FRONT_TRAVEL,rear_vertical_travel_mm=REAR_TRAVEL,rake_deg=25,
-       trail_mm=round(TRAIL,1),sprung_lift_vs_v1_mm=LIFT,tyres='120/70ZR19 front, 160/60ZR17 rear',
+       trail_mm=round(TRAIL,1),sprung_lift_vs_v1_mm=LIFT,tyres='120/70R19 front, 170/60R17 rear (Metzeler Tourance Next 2 class)',
        steering_axis_lower_mm=[1206.954,0,800],steering_axis_upper_mm=[1132.345,0,960],
-       seat_top_rider_mm=[486,0,810],grip_reference_mm=[902,351,1089],peg_reference_mm=[420,190,300],   # comfort-study.md (Nov 11): seat +10, pegs 80 down / 80 back
+       seat_top_rider_mm=[530,0,779],grip_reference_mm=[917,351,1059],peg_reference_mm=[420,190,270],   # comfort-study.md (Nov 14 update): seat 31 down / 44 fwd, pegs 30 down, grips 15 fwd / 30 down
        note_coordinates='values here are model coordinates; add sprung_lift_vs_v1_mm for height above ground',
        body_reference='design/baseline black.png; 1,480 mm wheelbase spans 1,097 px, so 1.35 mm/px',
        pack='structural, 594 x 26120-class cylinders, 99s6p, three transverse lanes')
@@ -101,8 +105,8 @@ CELL_R,CELL_L,CELL_WH,CELL_G=13.0,120.0,55.0,180.0       # 26120 class, modelled
 SERIES,PAR=99,6;PER_LANE=SERIES*PAR//3
 PITCH=28.0;DZ=PITCH*math.sqrt(3)/2                       # 2mm between cells for the cooling ribbon / spacer
 WALL=4.0;CLR=1.0                                         # structural walls; cell-to-wall insulation gap
-LANES=(-128.0,0.0,128.0)                                 # 8mm between lanes for busbars and insulation
-YI=LANES[-1]+CELL_L/2+2;YO=YI+WALL                       # inner/outer half-width
+LANES=(-132.6,0.0,132.6)                                 # 12.6mm between lanes: room for the tapered Al busbars (electrical-detailed.md)
+YI=LANES[-1]+CELL_L/2+7.3;YO=YI+WALL                     # inner/outer half-width; 7.3mm end gap (busbar return + crush space)
 PACK_FLOOR=198.0                                         # outer case bottom (V1.0: 150)
 COVER_SKIN=11.4                                          # pack-to-cover gap 8.4 + 3mm skin (V1.0 values)
 RW=CELL_R+CLR+WALL                                       # cell centre to case outer face
@@ -155,8 +159,21 @@ while n<PER_LANE:
     bands.append(dict(xlo=min(x for _,xs in used for x in xs)-RW,xhi=max(x for _,xs in used for x in xs)+RW,
                       zlo=zlo,zhi=used[-1][0]+RW));k+=1
 assert n==PER_LANE
+FCH=9.0   # 9x45 front vertical corner chamfer of the case (lower-cover clearance; aero-study.md CR-1)
+CH=8.0   # 8x45 bottom-edge chamfer so the case stays inside the 47 deg lean line of the chamfered covers (dynamics-study.md)
 def band_solid(b,inset):
-    return box(b['xlo']+inset,-YO+inset,b['zlo']+inset,b['xhi']-b['xlo']-2*inset,2*(YO-inset),b['zhi']-b['zlo']-2*inset)
+    bx=box(b['xlo']+inset,-YO+inset,b['zlo']+inset,b['xhi']-b['xlo']-2*inset,2*(YO-inset),b['zhi']-b['zlo']-2*inset)
+    if b is bands[0]:bx=bx.cut(_corner_cut(YO-CH-PACK_FLOOR-inset*math.sqrt(2)))   # only the bottom band reaches the floor edge
+    c=b['xhi']+YO-FCH-inset*math.sqrt(2)   # front vertical corners: removes x+|y| > c
+    for sy in (-1,1):
+        w=Part.makeBox(200,200,1200);w.rotate(V(0,0,0),V(0,0,1),-45);w.translate(V(c-YO-20,YO+20,-100))   # face on x+y=c
+        if sy<0:w=w.mirror(V(0,0,0),V(0,1,0))
+        bx=bx.cut(w)
+    return bx
+def _corner_cut(c):   # removes y-z > c (and its mirror): a 45 deg chamfer along the case's bottom outer edges
+    z1=PACK_FLOOR-60;tri=[V(0,c+z1,z1),V(0,c+z1+300,z1),V(0,c+z1+300,z1+300)]
+    f=Part.Face(Part.makePolygon(tri+[tri[0]]));f.translate(V(-500,0,0));w=f.extrude(V(3000,0,0))
+    return Part.makeCompound([w,w.mirror(V(0,0,0),V(0,1,0))])
 outer=band_solid(bands[0],0).fuse([band_solid(b,0) for b in bands[1:]]).removeSplitter()
 inner=band_solid(bands[0],WALL).fuse([band_solid(b,WALL) for b in bands[1:]]).removeSplitter()
 case=add('Pack_case_structural_4mm_STUDY',outer.cut(inner),'Energy',
@@ -235,10 +252,7 @@ for nm,(x,y,z) in gx14:
         'GX14 manufacturer DRAWING outline only (114.8x59.8x57.3); supplier STEP not retrieved; reverse-break duty unconfirmed',gx14_src,(.75,.2,.15))
 add('Main_fuse_branch_search_region',fuse_box,'Keepouts','Unselected main fuse/holder region; 30EV family is comparison only',hide=True)
 
-# Heat exchangers moved inboard under the tank sides behind side grilles (baseline image vent at X1040-1100).
-for side in [-1,1]:
-    ya=128 if side==1 else -178
-    add(sname('Side_radiator',side),box(960,ya,600,110,50,140),'Electronics','UNSIZED side heat-exchanger/fan reservation behind body grille',color=(.4,.45,.5))
+# Heat exchangers: the old unsized 110x50 side cores are replaced by the side-pod radiators sized in thermal-study.md (added below).
 
 # ---------------------------------------------------------------- running gear
 def revolve_rz(pts,x,z,closed=True,smooth=False):
@@ -314,7 +328,7 @@ def wheel(name,x,z,width,r,front,rim_in):
                                      sect(t+math.radians(5),bead-6,6.5,8,0)],True,False))
     add(name+'_wheel_STUDY',Part.makeCompound([rim,hub]+spokes),'RunningGear',
         f'ILLUSTRATIVE cast/forged 10-spoke {rim_in}x{ws/25.4:.2f} wheel: J-flange rim with drop centre, hub with disc flanges; OEM hub/offset CAD absent',color=(.1,.105,.11))
-    discR=160 if front else 120
+    discR=160 if front else 133.5   # rear 267x6 (dynamics-study.md: 240 reached 506 C in the R78 fade test)
     for side in ([-1,1] if front else [1]):
         yd=side*(hubw/2+6)
         disc=cyl((x,yd,z),(x,yd+side*5,z),discR,discR-38)
@@ -351,8 +365,8 @@ def caliper(x,z,yd,side,discR,half_deg,pistons):
     slot=cyl((x,slot_lo,z),(x,slot_hi,z),discR+5)
     bridge=cyl((x+(discR+9),yi-side*2,z),(x+(discR+9),yo_+side*2,z),4.5);bridge.rotate(V(x,0,z),V(0,1,0),-180)
     return body.cut(slot).fuse(bridge)
-wheel('Rear',0,RZ,160,RR,False,17)
-wheel('Front',FX,FZ,120,RF,True,19)
+wheel('Rear',0,RZ,180,RR,False,17)
+wheel('Front',FX,FZ,130,RF,True,19)   # widths near max in-service so the sweeps built from them are conservative
 rear_sweeps=[];front_sweeps=[]
 arm=math.hypot(540,PZ-RZ)
 def rear_axle(rz):return 540-math.sqrt(arm*arm-(rz-PZ)**2),rz
@@ -361,9 +375,9 @@ for i in range(21):
     # Droop to 51mm (30% sag) below static, bump to 170mm above it. Real bump is +119 (shock stroke); +170 is kept
     # as a conservative envelope for the body/frame checks.
     rz=RZ-REAR_SAG+(REAR_TRAVEL+REAR_SAG)*t;rx=rear_axle(rz)[0]
-    rear_sweeps.append(cyl((rx,-80,rz),(rx,80,rz),RR))
+    rear_sweeps.append(cyl((rx,-95,rz),(rx,95,rz),RR))
     fx,fz=front_centres[i]
-    front_sweeps.append(cyl((fx,-60,fz),(fx,60,fz),RF))
+    front_sweeps.append(cyl((fx,-66.5,fz),(fx,66.5,fz),RF))
 rearSweep=add('Rear_bump_sampled_keepout',Part.makeCompound(rear_sweeps),'Keepouts',f'21 samples, droop {REAR_SAG:.0f}mm to bump {REAR_TRAVEL}mm from static; growth absent',hide=True)
 frontSweep=add('Front_bump_sampled_keepout',Part.makeCompound(front_sweeps),'Keepouts',f'21 samples, {FRONT_TRAVEL}mm at 25deg from static; steering sweep NOT included',hide=True)
 def arm_z(x):return RZ+(PZ-RZ)*x/540            # swingarm centreline height at X (pivot to rear axle)
@@ -374,45 +388,58 @@ steerKeep=add('Steering_sweep_keepout',Part.makeCylinder(140,(steer_hi-steer_lo)
               'Envelope of fork legs/clamps about steering axis at any lock; body is cut to it',hide=True)
 
 # ---------------------------------------------------------------- chassis (Codex rework frame, rails re-routed for body/seat)
+# Nov 14 (comfort): the rail node at the seat front moves 43 mm inboard (Y+-152) and 25 mm down, so the frame under the
+# rider's thighs is 368 mm across the tubes (was 428). The upper rail runs from there back out to Y+-195 at X1050.
+def urail_y(x):return 152.0+43*(x-570)/480
+def urail_z(x):return 715.0+65*(x-570)/480
 for side in [-1,1]:
-    y=side*195
+    y=side*195;yn=side*152.0
     # The pivot node is low now (PZ), so the pack wraps over the motor; the rail rises nearly vertically
     # behind the pack's top steps (X>=590) instead of leaning forward into them.
-    for i,(a,b) in enumerate([((540,y,PZ),(570,y,740)),((570,y,740),(1050,y,780)),((1050,y,780),(1184,side*35,850))]):
-        tube(sname(f'Upper_rail_{i}',side),a,b,16,13.5)
+    # Sizes from detailed-design/structural-fea.md (4130): 44x3.5 / 38x3 / 45x4; the head joint moves up to w=120 on the axis.
+    for i,(a,b,ro,ri) in enumerate([((540,y,PZ),(570,yn,715),22,18.5),((570,yn,715),(1050,y,780),19,16),((1050,y,780),(1156.2,side*35,908.8),22.5,18.5)]):
+        tube(sname(f'Upper_rail_{i}',side),a,b,ro,ri)
+    # Posts from the upper rail down to machined pads on the pack roof (FEA CR-7): triangulate each side loop.
+    for nm,xr,xp in (('front',960,950),('rear',700,712)):   # front post 40 aft of the FEA X1000 so the side-pod radiator clears it
+        tube(sname(f'Upper_post_{nm}',side),(xr,side*urail_y(xr),urail_z(xr)-14),(xp,side*178,576.5),16,13.5)
     # No lower rails: the structural pack is the lower frame. A down-link pair runs from the head tube to
     # lugs on the pack front face, and a rear link pair from the pivot node down to the pack's rear step.
     # The links stop short of the case; the bolted lugs between them are not modelled.
     zf_lug=470.0   # was 400: a higher lug runs the link further back and outboard past the steered tyre (lock sweep, Nov 11)
     bf=next(b for b in bands if b['zlo']<=zf_lug<=b['zhi'])
-    tube(sname('Lower_downlink',side),(1184,side*35,850),(bf['xhi']+17,side*180,zf_lug),16,13.5)   # wide lugs keep 20mm off the tyre
+    tube(sname('Lower_downlink',side),(1184,side*39,850),(bf['xhi']+22,side*184,zf_lug),20,16.5)   # 40x3.5 (FEA); lugs out to +-184 keep 20mm off the tyre
+    # Head gusset (FEA CR-5): 10mm plate, 60 wide, from the upper-rail head joint to 35% down the down-link.
+    g0=V(1156.2,side*37,908.8);g1=V(1184,side*39,850)+(V(bf['xhi']+22,side*184,zf_lug)-V(1184,side*39,850))*.35
+    gp=[(g0.x,g0.z),(1184,850),(g1.x,g1.z),(g0.x-30,g0.z-60)]
+    add(sname('Head_gusset',side),Part.Face(Part.makePolygon([V(x_,side*37-5,z_) for x_,z_ in gp+[gp[0]]])).extrude(V(0,10,0)),'Chassis',
+        '10mm 4130 head gusset (structural-fea.md CR-5)',color=(.1,.105,.11))
     # Rear link: pivot node straight forward to a lug on the pack's rear face beside the motor.
-    zr_lug=PZ+30
+    zr_lug=PZ+36
     br=next(b for b in bands if b['zlo']<=zr_lug<=b['zhi'])
-    tube(sname('Lower_pack_rear_link',side),(540,y,PZ),(br['xlo']-17,side*175,zr_lug),16,13.5)
-    tube(sname('Tail_rail',side),(568,y,715),(-60,side*100,790),14,12)   # 10mm higher than V1.0: 20mm off the tyre at full bump
+    tube(sname('Lower_pack_rear_link',side),(540,y,PZ),(br['xlo']-17,side*175,zr_lug),22,18.5)   # 44x3.5 (FEA CR-8)
+    tube(sname('Tail_rail',side),(568,yn,692),(-60,side*100,TAIL_RAIL_END),19,16)   # 38x3 (FEA CR-9); rear end up 8.5 for the 170/60 tyre   # 10mm higher than V1.0: 20mm off the tyre at full bump
     tube(sname('Tail_brace',side),(540,y,PZ),(160,side*144,740),14,12)
     # Box-section swingarm arm, 74x34 at the pivot tapering to 52x30 at the axle (loft of two sections).
     # Belt-side (left) arm sits 8mm further out: at Y-108 its inner face was 3mm from the EMRAX output hub (Y-105).
-    ya=125+(8 if side<0 else 0)
+    ya=125+(33 if side<0 else 0)   # belt side out 25 more for the moved belt plane (supplier CR-3)
     adir=V(0,side*ya,RZ)-V(540,side*ya,PZ);alen=adir.Length;adir.normalize();an=V(-adir.z,0,adir.x)
     if an.z<0:an=-an
     def sect(p,h,w):
         q=[p+an*(h/2)+V(0,w/2,0),p+an*(h/2)-V(0,w/2,0),p-an*(h/2)-V(0,w/2,0),p-an*(h/2)+V(0,w/2,0)]
         return Part.makePolygon(q+[q[0]])
-    arm_=Part.makeLoft([sect(V(540,side*ya,PZ)+adir*30,92,34),sect(V(0,side*ya,RZ)-adir*30,58,30)],True)
+    arm_=Part.makeLoft([sect(V(540,side*ya,PZ)+adir*30,135,34),sect(V(0,side*ya,RZ)-adir*30,75,30)],True)   # 6061-T6, 4.5/4.0 wall (FEA CR-13)
     arm_=arm_.fuse(cyl((540,side*(ya-17),PZ),(540,side*(ya+17),PZ),38)).fuse(cyl((0,side*(ya-15),RZ),(0,side*(ya+15),RZ),32))
     add(sname('Swingarm',side),arm_,'Chassis','PROPOSED box-section swingarm arm; section/fatigue NOT qualified',color=(.13,.14,.15))
 head_lo=sa-sd*30;head_hi=sa+sd*200
 add('Head_tube',cyl(tuple(head_lo),tuple(head_hi),31,25),'Chassis','Head tube on steering axis; bearing seats unresolved')
-add('Swingarm_cross_brace',cyl((380,-118,arm_z(380)),(380,110,arm_z(380)),25,20),'Chassis','PROPOSED 50x5 cross tube ahead of the tyre; carries the shock tower; bolt-in (inside the belt loop)',color=(.13,.14,.15))
+add('Swingarm_cross_brace',cyl((380,-118,arm_z(380)),(380,110,arm_z(380)),30,25),'Chassis','PROPOSED 50x5 cross tube ahead of the tyre; carries the shock tower; bolt-in (inside the belt loop)',color=(.13,.14,.15))
 # Upside-down fork built in the steering frame: local Z along the steering axis from the lower axis point,
 # local X forward-perpendicular. Tubes sit 36.1mm ahead of the axis; the axle sits W_AXLE down the axis.
 steer_pl=A.Placement(sa,A.Rotation(V(0,1,0),-25))
 def steer(shape):s=shape.copy();s.Placement=steer_pl.multiply(s.Placement);return s
 off=FORK_OFF;w_axle=W_AXLE
 for side in [-1,1]:
-    yo=side*100
+    yo=side*105   # legs out 5 for the 133-wide tyre (supplier CR-2)
     add(sname('Fork_outer_tube',side),steer(cyl((off,yo,-215),(off,yo,240),28)),'RunningGear','USD outer tube, illustrative; supplier fork not selected',color=(.07,.07,.08))
     add(sname('Fork_inner_tube',side),steer(cyl((off,yo,w_axle+43.5),(off,yo,-210),24)),'RunningGear','USD 48mm chrome inner tube, illustrative; 170mm travel',color=(.8,.81,.82))
     # Axle foot: clamp barrel, split axle boss with pinch bolts, and two radial-mount lugs (108mm spacing) to the
@@ -431,13 +458,16 @@ for side in [-1,1]:
         'Side reflector (amber), illustrative',color=(.9,.5,.1))
 def clamp(w0,t):
     c=cyl((0,0,w0),(0,0,w0+t),36)
-    for s in (-1,1):c=c.fuse(cyl((off,s*100,w0),(off,s*100,w0+t),36))
-    return c.fuse(box(-10,-100,w0,off+20,200,t)).cut(Part.makeCompound([cyl((off,s*100,w0-1),(off,s*100,w0+t+1),28) for s in (-1,1)]))
+    for s in (-1,1):c=c.fuse(cyl((off,s*105,w0),(off,s*105,w0+t),36))
+    return c.fuse(box(-10,-105,w0,off+20,210,t)).cut(Part.makeCompound([cyl((off,s*105,w0-1),(off,s*105,w0+t+1),28) for s in (-1,1)]))
 add('Lower_triple_clamp',steer(clamp(-62,28)),'RunningGear','Lower triple clamp, illustrative',color=(.12,.12,.13))
 add('Upper_triple_clamp',steer(clamp(205,22)),'RunningGear','Upper triple clamp, illustrative',color=(.12,.12,.13))
 # Bar: 28.6mm tapered bar on pull-back risers. Risers lean back from the top clamp to the bar clamp at X1015/Z1062;
 # the bar runs out nearly straight, then bends back ~29 deg and down ~11 deg to the grips (comfort-study.md).
-BAR_C=(995,1125)   # Nov 11 (seat/bar look + standing reach): grips 50 up, 20 back vs the comfort-study bar -> 279mm above the seat
+BAR_DX,BAR_DZ=15,-30   # Nov 14 comfort update: grips 15 fwd / 30 down with the 31 mm lower seat
+BAR_C=(995+BAR_DX,1125+BAR_DZ)   # was (995,1125): Nov 11 (seat/bar look + standing reach): grips 50 up, 20 back vs the comfort-study bar -> 279mm above the seat
+def bar_pts(side):   # bar centre end, bend corner, grip start
+    return [V(BAR_C[0],side*40,BAR_C[1]),V(980+BAR_DX,side*210,1120+BAR_DZ),V(930+BAR_DX,side*300,1100+BAR_DZ)]
 for s in (-1,1):
     rb=steer_pl.multVec(V(-14,s*40,227))
     add(sname('Bar_riser',s),cyl((rb.x,rb.y,rb.z),(BAR_C[0],s*40,BAR_C[1]-12),14).fuse(cyl((BAR_C[0],s*25,BAR_C[1]),(BAR_C[0],s*55,BAR_C[1]),17)),
@@ -453,11 +483,12 @@ add('Pivot_reference',Part.makeCompound(stubs),'Keepouts','Independent outboard 
 # between the tail rails. Lowering the pivot to PZ freed this space above the motor.
 import importlib.util as _ilu
 _sp=_ilu.spec_from_file_location('rear_kinematics',str(R/'tools/rear-kinematics.py'));RK=_ilu.module_from_spec(_sp);_sp.loader.exec_module(RK)
-SHOCK_S,SHOCK_HOFF,SHOCK_TOP=210.0,120.0,(490.0,660.0)
+SHOCK_S,SHOCK_HOFF,SHOCK_TOP=210.0,120.0,(482.0,642.0)   # Nov 14: top eye 18 lower (bridge under 63 mm of seat foam) and 8 back (shock 18 mm off the motor, needs 15)
 SHOCK_STROKE=75.0                                         # spec: 73.5 used + 1.5 on the bump stop
 SHOCK_EYE_EXT=305.0                                        # spec, rounded up from 303.9 at full droop
 def shock_lower(rz):
     return RK.lower_eye(PZ,rz,SHOCK_S,SHOCK_HOFF)
+SHOCK_EYE_EXT=float(math.ceil(math.hypot(SHOCK_TOP[0]-shock_lower(RZ-REAR_SAG)[0],SHOCK_TOP[1]-shock_lower(RZ-REAR_SAG)[1])))   # spec = full-droop eye length, rounded up
 upper=V(SHOCK_TOP[0],0,SHOCK_TOP[1]);lx,lz=shock_lower(RZ);lower=V(lx,0,lz)
 axis=lower-upper;axis.normalize()
 def shock_env(lo):
@@ -475,16 +506,22 @@ helix=Part.makeHelix(spring_len/7.5,spring_len,38)
 spring=Part.Wire(helix.Edges).makePipeShell([Part.Wire(Part.makeCircle(6,V(38,0,0),V(0,1,0)))],True,True)
 spring.Placement=A.Placement(upper+axis*60,A.Rotation(V(0,0,1),axis))
 add('Shock_spring_STUDY',spring,'Chassis','Visual coil: 88mm OD, 12mm wire; rate ~107 N/mm per rear-kinematics.py',color=(.75,.65,.2))
-add('Shock_reservoir_STUDY',cyl((430,-60,705),(430,60,705),22),'Chassis','Remote reservoir under the seat (hose not modelled)',color=(.6,.61,.63))
+add('Shock_reservoir_STUDY',cyl((405,-60,680),(405,60,680),22),'Chassis','Remote reservoir under the seat (hose not modelled)',color=(.6,.61,.63))
 # Shock tower on the swingarm: twin 8mm plates from the cross brace to the lower eye.
 brace_c=(380,arm_z(380))
-tower=Part.makeCompound([stadium(brace_c,(lx,lz),22,sy*30 if sy<0 else 22,sy*22 if sy<0 else 30) for sy in (-1,1)])
+tower=Part.makeCompound([stadium(brace_c,(lx,lz),22,sy*36 if sy<0 else 22,sy*22 if sy<0 else 36) for sy in (-1,1)])   # A356 casting, 14mm webs (FEA CR-14)
+tower=tower.cut(cyl((0,-120,RZ),(0,120,RZ),RR+21))   # trimmed to stay 20 off the 650mm tyre (supplier CR-6)
 add('Swingarm_shock_tower',tower,'Chassis','PROPOSED twin 8mm plates, brace to shock lower eye; section/fatigue NOT qualified',color=(.13,.14,.15))
 # Top mount: cross tube between the tail rails at X490 (rail Y+-183, Z724) and twin plates down to the eye.
-t_=(568-SHOCK_TOP[0])/628;yt=195-95*t_;zt=715+75*t_
-tube('Tail_shock_cross_tube',(SHOCK_TOP[0],-yt,zt),(SHOCK_TOP[0],yt,zt),14,11)
-SHOCK_TUBE=(SHOCK_TOP[0],zt+14)   # X and top Z of the cross tube, for the seat-pan relief
-add('Shock_top_bracket',Part.makeCompound([stadium((SHOCK_TOP[0],zt),SHOCK_TOP,18,sy*30 if sy<0 else 22,sy*22 if sy<0 else 30) for sy in (-1,1)]),
+t_=(568-SHOCK_TOP[0])/628;yt=152-52*t_;zt=692+(TAIL_RAIL_END-692)*t_
+# Forged box bridge (structural-fea.md CR-10), Nov 14: laid flat, 80 long x 45 tall x 5 wall (section modulus 15.9 cm3,
+# >= the 70x40x4 upright's 14.5), its top level with the rail centres, so the seat pan passes 10 mm over it.
+add('Tail_shock_cross_tube',box(SHOCK_TOP[0]-40,-yt,zt-45,80,2*yt,45).cut(box(SHOCK_TOP[0]-35,-yt-1,zt-40,70,2*yt+2,35)),'Chassis',
+    'Forged 4130 box shock bridge 80x45x5 laid flat (structural-fea.md CR-10, re-sectioned Nov 14)',color=(.1,.105,.11))
+SHOCK_TUBE=(SHOCK_TOP[0],zt)   # X and top Z of the bridge, for the seat-pan relief
+for sy in (-1,1):   # diagonals from the bridge to the pivot nodes (CR-12)
+    tube(sname('Shock_bridge_diagonal',sy),(SHOCK_TOP[0],sy*60,zt-22),(540,sy*180,PZ+30),12.5,10)
+add('Shock_top_bracket',Part.makeCompound([stadium((SHOCK_TOP[0],zt-22),SHOCK_TOP,18,sy*34 if sy<0 else 22,sy*22 if sy<0 else 34) for sy in (-1,1)]),
     'Chassis','PROPOSED twin 8mm plates, cross tube to shock top eye',color=(.13,.14,.15))
 # Swingarm rotation about the pivot (= motor axis) to a given rear axle height, for sweeps of arm-mounted parts.
 arm_static=V(0,0,RZ)-V(540,0,PZ)
@@ -540,7 +577,7 @@ def panel(top,bot,half,t=3,r=12,open_bottom=False,open_top=False,open_front=Fals
 # 414mm wide (V1.0: 444), near-vertical sides with a small bevel into the Z183 belly. The belly sits
 # 15mm under the Z198 pack floor; the skid plate hangs below it.
 BELLY_Z=183.0
-def belly_section(t=0,hw=207,hb=203,zb=230,zbot=BELLY_Z):
+def belly_section(t=0,hw=217,hb=191,zb=211.5,zbot=BELLY_Z):   # covers +10 for the 408mm pack; bevel on the lean line (dynamics-study.md CR-5)
     k=(hw-hb)/(zb-zbot);y0=hb-k*zbot    # bevel line extended down to Z0
     pts=[V(0,-y0,0),V(0,y0,0),V(0,hw,zb),V(0,hw,2000),V(0,-hw,2000),V(0,-hw,zb)]
     f=Part.Face(Part.makePolygon(pts+[pts[0]]))
@@ -555,11 +592,13 @@ def tank_section(t=0,hw=222,ht=165,zb=800,ztop=960):
     if t:f=f.makeOffset2D(t,join=2)
     f.translate(V(-1000,0,0));return f.extrude(V(4000,0,0))
 # Panels are notched around every rail centerline: 22mm = 16mm tube + 6mm.
-frame_notch=Part.makeCompound([cyl(a,b,22) for a,b in frame_segs])
+def _notch(extra):   # one fused solid of every frame tube grown by 'extra' (a compound of overlapping cylinders made the cut fail)
+    cs=[cyl(a,b,ro+extra) for a,b,ro in frame_segs];return cs[0].multiFuse(cs[1:]).removeSplitter()
+frame_notch=_notch(6)   # tube + 6mm
 # Lamp reservations are pockets in the panels, so the panels are cut around them.
 lamps=dict(Taillamp_installation_STUDY=box(-186,-50,806,16,100,20))
 for side in [-1,1]:
-    lamps[sname('Front_indicator_reserve',side)]=box(1385,side*118-14,794,40,28,20)
+    lamps[sname('Front_indicator_reserve',side)]=box(1290,side*205-14,680,40,28,20)   # 410mm apart, 125 below the lamp band (FMVSS 108 / R53)
     lamps[sname('Rear_indicator_reserve',side)]=box(-318,116 if side>0 else -146,664,36,30,22)   # on the plate hanger, 262mm apart
 lamp_cut=Part.makeCompound(list(lamps.values()))
 # Re-trace (Oct 26) on a 50mm grid over the baseline. The image's wheel axles sit ~35mm below the model's,
@@ -575,23 +614,87 @@ UB_TOP=[(690,846),(725,866),(770,897),(820,925),(870,945),(920,956),(1000,955),(
 UB_BOT=seam[:-1]+[(1060,587),(1105,560),(1150,532),(1185,538),(1215,580),(1248,645),(1275,712),(1300,762),(1345,772),
                   (1395,790),(1435,803),(1462,812)]
 UB_HALF=[(690,215),(760,220),(850,222),(1050,222),(1200,205),(1340,160),(1420,112),(1462,40)]
-upper_body=panel(top=UB_TOP,bot=UB_BOT,half=UB_HALF,
-                 r=15,open_bottom=True,section=lambda t:tank_section(-t))   # closed rear wall: no view into the tank beside the seat
-upper_body=upper_body.cut(steerKeep.Shape).cut(frame_notch)
+# Nov 12 surfacing pass ("see how much smoother the reference is"): panels were the side outline extruded across
+# the bike, cut by a constant section, so every side was a flat wall. crowned_panel() keeps the traced side outline
+# and plan width exactly (so every clearance is unchanged) and lofts a cross-section along X instead: a crowned top,
+# rounded shoulders, a crisp shoulder crease, and a lower tuck that meets the next panel flush.
+def _span(face,x,axis):
+    bb=face.section(Part.makeLine(V(x,0,-900) if axis=='z' else V(x,-900,0),V(x,0,3000) if axis=='z' else V(x,900,0))).BoundBox
+    return (bb.ZMin,bb.ZMax) if axis=='z' else (0.0,bb.YMax)
+def _xsec(x,prof,zt,zb,w,N=64):
+    # one half-curve (flat tangent at the crown) mirrored, so the section is exactly symmetric and peaks on the centreline
+    half=prof(w,zt,zb)
+    ghost=[V(x,-half[1][0],half[1][1])]   # mirrored neighbour, so the curve leaves the crown level
+    c=Part.BSplineCurve();c.interpolate(ghost+[V(x,y,z) for y,z in half]+[V(x,.4*half[-1][0],zb)])
+    u0=c.parameter(V(x,0,half[0][1]))
+    pts=c.toShape(u0,c.LastParameter).discretize(N//2+1)          # top centre .. bottom
+    ring=pts+[V(x,0,zb)]+[V(x,-p.y,p.z) for p in reversed(pts)][:-1]
+    bs=Part.BSplineCurve();bs.interpolate(ring,PeriodicFlag=True);return Part.Wire(bs.toShape())
+def crowned_panel(top,bot,half,prof,t=3,r=12,open_bottom=False,open_front=False,step=25.0,tuck=lambda x:1.0):
+    sf=side_face(top,bot);pf=plan_face(half)
+    x0,x1=max(top[0][0],bot[0][0]),min(top[-1][0],bot[-1][0])
+    n=max(8,int((x1-x0)/step));xs=[x0+.3+(x1-x0-.6)*i/n for i in range(n+1)]
+    outer_w,inner_w=[],[]
+    for x in xs:
+        zb,zt=_span(sf,x,'z');w=_span(pf,x,'y')[1]
+        wo=_xsec(x,lambda w_,zt_,zb_:prof(w_,zt_,zb_,tuck(x)),zt,zb,w);outer_w.append(wo)
+        inner_w.append(_xsec(x,lambda w_,zt_,zb_:prof(w_,zt_,zb_,tuck(x)),zt-t,zb-5,w-t))   # same profile, t smaller; runs below the bottom so it opens
+    def rs(w,N=48):   # same point count on every section, so the loft can match them (unmatched sections made it hang)
+        bs=Part.BSplineCurve();bs.interpolate(w.discretize(N+1)[:-1],PeriodicFlag=True);return Part.Wire(bs.toShape())
+    # _xsec already gives every section the same point count, so the loft matches them
+    def loft(ws):
+        l=Part.makeLoft(ws,True,False);return l if l.Volume>0 else l.reversed()
+    out=loft(outer_w).common(solid(top,bot,half))   # no fillet: it fails on lofted edges; the sections are already rounded
+    il=loft(inner_w)
+    if open_front:   # carry the last inner section on forward so the front stays open
+        il=il.fuse(Part.Face(inner_w[-1]).extrude(V(80,0,0)))
+    # the sections already follow the outline, so trim the inner loft by the same outline and keep t-thick end walls
+    ends=box(x0+t,-900,-900,(x1-x0-2*t)+(80 if open_front else 0),1800,3000)
+    inner=il.common(solid(top,bot,half)).common(ends)
+    shell=out.cut(inner)
+    if open_bottom:   # slab under the bottom line, raised by the wall thickness, removes the bottom skin
+        pts=[(bot[0][0]-60,bot[0][1]+t)]+[(x,z+t) for x,z in bot]+[(bot[-1][0]+60,bot[-1][1]+t),(bot[-1][0]+60,-400),(bot[0][0]-60,-400)]
+        slab=Part.Face(Part.makePolygon([V(x,-500,z) for x,z in pts+[pts[0]]])).extrude(V(0,1000,0))
+        shell=shell.cut(slab)
+    if not (inner.Volume>0 and shell.Volume<0.5*out.Volume):raise RuntimeError('crowned panel came out solid, not a shell')
+    return _heal(shell),_heal(out)
+def _heal(s):
+    # lofted BSpline skins come out of the booleans with 'self-intersecting wire' faults; a STEP write/read
+    # rebuilds the face curves and gives a valid solid that later cuts accept
+    if s.isValid():return s
+    import tempfile,os
+    fn=os.path.join(tempfile.gettempdir(),'bavuso_heal_%d.step'%os.getpid());s.exportStep(fn);r=Part.read(fn);os.remove(fn)
+    r=r.Solids[0] if len(r.Solids)==1 else r
+    if not r.isValid():raise RuntimeError('crowned panel still invalid after STEP heal')
+    return r
+def tank_prof(w,zt,zb,k=1.0):
+    h=zt-zb;zc=zb+min(.60*h,max(.45*h,h-150))   # shoulder crease ~60% up, never more than 150 below the top
+    return [(0,zt),(.50*w,zt-.012*h),(.72*w,zt-.04*h),(.85*w,zt-.09*h),(.93*w,zt-.16*h),(.975*w,zc+.30*(zt-zc)),
+            (.993*w,zc+.10*(zt-zc)),(w,zc),(.992*w,zc-.12*(zc-zb)),(.97*w,zc-.55*(zc-zb)),(.945*w,zb+.08*(zc-zb)),(.935*w,zb)]
+def tidy(s,tag):   # booleans on lofted skins can leave tiny defects; repair them and say where
+    if s.isNull():raise RuntimeError('boolean returned a null shape at '+tag)
+    if _TRACE:print(f'[{_time.time()-_T0:7.1f}s] tidy {tag}',flush=True)
+    if s.isValid():return s
+    t=s.copy();t.fix(1e-4,1e-5,1e-2)
+    if not t.isValid():
+        t=Part.Solid(Part.Shell(t.Faces)) if len(t.Solids)<=1 else t
+    print('tidy',tag,'valid after fix:',t.isValid(),flush=True);return t
+upper_body,ub_outer=crowned_panel(UB_TOP,UB_BOT,UB_HALF,tank_prof,r=15,open_bottom=True);upper_body=tidy(upper_body,'crowned')
+upper_body=tidy(upper_body.cut(steerKeep.Shape),'steer');upper_body=tidy(upper_body.cut(frame_notch),'notch')
 # Headlamp: a full-width light band through the beak (smoked lens) with a DRL blade along its top edge. Both are
 # the nose's own outer surface clipped to a horizontal band, so they sit flush with the fairing like the baseline's
 # slim LED eye. The band replaces the earlier 55x180x24 lamp reservation box at the same place.
-nose_solid=rounded(solid(UB_TOP,UB_BOT,UB_HALF,tank_section(0)),15)
+nose_solid=ub_outer   # the lens and DRL take the crowned nose surface
 headlamp=nose_solid.common(box(1392,-200,816,90,400,40))
 drl=nose_solid.common(box(1392,-200,857,90,400,5))
-upper_body=upper_body.cut(box(1392,-200,816,90,400,46)).cut(lamp_cut)
+upper_body=tidy(upper_body.cut(box(1392,-200,816,90,400,46)),'nosebox');upper_body=tidy(upper_body.cut(lamp_cut),'lamp')
 def xz_prism(pts,y0,y1):
     f=Part.Face(Part.makePolygon([V(x,0,z) for x,z in pts+[pts[0]]])).extrude(V(0,abs(y1-y0),0));f.translate(V(0,min(y0,y1),0));return f
 # Side vents in front of the radiators, slanted to follow the shroud's front edge as in the baseline.
 VENT=[(1000,610),(1090,610),(1140,730),(1050,730)]
 def vent_x(z):return 1000+(z-610)*50/120
 for side in [-1,1]:
-    upper_body=upper_body.cut(xz_prism(VENT,side*185,side*245))
+    upper_body=tidy(upper_body.cut(xz_prism(VENT,side*185,side*245)),'vent')
 ub_obj=add('Upper_body_fairing_tank_STUDY',upper_body,'BodyStudy',
     'PROPOSED 3mm shell traced from baseline image; open below, steering cavity, frame notches and grilles cut; tooling/CFD/fixings unresolved',color=(.11,.12,.13))
 # Lower body: battery side covers and belly pan, open top, open rear onto the motor. Its front wall follows
@@ -606,32 +709,34 @@ front_wall=[(x_wall(z),z) for z in [BELLY_Z]+list(range(215,int(ze)-14,35))]+[(x
 lower_body=panel(top=[(585,668)]+seam[:-1]+[(xe,ze)],
                  bot=[(585,BELLY_Z),(700,BELLY_Z),(1000,BELLY_Z)]+front_wall,
                  inner_bot=[(585,BELLY_Z+3),(700,BELLY_Z+3),(1000,BELLY_Z+3)]+[(x-3,max(z,BELLY_Z+3)) for x,z in front_wall],
-                 half=[(585,207),(680,207),(780,207),(880,207),(980,207),(1080,207),(1112,200),(1120,190)],   # dense points: a sparse spline sagged 22mm inward into the pack
+                 half=[(585,217),(680,217),(780,217),(880,217),(980,217),(1080,217),(1112,208),(1120,196)],   # dense points: a sparse spline sagged 22mm inward into the pack
                  r=10,open_top=True,open_rear=True,section=lambda t:belly_section(-t))
 lower_body=lower_body.cut(frame_notch)
+lower_body=lower_body.cut(solid(UB_TOP,UB_BOT,UB_HALF).common(box(1040,-300,400,200,600,300)))   # front seam: the tank skin laps the cover
 add('Lower_body_battery_covers_STUDY',lower_body,'BodyStudy',
     'PROPOSED 3mm battery side covers/belly pan; 414mm wide, front wall follows the front-tyre travel envelope; impact protection unresolved',color=(.13,.14,.15))
 # Floor rises to the belly line behind the pack.
 MC_X=435 if DRIVE=='ipm' else 470               # IPM: the covers reach back over the low HV cabinet
-motor_cover=panel(top=[(MC_X,600),(585,668)],bot=[(MC_X,200),(585,BELLY_Z)],half=[(MC_X,205),(585,207)],
+motor_cover=panel(top=[(MC_X,600),(585,668)],bot=[(MC_X,200),(585,BELLY_Z)],half=[(MC_X,215),(585,217)],
                   r=8,open_top=True,open_front=True,open_rear=True,section=lambda t:belly_section(-t))
 motor_cover=motor_cover.cut(frame_notch)
-for side in [-1,1]:motor_cover=motor_cover.cut(cyl((420,side*140,300),(420,side*240,300),18))   # peg mount bosses pass through
+for side in [-1,1]:motor_cover=motor_cover.cut(cyl((420,side*140,270),(420,side*240,270),18))   # peg mount bosses pass through
 # No rear bulkhead: with the motor on the lowered pivot, the swingarm arms pass through where it stood.
 add('Motor_side_covers_STUDY',motor_cover,'BodyStudy',
     'PROPOSED 3mm motor side covers/belly behind the battery covers; swingarm and shock pass the open rear; cooling/belt access unresolved',color=(.12,.13,.14))
 # Round cap over the swingarm pivot / motor axis on each motor cover, as in the baseline: a 92mm ring with a recessed face and centre boss.
 for side in [-1,1]:
-    y0=side*212.5      # 1.5mm outside the rail tubes that meet at the pivot node (Y195 + 16)
+    y0=side*222.5      # on the motor cover, now 10 further out
     cap=cyl((540,y0,PZ),(540,y0+side*6,PZ),46).cut(cyl((540,y0+side*4,PZ),(540,y0+side*7,PZ),32)).fuse(cyl((540,y0,PZ),(540,y0+side*5,PZ),16))
     add(sname('Pivot_cover_cap',side),cap,'BodyStudy','Pivot/motor-axis cover cap on the motor cover, illustrative',color=(.07,.075,.08))
 for side in [-1,1]:
     slats=[xz_prism([(vent_x(z)+5,z),(vent_x(z)+85,z),(vent_x(z+7)+85,z+7),(vent_x(z+7)+5,z+7)],side*205,side*213) for z in [616+k*19 for k in range(6)]]
     louvres=Part.makeCompound(slats+[xz_prism(VENT,side*186,side*189)])   # + dark backing plate
-    add(sname('Side_grille_louvres',side),louvres,'BodyStudy','Louvres in the side grille ahead of the radiators',color=(.16,.17,.18))
+    # (Nov 14) the tank-side grille is covered by the radiator pod now; its louvres are in the pod mouth.
     # Dark trim strip inside the slanted tank/cover seam so the filleted joint does not show daylight.
     trim=Part.Face(Part.makePolygon([V(700,0,652),V(1090,0,567),V(1090,0,591),V(700,0,676),V(700,0,652)])).extrude(V(0,4,0))
-    trim.translate(V(0,side*200-2,0))
+    trim.translate(V(0,side*210-2,0))
+    trim=trim.cut(box(960,-300,400,300,600,400))   # the radiator pod covers the seam ahead of X960
     add(sname('Seam_trim',side),trim.cut(lower_body).cut(upper_body),'BodyStudy','Seam closing strip inside the tank/battery-cover joint',color=(.05,.05,.055))
 # Proud side panels traced from the baseline (X=(1310-px)*1.35, Z=(935-py)*1.35): the hexagonal battery
 # cover with bolts, and the angled belly fairing below it. 4mm plates with chamfered edges sit on the shell.
@@ -648,7 +753,7 @@ batt_pts=[(1040,578),(670,652),(600,470),(626,340),(1045,340),(1060,500)]
 belly_pts=[(1050,322),(640,322),(600,255),(640,197),(1045,197),(1060,255)]
 for side in [-1,1]:
     parts=[]
-    for pts,yin in [(batt_pts,207),(belly_pts,207)]:
+    for pts,yin in [(batt_pts,217),(belly_pts,217)]:
         pnl=proud(pts,yin)
         if side==1:pnl.translate(V(0,yin+.5,0))
         else:
@@ -670,11 +775,12 @@ for side in [-1,1]:
 # below it as in the baseline; its front edge rises beside the battery plate's rear edge. Half-width 220 there keeps
 # the inner face 6mm outside the rails (195+16), so the rails need no slot through the wall; the tail tip is widened
 # (124 at X-60) to clear the tail-rail ends.
-TAIL_TOP=[(-190,860),(-175,852),(-150,840),(-120,830),(-60,826),(0,815),(100,800),(300,775),(560,760),(690,768)]
-TAIL_BOT=[(-180,782),(-100,770),(16,752),(150,705),(283,612),(400,568),(520,535),(600,512),(688,668)]
-TAIL_HALF=[(-190,62),(-120,108),(-60,124),(16,140),(150,168),(300,205),(450,218),(560,220),(690,220)]
+TAIL_TOP=[(-190,860),(-175,852),(-150,844),(-120,842),(-60,841),(0,831),(100,814),(300,771),(430,746),(560,742),(620,749),(690,758)]   # deck under the seat 5mm over the raised 38mm tail rails
+TAIL_TOP=[(x,z+(RAIL_LIFT(x) if True else 0)) for x,z in TAIL_TOP]
+TAIL_BOT=[(-180,782),(-100,770),(16,752),(150,705),(283,612),(400,580),(470,600),(540,640),(600,652),(688,668)]
+TAIL_HALF=[(-190,62),(-120,108),(-60,124),(16,140),(150,168),(300,198),(400,200),(470,196),(560,188),(640,186),(690,192)]   # Nov 14: waist 376 wide under the thighs (was 450)
 tail_body=panel(top=TAIL_TOP,bot=TAIL_BOT,half=TAIL_HALF,r=10,open_bottom=True,open_front=True)
-tail_body=tail_body.cut(Part.makeCompound([cyl(a,b,18) for a,b in frame_segs])).cut(lamp_cut)
+tail_body=tail_body.cut(_notch(2)).cut(lamp_cut)
 # Undertray: closes the tail from below. A 3mm skin 25-28mm outside the rear tyre's whole travel envelope (the
 # check asks 20), kept 1.5mm inside the side walls and above their lower edge; frame tubes pass through 1mm-clearance
 # holes. Behind X-85, where the tail's lower edge sits above that skin, a flat 3mm floor follows the edge instead.
@@ -683,9 +789,9 @@ def tyre_env(dr):
     return cs[0].multiFuse(cs[1:]).removeSplitter()
 tail_in=solid([(x,z-4.5) for x,z in TAIL_TOP],TAIL_BOT,[(x,w-4.5) for x,w in TAIL_HALF])
 ring=tyre_env(28).cut(tyre_env(25)).common(tail_in).common(box(-85,-300,0,345,600,1200))
-fl=[(-183,782.5),(-140,776),(-100,770),(-85,767.7)]
+fl=[(-183,782.5),(-140,779),(-100,778),(-85,778)]   # front edge 22mm off the 180 tyre at full bump
 floor_=solid([(x,z+3) for x,z in fl],fl,[(x,w-4.5) for x,w in TAIL_HALF])
-tube_holes=Part.makeCompound([cyl(a,b,17) for a,b in frame_segs])
+tube_holes=_notch(1)
 # Plate hanger: a cast arm from inside the tail tip down and back to the plate, a bracket behind the plate, the plate
 # lamp above it and the rear indicators on short stalks (262mm apart; FMVSS 108 asks 229mm). 20mm+ off the tyre at full bump.
 hanger_line=((-150,797),(-318,662))
@@ -695,50 +801,54 @@ undertray=Part.makeCompound([s for s in (ring.cut(tube_holes),floor_.cut(stadium
 # Nov 11 (seat "looks uncomfortable"): lofted through crowned sections instead of an extruded slab: domed top, rolled
 # edges, sides tucking in to a pan 82% as wide. The narrower pan clears the tail rails (Y166 inner at X470), so it drops
 # 13mm under the rider: foam at the rider's sit point is ~78mm (was ~65; touring seats use 70-90).
-SEAT_TOP=[(-112,862),(-100,874),(-20,889),(100,881),(216,866),(270,856),(300,836),(351,825),
-          (420,813),(486,810),(560,812),(621,818),(670,834),(710,866),(740,886),(762,898)]   # rider pad +10 (comfort-study.md); nose rides up the tank (Nov 12)
-SEAT_BOT=[(-112,822),(0,800),(300,768),(470,732),(620,732),(682,770),(762,790)]
-SEAT_HALF=[(-112,92),(-60,118),(0,138),(100,161),(200,183),(300,208),(400,217),(470,221),(560,223),(621,223),(682,216),(720,208),(762,184)]
+# Nov 14 ("flat bench, legs hang over it"): a dished rider pocket 31 mm lower with its floor at X530, a 60 mm step
+# up to the pillion behind it, and a nose that narrows to ~250 mm between the thighs before climbing onto the tank.
+SEAT_TOP=[(-112,862),(-100,874),(-20,889),(100,881),(216,866),(270,856),(300,838),(330,812),(370,794),(430,784),(490,780),
+          (540,779),(590,783),(630,795),(660,815),(690,848),(720,872),(745,888),(762,898)]   # rider pad +10 (comfort-study.md); nose rides up the tank (Nov 12)
+SEAT_TOP=[(x,z+(RAIL_LIFT(x) if x<=300 else 0)) for x,z in SEAT_TOP]
+SEAT_BOT=[(-112,822),(0,800),(300,768),(400,728),(450,712),(580,712),(640,735),(682,770),(762,790)]
+SEAT_HALF=[(-112,92),(-60,118),(0,138),(100,161),(200,183),(260,192),(300,182),(360,177),(430,176),(490,172),(540,163),(590,149),(640,135),(690,124),(730,114),(762,96)]
 # Nov 12 (seat "still does not look comfortable"): the 330mm seat sat sunk in the 440mm tail like a cushion in a tub,
 # with the tail walls up to ~40mm below its top. Now the seat is as wide as the tail (3mm proud) and its upholstered
 # sides ARE the top of the side profile, as in the baseline: ~60mm of visible side, rolled edge, flat-crowned top.
 # The pan edge rides 8mm over the subframe rails; a centre pan between the rails drops to SEAT_BOT for foam depth.
 def rail_top(x):   # top of the subframe rail (tail rail behind X568, upper rail ahead) under the seat edge
-    return 737.0+(568-x)*75/628 if x<=568 else 756.0+(x-570)*40/480
-def rail_y(x):return 195.0-95*(568-x)/628 if x<=568 else 195.0
+    return 711.0+(568-x)*(TAIL_RAIL_END-692)/628 if x<=568 else 734.0+(x-570)*65/480   # 38mm rails (FEA), Nov 14 node at Z715/Y152
+def rail_y(x):return 152.0-52*(568-x)/628 if x<=568 else urail_y(x)
 def lerp(pts,x):
     for (x0,v0),(x1,v1) in zip(pts,pts[1:]):
         if x0<=x<=x1:return v0+(v1-v0)*(x-x0)/(x1-x0)
     return pts[0][1] if x<pts[0][0] else pts[-1][1]
 def seat_section(x,shrink=1.0):
-    zt,w=lerp(SEAT_TOP,x),lerp(SEAT_HALF,x)*shrink;ze=min(rail_top(x)+8,zt-40);d=zt-ze
+    zt,w=lerp(SEAT_TOP,x),lerp(SEAT_HALF,x)*shrink;ze=min(max(rail_top(x)+8,782 if x>=690 else 0),zt-40);d=zt-ze   # nose base 10 over the inverter (Z772)
     zt=ze+d*(.55+.45*shrink);d=zt-ze;c=min(.75*d,48)   # c: depth of the rolled top edge
     prof=[(0,zt),(.40*w,zt-.05*c),(.70*w,zt-.18*c),(.86*w,zt-.38*c),(.95*w,zt-.65*c),(.995*w,zt-c),(w,ze+.3*(d-c)),(.975*w,ze+2),(.86*w,ze)]
     pts=[V(x,y,z) for y,z in prof]+[V(x,.4*w,ze),V(x,-.4*w,ze)]+[V(x,-y,z) for y,z in reversed(prof[1:])]
     c=Part.BSplineCurve();c.interpolate(pts,PeriodicFlag=True);return Part.Wire(c.toShape())
-SEAT_X=[-112,-104,-80,-20,60,150,230,284,318,380,440,486,540,600,650,690,725,752,762]
-seat=Part.makeLoft([seat_section(x,.72 if x in (-112,762) else .9 if x in (-104,752) else 1.0) for x in SEAT_X],True,False)
+SEAT_X=[-112,-104,-80,-20,60,150,230,276,300,326,356,400,450,500,540,580,620,655,690,720,745,756,762]
+seat=Part.makeLoft([seat_section(x,.72 if x in (-112,762) else .9 if x in (-104,756) else 1.0) for x in SEAT_X],True,False)
 seat=seat if seat.isValid() and seat.Volume>0 else seat.reversed()
 # Centre pan between the rails (8mm off their inner faces): drops to SEAT_BOT under the rider for ~78mm of foam.
 def pan_sec(x):
-    b=rail_y(x)-(14 if x<=568 else 16)-8;zb=lerp(SEAT_BOT,x);zu=min(rail_top(x)+8,lerp(SEAT_TOP,x)-40)+6
+    b=min(rail_y(x)-(14 if x<=568 else 16)-8,.8*lerp(SEAT_HALF,x));zb=lerp(SEAT_BOT,x);zu=min(rail_top(x)+8,lerp(SEAT_TOP,x)-40)+6
     return Part.makePolygon([V(x,y,z) for y,z in [(-b+12,zb),(b-12,zb),(b,zb+12),(b,zu),(-b,zu),(-b,zb+12),(-b+12,zb)]])
-seat=seat.fuse(Part.makeLoft([pan_sec(x) for x in (330,380,440,486,540,600,640)],True,True)).removeSplitter()
+seat=seat.fuse(Part.makeLoft([pan_sec(x) for x in (330,380,440,486,540,590)],True,True)).removeSplitter()
 # Pan relief over the shock-top cross tube: the dropped pan (Z732) would sit 6 mm into it. A 48 mm wide channel
 # moulded into the pan keeps 10 mm over the bracket plates (14 over the tube) and 10 mm fore/aft, and leaves ~66 mm of foam over it (78 elsewhere).
-seat=seat.cut(box(SHOCK_TUBE[0]-24,-200,600,48,400,SHOCK_TUBE[1]+14-600))   # +14: the bracket plates stand 4 mm proud of the tube
+seat=seat.cut(box(SHOCK_TUBE[0]-50,-200,600,100,400,SHOCK_TUBE[1]+10-600))   # +14: the bracket plates stand 4 mm proud of the tube
 # Piped welt along each top edge, rider and pillion pads, as on a stitched production seat (short segments + spheres).
 welts=[]
-for xs in ((-96,270),(306,720)):
+for xs in ((-96,270),(322,735)):
     for sy in (-1,1):
         pts=[V(x,sy*.985*lerp(SEAT_HALF,x),lerp(SEAT_TOP,x)-.8*min(.75*(lerp(SEAT_TOP,x)-min(rail_top(x)+8,lerp(SEAT_TOP,x)-40)),48)) for x in range(xs[0],xs[1]+1,12)]
         welts+=[Part.makeCylinder(2.6,(b-a).Length,a,b-a) for a,b in zip(pts,pts[1:])]+[Part.makeSphere(2.6,p) for p in pts]
 seat_welt=Part.makeCompound(welts)
 # The seat nose laps over the tank's rear slope (as in the baseline) instead of butting into a wall: the tank shell
 # is cut where the nose sits. The BMS below starts at X775, 13mm ahead of the nose tip.
-upper_body=upper_body.cut(seat);ub_obj.Shape=upper_body
-seat_welt=seat_welt.cut(upper_body)   # the piping runs into the tank skin where the nose laps over it
-tail_body=tail_body.cut(seat)   # seat pan nests into the tail top
+upper_body=tidy(upper_body.cut(seat),'seat');ub_obj.Shape=upper_body
+ub_proxy=solid(UB_TOP,UB_BOT,UB_HALF)   # plain outline solid: cuts against the crowned BSpline skin hang, and these trims only need the outline
+seat_welt=seat_welt.cut(ub_proxy)   # the piping runs into the tank skin where the nose laps over it
+tail_body=tail_body.cut(seat).cut(box(SHOCK_TUBE[0]-50,-200,600,100,400,SHOCK_TUBE[1]+10-600))   # seat pan nests into the tail top; no skin in the bridge channel
 add('Tail_side_panels_STUDY',tail_body,'BodyStudy','PROPOSED 3mm subframe covers traced from baseline; passenger rating not established',color=(.11,.12,.13))
 add('Seat_two_level_STUDY',seat,'BodyStudy','PROPOSED stepped rider/passenger saddle traced from baseline; foam/pan/fit unresolved',color=(.06,.065,.07))
 add('Seat_welt',seat_welt,'BodyStudy','Piped welt along the seat top edges, illustrative',color=(.05,.05,.055))
@@ -750,11 +860,11 @@ rack=rounded(box(-222,-88,868,108,176,8),3)
 for sy in (-1,1):rack=rack.cut(box(-204,20 if sy>0 else -60,860,72,40,20))
 for sy in (-1,1):rack=rack.fuse(cyl((-150,sy*68,870),(-150,sy*68,800),7).cut(tail_outer))
 add('Rear_rack_STUDY',rack,'BodyStudy','PROPOSED aluminium luggage/grab rack on two posts; load rating and subframe mounts unresolved',color=(.1,.105,.11))
-skid=box(640,-175,176,450,350,4)
+skid=box(430,-175,176,660,350,6)   # 6mm 5083, X430-1090 (compliance-and-validation.md CR-6): the 4mm plate collapsed at 4.9 kN
 add('Belly_skid_plate_STUDY',skid,'BodyStudy','PROPOSED 4mm aluminium skid plate under the belly; sets the static ground clearance',color=(.2,.21,.22))
 # Screen, lamps, mirrors, controls.
 sp=[V(1388,-118,898),V(1388,118,898),V(1128,145,1222),V(1128,-145,1222)]
-screen=Part.Face(Part.makePolygon(sp+[sp[0]])).extrude(V(4.6,0,3.8)).cut(upper_body)   # base tucked into the fairing top
+screen=Part.Face(Part.makePolygon(sp+[sp[0]])).extrude(V(4.6,0,3.8)).cut(ub_proxy)   # base tucked into the fairing top
 add('Windscreen_STUDY',screen,'BodyStudy','PROPOSED 6mm screen traced from baseline; optics/buffeting unresolved',color=(.6,.8,.85))
 add('Headlamp_installation_STUDY',headlamp,'BodyStudy','Full-width LED light band (smoked lens) flush with the beak; approved optical unit not selected',color=(.05,.05,.06))
 add('Headlamp_DRL_blade',drl,'BodyStudy','DRL light blade along the top of the lamp band; optics not selected',color=(.95,.95,.97))
@@ -766,32 +876,39 @@ def arc_wedge(cx,cz,a0,a1,R=420):
 # Nov 11, from the tyre-plus-fender lock sweep (checks below): the fender is 10mm off the tyre (was 12-20) so it clears
 # the lower clamp by 11mm at full bump (was 7), and its rear skirt ends at 125 deg (was 165): the 165-deg tail came
 # within 1mm of the battery cover's front wall at full bump, and the 140-deg one within 15mm of the down-links.
-frontFender=cyl((FX,-66,FZ),(FX,66,FZ),RF+16,RF+10)
-for s in (-1,1):frontFender=frontFender.fuse(cyl((FX,s*66-(4 if s>0 else 0),FZ),(FX,s*66+(0 if s>0 else 4),FZ),RF+16,RF-12))
+frontFender=cyl((FX,-72,FZ),(FX,72,FZ),RF+16,RF+10)
+for s in (-1,1):frontFender=frontFender.fuse(cyl((FX,s*72-(4 if s>0 else 0),FZ),(FX,s*72+(0 if s>0 else 4),FZ),RF+16,RF-12))
 frontFender=frontFender.common(arc_wedge(FX,FZ,55,125))
 add('Front_fender_STUDY',frontFender,'BodyStudy','Proposed fender on fork lowers; steering/bump mounts not validated',color=(.11,.12,.13))
-rearHugger=cyl((0,-72,RZ),(0,72,RZ),334,324)
-for s in (-1,1):rearHugger=rearHugger.fuse(cyl((0,s*72-(4 if s>0 else 0),RZ),(0,s*72+(0 if s>0 else 4),RZ),334,300))
+rearHugger=cyl((0,-100,RZ),(0,100,RZ),347,337)   # supplier CR-7: clears the 650x190 tyre
+for s in (-1,1):rearHugger=rearHugger.fuse(cyl((0,s*100-(4 if s>0 else 0),RZ),(0,s*100+(0 if s>0 else 4),RZ),347,313))
 rearHugger=rearHugger.common(arc_wedge(0,RZ,35,105))
 add('Rear_hugger_STUDY',rearHugger,'BodyStudy','Proposed swingarm-mounted hugger; bump clearance follows wheel',color=(.11,.12,.13))
 grip=V(*P['grip_reference_mm'])
 for side in [-1,1]:
-    bp=[V(BAR_C[0],side*40,BAR_C[1]),V(980,side*210,1120),V(930,side*300,1100)]
-    bar=Part.makeCompound([cyl(tuple(a),tuple(b),14.3 if i==0 else 11.1,0) for i,(a,b) in enumerate(zip(bp,bp[1:]))]+[Part.makeSphere(11.1,bp[1])])
+    bp=bar_pts(side)
+    # Nov 14: one continuous bent bar (a ~70 mm bend) instead of two straight tubes meeting at a ball.
+    u0=bp[1]-bp[0];u0.normalize();gd_=bp[2]-bp[1];gd_.normalize()
+    a_=bp[1]-u0*55;b_=bp[1]+gd_*45;m_=(a_+b_)*.25+bp[1]*.5
+    cv=Part.BSplineCurve();cv.interpolate(Points=[a_,m_,b_,bp[2]],InitialTangent=u0,FinalTangent=gd_)
+    pipe=Part.Wire(cv.toShape()).makePipeShell([Part.Wire(Part.makeCircle(11.1,a_,u0))],True,True)
+    bar=Part.makeCompound([cyl(tuple(bp[0]),tuple(a_-u0*20),14.3),Part.makeCone(14.3,11.1,20,a_-u0*20,u0),pipe])
     add(sname('Bar_half',side),bar,'RunningGear','28.6mm tapered bar half: straight centre run, bent back ~29 deg / down ~11 deg to the grip; illustrative',color=(.1,.105,.11))
     gd=bp[2]-bp[1];gd.normalize()
     add(sname('Hand_grip_reserve',side),cyl(tuple(bp[2]-gd*5),tuple(bp[2]+gd*125),17),'RunningGear','Grip on the bar-end axis; throttle unselected',color=(.08,.09,.1))
     tube(sname('Mirror_stalk',side),(bp[1].x-10,bp[1].y+side*20,bp[1].z+12),(842,side*330,1200),6,3,'BodyStudy')
     # Angular mirror head like the baseline: 140 wide, 82 tall, wedge-tapered toward the rider.
-    mir=Part.Face(Part.makePolygon([V(828,0,1190),V(858,0,1196),V(858,0,1266),V(828,0,1272),V(828,0,1190)])).extrude(V(0,140,0))
+    mir=Part.Face(Part.makePolygon([V(828,0,1180),V(858,0,1186),V(858,0,1276),V(828,0,1282),V(828,0,1180)])).extrude(V(0,150,0))   # 150x100 head for the legal glass
     mir=rounded(mir,12);mir.translate(V(0,280 if side>0 else -420,0))
-    add(sname('Mirror_glass',side),box(825.6,(280 if side>0 else -420)+13,1204,2.4,114,54),'BodyStudy','Mirror glass, illustrative',color=(.7,.72,.75))
+    add(sname('Mirror_glass',side),box(825.6,(280 if side>0 else -420)+10,1191,2.4,130,80),'BodyStudy','Mirror glass, illustrative',color=(.7,.72,.75))
     add(sname('Mirror_body',side),mir,'BodyStudy','Mirror head envelope; field of view unvalidated',color=(.07,.075,.08))
-    tube(sname('Peg_reference',side),(420,side*158,300),(420,side*230,300),12,8,'RunningGear')
-    add(sname('Peg_rubber',side),cyl((420,side*232,300),(420,side*305,300),13),'RunningGear','Rider peg with rubber, illustrative',color=(.06,.06,.065))
-    hanger=Part.Face(Part.makePolygon([V(x,0,z) for x,z in [(545,382),(562,350),(545,320),(432,284),(406,298),(418,320),(545,382)]])).extrude(V(0,6,0))
-    hanger=rounded(hanger,2.5).cut(stadium((520,343),(455,316),8,-1,7))   # machined lightening slot
-    hanger.translate(V(0,side*227-3,0))
+    tube(sname('Peg_reference',side),(420,side*187,270),(420,side*237,270),12,8,'RunningGear')   # inner end clear of the belt-side arm sweep
+    pg=rounded(box(392,239 if side>0 else -311,261,56,72,16),3)
+    for xt in (394,436):pg=pg.fuse(box(xt,239 if side>0 else -311,276,10,72,4))   # cleats
+    add(sname('Peg_rubber',side),pg,'RunningGear','Wide 56x72 serrated adventure peg, folding; illustrative',color=(.06,.06,.065))
+    hanger=Part.Face(Part.makePolygon([V(x,0,z) for x,z in [(545,382),(562,350),(545,320),(432,254),(406,268),(418,290),(545,382)]])).extrude(V(0,6,0))
+    hanger=rounded(hanger,2.5).cut(stadium((520,334),(462,296),8,-1,7))   # machined lightening slot
+    hanger.translate(V(0,side*233-3,0))   # outside the pivot cap (Y222.5-228.5)
     add(sname('Peg_bracket',side),hanger,'Chassis','Machined peg hanger plate, illustrative',color=(.62,.63,.64))
     fwd=V(gd.y,-gd.x,0)*side;fwd.normalize()   # forward of the grip, in the bar plane
     add(sname('Hand_lever',side),cyl(tuple(bp[2]+fwd*32+gd*5),tuple(bp[2]+fwd*40+gd*150),5),'RunningGear',
@@ -807,7 +924,7 @@ add('Plate_lamp',box(-346,-20,624,8,40,9),'BodyStudy','Plate lamp reservation ab
 for side in [-1,1]:
     tube(sname('Rear_indicator_stalk',side),(-300,side*32.5,675),(-300,side*116,675),5,0,'BodyStudy')
 add('Bar_centre',cyl((BAR_C[0],-40,BAR_C[1]),(BAR_C[0],40,BAR_C[1]),14.3),'RunningGear','Bar centre section (28.6mm)',color=(.1,.1,.11))
-add('Rear_caliper_reserve',caliper(0,RZ,66,1,120,22,2),'RunningGear','2-piston caliper shaped to the Kawasaki 43080-0156 candidate reserve',color=(.16,.17,.18))
+add('Rear_caliper_reserve',caliper(0,RZ,66,1,133.5,22,2),'RunningGear','2-piston caliper shaped to the Kawasaki 43080-0156 candidate reserve',color=(.16,.17,.18))
 add('Rear_caliper_bracket',stadium((0,RZ+10),(-110,RZ+40),14,88,96),'RunningGear','Floating caliper bracket on the axle, torque-arm stop on the swingarm; illustrative',color=(.12,.12,.13))
 # ---- Brake hydraulics, switchgear and harness (Nov 11 realism pass). Every production bike shows these; their
 # absence was the main thing that read as "CAD model". Routing is PROPOSED (clips, P-clamps and hose lengths for the
@@ -819,7 +936,7 @@ def hose(name,pts,r,basis,g='RunningGear',color=(.03,.03,.035)):
     return add(name,Part.Wire(sp.toShape()).makePipeShell([prof],True,True),g,basis,color=color)
 def Ls(x,y,z):return steer_pl.multVec(V(x,y,z))     # point in the steering frame (moves with bars, clamps and fork)
 for side in (-1,1):
-    bp=[V(BAR_C[0],side*40,BAR_C[1]),V(980,side*210,1120),V(930,side*300,1100)]
+    bp=bar_pts(side)
     gd=bp[2]-bp[1];gd.normalize();fwd=V(gd.y,-gd.x,0)*side;fwd.normalize();up=V(0,0,1)
     add(sname('Lever_perch',side),cyl(tuple(bp[2]-gd*10),tuple(bp[2]-gd*34),18).fuse(cyl(tuple(bp[2]-gd*12+fwd*14),tuple(bp[2]-gd*12+fwd*36),9)),
         'RunningGear','Lever perch clamp with pivot boss, illustrative',color=(.05,.05,.055))
@@ -829,7 +946,7 @@ for side in (-1,1):
     # clamp (inside the steering keep-out, where the body is already cut away).
     add(sname('Harness_connector',side),steer(rounded(box(-62,side*30-12 if side>0 else side*30-12,188,22,24,24),3)),'RunningGear',
         'Switch-harness connector on the top clamp, illustrative',color=(.05,.05,.055))
-    hose(sname('Harness_bar',side),[bp[2]-gd*50+V(0,0,-34),V(985,side*196,1078),V(1040,side*110,1050),Ls(-50,side*60,240),Ls(-51,side*30,212)],3.5,
+    hose(sname('Harness_bar',side),[bp[2]-gd*50+V(0,0,-34),V(985+BAR_DX,side*196,1078+BAR_DZ),V(1040,side*110,1050),Ls(-50,side*60,240),Ls(-51,side*30,212)],3.5,
          'Switch harness leg to the steering-head connector; routing PROPOSED',color=(.02,.02,.022))
     if side<0:
         # Front brake: radial-pull master cylinder on the right perch with a remote reservoir on top.
@@ -868,11 +985,11 @@ ratio=3.1;pitch=14.0;fr=20*pitch/(2*math.pi);rr=62*pitch/(2*math.pi)
 for name,x,z,radius in [('Front',540,PZ,fr),('Rear',0,RZ,rr)]:
     # Belt plane Y-105..-83: inboard between tyre (Y-80) and swingarm arm (Y-116 since Nov 3). The earlier plane at Y-211
     # ran through the three rails that meet at the pivot node (Y-195).
-    pul=cyl((x,-105,z),(x,-83,z),radius-3,20)
-    for yf in (-107,-83):pul=pul.fuse(cyl((x,yf,z),(x,yf+2,z),radius+5,20))   # belt-tracking flanges
+    pul=cyl((x,-127,z),(x,-105,z),radius-3,20)   # moved out 22 (supplier-parts.md CR-3): the real 170/60 reaches Y-95
+    for yf in (-129,-105):pul=pul.fuse(cyl((x,yf,z),(x,yf+2,z),radius+5,20))   # belt-tracking flanges
     if name=='Rear':
         for k in range(6):
-            t=k*math.tau/6;pul=pul.cut(cyl((x+75*math.cos(t),-115,z+75*math.sin(t)),(x+75*math.cos(t),-75,z+75*math.sin(t)),24))
+            t=k*math.tau/6;pul=pul.cut(cyl((x+75*math.cos(t),-137,z+75*math.sin(t)),(x+75*math.cos(t),-97,z+75*math.sin(t)),24))
     add(name+'_pulley_PITCH_STUDY',pul,'Drive','14mm 20:62 pulley, illustrative flanges; supplier not selected',color=(.55,.56,.57))
 def hull2(c1,r1,c2,r2,n=72):
     """2D convex hull of two circles in XZ, as a face at Y=0."""
@@ -887,7 +1004,7 @@ def hull2(c1,r1,c2,r2,n=72):
     lo=half(pts);up=half(pts[::-1]);ring=lo[:-1]+up[:-1]
     return Part.Face(Part.makePolygon([V(x,0,z) for x,z in ring+[ring[0]]]))
 belt=hull2((540,PZ),fr+5,(0,RZ),rr+5).cut(hull2((540,PZ),fr,(0,RZ),rr))
-belt.translate(V(0,-104,0));belt=belt.extrude(V(0,20,0))
+belt.translate(V(0,-126,0));belt=belt.extrude(V(0,20,0))
 add('Drive_belt_14mm_STUDY',belt,'Drive','Closed 14mm-pitch belt loop at rest position; length/tension not computed',color=(.05,.05,.05))
 
 notes=D.addObject('Spreadsheet::Sheet','DesignStatus')
@@ -899,6 +1016,78 @@ for i,t in enumerate(['BAVUSO V1.0 ADVENTURE LAYOUT (REV B) - ENGINEERING DEVELO
  'See v1.0/adventure-layout.md and geometry-adventure-audit.json'],1):notes.set(f'A{i}',t)
 notes.setColumnWidth('A',900)
 D.recompute()
+
+
+# ---------------------------------------------------------------- detailed-design additions (Nov 13-14; see detailed-design/*.md)
+# Cooling (thermal-study.md): side-pod radiators, 210x140x32 cores angled in plan, 30mm fans behind, pod shrouds to Y+-315.
+RAD_ANG=math.degrees(math.atan2(120,172))
+pods=[]
+for side in [-1,1]:
+    core=box(0,0,596,191,32,154);core.rotate(V(0,0,0),V(0,0,1),RAD_ANG);fan=box(15,-30,606,171,30,134);fan.rotate(V(0,0,0),V(0,0,1),RAD_ANG)
+    if side<0:core=core.mirror(V(0,0,0),V(0,1,0));fan=fan.mirror(V(0,0,0),V(0,1,0))
+    core.translate(V(1006,side*172,0));fan.translate(V(1006,side*172,0))
+    add(sname('Radiator_core',side),core,'Cooling','Side-pod radiator 191x154x32 (0.029 m2, same face area as 210x140; under the upper rail), angled 35 deg in plan (thermal-study.md CR-1)',color=(.25,.26,.27))
+    add(sname('Radiator_fan',side),fan,'Cooling','30mm slim fan behind the core, illustrative',color=(.05,.05,.05))
+    # Pod = plan outline (flares to Y315) intersected with a side profile (raked front edge like the tank vents, top edge
+    # following the tank line), edges rounded, then hollowed to a 3mm skin with an open, louvred front.
+    pl=[(962,222),(990,300),(1060,318),(1165,312),(1182,285),(1182,222)]
+    sp=[(1000,580),(1172,580),(1192,690),(1160,792),(1010,794),(985,730),(965,640)]   # top raised for the taller core
+    def pod(dp,ds):
+        pp=[(x,side*y) for x,y in pl];w=Part.makePolygon([V(x,y,0) for x,y in pp+[pp[0]]])
+        f=Part.Face(w) if dp==0 else Part.Face(Part.Wire(Part.Face(w).makeOffset2D(-dp).OuterWire))
+        a=f.extrude(V(0,0,900));a.translate(V(0,0,300))
+        w2=Part.makePolygon([V(x,0,z) for x,z in sp+[sp[0]]]);f2=Part.Face(w2) if ds==0 else Part.Face(Part.Wire(Part.Face(w2).makeOffset2D(-ds).OuterWire))
+        b=f2.extrude(V(0,1000,0));b.translate(V(0,-500,0))
+        return a.common(b)
+    po=rounded(pod(0,0),14)
+    shell=po.cut(pod(3,3))
+    shell=shell.cut(xz_prism([(960,630),(1005,588),(1035,588),(1000,700)],side*190,side*400))      # open raked front: the grille sits there
+    shell=shell.cut(box(900,(222-40) if side>0 else -222,580,320,40,200))   # open where it meets the tank side
+    grille=Part.makeCompound([xz_prism([(968+k*6.5,640+k*11),(988+k*6.5,640+k*11),(988+k*6.5,646+k*11),(968+k*6.5,646+k*11)],side*224,side*300) for k in range(5)])
+    add(sname('Radiator_pod_grille',side),grille.common(pod(0,0)),'BodyStudy','Louvred grille in the pod mouth',color=(.16,.17,.18))
+    pods.append(shell)
+    # the tank flank is open inside the pod's side silhouette, where the core's inboard end passes into the tank
+    w2=Part.makePolygon([V(x,0,z) for x,z in sp+[sp[0]]]);f2=Part.Face(Part.Wire(Part.Face(w2).makeOffset2D(-6).OuterWire))
+    win=f2.extrude(V(0,70,0));win.translate(V(0,158 if side>0 else -228,0))
+    upper_body=tidy(upper_body.cut(win),'podwin')
+    add(sname('Radiator_pod_shroud',side),shell,'BodyStudy','3mm side-pod shroud over the radiator, open front for the grille (thermal-study.md CR-1)',color=(.11,.12,.13))
+# Pack-roof service bay and oil cooler (thermal CR-2/3), saved coordinates minus 40. Pumps sit outboard of the upper junction box.
+for nm,b in [('Coolant_pump_battery',(593,86,633,64,64,64)),('Coolant_pump_drive',(864,116,633,64,64,64)),
+             ('Coolant_PTC_heater_5kW',(770,-148,726,88,52,62)),('Coolant_4port_valve',(598,-170,636,50,38,52)),
+             ('Oil_cooler',(560,-150,430,80,40,90))]:
+    add(nm,box(*b),'Cooling','Thermal service-bay envelope (thermal-study.md CR-2/3); position to be confirmed by interference sweep',color=(.3,.31,.33))
+# Electrical boxes (electrical-detailed.md CR-5..8), saved coordinates minus 40.
+for nm,b in [('HV_upper_junction_box',(606,-125,605,80,207,120)),('HV_charge_junction_box',(730,116,592,130,60,120)),
+             ('DCDC_converter_1p2kW',(735,-180,582,190,60,130))]:
+    add(nm,box(*b),'Electronics','Electrical envelope (electrical-detailed.md); position to be confirmed by interference sweep',color=(.2,.21,.22))
+nacs=box(860,127,805,68,95,84)
+ub_obj.Shape=upper_body
+add('NACS_charge_inlet',nacs,'Electronics','Volex NACS inlet 1000V/500A behind a flap in the tank flank (electrical-detailed.md CR-7)',color=(.15,.15,.16))
+upper_body=tidy(upper_body.cut(nacs.copy()),'nacs');ub_obj.Shape=upper_body
+# Steering damper (dynamics-study.md CR-2): semi-active rotary damper on the top clamp, behind the axis.
+add('Steering_damper_envelope',steer(box(-95,-30,227,80,60,45)),'RunningGear','Semi-active steering damper >=28 Nm.s/rad, speed-scheduled (dynamics-study.md)',color=(.75,.6,.2))
+# Crash protection (compliance-and-validation.md CR-1..3), re-routed over and outside the radiator pods.
+guards=[]
+for side in [-1,1]:
+    pts=[(930,251,792),(990,301,826),(1075,346,826),(1080,349,690),(1045,333,430),(900,277,330),(700,263,330),(600,251,360)]
+    segs=[cyl((a[0],side*a[1],a[2]),(b[0],side*b[1],b[2]),14,11.5) for a,b in zip(pts,pts[1:])]+[Part.makeSphere(14,V(p[0],side*p[1],p[2])) for p in pts]
+    g=Part.makeCompound(segs);guards.append(g)
+    mounts=[((930,251,792),(930,186,764)),((1045,333,430),(1062,200,466)),((600,251,360),(600,190,364))]   # to upper rail, pack front lug, rear link
+    add(sname('Crash_guard_mount',side),Part.makeCompound([cyl((a[0],side*a[1],a[2]),(b[0],side*b[1],b[2]),10,7.5) for a,b in mounts]),'Protection',
+        'Guard mount stubs bolted to the upper rail, pack front lug and rear link through grommeted cover holes (holes not modelled)',color=(.08,.08,.085))
+    add(sname('Crash_guard',side),g,'Protection','28x2.5 25CrMo4 crash guard, 21.3 kN anchors (compliance CR-1; routed outside the radiator pods)',color=(.08,.08,.085))
+    add(sname('Pivot_slider',side),cyl((540,side*236,PZ),(540,side*270,PZ),25),'Protection','POM pivot slider puck on an M10 (compliance CR-3)',color=(.05,.05,.05))
+    _,b1,b2=bar_pts(side);gd=b2-b1;gd.normalize();fw=V(gd.y,-gd.x,0)*side;fw.normalize();up=V(0,0,1)
+    hp=[b2+gd*g_+fw*f_+up*u_ for g_,f_,u_ in [(127,0,0),(132,0,0),(175,10,0),(182,75,5),(120,112,8),(-20,115,5),(-110,60,-5),(-110,0,-14)]]
+    hg=[Part.makeCylinder(11,(b-a).Length,a,b-a) for a,b in zip(hp,hp[1:])]+[Part.makeSphere(11,p) for p in hp[1:-1]]
+    add(sname('Handguard',side),Part.makeCompound(hg),'Protection',
+        'Aluminium handguard backbone 22x3 (compliance CR-2)',color=(.1,.1,.11))
+# Legal fit-out (compliance CR-10..13).
+add('Rear_reflector_red',box(-344,-30,578,6,60,22),'BodyStudy','60mm red rear reflector (FMVSS 108)',color=(.6,.05,.05))
+for side in [-1,1]:
+    add(sname('Side_reflector_red',side),cyl((-80,side*124,760),(-80,side*127,760),18),'BodyStudy','Red side reflector',color=(.6,.05,.05))
+add('Horn_R28',cyl((1045,-224,525),(1045,-259,525),45),'Electronics','R28 class I horn below the left radiator pod, outboard of the battery plate (compliance CR-11)',color=(.12,.12,.12))
+add('Side_stand_retracted',cyl((560,236,258),(330,240,230),12,0),'RunningGear','Side stand, retracted, with interlock switch (compliance CR-12)',color=(.08,.08,.085))
 
 # ---------------------------------------------------------------- checks (model coordinates, ground at Z=-LIFT)
 for o in D.Objects:
@@ -994,8 +1183,12 @@ if not fast:
         t_.translate(V(-math.sin(RAKE)*up,0,math.cos(RAKE)*up))
         for ang in (-35,-20,0,20,35):steer_sweep.append(t_.transformGeometry(A.Placement(V(),A.Rotation(sd,ang),sa).toMatrix()))
     steerSweep=Part.makeCompound(steer_sweep)
+    check('crash_guards_vs_tyre_fender_lock_sweep',Part.makeCompound(guards),steerSweep,20)
+    check('crash_guards_vs_lower_covers_and_pods',Part.makeCompound(guards),Part.makeCompound([lower_body]+pods),10)
+    check('radiator_pods_vs_tyre_fender_lock_sweep',Part.makeCompound(pods+[O(sname('Radiator_core',sd)) for sd in (-1,1)]),steerSweep,20)
+    check('horn_vs_tyre_fender_lock_sweep',O('Horn_R28'),steerSweep,20)
     check('front_body_vs_tyre_fender_lock_sweep',Part.makeCompound([upper_body,lower_body,headlamp,drl]+
-          [O(sname(n,s)) for n in ('Side_grille_louvres','Front_indicator_reserve','Battery_side_panel','Belly_side_panel') for s in (-1,1)]),steerSweep,20)
+          [O(sname(n,s)) for n in ('Front_indicator_reserve','Battery_side_panel','Belly_side_panel') for s in (-1,1)]),steerSweep,20)
     check('frame_vs_tyre_fender_lock_sweep',Part.makeCompound([O(o.Name) for o in visible if o.Name.startswith(('Upper_rail','Lower_downlink','Head_tube'))]),steerSweep,20)
     # Bars at full lock (+-35 deg): hands, levers, master cylinder and switches vs the tank/fairing, screen and dash.
     # 30mm so a gloved hand is not pinched (Nov 11, bars raised 50 / back 20).
@@ -1041,7 +1234,7 @@ if not fast:
     check('shock_vs_seat',shockSweep,seat,10)
     check('shock_vs_frame',shockSweep,Part.makeCompound([O(o.Name) for o in visible if o.Name.startswith(('Upper_rail','Lower_','Tail_rail','Tail_brace'))]),10)
     check('shock_vs_reservoir',shockSweep,O('Shock_reservoir_STUDY'),10)
-    tyre_at=lambda z:cyl((rear_axle(z)[0],-80,z),(rear_axle(z)[0],80,z),RR)
+    tyre_at=lambda z:cyl((rear_axle(z)[0],-95,z),(rear_axle(z)[0],95,z),RR)
     armset=Part.makeCompound([O('Swingarm_m1'),O('Swingarm_1')])
     def paired(label,minimum,other):
         best=None
@@ -1065,18 +1258,21 @@ if not fast:
     check('cabinet_vs_motor_cover',cab_out,motor_cover,5)
     check('cabinet_vs_skid',cab_out,skid,10)
     for side in [-1,1]:
-        check(sname('radiator_vs_charger',side),O(sname('Side_radiator',side)),charger,5)
+        check(sname('radiator_vs_charger',side),O(sname('Radiator_core',side)),charger,5)
     # Broad interference sweep: every body/electronics part against every other visible part.
     # Cells are covered by the containment test; the solid pack boundary stands in for them here.
     sweep=[(o.Name,o.InList[0].Name,o.Shape) for o in visible if not o.Name.startswith('Cell_lane')]
     sweep.append(('Battery_installation_keepout','Energy',outer))
     for (na,ga,sa_),(nb,gb,sb_) in itertools.combinations(sweep,2):
-        if not ({ga,gb}&{'BodyStudy','Electronics','Energy'}):continue
+        if not ({ga,gb}&{'BodyStudy','Electronics','Energy','Cooling','Protection'}):continue
         if {na,nb}=={'Battery_installation_keepout','Pack_case_structural_4mm_STUDY'}:continue
         if not sa_.BoundBox.intersect(sb_.BoundBox):continue
         if 'Mirror_stalk' in na+nb and any(k in na+nb for k in ('Mirror_body','Hand_grip','Bar_half')):continue  # intended joints
         if 'Mirror_glass' in na+nb and 'Mirror_body' in na+nb:continue
         if 'Seat_welt' in na+nb and 'Seat_two_level' in na+nb:continue
+        if 'Crash_guard_mount' in na+nb and any(k in na+nb for k in ('Crash_guard_','Upper_rail','Lower_pack_rear_link','Lower_downlink','Upper_body','Lower_body',
+                                                                       'Battery_side_panel','Motor_side_covers','Battery_installation_keepout','Pack_case')):continue  # bolted mounts through grommets
+        if 'Handguard' in na+nb and 'Bar_half' in na+nb:continue   # clamped to the bar
         if sa_.distToShape(sb_)[0]>1e-6:continue
         # Whole-assembly booleans on the multi-solid supplier STEPs gave false volumes; sum solid by solid.
         v=sum(x.common(y).Volume for x in sa_.Solids for y in sb_.Solids if x.BoundBox.intersect(y.BoundBox))

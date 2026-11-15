@@ -1,0 +1,39 @@
+item,cad,real,delta_mm,status,real_part,source,note
+Front tyre outside diameter (mm),650.6,663,12.4,MISMATCH,Metzeler Tourance Next 2 120/70 R19 M/C 60V TL (IP 3960400),https://intramoto.gr/wp-content/uploads/2024/04/METZELER-DATA.pdf,max diameter in service per databook; CAD = nominal ETRTO 120/70-19
+Front tyre radius (mm),325.3,331.5,6.2,MISMATCH,Metzeler Tourance Next 2 120/70 R19 M/C 60V TL (IP 3960400),https://intramoto.gr/wp-content/uploads/2024/04/METZELER-DATA.pdf,
+Front tyre section width (mm),120.0,133,13.0,MISMATCH,Metzeler Tourance Next 2 120/70 R19 M/C 60V TL (IP 3960400),https://intramoto.gr/wp-content/uploads/2024/04/METZELER-DATA.pdf,max width in service on 3.50 measuring rim
+Front rim width (in),3.0,3.5,0.5,MISMATCH,Metzeler Tourance Next 2 120/70 R19 M/C 60V TL (IP 3960400),https://intramoto.gr/wp-content/uploads/2024/04/METZELER-DATA.pdf,"3.00 is inside the permitted (3.0, 3.75) range"
+Rear tyre outside diameter (mm),623.8,650,26.2,MISMATCH,Metzeler Tourance Next 2 170/60 R17 M/C 72V TL (IP 3960500),https://intramoto.gr/wp-content/uploads/2024/04/METZELER-DATA.pdf,CAD models 160/60; brief and benchmark bikes use 170/60
+Rear tyre radius (mm),311.9,325.0,13.1,MISMATCH,Metzeler Tourance Next 2 170/60 R17 M/C 72V TL (IP 3960500),https://intramoto.gr/wp-content/uploads/2024/04/METZELER-DATA.pdf,
+Rear tyre section width (mm),160.0,190,30.0,MISMATCH,Metzeler Tourance Next 2 170/60 R17 M/C 72V TL (IP 3960500),https://intramoto.gr/wp-content/uploads/2024/04/METZELER-DATA.pdf,max width in service on 4.50 measuring rim
+Rear tyre 160/60 alt: diameter (mm),623.8,638,14.2,MISMATCH,"Metzeler Sportec M5 160/60 ZR17 (69W) (IP 1971300), size reference only",https://intramoto.gr/wp-content/uploads/2024/04/METZELER-DATA.pdf,
+Rear rim width (in),4.5,4.5,0.0,match,Metzeler Tourance Next 2 170/60 R17 M/C 72V TL (IP 3960500),https://intramoto.gr/wp-content/uploads/2024/04/METZELER-DATA.pdf,
+"Front tyre crown radius (mm, CAD estimate)",103.84,,,info,not published by Metzeler/Michelin/Pirelli,,measure a sample
+"Rear tyre crown radius (mm, CAD estimate)",159.1,,,info,not published,,measure a sample
+Fork inner tube diameter (mm),48.0,48,0.0,match,WP APEX 48 / Ohlins FGRT 48 class,https://www.ohlins.eu/en/products/motorcycle/fgrt-301--4199/,Marzocchi OE on Multistrada V4 is 50 mm
+Fork travel (mm),170.0,170,0.0,match,"Marzocchi 50 mm USD (Ducati Multistrada V4 S OE), 170 mm travel",https://amcn.com.au/editorial/test-ducati-multistrada-v4-s/,
+Fork axle to top of outer tube (mm),824.74,815.0,-9.74,MISMATCH,"FGRT 301 765 mm @120 stroke, +50 mm for 170 (interpolated, not a datasheet)",https://www.ohlins.eu/en/products/motorcycle/fgrt-301--4199/,ESTIMATE
+"Front tyre to fork foot, lateral (mm)",12.5,6.0,-6.5,MISMATCH,with real 133 mm width,https://intramoto.gr/wp-content/uploads/2024/04/METZELER-DATA.pdf,no CAD check covers this; want >=10
+Front caliper radial mount spacing (mm),109.49,100,-9.49,MISMATCH,"Brembo Stylema 4x30 mm monobloc, 100 mm radial (220D02010 kit)",https://hhrperformance.com/products/brembo-caliper-left-p4-30mm-stylema-cast-monobloc-100mm-radial-mount-front-titanium-grey,CAD comment says 108
+Front disc diameter (mm),320.0,320,0.0,match,Brembo Serie Oro 78B40870 floating 320 x 5.0 mm,https://www.oppracing.com/product_display/14428604-brembo-serie-oro-disc-320x50mm-serie-oro-floating-front-78b40870/,
+Front disc thickness (mm),5.0,5.0,0.0,match,Brembo Serie Oro 78B40870 floating 320 x 5.0 mm,https://www.oppracing.com/product_display/14428604-brembo-serie-oro-disc-320x50mm-serie-oro-floating-front-78b40870/,
+Front disc band height (mm),38.0,34,-4.0,MISMATCH,"Brembo Stylema 4x30 mm monobloc, 100 mm radial (220D02010 kit)",https://hhrperformance.com/products/brembo-caliper-left-p4-30mm-stylema-cast-monobloc-100mm-radial-mount-front-titanium-grey,Stylema pad suits 32-34 mm band
+Rear disc diameter (mm),240.0,245,5.0,MISMATCH,"Brembo Serie Oro 68B407H1 fixed 245 x 5 mm, 4 holes, ID 83",https://www.carpimoto.com/en-US/42247_68B407H1-Brembo-Serie-Oro-Brake-Rotor-68B407H1.htm,
+Master cylinder bore (mm),19,19,0,match,Brembo 19RCS Corsa Corta 110C74010,https://www.motosport.com/brembo-corsa-corta-19rcs-brake-master-cylinder,CAD text: 19 mm class
+Shock eye-to-eye extended (mm),305.0,,,info,"custom OE length; nearest catalogue: TTX GP 295/60, STX46 406/100.5",https://www.ohlins.eu/en/products/motorcycle/kt-122--4458/,
+Shock stroke / length ratio,0.25,0.25,0.0,match,"Ohlins STX 46 Adventure KT 122 (KTM 690 PDS, direct mount)",https://www.ohlins.eu/en/products/motorcycle/kt-122--4458/,plausibility only
+Shock spring ID (mm),64.0,51,-13.0,MISMATCH,Ohlins 21040-xx shock spring 51 ID x 160,https://www.alpharacing.com/en/oehlins-spring-51-160-95-n-mm/su-21040-31,CAD reservation (88 OD) is conservative
+Bar clamp diameter (mm),28.6,28.6,0.0,match,"Renthal Fatbar 826 (28.6 clamp, 22.2 ends)",https://renthal.com/products/fatbar-826-01,
+Bar end diameter (mm),22.2,22.2,0.0,match,"Renthal Fatbar 826 (28.6 clamp, 22.2 ends)",https://renthal.com/products/fatbar-826-01,
+Mirror glass area (mm2),6156.0,8065,1909.0,MISMATCH,FMVSS 111 S10.1 flat mirror minimum,https://www.ecfr.gov/current/title-49/subtitle-B/chapter-V/part-571/subpart-B/section-571.111 ; https://far-ecommerce.com/en/pages/guida-specchietti-moto-omologati,convex option needs 6450 mm2
+Mirror glass height vs 78 mm circle (mm),54.0,78,24.0,MISMATCH,ECE R81 L-category,https://www.ecfr.gov/current/title-49/subtitle-B/chapter-V/part-571/subpart-B/section-571.111 ; https://far-ecommerce.com/en/pages/guida-specchietti-moto-omologati,
+Headlamp opening height (mm),40.0,94.4,54.4,MISMATCH,Hella Bi-LED L4565 90 mm module (ECE),https://www.hella.com/australiansolutions/assets/documents_global/Hella-90mm-Module-Brochure-0224.pdf,off-the-shelf certified module needs ~95 mm
+Headlamp depth (mm),90.0,124,34.0,MISMATCH,Hella Bi-LED L4565 90 mm module (ECE),https://www.hella.com/australiansolutions/assets/documents_global/Hella-90mm-Module-Brochure-0224.pdf,module depth 124-162 mm
+Motor OD (mm),220.0,200,-20.0,MISMATCH,Helix SPX177-45 radial PM,https://www.ehelix.com/products/spx177/,
+Motor overall length (mm),129.0,163,34.0,MISMATCH,Helix SPX177-45 radial PM,https://www.ehelix.com/products/spx177/,no room: right arm sweep is 12 mm from the motor end
+Motor peak torque (Nm),150,120,-30,MISMATCH,Helix SPX177-45 radial PM,https://www.ehelix.com/products/spx177/,ratio 7.8 -> 9.8 keeps wheel torque; 23.5k rpm covers it
+Cell diameter (mm),26.0,21.55,-4.45,MISMATCH,Molicel INR-21700-P60B,https://www.molicel.com/wp-content/uploads/Product-Data-Sheet-of-INR-21700-P60B_80145.pdf,
+Cell length (mm),120.0,70.15,-49.85,MISMATCH,Molicel INR-21700-P60B,https://www.molicel.com/wp-content/uploads/Product-Data-Sheet-of-INR-21700-P60B_80145.pdf,
+Cell energy (Wh),55.0,21.6,-33.4,MISMATCH,Molicel INR-21700-P60B,https://www.molicel.com/wp-content/uploads/Product-Data-Sheet-of-INR-21700-P60B_80145.pdf,
+Cell mass (g),180.0,75,-105.0,MISMATCH,Molicel INR-21700-P60B,https://www.molicel.com/wp-content/uploads/Product-Data-Sheet-of-INR-21700-P60B_80145.pdf,
+Belt inner face to rear tyre sidewall (mm),3.0,-12.0,-15.0,MISMATCH,Metzeler Tourance Next 2 170/60 R17 M/C 72V TL (IP 3960500),https://intramoto.gr/wp-content/uploads/2024/04/METZELER-DATA.pdf,BLOCKING: negative = overlap; want >=10

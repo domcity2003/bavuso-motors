@@ -16,7 +16,7 @@ import FreeCAD as A
 
 R=Path(__file__).resolve().parents[1]
 STEEL,ALU,PLASTIC,PC=7.85,2.70,1.05,1.20          # g/cm3; plastic = painted PP/ABS panel
-WB=1486.8
+WB=1490.0
 
 # name (exact, or prefix ending in *) -> (method, value, unsprung share front/rear, source tag, note)
 #   unsprung: ('F',share) or ('R',share) or None
@@ -37,6 +37,30 @@ RULES=[
  ('HV_cabinet_2mm_STUDY','vol',ALU,None,'C','2 mm aluminium cabinet'),
  ('GX14_main_*','kg',0.45,None,'E','Gigavac GX14 main contactor'),
  ('Side_radiator_*','kg',1.15,None,'E','aluminium core + fan, unsized'),
+ # ---- detailed-design additions, Nov 14 (detailed-design/*.md) ----
+ ('Radiator_core_*','kg',1.9,None,'E','210x140x32 Al core, filled (thermal-study.md)'),
+ ('Radiator_fan_*','kg',0.35,None,'E','30 mm slim fan'),
+ ('Radiator_pod_shroud_*','vol',PLASTIC,None,'C','3 mm pod shroud'),
+ ('Radiator_pod_grille_*','vol',PLASTIC,None,'C','pod grille louvres'),
+ ('Coolant_pump_*','kg',0.7,None,'S','12 V EWP-class pump (thermal-study.md)'),
+ ('Coolant_PTC_heater_5kW','kg',1.6,None,'E','5 kW HV PTC heater (thermal-study.md)'),
+ ('Coolant_4port_valve','kg',0.45,None,'E','4-port coolant valve'),
+ ('Oil_cooler','kg',0.6,None,'E','gear-oil cooler'),
+ ('HV_upper_junction_box','kg',2.2,None,'E','junction box with fuses (electrical-detailed.md)'),
+ ('HV_charge_junction_box','kg',1.4,None,'E','charge contactors box (electrical-detailed.md)'),
+ ('DCDC_converter_1p2kW','kg',2.8,None,'S','HELLA 1.2 kW DC-DC (electrical-detailed.md)'),
+ ('NACS_charge_inlet','kg',1.3,None,'S','Volex NACS inlet with HV leads'),
+ ('Steering_damper_envelope','kg',1.1,None,'E','semi-active rotary steering damper'),
+ ('Crash_guard_*','vol',STEEL,None,'C','28x2.5 25CrMo4 crash guard'),
+ ('Pivot_slider_*','kg',0.06,None,'E','POM puck'),
+ ('Handguard_*','vol',ALU,None,'C','22x3 6082 handguard backbone'),
+ ('Rear_reflector_red','kg',0.03,None,'E','reflector'),
+ ('Side_reflector_red_*','kg',0.01,None,'E','reflector'),
+ ('Horn_R28','kg',0.4,None,'S','R28 horn'),
+ ('Side_stand_retracted','kg',1.4,None,'E','forged side stand with switch'),
+ ('Upper_post_*','vol',STEEL,None,'C','32x2.5 chromoly post (structural-fea.md)'),
+ ('Head_gusset_*','vol',STEEL,None,'C','10 mm 4130 gusset'),
+ ('Shock_bridge_diagonal_*','vol',STEEL,None,'C','25x2.5 chromoly'),
  # ---- frame (chromoly tube, CAD tubes are hollow) ----
  ('Upper_rail_*','vol',STEEL,None,'C','32x2.5 chromoly'),
  ('Lower_downlink_*','vol',STEEL,None,'C','32x2.5 chromoly'),
@@ -52,8 +76,8 @@ RULES=[
  ('Peg_reference_*','kg',0.25,None,'E','rider peg'),
  ('Peg_rubber_*','kg',0.1,None,'E','peg rubber'),
  # ---- swingarm and shock ----
- ('Swingarm_1','shell',(ALU,3.5),('R',0.5),'C','fabricated box arm, 3.5 mm walls (CAD area x t)'),
- ('Swingarm_m1','shell',(ALU,3.5),('R',0.5),'C','fabricated box arm, 3.5 mm walls (CAD area x t)'),
+ ('Swingarm_1','shell',(ALU,4.25),('R',0.5),'C','fabricated box arm, 4.5/4.0 mm walls (structural-fea.md)'),
+ ('Swingarm_m1','shell',(ALU,4.25),('R',0.5),'C','fabricated box arm, 4.5/4.0 mm walls (structural-fea.md)'),
  ('Swingarm_cross_brace','vol',ALU,('R',0.5),'C','50x5 aluminium tube'),
  ('Swingarm_shock_tower','vol',ALU,('R',0.5),'C','twin 8 mm aluminium plates'),
  ('Shock_body_STUDY','kg',2.0,('R',0.5),'E','semi-active damper body (with valves)'),
@@ -64,13 +88,13 @@ RULES=[
  ('Shock_Lower_eye_STUDY','kg',0.15,('R',1.0),'E','eye and bearing'),
  # ---- wheels, tyres, brakes ----
  ('Front_nominal_tire','kg',4.5,('F',1.0),'S','120/70R19 adventure tyre (Michelin Anakee retail listing ~4.5 kg)'),
- ('Rear_nominal_tire','kg',6.0,('R',1.0),'E','160/60ZR17 road/adventure tyre'),
+ ('Rear_nominal_tire','kg',6.4,('R',1.0),'E','170/60R17 adventure tyre'),
  ('Front_wheel_STUDY','kg',3.4,('F',1.0),'E','forged aluminium 19x3.0 with bearings (premium package)'),
  ('Rear_wheel_STUDY','kg',4.2,('R',1.0),'E','forged aluminium 17x4.5 with bearings, cush hub'),
  ('Front_disc_carrier_*','kg',0.25,('F',1.0),'E','disc carrier'),   # before Front_disc_*: first match wins
  ('Front_disc_*','kg',1.2,('F',1.0),'E','320 mm floating disc'),
  ('Front_caliper_reserve_*','kg',0.85,('F',1.0),'E','radial 4-piston caliper'),
- ('Rear_disc_p1','kg',0.65,('R',1.0),'E','240 mm disc'),
+ ('Rear_disc_p1','kg',0.85,('R',1.0),'E','267x6 mm disc (dynamics-study.md)'),
  ('Rear_disc_carrier_p1','kg',0.1,('R',1.0),'E','disc carrier'),
  ('Rear_caliper_reserve','kg',0.6,('R',1.0),'E','2-piston caliper + bracket'),
  # ---- fork, steering, controls ----

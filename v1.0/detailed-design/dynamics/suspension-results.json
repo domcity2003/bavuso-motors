@@ -1,0 +1,88 @@
+{
+ "rear": {
+  "solo": {
+   "axle_N": 1843.7190225641878,
+   "sprung_N": 1654.3860225641877,
+   "wheel_rate": 20.077732137265375,
+   "ride_hz": 1.6590745088900372,
+   "c_crit_wheel_Ns_m": 3680.198517264371,
+   "shock_c_comp_zeta0.25_Ns_m": 4994.857432594136,
+   "shock_c_reb_zeta0.5_Ns_m": 9989.714865188273
+  },
+  "twoup": {
+   "axle_N": 2907.412185850123,
+   "sprung_N": 2718.079185850123,
+   "wheel_rate": 20.077732137265375,
+   "ride_hz": 1.2943545784205552,
+   "c_crit_wheel_Ns_m": 4717.1954651705855,
+   "shock_c_comp_zeta0.25_Ns_m": 6402.295615216149,
+   "shock_c_reb_zeta0.5_Ns_m": 12804.591230432297
+  },
+  "preload_wheel_mm_solo": 31.399048421089162,
+  "preload_spring_mm_solo": 13.475986446819382,
+  "sag_twoup_with_20mm_adjuster": 57.37875058865151,
+  "hop_hz": 17.37715884746428
+ },
+ "front_optimum": {
+  "k_leg": 8.0,
+  "air_gap": 180.0,
+  "preload": 33.1741717114961,
+  "sag_twoup": 53.911769239977815,
+  "x_brake_solo": 139.45532140294262,
+  "x_brake_twoup": 150.65815275564012,
+  "x_corner45": 79.86740070253293,
+  "ride_hz": 1.7988751888106411,
+  "k_axial_at_sag": 19.957364019789793,
+  "ok": true,
+  "sprung_kg": 167.00418424422128,
+  "static_axial_N": 1484.8140598792459,
+  "brake_axial_solo_N": 4275.47320516674,
+  "brake_axial_twoup_N": 5378.672000387116,
+  "corner45_axial_N": 2099.844181083486,
+  "wheel_rate_vertical": 24.296949772585467,
+  "c_crit_wheel_Ns_m": 4028.7428691309915,
+  "fork_c_comp_axial_zeta025_Ns_m": 827.296108502674,
+  "fork_c_reb_axial_zeta05_Ns_m": 1654.592217005348,
+  "hop_hz": 17.181948081411157,
+  "unsprung_kg": 17.099999999999998,
+  "coil_only_x_brake_solo": 234.04290361142512
+ },
+ "front_candidates_ok": 182,
+ "load_transfer": {
+  "solo": {
+   "m": 372.04699999999985,
+   "a_wheelie_g": 1.1476005247792667,
+   "drive_force_N": 3421.6981132075475,
+   "a_full_torque_g": 0.8930985347116728,
+   "front_load_at_full_torque_N": 400.5282111093293,
+   "rear_load_N": 3249.2528588906694,
+   "rear_mu_needed": 1.0530722790148603,
+   "wheelie": false,
+   "rear_extension_mm_at_full_torque": 17.50115285328632,
+   "front_extension_mm": 63.828382322587096
+  },
+  "twoup": {
+   "m": 487.04699999999985,
+   "a_wheelie_g": 0.7896682759244619,
+   "drive_force_N": 3421.6981132075475,
+   "a_full_torque_g": 0.6899397156664754,
+   "front_load_at_full_torque_N": 236.2310364225482,
+   "rear_load_N": 4541.70003357745,
+   "rear_mu_needed": 0.7533958843407611,
+   "wheelie": false,
+   "rear_extension_mm_at_full_torque": 20.349507560841488,
+   "front_extension_mm": 74.21660501787272
+  },
+  "bike_only": {
+   "m": 287.04699999999985,
+   "a_wheelie_g": 1.5748563310720995,
+   "drive_force_N": 3421.6981132075475,
+   "a_full_torque_g": 1.1415492655337465,
+   "front_load_at_full_torque_N": 416.52386556555234,
+   "rear_load_N": 2399.4072044344466,
+   "rear_mu_needed": 1.426059781300882,
+   "wheelie": false
+  },
+  "anti_squat_used": 1.25
+ }
+}

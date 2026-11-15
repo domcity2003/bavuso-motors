@@ -1,0 +1,1508 @@
+{
+ "m1-coarse": {
+  "case": "m1-coarse",
+  "yaw_deg": 0.0,
+  "base_cell_m": 0.5,
+  "cells": 775097,
+  "air_speed_ms": 31.293,
+  "q_Pa": 599.8,
+  "iterations": 600,
+  "parts": {
+   "total": {
+    "drag_air_N": 252.65,
+    "CdA_m2": 0.4212,
+    "drag_vehicle_axis_N": 252.65,
+    "pressure_drag_N": 247.4,
+    "viscous_drag_N": 5.26,
+    "side_force_N": -3.62,
+    "lift_N": -21.25,
+    "CdA_std_window": 0.0046,
+    "CdA_min_window": 0.4147,
+    "CdA_max_window": 0.4331,
+    "drift_last_vs_previous_window_pct": 0.66,
+    "front_axle_lift_N": 118.0,
+    "rear_axle_lift_N": -139.3,
+    "yaw_moment_about_cog_Nm": -0.3,
+    "roll_moment_about_cog_Nm": 1.7,
+    "pitch_moment_about_cog_Nm": -64.6,
+    "roll_moment_about_ground_Nm": 3.5,
+    "side_force_centre_x_m": null,
+    "side_force_centre_z_m": null,
+    "moment_reference": "CoG [0.795, 0.0, 0.506] m (mass-rollup.json, bike only)"
+   },
+   "bike_body": {
+    "drag_air_N": 172.86,
+    "CdA_m2": 0.2882,
+    "drag_vehicle_axis_N": 172.86,
+    "pressure_drag_N": 170.0,
+    "viscous_drag_N": 2.86,
+    "side_force_N": -4.26,
+    "lift_N": -36.8
+   },
+   "rider": {
+    "drag_air_N": 60.89,
+    "CdA_m2": 0.1015,
+    "drag_vehicle_axis_N": 60.89,
+    "pressure_drag_N": 59.21,
+    "viscous_drag_N": 1.69,
+    "side_force_N": -0.69,
+    "lift_N": 20.42
+   },
+   "wheels": {
+    "drag_air_N": 18.9,
+    "CdA_m2": 0.0315,
+    "drag_vehicle_axis_N": 18.9,
+    "pressure_drag_N": 18.19,
+    "viscous_drag_N": 0.71,
+    "side_force_N": 1.33,
+    "lift_N": -4.87
+   },
+   "screen": {
+    "drag_air_N": 32.77,
+    "CdA_m2": 0.0546,
+    "drag_vehicle_axis_N": 32.77,
+    "pressure_drag_N": 32.65,
+    "viscous_drag_N": 0.11,
+    "side_force_N": -0.05,
+    "lift_N": -25.77
+   },
+   "mirrors": {
+    "drag_air_N": 10.49,
+    "CdA_m2": 0.0175,
+    "drag_vehicle_axis_N": 10.49,
+    "pressure_drag_N": 10.44,
+    "viscous_drag_N": 0.04,
+    "side_force_N": -0.11,
+    "lift_N": -0.65
+   },
+   "bars_controls": {
+    "drag_air_N": 5.15,
+    "CdA_m2": 0.0086,
+    "drag_vehicle_axis_N": 5.15,
+    "pressure_drag_N": 5.09,
+    "viscous_drag_N": 0.06,
+    "side_force_N": -0.55,
+    "lift_N": 4.6
+   },
+   "fairing_tank": {
+    "drag_air_N": 48.89,
+    "CdA_m2": 0.0815,
+    "drag_vehicle_axis_N": 48.89,
+    "pressure_drag_N": 47.65,
+    "viscous_drag_N": 1.24,
+    "side_force_N": -2.14,
+    "lift_N": 49.71
+   },
+   "fork_fender": {
+    "drag_air_N": 18.96,
+    "CdA_m2": 0.0316,
+    "drag_vehicle_axis_N": 18.96,
+    "pressure_drag_N": 18.62,
+    "viscous_drag_N": 0.34,
+    "side_force_N": 0.47,
+    "lift_N": -0.2
+   },
+   "lower_body": {
+    "drag_air_N": 41.14,
+    "CdA_m2": 0.0686,
+    "drag_vehicle_axis_N": 41.14,
+    "pressure_drag_N": 40.59,
+    "viscous_drag_N": 0.54,
+    "side_force_N": -0.24,
+    "lift_N": -66.6
+   },
+   "swingarm_pegs": {
+    "drag_air_N": 2.43,
+    "CdA_m2": 0.004,
+    "drag_vehicle_axis_N": 2.43,
+    "pressure_drag_N": 2.33,
+    "viscous_drag_N": 0.1,
+    "side_force_N": -1.83,
+    "lift_N": -0.6
+   },
+   "seat_tail": {
+    "drag_air_N": 13.05,
+    "CdA_m2": 0.0218,
+    "drag_vehicle_axis_N": 13.05,
+    "pressure_drag_N": 12.63,
+    "viscous_drag_N": 0.42,
+    "side_force_N": 0.18,
+    "lift_N": 2.71
+   },
+   "rider_helmet": {
+    "drag_air_N": 16.16,
+    "CdA_m2": 0.0269,
+    "drag_vehicle_axis_N": 16.16,
+    "pressure_drag_N": 15.77,
+    "viscous_drag_N": 0.39,
+    "side_force_N": -1.62,
+    "lift_N": 16.95
+   },
+   "rider_torso_arms": {
+    "drag_air_N": 28.49,
+    "CdA_m2": 0.0475,
+    "drag_vehicle_axis_N": 28.49,
+    "pressure_drag_N": 27.74,
+    "viscous_drag_N": 0.75,
+    "side_force_N": 1.75,
+    "lift_N": 4.23
+   },
+   "rider_legs": {
+    "drag_air_N": 16.25,
+    "CdA_m2": 0.0271,
+    "drag_vehicle_axis_N": 16.25,
+    "pressure_drag_N": 15.7,
+    "viscous_drag_N": 0.55,
+    "side_force_N": -0.83,
+    "lift_N": -0.76
+   },
+   "wheel_front": {
+    "drag_air_N": 15.37,
+    "CdA_m2": 0.0256,
+    "drag_vehicle_axis_N": 15.37,
+    "pressure_drag_N": 14.85,
+    "viscous_drag_N": 0.52,
+    "side_force_N": 0.06,
+    "lift_N": -3.48
+   },
+   "wheel_rear": {
+    "drag_air_N": 3.53,
+    "CdA_m2": 0.0059,
+    "drag_vehicle_axis_N": 3.53,
+    "pressure_drag_N": 3.34,
+    "viscous_drag_N": 0.18,
+    "side_force_N": 1.27,
+    "lift_N": -1.39
+   }
+  },
+  "yplus": {
+   "ground": {
+    "min": 34.06,
+    "max": 16059.9,
+    "avg": 867.8
+   },
+   "lower_body": {
+    "min": 0.0,
+    "max": 1031.7,
+    "avg": 163.9
+   },
+   "fairing_tank": {
+    "min": 0.0,
+    "max": 962.8,
+    "avg": 206.1
+   },
+   "swingarm_pegs": {
+    "min": 5.83,
+    "max": 748.9,
+    "avg": 161.1
+   },
+   "wheel_rear": {
+    "min": 14.25,
+    "max": 802.1,
+    "avg": 217.1
+   },
+   "seat_tail": {
+    "min": 0.0,
+    "max": 1133.0,
+    "avg": 119.9
+   },
+   "wheel_front": {
+    "min": 8.34,
+    "max": 2001.5,
+    "avg": 241.0
+   },
+   "fork_fender": {
+    "min": 9.61,
+    "max": 834.7,
+    "avg": 201.7
+   },
+   "bars_controls": {
+    "min": 36.05,
+    "max": 918.4,
+    "avg": 271.1
+   },
+   "screen": {
+    "min": 37.73,
+    "max": 394.0,
+    "avg": 134.5
+   },
+   "mirrors": {
+    "min": 70.69,
+    "max": 667.5,
+    "avg": 269.6
+   },
+   "rider_helmet": {
+    "min": 67.52,
+    "max": 1074.7,
+    "avg": 293.5
+   },
+   "rider_torso_arms": {
+    "min": 40.25,
+    "max": 1465.4,
+    "avg": 403.2
+   },
+   "rider_legs": {
+    "min": 0.0,
+    "max": 1479.0,
+    "avg": 241.7
+   }
+  },
+  "net_mass_flux_pct_of_inflow": 0.0015,
+  "continuity_sum_local_last": 0.0010575213,
+  "solver_hours": 0.72
+ },
+ "m2-medium": {
+  "case": "m2-medium",
+  "yaw_deg": 0.0,
+  "base_cell_m": 0.354,
+  "cells": 1564386,
+  "air_speed_ms": 31.293,
+  "q_Pa": 599.8,
+  "iterations": 600,
+  "parts": {
+   "total": {
+    "drag_air_N": 247.73,
+    "CdA_m2": 0.413,
+    "drag_vehicle_axis_N": 247.73,
+    "pressure_drag_N": 240.75,
+    "viscous_drag_N": 6.98,
+    "side_force_N": -2.46,
+    "lift_N": -4.64,
+    "CdA_std_window": 0.0027,
+    "CdA_min_window": 0.4059,
+    "CdA_max_window": 0.4183,
+    "drift_last_vs_previous_window_pct": 1.4,
+    "front_axle_lift_N": 117.5,
+    "rear_axle_lift_N": -122.1,
+    "yaw_moment_about_cog_Nm": -1.7,
+    "roll_moment_about_cog_Nm": 1.4,
+    "pitch_moment_about_cog_Nm": -53.0,
+    "roll_moment_about_ground_Nm": 2.7,
+    "side_force_centre_x_m": null,
+    "side_force_centre_z_m": null,
+    "moment_reference": "CoG [0.795, 0.0, 0.506] m (mass-rollup.json, bike only)"
+   },
+   "bike_body": {
+    "drag_air_N": 187.02,
+    "CdA_m2": 0.3118,
+    "drag_vehicle_axis_N": 187.02,
+    "pressure_drag_N": 183.14,
+    "viscous_drag_N": 3.89,
+    "side_force_N": -3.19,
+    "lift_N": -29.21
+   },
+   "rider": {
+    "drag_air_N": 42.3,
+    "CdA_m2": 0.0705,
+    "drag_vehicle_axis_N": 42.3,
+    "pressure_drag_N": 40.38,
+    "viscous_drag_N": 1.92,
+    "side_force_N": -0.91,
+    "lift_N": 31.39
+   },
+   "wheels": {
+    "drag_air_N": 18.41,
+    "CdA_m2": 0.0307,
+    "drag_vehicle_axis_N": 18.41,
+    "pressure_drag_N": 17.24,
+    "viscous_drag_N": 1.17,
+    "side_force_N": 1.63,
+    "lift_N": -6.83
+   },
+   "screen": {
+    "drag_air_N": 33.62,
+    "CdA_m2": 0.0561,
+    "drag_vehicle_axis_N": 33.62,
+    "pressure_drag_N": 33.53,
+    "viscous_drag_N": 0.1,
+    "side_force_N": -0.03,
+    "lift_N": -26.52
+   },
+   "mirrors": {
+    "drag_air_N": 10.38,
+    "CdA_m2": 0.0173,
+    "drag_vehicle_axis_N": 10.38,
+    "pressure_drag_N": 10.33,
+    "viscous_drag_N": 0.05,
+    "side_force_N": -0.1,
+    "lift_N": 0.62
+   },
+   "bars_controls": {
+    "drag_air_N": 5.87,
+    "CdA_m2": 0.0098,
+    "drag_vehicle_axis_N": 5.87,
+    "pressure_drag_N": 5.8,
+    "viscous_drag_N": 0.07,
+    "side_force_N": -0.43,
+    "lift_N": 5.37
+   },
+   "fairing_tank": {
+    "drag_air_N": 45.06,
+    "CdA_m2": 0.0751,
+    "drag_vehicle_axis_N": 45.06,
+    "pressure_drag_N": 43.6,
+    "viscous_drag_N": 1.46,
+    "side_force_N": -2.54,
+    "lift_N": 56.86
+   },
+   "fork_fender": {
+    "drag_air_N": 19.74,
+    "CdA_m2": 0.0329,
+    "drag_vehicle_axis_N": 19.74,
+    "pressure_drag_N": 19.27,
+    "viscous_drag_N": 0.47,
+    "side_force_N": 0.29,
+    "lift_N": 2.72
+   },
+   "lower_body": {
+    "drag_air_N": 48.01,
+    "CdA_m2": 0.08,
+    "drag_vehicle_axis_N": 48.01,
+    "pressure_drag_N": 47.07,
+    "viscous_drag_N": 0.94,
+    "side_force_N": 0.45,
+    "lift_N": -69.11
+   },
+   "swingarm_pegs": {
+    "drag_air_N": 2.41,
+    "CdA_m2": 0.004,
+    "drag_vehicle_axis_N": 2.41,
+    "pressure_drag_N": 2.28,
+    "viscous_drag_N": 0.13,
+    "side_force_N": -0.54,
+    "lift_N": 0.62
+   },
+   "seat_tail": {
+    "drag_air_N": 21.93,
+    "CdA_m2": 0.0366,
+    "drag_vehicle_axis_N": 21.93,
+    "pressure_drag_N": 21.26,
+    "viscous_drag_N": 0.67,
+    "side_force_N": -0.3,
+    "lift_N": 0.23
+   },
+   "rider_helmet": {
+    "drag_air_N": 12.17,
+    "CdA_m2": 0.0203,
+    "drag_vehicle_axis_N": 12.17,
+    "pressure_drag_N": 11.69,
+    "viscous_drag_N": 0.48,
+    "side_force_N": 0.56,
+    "lift_N": 17.54
+   },
+   "rider_torso_arms": {
+    "drag_air_N": 19.65,
+    "CdA_m2": 0.0328,
+    "drag_vehicle_axis_N": 19.65,
+    "pressure_drag_N": 18.75,
+    "viscous_drag_N": 0.9,
+    "side_force_N": 0.3,
+    "lift_N": 12.75
+   },
+   "rider_legs": {
+    "drag_air_N": 10.49,
+    "CdA_m2": 0.0175,
+    "drag_vehicle_axis_N": 10.49,
+    "pressure_drag_N": 9.94,
+    "viscous_drag_N": 0.55,
+    "side_force_N": -1.77,
+    "lift_N": 1.11
+   },
+   "wheel_front": {
+    "drag_air_N": 11.02,
+    "CdA_m2": 0.0184,
+    "drag_vehicle_axis_N": 11.02,
+    "pressure_drag_N": 10.16,
+    "viscous_drag_N": 0.86,
+    "side_force_N": -0.05,
+    "lift_N": -6.84
+   },
+   "wheel_rear": {
+    "drag_air_N": 7.39,
+    "CdA_m2": 0.0123,
+    "drag_vehicle_axis_N": 7.39,
+    "pressure_drag_N": 7.08,
+    "viscous_drag_N": 0.31,
+    "side_force_N": 1.69,
+    "lift_N": 0.01
+   }
+  },
+  "yplus": {
+   "ground": {
+    "min": 20.21,
+    "max": 13338.7,
+    "avg": 681.2
+   },
+   "lower_body": {
+    "min": 0.0,
+    "max": 647.7,
+    "avg": 111.6
+   },
+   "fairing_tank": {
+    "min": 0.0,
+    "max": 571.2,
+    "avg": 142.7
+   },
+   "swingarm_pegs": {
+    "min": 0.0,
+    "max": 588.9,
+    "avg": 111.4
+   },
+   "wheel_rear": {
+    "min": 7.81,
+    "max": 757.2,
+    "avg": 158.6
+   },
+   "seat_tail": {
+    "min": 0.0,
+    "max": 859.6,
+    "avg": 91.8
+   },
+   "wheel_front": {
+    "min": 4.56,
+    "max": 794.9,
+    "avg": 173.4
+   },
+   "fork_fender": {
+    "min": 14.3,
+    "max": 983.9,
+    "avg": 140.3
+   },
+   "bars_controls": {
+    "min": 15.0,
+    "max": 696.7,
+    "avg": 195.2
+   },
+   "screen": {
+    "min": 28.27,
+    "max": 291.0,
+    "avg": 99.8
+   },
+   "mirrors": {
+    "min": 37.7,
+    "max": 531.9,
+    "avg": 167.4
+   },
+   "rider_helmet": {
+    "min": 38.72,
+    "max": 554.3,
+    "avg": 231.9
+   },
+   "rider_torso_arms": {
+    "min": 32.46,
+    "max": 1292.5,
+    "avg": 300.1
+   },
+   "rider_legs": {
+    "min": 0.0,
+    "max": 1265.5,
+    "avg": 181.2
+   }
+  },
+  "net_mass_flux_pct_of_inflow": 0.0006,
+  "continuity_sum_local_last": 0.00090103575,
+  "solver_hours": 1.34
+ },
+ "m3-fine": {
+  "case": "m3-fine",
+  "yaw_deg": 0.0,
+  "base_cell_m": 0.25,
+  "cells": 3467926,
+  "air_speed_ms": 31.293,
+  "q_Pa": 599.8,
+  "iterations": 450,
+  "parts": {
+   "total": {
+    "drag_air_N": 230.64,
+    "CdA_m2": 0.3845,
+    "drag_vehicle_axis_N": 230.64,
+    "pressure_drag_N": 223.33,
+    "viscous_drag_N": 7.31,
+    "side_force_N": -6.58,
+    "lift_N": 2.97,
+    "CdA_std_window": 0.0037,
+    "CdA_min_window": 0.378,
+    "CdA_max_window": 0.3932,
+    "drift_last_vs_previous_window_pct": -0.45,
+    "front_axle_lift_N": 110.9,
+    "rear_axle_lift_N": -107.9,
+    "yaw_moment_about_cog_Nm": 2.7,
+    "roll_moment_about_cog_Nm": -0.8,
+    "pitch_moment_about_cog_Nm": -45.8,
+    "roll_moment_about_ground_Nm": 2.5,
+    "side_force_centre_x_m": 0.381,
+    "side_force_centre_z_m": 0.382,
+    "moment_reference": "CoG [0.795, 0.0, 0.506] m (mass-rollup.json, bike only)"
+   },
+   "bike_body": {
+    "drag_air_N": 182.11,
+    "CdA_m2": 0.3036,
+    "drag_vehicle_axis_N": 182.11,
+    "pressure_drag_N": 178.27,
+    "viscous_drag_N": 3.84,
+    "side_force_N": -6.68,
+    "lift_N": -20.33
+   },
+   "rider": {
+    "drag_air_N": 35.44,
+    "CdA_m2": 0.0591,
+    "drag_vehicle_axis_N": 35.44,
+    "pressure_drag_N": 33.17,
+    "viscous_drag_N": 2.27,
+    "side_force_N": 0.07,
+    "lift_N": 29.4
+   },
+   "wheels": {
+    "drag_air_N": 13.09,
+    "CdA_m2": 0.0218,
+    "drag_vehicle_axis_N": 13.09,
+    "pressure_drag_N": 11.89,
+    "viscous_drag_N": 1.2,
+    "side_force_N": 0.03,
+    "lift_N": -6.11
+   },
+   "screen": {
+    "drag_air_N": 33.72,
+    "CdA_m2": 0.0562,
+    "drag_vehicle_axis_N": 33.72,
+    "pressure_drag_N": 33.61,
+    "viscous_drag_N": 0.11,
+    "side_force_N": -0.06,
+    "lift_N": -26.43
+   },
+   "mirrors": {
+    "drag_air_N": 8.66,
+    "CdA_m2": 0.0144,
+    "drag_vehicle_axis_N": 8.66,
+    "pressure_drag_N": 8.59,
+    "viscous_drag_N": 0.07,
+    "side_force_N": -0.03,
+    "lift_N": 1.39
+   },
+   "bars_controls": {
+    "drag_air_N": 4.78,
+    "CdA_m2": 0.008,
+    "drag_vehicle_axis_N": 4.78,
+    "pressure_drag_N": 4.69,
+    "viscous_drag_N": 0.09,
+    "side_force_N": -0.16,
+    "lift_N": 5.72
+   },
+   "fairing_tank": {
+    "drag_air_N": 47.13,
+    "CdA_m2": 0.0786,
+    "drag_vehicle_axis_N": 47.13,
+    "pressure_drag_N": 45.6,
+    "viscous_drag_N": 1.53,
+    "side_force_N": -1.91,
+    "lift_N": 54.19
+   },
+   "fork_fender": {
+    "drag_air_N": 20.79,
+    "CdA_m2": 0.0347,
+    "drag_vehicle_axis_N": 20.79,
+    "pressure_drag_N": 20.23,
+    "viscous_drag_N": 0.56,
+    "side_force_N": 0.49,
+    "lift_N": 4.93
+   },
+   "lower_body": {
+    "drag_air_N": 47.34,
+    "CdA_m2": 0.0789,
+    "drag_vehicle_axis_N": 47.34,
+    "pressure_drag_N": 46.54,
+    "viscous_drag_N": 0.8,
+    "side_force_N": -4.29,
+    "lift_N": -62.6
+   },
+   "swingarm_pegs": {
+    "drag_air_N": 2.1,
+    "CdA_m2": 0.0035,
+    "drag_vehicle_axis_N": 2.1,
+    "pressure_drag_N": 1.98,
+    "viscous_drag_N": 0.13,
+    "side_force_N": -0.67,
+    "lift_N": -0.27
+   },
+   "seat_tail": {
+    "drag_air_N": 17.58,
+    "CdA_m2": 0.0293,
+    "drag_vehicle_axis_N": 17.58,
+    "pressure_drag_N": 17.04,
+    "viscous_drag_N": 0.55,
+    "side_force_N": -0.04,
+    "lift_N": 2.76
+   },
+   "rider_helmet": {
+    "drag_air_N": 11.02,
+    "CdA_m2": 0.0184,
+    "drag_vehicle_axis_N": 11.02,
+    "pressure_drag_N": 10.42,
+    "viscous_drag_N": 0.6,
+    "side_force_N": 0.44,
+    "lift_N": 15.64
+   },
+   "rider_torso_arms": {
+    "drag_air_N": 14.49,
+    "CdA_m2": 0.0242,
+    "drag_vehicle_axis_N": 14.49,
+    "pressure_drag_N": 13.45,
+    "viscous_drag_N": 1.04,
+    "side_force_N": 1.74,
+    "lift_N": 12.2
+   },
+   "rider_legs": {
+    "drag_air_N": 9.92,
+    "CdA_m2": 0.0165,
+    "drag_vehicle_axis_N": 9.92,
+    "pressure_drag_N": 9.3,
+    "viscous_drag_N": 0.62,
+    "side_force_N": -2.11,
+    "lift_N": 1.57
+   },
+   "wheel_front": {
+    "drag_air_N": 10.8,
+    "CdA_m2": 0.018,
+    "drag_vehicle_axis_N": 10.8,
+    "pressure_drag_N": 9.69,
+    "viscous_drag_N": 1.11,
+    "side_force_N": 1.84,
+    "lift_N": -7.64
+   },
+   "wheel_rear": {
+    "drag_air_N": 2.29,
+    "CdA_m2": 0.0038,
+    "drag_vehicle_axis_N": 2.29,
+    "pressure_drag_N": 2.2,
+    "viscous_drag_N": 0.1,
+    "side_force_N": -1.81,
+    "lift_N": 1.53
+   }
+  },
+  "yplus": {
+   "ground": {
+    "min": 16.36,
+    "max": 10341.6,
+    "avg": 502.3
+   },
+   "lower_body": {
+    "min": 0.0,
+    "max": 951.9,
+    "avg": 85.3
+   },
+   "fairing_tank": {
+    "min": 0.0,
+    "max": 483.6,
+    "avg": 100.0
+   },
+   "swingarm_pegs": {
+    "min": 0.0,
+    "max": 474.5,
+    "avg": 73.5
+   },
+   "wheel_rear": {
+    "min": 1.66,
+    "max": 741.5,
+    "avg": 90.6
+   },
+   "seat_tail": {
+    "min": 0.0,
+    "max": 647.1,
+    "avg": 57.3
+   },
+   "wheel_front": {
+    "min": 5.15,
+    "max": 570.3,
+    "avg": 125.1
+   },
+   "fork_fender": {
+    "min": 9.8,
+    "max": 491.8,
+    "avg": 100.4
+   },
+   "bars_controls": {
+    "min": 6.55,
+    "max": 514.9,
+    "avg": 130.1
+   },
+   "screen": {
+    "min": 11.99,
+    "max": 240.2,
+    "avg": 76.8
+   },
+   "mirrors": {
+    "min": 29.13,
+    "max": 332.4,
+    "avg": 118.5
+   },
+   "rider_helmet": {
+    "min": 19.2,
+    "max": 468.4,
+    "avg": 185.0
+   },
+   "rider_torso_arms": {
+    "min": 16.96,
+    "max": 765.4,
+    "avg": 224.1
+   },
+   "rider_legs": {
+    "min": 0.0,
+    "max": 919.4,
+    "avg": 131.7
+   }
+  },
+  "net_mass_flux_pct_of_inflow": 0.0012,
+  "continuity_sum_local_last": 0.0010097364,
+  "solver_hours": 7.96
+ },
+ "yaw+10": {
+  "case": "yaw+10",
+  "yaw_deg": 10.0,
+  "base_cell_m": 0.354,
+  "cells": 1564386,
+  "air_speed_ms": 31.776,
+  "q_Pa": 618.4,
+  "iterations": 600,
+  "parts": {
+   "total": {
+    "drag_air_N": 338.9,
+    "CdA_m2": 0.548,
+    "drag_vehicle_axis_N": 326.06,
+    "pressure_drag_N": 330.8,
+    "viscous_drag_N": 8.1,
+    "side_force_N": -102.43,
+    "lift_N": 1.65,
+    "CdA_std_window": 0.0027,
+    "CdA_min_window": 0.5423,
+    "CdA_max_window": 0.5518,
+    "drift_last_vs_previous_window_pct": -0.26,
+    "front_axle_lift_N": 163.2,
+    "rear_axle_lift_N": -161.5,
+    "yaw_moment_about_cog_Nm": -40.2,
+    "roll_moment_about_cog_Nm": 12.8,
+    "pitch_moment_about_cog_Nm": -76.3,
+    "roll_moment_about_ground_Nm": 64.6,
+    "side_force_centre_x_m": 1.187,
+    "side_force_centre_z_m": 0.631,
+    "moment_reference": "CoG [0.795, 0.0, 0.506] m (mass-rollup.json, bike only)"
+   },
+   "bike_body": {
+    "drag_air_N": 210.85,
+    "CdA_m2": 0.3409,
+    "drag_vehicle_axis_N": 198.83,
+    "pressure_drag_N": 207.06,
+    "viscous_drag_N": 3.8,
+    "side_force_N": -86.62,
+    "lift_N": -22.34
+   },
+   "rider": {
+    "drag_air_N": 82.65,
+    "CdA_m2": 0.1336,
+    "drag_vehicle_axis_N": 85.19,
+    "pressure_drag_N": 80.38,
+    "viscous_drag_N": 2.27,
+    "side_force_N": 7.15,
+    "lift_N": 42.14
+   },
+   "wheels": {
+    "drag_air_N": 45.39,
+    "CdA_m2": 0.0734,
+    "drag_vehicle_axis_N": 42.04,
+    "pressure_drag_N": 43.36,
+    "viscous_drag_N": 2.03,
+    "side_force_N": -22.97,
+    "lift_N": -18.15
+   },
+   "screen": {
+    "drag_air_N": 35.65,
+    "CdA_m2": 0.0577,
+    "drag_vehicle_axis_N": 36.13,
+    "pressure_drag_N": 35.55,
+    "viscous_drag_N": 0.1,
+    "side_force_N": -0.42,
+    "lift_N": -28.58
+   },
+   "mirrors": {
+    "drag_air_N": 10.02,
+    "CdA_m2": 0.0162,
+    "drag_vehicle_axis_N": 10.15,
+    "pressure_drag_N": 9.97,
+    "viscous_drag_N": 0.05,
+    "side_force_N": -0.09,
+    "lift_N": 0.34
+   },
+   "bars_controls": {
+    "drag_air_N": 6.86,
+    "CdA_m2": 0.0111,
+    "drag_vehicle_axis_N": 6.79,
+    "pressure_drag_N": 6.79,
+    "viscous_drag_N": 0.07,
+    "side_force_N": -0.98,
+    "lift_N": 5.95
+   },
+   "fairing_tank": {
+    "drag_air_N": 56.08,
+    "CdA_m2": 0.0907,
+    "drag_vehicle_axis_N": 49.06,
+    "pressure_drag_N": 54.74,
+    "viscous_drag_N": 1.34,
+    "side_force_N": -44.69,
+    "lift_N": 62.61
+   },
+   "fork_fender": {
+    "drag_air_N": 19.22,
+    "CdA_m2": 0.0311,
+    "drag_vehicle_axis_N": 18.95,
+    "pressure_drag_N": 18.75,
+    "viscous_drag_N": 0.47,
+    "side_force_N": -3.21,
+    "lift_N": 4.22
+   },
+   "lower_body": {
+    "drag_air_N": 61.94,
+    "CdA_m2": 0.1002,
+    "drag_vehicle_axis_N": 57.39,
+    "pressure_drag_N": 60.73,
+    "viscous_drag_N": 1.21,
+    "side_force_N": -31.23,
+    "lift_N": -70.73
+   },
+   "swingarm_pegs": {
+    "drag_air_N": 2.47,
+    "CdA_m2": 0.004,
+    "drag_vehicle_axis_N": 2.13,
+    "pressure_drag_N": 2.37,
+    "viscous_drag_N": 0.1,
+    "side_force_N": -2.16,
+    "lift_N": 0.04
+   },
+   "seat_tail": {
+    "drag_air_N": 18.62,
+    "CdA_m2": 0.0301,
+    "drag_vehicle_axis_N": 18.23,
+    "pressure_drag_N": 18.16,
+    "viscous_drag_N": 0.45,
+    "side_force_N": -3.83,
+    "lift_N": 3.81
+   },
+   "rider_helmet": {
+    "drag_air_N": 16.21,
+    "CdA_m2": 0.0262,
+    "drag_vehicle_axis_N": 15.59,
+    "pressure_drag_N": 15.72,
+    "viscous_drag_N": 0.49,
+    "side_force_N": -4.95,
+    "lift_N": 17.51
+   },
+   "rider_torso_arms": {
+    "drag_air_N": 44.41,
+    "CdA_m2": 0.0718,
+    "drag_vehicle_axis_N": 45.73,
+    "pressure_drag_N": 43.3,
+    "viscous_drag_N": 1.1,
+    "side_force_N": 3.63,
+    "lift_N": 15.57
+   },
+   "rider_legs": {
+    "drag_air_N": 22.04,
+    "CdA_m2": 0.0356,
+    "drag_vehicle_axis_N": 23.87,
+    "pressure_drag_N": 21.36,
+    "viscous_drag_N": 0.68,
+    "side_force_N": 8.47,
+    "lift_N": 9.05
+   },
+   "wheel_front": {
+    "drag_air_N": 26.69,
+    "CdA_m2": 0.0432,
+    "drag_vehicle_axis_N": 21.94,
+    "pressure_drag_N": 25.53,
+    "viscous_drag_N": 1.16,
+    "side_force_N": -29.28,
+    "lift_N": -8.43
+   },
+   "wheel_rear": {
+    "drag_air_N": 18.7,
+    "CdA_m2": 0.0302,
+    "drag_vehicle_axis_N": 20.1,
+    "pressure_drag_N": 17.83,
+    "viscous_drag_N": 0.87,
+    "side_force_N": 6.31,
+    "lift_N": -9.73
+   }
+  },
+  "yplus": {
+   "ground": {
+    "min": 15.96,
+    "max": 11168.8,
+    "avg": 776.8
+   },
+   "lower_body": {
+    "min": 0.0,
+    "max": 524.2,
+    "avg": 111.7
+   },
+   "fairing_tank": {
+    "min": 0.0,
+    "max": 651.2,
+    "avg": 149.9
+   },
+   "swingarm_pegs": {
+    "min": 0.0,
+    "max": 559.1,
+    "avg": 117.0
+   },
+   "wheel_rear": {
+    "min": 11.42,
+    "max": 642.5,
+    "avg": 177.2
+   },
+   "seat_tail": {
+    "min": 0.0,
+    "max": 919.2,
+    "avg": 98.3
+   },
+   "wheel_front": {
+    "min": 8.42,
+    "max": 867.7,
+    "avg": 176.8
+   },
+   "fork_fender": {
+    "min": 9.75,
+    "max": 793.5,
+    "avg": 151.7
+   },
+   "bars_controls": {
+    "min": 13.25,
+    "max": 604.9,
+    "avg": 196.5
+   },
+   "screen": {
+    "min": 28.97,
+    "max": 294.7,
+    "avg": 98.7
+   },
+   "mirrors": {
+    "min": 26.49,
+    "max": 621.3,
+    "avg": 179.7
+   },
+   "rider_helmet": {
+    "min": 43.81,
+    "max": 715.1,
+    "avg": 232.2
+   },
+   "rider_torso_arms": {
+    "min": 22.84,
+    "max": 1091.7,
+    "avg": 314.3
+   },
+   "rider_legs": {
+    "min": 0.0,
+    "max": 1431.4,
+    "avg": 190.6
+   }
+  },
+  "net_mass_flux_pct_of_inflow": 0.0001,
+  "continuity_sum_local_last": 0.0010171521,
+  "solver_hours": 1.63
+ },
+ "yaw-10": {
+  "case": "yaw-10",
+  "yaw_deg": -10.0,
+  "base_cell_m": 0.354,
+  "cells": 1564386,
+  "air_speed_ms": 31.776,
+  "q_Pa": 618.4,
+  "iterations": 600,
+  "parts": {
+   "total": {
+    "drag_air_N": 334.38,
+    "CdA_m2": 0.5407,
+    "drag_vehicle_axis_N": 319.28,
+    "pressure_drag_N": 326.46,
+    "viscous_drag_N": 7.92,
+    "side_force_N": 114.92,
+    "lift_N": -2.53,
+    "CdA_std_window": 0.0036,
+    "CdA_min_window": 0.533,
+    "CdA_max_window": 0.5479,
+    "drift_last_vs_previous_window_pct": -0.24,
+    "front_axle_lift_N": 159.7,
+    "rear_axle_lift_N": -162.2,
+    "yaw_moment_about_cog_Nm": 32.5,
+    "roll_moment_about_cog_Nm": -5.8,
+    "pitch_moment_about_cog_Nm": -77.8,
+    "roll_moment_about_ground_Nm": -64.0,
+    "side_force_centre_x_m": 1.077,
+    "side_force_centre_z_m": 0.557,
+    "moment_reference": "CoG [0.795, 0.0, 0.506] m (mass-rollup.json, bike only)"
+   },
+   "bike_body": {
+    "drag_air_N": 211.51,
+    "CdA_m2": 0.342,
+    "drag_vehicle_axis_N": 198.8,
+    "pressure_drag_N": 207.77,
+    "viscous_drag_N": 3.74,
+    "side_force_N": 90.58,
+    "lift_N": -23.5
+   },
+   "rider": {
+    "drag_air_N": 81.54,
+    "CdA_m2": 0.1318,
+    "drag_vehicle_axis_N": 85.15,
+    "pressure_drag_N": 79.28,
+    "viscous_drag_N": 2.26,
+    "side_force_N": -13.37,
+    "lift_N": 41.01
+   },
+   "wheels": {
+    "drag_air_N": 41.33,
+    "CdA_m2": 0.0668,
+    "drag_vehicle_axis_N": 35.32,
+    "pressure_drag_N": 39.41,
+    "viscous_drag_N": 1.92,
+    "side_force_N": 37.71,
+    "lift_N": -20.05
+   },
+   "screen": {
+    "drag_air_N": 35.34,
+    "CdA_m2": 0.0571,
+    "drag_vehicle_axis_N": 35.81,
+    "pressure_drag_N": 35.23,
+    "viscous_drag_N": 0.1,
+    "side_force_N": 0.43,
+    "lift_N": -28.32
+   },
+   "mirrors": {
+    "drag_air_N": 9.93,
+    "CdA_m2": 0.0161,
+    "drag_vehicle_axis_N": 10.08,
+    "pressure_drag_N": 9.88,
+    "viscous_drag_N": 0.05,
+    "side_force_N": -0.01,
+    "lift_N": 0.45
+   },
+   "bars_controls": {
+    "drag_air_N": 7.04,
+    "CdA_m2": 0.0114,
+    "drag_vehicle_axis_N": 6.99,
+    "pressure_drag_N": 6.98,
+    "viscous_drag_N": 0.07,
+    "side_force_N": 0.91,
+    "lift_N": 6.03
+   },
+   "fairing_tank": {
+    "drag_air_N": 55.47,
+    "CdA_m2": 0.0897,
+    "drag_vehicle_axis_N": 48.13,
+    "pressure_drag_N": 54.12,
+    "viscous_drag_N": 1.34,
+    "side_force_N": 46.44,
+    "lift_N": 62.43
+   },
+   "fork_fender": {
+    "drag_air_N": 20.15,
+    "CdA_m2": 0.0326,
+    "drag_vehicle_axis_N": 19.71,
+    "pressure_drag_N": 19.67,
+    "viscous_drag_N": 0.48,
+    "side_force_N": 4.26,
+    "lift_N": 3.81
+   },
+   "lower_body": {
+    "drag_air_N": 64.59,
+    "CdA_m2": 0.1044,
+    "drag_vehicle_axis_N": 59.14,
+    "pressure_drag_N": 63.38,
+    "viscous_drag_N": 1.21,
+    "side_force_N": 36.58,
+    "lift_N": -72.06
+   },
+   "swingarm_pegs": {
+    "drag_air_N": 2.56,
+    "CdA_m2": 0.0041,
+    "drag_vehicle_axis_N": 2.7,
+    "pressure_drag_N": 2.43,
+    "viscous_drag_N": 0.12,
+    "side_force_N": -0.58,
+    "lift_N": 0.57
+   },
+   "seat_tail": {
+    "drag_air_N": 16.44,
+    "CdA_m2": 0.0266,
+    "drag_vehicle_axis_N": 16.24,
+    "pressure_drag_N": 16.07,
+    "viscous_drag_N": 0.37,
+    "side_force_N": 2.56,
+    "lift_N": 3.59
+   },
+   "rider_helmet": {
+    "drag_air_N": 14.28,
+    "CdA_m2": 0.0231,
+    "drag_vehicle_axis_N": 13.64,
+    "pressure_drag_N": 13.8,
+    "viscous_drag_N": 0.48,
+    "side_force_N": 4.88,
+    "lift_N": 18.56
+   },
+   "rider_torso_arms": {
+    "drag_air_N": 45.24,
+    "CdA_m2": 0.0732,
+    "drag_vehicle_axis_N": 47.73,
+    "pressure_drag_N": 44.15,
+    "viscous_drag_N": 1.09,
+    "side_force_N": -10.14,
+    "lift_N": 14.39
+   },
+   "rider_legs": {
+    "drag_air_N": 22.02,
+    "CdA_m2": 0.0356,
+    "drag_vehicle_axis_N": 23.79,
+    "pressure_drag_N": 21.33,
+    "viscous_drag_N": 0.69,
+    "side_force_N": -8.11,
+    "lift_N": 8.06
+   },
+   "wheel_front": {
+    "drag_air_N": 26.81,
+    "CdA_m2": 0.0433,
+    "drag_vehicle_axis_N": 22.06,
+    "pressure_drag_N": 25.65,
+    "viscous_drag_N": 1.16,
+    "side_force_N": 29.25,
+    "lift_N": -8.33
+   },
+   "wheel_rear": {
+    "drag_air_N": 14.53,
+    "CdA_m2": 0.0235,
+    "drag_vehicle_axis_N": 13.26,
+    "pressure_drag_N": 13.77,
+    "viscous_drag_N": 0.76,
+    "side_force_N": 8.46,
+    "lift_N": -11.72
+   }
+  },
+  "yplus": {
+   "ground": {
+    "min": 18.65,
+    "max": 10911.7,
+    "avg": 774.3
+   },
+   "lower_body": {
+    "min": 0.0,
+    "max": 556.5,
+    "avg": 112.5
+   },
+   "fairing_tank": {
+    "min": 0.0,
+    "max": 635.0,
+    "avg": 150.6
+   },
+   "swingarm_pegs": {
+    "min": 0.0,
+    "max": 558.4,
+    "avg": 119.9
+   },
+   "wheel_rear": {
+    "min": 9.45,
+    "max": 662.5,
+    "avg": 171.1
+   },
+   "seat_tail": {
+    "min": 0.0,
+    "max": 995.7,
+    "avg": 99.3
+   },
+   "wheel_front": {
+    "min": 15.08,
+    "max": 806.7,
+    "avg": 177.3
+   },
+   "fork_fender": {
+    "min": 6.94,
+    "max": 1199.2,
+    "avg": 149.5
+   },
+   "bars_controls": {
+    "min": 15.56,
+    "max": 683.2,
+    "avg": 196.7
+   },
+   "screen": {
+    "min": 30.54,
+    "max": 284.3,
+    "avg": 98.4
+   },
+   "mirrors": {
+    "min": 26.51,
+    "max": 599.9,
+    "avg": 163.8
+   },
+   "rider_helmet": {
+    "min": 42.77,
+    "max": 571.2,
+    "avg": 228.4
+   },
+   "rider_torso_arms": {
+    "min": 22.85,
+    "max": 1094.3,
+    "avg": 307.9
+   },
+   "rider_legs": {
+    "min": 0.0,
+    "max": 1453.2,
+    "avg": 187.0
+   }
+  },
+  "net_mass_flux_pct_of_inflow": 0.0004,
+  "continuity_sum_local_last": 0.00092141063,
+  "solver_hours": 6.34
+ },
+ "mesh_study": {
+  "cases": [
+   {
+    "case": "m1-coarse",
+    "cells": 775097,
+    "base_cell_m": 0.5,
+    "CdA": 0.4212,
+    "front_lift": 118.0,
+    "rear_lift": -139.3
+   },
+   {
+    "case": "m2-medium",
+    "cells": 1564386,
+    "base_cell_m": 0.354,
+    "CdA": 0.413,
+    "front_lift": 117.5,
+    "rear_lift": -122.1
+   },
+   {
+    "case": "m3-fine",
+    "cells": 3467926,
+    "base_cell_m": 0.25,
+    "CdA": 0.3845,
+    "front_lift": 110.9,
+    "rear_lift": -107.9
+   }
+  ],
+  "change_medium_to_fine_pct": -6.9,
+  "change_coarse_to_medium_pct": -1.95,
+  "convergence_ratio_R": 3.476,
+  "behaviour": "not converged (change grows with refinement; outside the asymptotic range, no Richardson estimate)",
+  "spread_of_three_meshes_pct": 9.54
+ },
+ "range_70mph": {
+  "cfd_best_mesh": {
+   "CdA": 0.3845,
+   "Wh_per_mile": 146.5,
+   "range_mi": 200.9,
+   "kWh_nominal_for_200mi": 32.5,
+   "aero_share_of_wheel_power": 0.806
+  },
+  "cfd_plus_10pct_real_rider": {
+   "CdA": 0.423,
+   "Wh_per_mile": 157.9,
+   "range_mi": 186.4,
+   "kWh_nominal_for_200mi": 35.1,
+   "aero_share_of_wheel_power": 0.82
+  },
+  "design_assumption_0.40": {
+   "CdA": 0.4,
+   "Wh_per_mile": 151.1,
+   "range_mi": 194.8,
+   "kWh_nominal_for_200mi": 33.6,
+   "aero_share_of_wheel_power": 0.812
+  },
+  "target_0.38": {
+   "CdA": 0.38,
+   "Wh_per_mile": 145.1,
+   "range_mi": 202.8,
+   "kWh_nominal_for_200mi": 32.3,
+   "aero_share_of_wheel_power": 0.804
+  },
+  "inputs": {
+   "bike_kg": 288.2,
+   "rider_kg": 90,
+   "pack_kWh": 32.7,
+   "usable": 0.9,
+   "crr": 0.015,
+   "eta": 0.9,
+   "aux_W": 300,
+   "rho": 1.225,
+   "mph": 70,
+   "source": "tools/powertrain-optimise.py wh_per_mile() constants; mass-rollup.json total_kg"
+  }
+ },
+ "vtk_pressure_drag_check": {
+  "screen": {
+   "vtk_sum_N": 33.1,
+   "function_object_N": 33.61
+  },
+  "mirrors": {
+   "vtk_sum_N": 8.6,
+   "function_object_N": 8.59
+  },
+  "bars_controls": {
+   "vtk_sum_N": 4.9,
+   "function_object_N": 4.69
+  },
+  "fairing_tank": {
+   "vtk_sum_N": 46.3,
+   "function_object_N": 45.6
+  },
+  "fork_fender": {
+   "vtk_sum_N": 20.8,
+   "function_object_N": 20.23
+  },
+  "lower_body": {
+   "vtk_sum_N": 45.6,
+   "function_object_N": 46.54
+  },
+  "swingarm_pegs": {
+   "vtk_sum_N": 1.7,
+   "function_object_N": 1.98
+  },
+  "seat_tail": {
+   "vtk_sum_N": 18.0,
+   "function_object_N": 17.04
+  },
+  "rider_helmet": {
+   "vtk_sum_N": 10.9,
+   "function_object_N": 10.42
+  },
+  "rider_torso_arms": {
+   "vtk_sum_N": 14.1,
+   "function_object_N": 13.45
+  },
+  "rider_legs": {
+   "vtk_sum_N": 9.0,
+   "function_object_N": 9.3
+  },
+  "wheel_front": {
+   "vtk_sum_N": 10.4,
+   "function_object_N": 9.69
+  },
+  "wheel_rear": {
+   "vtk_sum_N": 1.0,
+   "function_object_N": 2.2
+  }
+ },
+ "yplus_area_weighted": {
+  "screen": {
+   "p5": 35.3,
+   "p50": 67.1,
+   "p95": 138.8,
+   "area_share_below_30_pct": 1.7
+  },
+  "mirrors": {
+   "p5": 51.5,
+   "p50": 104.1,
+   "p95": 208.0,
+   "area_share_below_30_pct": 0.0
+  },
+  "bars_controls": {
+   "p5": 33.5,
+   "p50": 105.1,
+   "p95": 232.5,
+   "area_share_below_30_pct": 3.3
+  },
+  "fairing_tank": {
+   "p5": 30.6,
+   "p50": 91.2,
+   "p95": 200.0,
+   "area_share_below_30_pct": 4.8
+  },
+  "fork_fender": {
+   "p5": 33.6,
+   "p50": 84.6,
+   "p95": 182.1,
+   "area_share_below_30_pct": 2.9
+  },
+  "lower_body": {
+   "p5": 3.7,
+   "p50": 81.5,
+   "p95": 168.0,
+   "area_share_below_30_pct": 19.7
+  },
+  "swingarm_pegs": {
+   "p5": 16.9,
+   "p50": 60.7,
+   "p95": 179.5,
+   "area_share_below_30_pct": 15.5
+  },
+  "seat_tail": {
+   "p5": 0.0,
+   "p50": 40.7,
+   "p95": 220.1,
+   "area_share_below_30_pct": 41.9
+  },
+  "rider_helmet": {
+   "p5": 64.2,
+   "p50": 149.1,
+   "p95": 331.7,
+   "area_share_below_30_pct": 0.2
+  },
+  "rider_torso_arms": {
+   "p5": 71.8,
+   "p50": 194.5,
+   "p95": 406.6,
+   "area_share_below_30_pct": 0.2
+  },
+  "rider_legs": {
+   "p5": 14.9,
+   "p50": 124.5,
+   "p95": 403.6,
+   "area_share_below_30_pct": 11.6
+  },
+  "wheel_front": {
+   "p5": 36.7,
+   "p50": 109.7,
+   "p95": 227.2,
+   "area_share_below_30_pct": 2.4
+  },
+  "wheel_rear": {
+   "p5": 26.3,
+   "p50": 73.3,
+   "p95": 238.9,
+   "area_share_below_30_pct": 7.9
+  }
+ },
+ "zones": [
+  {
+   "part": "fairing_tank",
+   "zone": "Nose / headlamp / beak (X>1.30)",
+   "pressure_drag_N": 14.4
+  },
+  {
+   "part": "fairing_tank",
+   "zone": "Cockpit cheeks and dash (1.05<X<=1.30)",
+   "pressure_drag_N": 3.8
+  },
+  {
+   "part": "fairing_tank",
+   "zone": "Tank and radiator side vents (X<=1.05)",
+   "pressure_drag_N": 28.1
+  },
+  {
+   "part": "lower_body",
+   "zone": "Pack front face and belly nose (X>0.95)",
+   "pressure_drag_N": 27.7
+  },
+  {
+   "part": "lower_body",
+   "zone": "Pack sides, motor covers (X<=0.95)",
+   "pressure_drag_N": 17.9
+  },
+  {
+   "part": "seat_tail",
+   "zone": "Seat",
+   "pressure_drag_N": 8.9
+  },
+  {
+   "part": "seat_tail",
+   "zone": "Tail, plate, rear hugger",
+   "pressure_drag_N": 9.1
+  }
+ ]
+}

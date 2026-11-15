@@ -1,0 +1,98 @@
+{
+ "A_side1": {
+  "face_m2": 0.0094,
+  "bbox": [
+   940,
+   1037,
+   125,
+   218,
+   680,
+   790
+  ],
+  "clear": {
+   "static_min": [
+    "Upper_rail_1_1",
+    7.8
+   ],
+   "body_min": [
+    "Side_grille_louvres_1",
+    0.0
+   ],
+   "tyre_fender_lock_sweep": 126.0,
+   "fork_clamps_at_lock": 141.9,
+   "pass": false
+  }
+ },
+ "A_side-1": {
+  "face_m2": 0.0094,
+  "bbox": [
+   940,
+   1037,
+   -218,
+   -125,
+   680,
+   790
+  ],
+  "clear": {
+   "static_min": [
+    "Upper_rail_1_m1",
+    7.8
+   ],
+   "body_min": [
+    "Side_grille_louvres_m1",
+    0.0
+   ],
+   "tyre_fender_lock_sweep": 126.0,
+   "fork_clamps_at_lock": 141.9,
+   "pass": false
+  }
+ },
+ "B_side1": {
+  "face_m2": 0.0294,
+  "bbox": [
+   967,
+   1174,
+   135,
+   307,
+   640,
+   780
+  ],
+  "clear": {
+   "static_min": [
+    "Upper_rail_1_1",
+    17.7
+   ],
+   "body_min": [
+    "Upper_body_fairing_tank_STUDY",
+    0.0
+   ],
+   "tyre_fender_lock_sweep": 68.9,
+   "fork_clamps_at_lock": 105.3,
+   "pass": true
+  }
+ },
+ "B_side-1": {
+  "face_m2": 0.0294,
+  "bbox": [
+   967,
+   1174,
+   -307,
+   -135,
+   640,
+   780
+  ],
+  "clear": {
+   "static_min": [
+    "Upper_rail_1_m1",
+    17.7
+   ],
+   "body_min": [
+    "Upper_body_fairing_tank_STUDY",
+    0.0
+   ],
+   "tyre_fender_lock_sweep": 68.9,
+   "fork_clamps_at_lock": 105.3,
+   "pass": true
+  }
+ }
+}

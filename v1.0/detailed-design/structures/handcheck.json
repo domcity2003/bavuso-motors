@@ -1,0 +1,46 @@
+{
+ "beam_B32R": {
+  "sigma_root_hand": 252.1,
+  "sigma_at_100mm_hand": 189.1,
+  "sigma_at_100mm_fea": 189.1,
+  "tip_defl_hand_bending": 4.1,
+  "tip_defl_hand_with_shear": 4.143,
+  "tip_defl_fea": 4.092
+ },
+ "shell_S4": {
+  "sigma_at_100mm_hand_outer_fibre": 189.1,
+  "sigma_at_100mm_fea_max": 191.6,
+  "tip_defl_fea": 4.184,
+  "note": "S4 expands to C3D8I through the 2.5 mm wall; stress at the outer fibre"
+ },
+ "bolt_shear": {
+  "V_N": 13100.0,
+  "n_bolts": 4,
+  "hand_per_bolt_N": 3275.0,
+  "fea_per_bolt_N": [
+   3275.0,
+   3275.0,
+   3275.0,
+   3275.0
+  ],
+  "fea_sum_N": 13100.0,
+  "tau_thread_hand_MPa": 56.5,
+  "tau_shank_hand_MPa": 41.7,
+  "tau_fea_max_MPa": 56.5,
+  "shear_strength_10_9_thread_MPa": 600.0,
+  "eccentric_20mm_hand_per_bolt_N": [
+   4535.6,
+   4535.6,
+   2550.6,
+   2550.6
+  ],
+  "eccentric_20mm_fea_per_bolt_N": [
+   4535.5,
+   4535.5,
+   2550.9,
+   2550.9
+  ],
+  "bearing_on_4mm_wall_MPa": 81.9,
+  "bearing_on_10mm_pad_MPa": 32.8
+ }
+}

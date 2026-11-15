@@ -1,0 +1,1212 @@
+{
+ "precharge": {
+  "C_total_uF": 715,
+  "components_uF": {
+   "traction inverter DC link (CM200DX reference 650 uF; contract SiC unit assumed similar)": 650,
+   "DC-DC input (HELLA-class 1.5 kW, est.)": 20,
+   "OBC output (BROGEN PV1776, est.)": 40,
+   "Y-caps and cable (est.)": 5
+  },
+  "sweep": [
+   {
+    "R_ohm": 47,
+    "tau_s": 0.034,
+    "t95_s": 0.101,
+    "I0_A": 8.85,
+    "P0_W": 3679,
+    "E_per_event_J": 61.8,
+    "E_into_short_until_timeout_J": 396,
+    "ok": true
+   },
+   {
+    "R_ohm": 68,
+    "tau_s": 0.049,
+    "t95_s": 0.146,
+    "I0_A": 6.11,
+    "P0_W": 2542,
+    "E_per_event_J": 61.8,
+    "E_into_short_until_timeout_J": 396,
+    "ok": true
+   },
+   {
+    "R_ohm": 100,
+    "tau_s": 0.072,
+    "t95_s": 0.214,
+    "I0_A": 4.16,
+    "P0_W": 1729,
+    "E_per_event_J": 61.8,
+    "E_into_short_until_timeout_J": 396,
+    "ok": true
+   },
+   {
+    "R_ohm": 150,
+    "tau_s": 0.107,
+    "t95_s": 0.321,
+    "I0_A": 2.77,
+    "P0_W": 1153,
+    "E_per_event_J": 61.8,
+    "E_into_short_until_timeout_J": 396,
+    "ok": true
+   },
+   {
+    "R_ohm": 220,
+    "tau_s": 0.157,
+    "t95_s": 0.471,
+    "I0_A": 1.89,
+    "P0_W": 786,
+    "E_per_event_J": 61.8,
+    "E_into_short_until_timeout_J": 396,
+    "ok": true
+   },
+   {
+    "R_ohm": 330,
+    "tau_s": 0.236,
+    "t95_s": 0.707,
+    "I0_A": 1.26,
+    "P0_W": 524,
+    "E_per_event_J": 61.8,
+    "E_into_short_until_timeout_J": 396,
+    "ok": false
+   }
+  ],
+  "choice": {
+   "R_ohm": 220,
+   "tau_s": 0.157,
+   "t95_s": 0.471,
+   "I0_A": 1.89,
+   "P0_W": 786,
+   "E_per_event_J": 61.8,
+   "E_into_short_until_timeout_J": 396,
+   "ok": true
+  },
+  "rule": "close main+ when bus >= 95 pct of pack (dV <= 21 V); abort and latch if not reached in 3.2 tau",
+  "resistor": "TE Connectivity (CGS) HSC100 series, 100 W aluminium-housed wirewound, 220 ohm; pulse energy rating to be confirmed with TE for the into-short case",
+  "relay": "TE Kilovac LEV100 series (100 A, 900 VDC), 12 V coil; suffix to confirm"
+ },
+ "discharge": {
+  "passive_bleed_kohm": 70,
+  "tau_s": 45.5,
+  "passive_t_to_60V_s": 88.1,
+  "active_target": "inverter active discharge to <60 V in <=3 s after contactors open (ISO 6469-3 / R136: below 60 VDC or 0.2 J within manufacturer-stated time)",
+  "energy_J": 61.8
+ },
+ "protection": {
+  "bolted_short_circuit_A": 7474,
+  "layers": [
+   {
+    "layer": "cell",
+    "device": "fusible neck in Ni-Cu collector (per cell, both ends)",
+    "clears": "internal cell short, crushed cell",
+    "speed": "~20 ms at ~5 kA"
+   },
+   {
+    "layer": "mid-pack",
+    "device": "MSD with integrated 400 A fuse, Amphenol MSD08 family (fused 200-400 A, HVIL)",
+    "clears": "bolted pack short (7.5 kA) and halves the pack for service",
+    "note": "fused MSD rated 690 V(AC catalogue); DC breaking capacity at 416 V and I2t vs 30 s 433 A peak to confirm with Amphenol"
+   },
+   {
+    "layer": "pack+",
+    "device": "Sensata STP500P pyrotechnic breaker (500 A cont, 500 V / 22 kA break, <1 ms active)",
+    "clears": "crash (IMU/ABS crash flag), mid-current faults 600 A-3 kA where the fuse is slow, contactor weld",
+    "trigger": "VCU: IVT-S current > 650 A for > 20 ms, or > 480 A for > 40 s, or crash signal; BMS hard fault"
+   },
+   {
+    "layer": "contactors",
+    "device": "2 x GIGAVAC GX14 (350 A cont on 2/0, 12-800 VDC); open only below ~350 A (coordinated: pyro clears above)",
+    "clears": "normal isolation, key-off, BMS open request"
+   },
+   {
+    "layer": "branches",
+    "device": "Eaton Bussmann EV fuses: OBC 30 A, DC-DC 10 A, battery heater 15 A",
+    "clears": "branch cable faults"
+   }
+  ],
+  "coordination_checks": {
+   "peak_433A_30s_vs_400A_fuse": "fuse at 1.08 x In for 30 s: below the ~1.3 x In conventional non-fusing level of EV fuses -> holds (confirm on curve)",
+   "cont_260A_vs_400A_fuse_derated": "400 A x 0.8 thermal derate = 320 A > 260 A -> OK",
+   "pyro_cont_500A_vs_433A_peak": "OK",
+   "gx14_350A_cont_vs_260A": "OK, 1.35 x margin; 433 A for 30 s exceeds 350 A cont -> needs GIGAVAC overload curve (open)",
+   "short_7_5kA_vs_pyro_22kA": "OK 2.9 x",
+   "short_7_5kA_vs_fuse_breaking": "typ 20-50 kA for EV fuses -> OK, confirm"
+  }
+ },
+ "cable_sweep": [
+  {
+   "mm2": 16,
+   "environment": "free air 40 C",
+   "ampacity_A": 137,
+   "od_mm": 10.6,
+   "g_per_m": 230,
+   "dT_30s_at_433A_from_90C_K": 157.2,
+   "meets_260A_cont": false,
+   "meets_peak": false,
+   "T_end_14min_charge_C": 447.1,
+   "tau_thermal_s": 590,
+   "meets_charge_transient": false
+  },
+  {
+   "mm2": 16,
+   "environment": "body/motor bay 65 C, pair in conduit",
+   "ampacity_A": 97,
+   "od_mm": 10.6,
+   "g_per_m": 230,
+   "dT_30s_at_433A_from_90C_K": 157.2,
+   "meets_260A_cont": false,
+   "meets_peak": false,
+   "T_end_14min_charge_C": 645.9,
+   "tau_thermal_s": 921,
+   "meets_charge_transient": false
+  },
+  {
+   "mm2": 25,
+   "environment": "free air 40 C",
+   "ampacity_A": 183,
+   "od_mm": 12.2,
+   "g_per_m": 340,
+   "dT_30s_at_433A_from_90C_K": 64.9,
+   "meets_260A_cont": false,
+   "meets_peak": false,
+   "T_end_14min_charge_C": 184.8,
+   "tau_thermal_s": 722,
+   "meets_charge_transient": false
+  },
+  {
+   "mm2": 25,
+   "environment": "body/motor bay 65 C, pair in conduit",
+   "ampacity_A": 129,
+   "od_mm": 12.2,
+   "g_per_m": 340,
+   "dT_30s_at_433A_from_90C_K": 64.9,
+   "meets_260A_cont": false,
+   "meets_peak": false,
+   "T_end_14min_charge_C": 257.9,
+   "tau_thermal_s": 1128,
+   "meets_charge_transient": false
+  },
+  {
+   "mm2": 35,
+   "environment": "free air 40 C",
+   "ampacity_A": 230,
+   "od_mm": 13.6,
+   "g_per_m": 485,
+   "dT_30s_at_433A_from_90C_K": 32.9,
+   "meets_260A_cont": false,
+   "meets_peak": true,
+   "T_end_14min_charge_C": 108.6,
+   "tau_thermal_s": 941,
+   "meets_charge_transient": true
+  },
+  {
+   "mm2": 35,
+   "environment": "body/motor bay 65 C, pair in conduit",
+   "ampacity_A": 161,
+   "od_mm": 13.6,
+   "g_per_m": 485,
+   "dT_30s_at_433A_from_90C_K": 32.9,
+   "meets_260A_cont": false,
+   "meets_peak": true,
+   "T_end_14min_charge_C": 152.0,
+   "tau_thermal_s": 1471,
+   "meets_charge_transient": false
+  },
+  {
+   "mm2": 50,
+   "environment": "free air 40 C",
+   "ampacity_A": 301,
+   "od_mm": 15.8,
+   "g_per_m": 630,
+   "dT_30s_at_433A_from_90C_K": 15.3,
+   "meets_260A_cont": true,
+   "meets_peak": true,
+   "T_end_14min_charge_C": 76.7,
+   "tau_thermal_s": 970,
+   "meets_charge_transient": true
+  },
+  {
+   "mm2": 50,
+   "environment": "body/motor bay 65 C, pair in conduit",
+   "ampacity_A": 212,
+   "od_mm": 15.8,
+   "g_per_m": 630,
+   "dT_30s_at_433A_from_90C_K": 15.3,
+   "meets_260A_cont": false,
+   "meets_peak": true,
+   "T_end_14min_charge_C": 111.2,
+   "tau_thermal_s": 1516,
+   "meets_charge_transient": true
+  },
+  {
+   "mm2": 70,
+   "environment": "free air 40 C",
+   "ampacity_A": 372,
+   "od_mm": 18.0,
+   "g_per_m": 860,
+   "dT_30s_at_433A_from_90C_K": 8.1,
+   "meets_260A_cont": true,
+   "meets_peak": true,
+   "T_end_14min_charge_C": 60.9,
+   "tau_thermal_s": 1140,
+   "meets_charge_transient": true
+  },
+  {
+   "mm2": 70,
+   "environment": "body/motor bay 65 C, pair in conduit",
+   "ampacity_A": 262,
+   "od_mm": 18.0,
+   "g_per_m": 860,
+   "dT_30s_at_433A_from_90C_K": 8.1,
+   "meets_260A_cont": true,
+   "meets_peak": true,
+   "T_end_14min_charge_C": 90.7,
+   "tau_thermal_s": 1781,
+   "meets_charge_transient": true
+  }
+ ],
+ "cable_choice": {
+  "dc_mm2": 50,
+  "phase_mm2": 50,
+  "cable": "Coroplast Coroflex FHLR2GCB2G shielded, 600 V AC / 1000 V DC, orange",
+  "part_50mm2": "Coroflex 9-2611 (50 mm2)",
+  "bend_radius_static_x_od": 3,
+  "bend_radius_dynamic_x_od": 6
+ },
+ "insulation": [
+  {
+   "location": "inside sealed pack (IP67, desiccant breather) - busbar to busbar / to case",
+   "PD": 2,
+   "MG": "IIIa (PI film, PC, FR4 CTI>=175)",
+   "creepage_req_mm": 5.0,
+   "clearance_req_mm": 3.0,
+   "design_mm": 8.0,
+   "how": "0.5 mm PI film on all busbars + PC barrier between lanes; lane gap 12.6 mm"
+  },
+  {
+   "location": "cell-to-cell adjacent groups in a row (max 4.2 V, intra-lane)",
+   "PD": 2,
+   "MG": "IIIa",
+   "creepage_req_mm": 0.04,
+   "clearance_req_mm": 0.2,
+   "design_mm": 2.0,
+   "how": "PET cell sleeve + 2 mm gap; full pack voltage never appears between neighbours in the proposed snake (max lane-to-lane 139 V across a barrier)"
+  },
+  {
+   "location": "lane-to-lane barrier (up to 139 V between lanes away from links)",
+   "PD": 2,
+   "MG": "IIIa",
+   "creepage_req_mm": 1.6,
+   "clearance_req_mm": 0.5,
+   "design_mm": 12.6,
+   "how": "1 mm PC/FR4 barrier sheet in the lane gap"
+  },
+  {
+   "location": "BDU / RJB / CJB internals (IP67 boxes, but condensation possible)",
+   "PD": 3,
+   "MG": "IIIa",
+   "creepage_req_mm": 8.0,
+   "clearance_req_mm": 3.0,
+   "design_mm": 10.0,
+   "how": "contactor/fuse terminals on raised PA66-GF ribs; 10 mm creepage designed in"
+  },
+  {
+   "location": "Orion sense harness at pack lid pass-through",
+   "PD": 2,
+   "MG": "IIIa",
+   "creepage_req_mm": 5.0,
+   "clearance_req_mm": 3.0,
+   "design_mm": 5.0,
+   "how": "Orion connector 2.5 kVrms between connectors; sealed lid feed-through"
+  },
+  {
+   "location": "HV cable shield to conductor",
+   "PD": "n/a (solid insulation)",
+   "MG": "-",
+   "creepage_req_mm": 0,
+   "clearance_req_mm": 0,
+   "design_mm": 0,
+   "how": "cable rated 1000 V DC, 5 kV test"
+  }
+ ],
+ "hv_safety_items": [
+  [
+   "Isolation resistance",
+   "ISO 6469-3 / R136: >=100 ohm/V DC circuits, >=500 ohm/V if AC (OBC) galvanically connected",
+   "416 V x 500 = 208 kohm warning; 100 ohm/V = 41.6 kohm min; Bender iso175 set 500 kohm warn / 100 kohm fault + Orion internal check as plausibility"
+  ],
+  [
+   "Protection against direct contact",
+   "IPXXD inside passenger/rider zones, IPXXB in pack/motor bay",
+   "all HV boxes IP67 with tool-only lids; MSD finger-proof IPXXB when removed"
+  ],
+  [
+   "Indirect contact / equipotential",
+   "exposed conductive parts bonded, <0.1 ohm at 0.2 A",
+   "pack case, BDU/RJB/CJB, inverter, motor, OBC, DC-DC bonded to frame with 6 mm2 straps; frame = LV ground"
+  ],
+  [
+   "HVIL",
+   "interlock opens contactors when any HV connector or lid is opened",
+   "single loop through MSD, BDU lid, CJB lid, inverter, OBC, DC-DC, inlet; VCU monitors 20 mA PWM loop"
+  ],
+  [
+   "Marking",
+   "orange HV cables, ISO 7010 W012 symbol on HV boxes",
+   "Coroflex orange jacket, labels on all enclosures"
+  ],
+  [
+   "Charging inlet",
+   "no hazardous voltage at inlet when unplugged (R136 / J3400)",
+   "DC charge contactors normally open, weld check before unlock; AC relays interlocked; inlet voltage sensed by IVT-S U3"
+  ],
+  [
+   "Water immersion / IP",
+   "R136 water exposure (IPX5/IPX7 equivalent for L-category)",
+   "pack, boxes and connectors IP67; breather: GORE PolyVent on pack and boxes"
+  ],
+  [
+   "Functional safety of driving state",
+   "R136: active driving possible mode indicated, unintended movement prevented",
+   "VCU: READY lamp, brake + start, side-stand interlock, throttle plausibility"
+  ],
+  [
+   "Post-crash",
+   "R136 / ISO 6469-3: HV isolated automatically",
+   "IMU crash flag (ABS unit) fires pyro + opens contactors <20 ms"
+  ]
+ ],
+ "emc": [
+  [
+   "Inverter DC input",
+   "X/Y capacitors inside inverter; add ferrite rings (e.g. Vacuumschmelze VITROPERM nanocrystalline) over DC pair at BDU exit"
+  ],
+  [
+   "Motor phases",
+   "shielded 3-core-as-3-single cables, 360 deg shield termination at both ends (Amphenol PowerLok shielded backshells); keep < 0.3 m"
+  ],
+  [
+   "DC-DC and OBC",
+   "built-in EMC filters (supplier); shields bonded at both ends; LV output twisted pair"
+  ],
+  [
+   "CAN",
+   "120 ohm split terminations at both ends, twisted pair 1 twist/25 mm, routed > 50 mm from phase cables"
+  ],
+  [
+   "Standards",
+   "UNECE R10.06 (EMC) for type approval; CISPR 25 class 3 targets for receivers on board"
+  ]
+ ],
+ "cad_check": {
+  "BDU_upper_positive_junction": {
+   "min_gap_mm": 4.0,
+   "nearest": [
+    [
+     4.0,
+     "Upper_body_fairing_tank_STUDY"
+    ],
+    [
+     7.0,
+     "LV_battery_Shorai_LFX14A4_under_seat"
+    ],
+    [
+     8.5,
+     "Seat_two_level_STUDY"
+    ]
+   ],
+   "ok": true
+  },
+  "RJB_rear_negative_junction (existing HV_cabinet envelope)": {
+   "min_gap_mm": 5.7,
+   "nearest": [
+    [
+     5.7,
+     "Motor_side_covers_STUDY"
+    ],
+    [
+     10.0,
+     "Battery_installation_keepout"
+    ],
+    [
+     10.0,
+     "Pack_case_structural_4mm_STUDY"
+    ]
+   ],
+   "ok": true
+  },
+  "CJB_charge_junction": {
+   "min_gap_mm": 4.0,
+   "nearest": [
+    [
+     4.0,
+     "BROGEN_PV1776_body"
+    ],
+    [
+     22.0,
+     "Seam_trim_1"
+    ],
+    [
+     22.2,
+     "Cascadia_CM200_supplier_STEP"
+    ]
+   ],
+   "ok": true
+  },
+  "NACS_inlet_Volex_1000V": {
+   "min_gap_mm": 5.0,
+   "nearest": [
+    [
+     5.0,
+     "PDM_envelope_right_upper"
+    ],
+    [
+     19.0,
+     "Upper_rail_1_1"
+    ],
+    [
+     40.0,
+     "nothing else within 40 mm"
+    ]
+   ],
+   "ok": true
+  },
+  "DCDC_1kW_envelope_left_pocket": {
+   "min_gap_mm": 8.0,
+   "nearest": [
+    [
+     8.0,
+     "BROGEN_PV1776_body"
+    ],
+    [
+     8.5,
+     "Battery_installation_keepout"
+    ],
+    [
+     8.5,
+     "Pack_case_structural_4mm_STUDY"
+    ]
+   ],
+   "ok": true
+  },
+  "LV_battery_Shorai_LFX14A4_under_seat": {
+   "min_gap_mm": 4.0,
+   "nearest": [
+    [
+     4.0,
+     "Shock_top_bracket"
+    ],
+    [
+     6.0,
+     "Shock_Upper_eye_STUDY"
+    ],
+    [
+     7.0,
+     "BDU_upper_positive_junction"
+    ]
+   ],
+   "ok": true
+  },
+  "VCU_envelope_left_upper": {
+   "min_gap_mm": 8.0,
+   "nearest": [
+    [
+     8.0,
+     "Seat_two_level_STUDY"
+    ],
+    [
+     11.2,
+     "Side_radiator_m1"
+    ],
+    [
+     20.2,
+     "Cascadia_CM200_supplier_STEP"
+    ]
+   ],
+   "ok": true
+  },
+  "PDM_envelope_right_upper": {
+   "min_gap_mm": 3.0,
+   "nearest": [
+    [
+     3.0,
+     "Seat_two_level_STUDY"
+    ],
+    [
+     5.0,
+     "NACS_inlet_Volex_1000V"
+    ],
+    [
+     18.5,
+     "Cascadia_CM200_supplier_STEP"
+    ]
+   ],
+   "ok": false
+  },
+  "HV+ pack lid stud -> BDU": {
+   "min_gap_mm": 4.2,
+   "nearest": [
+    [
+     4.2,
+     "Seam_trim_1"
+    ],
+    [
+     6.2,
+     "Side_radiator_1"
+    ],
+    [
+     7.7,
+     "CJB_charge_junction"
+    ]
+   ],
+   "ok": true
+  },
+  "HV- pack rear (S001) -> RJB": {
+   "min_gap_mm": 36.1,
+   "nearest": [
+    [
+     36.1,
+     "IPM_motor_and_gear_case_ENVELOPE"
+    ],
+    [
+     40.0,
+     "nothing else within 40 mm"
+    ],
+    [
+     44.2,
+     "Motor_side_covers_STUDY"
+    ]
+   ],
+   "ok": true
+  },
+  "HV- bus RJB -> BDU (left channel)": {
+   "min_gap_mm": 3.7,
+   "nearest": [
+    [
+     3.7,
+     "Battery_installation_keepout"
+    ],
+    [
+     3.7,
+     "Pack_case_structural_4mm_STUDY"
+    ],
+    [
+     14.4,
+     "Motor_side_covers_STUDY"
+    ]
+   ],
+   "ok": true
+  },
+  "MSD links S066/S067 -> RJB": {
+   "min_gap_mm": 40.0,
+   "nearest": [
+    [
+     40.0,
+     "nothing else within 40 mm"
+    ],
+    [
+     41.8,
+     "Motor_side_covers_STUDY"
+    ],
+    [
+     46.4,
+     "Lower_body_battery_covers_STUDY"
+    ]
+   ],
+   "ok": true
+  },
+  "Inverter DC+/DC- (BDU -> inverter rear, through tank wall)": {
+   "min_gap_mm": 5.9,
+   "nearest": [
+    [
+     5.9,
+     "BROGEN_PV1776_body"
+    ],
+    [
+     40.0,
+     "nothing else within 40 mm"
+    ],
+    [
+     61.4,
+     "Seat_two_level_STUDY"
+    ]
+   ],
+   "ok": true
+  },
+  "Motor phases U/V/W (inverter rear -> motor top terminal)": {
+   "min_gap_mm": 7.5,
+   "nearest": [
+    [
+     7.5,
+     "BROGEN_PV1776_body"
+    ],
+    [
+     9.0,
+     "BDU_upper_positive_junction"
+    ],
+    [
+     18.0,
+     "CJB_charge_junction"
+    ]
+   ],
+   "ok": true
+  },
+  "DC charge+/- inlet -> CJB": {
+   "min_gap_mm": 6.2,
+   "nearest": [
+    [
+     6.2,
+     "PDM_envelope_right_upper"
+    ],
+    [
+     28.5,
+     "Upper_rail_1_1"
+    ],
+    [
+     36.1,
+     "Orion_BMS2_108_supplier_STEP"
+    ]
+   ],
+   "ok": true
+  },
+  "DC charge+/- CJB -> BDU": {
+   "min_gap_mm": 3.2,
+   "nearest": [
+    [
+     3.2,
+     "BROGEN_PV1776_body"
+    ],
+    [
+     33.9,
+     "Battery_installation_keepout"
+    ],
+    [
+     33.9,
+     "Pack_case_structural_4mm_STUDY"
+    ]
+   ],
+   "ok": true
+  },
+  "OBC DC out -> BDU (4 mm2)": {
+   "min_gap_mm": 40.0,
+   "nearest": [
+    [
+     40.0,
+     "nothing else within 40 mm"
+    ],
+    [
+     46.0,
+     "Upper_body_fairing_tank_STUDY"
+    ],
+    [
+     56.8,
+     "DCDC_1kW_envelope_left_pocket"
+    ]
+   ],
+   "ok": true
+  },
+  "DC-DC HV in (2.5 mm2)": {
+   "min_gap_mm": 7.1,
+   "nearest": [
+    [
+     7.1,
+     "BROGEN_PV1776_body"
+    ],
+    [
+     40.0,
+     "nothing else within 40 mm"
+    ],
+    [
+     46.0,
+     "Upper_body_fairing_tank_STUDY"
+    ]
+   ],
+   "ok": true
+  }
+ },
+ "boxes": {
+  "BDU_upper_positive_junction": {
+   "box": [
+    606,
+    686,
+    -125,
+    82,
+    645,
+    765
+   ],
+   "contents": "Sensata STP500P pyro, GX14 main+, LEV100 + HSC100 precharge, OBC/DC-DC/heater EV fuses, HV+ and HV- distribution bars, HVIL loop; front connectors through a cut-out in the tank rear wall"
+  },
+  "RJB_rear_negative_junction (existing HV_cabinet envelope)": {
+   "box": [
+    445,
+    580,
+    -20,
+    95,
+    245,
+    398
+   ],
+   "contents": "GX14 main-, IVT-S-500-U3 shunt on pack-, MSD08 fused service disconnect in link S066/S067"
+  },
+  "CJB_charge_junction": {
+   "box": [
+    730,
+    860,
+    116,
+    176,
+    640,
+    760
+   ],
+   "contents": "2 x GX14 DC charge contactors stacked, 2-pole AC relay pair to OBC (interlocked)"
+  },
+  "NACS_inlet_Volex_1000V": {
+   "box": [
+    860,
+    928,
+    127,
+    222,
+    845,
+    929
+   ],
+   "contents": "Volex NACS 1000 V inlet, 84 x 68 x 95 mm, 500 A cont; face at Y+222 under a hinged door"
+  },
+  "DCDC_1kW_envelope_left_pocket": {
+   "box": [
+    720,
+    950,
+    -180,
+    -120,
+    622,
+    762
+   ],
+   "contents": "HV/12 V DC-DC >=0.75 kW, required envelope 230 x 60 x 140 mm (HELLA unit size to confirm)"
+  },
+  "LV_battery_Shorai_LFX14A4_under_seat": {
+   "box": [
+    512,
+    599,
+    -75,
+    75,
+    670,
+    763
+   ],
+   "contents": "12 V LiFePO4 150 x 87 x 93 mm, long side across the bike"
+  },
+  "VCU_envelope_left_upper": {
+   "box": [
+    770,
+    950,
+    -150,
+    -110,
+    785,
+    863
+   ],
+   "contents": "VCU 200 x 78 x 40 mm, on edge beside the inverter"
+  },
+  "PDM_envelope_right_upper": {
+   "box": [
+    765,
+    855,
+    108,
+    148,
+    785,
+    865
+   ],
+   "contents": "LV smart distribution 90 x 40 x 80 mm envelope (custom PDU; PMU16 prototype is larger, bench only)"
+  }
+ },
+ "routes": {
+  "HV+ pack lid stud -> BDU": {
+   "points": [
+    [
+     985,
+     150,
+     614
+    ],
+    [
+     985,
+     186,
+     628
+    ],
+    [
+     700,
+     186,
+     628
+    ],
+    [
+     668,
+     120,
+     628
+    ],
+    [
+     650,
+     -20,
+     628
+    ],
+    [
+     650,
+     -20,
+     650
+    ]
+   ],
+   "mm2": 50,
+   "conductors": 1,
+   "length_each_mm": 640,
+   "bends": [
+    {
+     "turn_deg": 90,
+     "r_min_mm": 47.4,
+     "tangent_needed_mm": 47.4,
+     "shorter_segment_mm": 38.6,
+     "ok": false
+    },
+    {
+     "turn_deg": 64,
+     "r_min_mm": 47.4,
+     "tangent_needed_mm": 29.7,
+     "shorter_segment_mm": 73.3,
+     "ok": true
+    },
+    {
+     "turn_deg": 19,
+     "r_min_mm": 47.4,
+     "tangent_needed_mm": 7.7,
+     "shorter_segment_mm": 73.3,
+     "ok": true
+    },
+    {
+     "turn_deg": 90,
+     "r_min_mm": 47.4,
+     "tangent_needed_mm": 47.4,
+     "shorter_segment_mm": 22.0,
+     "ok": false
+    }
+   ],
+   "vdrop_peak_V": 0.13,
+   "loss_cont_W": 20.3,
+   "mass_kg": 0.403
+  },
+  "HV- pack rear (S001) -> RJB": {
+   "points": [
+    [
+     588,
+     -5,
+     283
+    ],
+    [
+     560,
+     -5,
+     283
+    ]
+   ],
+   "mm2": 50,
+   "conductors": 1,
+   "length_each_mm": 108,
+   "bends": [],
+   "vdrop_peak_V": 0.022,
+   "loss_cont_W": 3.4,
+   "mass_kg": 0.068
+  },
+  "HV- bus RJB -> BDU (left channel)": {
+   "points": [
+    [
+     575,
+     -12,
+     252
+    ],
+    [
+     574,
+     -60,
+     258
+    ],
+    [
+     574,
+     -100,
+     275
+    ],
+    [
+     574,
+     -100,
+     300
+    ],
+    [
+     603,
+     -130,
+     324
+    ],
+    [
+     610,
+     -135,
+     450
+    ],
+    [
+     640,
+     -135,
+     630
+    ],
+    [
+     650,
+     -110,
+     670
+    ]
+   ],
+   "mm2": 50,
+   "conductors": 1,
+   "length_each_mm": 602,
+   "bends": [
+    {
+     "turn_deg": 16,
+     "r_min_mm": 47.4,
+     "tangent_needed_mm": 6.6,
+     "shorter_segment_mm": 43.5,
+     "ok": true
+    },
+    {
+     "turn_deg": 67,
+     "r_min_mm": 47.4,
+     "tangent_needed_mm": 31.4,
+     "shorter_segment_mm": 25.0,
+     "ok": false
+    },
+    {
+     "turn_deg": 60,
+     "r_min_mm": 47.4,
+     "tangent_needed_mm": 27.4,
+     "shorter_segment_mm": 25.0,
+     "ok": false
+    },
+    {
+     "turn_deg": 56,
+     "r_min_mm": 47.4,
+     "tangent_needed_mm": 25.3,
+     "shorter_segment_mm": 48.1,
+     "ok": false
+    },
+    {
+     "turn_deg": 7,
+     "r_min_mm": 47.4,
+     "tangent_needed_mm": 2.8,
+     "shorter_segment_mm": 126.3,
+     "ok": true
+    },
+    {
+     "turn_deg": 32,
+     "r_min_mm": 47.4,
+     "tangent_needed_mm": 13.4,
+     "shorter_segment_mm": 48.2,
+     "ok": true
+    }
+   ],
+   "vdrop_peak_V": 0.122,
+   "loss_cont_W": 19.1,
+   "mass_kg": 0.379
+  },
+  "MSD links S066/S067 -> RJB": {
+   "points": [
+    [
+     588,
+     64,
+     285
+    ],
+    [
+     565,
+     64,
+     285
+    ]
+   ],
+   "mm2": 50,
+   "conductors": 2,
+   "length_each_mm": 103,
+   "bends": [],
+   "vdrop_peak_V": 0.021,
+   "loss_cont_W": 6.5,
+   "mass_kg": 0.13
+  },
+  "Inverter DC+/DC- (BDU -> inverter rear, through tank wall)": {
+   "points": [
+    [
+     680,
+     -40,
+     725
+    ],
+    [
+     712,
+     -40,
+     725
+    ]
+   ],
+   "mm2": 50,
+   "conductors": 2,
+   "length_each_mm": 112,
+   "bends": [],
+   "vdrop_peak_V": 0.046,
+   "loss_cont_W": 7.1,
+   "mass_kg": 0.141
+  },
+  "Motor phases U/V/W (inverter rear -> motor top terminal)": {
+   "points": [
+    [
+     712,
+     120,
+     725
+    ],
+    [
+     686,
+     120,
+     725
+    ],
+    [
+     620,
+     120,
+     700
+    ],
+    [
+     605,
+     118,
+     668
+    ],
+    [
+     598,
+     100,
+     648
+    ]
+   ],
+   "mm2": 50,
+   "conductors": 3,
+   "length_each_mm": 240,
+   "bends": [
+    {
+     "turn_deg": 21,
+     "r_min_mm": 47.4,
+     "tangent_needed_mm": 8.7,
+     "shorter_segment_mm": 26.0,
+     "ok": true
+    },
+    {
+     "turn_deg": 44,
+     "r_min_mm": 47.4,
+     "tangent_needed_mm": 19.3,
+     "shorter_segment_mm": 35.4,
+     "ok": false
+    },
+    {
+     "turn_deg": 37,
+     "r_min_mm": 47.4,
+     "tangent_needed_mm": 16.1,
+     "shorter_segment_mm": 27.8,
+     "ok": false
+    }
+   ],
+   "vdrop_peak_V": 0.049,
+   "loss_cont_W": 22.8,
+   "mass_kg": 0.453
+  },
+  "DC charge+/- inlet -> CJB": {
+   "points": [
+    [
+     900,
+     125,
+     880
+    ],
+    [
+     900,
+     140,
+     790
+    ],
+    [
+     850,
+     146,
+     760
+    ]
+   ],
+   "mm2": 50,
+   "conductors": 2,
+   "length_each_mm": 230,
+   "bends": [
+    {
+     "turn_deg": 59,
+     "r_min_mm": 47.4,
+     "tangent_needed_mm": 26.6,
+     "shorter_segment_mm": 58.6,
+     "ok": true
+    }
+   ],
+   "vdrop_peak_V": 0.093,
+   "loss_cont_W": 14.6,
+   "mass_kg": 0.29
+  },
+  "DC charge+/- CJB -> BDU": {
+   "points": [
+    [
+     732,
+     148,
+     660
+    ],
+    [
+     690,
+     132,
+     660
+    ],
+    [
+     672,
+     78,
+     665
+    ]
+   ],
+   "mm2": 50,
+   "conductors": 2,
+   "length_each_mm": 182,
+   "bends": [
+    {
+     "turn_deg": 51,
+     "r_min_mm": 47.4,
+     "tangent_needed_mm": 22.6,
+     "shorter_segment_mm": 44.9,
+     "ok": false
+    }
+   ],
+   "vdrop_peak_V": 0.074,
+   "loss_cont_W": 11.6,
+   "mass_kg": 0.229
+  },
+  "OBC DC out -> BDU (4 mm2)": {
+   "points": [
+    [
+     705,
+     -60,
+     660
+    ],
+    [
+     680,
+     -60,
+     660
+    ]
+   ],
+   "mm2": 4,
+   "conductors": 2,
+   "length_each_mm": 105,
+   "bends": [],
+   "vdrop_peak_V": 0.014,
+   "loss_cont_W": 0.6,
+   "mass_kg": 0.013
+  },
+  "DC-DC HV in (2.5 mm2)": {
+   "points": [
+    [
+     680,
+     -110,
+     660
+    ],
+    [
+     722,
+     -150,
+     660
+    ]
+   ],
+   "mm2": 4,
+   "conductors": 2,
+   "length_each_mm": 138,
+   "bends": [],
+   "vdrop_peak_V": 0.018,
+   "loss_cont_W": 0.8,
+   "mass_kg": 0.017
+  }
+ }
+}

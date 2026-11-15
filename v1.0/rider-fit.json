@@ -1,0 +1,109 @@
+{
+ "rider_height_mm": 1755.0,
+ "sit_point_above_ground": [
+  530,
+  832.1
+ ],
+ "trunk_lean_deg": 0.0,
+ "joints": {
+  "right": {
+   "hip": [
+    530,
+    -90,
+    897
+   ],
+   "knee": [
+    689,
+    -294,
+    554
+   ],
+   "ankle": [
+    277,
+    -275,
+    427
+   ],
+   "ball": [
+    420,
+    -275,
+    333
+   ],
+   "shoulder": [
+    530,
+    -228,
+    1402
+   ],
+   "elbow": [
+    592,
+    -387,
+    1124
+   ],
+   "grip": [
+    916,
+    -351,
+    1112
+   ]
+  },
+  "left": {
+   "hip": [
+    530,
+    90,
+    897
+   ],
+   "knee": [
+    689,
+    294,
+    554
+   ],
+   "ankle": [
+    277,
+    275,
+    427
+   ],
+   "ball": [
+    420,
+    275,
+    333
+   ],
+   "shoulder": [
+    530,
+    228,
+    1402
+   ],
+   "elbow": [
+    592,
+    387,
+    1124
+   ],
+   "grip": [
+    916,
+    351,
+    1112
+   ]
+  }
+ },
+ "knee_deg": 82.0,
+ "elbow_deg": 94.8,
+ "leg_overlap_cm3_by_part": {
+  "Seat_two_level_STUDY": 1535.6,
+  "Coolant_pump_battery": 141.9,
+  "Tail_side_panels_STUDY": 128.9,
+  "Lower_body_battery_covers_STUDY": 108.3,
+  "Coolant_4port_valve": 98.7,
+  "HV_upper_junction_box": 65.7,
+  "Upper_rail_0_m1": 41.1,
+  "Upper_rail_0_1": 41.1,
+  "Battery_side_panel_m1": 38.4,
+  "Battery_side_panel_1": 38.4,
+  "Upper_rail_1_m1": 32.2,
+  "Upper_rail_1_1": 32.2,
+  "Tail_rail_m1": 20.5,
+  "Tail_rail_1": 20.5,
+  "Motor_side_covers_STUDY": 12.3,
+  "Tail_shock_cross_tube": 10.6,
+  "Seat_welt": 9.1,
+  "Peg_bracket_m1": 7.7,
+  "Peg_bracket_1": 7.7,
+  "Battery_installation_keepout": 2.3,
+  "Pack_case_structural_4mm_STUDY": 2.2
+ }
+}

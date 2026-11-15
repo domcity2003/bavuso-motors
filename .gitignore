@@ -30,3 +30,15 @@ __pycache__/
 *.pyc
 Thumbs.db
 desktop.ini
+
+# detailed-design solver runs
+v1.0/detailed-design/*/run/
+
+# Detailed-design solver outputs (regenerable from the run scripts; GBs)
+v1.0/detailed-design/aero/run/
+v1.0/detailed-design/structures/run/*.frd
+v1.0/detailed-design/structures/run/*.12d
+v1.0/detailed-design/structures/run/*.npz
+v1.0/detailed-design/structures/run/*.dat
+v1.0/detailed-design/structures/run/*.cvg
+v1.0/detailed-design/structures/run/*.sta

@@ -1,0 +1,37 @@
+area,item,part,qty,kg_each,kg_total,usd_proto_each,usd_proto_total,usd_vol_each,usd_vol_total,source,replaces_rollup_line
+Pack,Traction cells,"26120 fast-charge cylinder 55 Wh (EVE / Wanxiang A123, Stark platform)",594,0.18,106.92,11.55,6861,8.25,4900,powertrain-cost-down.md: $210 / $150 per kWh,Cell_lane_1..3
+Pack,Series busbars,"Al 1350 tapered, 4.0 x 24 mm full section, PI film, 98 links + 2 end plates",1,4.657,4.657,600,600,60,60,material + stamping est.,Pack internals allowance
+Pack,Fuse-collector plates,"Ni-plated Cu C11000 0.30 mm, per-cell fusible necks 8.1 x 0.30 mm",1,1.1,1.1,500,500,40,40,est.,Pack internals allowance
+Pack,Insulation films and lane barriers,"PI 0.5 mm films, 1 mm PC barriers",1,0.5,0.5,200,200,25,25,est.,Pack internals allowance
+Pack,BMS,Orion BMS2 108-cell (Ewert Energy),1,1.47,1.47,1285,1285,350,350,orionbms.com MSRP; vol = custom BMS per cost-down study,Orion_BMS2_108_supplier_STEP
+Pack,Thermistor expansion module,Orion Thermistor Expansion Module (80 ch),1,0.15,0.15,350,350,40,40,est.,Pack internals allowance
+Pack,Cell NTC thermistors,"10 k NTC ring/can-mount, 75 pcs",75,0.002,0.15,2,150,0.4,30,est.,Pack internals allowance
+Pack,Cell-tap harness,"22 AWG UL11028 600 V, 83.3 m, 3 x Orion tap connectors (TE 1123343-2 crimps)",1,0.4998,0.5,250,250,40,40,Orion wiring manual,Pack internals allowance
+Pack,Cell-tap fuses,"Bel Fuse 0ACG-2000-TE (2 A, 500 VDC, AEC-Q200)",100,0.0005,0.05,1.5,150,0.5,50,belfuse.com,Pack internals allowance
+Pack,Pack lid pass-throughs + breather,"3 x sealed sense pass-through, GORE PolyVent",1,0.15,0.15,120,120,25,25,est.,Pack internals allowance
+Protection,Service disconnect + main fuse,"Amphenol MSD08 fused (400 A fuse option, HVIL)",1,0.45,0.45,250,250,90,90,amphenol MSD08 datasheet,Main_fuse_branch_search_region
+Protection,Pyro breaker,"Sensata STP500P (500 A cont, 500 V / 22 kA)",1,0.25,0.25,150,150,45,45,Mouser Sensata A+P PyroFuse page,
+Protection,Main contactors,Sensata GIGAVAC GX14 with 12 V coil (GX14 B-coil code; aux contact suffix TBC),2,0.5,1.0,250,500,90,180,GX14 datasheet 0.5 kg,GX14_main_positive/negative_OUTLINE
+Protection,DC charge contactors,"Sensata GIGAVAC GX14, 12 V coil",2,0.5,1.0,250,500,90,180,GX14 datasheet,
+Protection,Precharge relay,"TE Kilovac LEV100 series, 12 V coil",1,0.15,0.15,120,120,35,35,te.com,
+Protection,Precharge resistor,TE/CGS HSC100 220 ohm 100 W,1,0.1,0.1,40,40,10,10,te.com,
+Protection,AC routing relays (inlet -> OBC),2 x TE Kilovac LEV100 (interlocked with DC contactors),2,0.15,0.3,120,240,35,70,te.com,
+Protection,Branch fuses + holders,"Eaton Bussmann EV series 30 A / 10 A / 15 A, 500 VDC",3,0.05,0.15,20,60,7,21,eaton.com EV fuses,
+Sensing,Pack current + 3 voltages,Isabellenhuette IVT-S-500-U3-I-CAN2-12/24,1,0.2,0.2,350,350,120,120,isabellenhuette.com IVT-S datasheet,
+Sensing,Insulation monitor,Bender ISOMETER iso175C-32-SS (100 k fault / 500 k warn),1,0.15,0.15,350,350,120,120,bender.de iso175,
+Enclosures,BDU (upper positive junction),"Al die-cast/sheet IP67 100 x 150 x 115 mm, PA66-GF carriers, HVIL lid switch",1,0.9,0.9,400,400,80,80,est.,HV_cabinet_2mm_STUDY (split)
+Enclosures,RJB (rear negative junction),"existing 2 mm Al cabinet, IP67 + drain",1,0.83,0.83,250,250,50,50,CAD volume,HV_cabinet_2mm_STUDY
+Enclosures,CJB (charge junction),Al IP67 230 x 60 x 120 mm,1,0.5,0.5,250,250,40,40,est.,
+HV harness,HV cable 50 mm2 shielded,"Coroplast Coroflex FHLR2GCB2G 50 mm2 (9-2611), 3.3 m",1,2.123,2.123,83.1,83,33.24,33,Coroflex sheet 630 g/m,HV cables and lugs
+HV harness,HV connectors,"Amphenol PowerLok 300 (PL082X receptacles / PL282X plugs, 50 mm2, shielded backshells)",10,0.12,1.2,80,800,25,250,RS / Amphenol listings,HV cables and lugs
+HV harness,"Lugs, clamps, conduit, labels","tin-plated Cu lugs, P-clamps, orange split conduit",1,0.4,0.4,120,120,30,30,est.,HV cables and lugs
+Charging,NACS inlet,"Volex NACS inlet 1000 V, 500 A cont (UL 2251, SAE J3400), with door and lock actuator",1,0.9,0.9,300,300,120,120,volex.com datasheet,
+Charging,Charge communication,ADVANTICS ADM-CS-EVCC,1,0.2,0.2,1200,1200,150,150,advantics docs; price est.,
+Charging,On-board charger,BROGEN PV1776 6.6 kW (<=3 kg catalogue),1,3.0,3.0,900,900,350,350,BROGEN catalogue p11,BROGEN_PV1776_body (6.5 kg estimate)
+LV,DC-DC converter,"HELLA high-voltage DC/DC 400 V -> 12 V (1.2 kW passive / 1.5 kW active air, 2.8 kg)",1,2.8,2.8,600,600,200,200,hella.com product 4957,DC-DC converter 1 kW (1.2 kg)
+LV,12 V battery,"Shorai LFX14A4-BS12 LiFePO4 4.5 Ah, 210 CCA",1,0.9,0.9,200,200,60,60,Shorai spec sheet,12 V lithium battery
+LV,VCU,AEM EV VCU200 (30-8000) prototype; custom VCU at volume,1,0.4,0.4,1500,1500,150,150,AEM product description,
+LV,Power distribution,"ECUMaster PMU16 prototype (16 smart outputs, 1.15 kg); custom PDU at volume (0.5 kg)",1,1.15,1.15,1385,1385,120,120,reseller listings,LV wiring harness (fuse box part)
+LV,LV harness,"FLRY-B 0.35-16 mm2, TE/Deutsch DT/DTM connectors, copper 1.05 kg",1,2.4,2.4,600,600,150,150,elec-lv.py lengths x2.3 for insulation/connectors,LV wiring harness
+LV,Keyless + immobiliser + steering lock,"Huf/Continental-class keyless module, 2 fobs",1,0.25,0.25,250,250,60,60,est.,
+LV,"Bonding straps, HVIL loop, seals","6 mm2 tinned straps, HVIL wiring, cable glands",1,0.3,0.3,120,120,30,30,est.,

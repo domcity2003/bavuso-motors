@@ -1,0 +1,7 @@
+location,PD,MG,creepage_req_mm,clearance_req_mm,design_mm,how
+"inside sealed pack (IP67, desiccant breather) - busbar to busbar / to case",2,"IIIa (PI film, PC, FR4 CTI>=175)",5.0,3.0,8.0,0.5 mm PI film on all busbars + PC barrier between lanes; lane gap 12.6 mm
+"cell-to-cell adjacent groups in a row (max 4.2 V, intra-lane)",2,IIIa,0.04,0.2,2.0,PET cell sleeve + 2 mm gap; full pack voltage never appears between neighbours in the proposed snake (max lane-to-lane 139 V across a barrier)
+lane-to-lane barrier (up to 139 V between lanes away from links),2,IIIa,1.6,0.5,12.6,1 mm PC/FR4 barrier sheet in the lane gap
+"BDU / RJB / CJB internals (IP67 boxes, but condensation possible)",3,IIIa,8.0,3.0,10.0,contactor/fuse terminals on raised PA66-GF ribs; 10 mm creepage designed in
+Orion sense harness at pack lid pass-through,2,IIIa,5.0,3.0,5.0,Orion connector 2.5 kVrms between connectors; sealed lid feed-through
+HV cable shield to conductor,n/a (solid insulation),-,0,0,0,"cable rated 1000 V DC, 5 kV test"

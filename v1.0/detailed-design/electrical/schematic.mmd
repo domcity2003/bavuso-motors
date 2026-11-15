@@ -1,0 +1,65 @@
+%% Bavuso V1.0 adventure HV/LV schematic, Nov 12 2026, Claude Opus 5.5
+flowchart LR
+  L1["Lane 1  S001-S033<br/>33s6p 119 V nom<br/>modules M11-M13"]
+  L2["Lane 2  S034-S066<br/>(snake reversed)<br/>modules M21-M23"]
+  L3["Lane 3  S067-S099<br/>33s6p<br/>modules M31-M33"]
+  MSD["MSD + 400 A fuse<br/>Amphenol MSD08<br/>(link S066|S067, HVIL)"]
+  IVT["IVT-S-500-U3 shunt<br/>I + U1 pack U2 bus U3 inlet"]
+  KN["GX14 main- contactor"]
+  PYRO["Sensata STP500P<br/>pyro breaker (pack+)"]
+  KP["GX14 main+ contactor"]
+  PRE["Precharge: LEV100 relay<br/>+ HSC100 220 ohm"]
+  BUSP["HV+<br/>bus"]
+  BUSN["HV-<br/>bus"]
+  F1["EV fuse 30 A"]
+  F2["EV fuse 10 A"]
+  F3["EV fuse 15 A"]
+  INV["SiC inverter 400 A<br/>(CM200DX envelope)"]
+  MOT["Radial IPM motor<br/>130 kW / 150 Nm"]
+  OBC["OBC BROGEN PV1776<br/>6.6 kW"]
+  DCDC["DC-DC 1 kW class<br/>(HELLA HV DC/DC)"]
+  HTR["Pack PTC heater (opt.)"]
+  CJB["CJB: 2 x GX14 DC charge<br/>+ 2-pole AC relay<br/>(interlocked)"]
+  INLET["NACS inlet<br/>Volex 1000 V 500 A"]
+  EVCC["ADVANTICS<br/>ADM-CS-EVCC"]
+  IMD["Bender iso175<br/>insulation monitor"]
+  BMS["Orion BMS2 108<br/>9 groups x 11 taps<br/>+ TEM (67 NTC)"]
+  VCU["VCU (AEM VCU200)<br/>contactor + pyro drive<br/>HVIL, keyless gate"]
+  BAT12["12 V LiFePO4<br/>Shorai LFX14A4"]
+  PDM["LV PDM (smart fuses)<br/>lights, dash, ABS,<br/>pumps, fans, grips,<br/>USB, keyless"]
+  L1 ---|S033|S034 top link| L2
+  L2 ---|S066| MSD
+  MSD ---|S067| L3
+  L3 ---|pack+ 50 mm2| PYRO
+  PYRO --- KP
+  KP --- BUSP
+  PYRO --- PRE
+  PRE --- BUSP
+  L1 ---|pack- 50 mm2| IVT
+  IVT --- KN
+  KN ---|HV- 50 mm2| BUSN
+  BUSP ---|DC 2x50 mm2| INV
+  INV ---|U V W 3x50 mm2| MOT
+  BUSP --- F1
+  F1 ---|4 mm2| OBC
+  BUSP --- F2
+  F2 ---|2.5 mm2| DCDC
+  BUSP --- F3
+  F3 --- HTR
+  BUSP ---|DC chg 2x50 mm2| CJB
+  CJB ---|DC+/- (shared AC pins)| INLET
+  CJB ---|AC L/N| OBC
+  DCDC ---|16 mm2 13.5 V| PDM
+  BAT12 ---|10 mm2| PDM
+  BMS -.-|100 taps 22 AWG| L1
+  INLET ---|CP/PP, lock, NTC| EVCC
+  VCU ---|coil| KN
+  VCU ---|coil| KP
+  VCU ---|coil| PRE
+  VCU ---|squib| PYRO
+  IMD -.- BUSN
+  IMD -.- BUSP
+  VCU -.-|CAN1| BMS
+  VCU -.-|CAN1| IMD
+  VCU -.- BAT12
+  VCU -.-|CAN1| EVCC

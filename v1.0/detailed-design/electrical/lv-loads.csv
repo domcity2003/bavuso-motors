@@ -1,0 +1,35 @@
+load,W_rated,case_A_W,case_B_W,case_C_W,x,y,z,basis
+Headlamp low beam LED,25,25,0,25,1430,0,875,typical motorcycle LED low beam 20-30 W
+Headlamp high beam LED (adds),30,30,0,30,1430,0,875,typical LED high +25-35 W
+DRL blade,8,0,0,0,1430,0,905,DRL off when low beam on
+Aux fog / cornering lamps (adventure pack),30,30,0,30,1385,0,830,2 x 15 W LED
+Tail / stop LED,6,6,0,6,-178,0,856,stop 5 W + tail 1 W
+"Indicators LED (2 flashing, 50%)",5,2.5,0,5,0,0,800,"4 x 5 W, 2 active at 50 % duty"
+Plate lamp,2,2,0,2,-342,0,668,
+TFT dash 7 in + switch cubes,12,12,12,12,1110,0,1150,automotive TFT cluster 8-15 W
+VCU (AEM VCU200 class),6,6,6,6,550,0,670,"supplier 9-16 V, est. 0.45 A"
+BMS Orion BMS2,2,2,2,2,900,0,860,Orion spec <2 W active
+Thermistor expansion module,1,1,1,1,900,0,860,est.
+Isolation monitor Bender iso175,2,2,2,2,650,-60,700,est.
+Current sensor IVT-S,1.5,1.5,1.5,1.5,510,40,320,IVT-S datasheet ~ 1.2 W at 12 V
+Inverter control board,15,15,4.5,15,860,0,760,Cascadia CM200 LV ~1 A at 12 V (hardware manual)
+OBC / DC-DC / EVCC control,8,2.4,8,8,880,0,670,est.
+Main contactors GX14 x2 (economised hold),5.6,5.6,5.6,0,600,0,700,GX14 hold ~2.3-2.8 W each
+Contactor pull-in x2 (75 ms),60,0,0,60,600,0,700,est. ~2.2 A each before economiser drops a coil
+DC charge contactors GX14 x2 (hold),5.6,0.0,5.6,0,835,146,700,only while DC charging
+ABS / cornering ABS ECU + IMU (Bosch MSC class),10,10,10,10,400,60,700,ECU+valves average
+ABS pump motor (pressure modulation),0,0,0,300,400,60,700,"transient 20-25 A for <1 s; Bosch does not publish, est."
+"Coolant pump drive loop (motor oil HX, inverter, OBC)",45,45,45,45,900,-150,600,"Pierburg CWA50-class 12 V e-pump, ~40-50 W at duty point"
+Coolant pump battery loop,45,27.0,45,45,900,150,600,CWA50-class; full flow during fast charge
+Gearbox / motor oil pump,40,28.0,12.0,40,520,40,420,"oil-cooled IPM + gear stage (drive-study.md), est."
+Radiator fans x2,130,26.0,130,130,1015,0,710,2 x 65 W 7-in brushless; full speed while hot charging
+Heated grips,40,40,0,40,900,0,1130,Oxford-class OEM grips 35-50 W at high
+Heated seat (rider),40,40,0,40,400,0,880,OEM heated seat 35-50 W
+USB-C PD outlet,60,30.0,30.0,60,1050,60,1000,one 60 W PD port
+Keyless (KESSY-class) + immobiliser + steering lock,1,1,0.5,0,1100,0,950,standby 10 mA
+Steering lock actuator (transient),0,0,0,30,1150,0,900,"2-3 A, 0.5 s"
+Horn,0,0,0,45,1300,0,700,disc horn ~3.5 A
+Telematics / LTE + GNSS,4,4,4,4,300,0,850,est.
+TPMS receiver + radar (future ARAS),8,8,0,8,1380,0,800,est. ARAS radar 6-8 W
+Electric screen adjust (transient),0,0,0,40,1250,0,1050,est.
+Battery-pack heater control relay,1,0.5,0.5,0,650,0,700,"HV PTC heater itself runs from HV, fused 15 A"

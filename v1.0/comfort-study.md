@@ -50,6 +50,60 @@ Both pass in the full build: controls 62.5 mm, hose and harness 13.6 mm. The das
 - **Reaching the ground:** the front of the seat is wider, so a rider's legs take a slightly longer path to the ground. The width there is set by the frame rails (±195 mm, the pack's width), so the body was already about 440 mm wide at the thighs.
 - **Low-seat option:** a narrowed seat nose for short riders is a reasonable accessory.
 
+## Update, November 14–15, 2026: lower seat, shaped pocket, flowing bar, rider figure
+
+*Claude Opus 5.5 (claude-opus-5-5), US Central.* Dominic said it "still looks very uncomfortable". He described the seat as "a flat bench with sharp angles" that the legs would hang over, said it wasn't clear where the feet go, and said the bars looked "just thrown on" and the rider too hunched.
+
+**What was wrong:**
+- **The seat front was 456 mm wide.** It sat on rails ±214 mm apart, so the thighs had to straddle a box.
+- **There was no pocket.** The seat top was one flat plane, with only about 34 mm of foam over the shock bridge.
+- **The bar was two straight tubes** with a kink at each riser.
+
+**What changed (all in `tools/build-adventure.py`):**
+
+| | Before (Nov 13 build, after the ride-height lift) | After (Nov 15 build) |
+|---|---|---|
+| Seat height (static, rider on) | 863 mm | **832 mm** |
+| Footpeg height | 353 mm | **323 mm** (same 509 mm seat-to-peg leg room) |
+| Seat width where the thighs pass | 456 mm | **~250 mm nose**, widening to 386 mm at the hips |
+| Seat top | flat bench | **dished rider pocket** (floor at X530), 60 mm step up to the pillion, rolled edges, 63–68 mm foam at the sit point |
+| Upper frame rails at the seat front | ±214 mm | **±152 mm** (pulled in 43–62 mm), front joint 18 mm lower |
+| Shock top and bridge | upright 70×40 box | flat **80×45×5 forged box**, top eye 18 mm lower and 8 mm back |
+| Handlebar | two straight tubes | **one continuous bent 28.6 mm bar**: 15 mm forward and 30 mm lower clamp, the same 280 mm grip-above-seat as before |
+| Footpeg | narrow peg | **56×72 mm platform** with cleats, on a hanger behind the motor |
+| Tail rail rear end | Z817 | **Z827**; the tail deck and pillion follow it up (≤10 mm) |
+
+To make room, three boxes under the seat moved (PTC heater, HV charge junction, DC-DC), and the coolant valve moved 18 mm inboard.
+
+**Checks.** In the full build (Nov 15), 61 of 62 checks pass. The four this change first broke are fixed:
+- rear tyre at full bump to the tail rail: back over 20 mm;
+- shock to motor: 18 mm (needs 15);
+- shock bracket into the seat: fixed;
+- tail panel into the coolant valve: fixed.
+
+The one remaining failure predates this work: the battery cover's front wall is 1.99 mm from the pack, against a 5 mm target, because it sits between the steered front tyre and the pack.
+
+Other effects:
+- **Mass:** 327.0 kg.
+- **Rear suspension:** leverage 2.33, anti-squat 122%.
+- **Centre of gravity with rider on:** 651 mm.
+
+**Rider figure (new tool, `tools/rider-figure.py`).** The tool seats a 50th-percentile man (1.755 m) on the built model, with flesh sized for riding gear. It places him on the pocket floor, with hands on the grips and the balls of the feet on the pegs, then measures where his legs overlap the bike. Results are in `rider-fit.json`; renders are `visuals/cycles-adventure-rider-side.png` and `-hero.png`.
+- **Posture:** upright trunk (0° lean), knee 82°, elbow 95°. He is not hunched.
+- **Leg-into-seat overlap:** 2834 cm³ before, 1536 cm³ after. The narrow nose lets the thighs come down past the seat instead of across it.
+- **Still open, honestly reported:** the top 10 cm of the thigh, just below the hip, still presses 55–80 mm into the waist under the seat front (X575–640, Z ~730–800 above ground).
+  - **What is there:** the upper rails' front joint at ±152 mm, the battery coolant pump, and the side panels over them.
+  - **Spreading the knees doesn't fix it:** at 640 or even 700 mm between the knees, it shrinks but doesn't go away.
+  - **The fix is a narrower waist:** rails' front joint to about ±125 mm, and the coolant pump and valve moved forward of the seat. That is a frame change and needs the FEA re-run, so it is the next step, not part of this one.
+- **Feet:** the balls of the feet sit on the platform pegs 110 mm behind the hip, with the heel over the swingarm. With these leg lengths and a 481 mm hip-to-ankle drop, the knee folds to about 80° and the shin runs back fairly flat. That is the sport-touring end of upright.
+  - **Moving the pegs forward** to under the hip makes the leg look more like sitting in a chair, but closes the knee to about 72°.
+  - **Moving them lower** would cost ground clearance. So the pegs stay.
+
+**Trade-offs:**
+- **Elbows:** they are more bent with the lower bar: 95° for an average man and about 91° for a tall rider, just under the 95° band. Riser spacers of ±20 mm cover that, and are a cheap standard part.
+- **Standing reach:** grip to peg is 496 mm.
+- **Structure to re-check in FEA:** the rails, now pulled in by 43 mm, and the re-sectioned shock bridge. They are recorded in `detailed-design/structural-fea.md`.
+
 ## The plain answer
 
 **The bike was uncomfortable because the legs were folded too tight.** The footpegs sat almost directly under the seat's lowest point, only 420 mm below it. An average man's knee closed to about **61°**, close to a squat. A tall rider got about 56°. The arms and back were fine, because the bars already put the rider upright.

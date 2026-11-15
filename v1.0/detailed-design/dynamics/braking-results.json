@@ -1,0 +1,133 @@
+{
+ "rotating_mass_equivalent_kg": 17.229581042808107,
+ "solo": {
+  "m": 372.04699999999985,
+  "x_cg": 0.7342948579077377,
+  "h_cg": 0.639852319733798,
+  "stoppie_g": 1.1715283651767108,
+  "tyre_peak_g": 1.05,
+  "mean_decel_g": 0.945,
+  "front_share": 0.9023217872202822,
+  "stop_100_m": 44.394146900722454
+ },
+ "twoup": {
+  "m": 487.04699999999985,
+  "x_cg": 0.5809340761774533,
+  "h_cg": 0.7356685001652825,
+  "stoppie_g": 1.2274087087046375,
+  "tyre_peak_g": 1.05,
+  "mean_decel_g": 0.945,
+  "front_share": 0.8599911104748602,
+  "stop_100_m": 44.394146900722454
+ },
+ "hydraulics": {
+  "front 320": {
+   "solo": {
+    "decel_g": 0.945,
+    "front_force_N": 3449.043111149999,
+    "line_bar": 27.83876608135963,
+    "lever_N": 153.86140714054426
+   },
+   "twoup": {
+    "decel_g": 0.945,
+    "front_force_N": 4515.144861149999,
+    "line_bar": 36.443749052211054,
+    "lever_N": 201.42008069835447
+   },
+   "R78_front_only_laden": {
+    "line_bar": 17.297164196962246,
+    "lever_N": 95.59928105677284,
+    "limit_N": 200
+   },
+   "r_eff_mm": 141.8534278959811,
+   "ring_kg": 1.1479869644671068
+  },
+  "front 330": {
+   "solo": {
+    "decel_g": 0.945,
+    "front_force_N": 3449.043111149999,
+    "line_bar": 26.896277129195475,
+    "lever_N": 148.65238760388127
+   },
+   "twoup": {
+    "decel_g": 0.945,
+    "front_force_N": 4515.144861149999,
+    "line_bar": 35.20993607512833,
+    "lever_N": 194.60094941044426
+   },
+   "R78_front_only_laden": {
+    "line_bar": 16.71156402661841,
+    "lever_N": 92.36274155040532,
+    "limit_N": 200
+   },
+   "r_eff_mm": 146.82420091324204,
+   "ring_kg": 1.188695722072323
+  }
+ },
+ "rear": {
+  "twoup": {
+   "decel": 2.9,
+   "Fx": 1412.4362999999996,
+   "rear_normal": 2207.1730225641872,
+   "mu_needed": 0.639930030659354,
+   "line_bar": 57.42208396571037,
+   "pedal_N": 191.4223645446707,
+   "limit_N": 350
+  },
+  "solo": {
+   "decel": 2.9,
+   "Fx": 1078.9362999999996,
+   "rear_normal": 1378.4855874270484,
+   "mu_needed": 0.7826968303773424,
+   "line_bar": 43.86376278509188,
+   "pedal_N": 146.2243201616088,
+   "limit_N": 350
+  }
+ },
+ "R78_at_60": {
+  "front_only_limit": 37.31999999999999,
+  "rear_only_limit": 53.879999999999995,
+  "split_limit": 33.36,
+  "ours_both": 16.648559550926752
+ },
+ "R78_at_100": {
+  "front_only_limit": 97.0,
+  "rear_only_limit": 143.0,
+  "split_limit": 86.0,
+  "ours_both": 44.394146900722454
+ },
+ "thermal": {
+  "R78 heat fade, front only, laden, 100 km/h, 3.25 m/s2": {
+   "peak_C": 287.2510946636895,
+   "first_stop_rise": 139.37742397610546
+  },
+  "Repeated 130->0 at 0.6 g, two-up laden, no regen, 320 mm": {
+   "peak_C": 339.8844350238649,
+   "first_stop_rise": 164.2924176332127
+  },
+  "Repeated 130->0 at 0.6 g, two-up laden, no regen, 330 mm": {
+   "peak_C": 331.22504694745004,
+   "first_stop_rise": 159.24237077216063
+  },
+  "Repeated 130->0 at 0.6 g, solo, no regen, 320 mm": {
+   "peak_C": 293.6580232208497,
+   "first_stop_rise": 138.38339369209703
+  },
+  "Repeated 130->0 at 0.6 g, two-up, 20% regen (rear), 320 mm": {
+   "peak_C": 280.3304533836404,
+   "first_stop_rise": 130.9982845922228
+  },
+  "R78 heat fade, REAR only, laden, 80 km/h, 3.25 m/s2, 240x5 mm (CAD)": {
+   "peak_C": 505.88380100487814,
+   "first_stop_rise": 276.43791881292384
+  },
+  "R78 heat fade, REAR only, laden, 80 km/h, 3.25 m/s2, 267x6 mm": {
+   "peak_C": 443.48465028817,
+   "first_stop_rise": 214.8875486576174
+  },
+  "energy_check": {
+   "E_per_disc_kJ": 104.19982944599118,
+   "adiabatic_rise_K": 174.51744475249762
+  }
+ }
+}

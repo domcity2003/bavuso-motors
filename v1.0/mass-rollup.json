@@ -1,65 +1,75 @@
 {
  "prepared": "2026-11-05 US Central, Claude Opus 5.5",
  "model": "cad/Bavuso-V1.0-adventure.FCStd",
- "total_kg": 287.0,
- "total_lb": 633,
+ "total_kg": 327.0,
+ "total_lb": 721,
  "cog_mm": {
-  "x_from_rear_axle": 798,
-  "y": -0.5,
-  "height": 507
+  "x_from_rear_axle": 793,
+  "y": -0.6,
+  "height": 537
  },
  "front_rear_split_pct": [
-  53.6,
-  46.4
+  53.2,
+  46.8
  ],
  "unsprung_kg": {
-  "front": 17.1,
-  "rear": 19.3
+  "front": 17.2,
+  "rear": 21.0
  },
- "pitch_inertia_point_mass_kgm2": 40.2,
+ "pitch_inertia_point_mass_kgm2": 45.6,
  "cells_kg": 106.9,
  "pack_kg": 133.7,
  "by_group": {
   "Energy": {
-   "kg": 117.4,
+   "kg": 117.7,
    "x": 860,
-   "z": 410
-  },
-  "Allowance": {
-   "kg": 43.9,
-   "x": 785,
-   "z": 539
+   "z": 424
   },
   "RunningGear": {
-   "kg": 41.8,
-   "x": 919,
-   "z": 530
+   "kg": 44.9,
+   "x": 897,
+   "z": 540
+  },
+  "Allowance": {
+   "kg": 43.6,
+   "x": 784,
+   "z": 545
+  },
+  "Chassis": {
+   "kg": 33.8,
+   "x": 609,
+   "z": 660
+  },
+  "Electronics": {
+   "kg": 24.3,
+   "x": 830,
+   "z": 716
+  },
+  "BodyStudy": {
+   "kg": 24.0,
+   "x": 687,
+   "z": 640
   },
   "Drive": {
    "kg": 23.5,
    "x": 524,
-   "z": 486
+   "z": 500
   },
-  "BodyStudy": {
-   "kg": 21.0,
-   "x": 692,
-   "z": 663
+  "Cooling": {
+   "kg": 8.6,
+   "x": 919,
+   "z": 726
   },
-  "Chassis": {
-   "kg": 21.0,
-   "x": 586,
-   "z": 632
-  },
-  "Electronics": {
-   "kg": 18.5,
-   "x": 868,
-   "z": 696
+  "Protection": {
+   "kg": 6.7,
+   "x": 937,
+   "z": 684
   }
  },
  "by_source": {
-  "CAD geometry x density": 57.2,
-  "supplier/catalogue": 111.9,
-  "engineering estimate": 117.9
+  "CAD geometry x density": 79.6,
+  "supplier/catalogue": 117.8,
+  "engineering estimate": 129.7
  },
  "optimiser_reference_kg": 222.5
 }

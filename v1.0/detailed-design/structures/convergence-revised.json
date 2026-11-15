@@ -1,0 +1,164 @@
+{
+ "h24": {
+  "C7a_20g": {
+   "peak": 129.5,
+   "peak_at": [
+    1049.9,
+    -11.4,
+    300.8
+   ],
+   "p99": 90.0,
+   "front_wall_centre (1050,0,420)": 100.9,
+   "side_wall_centre (850,194,400)": 18.2,
+   "roof_centre (850,0,573)": 5.8,
+   "floor_centre (850,0,198)": 5.5
+  },
+  "C7b_8g_lat": {
+   "peak": 77.0,
+   "peak_at": [
+    751.6,
+    196.0,
+    381.7
+   ],
+   "p99": 53.4,
+   "front_wall_centre (1050,0,420)": 3.6,
+   "side_wall_centre (850,194,400)": 55.8,
+   "roof_centre (850,0,573)": 3.0,
+   "floor_centre (850,0,198)": 6.5
+  },
+  "C3_braking": {
+   "peak": 16.4,
+   "peak_at": [
+    1008.8,
+    189.0,
+    527.2
+   ],
+   "p99": 9.6,
+   "front_wall_centre (1050,0,420)": 2.1,
+   "side_wall_centre (850,194,400)": 4.4,
+   "roof_centre (850,0,573)": 1.6,
+   "floor_centre (850,0,198)": 3.4
+  },
+  "C2_front_bump": {
+   "peak": 12.8,
+   "peak_at": [
+    1008.8,
+    189.0,
+    527.2
+   ],
+   "p99": 8.9,
+   "front_wall_centre (1050,0,420)": 2.1,
+   "side_wall_centre (850,194,400)": 5.3,
+   "roof_centre (850,0,573)": 4.9,
+   "floor_centre (850,0,198)": 9.4
+  }
+ },
+ "h12": {
+  "C7a_20g": {
+   "peak": 143.7,
+   "peak_at": [
+    1053.9,
+    -123.5,
+    436.6
+   ],
+   "p99": 94.4,
+   "front_wall_centre (1050,0,420)": 104.2,
+   "side_wall_centre (850,194,400)": 17.5,
+   "roof_centre (850,0,573)": 4.8,
+   "floor_centre (850,0,198)": 5.2
+  },
+  "C7b_8g_lat": {
+   "peak": 122.5,
+   "peak_at": [
+    739.9,
+    196.0,
+    359.0
+   ],
+   "p99": 58.6,
+   "front_wall_centre (1050,0,420)": 3.4,
+   "side_wall_centre (850,194,400)": 58.8,
+   "roof_centre (850,0,573)": 2.9,
+   "floor_centre (850,0,198)": 6.5
+  },
+  "C3_braking": {
+   "peak": 18.0,
+   "peak_at": [
+    1008.8,
+    189.0,
+    543.4
+   ],
+   "p99": 9.9,
+   "front_wall_centre (1050,0,420)": 2.1,
+   "side_wall_centre (850,194,400)": 4.0,
+   "roof_centre (850,0,573)": 1.7,
+   "floor_centre (850,0,198)": 3.5
+  },
+  "C2_front_bump": {
+   "peak": 14.1,
+   "peak_at": [
+    1008.8,
+    189.0,
+    543.4
+   ],
+   "p99": 9.2,
+   "front_wall_centre (1050,0,420)": 2.0,
+   "side_wall_centre (850,194,400)": 5.2,
+   "roof_centre (850,0,573)": 5.1,
+   "floor_centre (850,0,198)": 9.7
+  }
+ },
+ "h6": {
+  "C7a_20g": {
+   "peak": 174.2,
+   "peak_at": [
+    1053.9,
+    -122.4,
+    446.4
+   ],
+   "p99": 94.8,
+   "front_wall_centre (1050,0,420)": 105.4,
+   "side_wall_centre (850,194,400)": 17.4,
+   "roof_centre (850,0,573)": 4.6,
+   "floor_centre (850,0,198)": 5.1
+  },
+  "C7b_8g_lat": {
+   "peak": 158.5,
+   "peak_at": [
+    746.5,
+    196.0,
+    376.3
+   ],
+   "p99": 58.2,
+   "front_wall_centre (1050,0,420)": 3.3,
+   "side_wall_centre (850,194,400)": 57.8,
+   "roof_centre (850,0,573)": 2.8,
+   "floor_centre (850,0,198)": 6.3
+  },
+  "C3_braking": {
+   "peak": 21.8,
+   "peak_at": [
+    1008.8,
+    189.0,
+    538.0
+   ],
+   "p99": 10.1,
+   "front_wall_centre (1050,0,420)": 2.0,
+   "side_wall_centre (850,194,400)": 3.9,
+   "roof_centre (850,0,573)": 1.8,
+   "floor_centre (850,0,198)": 3.5
+  },
+  "C2_front_bump": {
+   "peak": 17.4,
+   "peak_at": [
+    1008.8,
+    189.0,
+    538.0
+   ],
+   "p99": 9.4,
+   "front_wall_centre (1050,0,420)": 1.9,
+   "side_wall_centre (850,194,400)": 5.2,
+   "roof_centre (850,0,573)": 5.2,
+   "floor_centre (850,0,198)": 9.7
+  }
+ }
+}

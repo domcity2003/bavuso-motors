@@ -1,0 +1,92 @@
+{
+ "prepared": "2026-11-12 US Central, Claude Opus 5.5",
+ "totals_W": {
+  "A_night_cold_ride": 402,
+  "B_hot_DC_fast_charge": 325,
+  "C_peak_1s": 1042
+ },
+ "worst_continuous_W": 402,
+ "dcdc_sweep": [
+  {
+   "rating_W": 500,
+   "usable_hot_W": 450.0,
+   "margin_vs_worst_cont": 0.12,
+   "battery_assist_peak_A": 43.9,
+   "ok": false
+  },
+  {
+   "rating_W": 750,
+   "usable_hot_W": 675.0,
+   "margin_vs_worst_cont": 0.68,
+   "battery_assist_peak_A": 27.2,
+   "ok": true
+  },
+  {
+   "rating_W": 1000,
+   "usable_hot_W": 900.0,
+   "margin_vs_worst_cont": 1.24,
+   "battery_assist_peak_A": 10.6,
+   "ok": true
+  },
+  {
+   "rating_W": 1500,
+   "usable_hot_W": 1350.0,
+   "margin_vs_worst_cont": 2.35,
+   "battery_assist_peak_A": 0.0,
+   "ok": true
+  },
+  {
+   "rating_W": 2000,
+   "usable_hot_W": 1800.0,
+   "margin_vs_worst_cont": 3.47,
+   "battery_assist_peak_A": 0.0,
+   "ok": true
+  }
+ ],
+ "dcdc_choice": {
+  "rating_W": 750,
+  "usable_hot_W": 675.0,
+  "margin_vs_worst_cont": 0.68,
+  "battery_assist_peak_A": 27.2,
+  "ok": true
+ },
+ "battery": {
+  "part": "Shorai LFX14A4-BS12 (LiFePO4, 4.5 Ah true, 59.4 Wh, 210 CCA, 0.90 kg)",
+  "boot_energy_Wh": 0.167,
+  "park_30_days_Ah_at_15mA": 10.8,
+  "park_ok_without_topup": false,
+  "max_standby_mA_for_30_days_unattended": 3.75,
+  "essential_W": 126.6,
+  "limp_home_minutes_on_battery": 22.5,
+  "note": "a 15 mA keyless+telematics standby drains the 4.5 Ah battery in ~12 days: design rule = VCU wakes once a day, closes contactors and tops the 12 V battery from the pack via the DC-DC for ~10 min (as cars do); without top-up the standby budget is 3.75 mA"
+ },
+ "lv_harness_copper_mass_kg": 1.05,
+ "can": {
+  "CAN1_powertrain_500k": [
+   "VCU (term.)",
+   "inverter",
+   "BMS CAN1",
+   "IVT-S current sensor",
+   "DC-DC",
+   "OBC",
+   "EVCC ADM-CS-EVCC",
+   "isolation monitor iso175 (term. at far end)"
+  ],
+  "CAN2_chassis_500k": [
+   "VCU",
+   "ABS/MSC (Bosch)",
+   "TFT dash (term.)",
+   "keyless/immobiliser",
+   "PDM",
+   "telematics",
+   "BMS CAN2 (term.)"
+  ],
+  "diagnostic": "OBD-style service connector on CAN2 under the seat; BMS also on CAN2 for Orion utility",
+  "topology": "two linear buses, 120 ohm split termination at both physical ends, stubs < 0.3 m, twisted pair 0.35 mm2 FLRY-B, total length CAN1 ~2.5 m, CAN2 ~3.5 m"
+ },
+ "keyless": {
+  "concept": "proximity fob (125 kHz LF wake + 315/433 MHz UHF) -> keyless ECU on CAN2 -> VCU authorises READY; electric steering lock; immobiliser challenge between keyless ECU and VCU and inverter (CAN2/1 gateway in VCU)",
+  "start": "fob present + side-stand up + brake held + start button -> VCU: BMS OK, iso OK, HVIL closed -> precharge -> main+ -> READY lamp",
+  "reference": "production motorcycles use this pattern (e.g. BMW Keyless Ride); hardware: Continental/Huf-class keyless module, choose with VCU supplier"
+ }
+}

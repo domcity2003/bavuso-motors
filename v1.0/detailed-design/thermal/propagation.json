@@ -1,0 +1,137 @@
+{
+ "runs": [
+  {
+   "filler": "air gap (no filler)",
+   "retained_fraction": 0.4,
+   "ribbon_cooling": true,
+   "trigger_peak_C": 562.0,
+   "hottest_neighbour_C": 60.5,
+   "verdict": "PASS (<120)"
+  },
+  {
+   "filler": "air gap (no filler)",
+   "retained_fraction": 0.4,
+   "ribbon_cooling": false,
+   "trigger_peak_C": 573.0,
+   "hottest_neighbour_C": 109.4,
+   "verdict": "PASS (<120)"
+  },
+  {
+   "filler": "air gap (no filler)",
+   "retained_fraction": 0.6,
+   "ribbon_cooling": true,
+   "trigger_peak_C": 833.0,
+   "hottest_neighbour_C": 74.8,
+   "verdict": "PASS (<120)"
+  },
+  {
+   "filler": "air gap (no filler)",
+   "retained_fraction": 0.6,
+   "ribbon_cooling": false,
+   "trigger_peak_C": 840.0,
+   "hottest_neighbour_C": 144.6,
+   "verdict": "MARGINAL (120-170)"
+  },
+  {
+   "filler": "silicone potting k0.2",
+   "retained_fraction": 0.4,
+   "ribbon_cooling": true,
+   "trigger_peak_C": 551.0,
+   "hottest_neighbour_C": 62.8,
+   "verdict": "PASS (<120)"
+  },
+  {
+   "filler": "silicone potting k0.2",
+   "retained_fraction": 0.4,
+   "ribbon_cooling": false,
+   "trigger_peak_C": 562.0,
+   "hottest_neighbour_C": 91.9,
+   "verdict": "PASS (<120)"
+  },
+  {
+   "filler": "silicone potting k0.2",
+   "retained_fraction": 0.6,
+   "ribbon_cooling": true,
+   "trigger_peak_C": 818.0,
+   "hottest_neighbour_C": 77.2,
+   "verdict": "PASS (<120)"
+  },
+  {
+   "filler": "silicone potting k0.2",
+   "retained_fraction": 0.6,
+   "ribbon_cooling": false,
+   "trigger_peak_C": 825.0,
+   "hottest_neighbour_C": 120.4,
+   "verdict": "MARGINAL (120-170)"
+  },
+  {
+   "filler": "intumescent PU foam k0.08",
+   "retained_fraction": 0.4,
+   "ribbon_cooling": true,
+   "trigger_peak_C": 561.0,
+   "hottest_neighbour_C": 60.5,
+   "verdict": "PASS (<120)"
+  },
+  {
+   "filler": "intumescent PU foam k0.08",
+   "retained_fraction": 0.4,
+   "ribbon_cooling": false,
+   "trigger_peak_C": 572.0,
+   "hottest_neighbour_C": 102.8,
+   "verdict": "PASS (<120)"
+  },
+  {
+   "filler": "intumescent PU foam k0.08",
+   "retained_fraction": 0.6,
+   "ribbon_cooling": true,
+   "trigger_peak_C": 833.0,
+   "hottest_neighbour_C": 73.7,
+   "verdict": "PASS (<120)"
+  },
+  {
+   "filler": "intumescent PU foam k0.08",
+   "retained_fraction": 0.6,
+   "ribbon_cooling": false,
+   "trigger_peak_C": 840.0,
+   "hottest_neighbour_C": 136.8,
+   "verdict": "MARGINAL (120-170)"
+  },
+  {
+   "filler": "aerogel/mica sleeve k0.025",
+   "retained_fraction": 0.4,
+   "ribbon_cooling": true,
+   "trigger_peak_C": 565.0,
+   "hottest_neighbour_C": 59.3,
+   "verdict": "PASS (<120)"
+  },
+  {
+   "filler": "aerogel/mica sleeve k0.025",
+   "retained_fraction": 0.4,
+   "ribbon_cooling": false,
+   "trigger_peak_C": 576.0,
+   "hottest_neighbour_C": 118.8,
+   "verdict": "PASS (<120)"
+  },
+  {
+   "filler": "aerogel/mica sleeve k0.025",
+   "retained_fraction": 0.6,
+   "ribbon_cooling": true,
+   "trigger_peak_C": 840.0,
+   "hottest_neighbour_C": 71.8,
+   "verdict": "PASS (<120)"
+  },
+  {
+   "filler": "aerogel/mica sleeve k0.025",
+   "retained_fraction": 0.6,
+   "ribbon_cooling": false,
+   "trigger_peak_C": 847.0,
+   "hottest_neighbour_C": 160.6,
+   "verdict": "MARGINAL (120-170)"
+  }
+ ],
+ "hand_adiabatic_bound_C": {
+  "retained 0.4": 127.0,
+  "retained 0.6": 172.0
+ },
+ "shape_factor_m": 0.9672378596985836
+}

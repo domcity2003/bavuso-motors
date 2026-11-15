@@ -1,0 +1,141 @@
+{
+ "radiator_best": null,
+ "radiator_candidates": [
+  {
+   "xf": 1090,
+   "yi": 110,
+   "yo": 215,
+   "zl": 650,
+   "zh": 790,
+   "cant": 20,
+   "face_projected_m2": 0.0138,
+   "core_area_m2": 0.0147,
+   "static_min": [
+    "BROGEN_PV1776_body",
+    0.0
+   ],
+   "body_min": [
+    "Upper_body_fairing_tank_STUDY",
+    0.0
+   ],
+   "tyre_fender_lock_sweep": 46.4,
+   "fork_clamps_at_lock": 74.7,
+   "pass": false
+  }
+ ],
+ "battery_pump_CWA50_class": {
+  "bbox": [
+   1068.0,
+   1132.0,
+   -60.0,
+   60.0,
+   568.0,
+   632.0
+  ],
+  "clear": {
+   "static_min": [
+    "BROGEN_PV1776_body",
+    8.4
+   ],
+   "body_min": [
+    "Lower_body_battery_covers_STUDY",
+    0.0
+   ],
+   "tyre_fender_lock_sweep": 0.0,
+   "fork_clamps_at_lock": 117.0,
+   "pass": false
+  }
+ },
+ "drive_pump_CWA50_class": {
+  "bbox": [
+   1070.0,
+   1130.0,
+   70.0,
+   150.0,
+   660.0,
+   720.0
+  ],
+  "clear": {
+   "static_min": [
+    "BROGEN_PV1776_body",
+    0.0
+   ],
+   "body_min": [
+    "Side_grille_louvres_1",
+    36.0
+   ],
+   "tyre_fender_lock_sweep": 12.6,
+   "fork_clamps_at_lock": 69.0,
+   "pass": false
+  }
+ },
+ "ptc_heater_5kW": {
+  "bbox": [
+   1092.0,
+   1142.0,
+   -60.0,
+   60.0,
+   520.0,
+   580.0
+  ],
+  "clear": {
+   "static_min": [
+    "Pack_case_structural_4mm_STUDY",
+    42.1
+   ],
+   "body_min": [
+    "Lower_body_battery_covers_STUDY",
+    16.6
+   ],
+   "tyre_fender_lock_sweep": 0.0,
+   "fork_clamps_at_lock": 119.3,
+   "pass": false
+  }
+ },
+ "reservoir_shared_0p35L": {
+  "bbox": [
+   1020.0,
+   1080.0,
+   -40.0,
+   40.0,
+   900.0,
+   970.0
+  ],
+  "clear": {
+   "static_min": [
+    "Orion_BMS2_108_supplier_STEP",
+    8.9
+   ],
+   "body_min": [
+    "Upper_body_fairing_tank_STUDY",
+    37.8
+   ],
+   "tyre_fender_lock_sweep": 190.1,
+   "fork_clamps_at_lock": 42.5,
+   "pass": false
+  }
+ },
+ "oil_to_water_hx": {
+  "bbox": [
+   560.0,
+   640.0,
+   -150.0,
+   -110.0,
+   470.0,
+   560.0
+  ],
+  "clear": {
+   "static_min": [
+    "Upper_rail_0_m1",
+    29.5
+   ],
+   "body_min": [
+    "Lower_body_battery_covers_STUDY",
+    54.0
+   ],
+   "tyre_fender_lock_sweep": 436.1,
+   "fork_clamps_at_lock": 568.0,
+   "pass": true
+  }
+ }
+}

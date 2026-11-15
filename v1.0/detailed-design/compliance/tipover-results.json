@@ -1,0 +1,199 @@
+{
+ "as_CAD": {
+  "lean_deg": 74.30000000000078,
+  "pitch_deg": 0.25,
+  "cog_height_rest_mm": 265.6932357547889,
+  "contacts": [
+   "lever_tip_as_CAD",
+   "peg_pivot_bracket",
+   "lower_cover_bevel"
+  ],
+  "heights": {
+   "lever_tip_as_CAD": 0.3123589274384244,
+   "bar_end_grip": 39.044090539992055,
+   "mirror_head_outer_top": 80.64689143385004,
+   "mirror_head_outer_low": 58.45786608936987,
+   "peg_tip": -69.82006146789462,
+   "peg_pivot_bracket": 0.45576703963325826,
+   "tank_side_front_top": 142.63264304050986,
+   "tank_side_rear_top": 143.50530489745918,
+   "radiator_outer_face": 149.965669379349,
+   "side_grille_louvres": 136.67018227355874,
+   "battery_panel_upper": 82.60354898122816,
+   "battery_panel_lower": 20.007665952109903,
+   "battery_panel_lower_fwd": 18.179439361801087,
+   "lower_cover_bevel": 0.0,
+   "pack_case_side_wall": 51.17918891343932,
+   "pack_case_lower_edge": 7.88352970469758,
+   "pivot_cover_cap": 38.42443902054244,
+   "tail_side_rear": 155.50578215171723,
+   "tail_side_fwd": 135.87211495244006,
+   "tail_side_low": 81.75254094151288,
+   "seat_edge": 148.64995466216578,
+   "rear_indicator_tip": 187.8622530725008,
+   "front_indicator": 228.80749213118455,
+   "front_axle_foot": 86.08404104688948,
+   "rear_axle_nut": 73.65158832587895,
+   "hv_cabinet_side": 121.12666817622217
+  },
+  "tipover_energy_J": 662.9608074009137,
+  "roll_inertia_ground_kgm2": 97.08748719999998,
+  "omega_at_contact_rad_s": 3.6955347869791484,
+  "contact_speed_m_s": {
+   "lever_tip_as_CAD": 4.4290225111772425,
+   "peg_pivot_bracket": 1.521124496068955,
+   "lower_cover_bevel": 1.19477845592366
+  }
+ },
+ "with_guards": {
+  "lean_deg": 79.30000000000084,
+  "pitch_deg": -3.0,
+  "cog_height_rest_mm": 319.26709522432105,
+  "contacts": [
+   "guard_lower_D",
+   "guard_lower_E",
+   "handguard_bar_end"
+  ],
+  "heights": {
+   "lever_tip_as_CAD": 19.174854852966092,
+   "bar_end_grip": 36.44549300254445,
+   "mirror_head_outer_top": 59.59801275113051,
+   "mirror_head_outer_low": 44.39421516029137,
+   "peg_tip": -29.91511345733329,
+   "peg_pivot_bracket": 41.71731621217248,
+   "tank_side_front_top": 177.20771311476,
+   "tank_side_rear_top": 166.74052186617124,
+   "radiator_outer_face": 194.44808413347937,
+   "side_grille_louvres": 181.80003471764127,
+   "battery_panel_upper": 135.52285275761966,
+   "battery_panel_lower": 69.72767142645897,
+   "battery_panel_lower_fwd": 91.65643709225246,
+   "lower_cover_bevel": 76.6456666081294,
+   "pack_case_side_wall": 115.25141922783922,
+   "pack_case_lower_edge": 85.58547270912868,
+   "pivot_cover_cap": 78.55365895068324,
+   "tail_side_rear": 150.00196650655977,
+   "tail_side_fwd": 146.10914024575237,
+   "tail_side_low": 109.0267070973642,
+   "seat_edge": 148.5985694889789,
+   "rear_indicator_tip": 157.95387961811775,
+   "front_indicator": 284.8425806310348,
+   "front_axle_foot": 190.94268270317633,
+   "rear_axle_nut": 95.00849905757372,
+   "hv_cabinet_side": 173.4445295446652,
+   "guard_upper_B_puck": 72.31140503333602,
+   "guard_mid_C_puck": 26.63676095974418,
+   "guard_lower_D": 0.6545296500263191,
+   "guard_lower_E": 0.0,
+   "handguard_bar_end": 0.13864508786340934,
+   "handguard_loop_fwd": 8.751883504827106,
+   "pivot_slider_puck": 27.83025445273546,
+   "tail_slider_puck": 89.42892105198678
+  },
+  "tipover_energy_J": 512.0201013679507,
+  "roll_inertia_ground_kgm2": 97.08748719999998,
+  "omega_at_contact_rad_s": 3.2477072365397723,
+  "contact_speed_m_s": {
+   "guard_lower_D": 1.3319559699542196,
+   "guard_lower_E": 1.3091926415999025,
+   "handguard_bar_end": 3.901956369225469
+  }
+ },
+ "luggage_tipover_energy_J": 720.2796932019271,
+ "static_side_load_N": 2768.444736591479,
+ "lowside": {
+  "30kmh_mu0.35": {
+   "KE_kJ": 9.972222222222225,
+   "distance_m": 10.112777696875558,
+   "time_s": 2.427066647250134,
+   "normal_load_N": 2817.4320000000002
+  },
+  "30kmh_mu0.5": {
+   "KE_kJ": 9.972222222222225,
+   "distance_m": 7.07894438781289,
+   "time_s": 1.6989466530750934,
+   "normal_load_N": 2817.4320000000002
+  },
+  "50kmh_mu0.35": {
+   "KE_kJ": 27.700617283950617,
+   "distance_m": 28.09104915798766,
+   "time_s": 4.045111078750223,
+   "normal_load_N": 2817.4320000000002
+  },
+  "50kmh_mu0.5": {
+   "KE_kJ": 27.700617283950617,
+   "distance_m": 19.66373441059136,
+   "time_s": 2.8315777551251555,
+   "normal_load_N": 2817.4320000000002
+  },
+  "80kmh_mu0.35": {
+   "KE_kJ": 70.91358024691357,
+   "distance_m": 71.9130858444484,
+   "time_s": 6.472177726000356,
+   "normal_load_N": 2817.4320000000002
+  },
+  "80kmh_mu0.5": {
+   "KE_kJ": 70.91358024691357,
+   "distance_m": 50.339160091113875,
+   "time_s": 4.5305244082002485,
+   "normal_load_N": 2817.4320000000002
+  }
+ },
+ "lowside_vertical_drop_energy_J": 98.59153100667122,
+ "guard_tubes": {
+  "25.4x2.0": {
+   "D": 25.4,
+   "t": 2.0,
+   "I_mm4": 10136.744537481818,
+   "W_el_mm3": 798.1688612190409,
+   "Z_pl_mm3": 1097.7866666666669,
+   "M_y_Nm": 347.20345463028275,
+   "M_p_Nm": 477.5372000000001,
+   "mass_kg_per_m": 1.1541583090758183,
+   "P_collapse_fixed_fixed_kN": 9.550744,
+   "P_collapse_cantilever_250_kN": 1.9101488000000004,
+   "k_fixed_fixed_N_per_mm": 6082.046722489091,
+   "elastic_energy_J": 3.964133930818189
+  },
+  "28.0x2.5": {
+   "D": 28.0,
+   "t": 2.5,
+   "I_mm4": 16435.19287986979,
+   "W_el_mm3": 1173.942348562128,
+   "Z_pl_mm3": 1630.8333333333333,
+   "M_y_Nm": 510.6649216245257,
+   "M_p_Nm": 709.4125,
+   "mass_kg_per_m": 1.572170773580842,
+   "P_collapse_fixed_fixed_kN": 14.18825,
+   "P_collapse_cantilever_250_kN": 2.83765,
+   "k_fixed_fixed_N_per_mm": 9861.115727921875,
+   "elastic_energy_J": 5.289029545396873
+  },
+  "30.0x3.0": {
+   "D": 30.0,
+   "t": 3.0,
+   "I_mm4": 23474.765705786333,
+   "W_el_mm3": 1564.9843803857555,
+   "Z_pl_mm3": 2196.0,
+   "M_y_Nm": 680.7682054678037,
+   "M_p_Nm": 955.26,
+   "mass_kg_per_m": 1.9975816887850697,
+   "P_collapse_fixed_fixed_kN": 19.105199999999996,
+   "P_collapse_cantilever_250_kN": 3.82104,
+   "k_fixed_fixed_N_per_mm": 14084.8594234718,
+   "elastic_energy_J": 6.580759319522101
+  }
+ },
+ "guard_selected": {
+  "section": "28.0 x 2.5 25CrMo4",
+  "P_c_kN": 14.18825,
+  "energy_to_guard_J": 256.01005068397535,
+  "plastic_set_mm_if_all_plastic": 18.04380742402871,
+  "anchor_design_load_kN": 21.282375000000002
+ },
+ "anchor_bolts": {
+  "per_anchor": "2 x M10 10.9",
+  "shear_capacity_kN": 69.6,
+  "demand_kN": 21.282375000000002
+ }
+}

@@ -1,0 +1,316 @@
+{
+ "prepared": "2026-11-12 US Central, Claude Opus 5.5 (claude-opus-5-5)",
+ "cell": {
+  "format": "26120 (26 x 120 mm) fast-charge cylinder, Stark Future / EVE / Wanxiang A123 class",
+  "wh": 55.0,
+  "v_nom": 3.6,
+  "v_max": 4.2,
+  "v_min": 2.5,
+  "mass_g": 180.0,
+  "dcir_mohm": 3.0,
+  "terminals": "positive cap one end, negative can base other end (as modelled in CAD); OPEN until supplier drawing",
+  "ah": 15.277777777777777
+ },
+ "pack": {
+  "layout": "99s6p",
+  "cells": 594,
+  "energy_kwh_nom": 32.67,
+  "ah": 91.7,
+  "v_nom": 356.4,
+  "v_max": 415.8,
+  "v_min": 247.5,
+  "v_loaded_min_design": 300.0,
+  "i_peak_A": 433,
+  "t_peak_s": 30.0,
+  "i_cont_A": 260.0,
+  "c_rate_peak": 4.73,
+  "c_rate_cont": 2.84,
+  "cell_current_peak_A": 72.2,
+  "r_cells_mohm": 49.5,
+  "r_busbars_mohm": 5.2,
+  "r_necks_mohm": 0.93,
+  "r_pack_internal_mohm": 55.6,
+  "i_short_circuit_bolted_A": 7474,
+  "interconnect_share_of_pack_R_pct": 11.0
+ },
+ "busbar_choice": {
+  "material": "Al 1350 (EC)",
+  "profile": "tapered",
+  "t_mm": 4.0,
+  "w_full_mm": 24.0,
+  "area_full_mm2": 96.0,
+  "j_cont_A_mm2": 2.71,
+  "j_peak_A_mm2": 4.51,
+  "R_links_total_mohm": 5.201,
+  "loss_cont_W": 351.6,
+  "loss_peak_W": 976.7,
+  "vdrop_peak_V": 2.25,
+  "dT_peak30s_adiabatic_K": 7.74,
+  "dT_cont_between_welds_K": 0.095,
+  "dT_cont_convection_only_K": 52.2,
+  "busbar_mass_kg": 4.657,
+  "score_kg_equiv": 8.17,
+  "meets_rules": true
+ },
+ "hand_check_link": {
+  "link": 1,
+  "l_eff_script_mm": 113.6,
+  "l_eff_hand_mm": 113.6,
+  "agree": true
+ },
+ "cell_fuse_neck": {
+  "material": "Ni-plated Cu C11000 collector, 0.30 mm",
+  "neck_area_mm2": 2.44,
+  "neck_w_mm": 8.13,
+  "neck_len_mm": 4.0,
+  "i_cell_peak_A": 72.2,
+  "i_cell_cont_A": 43.3,
+  "melt_time_at_cell_peak_s": 90.8,
+  "melt_time_at_cell_cont_s": 252.2,
+  "shorted_cell_fault_current_A": 5202,
+  "each_neighbour_feed_A": 1040,
+  "faulted_cell_neck_opens_ms": 17.5,
+  "neighbour_neck_melt_time_ms": 437.6,
+  "selective": true,
+  "neck_R_uohm": 28.3,
+  "neck_loss_at_cell_peak_W": 0.147,
+  "method": "Onderdonk adiabatic melting (conservative for survival at peak, optimistic for opening time)"
+ },
+ "numbering": {
+  "current": {
+   "lane_links": [
+    [
+     33,
+     545.7
+    ],
+    [
+     66,
+     545.7
+    ]
+   ],
+   "pack_neg": {
+    "group": 1,
+    "x": 608.0,
+    "y": -128.0,
+    "z": 256.0,
+    "lane": 1
+   },
+   "pack_pos": {
+    "group": 99,
+    "x": 990.83,
+    "y": 128.0,
+    "z": 595.48,
+    "lane": 3
+   }
+  },
+  "proposed": {
+   "lane_links": [
+    [
+     33,
+     34.0
+    ],
+    [
+     66,
+     34.0
+    ]
+   ],
+   "pack_neg": {
+    "group": 1,
+    "x": 608.0,
+    "y": -128.0,
+    "z": 256.0,
+    "lane": 1
+   },
+   "pack_pos": {
+    "group": 99,
+    "x": 990.83,
+    "y": 128.0,
+    "z": 595.48,
+    "lane": 3
+   },
+   "msd_link": "S066->S067 at bottom-rear (lane 2 end, lane 3 start)"
+  }
+ },
+ "modules": [
+  {
+   "module": "M11",
+   "lane": 1,
+   "groups": "S001-S011",
+   "series": 11,
+   "parallel": 6,
+   "cells": 66,
+   "v_nom": 39.6,
+   "v_max": 46.2,
+   "energy_kwh": 3.63,
+   "orion_connector": 1,
+   "orion_cell_group": 1,
+   "below_60VDC": true
+  },
+  {
+   "module": "M12",
+   "lane": 1,
+   "groups": "S012-S022",
+   "series": 11,
+   "parallel": 6,
+   "cells": 66,
+   "v_nom": 39.6,
+   "v_max": 46.2,
+   "energy_kwh": 3.63,
+   "orion_connector": 1,
+   "orion_cell_group": 2,
+   "below_60VDC": true
+  },
+  {
+   "module": "M13",
+   "lane": 1,
+   "groups": "S023-S033",
+   "series": 11,
+   "parallel": 6,
+   "cells": 66,
+   "v_nom": 39.6,
+   "v_max": 46.2,
+   "energy_kwh": 3.63,
+   "orion_connector": 1,
+   "orion_cell_group": 3,
+   "below_60VDC": true
+  },
+  {
+   "module": "M21",
+   "lane": 2,
+   "groups": "S034-S044",
+   "series": 11,
+   "parallel": 6,
+   "cells": 66,
+   "v_nom": 39.6,
+   "v_max": 46.2,
+   "energy_kwh": 3.63,
+   "orion_connector": 2,
+   "orion_cell_group": 4,
+   "below_60VDC": true
+  },
+  {
+   "module": "M22",
+   "lane": 2,
+   "groups": "S045-S055",
+   "series": 11,
+   "parallel": 6,
+   "cells": 66,
+   "v_nom": 39.6,
+   "v_max": 46.2,
+   "energy_kwh": 3.63,
+   "orion_connector": 2,
+   "orion_cell_group": 5,
+   "below_60VDC": true
+  },
+  {
+   "module": "M23",
+   "lane": 2,
+   "groups": "S056-S066",
+   "series": 11,
+   "parallel": 6,
+   "cells": 66,
+   "v_nom": 39.6,
+   "v_max": 46.2,
+   "energy_kwh": 3.63,
+   "orion_connector": 2,
+   "orion_cell_group": 6,
+   "below_60VDC": true
+  },
+  {
+   "module": "M31",
+   "lane": 3,
+   "groups": "S067-S077",
+   "series": 11,
+   "parallel": 6,
+   "cells": 66,
+   "v_nom": 39.6,
+   "v_max": 46.2,
+   "energy_kwh": 3.63,
+   "orion_connector": 3,
+   "orion_cell_group": 7,
+   "below_60VDC": true
+  },
+  {
+   "module": "M32",
+   "lane": 3,
+   "groups": "S078-S088",
+   "series": 11,
+   "parallel": 6,
+   "cells": 66,
+   "v_nom": 39.6,
+   "v_max": 46.2,
+   "energy_kwh": 3.63,
+   "orion_connector": 3,
+   "orion_cell_group": 8,
+   "below_60VDC": true
+  },
+  {
+   "module": "M33",
+   "lane": 3,
+   "groups": "S089-S099",
+   "series": 11,
+   "parallel": 6,
+   "cells": 66,
+   "v_nom": 39.6,
+   "v_max": 46.2,
+   "energy_kwh": 3.63,
+   "orion_connector": 3,
+   "orion_cell_group": 9,
+   "below_60VDC": true
+  }
+ ],
+ "bms": {
+  "unit": "Orion BMS2 108-cell (3 connectors x 3 cell groups x 12 taps)",
+  "groups_used": 9,
+  "cells_per_group": 11,
+  "unused_taps_per_group": 1,
+  "min_group_voltage_V": 27.5,
+  "orion_min_group_V": 11.0,
+  "sense_wires": 100,
+  "sense_wire_len_max_mm": 1209,
+  "sense_wire_len_total_m": 83.3,
+  "thermistors": 75,
+  "thermistors_on_expansion": 67
+ },
+ "face_stack_mm": 4.8,
+ "cad_gaps": {
+  "outer_end_gap_now_mm": 2.0,
+  "outer_end_gap_required_mm": 7.3,
+  "lane_gap_now_mm": 8.0,
+  "lane_gap_required_mm": 12.6,
+  "pack_half_width_now_mm": 194.0,
+  "lanes_proposed_mm": [
+   -132.6,
+   0.0,
+   132.6
+  ],
+  "YI_proposed_mm": 199.9,
+  "pack_half_width_proposed_mm": 203.9
+ },
+ "alternative_p60b": {
+  "cell": "Molicel INR-21700-P60B",
+  "layout": "100s15p",
+  "cells": 1500,
+  "energy_kwh": 32.4,
+  "v_max": 420.0,
+  "v_nom": 360.0,
+  "ah": 90.0,
+  "cells_kg": 105.0,
+  "i_peak_A": 433,
+  "cell_current_peak_A": 28.9,
+  "c_rate_peak": 4.81,
+  "charge_10_80_min_at_5C_cap": 14.5,
+  "r_cells_mohm": 85.3,
+  "cell_heat_at_260A_W": 5766,
+  "cell_heat_26120_at_260A_W": 3346,
+  "i_short_circuit_A": 4600,
+  "lanes": 5,
+  "pack_inner_width_mm": 415.0,
+  "pack_outer_width_mm": 423.0,
+  "side_area_needed_mm2": 137438,
+  "side_area_now_mm2": 134435,
+  "bms": "Orion BMS2 108: 100 groups as 34 + 33 + 33 per connector (cell groups 12/11/11, 11/11/11, 11/11/11); MSD at a connector boundary",
+  "fusing": "per-cell fusible necks still needed (15 cells feed a shorted one); 3,000 cell-end welds vs 1,188",
+  "verdict": "electrically fine (29 A per cell at peak is inside P60B ratings); costs: pack ~36 mm wider, 1.7x the cell heat at 260 A, 2.5x the welds"
+ }
+}

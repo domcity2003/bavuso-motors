@@ -70,6 +70,7 @@ MATS=dict(
     tyre=mat('tyre',g(.014),.82,spec=.3,sheen=.1,bump=.5,bump_scale=1200),
     rubber=mat('rubber',g(.016),.8,spec=.2,bump=.3,bump_scale=600),
     belt=mat('belt',g(.02),.7,spec=.25,bump=.15,bump_scale=700),
+    rider=mat('rider',(.30,.31,.33),.75,spec=.3),   # matte grey mannequin (rider-figure.py)
     seat=mat('seat',g(.014),.62,spec=.3,sheen=.3,bump=.35,bump_scale=350,bevel=.003),
     chrome=mat('chrome',g(.92),.05,metal=1),disc=mat('disc',g(.6),.3,metal=1,aniso=.6,bevel=.0008),
     alu=mat('alu',g(.75),.25,metal=1,aniso=.5,bevel=.001),

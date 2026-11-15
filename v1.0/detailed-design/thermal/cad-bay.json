@@ -1,0 +1,117 @@
+{
+ "battery_pump_CWA50": {
+  "bbox": [
+   593,
+   657,
+   -140,
+   -50,
+   673,
+   737
+  ],
+  "clear": {
+   "static_min": [
+    "Seat_two_level_STUDY",
+    39.4
+   ],
+   "body_min": [
+    "Upper_body_fairing_tank_STUDY",
+    34.4
+   ],
+   "tyre_fender_lock_sweep": 443.9,
+   "fork_clamps_at_lock": 496.7,
+   "pass": true
+  }
+ },
+ "drive_pump_CWA50": {
+  "bbox": [
+   593,
+   657,
+   50,
+   140,
+   673,
+   737
+  ],
+  "clear": {
+   "static_min": [
+    "Seat_two_level_STUDY",
+    39.4
+   ],
+   "body_min": [
+    "Upper_body_fairing_tank_STUDY",
+    34.4
+   ],
+   "tyre_fender_lock_sweep": 443.9,
+   "fork_clamps_at_lock": 496.7,
+   "pass": true
+  }
+ },
+ "ptc_heater_5kW": {
+  "bbox": [
+   598,
+   653,
+   -44,
+   44,
+   668,
+   730
+  ],
+  "clear": {
+   "static_min": [
+    "IPM_motor_and_gear_case_ENVELOPE",
+    39.4
+   ],
+   "body_min": [
+    "Upper_body_fairing_tank_STUDY",
+    37.0
+   ],
+   "tyre_fender_lock_sweep": 438.3,
+   "fork_clamps_at_lock": 496.0,
+   "pass": true
+  }
+ },
+ "valve_4port_left": {
+  "bbox": [
+   598,
+   648,
+   -188,
+   -150,
+   676,
+   728
+  ],
+  "clear": {
+   "static_min": [
+    "Upper_rail_0_m1",
+    16.7
+   ],
+   "body_min": [
+    "Lower_body_battery_covers_STUDY",
+    16.0
+   ],
+   "tyre_fender_lock_sweep": 459.4,
+   "fork_clamps_at_lock": 500.3,
+   "pass": true
+  }
+ },
+ "oil_to_water_hx": {
+  "bbox": [
+   560,
+   640,
+   -150,
+   -110,
+   470,
+   560
+  ],
+  "clear": {
+   "static_min": [
+    "Upper_rail_0_m1",
+    29.5
+   ],
+   "body_min": [
+    "Lower_body_battery_covers_STUDY",
+    54.0
+   ],
+   "tyre_fender_lock_sweep": 436.1,
+   "fork_clamps_at_lock": 568.0,
+   "pass": true
+  }
+ }
+}
