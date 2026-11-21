@@ -44,3 +44,8 @@ The chosen point matches the BMW R 1300 GS (523 lb). It is lighter than the Ener
 2. **Inverter:** voltage class and mass are to be confirmed against the supplier datasheet.
 3. **Chassis at 18 kg:** this halves today's structure. The solo load case and the smaller pack are what make it possible, and FEA must prove it.
 4. **Estimates:** most chassis and body masses are still estimates until the parts are designed.
+
+## Decision log
+- **Nov 21: inverter.** The inverter is the Cascadia CM200DX (6.75 kg), driving an EMRAX 228 with the LV winding. The emDrive H100 gives only about 29 kW continuous on this 360 V pack (`07-electrical.md`). The drive budget rises from 20 to 23 kg and the margin falls from 12 to 9 kg (3.75%). The total stays at 240 kg.
+- **Nov 21: nominal voltage.** The pack nominal is 360 V (P60B 3.6 V per cell), not 370 V.
+- **Nov 21: hot-day top speed.** Sustained 125 mph is required at 25 °C ambient. On a 38 °C day the pack reaches about 57 °C, which is still under the cell's 60 °C limit, so V1 has no chiller. A hot-day derate is allowed. Drive is final: ratio 3.60, 8 mm Gates belt, 23.1 kg (`06-drive-performance.md`).

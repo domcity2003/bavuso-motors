@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 800" width="1500" height="800" font-family="Segoe UI, Arial, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="context-stroke"/></marker></defs>
+<rect width="1500" height="800" fill="#ffffff"/>
+<text x="24" y="34" font-size="22" fill="#1f2937" text-anchor="start" font-weight="700">Bavuso V1: HV single-line diagram (one line stands for the + / - pair)</text>
+<text x="24" y="56" font-size="13" fill="#4b5563" text-anchor="start">Pack 100s11p, 360 V nominal (420 V max), 23.8 kWh. EMRAX 228 LV+43% on a Cascadia CM200DX. Native NACS inlet, DC and AC. All HV parts in one sealed box.</text>
+<rect x="20" y="300" width="210" height="170" rx="6" fill="#fff1e6" stroke="#c2410c" stroke-width="2"/>
+<text x="125.0" y="357.0" font-size="13" fill="#1f2937" text-anchor="middle" font-weight="700">Traction pack</text>
+<text x="125.0" y="373.0" font-size="11" fill="#4b5563" text-anchor="middle">100s11p, 1,100 x P60B</text>
+<text x="125.0" y="389.0" font-size="11" fill="#4b5563" text-anchor="middle">10 modules of 10s11p (36 V each)</text>
+<text x="125.0" y="405.0" font-size="11" fill="#4b5563" text-anchor="middle">per-cell Al fuse wire (0.4 mm)</text>
+<text x="125.0" y="421.0" font-size="11" fill="#4b5563" text-anchor="middle">23.8 kWh, 250-420 V</text>
+<rect x="20" y="500" width="210" height="66" rx="6" fill="#eef2ff" stroke="#1d4ed8" stroke-width="1.5"/>
+<text x="125.0" y="529.0" font-size="13" fill="#1f2937" text-anchor="middle" font-weight="700">BMS: Orion BMS2-108</text>
+<text x="125.0" y="545.0" font-size="11" fill="#4b5563" text-anchor="middle">100 cell groups, 3 connectors, NTCs</text>
+<polyline points="125,500 125,470" fill="none" stroke="#1d4ed8" stroke-width="2" stroke-linejoin="round"/>
+<rect x="62" y="436" width="126" height="26" rx="6" fill="#fff" stroke="#c2410c" stroke-width="1.5"/>
+<text x="125.0" y="453.0" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="700">MSD + 400 A fuse</text>
+<rect x="262" y="70" width="780" height="690" rx="6" fill="#fffaf5" stroke="#c2410c" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="652.0" y="419.0" font-size="13" fill="#1f2937" text-anchor="middle" font-weight="700"></text>
+<text x="278" y="92" font-size="13" fill="#c2410c" text-anchor="start" font-weight="700">HV box: one sealed IP67 box (pyro, contactors, shunt, precharge, fuses, AC relays)</text>
+<polyline points="210,380 300,380" fill="none" stroke="#c2410c" stroke-width="2.5" stroke-linejoin="round"/>
+<text x="235" y="370" font-size="11" fill="#1f2937" text-anchor="middle">50 mm2</text>
+<rect x="313.0" y="373" width="34" height="14" fill="#fff" stroke="#c2410c" stroke-width="2"/><line x1="313.0" y1="380" x2="347.0" y2="380" stroke="#c2410c" stroke-width="1.5"/>
+<text x="330" y="404" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="700">F1 pyro 500 A</text>
+<polyline points="347,380 400,380" fill="none" stroke="#c2410c" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="400" y="362" width="56" height="36" rx="6" fill="#fff" stroke="#c2410c" stroke-width="1.5"/>
+<text x="428.0" y="384.0" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="700">IVT-S</text>
+<text x="428" y="414" font-size="11" fill="#1f2937" text-anchor="middle">shunt, I, U1 U2 U3</text>
+<polyline points="456,380 560,380" fill="none" stroke="#c2410c" stroke-width="2.5" stroke-linejoin="round"/>
+<circle cx="560" cy="380" r="6" fill="#c2410c"/>
+<text x="462" y="370" font-size="11" fill="#c2410c" text-anchor="start">pack-side bus</text>
+<polyline points="560,380 620,380" fill="none" stroke="#c2410c" stroke-width="2.5" stroke-linejoin="round"/>
+<circle cx="641" cy="380" r="3" fill="#fff" stroke="#c2410c" stroke-width="2"/><circle cx="659" cy="380" r="3" fill="#fff" stroke="#c2410c" stroke-width="2"/><line x1="641" y1="379" x2="658" y2="369" stroke="#c2410c" stroke-width="2.5"/>
+<text x="650" y="402" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="700">K1/K2 main +/-</text>
+<polyline points="660,380 800,380" fill="none" stroke="#c2410c" stroke-width="2.5" stroke-linejoin="round"/>
+<polyline points="585,380 585,322 610,322" fill="none" stroke="#c2410c" stroke-width="2.5" stroke-linejoin="round"/>
+<circle cx="631" cy="322" r="3" fill="#fff" stroke="#c2410c" stroke-width="2"/><circle cx="649" cy="322" r="3" fill="#fff" stroke="#c2410c" stroke-width="2"/><line x1="631" y1="321" x2="648" y2="311" stroke="#c2410c" stroke-width="2.5"/>
+<text x="640" y="344" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="700">K3</text>
+<rect x="690" y="308" width="70" height="28" rx="6" fill="#fff" stroke="#c2410c" stroke-width="1.5"/>
+<text x="725.0" y="326.0" font-size="11" fill="#1f2937" text-anchor="middle" font-weight="700">220 ohm</text>
+<polyline points="660,322 690,322" fill="none" stroke="#c2410c" stroke-width="2.5" stroke-linejoin="round"/>
+<polyline points="760,322 775,322 775,380" fill="none" stroke="#c2410c" stroke-width="2.5" stroke-linejoin="round"/>
+<text x="640" y="284" font-size="11" fill="#c2410c" text-anchor="middle">precharge</text>
+<circle cx="585" cy="380" r="4" fill="#c2410c"/>
+<circle cx="775" cy="380" r="4" fill="#c2410c"/>
+<text x="745" y="370" font-size="11" fill="#1f2937" text-anchor="middle">50 mm2</text>
+<rect x="1060" y="320" width="160" height="120" rx="6" fill="#fff1e6" stroke="#c2410c" stroke-width="2"/>
+<text x="1140.0" y="360.0" font-size="13" fill="#1f2937" text-anchor="middle" font-weight="700">Inverter</text>
+<text x="1140.0" y="376.0" font-size="11" fill="#4b5563" text-anchor="middle">Cascadia CM200DX</text>
+<text x="1140.0" y="392.0" font-size="11" fill="#4b5563" text-anchor="middle">50-480 V, 300 A cont</text>
+<text x="1140.0" y="408.0" font-size="11" fill="#4b5563" text-anchor="middle">740 A rms peak</text>
+<polyline points="800,380 1060,380" fill="none" stroke="#c2410c" stroke-width="2.5" stroke-linejoin="round"/>
+<text x="1030" y="370" font-size="11" fill="#1f2937" text-anchor="end">DC bus</text>
+<polyline points="1220,380 1290,380" fill="none" stroke="#c2410c" stroke-width="4" stroke-linejoin="round"/>
+<text x="1255" y="370" font-size="11" fill="#1f2937" text-anchor="middle">U V W 50 mm2</text>
+<circle cx="1360" cy="380" r="60" fill="#fff1e6" stroke="#c2410c" stroke-width="2"/>
+<text x="1360" y="374" font-size="14" fill="#1f2937" text-anchor="middle" font-weight="700">EMRAX 228</text>
+<text x="1360" y="392" font-size="12" fill="#1f2937" text-anchor="middle">LV+43%</text>
+<text x="1360" y="408" font-size="11" fill="#4b5563" text-anchor="middle">220 Nm, 124 kW</text>
+<rect x="40" y="80" width="170" height="150" rx="6" fill="#f0fdf4" stroke="#15803d" stroke-width="2"/>
+<text x="125.0" y="127.0" font-size="13" fill="#1f2937" text-anchor="middle" font-weight="700">NACS inlet (J3400)</text>
+<text x="125.0" y="143.0" font-size="11" fill="#4b5563" text-anchor="middle">Volex, 1000 V, 500 A</text>
+<text x="125.0" y="159.0" font-size="11" fill="#4b5563" text-anchor="middle">DC+/L1  DC-/L2</text>
+<text x="125.0" y="175.0" font-size="11" fill="#4b5563" text-anchor="middle">CP + PP, latch, 2 NTC</text>
+<text x="125.0" y="191.0" font-size="11" fill="#4b5563" text-anchor="middle">EVCC (PLC, CAN)</text>
+<polyline points="210,120 300,120" fill="none" stroke="#c2410c" stroke-width="2.5" stroke-linejoin="round"/>
+<text x="235" y="112" font-size="11" fill="#1f2937" text-anchor="middle">35 mm2</text>
+<circle cx="326" cy="120" r="3" fill="#fff" stroke="#c2410c" stroke-width="2"/><circle cx="344" cy="120" r="3" fill="#fff" stroke="#c2410c" stroke-width="2"/><line x1="326" y1="119" x2="343" y2="109" stroke="#c2410c" stroke-width="2.5"/>
+<text x="335" y="142" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="700">K4/K5 DC charge</text>
+<polyline points="345,120 560,120 560,380" fill="none" stroke="#c2410c" stroke-width="2.5" stroke-linejoin="round"/>
+<text x="380" y="111" font-size="11" fill="#c2410c" text-anchor="start">to pack-side bus: the inverter stays dead while charging</text>
+<polyline points="210,200 300,200" fill="none" stroke="#c2410c" stroke-width="2.5" stroke-linejoin="round"/>
+<text x="235" y="192" font-size="11" fill="#1f2937" text-anchor="middle">35 mm2</text>
+<circle cx="326" cy="200" r="3" fill="#fff" stroke="#c2410c" stroke-width="2"/><circle cx="344" cy="200" r="3" fill="#fff" stroke="#c2410c" stroke-width="2"/><line x1="326" y1="199" x2="343" y2="189" stroke="#c2410c" stroke-width="2.5"/>
+<text x="335" y="222" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="700">AC relays</text>
+<polyline points="345,200 400,200" fill="none" stroke="#c2410c" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="400" y="178" width="120" height="44" rx="6" fill="#fff1e6" stroke="#c2410c" stroke-width="1.5"/>
+<text x="460.0" y="196.0" font-size="13" fill="#1f2937" text-anchor="middle" font-weight="700">OBC 3.3 kW</text>
+<text x="460.0" y="212.0" font-size="11" fill="#4b5563" text-anchor="middle">100-264 V in</text>
+<polyline points="520,200 545,200" fill="none" stroke="#c2410c" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="548.0" y="193" width="24" height="14" fill="#fff" stroke="#c2410c" stroke-width="2"/><line x1="548.0" y1="200" x2="572.0" y2="200" stroke="#c2410c" stroke-width="1.5"/>
+<text x="560" y="224" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="700">F2 30 A</text>
+<polyline points="572,200 600,200" fill="none" stroke="#c2410c" stroke-width="0" stroke-linejoin="round"/>
+<polyline points="560,200 560,120" fill="none" stroke="#c2410c" stroke-width="2.5" stroke-linejoin="round"/>
+<text x="620" y="170" font-size="11" fill="#4b5563" text-anchor="start">AC and DC share the same two pins: K4/K5 and the AC relays are</text>
+<text x="620" y="184" font-size="11" fill="#4b5563" text-anchor="start">mechanically + electronically interlocked, never both closed</text>
+<polyline points="560,380 560,640" fill="none" stroke="#c2410c" stroke-width="2.5" stroke-linejoin="round"/>
+<circle cx="560" cy="480" r="4" fill="#c2410c"/>
+<polyline points="560,480 600,480" fill="none" stroke="#c2410c" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="603.0" y="473" width="24" height="14" fill="#fff" stroke="#c2410c" stroke-width="2"/><line x1="603.0" y1="480" x2="627.0" y2="480" stroke="#c2410c" stroke-width="1.5"/>
+<text x="615" y="504" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="700">F3 10 A</text>
+<polyline points="627,480 680,480" fill="none" stroke="#c2410c" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="680" y="456" width="150" height="48" rx="6" fill="#fff1e6" stroke="#c2410c" stroke-width="1.5"/>
+<text x="755.0" y="476.0" font-size="13" fill="#1f2937" text-anchor="middle" font-weight="700">DC-DC 0.8 kW</text>
+<text x="755.0" y="492.0" font-size="11" fill="#4b5563" text-anchor="middle">HV to 12 V, CAN</text>
+<polyline points="830,480 900,480" fill="none" stroke="#b91c1c" stroke-width="2.5" marker-end="url(#a)" stroke-linejoin="round"/>
+<rect x="900" y="456" width="150" height="48" rx="6" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.5"/>
+<text x="975.0" y="476.0" font-size="13" fill="#1f2937" text-anchor="middle" font-weight="700">12 V LiFePO4</text>
+<text x="975.0" y="492.0" font-size="11" fill="#4b5563" text-anchor="middle">4.5 Ah, 0.9 kg</text>
+<circle cx="560" cy="580" r="4" fill="#c2410c"/>
+<polyline points="560,580 600,580" fill="none" stroke="#c2410c" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="603.0" y="573" width="24" height="14" fill="#fff" stroke="#c2410c" stroke-width="2"/><line x1="603.0" y1="580" x2="627.0" y2="580" stroke="#c2410c" stroke-width="1.5"/>
+<text x="615" y="604" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="700">F4 15 A</text>
+<polyline points="627,580 680,580" fill="none" stroke="#c2410c" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="680" y="556" width="150" height="48" rx="6" fill="#fff1e6" stroke="#c2410c" stroke-width="1.5"/>
+<text x="755.0" y="576.0" font-size="13" fill="#1f2937" text-anchor="middle" font-weight="700">Coolant PTC</text>
+<text x="755.0" y="592.0" font-size="11" fill="#4b5563" text-anchor="middle">3 kW, HV heater</text>
+<rect x="780" y="650" width="200" height="52" rx="6" fill="#fff" stroke="#c2410c" stroke-width="1.5"/>
+<text x="880.0" y="672.0" font-size="13" fill="#1f2937" text-anchor="middle" font-weight="700">Isolation monitor</text>
+<text x="880.0" y="688.0" font-size="11" fill="#4b5563" text-anchor="middle">warn 500 k, fault 210 k</text>
+<polyline points="865,650 865,380" fill="none" stroke="#c2410c" stroke-width="1.5" stroke-dasharray="7 5" stroke-linejoin="round"/>
+<circle cx="865" cy="380" r="4" fill="#c2410c"/>
+<text x="780" y="722" font-size="11" fill="#4b5563" text-anchor="start">measures HV+ and HV- to chassis; paused during</text>
+<text x="780" y="736" font-size="11" fill="#4b5563" text-anchor="start">the station's CableCheck insulation test</text>
+<polyline points="40,760 1480,760" fill="none" stroke="#7c3aed" stroke-width="2" stroke-dasharray="7 5" stroke-linejoin="round"/>
+<text x="24" y="750" font-size="12" fill="#7c3aed" text-anchor="start" font-weight="700">HVIL loop (20 mA PWM): MSD > pack lid connector > HV box lid > inverter > OBC > DC-DC > heater > back to VCU. Open loop = contactors open, no pyro.</text>
+<rect x="1090" y="520" width="380" height="150" rx="6" fill="#f9fafb" stroke="#6b7280" stroke-width="1.5"/>
+<text x="1280.0" y="559.0" font-size="13" fill="#1f2937" text-anchor="middle" font-weight="700">Protection and control (VCU + BMS)</text>
+<text x="1280.0" y="575.0" font-size="11" fill="#4b5563" text-anchor="middle">Fires pyro F1: >650 A for 20 ms, >480 A for 40 s, crash flag, hard fault</text>
+<text x="1280.0" y="591.0" font-size="11" fill="#4b5563" text-anchor="middle">Opens K1-K5 below 350 A only (GX14 350 A carry)</text>
+<text x="1280.0" y="607.0" font-size="11" fill="#4b5563" text-anchor="middle">DC current cap 350 A, charge cap 137 A (12.5 A per cell)</text>
+<text x="1280.0" y="623.0" font-size="11" fill="#4b5563" text-anchor="middle">Precharge: K3 until bus is within 21 V, abort at 0.5 s</text>
+<text x="1280.0" y="639.0" font-size="11" fill="#4b5563" text-anchor="middle">Weld check of K4/K5 through shunt U3 before the inlet unlocks</text>
+<text x="1090" y="700" font-size="12" fill="#4b5563" text-anchor="start">Short circuit 3.4 to 6.2 kA (calculated); fuse and pyro break 20+ kA</text>
+<text x="24" y="785" font-size="12" fill="#6b7280" text-anchor="start">Legend: orange = HV (shielded, orange sleeve); red = 12 V; blue = BMS; green = charge inlet. K = GX14 contactor; F = fuse.</text>
+</svg>

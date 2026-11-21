@@ -1,0 +1,489 @@
+{
+ "inputs": {
+  "cell_Ah_typ": {
+   "value": 6.0,
+   "basis": "datasheet Molicel INR-21700-P60B (6000 mAh typ, 5850 min)"
+  },
+  "cell_Wh_typ": {
+   "value": 21.6,
+   "basis": "datasheet"
+  },
+  "cell_V_nom": {
+   "value": 3.6,
+   "basis": "datasheet (Gate A rounds the pack to 370 V = 3.7 V/cell)"
+  },
+  "cell_V_max": {
+   "value": 4.2,
+   "basis": "datasheet"
+  },
+  "cell_V_min": {
+   "value": 2.5,
+   "basis": "datasheet charge/discharge cut-off 2.5 V (cycle test window); table says 1.8 V absolute"
+  },
+  "cell_mass_kg": {
+   "value": 0.075,
+   "basis": "datasheet, 75 g max"
+  },
+  "cell_I_chg_std_A": {
+   "value": 6.0,
+   "basis": "datasheet standard charge 6.0 A"
+  },
+  "cell_I_chg_max_A": {
+   "value": 30.0,
+   "basis": "datasheet maximum charge 30 A (70 C cut-off); 5C"
+  },
+  "cell_I_dis_std_A": {
+   "value": 60.0,
+   "basis": "datasheet"
+  },
+  "cell_I_dis_max_A": {
+   "value": 100.0,
+   "basis": "datasheet"
+  },
+  "cell_R_dc_mohm": {
+   "value": 12.8,
+   "basis": "datasheet DC impedance at 50% SOC"
+  },
+  "cell_R_ac_mohm": {
+   "value": 6.5,
+   "basis": "datasheet AC impedance at 30% SOC"
+  },
+  "R_interconnect_mohm": {
+   "value": 6.0,
+   "basis": "estimate: busbars + wire bonds for 100 series links (prior design: 5.2 mohm for 99 links)"
+  },
+  "R_external_mohm": {
+   "value": 2.5,
+   "basis": "estimate: MSD fuse 0.4 + pyro 0.1 + 2 contactors 0.8 + shunt 0.1 + 2 m of 50 mm2 0.75 + lugs"
+  },
+  "gx14_carry_A": {
+   "value": 350.0,
+   "basis": "supplier Gigavac GX14 datasheet: 350+ A, 12-800 V, 0.5 kg"
+  },
+  "main_fuse_A": {
+   "value": 400.0,
+   "basis": "design choice: EV fuse 400 A / >=500 VDC in the service plug (rating to confirm on real fuse curve)"
+  },
+  "pyro_break_kA": {
+   "value": 22.0,
+   "basis": "supplier Sensata STP500P class (prior study); 500 A, 22 kA break at 500 V"
+  },
+  "dc_link_uF": {
+   "value": 715.0,
+   "basis": "prior study: 650 uF CM200 + 65 uF estimates for charger, DC-DC, Y-caps"
+  },
+  "precharge_ohm": {
+   "value": 220.0,
+   "basis": "design choice (prior study sweep)"
+  },
+  "eta_drive": {
+   "value": 0.93,
+   "basis": "estimate: motor 96% x inverter 97%"
+  }
+ },
+ "pack": {
+  "series": 100,
+  "parallel": 11,
+  "cells": 1100,
+  "capacity_Ah": 66.0,
+  "energy_kWh_gross": 23.76,
+  "V_nominal_datasheet_3p6": 360.0,
+  "V_nominal_gateA_3p7": 370.0,
+  "V_max": 420.0,
+  "V_min_2p5": 250.0,
+  "cell_mass_kg": 82.5,
+  "R_pack_dc_mohm": 124.9,
+  "R_pack_ac_mohm": 67.6,
+  "R_cells_only_mohm": 116.4
+ },
+ "modules": {
+  "modules": 10,
+  "per_module": "10s11p",
+  "cells_per_module": 110,
+  "V_nom": 36.0,
+  "V_max": 42.0,
+  "ELV_limit_V": 60,
+  "energy_kWh": 2.38,
+  "note": "10 series modules; module-to-module links are the only bolted high-current joints"
+ },
+ "power_table_summary": [
+  {
+   "shaft_kW": 55,
+   "SOC_pct": 100,
+   "pack_V_loaded": 401.6,
+   "pack_I_A": 147.3,
+   "cell_I_A": 13.4,
+   "cell_C_rate": 2.23,
+   "ok_vs_350A_contactor": true,
+   "ok_vs_cell_60A": true,
+   "cell_heat_kW": 2.52,
+   "total_pack_loss_kW": 2.71
+  },
+  {
+   "shaft_kW": 55,
+   "SOC_pct": 10,
+   "pack_V_loaded": 316.7,
+   "pack_I_A": 186.7,
+   "cell_I_A": 17.0,
+   "cell_C_rate": 2.83,
+   "ok_vs_350A_contactor": true,
+   "ok_vs_cell_60A": true,
+   "cell_heat_kW": 4.06,
+   "total_pack_loss_kW": 4.35
+  },
+  {
+   "shaft_kW": 90,
+   "SOC_pct": 100,
+   "pack_V_loaded": 388.9,
+   "pack_I_A": 248.8,
+   "cell_I_A": 22.6,
+   "cell_C_rate": 3.77,
+   "ok_vs_350A_contactor": true,
+   "ok_vs_cell_60A": true,
+   "cell_heat_kW": 7.2,
+   "total_pack_loss_kW": 7.73
+  },
+  {
+   "shaft_kW": 90,
+   "SOC_pct": 10,
+   "pack_V_loaded": 299.7,
+   "pack_I_A": 322.9,
+   "cell_I_A": 29.4,
+   "cell_C_rate": 4.89,
+   "ok_vs_350A_contactor": true,
+   "ok_vs_cell_60A": true,
+   "cell_heat_kW": 12.13,
+   "total_pack_loss_kW": 13.02
+  },
+  {
+   "shaft_kW": 100,
+   "SOC_pct": 100,
+   "pack_V_loaded": 385.1,
+   "pack_I_A": 279.2,
+   "cell_I_A": 25.4,
+   "cell_C_rate": 4.23,
+   "ok_vs_350A_contactor": true,
+   "ok_vs_cell_60A": true,
+   "cell_heat_kW": 9.07,
+   "total_pack_loss_kW": 9.73
+  },
+  {
+   "shaft_kW": 100,
+   "SOC_pct": 10,
+   "pack_V_loaded": 294.4,
+   "pack_I_A": 365.2,
+   "cell_I_A": 33.2,
+   "cell_C_rate": 5.53,
+   "ok_vs_350A_contactor": false,
+   "ok_vs_cell_60A": true,
+   "cell_heat_kW": 15.52,
+   "total_pack_loss_kW": 16.66
+  },
+  {
+   "shaft_kW": 110,
+   "SOC_pct": 100,
+   "pack_V_loaded": 381.3,
+   "pack_I_A": 310.2,
+   "cell_I_A": 28.2,
+   "cell_C_rate": 4.7,
+   "ok_vs_350A_contactor": true,
+   "ok_vs_cell_60A": true,
+   "cell_heat_kW": 11.2,
+   "total_pack_loss_kW": 12.02
+  },
+  {
+   "shaft_kW": 110,
+   "SOC_pct": 10,
+   "pack_V_loaded": 288.9,
+   "pack_I_A": 409.4,
+   "cell_I_A": 37.2,
+   "cell_C_rate": 6.2,
+   "ok_vs_350A_contactor": false,
+   "ok_vs_cell_60A": true,
+   "cell_heat_kW": 19.51,
+   "total_pack_loss_kW": 20.93
+  }
+ ],
+ "max_shaft_kW_at_350A_cap": {
+  "100": 122.5,
+  "80": 115.6,
+  "50": 107.2,
+  "20": 100.4,
+  "10": 96.4
+ },
+ "emrax228_windings_datasheet": {
+  "HV": {
+   "V_for_peak": 830,
+   "peak_Arms": 235,
+   "cont_Arms": 120
+  },
+  "MV": {
+   "V_for_peak": 630,
+   "peak_Arms": 360,
+   "cont_Arms": 180
+  },
+  "LV": {
+   "V_for_peak": 250,
+   "peak_Arms": 920,
+   "cont_Arms": 470
+  },
+  "LV+43%": {
+   "V_for_peak": 360,
+   "peak_Arms": 650,
+   "cont_Arms": 330
+  },
+  "LV+100%": {
+   "V_for_peak": 500,
+   "peak_Arms": 460,
+   "cont_Arms": 240
+  },
+  "HV+42%": {
+   "V_for_peak": 830,
+   "peak_Arms": 165,
+   "cont_Arms": 85
+  }
+ },
+ "motor_match": {
+  "choice": "EMRAX 228 LV+43% (360 V for peak power), liquid or combined cooled",
+  "why": "pack is 250-420 V (loaded floor about 330 V at 10% SOC under peak). MV needs 630 V and HV 830 V, so they cannot reach peak power on this bus (same conclusion as drive-study.md). LV+43% needs 360 V and 650 Arms.",
+  "Kt_Nm_per_A": 0.338,
+  "peak_phase_current_Arms": 650,
+  "continuous_phase_current_Arms": 330,
+  "torque_at_300Arms_Nm": 102.0,
+  "power_at_300Arms_5500rpm_kW": 58.5,
+  "power_at_455Arms_5500rpm_kW": 88.7,
+  "inverter_H100_150A_cont": "FAILS: 150 Arms continuous gives 51 Nm, i.e. 29 kW at 5500 rpm (<55 kW target); 450 A peak gives 88 kW",
+  "inverter_CM200DX_300A_cont_740A_peak": "PASSES: 300 Arms continuous gives 58 kW at 5500 rpm; 740 A peak > 650 A motor peak",
+  "verdict": "Cascadia CM200DX (6.75 kg, 50-480 V, 300 Arms cont / 740 Arms peak) is the inverter. The emDrive H100 (3.5 kg) cannot supply this motor's current."
+ },
+ "short_circuit": {
+  "bolted_Isc_kA_range": [
+   3.36,
+   6.21
+  ],
+  "main_fuse_A": 400.0,
+  "fuse_multiple_at_min_Isc": 8.4,
+  "pyro_break_kA": 22.0,
+  "margin_pyro_over_max_Isc": 3.5,
+  "GX14_make_break_note": "contactor opens only below about 350 A; all higher currents are cleared by pyro or fuse",
+  "peak_vs_fuse": "DC current is capped at 350 A in VCU/inverter (matches GX14 carry); 350 A is 0.88 x the 400 A fuse (below the usual 1.3 x no-blow)",
+  "continuous_vs_fuse_derated": "worst continuous 55 kW at 10% SOC is about 187 A against 0.8 x 400 = 320 A",
+  "pyro_trip_rules": [
+   "> 650 A for 20 ms",
+   "> 480 A for 40 s",
+   "crash flag (IMU / ABS unit) within 20 ms",
+   "BMS hard fault latched"
+  ]
+ },
+ "cell_fuse_wire": {
+  "sweep": [
+   {
+    "wire_dia_mm": 0.25,
+    "wire_R_mohm": 2.59,
+    "I_shorted_cell_wire_A": 663,
+    "t_open_shorted_ms": 0.141,
+    "I_neighbour_wire_A": 66,
+    "t_neighbour_melt_ms": 14.1,
+    "selectivity_x": 100.0,
+    "steady_rise_at_32A_K": 84.4,
+    "steady_fuse_estimate_A": 67
+   },
+   {
+    "wire_dia_mm": 0.3,
+    "wire_R_mohm": 1.8,
+    "I_shorted_cell_wire_A": 913,
+    "t_open_shorted_ms": 0.154,
+    "I_neighbour_wire_A": 91,
+    "t_neighbour_melt_ms": 15.4,
+    "selectivity_x": 100.0,
+    "steady_rise_at_32A_K": 40.7,
+    "steady_fuse_estimate_A": 97
+   },
+   {
+    "wire_dia_mm": 0.4,
+    "wire_R_mohm": 1.01,
+    "I_shorted_cell_wire_A": 1463,
+    "t_open_shorted_ms": 0.19,
+    "I_neighbour_wire_A": 146,
+    "t_neighbour_melt_ms": 19.0,
+    "selectivity_x": 100.0,
+    "steady_rise_at_32A_K": 12.9,
+    "steady_fuse_estimate_A": 172
+   },
+   {
+    "wire_dia_mm": 0.5,
+    "wire_R_mohm": 0.65,
+    "I_shorted_cell_wire_A": 2027,
+    "t_open_shorted_ms": 0.241,
+    "I_neighbour_wire_A": 203,
+    "t_neighbour_melt_ms": 24.1,
+    "selectivity_x": 100.0,
+    "steady_rise_at_32A_K": 5.3,
+    "steady_fuse_estimate_A": 268
+   },
+   {
+    "wire_dia_mm": 0.6,
+    "wire_R_mohm": 0.45,
+    "I_shorted_cell_wire_A": 2565,
+    "t_open_shorted_ms": 0.312,
+    "I_neighbour_wire_A": 257,
+    "t_neighbour_melt_ms": 31.2,
+    "selectivity_x": 100.0,
+    "steady_rise_at_32A_K": 2.5,
+    "steady_fuse_estimate_A": 386
+   }
+  ],
+  "rules": [
+   "selectivity >= 10x",
+   "steady rise <= 40 K at 31.8 A per-cell peak",
+   "smallest passing diameter"
+  ],
+  "chosen": {
+   "wire_dia_mm": 0.4,
+   "wire_R_mohm": 1.01,
+   "I_shorted_cell_wire_A": 1463,
+   "t_open_shorted_ms": 0.19,
+   "I_neighbour_wire_A": 146,
+   "t_neighbour_melt_ms": 19.0,
+   "selectivity_x": 100.0,
+   "steady_rise_at_32A_K": 12.9,
+   "steady_fuse_estimate_A": 172
+  },
+  "decision": "YES, per-cell fusing: one Al wire bond (about 0.40 mm) per cell end, 2,200 bonds. Wire diameter to be settled by pulse and fusing tests, not by this model.",
+  "caveat": "adiabatic model: conservative for neighbours surviving, optimistic for opening speed. Cell resistance is the datasheet value; weld/bond resistance is an estimate."
+ },
+ "precharge": {
+  "C_uF": 715.0,
+  "R_ohm": 220.0,
+  "tau_s": 0.157,
+  "t_95pct_s": 0.47,
+  "start_current_A_at_420V": 1.91,
+  "start_power_W": 802,
+  "energy_in_resistor_J": 63,
+  "shorted_bus_abort_energy_J": 401,
+  "rule": "close main + contactor when bus >= pack - 21 V; if not within 0.5 s abort and latch fault; weld-check precharge relay",
+  "active_discharge": "bus must fall below 60 V within 3 s of contactor opening (inverter active discharge; to be specified with Cascadia). Passive 70 kohm bleed alone is 88 s."
+ },
+ "isolation": {
+  "monitor": "Bender ISOMETER iso175C class (or IR155-class automotive IMD) on the HV bus; BMS isolation check as cross-check",
+  "ISO6469-3_limit_DC_ohm_per_V": 100,
+  "ISO6469-3_limit_AC_connected_ohm_per_V": 500,
+  "threshold_at_420V_DC_kohm": 42.0,
+  "threshold_at_420V_AC_kohm": 210.0,
+  "set_warning_kohm": 500,
+  "set_fault_kohm": 210,
+  "why_210": "the OBC makes the bus conductively linked to an AC circuit while plugged in, so the stricter 500 ohm/V figure (210 kohm at 420 V) is used in all modes",
+  "dc_charge_note": "station and bike monitors must not run at the same time: bike IMD pauses during CableCheck / station isolation test"
+ },
+ "dc_charge_sweep": [
+  {
+   "cell_cap_A": 8,
+   "C_rate": 1.33,
+   "pack_cap_A": 88,
+   "time_10_80_min": 31.5,
+   "station_energy_kWh": 17.6,
+   "avg_station_kW": 33.5,
+   "peak_station_kW": 37.0,
+   "pack_heat_kWh": 0.51,
+   "avg_heat_kW": 0.97
+  },
+  {
+   "cell_cap_A": 10,
+   "C_rate": 1.67,
+   "pack_cap_A": 110,
+   "time_10_80_min": 25.2,
+   "station_energy_kWh": 17.7,
+   "avg_station_kW": 42.1,
+   "peak_station_kW": 46.0,
+   "pack_heat_kWh": 0.63,
+   "avg_heat_kW": 1.51
+  },
+  {
+   "cell_cap_A": 12.5,
+   "C_rate": 2.08,
+   "pack_cap_A": 137.5,
+   "time_10_80_min": 20.2,
+   "station_energy_kWh": 17.8,
+   "avg_station_kW": 53.1,
+   "peak_station_kW": 58.0,
+   "pack_heat_kWh": 0.79,
+   "avg_heat_kW": 2.36
+  },
+  {
+   "cell_cap_A": 14,
+   "C_rate": 2.33,
+   "pack_cap_A": 154,
+   "time_10_80_min": 18.0,
+   "station_energy_kWh": 17.9,
+   "avg_station_kW": 59.8,
+   "peak_station_kW": 65.0,
+   "pack_heat_kWh": 0.89,
+   "avg_heat_kW": 2.96
+  },
+  {
+   "cell_cap_A": 16,
+   "C_rate": 2.67,
+   "pack_cap_A": 176,
+   "time_10_80_min": 15.8,
+   "station_energy_kWh": 18.0,
+   "avg_station_kW": 68.8,
+   "peak_station_kW": 74.0,
+   "pack_heat_kWh": 1.02,
+   "avg_heat_kW": 3.87
+  },
+  {
+   "cell_cap_A": 20,
+   "C_rate": 3.33,
+   "pack_cap_A": 220,
+   "time_10_80_min": 12.7,
+   "station_energy_kWh": 18.3,
+   "avg_station_kW": 86.4,
+   "peak_station_kW": 92.0,
+   "pack_heat_kWh": 1.26,
+   "avg_heat_kW": 5.96
+  },
+  {
+   "cell_cap_A": 25,
+   "C_rate": 4.17,
+   "pack_cap_A": 275,
+   "time_10_80_min": 10.5,
+   "station_energy_kWh": 18.5,
+   "avg_station_kW": 106.2,
+   "peak_station_kW": 116.0,
+   "pack_heat_kWh": 1.54,
+   "avg_heat_kW": 8.81
+  }
+ ],
+ "dc_charge_choice": {
+  "cap_A_per_cell": 12.5,
+  "C": 2.08,
+  "reason": "meets 10-80% in about 20 min (T6 target) at 2C, a 40% of the 30 A datasheet maximum; lowest cell stress that hits the target; heat about 2 kW avg",
+  "caveat": "P60B datasheet does not state cycle life at 2C fast charge, and the charge chart is at 25 degC. Cold-weather derate and life are open until cell test data exists."
+ },
+ "ac_charge": {
+  "3.3kW": {
+   "10_90_h": 6.3,
+   "0_100_h": 7.8,
+   "AC_current_at_240V_A": 13.8
+  },
+  "6.6kW": {
+   "10_90_h": 3.1,
+   "0_100_h": 3.9,
+   "AC_current_at_240V_A": 27.5
+  },
+  "120V_12A_kW": 1.44,
+  "120V_12A_10_80_h_at_1.3kW": 12.8
+ },
+ "heat_notes": {
+  "cell_heat_at_55kW_shaft_10pctSOC_kW": 4.06,
+  "cell_heat_at_100kW_shaft_80pctSOC_kW": 10.27,
+  "comment": "the pack is the largest electrical heat source: pass these to the cooling agent"
+ },
+ "interconnect_mass_kg": {
+  "group_plates": 2.54,
+  "module_links_and_series_links": 2.0,
+  "wire_bonds_2200": 0.007,
+  "basis": "estimate: Al plates 0.8 mm per parallel group, 20 g series links; Al wire 0.4 mm x 3 mm is about 1 mg each, 2,200 bonds (negligible)",
+  "total": 4.55
+ }
+}

@@ -1,0 +1,20 @@
+MASS LEDGER  mode=V1 (supplier slots)  solids=189  ledger rows=208
+system (Gate A)              budget      mass  headroom       %  w/growth  flag
+Battery pack                  103.0    106.68     -3.68   -3.6%    118.02  OVER  (0% estimate)
+Chassis                        18.0     31.74    -13.74  -76.3%     35.00  OVER  (6% estimate)
+Running gear                   37.0     45.13     -8.13  -22.0%     50.25  OVER  (97% estimate)
+Drive                          20.0     23.05     -3.05  -15.2%     25.36  OVER  (13% estimate)
+Electronics                    18.0     18.67     -0.67   -3.7%     20.86  OVER  (38% estimate)
+Body and protection            15.0     29.96    -14.96  -99.8%     34.45  OVER  (20% estimate)
+Cooling                         6.0     11.40     -5.40  -90.0%     13.11  OVER  (100% estimate)
+Wiring, fasteners, fluids      11.0     11.12     -0.12   -1.1%     12.79  OVER  (48% estimate)
+TOTAL (T1)                    240.0    277.75    -37.75  -15.7%            OVER   (612.3 lb; design cap 228 kg keeps the 12 kg margin: NOT kept)
+by source: measured 0.0, supplier 112.8, calculated 86.3, estimate 78.6 | by status: proposed 191.7, concept 86.0
+CoG x=792 mm from rear axle, height 545 mm; front/rear [53.2, 46.8]%; unsprung F 13.8 R 18.8 kg
+BUDGET_PASS = False   LEDGER_CLEAN = False
+!! OVER BUDGET: Battery pack, Chassis, Running gear, Drive, Electronics, Body and protection, Cooling, Wiring, fasteners, fluids
+!! UNMATCHED CAD SOLIDS (2) - no rule or supplier slot matches; their mass is NOT in the total:
+     IPM_motor_and_gear_case_ENVELOPE           group Drive           7065.7 cm3
+     Oil_cooler                                 group Cooling          288.0 cm3
+!  Supplier slots with no CAD solid (mass carried from the supplier table): motor_emrax228, evcc, abs_module
+wrote: program\data\run\ledger-test\v1\parts-ledger.csv | program\data\run\ledger-test\v1\mass-rollup.csv | program\data\run\ledger-test\v1\mass-rollup.json | program\data\run\ledger-test\v1\mass-budget-report.csv

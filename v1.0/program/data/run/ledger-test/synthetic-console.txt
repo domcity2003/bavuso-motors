@@ -1,0 +1,21 @@
+MASS LEDGER  mode=V1 (supplier slots)  solids=20  ledger rows=48
+system (Gate A)              budget      mass  headroom       %  w/growth  flag
+Battery pack                  103.0    106.48     -3.48   -3.4%    117.80  OVER  (0% estimate)
+Chassis                        18.0      1.75     16.25   90.3%      2.01  ok  (100% estimate)
+Running gear                   37.0     35.10      1.90    5.1%     38.72  ok  (96% estimate)
+Drive                          20.0     19.80      0.20    1.0%     21.78  TIGHT  (33% estimate)
+Electronics                    18.0     13.30      4.70   26.1%     14.78  ok  (43% estimate)
+Body and protection            15.0      1.00     14.00   93.3%      1.15  ok  (100% estimate)
+Cooling                         6.0      5.24      0.76   12.7%      6.03  ok  (100% estimate)
+Wiring, fasteners, fluids      11.0     10.80      0.20    1.8%     12.42  TIGHT  (46% estimate)
+TOTAL (T1)                    240.0    193.47     46.53   19.4%            ok   (426.5 lb; design cap 228 kg keeps the 12 kg margin: kept)
+by source: measured 0.0, supplier 102.5, calculated 31.9, estimate 59.1 | by status: proposed 156.1, concept 37.4
+CoG x=790 mm from rear axle, height 458 mm; front/rear [53.1, 46.9]%; unsprung F 13.8 R 16.2 kg
+BUDGET_PASS = False   LEDGER_CLEAN = False
+!! OVER BUDGET: Battery pack
+!! UNMATCHED CAD SOLIDS (1) - no rule or supplier slot matches; their mass is NOT in the total:
+     Mystery_bracket_007                        group Chassis           50.0 cm3
+!! REQUIRED PART MISSING FROM CAD: ['head_tube (Head_tube)', 'swingarm_1 (Swingarm_1)']
+!! SLOT COUNT: caliper_front: 1 CAD solid(s) matched, 2 expected (Brake_caliper_front_L)
+!  Supplier slots with no CAD solid (mass carried from the supplier table): belt_drive, pulley_front, pulley_rear, dcdc_oem, evcc, hv_box, shock, carrier_front x2, caliper_front, carrier_rear, caliper_rear, bracket_rear
+wrote: program\data\run\ledger-test\synthetic\parts-ledger.csv | program\data\run\ledger-test\synthetic\mass-rollup.csv | program\data\run\ledger-test\synthetic\mass-rollup.json | program\data\run\ledger-test\synthetic\mass-budget-report.csv

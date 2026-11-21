@@ -1,0 +1,23 @@
+load,riding_night_W,dc_charging_W,peak_1s_W,basis
+LED headlamp low beam,22,0,22,estimate
+LED high beam (adds),0,0,18,estimate
+DRL / light band,6,0,6,estimate
+Tail + brake (avg),5,0,10,estimate
+"Indicators (avg, flashing)",6,0,12,estimate
+Plate lamp,1,0,1,estimate
+Horn,0,0,25,estimate
+TFT dash,12,3,12,estimate
+VCU,8,8,10,estimate
+BMS + IVT-S + iso monitor,9,9,10,estimate
+Inverter logic,10,0,12,estimate
+EVCC + inlet latch,3,10,15,estimate
+OBC / DC-DC control,4,6,6,estimate
+Contactor coils (4 + precharge),10,8,14,supplier: GX14 coil 2.8 W each with economiser
+Keyless + telematics + TPMS rx,8,4,8,estimate
+ABS ECU (idle),5,5,5,estimate
+ABS pump (event),0,0,300,estimate: Bosch pump class
+Coolant pump,50,50,50,estimate
+Radiator fan,40,60,60,"estimate (single fan, shared loop)"
+Heated grips (comfort option),60,0,60,estimate
+Steering lock / seat latch (momentary),0,0,40,estimate
+TOTAL,259,163,696,calculated

@@ -1,0 +1,682 @@
+{
+ "G": 3.6,
+ "acceleration": [
+  {
+   "case": "SOC 90, 25 C",
+   "zero_60_s": 3.95,
+   "zero_100kmh_s": 4.1,
+   "zero_100mph_s": 6.91,
+   "rollon_60_100_s": 2.96,
+   "v_bus_min_V": 369,
+   "i_dc_peak_A": 324
+  },
+  {
+   "case": "SOC 50, 25 C",
+   "zero_60_s": 3.95,
+   "zero_100kmh_s": 4.1,
+   "zero_100mph_s": 6.91,
+   "rollon_60_100_s": 2.96,
+   "v_bus_min_V": 328,
+   "i_dc_peak_A": 365
+  },
+  {
+   "case": "SOC 20, 25 C",
+   "zero_60_s": 3.95,
+   "zero_100kmh_s": 4.1,
+   "zero_100mph_s": 6.91,
+   "rollon_60_100_s": 2.97,
+   "v_bus_min_V": 293,
+   "i_dc_peak_A": 400
+  },
+  {
+   "case": "SOC 10, 25 C",
+   "zero_60_s": 3.95,
+   "zero_100kmh_s": 4.1,
+   "zero_100mph_s": 6.96,
+   "rollon_60_100_s": 3.01,
+   "v_bus_min_V": 270,
+   "i_dc_peak_A": 400
+  },
+  {
+   "case": "SOC 5, 25 C",
+   "zero_60_s": 3.95,
+   "zero_100kmh_s": 4.1,
+   "zero_100mph_s": 7.09,
+   "rollon_60_100_s": 3.13,
+   "v_bus_min_V": 247,
+   "i_dc_peak_A": 400
+  },
+  {
+   "case": "SOC 90, 5 C",
+   "zero_60_s": 3.95,
+   "zero_100kmh_s": 4.1,
+   "zero_100mph_s": 6.91,
+   "rollon_60_100_s": 2.96,
+   "v_bus_min_V": 337,
+   "i_dc_peak_A": 355
+  },
+  {
+   "case": "SOC 20, 5 C",
+   "zero_60_s": 3.95,
+   "zero_100kmh_s": 4.1,
+   "zero_100mph_s": 7.04,
+   "rollon_60_100_s": 3.09,
+   "v_bus_min_V": 254,
+   "i_dc_peak_A": 400
+  }
+ ],
+ "zero_60_with_25kg_luggage": 4.24,
+ "zero_60_mu_0.7_wet": 5.46,
+ "zero_60_cda_0.43": 3.96,
+ "traction_cap_g_mu1": 0.88,
+ "launch_g_motor_limited": 0.73,
+ "top_speed": [
+  {
+   "soc": 100,
+   "cda": 0.38,
+   "power_limited_peak_mph": 178.5,
+   "power_limited_continuous_mph": 156.8,
+   "rpm_limited_mph": 135.0,
+   "top_mph": 135.0,
+   "limited_by": "speed (6500 rpm)"
+  },
+  {
+   "soc": 100,
+   "cda": 0.43,
+   "power_limited_peak_mph": 171.4,
+   "power_limited_continuous_mph": 147.4,
+   "rpm_limited_mph": 135.0,
+   "top_mph": 135.0,
+   "limited_by": "speed (6500 rpm)"
+  },
+  {
+   "soc": 50,
+   "cda": 0.38,
+   "power_limited_peak_mph": 178.1,
+   "power_limited_continuous_mph": 156.8,
+   "rpm_limited_mph": 135.0,
+   "top_mph": 135.0,
+   "limited_by": "speed (6500 rpm)"
+  },
+  {
+   "soc": 50,
+   "cda": 0.43,
+   "power_limited_peak_mph": 171.0,
+   "power_limited_continuous_mph": 147.4,
+   "rpm_limited_mph": 135.0,
+   "top_mph": 135.0,
+   "limited_by": "speed (6500 rpm)"
+  },
+  {
+   "soc": 20,
+   "cda": 0.38,
+   "power_limited_peak_mph": 172.5,
+   "power_limited_continuous_mph": 156.8,
+   "rpm_limited_mph": 135.0,
+   "top_mph": 135.0,
+   "limited_by": "speed (6500 rpm)"
+  },
+  {
+   "soc": 20,
+   "cda": 0.43,
+   "power_limited_peak_mph": 165.6,
+   "power_limited_continuous_mph": 147.4,
+   "rpm_limited_mph": 135.0,
+   "top_mph": 135.0,
+   "limited_by": "speed (6500 rpm)"
+  },
+  {
+   "soc": 10,
+   "cda": 0.38,
+   "power_limited_peak_mph": 168.0,
+   "power_limited_continuous_mph": 156.8,
+   "rpm_limited_mph": 135.0,
+   "top_mph": 135.0,
+   "limited_by": "speed (6500 rpm)"
+  },
+  {
+   "soc": 10,
+   "cda": 0.43,
+   "power_limited_peak_mph": 161.3,
+   "power_limited_continuous_mph": 147.4,
+   "rpm_limited_mph": 135.0,
+   "top_mph": 135.0,
+   "limited_by": "speed (6500 rpm)"
+  }
+ ],
+ "governor_mph": 130,
+ "road_power": [
+  {
+   "mph": 70,
+   "wheel_kw": 8.7,
+   "wheel_kw_cda043": 9.6
+  },
+  {
+   "mph": 77,
+   "wheel_kw": 11.2,
+   "wheel_kw_cda043": 12.4
+  },
+  {
+   "mph": 100,
+   "wheel_kw": 23.0,
+   "wheel_kw_cda043": 25.7
+  },
+  {
+   "mph": 125,
+   "wheel_kw": 43.3,
+   "wheel_kw_cda043": 48.7
+  },
+  {
+   "mph": 130,
+   "wheel_kw": 48.5,
+   "wheel_kw_cda043": 54.5
+  }
+ ],
+ "thermal": [
+  {
+   "mph": 125,
+   "t_amb": 25,
+   "minutes": 27.5,
+   "miles": 57.3,
+   "stop": "soc 5%",
+   "pack_c": 46.0,
+   "winding_c": 80.4,
+   "inverter_case_c": 64.7,
+   "coolant_c": 41.1,
+   "soc_end": 4.9,
+   "steady": {
+    "T": 69.42545795660375,
+    "n": 6024.338711543596,
+    "wheel_kw": 43.32499945650801,
+    "i_dc": 150.10695404099278,
+    "i_rms": 204.19252340177573,
+    "q_pack_kw": 2.6946330212101213,
+    "q_mot_kw": 1.8500827451785125,
+    "q_inv_kw": 0.960185632712184
+   },
+   "hist": [
+    [
+     5,
+     79.9,
+     30.9,
+     60.6,
+     54.1,
+     31.9
+    ],
+    [
+     10,
+     64.3,
+     35.9,
+     71.5,
+     58.6,
+     35.4
+    ],
+    [
+     15,
+     48.1,
+     39.5,
+     75.8,
+     61.1,
+     37.6
+    ],
+    [
+     20,
+     31.5,
+     42.1,
+     78.1,
+     62.7,
+     39.1
+    ],
+    [
+     25,
+     14.1,
+     44.4,
+     79.7,
+     64.0,
+     40.3
+    ]
+   ]
+  },
+  {
+   "mph": 125,
+   "t_amb": 38,
+   "minutes": 27.8,
+   "miles": 57.8,
+   "stop": "soc 5%",
+   "pack_c": 56.6,
+   "winding_c": 92.7,
+   "inverter_case_c": 76.6,
+   "coolant_c": 52.9,
+   "soc_end": 4.7,
+   "steady": {
+    "T": 69.42545795660375,
+    "n": 6024.338711543596,
+    "wheel_kw": 43.32499945650801,
+    "i_dc": 148.67850865703468,
+    "i_rms": 204.19252340177573,
+    "q_pack_kw": 2.1508603429506064,
+    "q_mot_kw": 1.8654570430229713,
+    "q_inv_kw": 0.960185632712184
+   },
+   "hist": [
+    [
+     5,
+     80.0,
+     42.9,
+     73.6,
+     66.8,
+     44.4
+    ],
+    [
+     10,
+     64.5,
+     47.5,
+     84.3,
+     70.9,
+     47.6
+    ],
+    [
+     15,
+     48.5,
+     50.8,
+     88.4,
+     73.2,
+     49.7
+    ],
+    [
+     20,
+     31.9,
+     53.1,
+     90.5,
+     74.7,
+     51.1
+    ],
+    [
+     25,
+     14.7,
+     55.2,
+     91.9,
+     75.9,
+     52.2
+    ]
+   ]
+  },
+  {
+   "mph": 130,
+   "t_amb": 25,
+   "minutes": 24.6,
+   "miles": 53.3,
+   "stop": "soc 5%",
+   "pack_c": 48.0,
+   "winding_c": 85.2,
+   "inverter_case_c": 67.8,
+   "coolant_c": 42.4,
+   "soc_end": 4.7,
+   "steady": {
+    "T": 74.76977679529362,
+    "n": 6261.861341223252,
+    "wheel_kw": 48.50453194974318,
+    "i_dc": 168.59900114593998,
+    "i_rms": 219.91110822145183,
+    "q_pack_kw": 3.2736120374321267,
+    "q_mot_kw": 2.0248723410236735,
+    "q_inv_kw": 1.0369609022700912
+   },
+   "hist": [
+    [
+     5,
+     78.1,
+     32.0,
+     63.9,
+     56.6,
+     32.6
+    ],
+    [
+     10,
+     60.4,
+     37.7,
+     76.0,
+     61.6,
+     36.6
+    ],
+    [
+     15,
+     42.2,
+     41.8,
+     80.8,
+     64.4,
+     39.0
+    ],
+    [
+     20,
+     23.2,
+     44.8,
+     83.4,
+     66.2,
+     40.7
+    ]
+   ]
+  },
+  {
+   "mph": 130,
+   "t_amb": 38,
+   "minutes": 24.8,
+   "miles": 53.6,
+   "stop": "soc 5%",
+   "pack_c": 58.3,
+   "winding_c": 97.3,
+   "inverter_case_c": 79.5,
+   "coolant_c": 54.0,
+   "soc_end": 4.8,
+   "steady": {
+    "T": 74.76977679529362,
+    "n": 6261.861341223252,
+    "wheel_kw": 48.50453194974318,
+    "i_dc": 166.51833593112804,
+    "i_rms": 219.91110822145183,
+    "q_pack_kw": 2.6055625882288256,
+    "q_mot_kw": 2.0425710778984802,
+    "q_inv_kw": 1.0369609022700912
+   },
+   "hist": [
+    [
+     5,
+     78.2,
+     43.8,
+     76.9,
+     69.2,
+     45.1
+    ],
+    [
+     10,
+     60.7,
+     48.9,
+     88.7,
+     73.8,
+     48.7
+    ],
+    [
+     15,
+     42.6,
+     52.7,
+     93.3,
+     76.4,
+     50.9
+    ],
+    [
+     20,
+     23.8,
+     55.4,
+     95.7,
+     78.1,
+     52.5
+    ]
+   ]
+  }
+ ],
+ "thermal_hot_small_radiator": {
+  "mph": 125,
+  "t_amb": 38,
+  "minutes": 27.8,
+  "miles": 57.8,
+  "stop": "soc 5%",
+  "pack_c": 62.0,
+  "winding_c": 99.0,
+  "inverter_case_c": 83.1,
+  "coolant_c": 59.7,
+  "soc_end": 4.9,
+  "steady": {
+   "T": 69.42545795660375,
+   "n": 6024.338711543596,
+   "wheel_kw": 43.32499945650801,
+   "i_dc": 147.8857882019072,
+   "i_rms": 204.19252340177573,
+   "q_pack_kw": 1.9212386348246369,
+   "q_mot_kw": 1.8734419340536426,
+   "q_inv_kw": 0.960185632712184
+  }
+ },
+ "op125": {
+  "motor_torque_nm": 69.4,
+  "motor_rpm": 6024,
+  "wheel_kw": 43.3,
+  "motor_shaft_kw": 43.8,
+  "i_rms": 204,
+  "i_dc": 130,
+  "bus_v": 361,
+  "motor_loss_kw": 1.85,
+  "inv_loss_kw": 0.96,
+  "pack_loss_kw": 1.69,
+  "cell_a": 11.8,
+  "cell_c_rate": 1.97,
+  "motor_i_vs_inverter_cont": 0.68,
+  "torque_vs_cont": 0.65,
+  "drivetrain_eff_pct": 92.4
+ },
+ "sag": [
+  {
+   "soc": 100,
+   "t_c": 25,
+   "ocv": 420,
+   "v_loaded_5500rpm": 378,
+   "torque_5500rpm": 216,
+   "p_mech_5500rpm_kw": 124.3,
+   "launch_torque": 220,
+   "launch_vbus": 416,
+   "i_dc_5500rpm": 350
+  },
+  {
+   "soc": 100,
+   "t_c": 5,
+   "ocv": 420,
+   "v_loaded_5500rpm": 343,
+   "torque_5500rpm": 216,
+   "p_mech_5500rpm_kw": 124.3,
+   "launch_torque": 220,
+   "launch_vbus": 414,
+   "i_dc_5500rpm": 386
+  },
+  {
+   "soc": 80,
+   "t_c": 25,
+   "ocv": 398,
+   "v_loaded_5500rpm": 353,
+   "torque_5500rpm": 216,
+   "p_mech_5500rpm_kw": 124.3,
+   "launch_torque": 220,
+   "launch_vbus": 394,
+   "i_dc_5500rpm": 375
+  },
+  {
+   "soc": 80,
+   "t_c": 5,
+   "ocv": 398,
+   "v_loaded_5500rpm": 318,
+   "torque_5500rpm": 208,
+   "p_mech_5500rpm_kw": 119.7,
+   "launch_torque": 220,
+   "launch_vbus": 392,
+   "i_dc_5500rpm": 400
+  },
+  {
+   "soc": 50,
+   "t_c": 25,
+   "ocv": 374,
+   "v_loaded_5500rpm": 324,
+   "torque_5500rpm": 211,
+   "p_mech_5500rpm_kw": 121.7,
+   "launch_torque": 220,
+   "launch_vbus": 370,
+   "i_dc_5500rpm": 400
+  },
+  {
+   "soc": 50,
+   "t_c": 5,
+   "ocv": 374,
+   "v_loaded_5500rpm": 290,
+   "torque_5500rpm": 190,
+   "p_mech_5500rpm_kw": 109.4,
+   "launch_torque": 220,
+   "launch_vbus": 367,
+   "i_dc_5500rpm": 400
+  },
+  {
+   "soc": 20,
+   "t_c": 25,
+   "ocv": 352,
+   "v_loaded_5500rpm": 295,
+   "torque_5500rpm": 193,
+   "p_mech_5500rpm_kw": 110.9,
+   "launch_torque": 220,
+   "launch_vbus": 347,
+   "i_dc_5500rpm": 400
+  },
+  {
+   "soc": 20,
+   "t_c": 5,
+   "ocv": 352,
+   "v_loaded_5500rpm": 316,
+   "torque_5500rpm": 149,
+   "p_mech_5500rpm_kw": 85.8,
+   "launch_torque": 220,
+   "launch_vbus": 343,
+   "i_dc_5500rpm": null
+  },
+  {
+   "soc": 10,
+   "t_c": 25,
+   "ocv": 340,
+   "v_loaded_5500rpm": 273,
+   "torque_5500rpm": 179,
+   "p_mech_5500rpm_kw": 103.0,
+   "launch_torque": 220,
+   "launch_vbus": 334,
+   "i_dc_5500rpm": 400
+  },
+  {
+   "soc": 10,
+   "t_c": 5,
+   "ocv": 340,
+   "v_loaded_5500rpm": 298,
+   "torque_5500rpm": 145,
+   "p_mech_5500rpm_kw": 83.3,
+   "launch_torque": 220,
+   "launch_vbus": 330,
+   "i_dc_5500rpm": null
+  },
+  {
+   "soc": 5,
+   "t_c": 25,
+   "ocv": 330,
+   "v_loaded_5500rpm": 253,
+   "torque_5500rpm": 166,
+   "p_mech_5500rpm_kw": 95.7,
+   "launch_torque": 220,
+   "launch_vbus": 323,
+   "i_dc_5500rpm": 400
+  },
+  {
+   "soc": 5,
+   "t_c": 5,
+   "ocv": 330,
+   "v_loaded_5500rpm": 282,
+   "torque_5500rpm": 140,
+   "p_mech_5500rpm_kw": 80.6,
+   "launch_torque": 220,
+   "launch_vbus": 318,
+   "i_dc_5500rpm": null
+  }
+ ],
+ "regen": [
+  {
+   "v0_mph": 70,
+   "kinetic_kwh": 0.0473,
+   "recovered_kwh": 0.0323,
+   "recovered_pct_of_ke": 68.1,
+   "time_s": 17.2,
+   "regen_peak_decel_g": 0.15
+  },
+  {
+   "v0_mph": 70,
+   "kinetic_kwh": 0.0473,
+   "recovered_kwh": 0.0355,
+   "recovered_pct_of_ke": 74.9,
+   "time_s": 11.1,
+   "regen_peak_decel_g": 0.25
+  },
+  {
+   "v0_mph": 70,
+   "kinetic_kwh": 0.0473,
+   "recovered_kwh": 0.0366,
+   "recovered_pct_of_ke": 77.4,
+   "time_s": 8.2,
+   "regen_peak_decel_g": 0.35
+  },
+  {
+   "v0_mph": 50,
+   "kinetic_kwh": 0.0242,
+   "recovered_kwh": 0.0172,
+   "recovered_pct_of_ke": 71.1,
+   "time_s": 12.9,
+   "regen_peak_decel_g": 0.15
+  },
+  {
+   "v0_mph": 50,
+   "kinetic_kwh": 0.0242,
+   "recovered_kwh": 0.0183,
+   "recovered_pct_of_ke": 75.6,
+   "time_s": 8.2,
+   "regen_peak_decel_g": 0.25
+  },
+  {
+   "v0_mph": 50,
+   "kinetic_kwh": 0.0242,
+   "recovered_kwh": 0.0185,
+   "recovered_pct_of_ke": 76.4,
+   "time_s": 6.0,
+   "regen_peak_decel_g": 0.35
+  },
+  {
+   "v0_mph": 30,
+   "kinetic_kwh": 0.0087,
+   "recovered_kwh": 0.0059,
+   "recovered_pct_of_ke": 68.3,
+   "time_s": 8.0,
+   "regen_peak_decel_g": 0.15
+  },
+  {
+   "v0_mph": 30,
+   "kinetic_kwh": 0.0087,
+   "recovered_kwh": 0.0061,
+   "recovered_pct_of_ke": 69.7,
+   "time_s": 5.0,
+   "regen_peak_decel_g": 0.25
+  },
+  {
+   "v0_mph": 30,
+   "kinetic_kwh": 0.0087,
+   "recovered_kwh": 0.0059,
+   "recovered_pct_of_ke": 68.2,
+   "time_s": 3.7,
+   "regen_peak_decel_g": 0.35
+  }
+ ],
+ "regen_cold_5C_70mph": {
+  "v0_mph": 70,
+  "kinetic_kwh": 0.0473,
+  "recovered_kwh": 0.0355,
+  "recovered_pct_of_ke": 74.9,
+  "time_s": 11.1,
+  "regen_peak_decel_g": 0.25
+ },
+ "regen_soc95_70mph": {
+  "v0_mph": 70,
+  "kinetic_kwh": 0.0473,
+  "recovered_kwh": 0.0307,
+  "recovered_pct_of_ke": 64.8,
+  "time_s": 14.9,
+  "regen_peak_decel_g": 0.25
+ },
+ "regen_max_torque_nm": 220,
+ "regen_peak_kw_at_5500rpm": 107.7
+}

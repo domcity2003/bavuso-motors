@@ -1,0 +1,30 @@
+id,domain,run,from_,to,gauge_mm2,wires,length_each_m,mass_kg,basis,note
+H01,HV,"Pack + to HV box (pyro, main +)",pack lid stud via MSD side,HV box,50,1,0.5,0.315,length estimate; kg/m supplier,"350 A peak, 180 A cont"
+H02,HV,"Pack - to HV box (shunt, main -)",pack rear stud,HV box,50,1,0.4,0.252,length estimate; kg/m supplier,same
+H03,HV,HV box to inverter DC+,HV box,CM200DX DC+,50,1,0.35,0.22,length estimate; kg/m supplier,same
+H04,HV,HV box to inverter DC-,HV box,CM200DX DC-,50,1,0.35,0.22,length estimate; kg/m supplier,same
+H05,HV,Motor phases U V W,CM200DX,EMRAX 228 terminals,50,3,0.4,0.756,length estimate; kg/m supplier,"650 A rms peak, 300 A rms cont; phases must stay short"
+H06,HV,"Inlet to HV box, DC+/L1",NACS inlet,HV box charge contactors / AC relays,35,1,0.8,0.368,length estimate; kg/m estimate,DC charge <=150 A; AC 14-28 A on the same pin
+H07,HV,"Inlet to HV box, DC-/L2",NACS inlet,HV box,35,1,0.8,0.368,length estimate; kg/m estimate,same
+H08,HV,AC relays to onboard charger,HV box,OBC AC in,4,2,0.5,0.1,length estimate; kg/m estimate,28 A max at 6.6 kW
+H09,HV,OBC DC out to pack bus,OBC,HV box,4,2,0.5,0.1,length estimate; kg/m estimate,<=20 A
+H10,HV,DC-DC HV input,HV box,DC-DC,2.5,2,0.5,0.075,length estimate; kg/m estimate,10 A fuse
+H11,HV,Coolant PTC heater,HV box,heater,2.5,2,0.5,0.075,length estimate; kg/m estimate,15 A fuse
+H12,HV,"Bonding straps, housings to frame",8 HV housings,frame,6b,8,0.3,0.144,length estimate; kg/m estimate,<0.1 ohm
+H13,HV,"Connectors: 12 PowerLok-300 class halves, 14 small shielded halves, 8 lugs",,,,,,2.24,estimate (PowerLok half 0.12 kg from prior BOM),conduit/sleeve included below
+H14,HV,"Orange conduit, clips, glands (10% of cable)",,,,,,0.3,estimate,
+L01,LV,12 V battery + to power unit (100 A fuse),battery,PDU,10,1,0.5,0.055,estimate,
+L02,LV,12 V battery - to chassis,battery,frame,10,1,0.4,0.044,estimate,
+L03,LV,DC-DC 12 V out to PDU (80 A fuse),DC-DC,PDU,10,1,0.9,0.099,estimate,800 W / 12.5 V = 64 A
+L04,LV,ABS pump and valve feed,PDU,ABS unit,4,2,0.8,0.072,estimate,30 A
+L05,LV,"Front trunk: headlamp, DRL, dash, switch cubes, horn, ABS front sensor, grips",PDU,front end,0.5,18,2.2,0.257,estimate,
+L06,LV,"Rear trunk: tail, brake, indicators, plate, ABS rear sensor, TPMS",PDU,tail,0.5,14,1.6,0.146,estimate,
+L07,LV,Cooling: pump + fan power,PDU,"pump, fan",1.0,4,1.0,0.05,estimate,
+L08,LV,"HV box control: coils, precharge, pyro firing, HVIL, shunt CAN",PDU,HV box,0.5,16,0.9,0.094,estimate,
+L09,LV,"Inlet: latch, lamp, 2 pin NTCs, CP/PP",PDU / EVCC,inlet,0.5,10,1.2,0.078,estimate,
+L10,LV,"CAN1 powertrain (twisted pair + shield, 3 m, 8 nodes)",bus,bus,0.35,3,3.0,0.045,estimate,"120 ohm terminations at the two ends, stubs <0.3 m"
+L11,LV,"CAN2 chassis (twisted pair + shield, 4 m, 8 nodes)",bus,bus,0.35,3,4.0,0.06,estimate,
+L12,LV,Keyless LF antennas + telematics antennas,modules,antennas,0.5,8,0.8,0.042,estimate,coax allowance included at 8 x 0.8 m
+L13,LV,Heated grips,PDU,grips,1.5,4,1.2,0.084,estimate,
+L14,LV,"Pack: BMS sense wires (100 x 22 AWG, 0.9 m avg), thermistors",pack,BMS,0.35,160,0.9,0.72,estimate,inside the pack; counted with pack internals
+L15,LV,"Connectors (TE DT/DTM class), seals, loom, tape, clips (80% of wire; matches the 2.08 kg LV ledger line)",,,,,,0.9,estimate,

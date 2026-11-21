@@ -17,6 +17,10 @@ A 400 lb bike and 200 mi at 70 mph do not both close with today's cells, so **th
 
 Read the independent review first: `v1.0/Bavuso-V1.0-Concept-Freeze-Review.pdf`, which reviewed git 5f451ef. Earlier budget work is in `research/range-weight-budget.md`.
 
+**Framing for the final write-up (owner's request):**
+- Say plainly that V1 is a deliberate compromise. The owner gave up the original under-400 lb and 200-mile goals for a buildable 240 kg, about 150-mile bike.
+- Present it as a V1 with a planned improvement path: better cells, lower drag, lighter chassis, and later a two-up variant.
+
 ## Where things are
 - **Repo root:** `C:\Users\DomBa\DOM\5_Projects\Bavuso Motors`. Work from `v1.0`.
   - **Never commit, push or change git state.** The program lead does that.

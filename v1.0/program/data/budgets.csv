@@ -1,0 +1,11 @@
+budget_group,systems,budget_kg,set_by,date
+Battery pack,ENG,103,Gate A (T2: pack <= 103 kg),2026-11-21
+Chassis,CHS,18,Gate A (frame; swingarm; subframe; shock mount),2026-11-21
+Running gear,RUN,37,Gate A (fork; shock; wheels; tyres; brakes; ABS; controls; stand),2026-11-21
+Drive,DRV,23,Gate A (motor; inverter; belt; pulleys),2026-11-21
+Electronics,ELC,18,Gate A (charger; DC-DC; BMS; junction box; VCU; lights; display),2026-11-21
+Body and protection,BOD;PRO,15,Gate A,2026-11-21
+Cooling,THM,6,Gate A,2026-11-21
+"Wiring, fasteners, fluids",ALW,11,Gate A,2026-11-21
+MARGIN,,9,Gate A (5% growth margin held back; not a system),2026-11-21
+TOTAL,,240,Gate A (T1: wet mass ready to ride <= 240 kg including the margin),2026-11-21

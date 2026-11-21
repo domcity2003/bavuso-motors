@@ -1,0 +1,48 @@
+item,group,kg,x_mm,y_mm,height_mm,unsprung,source,method,note
+Cells_block_A,Energy,41.25,860,-60,425,,supplier,slot,75 g max per cell: https://www.molicel.com/wp-content/uploads/Product-Data-Sheet-of-INR-21700-P60B_80145.pdf ; 1100 cells = Gate A T2 [slot total 82.500 kg split by volume over 2 solids]
+Cells_block_B,Energy,41.25,860,60,425,,supplier,slot,75 g max per cell: https://www.molicel.com/wp-content/uploads/Product-Data-Sheet-of-INR-21700-P60B_80145.pdf ; 1100 cells = Gate A T2 [slot total 82.500 kg split by volume over 2 solids]
+Traction_motor_EMRAX228,Drive,13.2,300,0,420,,supplier,slot,v1.0/sources/EMRAX-228-datasheet-v1.7.pdf (local copy of emrax.com datasheet): published 12.9-13.5 kg; 13.2 per hardware-shortlist.csv
+Pack_case_4mm,Energy,10.53,860,0,425,,CAD,vol,"4 mm aluminium structural case, CAD volume"
+"Pack internals: electrical (busbars, fuse collectors, films, NTCs, tap harness)",Allowance,7.26,860,0,425,,CAD,allow,electrical-bom.csv excl. BMS (03-mass-ledger.md)
+"Pack internals: thermal (ribbons, manifolds, fire-barrier foam, vent)",Allowance,6.19,860,0,425,,CAD,allow,thermal-study.md (03-mass-ledger.md)
+"Coolant, hoses, sensors (3.9 L glycol 4.19 + hoses 0.95 + sensors 0.10)",Allowance,5.24,880,0,600,,estimate,allow,thermal-study.md sized-parts table; single-loop V1 may need less (shortlist 1.6)
+Tyre_rear_150_70R17,Running,5.2,0,0,312,R1.0,estimate,slot,hardware-shortlist.csv (class reference parts-register.csv)
+Wheel_rear,Running,4.2,0,0,312,R1.0,estimate,slot,hardware-shortlist.csv; no maker publishes wheel mass
+Tyre_front_110_80R19,Running,3.9,1487,0,325,F1.0,estimate,slot,hardware-shortlist.csv (class reference parts-register.csv)
+HV cables and lugs,Allowance,3.72,640,0,520,,CAD,allow,electrical-bom.csv: 2.12 cable + 1.20 connectors + 0.40 lugs; shortlist hopes 1.5 with shorter runs
+Inverter_main,Drive,3.5,640,0,520,,estimate,slot,datasheet lists 2.2 kg; 3.5 kg planning mass with connectors and cold plate (hardware-shortlist.csv). https://git.fasttube.de/FaSTTUBe/scruti-documents/raw/branch/main/electrical-scrutineering/Inverter%20emDrive%20H100.pdf
+Fork_leg_L,Running,3.4,1450,-100,600,F0.4,estimate,slot,hardware-shortlist.csv; makers do not publish fork mass [slot total 6.800 kg split by volume over 2 solids]
+Fork_leg_R,Running,3.4,1450,100,600,F0.4,estimate,slot,hardware-shortlist.csv; makers do not publish fork mass [slot total 6.800 kg split by volume over 2 solids]
+Wheel_front,Running,3.4,1487,0,325,F1.0,estimate,slot,hardware-shortlist.csv; no maker publishes wheel mass
+Charger_OBC_3p3kW,Elec,3.0,640,0,560,,supplier,slot,catalogue max 3 kg: detailed-design/electrical/electrical-bom.csv; components-electrical.csv V1-E007; https://www.brogenmotors.com/wp-content/uploads/2024/06/Requirement_SheetOBC.pdf
+"Ohlins STX 46 / TTX class direct-mount mono-shock, remote reservoir [NOT IN CAD: from supplier table]",Allowance,3.0,540,0,500,R0.5,estimate,slotfill,hardware-shortlist.csv; https://www.ohlins.eu/en/products/motorcycle/kt-122--4458/
+Fasteners (titanium where visible),Allowance,3.0,750,0,600,,estimate,allow,allowance; covers all bolts
+"single HV box: 4 x GX14 contactors, precharge, fuse, busbars [NOT IN CAD: from supplier table]",Allowance,2.7,640,0,540,,estimate,slotfill,GX14 0.45 kg each (1.8) + box 0.6 + fuse and precharge 0.3 (hardware-shortlist.csv); https://www.digikey.fr/en/products/detail/sensata-gigavac-clean-energy/GX14CBB/17867714
+rear pulley 80T [NOT IN CAD: from supplier table],Allowance,2.1,0,-95,312,R1.0,estimate,slotfill,hardware-shortlist.csv (reduction REC)
+"VCU, distribution box, keyless, HVIL bonding",Allowance,2.1,1200,0,880,,CAD,allow,electrical-bom.csv: VCU 0.40 + distribution 1.15 + keyless 0.25 + bonding 0.30
+LV wiring harness,Allowance,2.08,760,0,700,,CAD,allow,electrical-bom.csv 2.4 kg minus modelled bar-harness legs 0.32
+Body brackets and fixings,Allowance,2.0,850,0,700,,estimate,allow,allowance; no BOM count exists
+NACS_inlet_J3400,Elec,1.6,1000,120,850,,supplier,slot,inlet 1.3 kg + 0.3 kg lid: https://www.volex.com/media/z3rmrwl5/volex-nacs-ev-charging-inlet.pdf
+BMS_master,Elec,1.5,760,0,640,,estimate,slot,Ledger estimate for the lightened board set; original unit 2.4 kg. https://www.orionbms.com/downloads/documents/orionbms2_specifications.pdf
+0.8 kW HV-to-12 V DC-DC converter (single unit) [NOT IN CAD: from supplier table],Allowance,1.2,640,0,620,,estimate,slotfill,hardware-shortlist.csv (REC); 12 V loads about 300-500 W peak
+Nose subframe and headlamp brackets,Allowance,1.15,1330,0,900,,estimate,allow,allowance; dash bracket is Display_mount (modelled)
+Bosch_ABS_module,Running,1.1,700,0,760,,estimate,slot,ABS 9 hydraulic unit 0.65 kg (Bosch datasheet https://www.bosch.co.jp/tms2015/en/products/pdf/2WP_ProductDataSheet_ABS9_base_plus_EN_lowres_20151030.pdf); ABS 10 about 0.45 (estimate) + sensors 0.2 + lines 0.45
+"Rear axle, spacers, adjusters",Allowance,1.0,0,0,312,R1.0,estimate,allow,allowance
+"Paint, decals, rubber, misc",Allowance,1.0,800,0,650,,estimate,allow,allowance
+Brake_disc_front_L,Running,0.95,1487,-90,325,F1.0,estimate,slot,hardware-shortlist.csv
+Brake_disc_front_R,Running,0.95,1487,90,325,F1.0,estimate,slot,hardware-shortlist.csv
+12 V lithium battery,Allowance,0.9,300,0,720,,supplier,allow,Shorai LFX14A4-BS12 (electrical-bom.csv)
+Brake_disc_rear,Running,0.85,0,69,312,R1.0,estimate,slot,hardware-shortlist.csv
+Rear brake pedal and master cylinder,Allowance,0.7,520,200,430,,estimate,allow,allowance
+Brake_caliper_front_L,Running,0.625,1487,-90,325,F1.0,supplier,slot,0.625 kg without pads: https://www.bremboparts.com/africa/en/catalogue-bike/caliper/220D02010
+Brembo Stylema 220D02010 caliper [NOT IN CAD: from supplier table],Allowance,0.625,1487,0,325,F1.0,supplier,slotfill,0.625 kg without pads: https://www.bremboparts.com/africa/en/catalogue-bike/caliper/220D02010
+Swingarm pivot bolt and hardware,Allowance,0.6,540,0,390,R0.5,estimate,allow,allowance
+Gates 14 mm carbon belt [NOT IN CAD: from supplier table],Allowance,0.5,280,-95,330,R0.5,estimate,slotfill,"drive-study.md; Gates publishes belt mass, confirm"
+motor pulley 21T [NOT IN CAD: from supplier table],Allowance,0.5,200,0,420,,estimate,slotfill,hardware-shortlist.csv (reduction REC)
+front disc carrier [NOT IN CAD: from supplier table],Allowance,0.5,1487,0,325,F1.0,estimate,slotfill,hardware-shortlist.csv
+Brembo P34-class 2-piston rear caliper [NOT IN CAD: from supplier table],Allowance,0.45,0,0,312,R1.0,estimate,slotfill,hardware-shortlist.csv
+ADVANTICS ADM-CS-EVCC charge controller [NOT IN CAD: from supplier table],Allowance,0.3,1200,0,880,,estimate,slotfill,hardware-shortlist.csv (BOM figure 0.2 kg)
+rear caliper bracket [NOT IN CAD: from supplier table],Allowance,0.3,0,0,312,R1.0,estimate,slotfill,hardware-shortlist.csv
+"Steering bearings, stem nut",Allowance,0.3,1190,0,860,,estimate,allow,allowance; damper is modelled
+Front axle spacers,Allowance,0.15,1487,0,325,F1.0,estimate,allow,allowance; axle is in the fork feet
+rear disc carrier [NOT IN CAD: from supplier table],Allowance,0.1,0,0,312,R1.0,estimate,slotfill,hardware-shortlist.csv

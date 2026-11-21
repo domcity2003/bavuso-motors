@@ -1,0 +1,420 @@
+{
+ "winding_table": [
+  {
+   "winding": "HV",
+   "v_loaded": 300.0,
+   "torque_low_speed": 220.0,
+   "corner_rpm": 1900,
+   "peak_kw": 47.3,
+   "peak_kw_at_rpm": 6500,
+   "current_rms": 235
+  },
+  {
+   "winding": "HV",
+   "v_loaded": 330.0,
+   "torque_low_speed": 220.0,
+   "corner_rpm": 2100,
+   "peak_kw": 52.3,
+   "peak_kw_at_rpm": 6500,
+   "current_rms": 235
+  },
+  {
+   "winding": "HV",
+   "v_loaded": 360.0,
+   "torque_low_speed": 220.0,
+   "corner_rpm": 2300,
+   "peak_kw": 57.2,
+   "peak_kw_at_rpm": 6500,
+   "current_rms": 235
+  },
+  {
+   "winding": "MV",
+   "v_loaded": 300.0,
+   "torque_low_speed": 220.0,
+   "corner_rpm": 3100,
+   "peak_kw": 77.1,
+   "peak_kw_at_rpm": 6500,
+   "current_rms": 360
+  },
+  {
+   "winding": "MV",
+   "v_loaded": 330.0,
+   "torque_low_speed": 220.0,
+   "corner_rpm": 3400,
+   "peak_kw": 85.0,
+   "peak_kw_at_rpm": 6500,
+   "current_rms": 360
+  },
+  {
+   "winding": "MV",
+   "v_loaded": 360.0,
+   "torque_low_speed": 220.0,
+   "corner_rpm": 3800,
+   "peak_kw": 92.9,
+   "peak_kw_at_rpm": 6500,
+   "current_rms": 360
+  },
+  {
+   "winding": "LV",
+   "v_loaded": 300.0,
+   "torque_low_speed": 177.6,
+   "corner_rpm": 6500,
+   "peak_kw": 120.9,
+   "peak_kw_at_rpm": 6500,
+   "current_rms": 740
+  },
+  {
+   "winding": "LV",
+   "v_loaded": 330.0,
+   "torque_low_speed": 177.6,
+   "corner_rpm": 6500,
+   "peak_kw": 120.9,
+   "peak_kw_at_rpm": 6500,
+   "current_rms": 740
+  },
+  {
+   "winding": "LV",
+   "v_loaded": 360.0,
+   "torque_low_speed": 177.6,
+   "corner_rpm": 6500,
+   "peak_kw": 120.9,
+   "peak_kw_at_rpm": 6500,
+   "current_rms": 740
+  },
+  {
+   "winding": "LV+43%",
+   "v_loaded": 300.0,
+   "torque_low_speed": 220.0,
+   "corner_rpm": 5100,
+   "peak_kw": 126.7,
+   "peak_kw_at_rpm": 6500,
+   "current_rms": 650
+  },
+  {
+   "winding": "LV+43%",
+   "v_loaded": 330.0,
+   "torque_low_speed": 220.0,
+   "corner_rpm": 5600,
+   "peak_kw": 135.3,
+   "peak_kw_at_rpm": 6500,
+   "current_rms": 650
+  },
+  {
+   "winding": "LV+43%",
+   "v_loaded": 360.0,
+   "torque_low_speed": 220.0,
+   "corner_rpm": 6200,
+   "peak_kw": 142.4,
+   "peak_kw_at_rpm": 6500,
+   "current_rms": 650
+  },
+  {
+   "winding": "LV+100%",
+   "v_loaded": 300.0,
+   "torque_low_speed": 216.2,
+   "corner_rpm": 3600,
+   "peak_kw": 92.9,
+   "peak_kw_at_rpm": 6500,
+   "current_rms": 460
+  },
+  {
+   "winding": "LV+100%",
+   "v_loaded": 330.0,
+   "torque_low_speed": 216.2,
+   "corner_rpm": 4000,
+   "peak_kw": 101.7,
+   "peak_kw_at_rpm": 6500,
+   "current_rms": 460
+  },
+  {
+   "winding": "LV+100%",
+   "v_loaded": 360.0,
+   "torque_low_speed": 216.2,
+   "corner_rpm": 4400,
+   "peak_kw": 110.0,
+   "peak_kw_at_rpm": 6500,
+   "current_rms": 460
+  },
+  {
+   "winding": "HV+42%",
+   "v_loaded": 300.0,
+   "torque_low_speed": 219.4,
+   "corner_rpm": 1200,
+   "peak_kw": 31.3,
+   "peak_kw_at_rpm": 6500,
+   "current_rms": 165
+  },
+  {
+   "winding": "HV+42%",
+   "v_loaded": 330.0,
+   "torque_low_speed": 219.4,
+   "corner_rpm": 1300,
+   "peak_kw": 34.6,
+   "peak_kw_at_rpm": 6500,
+   "current_rms": 165
+  },
+  {
+   "winding": "HV+42%",
+   "v_loaded": 360.0,
+   "torque_low_speed": 219.4,
+   "corner_rpm": 1500,
+   "peak_kw": 37.9,
+   "peak_kw_at_rpm": 6500,
+   "current_rms": 165
+  }
+ ],
+ "inverter": {
+  "rows": [
+   {
+    "part": "Cascadia CM200DX",
+    "v_range": "200-480 V op, 500 V trip",
+    "i_cont": 300,
+    "i_peak": 740,
+    "kg": 6.75,
+    "v_ok": 1.0,
+    "i_ok": true,
+    "source": "cascadiamotion.com/cm-200 (fetched Nov 21, 2026)"
+   },
+   {
+    "part": "Emsiso emDrive H100 150/450 (shortlist pick)",
+    "v_range": "not published in anything fetched",
+    "i_cont": 150,
+    "i_peak": 450,
+    "kg": 2.2,
+    "v_ok": null,
+    "i_ok": false,
+    "source": "datasheet host blocked automated download (bot wall); not on the Poclain catalogue page"
+   },
+   {
+    "part": "Poclain emDrive H20B 400 V class",
+    "v_range": "12-420 V",
+    "i_cont": 260,
+    "i_peak": 400,
+    "kg": null,
+    "v_ok": 0.0,
+    "i_ok": false,
+    "source": "poclain.com/electrification/emdrive-inverters"
+   }
+  ],
+  "v_full": 420.0,
+  "v_regen_max": 431.958552556672,
+  "v_low_5soc_400A": 253.47049910382498,
+  "motor_peak_arms": 650,
+  "motor_cont_arms_lc": 330,
+  "inverter_cont_arms": 300,
+  "cont_torque_nm_inverter_limited": 107.3
+ },
+ "ratio_sweep": [
+  {
+   "G": 3.2,
+   "zero_60": 4.45,
+   "rpm_130mph": 5566,
+   "top_mph_at_6500rpm": 151.8
+  },
+  {
+   "G": 3.4,
+   "zero_60": 4.19,
+   "rpm_130mph": 5914,
+   "top_mph_at_6500rpm": 142.9
+  },
+  {
+   "G": 3.5,
+   "zero_60": 4.06,
+   "rpm_130mph": 6088,
+   "top_mph_at_6500rpm": 138.8
+  },
+  {
+   "G": 3.6,
+   "zero_60": 3.95,
+   "rpm_130mph": 6262,
+   "top_mph_at_6500rpm": 134.9
+  },
+  {
+   "G": 3.7,
+   "zero_60": 3.84,
+   "rpm_130mph": 6436,
+   "top_mph_at_6500rpm": 131.3
+  },
+  {
+   "G": 3.8,
+   "zero_60": 3.74,
+   "rpm_130mph": 6610,
+   "top_mph_at_6500rpm": 127.8
+  },
+  {
+   "G": 3.9,
+   "zero_60": 3.64,
+   "rpm_130mph": 6784,
+   "top_mph_at_6500rpm": 124.6
+  }
+ ],
+ "belt_checks": [
+  {
+   "rpm": 500,
+   "belt_speed_fpm": 459,
+   "design_hp": 23.2,
+   "rated_hp": 35.7,
+   "margin": 1.54,
+   "extrapolated": false
+  },
+  {
+   "rpm": 1000,
+   "belt_speed_fpm": 919,
+   "design_hp": 46.3,
+   "rated_hp": 67.7,
+   "margin": 1.46,
+   "extrapolated": false
+  },
+  {
+   "rpm": 1750,
+   "belt_speed_fpm": 1607,
+   "design_hp": 81.1,
+   "rated_hp": 115.7,
+   "margin": 1.43,
+   "extrapolated": false
+  },
+  {
+   "rpm": 3000,
+   "belt_speed_fpm": 2756,
+   "design_hp": 139.0,
+   "rated_hp": 186.9,
+   "margin": 1.34,
+   "extrapolated": false
+  },
+  {
+   "rpm": 4000,
+   "belt_speed_fpm": 3674,
+   "design_hp": 185.4,
+   "rated_hp": 257.7,
+   "margin": 1.39,
+   "extrapolated": false
+  },
+  {
+   "rpm": 5000,
+   "belt_speed_fpm": 4593,
+   "design_hp": 231.7,
+   "rated_hp": 311.6,
+   "margin": 1.35,
+   "extrapolated": true
+  },
+  {
+   "rpm": 5500,
+   "belt_speed_fpm": 5052,
+   "design_hp": 249.4,
+   "rated_hp": 337.0,
+   "margin": 1.35,
+   "extrapolated": true
+  },
+  {
+   "rpm": 6000,
+   "belt_speed_fpm": 5511,
+   "design_hp": 249.4,
+   "rated_hp": 359.1,
+   "margin": 1.44,
+   "extrapolated": true
+  },
+  {
+   "rpm": 6500,
+   "belt_speed_fpm": 5971,
+   "design_hp": 249.4,
+   "rated_hp": 380.2,
+   "margin": 1.52,
+   "extrapolated": true
+  }
+ ],
+ "alt_36mm_torque_cap": [
+  {
+   "rpm": 1750,
+   "max_motor_torque_at_SF": 182.5
+  },
+  {
+   "rpm": 4000,
+   "max_motor_torque_at_SF": 165.7
+  },
+  {
+   "rpm": 5500,
+   "max_motor_torque_at_SF": 156.9
+  }
+ ],
+ "tensions": {
+  "peak_torque_SF1": {
+   "te_N": 4936.788455641104,
+   "tst_N": 3048.742264079017,
+   "tt_N": 6227.734830211545,
+   "ts_N": 1290.9463745704415,
+   "pull_N": 7421.704712746365,
+   "centrifugal_each_N": 56.74926066016571
+  },
+  "design_SF1.5_corner": {
+   "te_N": 7405.182683461655,
+   "tst_N": 4678.7300756805,
+   "tt_N": 9447.218924879291,
+   "ts_N": 2042.0362414176373,
+   "pull_N": 11336.946806757644,
+   "centrifugal_each_N": 190.7405705522236
+  },
+  "design_SF1.5_launch": {
+   "te_N": 7405.182683461655,
+   "tst_N": 4489.565873479947,
+   "tt_N": 9258.05472267874,
+   "ts_N": 1852.8720392170849,
+   "pull_N": 10970.92949288472,
+   "centrifugal_each_N": 1.5763683516712699
+  },
+  "regen_peak_SF1": {
+   "te_N": 4936.788455641104,
+   "tst_N": 3048.742264079017,
+   "tt_N": 6227.734830211545,
+   "ts_N": 1290.9463745704415,
+   "pull_N": 7421.704712746365,
+   "centrifugal_each_N": 56.74926066016571
+  },
+  "continuous_118Nm_5500rpm": {
+   "te_N": 2647.9138080256826,
+   "tst_N": 1795.5368178405158,
+   "tt_N": 3500.6328305843267,
+   "ts_N": 852.7190225586443,
+   "pull_N": 4291.121257734804,
+   "centrifugal_each_N": 190.7405705522236
+  }
+ },
+ "pulleys": {
+  "z_motor": 35,
+  "z_rear": 126,
+  "ratio": 3.6,
+  "pitch_mm": 8.0,
+  "belt": "Gates Poly Chain GT Carbon 8MGT-1760-62 (220 teeth, 62 mm)",
+  "belt_length_mm": 1760,
+  "pd_motor_mm": 89.13,
+  "pd_rear_mm": 320.86,
+  "od_motor_mm": 87.7,
+  "od_rear_mm": 319.5,
+  "flange_od_motor_mm": 99.7,
+  "flange_od_rear_mm": 331.5,
+  "center_distance_nominal_mm": 545.87,
+  "cad_center_distance_mm": 545.62,
+  "arc_small_deg": 155.5,
+  "teeth_in_mesh_small": 15.1,
+  "belt_speed_6500rpm_fpm": 5971,
+  "belt_speed_limit_fpm": 6500,
+  "sf": 1.5,
+  "min_capacity_margin": 1.34,
+  "mass_kg": {
+   "belt": 0.5,
+   "pulley_motor": 0.46,
+   "pulley_rear": 1.87
+  },
+  "install_tension_per_span_N": 3049,
+  "install_deflection_note": "Gates formula 14 at peak torque, SF 1.0; measure with sonic tension meter; Table 11 minimum 645 N (145 lbf)",
+  "belt_line_deg": 8.23,
+  "half_span_angle_deg": 12.25
+ },
+ "gearing": {
+  "G": 3.6,
+  "rpm_125mph": 6024,
+  "rpm_130mph": 6262,
+  "top_mph_rpm_limited": 134.9,
+  "r_eff_low": 0.3145,
+  "r_eff_130": 0.319
+ }
+}

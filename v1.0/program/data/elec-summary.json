@@ -1,0 +1,30 @@
+{
+ "electronics_E_kg": 18.36,
+ "electronics_budget_kg": 18.0,
+ "electronics_E_usd_proto": 9345,
+ "electronics_E_usd_10k": 3614,
+ "inverter_D_kg": 6.75,
+ "inverter_usd_10k": 1300,
+ "pack_electrical_P_kg": 5.92,
+ "pack_electrical_usd_10k": 460,
+ "HV_cable_kg": 5.53,
+ "LV_harness_kg": 2.03,
+ "wiring_W_kg": 7.56,
+ "wiring_budget_kg": 11.0,
+ "wiring_usd_10k": 500,
+ "hv_cable_total_m": 8.4,
+ "lv": {
+  "riding_night_W": 259,
+  "dc_charging_W": 163,
+  "peak_1s_W": 696,
+  "dcdc_rating_W": 800,
+  "dcdc_usable_W_at_50C_derate": 720.0000000000001,
+  "margin_over_riding_pct": 178,
+  "battery_assist_A_at_peak": 0.0,
+  "battery": "LiFePO4 4.5 Ah, 59 Wh, 0.9 kg (Shorai LFX14A4 class, supplier)",
+  "limp_home_min_on_essentials": 28,
+  "standby_days_15mA": 8.8
+ },
+ "electronics_E_minus_inlet_evcc_12Vbatt_kg": 15.56,
+ "total_electrical_usd_10k_all_buckets": 5874
+}
