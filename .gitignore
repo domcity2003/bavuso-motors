@@ -42,3 +42,7 @@ v1.0/detailed-design/structures/run/*.npz
 v1.0/detailed-design/structures/run/*.dat
 v1.0/detailed-design/structures/run/*.cvg
 v1.0/detailed-design/structures/run/*.sta
+
+# V1 program scratch runs
+v1.0/program/data/run/
+v1.0/program/**/run/
