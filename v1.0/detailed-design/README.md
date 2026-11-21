@@ -17,6 +17,6 @@ These are the engineering studies behind the adventure model (`cad/Bavuso-V1.0-a
 
 **Rider ergonomics** is covered in `../comfort-study.md` and `../rider-fit.json`.
 
-**Geometry has moved since these studies ran.** The November 14 comfort change pulled the upper rails in, lowered the seat and re-sectioned the shock bridge. The FEA should be re-run on the new frame; `structural-fea.md` lists what changed. The aero runs used the November 12 model.
+**Geometry has moved since these studies ran.** The November 14 comfort change pulled the upper rails in, lowered the seat and re-sectioned the shock bridge. The November 20 waist change pulled the rail joint in again, to ±125. The FEA should be re-run on the new frame; `structural-fea.md` lists what changed. The aero runs used the November 12 model.
 
-**Build status (Nov 15):** 61 of 62 clearance checks pass, and the mass is 327.0 kg. The one open check is the lower battery cover 1.99 mm from the pack, against a 5 mm target.
+**Build status (Nov 20):** 61 of 62 clearance checks pass, and the mass is 326.7 kg. The one open check is the lower battery cover 1.99 mm from the pack, against a 5 mm target.

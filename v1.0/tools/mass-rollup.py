@@ -117,6 +117,7 @@ RULES=[
  ('Lower_body_battery_covers_STUDY','vol',PLASTIC,None,'C','3 mm painted panel'),
  ('Motor_side_covers_STUDY','vol',PLASTIC,None,'C','3 mm panel'),
  ('Tail_side_panels_STUDY','vol',PLASTIC,None,'C','3 mm panel'),
+ ('Waist_ledge_plates','vol',PLASTIC,None,'C','3 mm closing plates under the thighs'),
  ('Battery_side_panel_*','vol',ALU,None,'C','proud bolted aluminium panel'),
  ('Belly_side_panel_*','vol',ALU,None,'C','proud bolted aluminium panel'),
  ('Belly_skid_plate_STUDY','vol',ALU,None,'C','4 mm aluminium skid plate'),

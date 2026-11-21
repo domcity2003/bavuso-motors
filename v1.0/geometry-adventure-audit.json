@@ -158,8 +158,8 @@
   "spec_envelopes": [
     "IPM motor + 2-stage gear case (drive-study.md)"
   ],
-  "solid_objects": 188,
-  "total_solids": 1287,
+  "solid_objects": 189,
+  "total_solids": 1291,
   "cell_count": 594,
   "all_cell_points_inside_inner_case": true,
   "critical_pair_checks": [
@@ -221,7 +221,7 @@
     },
     {
       "check": "frame_vs_rear_bump",
-      "gap_mm": 22.22,
+      "gap_mm": 21.76,
       "overlap_mm3": 0.0,
       "required_mm": 20,
       "passed": true
@@ -319,7 +319,7 @@
     },
     {
       "check": "tail_vs_rear_bump",
-      "gap_mm": 25.14,
+      "gap_mm": 28.21,
       "overlap_mm3": 0.0,
       "required_mm": 20,
       "passed": true
@@ -495,7 +495,7 @@
     },
     {
       "check": "shock_vs_frame",
-      "gap_mm": 112.78,
+      "gap_mm": 96.98,
       "overlap_mm3": 0.0,
       "required_mm": 10,
       "passed": true
@@ -615,12 +615,12 @@
     {
       "a": "Lower_body_battery_covers_STUDY",
       "b": "Radiator_core_m1",
-      "overlap_mm3": 11.7
+      "overlap_mm3": 10.4
     },
     {
       "a": "Lower_body_battery_covers_STUDY",
       "b": "Radiator_core_1",
-      "overlap_mm3": 11.7
+      "overlap_mm3": 10.4
     },
     {
       "a": "Hand_grip_reserve_m1",

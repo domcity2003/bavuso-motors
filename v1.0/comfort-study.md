@@ -197,3 +197,40 @@ Sources:
 - [Lundin et al., rider posture variability, Traffic Injury Prevention 2024](https://research.chalmers.se/en/publication/541710). Downloaded, but the text layer could not be read here.
 - [BMW R1300GS technical data](https://www.bmwmotorcycles.com/en/models/adventure/r1300gs/technicaldata.html): 850 mm seat height
 - Segment-length fractions: Drillis & Contini, as tabulated in Winter, *Biomechanics and Motor Control of Human Movement*
+
+## Update, November 20, 2026: narrower waist and knee pocket
+
+*Claude Opus 5.5 (claude-opus-5-5), November 20, 2026, US Central.*
+
+**Plain answer:** the bike is now narrower right where your thighs come off the seat front. There is also a scooped pocket for the knees. Mid-thigh contact with the bodywork went from 53–71 mm (deep) to 22–27 mm, which riding gear and soft tissue take up.
+
+**Why it was needed:** the frame rails and covers were at ±217 mm right under the thighs, wrapped around empty space. The battery's top steps down toward the rear (Z573 at X720, Z258 at X600). That left room to bring everything in and down.
+
+**What changed:**
+- **Upper rail front joint** pulled in to Y ±125 (310 mm across the tubes; was ±152, originally ±195). The tail rails now taper from there to ±104 at the tail.
+- **Waist under the seat front:** 356 mm wide (Nov 14: 376; before: 450).
+- **Side covers:** they now stop at Z590 under the thighs. From X615 they drop to Z530, forming a knee pocket behind the battery's stepped top. The narrower tail panels come down to meet them, and 3 mm ledge plates close the top between the two.
+- **Moved to clear the narrower rails:**
+  - the 4-port coolant valve and oil cooler;
+  - the HV junction box (now 187 mm wide);
+  - the 5 kW PTC heater, now stood on edge (35 mm thick) between the inverter and the rail;
+  - the side reflectors.
+- **Seat pan** relieved 1 mm around the tail rails.
+- **Fixed along the way:** a see-through window in each tail side panel. The cut that clears the shock bridge was ±200 mm wide and went through both walls; it is now ±160. Also a thin skin left across the bike behind the knee pocket.
+
+**Thigh penetration into parts** (50th-percentile rider; deepest point on the outer 75% of the thigh, so the hip root sitting on the seat edge is excluded):
+
+| Part | Nov 15 | Nov 20 |
+|---|---|---|
+| Lower battery cover | 71 mm | 27 mm |
+| Battery side panel | 53 mm | 22 mm |
+| Upper rail (front tube) | 76 mm | 61 mm |
+| Upper rail (rear tube) | 80 mm | 66 mm |
+| Tail rail | 59 mm | 46 mm |
+| Waist ledge plate | – | 22 mm |
+
+**What the numbers don't mean.** The remaining 46–80 mm figures are all at X578–594, right at the seat front edge. There the thigh is the buttock and upper thigh draping over the seat edge, and they press into the seat as on any bike. The rider figure is rigid capsules, so it reports that as penetration. The rail figures come from the rail joint at the swingarm pivot (±195), which can't move without moving the pivot.
+
+**Unchanged:** seat 832 mm, pegs 323 mm, knee 82°, elbow 95° (50th-percentile man). Build: 61 of 62 checks pass (the open one is still the lower cover 1.99 mm from the pack, against 5). Frame to rear tyre at full bump: 21.8 mm (needs 20). Mass: 326.7 kg.
+
+**Still to do:** re-run the frame FEA with the ±125 joint (see `detailed-design/structural-fea.md`), and confirm with real riders on a seating buck.

@@ -71,6 +71,7 @@ RZ=RR-LIFT                                  # rear axle height in model coordina
 PZ=float(os.environ.get('BAVUSO_PIVOT_Z','350'))   # swingarm pivot = motor axis (model Z). At 470 anti-squat was 175%; see rear-kinematics.py
 TAIL_RAIL_END=827.0   # Nov 14: tail rail rear end 10 up (its front node is lower now) so it stays 20+ mm off the tyre at full bump
 RAIL_LIFT=lambda x:(TAIL_RAIL_END-817.0)*max(0.0,568-x)/628   # tail top and pillion rise with the rail
+WAIST_Z,POCKET_Z=590.0,530.0   # pocket: behind the pack's stepped top (Z<=330 at X650) the covers drop to Z530 from X615 (knee pocket); Nov 20: side covers stop here under the thighs (X435-675); the narrower tail panels come down to meet them
 FZ=RF-LIFT
 W_AXLE=(FZ-SA0[1]-math.sin(RAKE)*FORK_OFF)/math.cos(RAKE)          # front axle along the steering frame
 FX=SA0[0]+math.cos(RAKE)*FORK_OFF-math.sin(RAKE)*W_AXLE
@@ -390,10 +391,12 @@ steerKeep=add('Steering_sweep_keepout',Part.makeCylinder(140,(steer_hi-steer_lo)
 # ---------------------------------------------------------------- chassis (Codex rework frame, rails re-routed for body/seat)
 # Nov 14 (comfort): the rail node at the seat front moves 43 mm inboard (Y+-152) and 25 mm down, so the frame under the
 # rider's thighs is 368 mm across the tubes (was 428). The upper rail runs from there back out to Y+-195 at X1050.
-def urail_y(x):return 152.0+43*(x-570)/480
+# Nov 20 (thighs still pressed into the waist): node pulled in again to Y+-125, 310 mm across the tubes.
+RAIL_NODE_Y,TAIL_RAIL_END_Y=125.0,104.0
+def urail_y(x):return RAIL_NODE_Y+(195-RAIL_NODE_Y)*(x-570)/480
 def urail_z(x):return 715.0+65*(x-570)/480
 for side in [-1,1]:
-    y=side*195;yn=side*152.0
+    y=side*195;yn=side*RAIL_NODE_Y
     # The pivot node is low now (PZ), so the pack wraps over the motor; the rail rises nearly vertically
     # behind the pack's top steps (X>=590) instead of leaning forward into them.
     # Sizes from detailed-design/structural-fea.md (4130): 44x3.5 / 38x3 / 45x4; the head joint moves up to w=120 on the axis.
@@ -401,7 +404,7 @@ for side in [-1,1]:
         tube(sname(f'Upper_rail_{i}',side),a,b,ro,ri)
     # Posts from the upper rail down to machined pads on the pack roof (FEA CR-7): triangulate each side loop.
     for nm,xr,xp in (('front',960,950),('rear',700,712)):   # front post 40 aft of the FEA X1000 so the side-pod radiator clears it
-        tube(sname(f'Upper_post_{nm}',side),(xr,side*urail_y(xr),urail_z(xr)-14),(xp,side*178,576.5),16,13.5)
+        tube(sname(f'Upper_post_{nm}',side),(xr,side*urail_y(xr),urail_z(xr)-14),(xp,side*(165 if nm=='rear' else 178),576.5),16,13.5)
     # No lower rails: the structural pack is the lower frame. A down-link pair runs from the head tube to
     # lugs on the pack front face, and a rear link pair from the pivot node down to the pack's rear step.
     # The links stop short of the case; the bolted lugs between them are not modelled.
@@ -417,7 +420,7 @@ for side in [-1,1]:
     zr_lug=PZ+36
     br=next(b for b in bands if b['zlo']<=zr_lug<=b['zhi'])
     tube(sname('Lower_pack_rear_link',side),(540,y,PZ),(br['xlo']-17,side*175,zr_lug),22,18.5)   # 44x3.5 (FEA CR-8)
-    tube(sname('Tail_rail',side),(568,yn,692),(-60,side*100,TAIL_RAIL_END),19,16)   # 38x3 (FEA CR-9); rear end up 8.5 for the 170/60 tyre   # 10mm higher than V1.0: 20mm off the tyre at full bump
+    tube(sname('Tail_rail',side),(568,yn,692),(-60,side*TAIL_RAIL_END_Y,TAIL_RAIL_END),19,16)   # 38x3 (FEA CR-9); rear end up 8.5 for the 170/60 tyre   # 10mm higher than V1.0: 20mm off the tyre at full bump
     tube(sname('Tail_brace',side),(540,y,PZ),(160,side*144,740),14,12)
     # Box-section swingarm arm, 74x34 at the pivot tapering to 52x30 at the axle (loft of two sections).
     # Belt-side (left) arm sits 8mm further out: at Y-108 its inner face was 3mm from the EMRAX output hub (Y-105).
@@ -513,7 +516,7 @@ tower=Part.makeCompound([stadium(brace_c,(lx,lz),22,sy*36 if sy<0 else 22,sy*22 
 tower=tower.cut(cyl((0,-120,RZ),(0,120,RZ),RR+21))   # trimmed to stay 20 off the 650mm tyre (supplier CR-6)
 add('Swingarm_shock_tower',tower,'Chassis','PROPOSED twin 8mm plates, brace to shock lower eye; section/fatigue NOT qualified',color=(.13,.14,.15))
 # Top mount: cross tube between the tail rails at X490 (rail Y+-183, Z724) and twin plates down to the eye.
-t_=(568-SHOCK_TOP[0])/628;yt=152-52*t_;zt=692+(TAIL_RAIL_END-692)*t_
+t_=(568-SHOCK_TOP[0])/628;yt=RAIL_NODE_Y-(RAIL_NODE_Y-TAIL_RAIL_END_Y)*t_;zt=692+(TAIL_RAIL_END-692)*t_
 # Forged box bridge (structural-fea.md CR-10), Nov 14: laid flat, 80 long x 45 tall x 5 wall (section modulus 15.9 cm3,
 # >= the 70x40x4 upright's 14.5), its top level with the rail centres, so the seat pan passes 10 mm over it.
 add('Tail_shock_cross_tube',box(SHOCK_TOP[0]-40,-yt,zt-45,80,2*yt,45).cut(box(SHOCK_TOP[0]-35,-yt-1,zt-40,70,2*yt+2,35)),'Chassis',
@@ -564,7 +567,7 @@ def panel(top,bot,half,t=3,r=12,open_bottom=False,open_top=False,open_front=Fals
     out=rounded(solid(top,bot,half,sec(0)),r)
     it=[(x,z-t) for x,z in top];ib=list(inner_bot) if inner_bot else [(x,z+t) for x,z in bot];ih=[(x,w-t) for x,w in half]
     if open_bottom:ib=[(x,z-80) for x,z in bot]
-    if open_top:it=[(x,z+80) for x,z in top]
+    if open_top:it=[(x,z+400) for x,z in top]   # far above: a steep top edge (knee pocket) made the +80 spline dip and leave a skin across the bike
     def shift(rows,i,dx):rows[i]=(rows[i][0]+dx,rows[i][1])
     for rows in (it,ib,ih):
         shift(rows,0,-40 if open_rear else t)
@@ -706,7 +709,7 @@ xe=1095.0
 for _ in range(8):
     ze=600-(xe-1000)*21/95;xe=x_wall(ze)
 front_wall=[(x_wall(z),z) for z in [BELLY_Z]+list(range(215,int(ze)-14,35))]+[(xe,ze)]
-lower_body=panel(top=[(585,668)]+seam[:-1]+[(xe,ze)],
+lower_body=panel(top=[(585,WAIST_Z),(600,WAIST_Z),(615,POCKET_Z),(675,POCKET_Z)]+seam[:-1]+[(xe,ze)],
                  bot=[(585,BELLY_Z),(700,BELLY_Z),(1000,BELLY_Z)]+front_wall,
                  inner_bot=[(585,BELLY_Z+3),(700,BELLY_Z+3),(1000,BELLY_Z+3)]+[(x-3,max(z,BELLY_Z+3)) for x,z in front_wall],
                  half=[(585,217),(680,217),(780,217),(880,217),(980,217),(1080,217),(1112,208),(1120,196)],   # dense points: a sparse spline sagged 22mm inward into the pack
@@ -717,11 +720,13 @@ add('Lower_body_battery_covers_STUDY',lower_body,'BodyStudy',
     'PROPOSED 3mm battery side covers/belly pan; 414mm wide, front wall follows the front-tyre travel envelope; impact protection unresolved',color=(.13,.14,.15))
 # Floor rises to the belly line behind the pack.
 MC_X=435 if DRIVE=='ipm' else 470               # IPM: the covers reach back over the low HV cabinet
-motor_cover=panel(top=[(MC_X,600),(585,668)],bot=[(MC_X,200),(585,BELLY_Z)],half=[(MC_X,215),(585,217)],
+motor_cover=panel(top=[(MC_X,WAIST_Z),(585,WAIST_Z)],bot=[(MC_X,200),(585,BELLY_Z)],half=[(MC_X,215),(585,217)],
                   r=8,open_top=True,open_front=True,open_rear=True,section=lambda t:belly_section(-t))
 motor_cover=motor_cover.cut(frame_notch)
 for side in [-1,1]:motor_cover=motor_cover.cut(cyl((420,side*140,270),(420,side*240,270),18))   # peg mount bosses pass through
 # No rear bulkhead: with the motor on the lowered pivot, the swingarm arms pass through where it stood.
+waist_ledge=Part.makeCompound([rounded(box(x0,(182 if sy>0 else -212),z0-3,l,30,3),1) for sy in (-1,1) for x0,l,z0 in ((530,68,WAIST_Z),(617,58,POCKET_Z))])   # between the tail wall (<=182) and the cover's inner face (>=213)
+add('Waist_ledge_plates',waist_ledge,'BodyStudy','3mm plates closing the cover top between the tail panel and the cover wall under the thighs (Nov 20)',color=(.12,.13,.14))
 add('Motor_side_covers_STUDY',motor_cover,'BodyStudy',
     'PROPOSED 3mm motor side covers/belly behind the battery covers; swingarm and shock pass the open rear; cooling/belt access unresolved',color=(.12,.13,.14))
 # Round cap over the swingarm pivot / motor axis on each motor cover, as in the baseline: a 92mm ring with a recessed face and centre boss.
@@ -749,7 +754,7 @@ def proud(pts,y_in,t=4,ch=2.5):
     return s
 # Front edges stop at X~1060 where the cover still has its full 222mm half-width.
 # Raised with the belly: the belly plate starts 14mm above the Z183 belly line.
-batt_pts=[(1040,578),(670,652),(600,470),(626,340),(1045,340),(1060,500)]
+batt_pts=[(1040,578),(705,630),(674,522),(600,470),(626,340),(1045,340),(1060,500)]
 belly_pts=[(1050,322),(640,322),(600,255),(640,197),(1045,197),(1060,255)]
 for side in [-1,1]:
     parts=[]
@@ -766,7 +771,7 @@ for side in [-1,1]:
         parts.append(pnl.cut(lower_body))   # the cover's plan spline bulges past 222mm in places; panels seat on it
     add(sname('Battery_side_panel',side),parts[0],'BodyStudy','Proud battery cover plate traced from baseline; fixings/seal unresolved',color=(.085,.09,.095))
     add(sname('Belly_side_panel',side),parts[1],'BodyStudy','Proud belly fairing plate traced from baseline',color=(.1,.105,.11))
-    bolts=[cyl((x,side*211.5,z),(x,side*214.5,z),5.5) for x,z in [(1020,565),(690,630),(625,455),(650,360),(1025,360),(1040,470),(850,600),(850,355)]]
+    bolts=[cyl((x,side*211.5,z),(x,side*214.5,z),5.5) for x,z in [(1020,565),(700,612),(625,455),(650,360),(1025,360),(1040,470),(850,600),(850,355)]]
     add(sname('Panel_bolts',side),Part.makeCompound(bolts).cut(lower_body),'BodyStudy','M6 button-head positions, illustrative',color=(.25,.26,.27))
 # Tail and under-seat side panels, open below and toward the tank; tail tip rises above the seat end like the baseline.
 # Extra top points stop the spline swinging below Z776 over the tyre (full-bump tyre top is Z754 at X-22).
@@ -777,8 +782,8 @@ for side in [-1,1]:
 # (124 at X-60) to clear the tail-rail ends.
 TAIL_TOP=[(-190,860),(-175,852),(-150,844),(-120,842),(-60,841),(0,831),(100,814),(300,771),(430,746),(560,742),(620,749),(690,758)]   # deck under the seat 5mm over the raised 38mm tail rails
 TAIL_TOP=[(x,z+(RAIL_LIFT(x) if True else 0)) for x,z in TAIL_TOP]
-TAIL_BOT=[(-180,782),(-100,770),(16,752),(150,705),(283,612),(400,580),(470,600),(540,640),(600,652),(688,668)]
-TAIL_HALF=[(-190,62),(-120,108),(-60,124),(16,140),(150,168),(300,198),(400,200),(470,196),(560,188),(640,186),(690,192)]   # Nov 14: waist 376 wide under the thighs (was 450)
+TAIL_BOT=[(-180,782),(-100,770),(16,752),(150,705),(283,612),(400,580),(470,588),(540,WAIST_Z-5),(600,WAIST_Z-5),(615,POCKET_Z-5),(688,POCKET_Z-5)]
+TAIL_HALF=[(-190,62),(-120,110),(-60,128),(16,141),(150,168),(300,198),(400,200),(470,192),(540,180),(600,178),(640,178),(690,182)]   # Nov 20: waist 356 wide under the thighs (Nov 14: 376, before: 450); tip +4 for the tail-rail ends
 tail_body=panel(top=TAIL_TOP,bot=TAIL_BOT,half=TAIL_HALF,r=10,open_bottom=True,open_front=True)
 tail_body=tail_body.cut(_notch(2)).cut(lamp_cut)
 # Undertray: closes the tail from below. A 3mm skin 25-28mm outside the rear tyre's whole travel envelope (the
@@ -814,7 +819,7 @@ SEAT_HALF=[(-112,92),(-60,118),(0,138),(100,161),(200,183),(260,192),(300,182),(
 # The pan edge rides 8mm over the subframe rails; a centre pan between the rails drops to SEAT_BOT for foam depth.
 def rail_top(x):   # top of the subframe rail (tail rail behind X568, upper rail ahead) under the seat edge
     return 711.0+(568-x)*(TAIL_RAIL_END-692)/628 if x<=568 else 734.0+(x-570)*65/480   # 38mm rails (FEA), Nov 14 node at Z715/Y152
-def rail_y(x):return 152.0-52*(568-x)/628 if x<=568 else urail_y(x)
+def rail_y(x):return RAIL_NODE_Y-(RAIL_NODE_Y-TAIL_RAIL_END_Y)*(568-x)/628 if x<=568 else urail_y(x)
 def lerp(pts,x):
     for (x0,v0),(x1,v1) in zip(pts,pts[1:]):
         if x0<=x<=x1:return v0+(v1-v0)*(x-x0)/(x1-x0)
@@ -836,6 +841,7 @@ seat=seat.fuse(Part.makeLoft([pan_sec(x) for x in (330,380,440,486,540,590)],Tru
 # Pan relief over the shock-top cross tube: the dropped pan (Z732) would sit 6 mm into it. A 48 mm wide channel
 # moulded into the pan keeps 10 mm over the bracket plates (14 over the tube) and 10 mm fore/aft, and leaves ~66 mm of foam over it (78 elsewhere).
 seat=seat.cut(box(SHOCK_TUBE[0]-50,-200,600,100,400,SHOCK_TUBE[1]+10-600))   # +14: the bracket plates stand 4 mm proud of the tube
+seat=seat.cut(_notch(1))   # pan relieved 1 mm round the tail rails (Nov 20: rails pulled in to +-104..125 grazed the pan)
 # Piped welt along each top edge, rider and pillion pads, as on a stitched production seat (short segments + spheres).
 welts=[]
 for xs in ((-96,270),(322,735)):
@@ -848,7 +854,7 @@ seat_welt=Part.makeCompound(welts)
 upper_body=tidy(upper_body.cut(seat),'seat');ub_obj.Shape=upper_body
 ub_proxy=solid(UB_TOP,UB_BOT,UB_HALF)   # plain outline solid: cuts against the crowned BSpline skin hang, and these trims only need the outline
 seat_welt=seat_welt.cut(ub_proxy)   # the piping runs into the tank skin where the nose laps over it
-tail_body=tail_body.cut(seat).cut(box(SHOCK_TUBE[0]-50,-200,600,100,400,SHOCK_TUBE[1]+10-600))   # seat pan nests into the tail top; no skin in the bridge channel
+tail_body=tail_body.cut(seat).cut(box(SHOCK_TUBE[0]-50,-160,600,100,320,SHOCK_TUBE[1]+10-600))   # seat pan nests into the tail top; no skin in the bridge channel (inside the walls: +-200 cut a see-through window in each side, fixed Nov 20)
 add('Tail_side_panels_STUDY',tail_body,'BodyStudy','PROPOSED 3mm subframe covers traced from baseline; passenger rating not established',color=(.11,.12,.13))
 add('Seat_two_level_STUDY',seat,'BodyStudy','PROPOSED stepped rider/passenger saddle traced from baseline; foam/pan/fit unresolved',color=(.06,.065,.07))
 add('Seat_welt',seat_welt,'BodyStudy','Piped welt along the seat top edges, illustrative',color=(.05,.05,.055))
@@ -1053,11 +1059,11 @@ for side in [-1,1]:
     add(sname('Radiator_pod_shroud',side),shell,'BodyStudy','3mm side-pod shroud over the radiator, open front for the grille (thermal-study.md CR-1)',color=(.11,.12,.13))
 # Pack-roof service bay and oil cooler (thermal CR-2/3), saved coordinates minus 40. Pumps sit outboard of the upper junction box.
 for nm,b in [('Coolant_pump_battery',(593,86,633,64,64,64)),('Coolant_pump_drive',(864,116,633,64,64,64)),
-             ('Coolant_PTC_heater_5kW',(770,-148,726,88,52,62)),('Coolant_4port_valve',(598,-170,636,50,38,52)),
-             ('Oil_cooler',(560,-150,430,80,40,90))]:
+             ('Coolant_PTC_heater_5kW',(772,-132,724,86,35,64)),('Coolant_4port_valve',(598,-164,636,50,38,52)),
+             ('Oil_cooler',(580,-150,430,80,40,90))]:
     add(nm,box(*b),'Cooling','Thermal service-bay envelope (thermal-study.md CR-2/3); position to be confirmed by interference sweep',color=(.3,.31,.33))
 # Electrical boxes (electrical-detailed.md CR-5..8), saved coordinates minus 40.
-for nm,b in [('HV_upper_junction_box',(606,-125,605,80,207,120)),('HV_charge_junction_box',(730,116,592,130,60,120)),
+for nm,b in [('HV_upper_junction_box',(603,-105,605,80,187,120)),('HV_charge_junction_box',(730,116,592,130,60,120)),
              ('DCDC_converter_1p2kW',(735,-180,582,190,60,130))]:
     add(nm,box(*b),'Electronics','Electrical envelope (electrical-detailed.md); position to be confirmed by interference sweep',color=(.2,.21,.22))
 nacs=box(860,127,805,68,95,84)
@@ -1085,7 +1091,7 @@ for side in [-1,1]:
 # Legal fit-out (compliance CR-10..13).
 add('Rear_reflector_red',box(-344,-30,578,6,60,22),'BodyStudy','60mm red rear reflector (FMVSS 108)',color=(.6,.05,.05))
 for side in [-1,1]:
-    add(sname('Side_reflector_red',side),cyl((-80,side*124,760),(-80,side*127,760),18),'BodyStudy','Red side reflector',color=(.6,.05,.05))
+    add(sname('Side_reflector_red',side),cyl((-80,side*134,760),(-80,side*137,760),18),'BodyStudy','Red side reflector',color=(.6,.05,.05))
 add('Horn_R28',cyl((1045,-224,525),(1045,-259,525),45),'Electronics','R28 class I horn below the left radiator pod, outboard of the battery plate (compliance CR-11)',color=(.12,.12,.12))
 add('Side_stand_retracted',cyl((560,236,258),(330,240,230),12,0),'RunningGear','Side stand, retracted, with interlock switch (compliance CR-12)',color=(.08,.08,.085))
 

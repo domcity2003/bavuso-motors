@@ -357,3 +357,7 @@ Two cost-downs to study once instrumented loads exist:
 - **Shock bridge:** now an 80×45×5 box laid flat, at X482, with the top eye 18 mm lower and 8 mm further back. Its section modulus is 15.9 cm³, at least the 14.5 cm³ of the old upright 70×40×4 box. The shock line of action changed slightly (leverage 2.33, was 2.34).
 
 The frame load cases and bridge bending should be repeated on the new geometry before any of these numbers are quoted as current.
+
+## Re-check needed after the November 20 waist change
+
+*Claude Opus 5.5 (claude-opus-5-5), November 20, 2026, US Central.* The upper rail front joint moved in again, to Y ±125 (from ±152). The tail rails now run ±125 → ±104, and the rear upper posts land on the pack at Y ±165 (was ±178). A narrower joint shortens the lever arm against side loads and torsion, so frame torsional stiffness will drop somewhat. Re-run the torsion and lateral load cases before quoting stiffness.
