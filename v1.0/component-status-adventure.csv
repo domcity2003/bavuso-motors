@@ -26,29 +26,29 @@ Rear_bump_sampled_keepout,Keepouts,"21 samples, droop 51mm to bump 170mm from st
 Front_bump_sampled_keepout,Keepouts,"21 samples, 170mm at 25deg from static; steering sweep NOT included",,21,964246062.0050632,True
 Steering_sweep_keepout,Keepouts,Envelope of fork legs/clamps about steering axis at any lock; body is cut to it,,1,36329377.44611236,True
 Upper_rail_0_m1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,166042.54911847605,False
-Upper_rail_1_m1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,161441.28146398778,False
+Upper_rail_1_m1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,231783.55410186798,False
 Upper_rail_2_m1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,119135.2287611907,False
 Upper_post_front_m1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,41157.045274453034,False
 Upper_post_rear_m1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,33399.37067488204,False
 Lower_downlink_m1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,169316.7715141284,False
 Head_gusset_m1,Chassis,10mm 4130 head gusset (structural-fea.md CR-5),,1,55361.66927819594,False
 Lower_pack_rear_link_m1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,58256.24673970851,False
-Tail_rail_m1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,212002.25724981475,False
+Tail_rail_m1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,243802.5958372865,False
 Tail_brace_m1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,89343.33275798179,False
 Swingarm_m1,Chassis,PROPOSED box-section swingarm arm; section/fatigue NOT qualified,,1,1882595.7297515327,False
 Upper_rail_0_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,166042.54911847628,False
-Upper_rail_1_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,161441.28146398778,False
+Upper_rail_1_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,231783.55410186795,False
 Upper_rail_2_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,119135.2287611907,False
 Upper_post_front_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,41157.04527445299,False
 Upper_post_rear_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,33399.37067488206,False
 Lower_downlink_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,169316.77151412846,False
 Head_gusset_1,Chassis,10mm 4130 head gusset (structural-fea.md CR-5),,1,55361.66927819594,False
 Lower_pack_rear_link_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,58256.24673970857,False
-Tail_rail_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,212002.25724981475,False
+Tail_rail_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,243802.59583728662,False
 Tail_brace_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,89343.33275798179,False
 Swingarm_1,Chassis,PROPOSED box-section swingarm arm; section/fatigue NOT qualified,,1,1882595.729545564,False
 Head_tube,Chassis,Head tube on steering axis; bearing seats unresolved,,1,242782.28026941943,False
-Swingarm_cross_brace,Chassis,PROPOSED 50x5 cross tube ahead of the tyre; carries the shock tower; bolt-in (inside the belt loop),,1,196977.85938007996,False
+Swingarm_cross_brace,Chassis,"PROPOSED 60x6 A356 cross tube (Nov 21 FEA re-run, was 60x5) ahead of the tyre; carries the shock tower; bolt-in (inside the belt loop)",,1,232075.73250598524,False
 Fork_outer_tube_m1,RunningGear,"USD outer tube, illustrative; supplier fork not selected",,1,1120668.9313885511,False
 Fork_inner_tube_m1,RunningGear,"USD 48mm chrome inner tube, illustrative; 170mm travel",,1,613178.7002860373,False
 Fork_axle_clamp_m1,RunningGear,"USD axle foot with pinch bolts and radial caliper lugs (108mm), illustrative",,1,589365.6006747917,False

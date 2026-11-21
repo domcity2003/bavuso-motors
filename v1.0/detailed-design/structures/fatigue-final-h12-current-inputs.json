@@ -1,0 +1,1797 @@
+{
+ "source": "results-final-h12-current-inputs.json",
+ "gamma_Mf": 1.25,
+ "D_allow": 0.5,
+ "spectrum": {
+  "bump_per_axle": [
+   [
+    0.1,
+    20000000.0
+   ],
+   [
+    0.2,
+    3000000.0
+   ],
+   [
+    0.35,
+    300000.0
+   ],
+   [
+    0.5,
+    50000.0
+   ],
+   [
+    0.75,
+    5000.0
+   ],
+   [
+    1.0,
+    1000.0
+   ],
+   [
+    1.5,
+    100.0
+   ],
+   [
+    2.0,
+    10.0
+   ]
+  ],
+  "braking": [
+   [
+    0.3,
+    200000.0
+   ],
+   [
+    0.6,
+    10000.0
+   ],
+   [
+    0.9,
+    1000.0
+   ],
+   [
+    1.1,
+    100.0
+   ]
+  ],
+  "cornering": [
+   [
+    1.0,
+    100000.0
+   ]
+  ]
+ },
+ "welded": [
+  {
+   "member": "UR2L",
+   "FAT": 63,
+   "detail": "cast steel headstock, tube on 60 mm spigot, full-penetration circumferential butt weld on backing (IIW FAT 63-71; 63 used, stress taken at the node, conservative)",
+   "range_per_pm1g_MPa": 58.5,
+   "knee_allow_MPa": 29.5,
+   "miner_D": 0.618,
+   "verdict": "FAIL",
+   "life_x_design": 0.81
+  },
+  {
+   "member": "UR2R",
+   "FAT": 63,
+   "detail": "cast steel headstock, tube on 60 mm spigot, full-penetration circumferential butt weld on backing (IIW FAT 63-71; 63 used, stress taken at the node, conservative)",
+   "range_per_pm1g_MPa": 58.1,
+   "knee_allow_MPa": 29.5,
+   "miner_D": 0.617,
+   "verdict": "FAIL",
+   "life_x_design": 0.81
+  },
+  {
+   "member": "ST0L",
+   "FAT": 45,
+   "detail": "steel 4130 thin-wall tube, TIG fillet/fusion at a cluster or plate (IIW hollow-section joints FAT 40-50; 45 used)",
+   "range_per_pm1g_MPa": 60.3,
+   "knee_allow_MPa": 21.1,
+   "miner_D": 0.6,
+   "verdict": "FAIL",
+   "life_x_design": 0.83
+  },
+  {
+   "member": "ST0R",
+   "FAT": 45,
+   "detail": "steel 4130 thin-wall tube, TIG fillet/fusion at a cluster or plate (IIW hollow-section joints FAT 40-50; 45 used)",
+   "range_per_pm1g_MPa": 61.5,
+   "knee_allow_MPa": 21.1,
+   "miner_D": 0.597,
+   "verdict": "FAIL",
+   "life_x_design": 0.84
+  },
+  {
+   "member": "UR1R",
+   "FAT": 45,
+   "detail": "steel 4130 thin-wall tube, TIG fillet/fusion at a cluster or plate (IIW hollow-section joints FAT 40-50; 45 used)",
+   "range_per_pm1g_MPa": 76.0,
+   "knee_allow_MPa": 21.1,
+   "miner_D": 0.552,
+   "verdict": "FAIL",
+   "life_x_design": 0.91
+  },
+  {
+   "member": "UR1L",
+   "FAT": 45,
+   "detail": "steel 4130 thin-wall tube, TIG fillet/fusion at a cluster or plate (IIW hollow-section joints FAT 40-50; 45 used)",
+   "range_per_pm1g_MPa": 75.5,
+   "knee_allow_MPa": 21.1,
+   "miner_D": 0.537,
+   "verdict": "FAIL",
+   "life_x_design": 0.93
+  },
+  {
+   "member": "STW",
+   "FAT": 40,
+   "detail": "A356-T6 cast tower/brace node, bolted, no weld (cast Al, conservative FAT 40)",
+   "range_per_pm1g_MPa": 89.4,
+   "knee_allow_MPa": 18.7,
+   "miner_D": 0.369,
+   "verdict": "pass",
+   "life_x_design": 1.35
+  },
+  {
+   "member": "DLR",
+   "FAT": 63,
+   "detail": "cast steel headstock, tube on 60 mm spigot, full-penetration circumferential butt weld on backing (IIW FAT 63-71; 63 used, stress taken at the node, conservative)",
+   "range_per_pm1g_MPa": 57.4,
+   "knee_allow_MPa": 29.5,
+   "miner_D": 0.347,
+   "verdict": "pass",
+   "life_x_design": 1.44
+  },
+  {
+   "member": "DLL",
+   "FAT": 63,
+   "detail": "cast steel headstock, tube on 60 mm spigot, full-penetration circumferential butt weld on backing (IIW FAT 63-71; 63 used, stress taken at the node, conservative)",
+   "range_per_pm1g_MPa": 57.3,
+   "knee_allow_MPa": 29.5,
+   "miner_D": 0.343,
+   "verdict": "pass",
+   "life_x_design": 1.46
+  },
+  {
+   "member": "SAR05",
+   "FAT": 22,
+   "detail": "Al 6061 box arm, welded pivot boss/axle plate (IIW Al transverse attachment)",
+   "range_per_pm1g_MPa": 48.5,
+   "knee_allow_MPa": 10.3,
+   "miner_D": 0.332,
+   "verdict": "pass",
+   "life_x_design": 1.5
+  },
+  {
+   "member": "SAR06",
+   "FAT": 22,
+   "detail": "Al 6061 box arm, welded pivot boss/axle plate (IIW Al transverse attachment)",
+   "range_per_pm1g_MPa": 47.9,
+   "knee_allow_MPa": 10.3,
+   "miner_D": 0.306,
+   "verdict": "pass",
+   "life_x_design": 1.63
+  },
+  {
+   "member": "SAR07",
+   "FAT": 22,
+   "detail": "Al 6061 box arm, welded pivot boss/axle plate (IIW Al transverse attachment)",
+   "range_per_pm1g_MPa": 47.0,
+   "knee_allow_MPa": 10.3,
+   "miner_D": 0.269,
+   "verdict": "pass",
+   "life_x_design": 1.86
+  },
+  {
+   "member": "TRR",
+   "FAT": 45,
+   "detail": "steel 4130 thin-wall tube, TIG fillet/fusion at a cluster or plate (IIW hollow-section joints FAT 40-50; 45 used)",
+   "range_per_pm1g_MPa": 96.5,
+   "knee_allow_MPa": 21.1,
+   "miner_D": 0.263,
+   "verdict": "pass",
+   "life_x_design": 1.9
+  },
+  {
+   "member": "SAR08",
+   "FAT": 22,
+   "detail": "Al 6061 box arm, welded pivot boss/axle plate (IIW Al transverse attachment)",
+   "range_per_pm1g_MPa": 45.5,
+   "knee_allow_MPa": 10.3,
+   "miner_D": 0.223,
+   "verdict": "pass",
+   "life_x_design": 2.24
+  },
+  {
+   "member": "SAL05",
+   "FAT": 22,
+   "detail": "Al 6061 box arm, welded pivot boss/axle plate (IIW Al transverse attachment)",
+   "range_per_pm1g_MPa": 44.5,
+   "knee_allow_MPa": 10.3,
+   "miner_D": 0.214,
+   "verdict": "pass",
+   "life_x_design": 2.33
+  },
+  {
+   "member": "TX",
+   "FAT": 45,
+   "detail": "steel 4130 thin-wall tube, TIG fillet/fusion at a cluster or plate (IIW hollow-section joints FAT 40-50; 45 used)",
+   "range_per_pm1g_MPa": 91.4,
+   "knee_allow_MPa": 21.1,
+   "miner_D": 0.212,
+   "verdict": "pass",
+   "life_x_design": 2.36
+  },
+  {
+   "member": "SAL06",
+   "FAT": 22,
+   "detail": "Al 6061 box arm, welded pivot boss/axle plate (IIW Al transverse attachment)",
+   "range_per_pm1g_MPa": 44.0,
+   "knee_allow_MPa": 10.3,
+   "miner_D": 0.205,
+   "verdict": "pass",
+   "life_x_design": 2.44
+  },
+  {
+   "member": "HT",
+   "FAT": 63,
+   "detail": "cast steel headstock, tube on 60 mm spigot, full-penetration circumferential butt weld on backing (IIW FAT 63-71; 63 used, stress taken at the node, conservative)",
+   "range_per_pm1g_MPa": 42.9,
+   "knee_allow_MPa": 29.5,
+   "miner_D": 0.192,
+   "verdict": "pass",
+   "life_x_design": 2.6
+  },
+  {
+   "member": "SAL07",
+   "FAT": 22,
+   "detail": "Al 6061 box arm, welded pivot boss/axle plate (IIW Al transverse attachment)",
+   "range_per_pm1g_MPa": 43.3,
+   "knee_allow_MPa": 10.3,
+   "miner_D": 0.191,
+   "verdict": "pass",
+   "life_x_design": 2.62
+  },
+  {
+   "member": "TRL",
+   "FAT": 45,
+   "detail": "steel 4130 thin-wall tube, TIG fillet/fusion at a cluster or plate (IIW hollow-section joints FAT 40-50; 45 used)",
+   "range_per_pm1g_MPa": 87.7,
+   "knee_allow_MPa": 21.1,
+   "miner_D": 0.185,
+   "verdict": "pass",
+   "life_x_design": 2.71
+  },
+  {
+   "member": "SAR09",
+   "FAT": 22,
+   "detail": "Al 6061 box arm, welded pivot boss/axle plate (IIW Al transverse attachment)",
+   "range_per_pm1g_MPa": 43.5,
+   "knee_allow_MPa": 10.3,
+   "miner_D": 0.18,
+   "verdict": "pass",
+   "life_x_design": 2.78
+  },
+  {
+   "member": "SAL08",
+   "FAT": 22,
+   "detail": "Al 6061 box arm, welded pivot boss/axle plate (IIW Al transverse attachment)",
+   "range_per_pm1g_MPa": 42.0,
+   "knee_allow_MPa": 10.3,
+   "miner_D": 0.172,
+   "verdict": "pass",
+   "life_x_design": 2.91
+  },
+  {
+   "member": "SAR04",
+   "FAT": 22,
+   "detail": "Al 6061 box arm, welded pivot boss/axle plate (IIW Al transverse attachment)",
+   "range_per_pm1g_MPa": 42.5,
+   "knee_allow_MPa": 10.3,
+   "miner_D": 0.17,
+   "verdict": "pass",
+   "life_x_design": 2.94
+  },
+  {
+   "member": "SAL09",
+   "FAT": 22,
+   "detail": "Al 6061 box arm, welded pivot boss/axle plate (IIW Al transverse attachment)",
+   "range_per_pm1g_MPa": 40.2,
+   "knee_allow_MPa": 10.3,
+   "miner_D": 0.148,
+   "verdict": "pass",
+   "life_x_design": 3.39
+  },
+  {
+   "member": "SAR10",
+   "FAT": 22,
+   "detail": "Al 6061 box arm, welded pivot boss/axle plate (IIW Al transverse attachment)",
+   "range_per_pm1g_MPa": 40.6,
+   "knee_allow_MPa": 10.3,
+   "miner_D": 0.141,
+   "verdict": "pass",
+   "life_x_design": 3.55
+  },
+  {
+   "member": "SAL04",
+   "FAT": 22,
+   "detail": "Al 6061 box arm, welded pivot boss/axle plate (IIW Al transverse attachment)",
+   "range_per_pm1g_MPa": 38.8,
+   "knee_allow_MPa": 10.3,
+   "miner_D": 0.135,
+   "verdict": "pass",
+   "life_x_design": 3.7
+  },
+  {
+   "member": "SAL10",
+   "FAT": 22,
+   "detail": "Al 6061 box arm, welded pivot boss/axle plate (IIW Al transverse attachment)",
+   "range_per_pm1g_MPa": 37.7,
+   "knee_allow_MPa": 10.3,
+   "miner_D": 0.113,
+   "verdict": "pass",
+   "life_x_design": 4.41
+  },
+  {
+   "member": "SAR11",
+   "FAT": 22,
+   "detail": "Al 6061 box arm, welded pivot boss/axle plate (IIW Al transverse attachment)",
+   "range_per_pm1g_MPa": 36.6,
+   "knee_allow_MPa": 10.3,
+   "miner_D": 0.102,
+   "verdict": "pass",
+   "life_x_design": 4.89
+  },
+  {
+   "member": "GUSR",
+   "FAT": 63,
+   "detail": "cast steel headstock, tube on 60 mm spigot, full-penetration circumferential butt weld on backing (IIW FAT 63-71; 63 used, stress taken at the node, conservative)",
+   "range_per_pm1g_MPa": 33.5,
+   "knee_allow_MPa": 29.5,
+   "miner_D": 0.101,
+   "verdict": "pass",
+   "life_x_design": 4.96
+  },
+  {
+   "member": "GUSL",
+   "FAT": 63,
+   "detail": "cast steel headstock, tube on 60 mm spigot, full-penetration circumferential butt weld on backing (IIW FAT 63-71; 63 used, stress taken at the node, conservative)",
+   "range_per_pm1g_MPa": 33.5,
+   "knee_allow_MPa": 29.5,
+   "miner_D": 0.0995,
+   "verdict": "pass",
+   "life_x_design": 5.03
+  },
+  {
+   "member": "ST1R",
+   "FAT": 45,
+   "detail": "steel 4130 thin-wall tube, TIG fillet/fusion at a cluster or plate (IIW hollow-section joints FAT 40-50; 45 used)",
+   "range_per_pm1g_MPa": 52.5,
+   "knee_allow_MPa": 21.1,
+   "miner_D": 0.0841,
+   "verdict": "pass",
+   "life_x_design": 5.95
+  },
+  {
+   "member": "SAL11",
+   "FAT": 22,
+   "detail": "Al 6061 box arm, welded pivot boss/axle plate (IIW Al transverse attachment)",
+   "range_per_pm1g_MPa": 34.2,
+   "knee_allow_MPa": 10.3,
+   "miner_D": 0.0836,
+   "verdict": "pass",
+   "life_x_design": 5.98
+  },
+  {
+   "member": "STB",
+   "FAT": 56,
+   "detail": "forged steel bridge with integral clevis, machined bore (no weld; FAT 56 conservative for Kt~2)",
+   "range_per_pm1g_MPa": 85.7,
+   "knee_allow_MPa": 26.2,
+   "miner_D": 0.0795,
+   "verdict": "pass",
+   "life_x_design": 6.29
+  },
+  {
+   "member": "ST1L",
+   "FAT": 45,
+   "detail": "steel 4130 thin-wall tube, TIG fillet/fusion at a cluster or plate (IIW hollow-section joints FAT 40-50; 45 used)",
+   "range_per_pm1g_MPa": 40.3,
+   "knee_allow_MPa": 21.1,
+   "miner_D": 0.0761,
+   "verdict": "pass",
+   "life_x_design": 6.57
+  },
+  {
+   "member": "SAX",
+   "FAT": 40,
+   "detail": "A356-T6 cast tower/brace node, bolted, no weld (cast Al, conservative FAT 40)",
+   "range_per_pm1g_MPa": 58.2,
+   "knee_allow_MPa": 18.7,
+   "miner_D": 0.0684,
+   "verdict": "pass",
+   "life_x_design": 7.31
+  },
+  {
+   "member": "SAR12",
+   "FAT": 22,
+   "detail": "Al 6061 box arm, welded pivot boss/axle plate (IIW Al transverse attachment)",
+   "range_per_pm1g_MPa": 31.3,
+   "knee_allow_MPa": 10.3,
+   "miner_D": 0.0636,
+   "verdict": "pass",
+   "life_x_design": 7.87
+  },
+  {
+   "member": "SAL12",
+   "FAT": 22,
+   "detail": "Al 6061 box arm, welded pivot boss/axle plate (IIW Al transverse attachment)",
+   "range_per_pm1g_MPa": 29.5,
+   "knee_allow_MPa": 10.3,
+   "miner_D": 0.0534,
+   "verdict": "pass",
+   "life_x_design": 9.36
+  },
+  {
+   "member": "SDR",
+   "FAT": 45,
+   "detail": "steel 4130 thin-wall tube, TIG fillet/fusion at a cluster or plate (IIW hollow-section joints FAT 40-50; 45 used)",
+   "range_per_pm1g_MPa": 59.3,
+   "knee_allow_MPa": 21.1,
+   "miner_D": 0.0441,
+   "verdict": "pass",
+   "life_x_design": 11.34
+  },
+  {
+   "member": "SDL",
+   "FAT": 45,
+   "detail": "steel 4130 thin-wall tube, TIG fillet/fusion at a cluster or plate (IIW hollow-section joints FAT 40-50; 45 used)",
+   "range_per_pm1g_MPa": 55.1,
+   "knee_allow_MPa": 21.1,
+   "miner_D": 0.022,
+   "verdict": "pass",
+   "life_x_design": 22.73
+  },
+  {
+   "member": "RLR",
+   "FAT": 45,
+   "detail": "steel 4130 thin-wall tube, TIG fillet/fusion at a cluster or plate (IIW hollow-section joints FAT 40-50; 45 used)",
+   "range_per_pm1g_MPa": 51.7,
+   "knee_allow_MPa": 21.1,
+   "miner_D": 0.0177,
+   "verdict": "pass",
+   "life_x_design": 28.23
+  },
+  {
+   "member": "RLL",
+   "FAT": 45,
+   "detail": "steel 4130 thin-wall tube, TIG fillet/fusion at a cluster or plate (IIW hollow-section joints FAT 40-50; 45 used)",
+   "range_per_pm1g_MPa": 48.0,
+   "knee_allow_MPa": 21.1,
+   "miner_D": 0.0138,
+   "verdict": "pass",
+   "life_x_design": 36.19
+  },
+  {
+   "member": "SAR03",
+   "FAT": 22,
+   "detail": "Al 6061 box arm, welded pivot boss/axle plate (IIW Al transverse attachment)",
+   "range_per_pm1g_MPa": 21.8,
+   "knee_allow_MPa": 10.3,
+   "miner_D": 0.0093,
+   "verdict": "pass",
+   "life_x_design": 53.74
+  },
+  {
+   "member": "SAL03",
+   "FAT": 22,
+   "detail": "Al 6061 box arm, welded pivot boss/axle plate (IIW Al transverse attachment)",
+   "range_per_pm1g_MPa": 21.3,
+   "knee_allow_MPa": 10.3,
+   "miner_D": 0.00869,
+   "verdict": "pass",
+   "life_x_design": 57.54
+  },
+  {
+   "member": "STUBR",
+   "FAT": 45,
+   "detail": "steel 4130 thin-wall tube, TIG fillet/fusion at a cluster or plate (IIW hollow-section joints FAT 40-50; 45 used)",
+   "range_per_pm1g_MPa": 39.5,
+   "knee_allow_MPa": 21.1,
+   "miner_D": 0.00357,
+   "verdict": "pass",
+   "life_x_design": 140.15
+  },
+  {
+   "member": "TBR",
+   "FAT": 45,
+   "detail": "steel 4130 thin-wall tube, TIG fillet/fusion at a cluster or plate (IIW hollow-section joints FAT 40-50; 45 used)",
+   "range_per_pm1g_MPa": 37.3,
+   "knee_allow_MPa": 21.1,
+   "miner_D": 0.00232,
+   "verdict": "pass",
+   "life_x_design": 215.37
+  },
+  {
+   "member": "SAR02",
+   "FAT": 22,
+   "detail": "Al 6061 box arm, welded pivot boss/axle plate (IIW Al transverse attachment)",
+   "range_per_pm1g_MPa": 18.0,
+   "knee_allow_MPa": 10.3,
+   "miner_D": 0.00212,
+   "verdict": "pass",
+   "life_x_design": 235.51
+  },
+  {
+   "member": "UR0R",
+   "FAT": 45,
+   "detail": "steel 4130 thin-wall tube, TIG fillet/fusion at a cluster or plate (IIW hollow-section joints FAT 40-50; 45 used)",
+   "range_per_pm1g_MPa": 35.7,
+   "knee_allow_MPa": 21.1,
+   "miner_D": 0.002,
+   "verdict": "pass",
+   "life_x_design": 249.58
+  },
+  {
+   "member": "PACK_side@lug",
+   "FAT": 28,
+   "detail": "Al 6082 case: FSW/fusion seam or bolt-hole net section (IIW Al butt weld ground flush ~FAT 32; 28 used)",
+   "range_per_pm1g_MPa": 10.2,
+   "knee_allow_MPa": 13.1,
+   "miner_D": 0.00199,
+   "verdict": "pass",
+   "life_x_design": 251.41
+  },
+  {
+   "member": "SAL02",
+   "FAT": 22,
+   "detail": "Al 6061 box arm, welded pivot boss/axle plate (IIW Al transverse attachment)",
+   "range_per_pm1g_MPa": 17.5,
+   "knee_allow_MPa": 10.3,
+   "miner_D": 0.00189,
+   "verdict": "pass",
+   "life_x_design": 264.73
+  },
+  {
+   "member": "TBL",
+   "FAT": 45,
+   "detail": "steel 4130 thin-wall tube, TIG fillet/fusion at a cluster or plate (IIW hollow-section joints FAT 40-50; 45 used)",
+   "range_per_pm1g_MPa": 34.3,
+   "knee_allow_MPa": 21.1,
+   "miner_D": 0.00161,
+   "verdict": "pass",
+   "life_x_design": 311.49
+  },
+  {
+   "member": "SAR00",
+   "FAT": 22,
+   "detail": "Al 6061 box arm, welded pivot boss/axle plate (IIW Al transverse attachment)",
+   "range_per_pm1g_MPa": 15.3,
+   "knee_allow_MPa": 10.3,
+   "miner_D": 0.00116,
+   "verdict": "pass",
+   "life_x_design": 431.51
+  },
+  {
+   "member": "UR0L",
+   "FAT": 45,
+   "detail": "steel 4130 thin-wall tube, TIG fillet/fusion at a cluster or plate (IIW hollow-section joints FAT 40-50; 45 used)",
+   "range_per_pm1g_MPa": 29.7,
+   "knee_allow_MPa": 21.1,
+   "miner_D": 0.00109,
+   "verdict": "pass",
+   "life_x_design": 458.99
+  },
+  {
+   "member": "PACK_side",
+   "FAT": 28,
+   "detail": "Al 6082 case: FSW/fusion seam or bolt-hole net section (IIW Al butt weld ground flush ~FAT 32; 28 used)",
+   "range_per_pm1g_MPa": 8.6,
+   "knee_allow_MPa": 13.1,
+   "miner_D": 0.00102,
+   "verdict": "pass",
+   "life_x_design": 489.17
+  },
+  {
+   "member": "SAL00",
+   "FAT": 22,
+   "detail": "Al 6061 box arm, welded pivot boss/axle plate (IIW Al transverse attachment)",
+   "range_per_pm1g_MPa": 14.6,
+   "knee_allow_MPa": 10.3,
+   "miner_D": 0.00101,
+   "verdict": "pass",
+   "life_x_design": 495.41
+  },
+  {
+   "member": "STUBL",
+   "FAT": 45,
+   "detail": "steel 4130 thin-wall tube, TIG fillet/fusion at a cluster or plate (IIW hollow-section joints FAT 40-50; 45 used)",
+   "range_per_pm1g_MPa": 27.8,
+   "knee_allow_MPa": 21.1,
+   "miner_D": 0.000745,
+   "verdict": "pass",
+   "life_x_design": 670.8
+  },
+  {
+   "member": "SAR01",
+   "FAT": 22,
+   "detail": "Al 6061 box arm, welded pivot boss/axle plate (IIW Al transverse attachment)",
+   "range_per_pm1g_MPa": 12.2,
+   "knee_allow_MPa": 10.3,
+   "miner_D": 0.000278,
+   "verdict": "pass",
+   "life_x_design": 1801.73
+  },
+  {
+   "member": "SAL01",
+   "FAT": 22,
+   "detail": "Al 6061 box arm, welded pivot boss/axle plate (IIW Al transverse attachment)",
+   "range_per_pm1g_MPa": 11.9,
+   "knee_allow_MPa": 10.3,
+   "miner_D": 0.00024,
+   "verdict": "pass",
+   "life_x_design": 2084.42
+  },
+  {
+   "member": "PIV",
+   "FAT": 45,
+   "detail": "steel 4130 thin-wall tube, TIG fillet/fusion at a cluster or plate (IIW hollow-section joints FAT 40-50; 45 used)",
+   "range_per_pm1g_MPa": 21.0,
+   "knee_allow_MPa": 21.1,
+   "miner_D": 0.000141,
+   "verdict": "pass",
+   "life_x_design": 3540.78
+  },
+  {
+   "member": "PACK_top@lug",
+   "FAT": 28,
+   "detail": "Al 6082 case: FSW/fusion seam or bolt-hole net section (IIW Al butt weld ground flush ~FAT 32; 28 used)",
+   "range_per_pm1g_MPa": 5.7,
+   "knee_allow_MPa": 13.1,
+   "miner_D": 5.02e-05,
+   "verdict": "pass",
+   "life_x_design": 9970.02
+  },
+  {
+   "member": "PACK_front",
+   "FAT": 28,
+   "detail": "Al 6082 case: FSW/fusion seam or bolt-hole net section (IIW Al butt weld ground flush ~FAT 32; 28 used)",
+   "range_per_pm1g_MPa": 8.1,
+   "knee_allow_MPa": 13.1,
+   "miner_D": 3.29e-05,
+   "verdict": "pass",
+   "life_x_design": 15195.15
+  },
+  {
+   "member": "PACK_bottom",
+   "FAT": 28,
+   "detail": "Al 6082 case: FSW/fusion seam or bolt-hole net section (IIW Al butt weld ground flush ~FAT 32; 28 used)",
+   "range_per_pm1g_MPa": 8.8,
+   "knee_allow_MPa": 13.1,
+   "miner_D": 1.25e-05,
+   "verdict": "pass",
+   "life_x_design": 39863.57
+  },
+  {
+   "member": "PACK_front@lug",
+   "FAT": 28,
+   "detail": "Al 6082 case: FSW/fusion seam or bolt-hole net section (IIW Al butt weld ground flush ~FAT 32; 28 used)",
+   "range_per_pm1g_MPa": 5.8,
+   "knee_allow_MPa": 13.1,
+   "miner_D": 1.95e-06,
+   "verdict": "pass",
+   "life_x_design": 256325.02
+  },
+  {
+   "member": "PACK_top",
+   "FAT": 28,
+   "detail": "Al 6082 case: FSW/fusion seam or bolt-hole net section (IIW Al butt weld ground flush ~FAT 32; 28 used)",
+   "range_per_pm1g_MPa": 6.4,
+   "knee_allow_MPa": 13.1,
+   "miner_D": 7.08e-07,
+   "verdict": "pass",
+   "life_x_design": 706081.14
+  },
+  {
+   "member": "LUGFR",
+   "FAT": 45,
+   "detail": "steel lug block welded to tube end (IIW tube-to-plate fillet, FAT 45)",
+   "range_per_pm1g_MPa": 9.0,
+   "knee_allow_MPa": 21.1,
+   "miner_D": 3.79e-07,
+   "verdict": "pass",
+   "life_x_design": 1318890.99
+  },
+  {
+   "member": "LUGFL",
+   "FAT": 45,
+   "detail": "steel lug block welded to tube end (IIW tube-to-plate fillet, FAT 45)",
+   "range_per_pm1g_MPa": 9.0,
+   "knee_allow_MPa": 21.1,
+   "miner_D": 3.03e-07,
+   "verdict": "pass",
+   "life_x_design": 1652505.74
+  },
+  {
+   "member": "PACK_rear",
+   "FAT": 28,
+   "detail": "Al 6082 case: FSW/fusion seam or bolt-hole net section (IIW Al butt weld ground flush ~FAT 32; 28 used)",
+   "range_per_pm1g_MPa": 6.0,
+   "knee_allow_MPa": 13.1,
+   "miner_D": 2.35e-07,
+   "verdict": "pass",
+   "life_x_design": 2130590.61
+  },
+  {
+   "member": "PACK_rear@lug",
+   "FAT": 28,
+   "detail": "Al 6082 case: FSW/fusion seam or bolt-hole net section (IIW Al butt weld ground flush ~FAT 32; 28 used)",
+   "range_per_pm1g_MPa": 5.4,
+   "knee_allow_MPa": 13.1,
+   "miner_D": 1.72e-08,
+   "verdict": "pass",
+   "life_x_design": 29120911.11
+  },
+  {
+   "member": "LUGRR",
+   "FAT": 45,
+   "detail": "steel lug block welded to tube end (IIW tube-to-plate fillet, FAT 45)",
+   "range_per_pm1g_MPa": 4.4,
+   "knee_allow_MPa": 21.1,
+   "miner_D": 4.96e-15,
+   "verdict": "pass",
+   "life_x_design": 100889777250467.83
+  },
+  {
+   "member": "LUGRL",
+   "FAT": 45,
+   "detail": "steel lug block welded to tube end (IIW tube-to-plate fillet, FAT 45)",
+   "range_per_pm1g_MPa": 4.0,
+   "knee_allow_MPa": 21.1,
+   "miner_D": 6.83e-16,
+   "verdict": "pass",
+   "life_x_design": 732462029949683.8
+  },
+  {
+   "member": "LUGT0R",
+   "FAT": 45,
+   "detail": "steel lug block welded to tube end (IIW tube-to-plate fillet, FAT 45)",
+   "range_per_pm1g_MPa": 1.9,
+   "knee_allow_MPa": 21.1,
+   "miner_D": 3.6e-16,
+   "verdict": "pass",
+   "life_x_design": 1389216292581902.0
+  },
+  {
+   "member": "LUGT0L",
+   "FAT": 45,
+   "detail": "steel lug block welded to tube end (IIW tube-to-plate fillet, FAT 45)",
+   "range_per_pm1g_MPa": 1.8,
+   "knee_allow_MPa": 21.1,
+   "miner_D": 3.38e-16,
+   "verdict": "pass",
+   "life_x_design": 1479208736521984.2
+  },
+  {
+   "member": "PACK_bottom@lug",
+   "FAT": 28,
+   "detail": "Al 6082 case: FSW/fusion seam or bolt-hole net section (IIW Al butt weld ground flush ~FAT 32; 28 used)",
+   "range_per_pm1g_MPa": 1.1,
+   "knee_allow_MPa": 13.1,
+   "miner_D": 1.65e-23,
+   "verdict": "pass",
+   "life_x_design": 3.0230453937656035e+22
+  },
+  {
+   "member": "LUGT1R",
+   "FAT": 45,
+   "detail": "steel lug block welded to tube end (IIW tube-to-plate fillet, FAT 45)",
+   "range_per_pm1g_MPa": 1.5,
+   "knee_allow_MPa": 21.1,
+   "miner_D": 2.58e-25,
+   "verdict": "pass",
+   "life_x_design": 1.939646592404692e+24
+  },
+  {
+   "member": "LUGT1L",
+   "FAT": 45,
+   "detail": "steel lug block welded to tube end (IIW tube-to-plate fillet, FAT 45)",
+   "range_per_pm1g_MPa": 1.1,
+   "knee_allow_MPa": 21.1,
+   "miner_D": 4.19e-27,
+   "verdict": "pass",
+   "life_x_design": 1.1933033087250496e+26
+  }
+ ],
+ "goodman_lugs": [
+  {
+   "member": "LUGFL",
+   "mean_MPa": 2.2,
+   "amp_MPa_at_1g": 4.5,
+   "Se_notched_MPa": 94.1,
+   "goodman_SF": 19.62
+  },
+  {
+   "member": "LUGFR",
+   "mean_MPa": 2.3,
+   "amp_MPa_at_1g": 4.5,
+   "Se_notched_MPa": 94.1,
+   "goodman_SF": 19.44
+  },
+  {
+   "member": "LUGRL",
+   "mean_MPa": 2.5,
+   "amp_MPa_at_1g": 2.0,
+   "Se_notched_MPa": 94.1,
+   "goodman_SF": 39.76
+  },
+  {
+   "member": "LUGRR",
+   "mean_MPa": 2.8,
+   "amp_MPa_at_1g": 2.2,
+   "Se_notched_MPa": 94.1,
+   "goodman_SF": 36.21
+  },
+  {
+   "member": "LUGT0L",
+   "mean_MPa": 1.4,
+   "amp_MPa_at_1g": 0.9,
+   "Se_notched_MPa": 94.1,
+   "goodman_SF": 84.63
+  },
+  {
+   "member": "LUGT0R",
+   "mean_MPa": 1.5,
+   "amp_MPa_at_1g": 0.9,
+   "Se_notched_MPa": 94.1,
+   "goodman_SF": 82.47
+  },
+  {
+   "member": "LUGT1L",
+   "mean_MPa": 0.9,
+   "amp_MPa_at_1g": 0.6,
+   "Se_notched_MPa": 94.1,
+   "goodman_SF": 135.09
+  },
+  {
+   "member": "LUGT1R",
+   "mean_MPa": 1.1,
+   "amp_MPa_at_1g": 0.8,
+   "Se_notched_MPa": 94.1,
+   "goodman_SF": 104.01
+  }
+ ],
+ "bolts_static": [
+  {
+   "case": "C2_front_bump_3g",
+   "lug": "T0L",
+   "tension_per_bolt_N": 774,
+   "shear_per_bolt_N": 77,
+   "slip_SF": 73.15,
+   "bolt_vm_if_slipped_MPa": 657,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 454.5
+  },
+  {
+   "case": "C2_front_bump_3g",
+   "lug": "T1L",
+   "tension_per_bolt_N": 264,
+   "shear_per_bolt_N": 68,
+   "slip_SF": 83.95,
+   "bolt_vm_if_slipped_MPa": 656,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 515.6
+  },
+  {
+   "case": "C2_front_bump_3g",
+   "lug": "FL",
+   "tension_per_bolt_N": 1382,
+   "shear_per_bolt_N": 1296,
+   "slip_SF": 4.26,
+   "bolt_vm_if_slipped_MPa": 660,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 26.9
+  },
+  {
+   "case": "C2_front_bump_3g",
+   "lug": "RL",
+   "tension_per_bolt_N": 717,
+   "shear_per_bolt_N": 130,
+   "slip_SF": 42.98,
+   "bolt_vm_if_slipped_MPa": 657,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 266.7
+  },
+  {
+   "case": "C2_front_bump_3g",
+   "lug": "T0R",
+   "tension_per_bolt_N": 799,
+   "shear_per_bolt_N": 81,
+   "slip_SF": 68.96,
+   "bolt_vm_if_slipped_MPa": 657,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 428.7
+  },
+  {
+   "case": "C2_front_bump_3g",
+   "lug": "T1R",
+   "tension_per_bolt_N": 294,
+   "shear_per_bolt_N": 82,
+   "slip_SF": 69.41,
+   "bolt_vm_if_slipped_MPa": 656,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 426.6
+  },
+  {
+   "case": "C2_front_bump_3g",
+   "lug": "FR",
+   "tension_per_bolt_N": 1408,
+   "shear_per_bolt_N": 1323,
+   "slip_SF": 4.17,
+   "bolt_vm_if_slipped_MPa": 660,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 26.3
+  },
+  {
+   "case": "C2_front_bump_3g",
+   "lug": "RR",
+   "tension_per_bolt_N": 764,
+   "shear_per_bolt_N": 144,
+   "slip_SF": 38.88,
+   "bolt_vm_if_slipped_MPa": 657,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 241.5
+  },
+  {
+   "case": "C3_braking_1.1g",
+   "lug": "T0L",
+   "tension_per_bolt_N": 1274,
+   "shear_per_bolt_N": 236,
+   "slip_SF": 23.49,
+   "bolt_vm_if_slipped_MPa": 659,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 147.6
+  },
+  {
+   "case": "C3_braking_1.1g",
+   "lug": "T1L",
+   "tension_per_bolt_N": 135,
+   "shear_per_bolt_N": 217,
+   "slip_SF": 26.14,
+   "bolt_vm_if_slipped_MPa": 656,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 160.1
+  },
+  {
+   "case": "C3_braking_1.1g",
+   "lug": "FL",
+   "tension_per_bolt_N": 1424,
+   "shear_per_bolt_N": 957,
+   "slip_SF": 5.77,
+   "bolt_vm_if_slipped_MPa": 659,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 36.4
+  },
+  {
+   "case": "C3_braking_1.1g",
+   "lug": "RL",
+   "tension_per_bolt_N": 276,
+   "shear_per_bolt_N": 55,
+   "slip_SF": 103.47,
+   "bolt_vm_if_slipped_MPa": 656,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 635.6
+  },
+  {
+   "case": "C3_braking_1.1g",
+   "lug": "T0R",
+   "tension_per_bolt_N": 1271,
+   "shear_per_bolt_N": 236,
+   "slip_SF": 23.46,
+   "bolt_vm_if_slipped_MPa": 658,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 147.4
+  },
+  {
+   "case": "C3_braking_1.1g",
+   "lug": "T1R",
+   "tension_per_bolt_N": 134,
+   "shear_per_bolt_N": 218,
+   "slip_SF": 26.13,
+   "bolt_vm_if_slipped_MPa": 656,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 160.0
+  },
+  {
+   "case": "C3_braking_1.1g",
+   "lug": "FR",
+   "tension_per_bolt_N": 1423,
+   "shear_per_bolt_N": 955,
+   "slip_SF": 5.78,
+   "bolt_vm_if_slipped_MPa": 659,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 36.5
+  },
+  {
+   "case": "C3_braking_1.1g",
+   "lug": "RR",
+   "tension_per_bolt_N": 276,
+   "shear_per_bolt_N": 56,
+   "slip_SF": 101.7,
+   "bolt_vm_if_slipped_MPa": 656,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 624.8
+  },
+  {
+   "case": "C4_braking_plus_bump",
+   "lug": "T0L",
+   "tension_per_bolt_N": 1168,
+   "shear_per_bolt_N": 280,
+   "slip_SF": 19.86,
+   "bolt_vm_if_slipped_MPa": 658,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 124.5
+  },
+  {
+   "case": "C4_braking_plus_bump",
+   "lug": "T1L",
+   "tension_per_bolt_N": 183,
+   "shear_per_bolt_N": 256,
+   "slip_SF": 22.19,
+   "bolt_vm_if_slipped_MPa": 656,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 136.1
+  },
+  {
+   "case": "C4_braking_plus_bump",
+   "lug": "FL",
+   "tension_per_bolt_N": 1006,
+   "shear_per_bolt_N": 493,
+   "slip_SF": 11.3,
+   "bolt_vm_if_slipped_MPa": 658,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 70.6
+  },
+  {
+   "case": "C4_braking_plus_bump",
+   "lug": "RL",
+   "tension_per_bolt_N": 92,
+   "shear_per_bolt_N": 72,
+   "slip_SF": 79.42,
+   "bolt_vm_if_slipped_MPa": 655,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 485.9
+  },
+  {
+   "case": "C4_braking_plus_bump",
+   "lug": "T0R",
+   "tension_per_bolt_N": 1162,
+   "shear_per_bolt_N": 281,
+   "slip_SF": 19.76,
+   "bolt_vm_if_slipped_MPa": 658,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 123.8
+  },
+  {
+   "case": "C4_braking_plus_bump",
+   "lug": "T1R",
+   "tension_per_bolt_N": 187,
+   "shear_per_bolt_N": 256,
+   "slip_SF": 22.14,
+   "bolt_vm_if_slipped_MPa": 656,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 135.8
+  },
+  {
+   "case": "C4_braking_plus_bump",
+   "lug": "FR",
+   "tension_per_bolt_N": 1001,
+   "shear_per_bolt_N": 486,
+   "slip_SF": 11.47,
+   "bolt_vm_if_slipped_MPa": 658,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 71.6
+  },
+  {
+   "case": "C4_braking_plus_bump",
+   "lug": "RR",
+   "tension_per_bolt_N": 87,
+   "shear_per_bolt_N": 75,
+   "slip_SF": 76.34,
+   "bolt_vm_if_slipped_MPa": 655,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 467.0
+  },
+  {
+   "case": "C6_rear_bump_3g",
+   "lug": "T0L",
+   "tension_per_bolt_N": 523,
+   "shear_per_bolt_N": 109,
+   "slip_SF": 51.84,
+   "bolt_vm_if_slipped_MPa": 657,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 320.2
+  },
+  {
+   "case": "C6_rear_bump_3g",
+   "lug": "T1L",
+   "tension_per_bolt_N": 347,
+   "shear_per_bolt_N": 115,
+   "slip_SF": 49.29,
+   "bolt_vm_if_slipped_MPa": 656,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 303.3
+  },
+  {
+   "case": "C6_rear_bump_3g",
+   "lug": "FL",
+   "tension_per_bolt_N": 715,
+   "shear_per_bolt_N": 658,
+   "slip_SF": 8.52,
+   "bolt_vm_if_slipped_MPa": 657,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 52.9
+  },
+  {
+   "case": "C6_rear_bump_3g",
+   "lug": "RL",
+   "tension_per_bolt_N": 922,
+   "shear_per_bolt_N": 403,
+   "slip_SF": 13.84,
+   "bolt_vm_if_slipped_MPa": 658,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 86.3
+  },
+  {
+   "case": "C6_rear_bump_3g",
+   "lug": "T0R",
+   "tension_per_bolt_N": 583,
+   "shear_per_bolt_N": 121,
+   "slip_SF": 46.6,
+   "bolt_vm_if_slipped_MPa": 657,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 288.3
+  },
+  {
+   "case": "C6_rear_bump_3g",
+   "lug": "T1R",
+   "tension_per_bolt_N": 419,
+   "shear_per_bolt_N": 139,
+   "slip_SF": 40.58,
+   "bolt_vm_if_slipped_MPa": 656,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 250.1
+  },
+  {
+   "case": "C6_rear_bump_3g",
+   "lug": "FR",
+   "tension_per_bolt_N": 773,
+   "shear_per_bolt_N": 712,
+   "slip_SF": 7.87,
+   "bolt_vm_if_slipped_MPa": 658,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 48.9
+  },
+  {
+   "case": "C6_rear_bump_3g",
+   "lug": "RR",
+   "tension_per_bolt_N": 1025,
+   "shear_per_bolt_N": 426,
+   "slip_SF": 13.09,
+   "bolt_vm_if_slipped_MPa": 658,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 81.8
+  },
+  {
+   "case": "C5_corner_45deg_x1.5",
+   "lug": "T0L",
+   "tension_per_bolt_N": 723,
+   "shear_per_bolt_N": 106,
+   "slip_SF": 52.67,
+   "bolt_vm_if_slipped_MPa": 657,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 326.8
+  },
+  {
+   "case": "C5_corner_45deg_x1.5",
+   "lug": "T1L",
+   "tension_per_bolt_N": 315,
+   "shear_per_bolt_N": 133,
+   "slip_SF": 42.48,
+   "bolt_vm_if_slipped_MPa": 656,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 261.2
+  },
+  {
+   "case": "C5_corner_45deg_x1.5",
+   "lug": "FL",
+   "tension_per_bolt_N": 1249,
+   "shear_per_bolt_N": 1186,
+   "slip_SF": 4.67,
+   "bolt_vm_if_slipped_MPa": 659,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 29.3
+  },
+  {
+   "case": "C5_corner_45deg_x1.5",
+   "lug": "RL",
+   "tension_per_bolt_N": 1080,
+   "shear_per_bolt_N": 329,
+   "slip_SF": 16.93,
+   "bolt_vm_if_slipped_MPa": 658,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 105.9
+  },
+  {
+   "case": "C5_corner_45deg_x1.5",
+   "lug": "T0R",
+   "tension_per_bolt_N": 694,
+   "shear_per_bolt_N": 92,
+   "slip_SF": 61.04,
+   "bolt_vm_if_slipped_MPa": 657,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 378.6
+  },
+  {
+   "case": "C5_corner_45deg_x1.5",
+   "lug": "T1R",
+   "tension_per_bolt_N": 383,
+   "shear_per_bolt_N": 74,
+   "slip_SF": 76.29,
+   "bolt_vm_if_slipped_MPa": 656,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 469.8
+  },
+  {
+   "case": "C5_corner_45deg_x1.5",
+   "lug": "FR",
+   "tension_per_bolt_N": 1020,
+   "shear_per_bolt_N": 929,
+   "slip_SF": 6.0,
+   "bolt_vm_if_slipped_MPa": 658,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 37.5
+  },
+  {
+   "case": "C5_corner_45deg_x1.5",
+   "lug": "RR",
+   "tension_per_bolt_N": 736,
+   "shear_per_bolt_N": 254,
+   "slip_SF": 22.08,
+   "bolt_vm_if_slipped_MPa": 657,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 137.1
+  },
+  {
+   "case": "C7a_pack_20g_longitudinal",
+   "lug": "T0L",
+   "tension_per_bolt_N": 81,
+   "shear_per_bolt_N": 6,
+   "slip_SF": 993.83,
+   "bolt_vm_if_slipped_MPa": 655,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 6078.6
+  },
+  {
+   "case": "C7a_pack_20g_longitudinal",
+   "lug": "T1L",
+   "tension_per_bolt_N": 306,
+   "shear_per_bolt_N": 110,
+   "slip_SF": 51.29,
+   "bolt_vm_if_slipped_MPa": 656,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 315.3
+  },
+  {
+   "case": "C7a_pack_20g_longitudinal",
+   "lug": "FL",
+   "tension_per_bolt_N": 232,
+   "shear_per_bolt_N": 171,
+   "slip_SF": 33.13,
+   "bolt_vm_if_slipped_MPa": 656,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 203.3
+  },
+  {
+   "case": "C7a_pack_20g_longitudinal",
+   "lug": "RL",
+   "tension_per_bolt_N": 3235,
+   "shear_per_bolt_N": 388,
+   "slip_SF": 13.62,
+   "bolt_vm_if_slipped_MPa": 664,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 89.7
+  },
+  {
+   "case": "C7a_pack_20g_longitudinal",
+   "lug": "T0R",
+   "tension_per_bolt_N": 81,
+   "shear_per_bolt_N": 6,
+   "slip_SF": 993.83,
+   "bolt_vm_if_slipped_MPa": 655,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 6078.6
+  },
+  {
+   "case": "C7a_pack_20g_longitudinal",
+   "lug": "T1R",
+   "tension_per_bolt_N": 306,
+   "shear_per_bolt_N": 110,
+   "slip_SF": 51.29,
+   "bolt_vm_if_slipped_MPa": 656,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 315.3
+  },
+  {
+   "case": "C7a_pack_20g_longitudinal",
+   "lug": "FR",
+   "tension_per_bolt_N": 232,
+   "shear_per_bolt_N": 171,
+   "slip_SF": 33.13,
+   "bolt_vm_if_slipped_MPa": 656,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 203.3
+  },
+  {
+   "case": "C7a_pack_20g_longitudinal",
+   "lug": "RR",
+   "tension_per_bolt_N": 3235,
+   "shear_per_bolt_N": 388,
+   "slip_SF": 13.62,
+   "bolt_vm_if_slipped_MPa": 664,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 89.7
+  },
+  {
+   "case": "C7b_pack_8g_lateral",
+   "lug": "T0L",
+   "tension_per_bolt_N": 112,
+   "shear_per_bolt_N": 44,
+   "slip_SF": 130.63,
+   "bolt_vm_if_slipped_MPa": 655,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 799.5
+  },
+  {
+   "case": "C7b_pack_8g_lateral",
+   "lug": "T1L",
+   "tension_per_bolt_N": 311,
+   "shear_per_bolt_N": 77,
+   "slip_SF": 73.92,
+   "bolt_vm_if_slipped_MPa": 656,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 454.5
+  },
+  {
+   "case": "C7b_pack_8g_lateral",
+   "lug": "FL",
+   "tension_per_bolt_N": 312,
+   "shear_per_bolt_N": 356,
+   "slip_SF": 15.88,
+   "bolt_vm_if_slipped_MPa": 656,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 97.6
+  },
+  {
+   "case": "C7b_pack_8g_lateral",
+   "lug": "RL",
+   "tension_per_bolt_N": 1294,
+   "shear_per_bolt_N": 1073,
+   "slip_SF": 5.16,
+   "bolt_vm_if_slipped_MPa": 659,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 32.4
+  },
+  {
+   "case": "C7b_pack_8g_lateral",
+   "lug": "T0R",
+   "tension_per_bolt_N": 125,
+   "shear_per_bolt_N": 37,
+   "slip_SF": 152.29,
+   "bolt_vm_if_slipped_MPa": 655,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 932.4
+  },
+  {
+   "case": "C7b_pack_8g_lateral",
+   "lug": "T1R",
+   "tension_per_bolt_N": 315,
+   "shear_per_bolt_N": 94,
+   "slip_SF": 60.0,
+   "bolt_vm_if_slipped_MPa": 656,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 368.9
+  },
+  {
+   "case": "C7b_pack_8g_lateral",
+   "lug": "FR",
+   "tension_per_bolt_N": 375,
+   "shear_per_bolt_N": 401,
+   "slip_SF": 14.08,
+   "bolt_vm_if_slipped_MPa": 656,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 86.7
+  },
+  {
+   "case": "C7b_pack_8g_lateral",
+   "lug": "RR",
+   "tension_per_bolt_N": 1229,
+   "shear_per_bolt_N": 1086,
+   "slip_SF": 5.1,
+   "bolt_vm_if_slipped_MPa": 659,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 32.0
+  },
+  {
+   "case": "C7c_pack_5g_vertical",
+   "lug": "T0L",
+   "tension_per_bolt_N": 23,
+   "shear_per_bolt_N": 25,
+   "slip_SF": 225.18,
+   "bolt_vm_if_slipped_MPa": 655,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 1375.5
+  },
+  {
+   "case": "C7c_pack_5g_vertical",
+   "lug": "T1L",
+   "tension_per_bolt_N": 228,
+   "shear_per_bolt_N": 31,
+   "slip_SF": 182.64,
+   "bolt_vm_if_slipped_MPa": 656,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 1120.8
+  },
+  {
+   "case": "C7c_pack_5g_vertical",
+   "lug": "FL",
+   "tension_per_bolt_N": 333,
+   "shear_per_bolt_N": 393,
+   "slip_SF": 14.41,
+   "bolt_vm_if_slipped_MPa": 656,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 88.6
+  },
+  {
+   "case": "C7c_pack_5g_vertical",
+   "lug": "RL",
+   "tension_per_bolt_N": 259,
+   "shear_per_bolt_N": 250,
+   "slip_SF": 22.63,
+   "bolt_vm_if_slipped_MPa": 656,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 138.9
+  },
+  {
+   "case": "C7c_pack_5g_vertical",
+   "lug": "T0R",
+   "tension_per_bolt_N": 23,
+   "shear_per_bolt_N": 25,
+   "slip_SF": 225.18,
+   "bolt_vm_if_slipped_MPa": 655,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 1375.5
+  },
+  {
+   "case": "C7c_pack_5g_vertical",
+   "lug": "T1R",
+   "tension_per_bolt_N": 228,
+   "shear_per_bolt_N": 31,
+   "slip_SF": 182.64,
+   "bolt_vm_if_slipped_MPa": 656,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 1120.8
+  },
+  {
+   "case": "C7c_pack_5g_vertical",
+   "lug": "FR",
+   "tension_per_bolt_N": 333,
+   "shear_per_bolt_N": 393,
+   "slip_SF": 14.41,
+   "bolt_vm_if_slipped_MPa": 656,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 88.6
+  },
+  {
+   "case": "C7c_pack_5g_vertical",
+   "lug": "RR",
+   "tension_per_bolt_N": 259,
+   "shear_per_bolt_N": 250,
+   "slip_SF": 22.63,
+   "bolt_vm_if_slipped_MPa": 656,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 138.9
+  },
+  {
+   "case": "C9a_guard_21kN_upper_rail_node",
+   "lug": "T0L",
+   "tension_per_bolt_N": 45,
+   "shear_per_bolt_N": 41,
+   "slip_SF": 139.23,
+   "bolt_vm_if_slipped_MPa": 655,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 850.9
+  },
+  {
+   "case": "C9a_guard_21kN_upper_rail_node",
+   "lug": "T1L",
+   "tension_per_bolt_N": 303,
+   "shear_per_bolt_N": 123,
+   "slip_SF": 45.94,
+   "bolt_vm_if_slipped_MPa": 656,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 282.4
+  },
+  {
+   "case": "C9a_guard_21kN_upper_rail_node",
+   "lug": "FL",
+   "tension_per_bolt_N": 46,
+   "shear_per_bolt_N": 56,
+   "slip_SF": 102.18,
+   "bolt_vm_if_slipped_MPa": 655,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 624.5
+  },
+  {
+   "case": "C9a_guard_21kN_upper_rail_node",
+   "lug": "RL",
+   "tension_per_bolt_N": 218,
+   "shear_per_bolt_N": 165,
+   "slip_SF": 34.39,
+   "bolt_vm_if_slipped_MPa": 656,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 211.0
+  },
+  {
+   "case": "C9a_guard_21kN_upper_rail_node",
+   "lug": "T0R",
+   "tension_per_bolt_N": 22,
+   "shear_per_bolt_N": 20,
+   "slip_SF": 282.74,
+   "bolt_vm_if_slipped_MPa": 655,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 1727.0
+  },
+  {
+   "case": "C9a_guard_21kN_upper_rail_node",
+   "lug": "T1R",
+   "tension_per_bolt_N": 425,
+   "shear_per_bolt_N": 254,
+   "slip_SF": 22.23,
+   "bolt_vm_if_slipped_MPa": 656,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 137.0
+  },
+  {
+   "case": "C9a_guard_21kN_upper_rail_node",
+   "lug": "FR",
+   "tension_per_bolt_N": 35,
+   "shear_per_bolt_N": 41,
+   "slip_SF": 137.66,
+   "bolt_vm_if_slipped_MPa": 655,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 841.1
+  },
+  {
+   "case": "C9a_guard_21kN_upper_rail_node",
+   "lug": "RR",
+   "tension_per_bolt_N": 137,
+   "shear_per_bolt_N": 179,
+   "slip_SF": 31.77,
+   "bolt_vm_if_slipped_MPa": 656,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 194.6
+  },
+  {
+   "case": "C9b_guard_21kN_front_lug",
+   "lug": "T0L",
+   "tension_per_bolt_N": 290,
+   "shear_per_bolt_N": 78,
+   "slip_SF": 72.16,
+   "bolt_vm_if_slipped_MPa": 656,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 443.5
+  },
+  {
+   "case": "C9b_guard_21kN_front_lug",
+   "lug": "T1L",
+   "tension_per_bolt_N": 504,
+   "shear_per_bolt_N": 166,
+   "slip_SF": 33.95,
+   "bolt_vm_if_slipped_MPa": 656,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 209.6
+  },
+  {
+   "case": "C9b_guard_21kN_front_lug",
+   "lug": "FL",
+   "tension_per_bolt_N": 1502,
+   "shear_per_bolt_N": 1697,
+   "slip_SF": 3.25,
+   "bolt_vm_if_slipped_MPa": 661,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 20.5
+  },
+  {
+   "case": "C9b_guard_21kN_front_lug",
+   "lug": "RL",
+   "tension_per_bolt_N": 3952,
+   "shear_per_bolt_N": 1744,
+   "slip_SF": 2.98,
+   "bolt_vm_if_slipped_MPa": 667,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 20.0
+  },
+  {
+   "case": "C9b_guard_21kN_front_lug",
+   "lug": "T0R",
+   "tension_per_bolt_N": 353,
+   "shear_per_bolt_N": 79,
+   "slip_SF": 71.38,
+   "bolt_vm_if_slipped_MPa": 656,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 439.3
+  },
+  {
+   "case": "C9b_guard_21kN_front_lug",
+   "lug": "T1R",
+   "tension_per_bolt_N": 485,
+   "shear_per_bolt_N": 172,
+   "slip_SF": 32.69,
+   "bolt_vm_if_slipped_MPa": 656,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 201.8
+  },
+  {
+   "case": "C9b_guard_21kN_front_lug",
+   "lug": "FR",
+   "tension_per_bolt_N": 2976,
+   "shear_per_bolt_N": 4720,
+   "slip_SF": 1.13,
+   "bolt_vm_if_slipped_MPa": 678,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 7.4
+  },
+  {
+   "case": "C9b_guard_21kN_front_lug",
+   "lug": "RR",
+   "tension_per_bolt_N": 4047,
+   "shear_per_bolt_N": 1754,
+   "slip_SF": 2.96,
+   "bolt_vm_if_slipped_MPa": 668,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 19.8
+  },
+  {
+   "case": "C9c_guard_21kN_rear_link_lug",
+   "lug": "T0L",
+   "tension_per_bolt_N": 35,
+   "shear_per_bolt_N": 54,
+   "slip_SF": 106.06,
+   "bolt_vm_if_slipped_MPa": 655,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 648.0
+  },
+  {
+   "case": "C9c_guard_21kN_rear_link_lug",
+   "lug": "T1L",
+   "tension_per_bolt_N": 367,
+   "shear_per_bolt_N": 124,
+   "slip_SF": 45.58,
+   "bolt_vm_if_slipped_MPa": 656,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 280.6
+  },
+  {
+   "case": "C9c_guard_21kN_rear_link_lug",
+   "lug": "FL",
+   "tension_per_bolt_N": 322,
+   "shear_per_bolt_N": 390,
+   "slip_SF": 14.5,
+   "bolt_vm_if_slipped_MPa": 656,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 89.2
+  },
+  {
+   "case": "C9c_guard_21kN_rear_link_lug",
+   "lug": "RL",
+   "tension_per_bolt_N": 1501,
+   "shear_per_bolt_N": 1885,
+   "slip_SF": 2.92,
+   "bolt_vm_if_slipped_MPa": 661,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 18.5
+  },
+  {
+   "case": "C9c_guard_21kN_rear_link_lug",
+   "lug": "T0R",
+   "tension_per_bolt_N": 33,
+   "shear_per_bolt_N": 57,
+   "slip_SF": 99.27,
+   "bolt_vm_if_slipped_MPa": 655,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 606.5
+  },
+  {
+   "case": "C9c_guard_21kN_rear_link_lug",
+   "lug": "T1R",
+   "tension_per_bolt_N": 369,
+   "shear_per_bolt_N": 122,
+   "slip_SF": 46.38,
+   "bolt_vm_if_slipped_MPa": 656,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 285.5
+  },
+  {
+   "case": "C9c_guard_21kN_rear_link_lug",
+   "lug": "FR",
+   "tension_per_bolt_N": 308,
+   "shear_per_bolt_N": 378,
+   "slip_SF": 14.98,
+   "bolt_vm_if_slipped_MPa": 656,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 92.1
+  },
+  {
+   "case": "C9c_guard_21kN_rear_link_lug",
+   "lug": "RR",
+   "tension_per_bolt_N": 1808,
+   "shear_per_bolt_N": 2514,
+   "slip_SF": 2.18,
+   "bolt_vm_if_slipped_MPa": 664,
+   "bolt_proof_MPa": 830,
+   "bolt_shear_capacity_SF": 13.8
+  }
+ ],
+ "bolts_fatigue": [
+  {
+   "lug": "T0L",
+   "bolt_stress_amp_at_pm2g_MPa": 0.58,
+   "sigma_ASV_MPa": 51.0,
+   "SF": 87.8
+  },
+  {
+   "lug": "T1L",
+   "bolt_stress_amp_at_pm2g_MPa": 0.25,
+   "sigma_ASV_MPa": 51.0,
+   "SF": 203.3
+  },
+  {
+   "lug": "FL",
+   "bolt_stress_amp_at_pm2g_MPa": 1.11,
+   "sigma_ASV_MPa": 51.0,
+   "SF": 46.0
+  },
+  {
+   "lug": "RL",
+   "bolt_stress_amp_at_pm2g_MPa": 0.66,
+   "sigma_ASV_MPa": 51.0,
+   "SF": 76.9
+  },
+  {
+   "lug": "T0R",
+   "bolt_stress_amp_at_pm2g_MPa": 0.59,
+   "sigma_ASV_MPa": 51.0,
+   "SF": 86.7
+  },
+  {
+   "lug": "T1R",
+   "bolt_stress_amp_at_pm2g_MPa": 0.31,
+   "sigma_ASV_MPa": 51.0,
+   "SF": 163.0
+  },
+  {
+   "lug": "FR",
+   "bolt_stress_amp_at_pm2g_MPa": 1.12,
+   "sigma_ASV_MPa": 51.0,
+   "SF": 45.7
+  },
+  {
+   "lug": "RR",
+   "bolt_stress_amp_at_pm2g_MPa": 0.75,
+   "sigma_ASV_MPa": 51.0,
+   "SF": 68.2
+  }
+ ]
+}

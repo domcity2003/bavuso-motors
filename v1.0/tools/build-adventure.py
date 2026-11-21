@@ -400,7 +400,8 @@ for side in [-1,1]:
     # The pivot node is low now (PZ), so the pack wraps over the motor; the rail rises nearly vertically
     # behind the pack's top steps (X>=590) instead of leaning forward into them.
     # Sizes from detailed-design/structural-fea.md (4130): 44x3.5 / 38x3 / 45x4; the head joint moves up to w=120 on the axis.
-    for i,(a,b,ro,ri) in enumerate([((540,y,PZ),(570,yn,715),22,18.5),((570,yn,715),(1050,y,780),19,16),((1050,y,780),(1156.2,side*35,908.8),22.5,18.5)]):
+    # Nov 21 FEA re-run (structural-fea.md): middle rail 38x4.5 (was 38x3) for fatigue at the narrower +-125 node; tail rails 38x3.5.
+    for i,(a,b,ro,ri) in enumerate([((540,y,PZ),(570,yn,715),22,18.5),((570,yn,715),(1050,y,780),19,14.5),((1050,y,780),(1156.2,side*35,908.8),22.5,18.5)]):
         tube(sname(f'Upper_rail_{i}',side),a,b,ro,ri)
     # Posts from the upper rail down to machined pads on the pack roof (FEA CR-7): triangulate each side loop.
     for nm,xr,xp in (('front',960,950),('rear',700,712)):   # front post 40 aft of the FEA X1000 so the side-pod radiator clears it
@@ -420,7 +421,7 @@ for side in [-1,1]:
     zr_lug=PZ+36
     br=next(b for b in bands if b['zlo']<=zr_lug<=b['zhi'])
     tube(sname('Lower_pack_rear_link',side),(540,y,PZ),(br['xlo']-17,side*175,zr_lug),22,18.5)   # 44x3.5 (FEA CR-8)
-    tube(sname('Tail_rail',side),(568,yn,692),(-60,side*TAIL_RAIL_END_Y,TAIL_RAIL_END),19,16)   # 38x3 (FEA CR-9); rear end up 8.5 for the 170/60 tyre   # 10mm higher than V1.0: 20mm off the tyre at full bump
+    tube(sname('Tail_rail',side),(568,yn,692),(-60,side*TAIL_RAIL_END_Y,TAIL_RAIL_END),19,15.5)   # 38x3.5 (FEA CR-9; Nov 21 re-run: 3.5 wall for the crash-guard case); rear end up 8.5 for the 170/60 tyre   # 10mm higher than V1.0: 20mm off the tyre at full bump
     tube(sname('Tail_brace',side),(540,y,PZ),(160,side*144,740),14,12)
     # Box-section swingarm arm, 74x34 at the pivot tapering to 52x30 at the axle (loft of two sections).
     # Belt-side (left) arm sits 8mm further out: at Y-108 its inner face was 3mm from the EMRAX output hub (Y-105).
@@ -435,7 +436,7 @@ for side in [-1,1]:
     add(sname('Swingarm',side),arm_,'Chassis','PROPOSED box-section swingarm arm; section/fatigue NOT qualified',color=(.13,.14,.15))
 head_lo=sa-sd*30;head_hi=sa+sd*200
 add('Head_tube',cyl(tuple(head_lo),tuple(head_hi),31,25),'Chassis','Head tube on steering axis; bearing seats unresolved')
-add('Swingarm_cross_brace',cyl((380,-118,arm_z(380)),(380,110,arm_z(380)),30,25),'Chassis','PROPOSED 50x5 cross tube ahead of the tyre; carries the shock tower; bolt-in (inside the belt loop)',color=(.13,.14,.15))
+add('Swingarm_cross_brace',cyl((380,-118,arm_z(380)),(380,110,arm_z(380)),30,24),'Chassis','PROPOSED 60x6 A356 cross tube (Nov 21 FEA re-run, was 60x5) ahead of the tyre; carries the shock tower; bolt-in (inside the belt loop)',color=(.13,.14,.15))
 # Upside-down fork built in the steering frame: local Z along the steering axis from the lower axis point,
 # local X forward-perpendicular. Tubes sit 36.1mm ahead of the axis; the axle sits W_AXLE down the axis.
 steer_pl=A.Placement(sa,A.Rotation(V(0,1,0),-25))

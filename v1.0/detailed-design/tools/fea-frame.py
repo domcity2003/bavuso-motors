@@ -68,6 +68,7 @@ V = dict(
     tailx_box=None,        # (height Z, depth X, wall): shock-top bridge as a box section instead of the tube
     shock_diag=None,       # (ro, t): pair of diagonals from the shock-top cross tube (Y+-60) down-back to the tail braces
     tower_mat='AL6061',    # shock tower + cross brace material ('A356' = one cast node bolted to the arms)
+    geom=None,             # frame layout overrides (Nov 20): node_y, node_z, tj_z, tail_y, tail_z, shock_x, eye_z; None = Nov 12 CAD
     pivot_cross=None,      # (x, z, ro, t): cross tube between the two pivot nodes' rails at that point                                                 # steel lug block, width(Y) x depth
 )
 if args.variant != 'baseline':
@@ -177,6 +178,8 @@ def pack_x_at(z, front=True):
     for z0, z1, x0, x1 in STRIPS:
         if z0 <= z <= z1: return x1 if front else x0
 
+GE = dict(node_y=195.0, node_z=740.0, tj_z=715.0, tail_y=100.0, tail_z=790.0, shock_x=490.0, eye_z=660.0)   # Nov 12 CAD
+if V['geom']: GE.update(V['geom'])
 def build(suspension=True):
     global nodes, nkey, elems, elsets, sections, member_len
     nodes, nkey, elems, elsets, sections, member_len = {}, {}, [], {}, {}, {}
@@ -197,19 +200,20 @@ def build(suspension=True):
     xf_pre = pack_x_at(470.0, True)
     for s in (-1, 1):
         S = 'L' if s < 0 else 'R'; y = 195 * s
-        piv = (540, y, PZ); ur0b = (570, y, 740); t715 = 365 / 390; p715 = lerp(piv, ur0b, t715)
+        yn = GE['node_y'] * s; zn = GE['node_z']
+        piv = (540, y, PZ); ur0b = (570, yn, zn); t715 = (GE['tj_z'] - PZ) / (zn - PZ); p715 = lerp(piv, ur0b, t715)
         if V['pivot_cross']:
-            pc = lerp(piv, ur0b, (V['pivot_cross'][1] - PZ) / 390); info['pc_' + S] = pc
-            chain('UR0' + S, [piv, pc, p715, ur0b], rail)
+            pc = lerp(piv, ur0b, (V['pivot_cross'][1] - PZ) / (zn - PZ)); info['pc_' + S] = pc
+            chain('UR0' + S, [piv, pc, p715, ur0b] if zn != GE['tj_z'] else [piv, pc, ur0b], rail)
         else:
-            chain('UR0' + S, [piv, p715, ur0b], pipe(*V['rail0'], 'ST4130') if V['rail0'] else rail)
+            chain('UR0' + S, [piv, p715, ur0b] if zn != GE['tj_z'] else [piv, ur0b], pipe(*V['rail0'], 'ST4130') if V['rail0'] else rail)
         ur1e = np.array([1050, y, 780.0]); ur1p = [np.array(ur0b, float)]
         for k, st in enumerate(V['struts'] or []):
             ur1p.append(lerp(ur0b, ur1e, (st[0] - 570) / 480))
         chain('UR1' + S, sorted(ur1p, key=lambda q: q[0]) + [ur1e], rail)
         for k, st in enumerate(V['struts'] or []):
             top = lerp(ur0b, ur1e, (st[0] - 570) / 480); zt_ = STRIPS[-1][1]
-            foot = np.array([st[1], 178.0 * s, zt_]); le = foot + np.array([0, 0, 17.0])
+            foot = np.array([st[1], (st[4] if len(st) > 4 else 178.0) * s, zt_]); le = foot + np.array([0, 0, 17.0])
             beam('ST%d%s' % (k, S), top, le, pipe(st[2], st[3], 'ST4130'))
             ids = beam('LUGT%d%s' % (k, S), le, foot + np.array([0, 0, 4.0]), rect(*V['lug'], 'ST4130'), n=1)
             lugs['T%d%s' % (k, S)] = dict(ref=ids[-1], foot=foot, outer=ids[0])
@@ -234,8 +238,8 @@ def build(suspension=True):
         pr = (xr - 4, 175 * s, zr); ids = beam('LUGR' + S, lr, pr, rect(*V['lug'], 'ST4130'), n=1)
         lugs['R' + S] = dict(ref=ids[-1], foot=np.array([xr, 175 * s, zr]), outer=ids[0])
         # tail (393-394) and shock cross tube (484-485)
-        ta, tb = np.array([568, y, 715.0]), np.array([-60, 100 * s, 790.0])
-        t490 = (568 - 490) / 628; t160 = (568 - 160) / 628; t280 = (568 - 280) / 628
+        ta, tb = np.array([568, yn, GE['tj_z']]), np.array([-60, GE['tail_y'] * s, GE['tail_z']])
+        t490 = (568 - GE['shock_x']) / 628; t160 = (568 - 160) / 628; t280 = (568 - 280) / 628
         chain('TR' + S, [p715, lerp(ta, tb, t490), lerp(ta, tb, t280), lerp(ta, tb, t160), tb], pipe(*V['tailrail'], 'ST4130'))
         tbe = lerp(ta, tb, t160); tbm = lerp(piv, tbe, (560 - PZ) / (tbe[2] - PZ)); info['tbm_' + S] = tbm
         beam('TB' + S, piv, tbe, pipe(*V['tailbrace'], 'ST4130'))
@@ -250,16 +254,17 @@ def build(suspension=True):
     if V['pivot_cross']:
         beam('PX', info['pc_L'], info['pc_R'], pipe(V['pivot_cross'][2], V['pivot_cross'][3], 'ST4130'))
     # tail shock cross tube and top bracket
-    yt = 195 - 95 * (568 - 490) / 628; zt = 715 + 75 * (568 - 490) / 628
-    chain('TX', [(490, -yt, zt), (490, -60, zt), (490, -26, zt), (490, 0, zt), (490, 26, zt), (490, 60, zt), (490, yt, zt)], boxs(*V['tailx_box'][:2], V['tailx_box'][2], 'ST4130') if V['tailx_box'] else pipe(*V['tailx'], 'ST4130'))
+    xs_ = GE['shock_x']; t_ = (568 - xs_) / 628
+    yt = GE['node_y'] - (GE['node_y'] - GE['tail_y']) * t_; zt = GE['tj_z'] + (GE['tail_z'] - GE['tj_z']) * t_
+    chain('TX', [(xs_, -yt, zt), (xs_, -60, zt), (xs_, -26, zt), (xs_, 0, zt), (xs_, 26, zt), (xs_, 60, zt), (xs_, yt, zt)], boxs(*V['tailx_box'][:2], V['tailx_box'][2], 'ST4130') if V['tailx_box'] else pipe(*V['tailx'], 'ST4130'))
     if V['shock_diag']:
         for s in (-1, 1):
             S = 'L' if s < 0 else 'R'
-            beam('SD' + S, (490, 60 * s, zt), nodes[info['pivnode_' + S]], pipe(*V['shock_diag'], 'ST4130'))
-    top_eye = np.array([490, 0, 660.0])
+            beam('SD' + S, (xs_, 60 * s, zt), nodes[info['pivnode_' + S]], pipe(*V['shock_diag'], 'ST4130'))
+    ez = GE['eye_z']; top_eye = np.array([xs_, 0, ez])
     for s in (-1, 1):
-        beam('STB', (490, 26 * s, zt), (490, 26 * s, 660), rect(*V['topbr'], 'ST4130'))
-        beam('BOLT', (490, 26 * s, 660), top_eye, circ(6, 'ST109'))
+        beam('STB', (xs_, 26 * s, zt), (xs_, 26 * s, ez), rect(*V['topbr'], 'ST4130'))
+        beam('BOLT', (xs_, 26 * s, ez), top_eye, circ(6, 'ST109'))
     info['top_eye'] = node(top_eye)
     if suspension:
         # fork in the steering frame (409-433)

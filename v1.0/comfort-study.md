@@ -233,4 +233,4 @@ Sources:
 
 **Unchanged:** seat 832 mm, pegs 323 mm, knee 82°, elbow 95° (50th-percentile man). Build: 61 of 62 checks pass (the open one is still the lower cover 1.99 mm from the pack, against 5). Frame to rear tyre at full bump: 21.8 mm (needs 20). Mass: 326.7 kg.
 
-**Still to do:** re-run the frame FEA with the ±125 joint (see `detailed-design/structural-fea.md`), and confirm with real riders on a seating buck.
+**Still to do:** confirm with real riders on a seating buck. (The frame FEA was re-run on November 21 and passes with thicker walls on three tubes; see `detailed-design/structural-fea.md`.)

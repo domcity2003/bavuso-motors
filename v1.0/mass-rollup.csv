@@ -27,14 +27,16 @@ HV_upper_junction_box,Electronics,2.2,643,-12,718,,estimate,kg,junction box with
 HV cables and lugs,Allowance,2.2,640,0,520,,estimate,allowance,"pack-cabinet-inverter-motor, charge inlet"
 Shock_body_STUDY,Chassis,2.0,422,0,622,R0.5,estimate,kg,semi-active damper body (with valves)
 Body brackets and fixings,Allowance,2.0,850,0,700,,estimate,allowance,
+Tail_rail_1,Chassis,1.914,254,114,813,,CAD,vol,28x2 chromoly
+Tail_rail_m1,Chassis,1.914,254,-114,813,,CAD,vol,28x2 chromoly
 Head_tube,Chassis,1.906,1171,0,930,,CAD,vol,head tube
 Radiator_core_m1,Cooling,1.9,1075,-240,726,,estimate,kg,"210x140x32 Al core, filled (thermal-study.md)"
 Radiator_core_1,Cooling,1.9,1075,240,726,,estimate,kg,"210x140x32 Al core, filled (thermal-study.md)"
 Swingarm_m1,Chassis,1.887,301,-158,369,R0.5,CAD,shell,"fabricated box arm, 4.5/4.0 mm walls (structural-fea.md)"
 Swingarm_1,Chassis,1.887,301,125,369,R0.5,CAD,shell,"fabricated box arm, 4.5/4.0 mm walls (structural-fea.md)"
+Upper_rail_1_m1,Chassis,1.82,810,-160,801,,CAD,vol,32x2.5 chromoly
+Upper_rail_1_1,Chassis,1.82,810,160,801,,CAD,vol,32x2.5 chromoly
 Upper_body_fairing_tank_STUDY,BodyStudy,1.817,1009,-1,896,,CAD,vol,3 mm painted panel
-Tail_rail_m1,Chassis,1.664,254,-115,813,,CAD,vol,28x2 chromoly
-Tail_rail_1,Chassis,1.664,254,114,813,,CAD,vol,28x2 chromoly
 Rear_pulley_PITCH_STUDY,Drive,1.6,0,-116,325,R1.0,estimate,kg,62T 14 mm aluminium pulley
 Coolant_PTC_heater_5kW,Cooling,1.6,815,-114,809,,estimate,kg,5 kW HV PTC heater (thermal-study.md)
 "ABS module (Bosch 10 class), lines, fluid",Allowance,1.6,700,0,760,,estimate,allowance,under the tank
@@ -50,8 +52,6 @@ Upper_rail_0_m1,Chassis,1.303,555,-160,586,,CAD,vol,32x2.5 chromoly
 Lower_triple_clamp,RunningGear,1.3,1243,0,817,,estimate,kg,forged clamp with stem
 NACS_charge_inlet,Electronics,1.3,894,174,900,,supplier,kg,Volex NACS inlet with HV leads
 "Nose subframe, headlamp and dash brackets",Allowance,1.3,1330,0,900,,estimate,allowance,
-Upper_rail_1_m1,Chassis,1.267,810,-160,801,,CAD,vol,32x2.5 chromoly
-Upper_rail_1_1,Chassis,1.267,810,160,801,,CAD,vol,32x2.5 chromoly
 Front_disc_m1,RunningGear,1.2,1490,-56,332,F1.0,estimate,kg,320 mm floating disc
 Front_disc_p1,RunningGear,1.2,1490,56,332,F1.0,estimate,kg,320 mm floating disc
 Shock_spring_STUDY,Chassis,1.2,389,2,582,R0.5,estimate,kg,"97 N/mm steel spring, 88 OD"
@@ -87,6 +87,7 @@ Coolant_pump_battery,Cooling,0.7,625,118,718,,supplier,kg,12 V EWP-class pump (t
 Coolant_pump_drive,Cooling,0.7,896,148,718,,supplier,kg,12 V EWP-class pump (thermal-study.md)
 "VCU, keyless, horn",Allowance,0.7,1200,0,880,,estimate,allowance,nose
 Rear brake pedal and master cylinder,Allowance,0.7,520,200,430,,estimate,allowance,right side
+Swingarm_cross_brace,Chassis,0.627,380,-4,380,R0.5,CAD,vol,50x5 aluminium tube
 Belly_side_panel_m1,BodyStudy,0.602,837,-219,311,,CAD,vol,proud bolted aluminium panel
 Belly_side_panel_1,BodyStudy,0.602,837,219,311,,CAD,vol,proud bolted aluminium panel
 Shock_reservoir_STUDY,Chassis,0.6,405,0,733,,estimate,kg,remote reservoir + hose
@@ -97,7 +98,6 @@ Oil_cooler,Cooling,0.6,620,-130,528,,estimate,kg,gear-oil cooler
 Swingarm pivot bolt and hardware,Allowance,0.6,540,0,390,R0.5,estimate,allowance,
 Handguard_m1,Protection,0.595,983,-381,1115,,CAD,vol,22x3 6082 handguard backbone
 Handguard_1,Protection,0.595,983,381,1115,,CAD,vol,22x3 6082 handguard backbone
-Swingarm_cross_brace,Chassis,0.532,380,-4,380,R0.5,CAD,vol,50x5 aluminium tube
 Motor_side_covers_STUDY,BodyStudy,0.523,519,0,374,,CAD,vol,3 mm panel
 Shock_top_bracket,Chassis,0.507,482,0,718,,CAD,vol,twin 8 mm plates
 Drive_belt_14mm_STUDY,Drive,0.5,203,-116,354,R0.5,estimate,kg,"14 mm pitch carbon belt, about 30 mm wide"

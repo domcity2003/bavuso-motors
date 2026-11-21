@@ -1,0 +1,90 @@
+{
+ "struts": [
+  [
+   960,
+   950,
+   16,
+   2.5,
+   178
+  ],
+  [
+   700,
+   712,
+   16,
+   2.5,
+   165
+  ]
+ ],
+ "ur_head_w": 120,
+ "rail": [
+  19,
+  3
+ ],
+ "rail2": [
+  22.5,
+  4
+ ],
+ "downlink": [
+  20,
+  3.5
+ ],
+ "rearlink": [
+  22,
+  3.5
+ ],
+ "tailrail": [
+  19,
+  3.5
+ ],
+ "shock_diag": [
+  12.5,
+  2.5
+ ],
+ "topbr": [
+  12,
+  70
+ ],
+ "tower": [
+  14,
+  85
+ ],
+ "brace": [
+  35,
+  6
+ ],
+ "tower_mat": "A356",
+ "arm_pivot": [
+  34,
+  135,
+  4.5
+ ],
+ "arm_axle": [
+  30,
+  75,
+  4
+ ],
+ "pad_t": 10,
+ "pad_r": 60,
+ "tailx_box": [
+  45,
+  80,
+  5
+ ],
+ "head_gusset": 10,
+ "rail0": [
+  22,
+  3.5
+ ],
+ "cast_headstock": true,
+ "forged_shock_bridge": true,
+ "front_t": 5.0,
+ "geom": {
+  "node_y": 125.0,
+  "node_z": 715.0,
+  "tj_z": 692.0,
+  "tail_y": 104.0,
+  "tail_z": 827.0,
+  "shock_x": 482.0,
+  "eye_z": 642.0
+ }
+}

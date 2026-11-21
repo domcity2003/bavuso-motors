@@ -2,6 +2,8 @@
 
 November 12, 2026, US Central. Prepared by Claude Opus 5.5 (claude-opus-5-5). Final runs and the safety agent's crash-guard case were added November 13.
 
+> **Update, November 21, 2026:** the frame was narrowed for rider comfort (Nov 14 and Nov 20) and re-run on today's heavier mass. It passes with thicker walls on three tubes. See "Re-run, November 21, 2026" at the end. The tables below are the November 12–13 results.
+
 - **Scripts:** `detailed-design/tools/fea-frame.py` (model, load cases, CalculiX runs), `fea-handcheck.py`, `fea-fatigue.py`, `fea-convergence.py`, `fea-summary.py`.
 - **Outputs:** `detailed-design/structures/`. Solver files are in `structures/run/`, which git ignores.
 - **Design variables:** `final-sections.json` is the resized design. The baseline is the CAD as it stands today.
@@ -361,3 +363,75 @@ The frame load cases and bridge bending should be repeated on the new geometry b
 ## Re-check needed after the November 20 waist change
 
 *Claude Opus 5.5 (claude-opus-5-5), November 20, 2026, US Central.* The upper rail front joint moved in again, to Y ±125 (from ±152). The tail rails now run ±125 → ±104, and the rear upper posts land on the pack at Y ±165 (was ±178). A narrower joint shortens the lever arm against side loads and torsion, so frame torsional stiffness will drop somewhat. Re-run the torsion and lateral load cases before quoting stiffness.
+
+## Re-run, November 21, 2026: narrower frame (Nov 14 and Nov 20 changes)
+
+*Claude Opus 5.5 (claude-opus-5-5), November 21, 2026, US Central.* This answers the two re-check notes above.
+
+**Plain answer:** the narrower frame is fine once three tube walls get thicker, for +1.5 kg. It also turned up an older problem: the bike is about 40 kg heavier than when the frame was sized, and that alone had pushed the old design just over its fatigue limit and the rear-bump target. The resized design passes every strength case, the fatigue target and the stiffness target.
+
+**What was run:**
+- `tools/fea-frame.py` now takes the frame layout as a design variable (`geom`).
+- The default reproduces the Nov 12 layout exactly: re-running `final` with the old and new script gives identical stresses (0 MPa difference).
+- `nov20-sections.json` is the final design on today's layout. The changes:
+  - rail joint at Y ±125 and Z715, with the tail-rail junction on the leg at Z692;
+  - tail rails ending at ±104 and Z827;
+  - shock bridge at X482, top eye at Z642, 80×45×5 box laid flat;
+  - front post at X960 → 950;
+  - rear post foot at Y ±165.
+- Inputs are today's `mass-rollup.csv` (two-up 521.7 kg, was 482) and pack outline.
+- 12 mm pack mesh, with a 24 mm check.
+
+**Three designs on today's inputs** (SF = margin to yield):
+
+| Case | Required | Old frame | Narrow frame, old tubes | **Narrow frame, resized** |
+|---|---|---|---|---|
+| C1 static 1 g two-up | 1.5 | 3.29 | 3.26 | **3.72** |
+| C2 front bump 3 g | 1.2 | 2.92 | 2.79 | **3.32** |
+| C3 braking 1.1 g | 1.2 | 1.50 | 1.62 | **1.63** |
+| C4 braking + bump | 1.2 | 1.48 | 1.60 | **1.60** |
+| C5 45° lean × 1.5 | 1.2 | 1.57 | 1.56 | **1.78** |
+| C6 rear bump 3 g (A356 brace) | 1.2 | 1.13 ✗ | 1.12 ✗ | **1.28** |
+| C7a pack 20 g longitudinal | 1.0 | 3.83 | 3.83 | **3.94** (pack 120 MPa vs 140) |
+| C7b pack 8 g lateral | 1.0 | 1.98 | 1.86 | **1.88** (pack side 120 vs 140) |
+| C7c pack 5 g vertical | 1.0 | 9.62 | 9.56 | **10.1** |
+| C9a guard 21 kN at rail joint | 1.0 | 1.06 | 0.97 ✗ | **1.07** |
+| C9b guard 21 kN at front lug | 1.0 | 1.22 | 1.15 | **1.16** |
+| C9c guard 21 kN at rear-link lug | 1.0 | 1.05 | 1.02 | **1.02** |
+| Torsional stiffness, kNm/deg | ≥ 3 | 6.78 | 6.36 | **6.57** |
+| Lateral stiffness, kN/mm | ≥ 1.5 | 4.59 | 4.80 | **4.98** |
+| Fatigue, worst welded detail (Miner D) | ≤ 0.5 | 0.62 ✗ (head-end rail) | 0.89 ✗ (middle rail) | **0.45** (head-end rail) |
+| Frame + swingarm + pack-case structure, kg | | 34.2 | 33.9 | **35.7** |
+
+**What the narrowing did:**
+- **Twisting stiffness** fell 6%, because the joint is closer to the centreline. Side stiffness rose 5%: the rails now run straighter from the pivot to the head.
+- **Braking stress** at the head end dropped (SF 1.50 → 1.62), and so did fatigue on the head-end rail.
+- **Two items got worse:**
+  - The crash-guard load at the rail joint now travels into the tail rail root, which yields at SF 0.97.
+  - The middle upper rail (joint to head) bends more on every bump, giving fatigue D 0.89.
+
+**Sizing sweep** (results in `structures/sweep-nov20/`):
+- **Tail rail wall:** 3.5, 4.0 and 4.5 mm.
+- **Swingarm brace:** 60×6 at the same outside size; 65×5 and 70×6 larger.
+- **Middle rail wall:** 3.5, 4.0 and 4.5 mm.
+- **Pick:** the lightest set that passes everything, with no outside dimension changed. The rails already sit right where the rider's thighs are, and the brace has 29 mm to the tyre.
+- **Rejected:**
+  - A 4.0 mm middle rail reads D 0.503, just over the limit.
+  - A 65 mm brace is 0.1 kg lighter but changes the envelope near the tyre.
+
+**CAD change requests (applied in `tools/build-adventure.py`, Nov 21):**
+
+| # | Part | Was | Now | Why |
+|---|---|---|---|---|
+| CR-15 | Middle upper rail (UR1, joint to X1050) | 38 × 3.0 | **38 × 4.5** (nearest stock 1.5 in × 0.188 in) | Fatigue at the ±125 joint: D 0.89 → 0.41 |
+| CR-16 | Tail rails | 38 × 3.0 | **38 × 3.5** | Crash guard at the rail joint: SF 0.97 → 1.07 |
+| CR-17 | Swingarm cross brace (A356) | 60 × 5 | **60 × 6** | Rear bump 3 g on today's mass: SF 1.13 → 1.28 |
+
+**Mesh check:**
+- **Frame:** 12 mm against 24 mm, all frame stresses within 1%, torsion 6.57 both ways.
+- **Pack shell:** values away from the lugs move with the mesh, as before. The 12 mm values (the higher ones) are used.
+
+**Still open:**
+- **Thinnest margin:** C9c, at 1.02. The crash-guard rear-link lug carries the most load for its margin.
+- **Same limits as before:** beam elements, no weld or fillet geometry, linear only.
+- **Mass will keep moving:** if the bike grows further, re-run with `fea-frame.py --variant nov20-resized`.

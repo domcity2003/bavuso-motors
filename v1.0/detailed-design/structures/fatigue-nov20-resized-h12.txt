@@ -1,0 +1,17 @@
+UR2L       FAT63  range/1g   53.2  knee/g  29.5  D 0.454  pass
+UR2R       FAT63  range/1g   52.7  knee/g  29.5  D 0.452  pass
+UR1R       FAT45  range/1g   67.9  knee/g  21.1  D 0.407  pass
+UR1L       FAT45  range/1g   67.3  knee/g  21.1  D 0.393  pass
+STW        FAT40  range/1g   89.8  knee/g  18.7  D 0.384  pass
+DLR        FAT63  range/1g   60.0  knee/g  29.5  D 0.381  pass
+DLL        FAT63  range/1g   59.9  knee/g  29.5  D 0.376  pass
+SAR05      FAT22  range/1g   48.5  knee/g  10.3  D 0.332  pass
+SAR06      FAT22  range/1g   47.9  knee/g  10.3  D 0.305  pass
+ST0L       FAT45  range/1g   52.5  knee/g  21.1  D 0.275  pass
+SAR07      FAT22  range/1g   47.0  knee/g  10.3  D 0.269  pass
+ST0R       FAT45  range/1g   56.0  knee/g  21.1  D 0.268  pass
+SAR08      FAT22  range/1g   45.5  knee/g  10.3  D 0.223  pass
+SAL05      FAT22  range/1g   44.4  knee/g  10.3  D 0.211  pass
+[{'member': 'LUGFL', 'mean_MPa': 2.1, 'amp_MPa_at_1g': 4.2, 'Se_notched_MPa': 94.1, 'goodman_SF': 21.05}, {'member': 'LUGFR', 'mean_MPa': 2.2, 'amp_MPa_at_1g': 4.2, 'Se_notched_MPa': 94.1, 'goodman_SF': 20.84}, {'member': 'LUGRL', 'mean_MPa': 2.8, 'amp_MPa_at_1g': 2.2, 'Se_notched_MPa': 94.1, 'goodman_SF': 36.7}, {'member': 'LUGRR', 'mean_MPa': 3.0, 'amp_MPa_at_1g': 2.3, 'Se_notched_MPa': 94.1, 'goodman_SF': 34.38}, {'member': 'LUGT0L', 'mean_MPa': 1.5, 'amp_MPa_at_1g': 0.9, 'Se_notched_MPa': 94.1, 'goodman_SF': 82.84}, {'member': 'LUGT0R', 'mean_MPa': 1.6, 'amp_MPa_at_1g': 0.9, 'Se_notched_MPa': 94.1, 'goodman_SF': 80.42}, {'member': 'LUGT1L', 'mean_MPa': 0.9, 'amp_MPa_at_1g': 0.6, 'Se_notched_MPa': 94.1, 'goodman_SF': 133.17}, {'member': 'LUGT1R', 'mean_MPa': 0.9, 'amp_MPa_at_1g': 0.6, 'Se_notched_MPa': 94.1, 'goodman_SF': 128.62}]
+[{'lug': 'T0L', 'bolt_stress_amp_at_pm2g_MPa': 0.54, 'sigma_ASV_MPa': 51.0, 'SF': 93.8}, {'lug': 'T1L', 'bolt_stress_amp_at_pm2g_MPa': 0.25, 'sigma_ASV_MPa': 51.0, 'SF': 206.7}, {'lug': 'FL', 'bolt_stress_amp_at_pm2g_MPa': 1.05, 'sigma_ASV_MPa': 51.0, 'SF': 48.6}, {'lug': 'RL', 'bolt_stress_amp_at_pm2g_MPa': 0.71, 'sigma_ASV_MPa': 51.0, 'SF': 72.2}, {'lug': 'T0R', 'bolt_stress_amp_at_pm2g_MPa': 0.55, 'sigma_ASV_MPa': 51.0, 'SF': 92.3}, {'lug': 'T1R', 'bolt_stress_amp_at_pm2g_MPa': 0.29, 'sigma_ASV_MPa': 51.0, 'SF': 177.3}, {'lug': 'FR', 'bolt_stress_amp_at_pm2g_MPa': 1.06, 'sigma_ASV_MPa': 51.0, 'SF': 48.3}, {'lug': 'RR', 'bolt_stress_amp_at_pm2g_MPa': 0.78, 'sigma_ASV_MPa': 51.0, 'SF': 65.1}]
+[{'case': 'C9b_guard_21kN_front_lug', 'lug': 'FR', 'tension_per_bolt_N': 2960, 'shear_per_bolt_N': 4717, 'slip_SF': 1.13, 'bolt_vm_if_slipped_MPa': 678, 'bolt_proof_MPa': 830, 'bolt_shear_capacity_SF': 7.4}, {'case': 'C9c_guard_21kN_rear_link_lug', 'lug': 'RR', 'tension_per_bolt_N': 1572, 'shear_per_bolt_N': 2474, 'slip_SF': 2.22, 'bolt_vm_if_slipped_MPa': 663, 'bolt_proof_MPa': 830, 'bolt_shear_capacity_SF': 14.1}, {'case': 'C9b_guard_21kN_front_lug', 'lug': 'RR', 'tension_per_bolt_N': 4179, 'shear_per_bolt_N': 1849, 'slip_SF': 2.79, 'bolt_vm_if_slipped_MPa': 668, 'bolt_proof_MPa': 830, 'bolt_shear_capacity_SF': 18.8}, {'case': 'C9b_guard_21kN_front_lug', 'lug': 'RL', 'tension_per_bolt_N': 4082, 'shear_per_bolt_N': 1839, 'slip_SF': 2.82, 'bolt_vm_if_slipped_MPa': 668, 'bolt_proof_MPa': 830, 'bolt_shear_capacity_SF': 18.9}]
