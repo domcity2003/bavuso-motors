@@ -1,0 +1,52 @@
+id,test,standard_or_procedure,samples,acceptance,closes_target,closes_dfmea_rows,phase,cost_usd_estimate,duration_weeks,status
+V01,"Cell characterisation and 2C charge life (25, 0, -10 C)",IEC 62660-1/-2 plus Molicel written charge-life data,60 cells,Capacity and resistance match model inputs; >=80% SOH at the test life with 30% DC fast charge; no plating at -10 C with derate,T2;T6,D01;D12;D14,component,120000,26,planned
+V02,"Thermal propagation, lane module (single cell then group of 11, with and without coolant)",Internal target modelled on GB 38031-2020 8.2.7; SAE J2464 practice,3 modules,No external fire or explosion for >=5 min after warning; neighbour cells stay below 170 C; gas leaves by the belly vent,T2 safety,D01;D02;D03;D04,component,200000,8,planned
+V03,Burst vent opening pressure and flow,"Rig, pressure ramp",6 vents,Opens at 15-20 kPa; >=600 mm2 free area each,T2 safety,D02;D03,component,40000,4,planned
+V04,Wire-bond fuse pulse and fusing,Pulse bench per cell datasheet currents,40 bond sets,Opens under shorted-cell current; neighbour bonds survive; no cell damage,T2 safety,D01,component,45000,4,planned
+V05,Module vibration and shock with resistance monitoring,UN R136 Annex 8A profile (confirm with lab); ISO 16750-3,3 modules,No open bond or cell movement; interconnect resistance change <10%,T2,D05;D06;D11,component,60000,4,planned
+V06,"Cast swingarm static, fatigue and X-ray",ASTM E466-style; load cases from 09-structures.md,3 arms,No crack (dye penetrant) after 1.5 lives; casting porosity within class,T1;T8,D28,component,140000,10,planned
+V07,"Pivot bearing and stub rig (design load 1.2x, plus 21 kN slider)",Bearing life ISO 281; static proof,2 sets,"No yield; L10 >= 160,000 km at spectrum; play within spec after test",T8,D29;D30,component,90000,8,planned
+V08,EMRAX housing yoke proof under belt-loop load,Static rig at 1.2 x 11.3 kN belt pull,2 housings,No yield or leak; deflection below the value used in FEA. Needs EMRAX cooperation,T1;T5,D24;D30,component,70000,6,planned
+V09,"Belt, pulley and hub durability",Gates design manual; launch and regen reversals,2 drive sets,"1.5 lives, no tooth shear; tension loss <15%; no pulley fretting; tracking within flange limits",T4;T5,D25;D26;D27,component,140000,14,planned
+V10,Motor and inverter dyno (R85-style 30-min power) at 300-330 V and cold,UN R85 style; EMRAX/Cascadia data,2 sets,Peak >=90 kW at 330 V bus; continuous >=55 kW; no derate surprises vs model,T5,D21;D23,component,200000,10,planned
+V11,Brake dyno: fade and wear,SAE J2522-style,2 sets,"300 mm discs pass fade at 125 mph energy, or move to 320 mm",T4,D34,component,130000,8,planned
+V13,HV electrical safety bench,ISO 6469-3; UN R136 Part I practice; IEC 60529 IPXXB/D,2 HV box sets,Isolation >=500 ohm/V (210 kohm); bond <0.1 ohm; bus <60 V within 3 s of opening; HVIL opens contactors,T2 safety,D15;D16;D17;D41,component,45000,3,planned
+V14,"Short-circuit breaking: fuse, contactors, pyro","Bench at pack voltage, 3.4-6.2 kA prospective",3 sets,Fuse and pyro clear without arc or damage; contactors open below 350 A only; fuse I2t within busbar withstand,T2 safety,D09;D16;D18,component,80000,6,planned
+V15,"BMS, throttle and VCU hazard analysis, FMEDA and HIL fault injection",ISO 26262 (Part 12 motorcycles) approach; ISO 13849 for non-electronic channels,1 rig,All safety goals met; single faults reach safe state within the fault-tolerant time; ASIL table closed,T8,D10;D18;D19;D22;D38;D42;D43,component,250000,20,planned
+V16,Pack vibration and thermal shock,UN R136 Annex 8A/8B practice,2 packs,"No leak, rupture, fire; isolation >=100 ohm/V",T2,D06,prototype,100000,8,planned
+V17,"UN 38.3 pack-level (T1-T5, T7) plus cell summary",UN Manual of Tests and Criteria 38.3,4 packs,"No leakage, venting, rupture or fire; no mass loss; OCV drop <10%",T2 transport,D10,prototype,180000,10,planned
+V18,UL 2580 pack abuse (voluntary),UL 2580 / SAE J2464,3 packs,Report passes; no fire or explosion outside pack,T2,D01,prototype,250000,16,planned
+V19,Pack crush and rock strike,Internal target: 75 mm half-cylinder to 100 kN (SAE J2464 practice); 50 mm impactor at 3 g bottom-out,2 packs,No fire or explosion; no leakage after 1 h; dent <=12 mm,T2 safety,D08;D07,prototype,150000,6,planned
+V20,Pack case crash retention (20 g),Sled pulse test with dummy cells,2 cases,Seams intact; no cell exposure,T2 safety,D07,prototype,60000,4,planned
+V21,"Pack IP67, immersion and hot-into-cold wading",IEC 60529 IP67; hot pack 40 C into 10 C water,2 packs,No ingress; isolation held; no fire in salt immersion,T2,D15;D20,prototype,70000,4,planned
+V22,Inlet and cable thermal soak at 137 A,J3400 / UL 2251 style temperature rise,2 sets,Rise <=50 K at 40 C ambient for 30 min; no hot spots,T6,D37,component,30000,3,planned
+V23,Charging interoperability and conformance,DIN SPEC 70121 / ISO 15118-2; SAE J3400; J1772 pilot states,"3 bikes, >=6 station models",Complete sessions at >=80% of stations; AC/DC interlock never allows both closed,T6,D38;D39,prototype,120000,8,planned
+V25,Cooling loop bench and radiator ram-air check,Flow bench; wind tunnel ram factor,2 loops,"74 kPa at 22 L/min; ram factor >=0.25; pump endurance 2,000 h",T4,D13;D40,component,60000,4,planned
+V26,"Hose, manifold and ribbon burst and leak",Pressure test at 3x working,6 sets,No leak at 3x; no pinholes after vibration,T2 safety,D40;D41,component,20000,2,planned
+V30,Frame static proof and stiffness,"Hydraulic rig; load cases C1-C6, D1-D3",2 frames,No yield; lateral >=1.5 kN/mm target or documented waiver; torsion >=3 kNm/deg,T1;T8,D33,prototype,90000,6,planned
+V31,Frame and arm multi-axial fatigue to 1.5 lives,Road-load replay plus drive spectrum,2 chassis,"No crack after 1.5 x 160,000 km equivalent; bolt preload loss <10%",T1;T8,D28;D29;D26;D31;D32,prototype,350000,16,planned
+V32,Modal survey and wobble/weave check,"Impact hammer, shaker",1 chassis,Frame modes >=2 Hz from wobble/weave and motor orders,T8,D33,prototype,40000,2,planned
+V33,125 mph and 130 mph sustained at 25 C and 38 C,Climatic chassis dyno,2 bikes,"25 C: 125 mph held, cell <55 C; 38 C: derates to about 105 mph, cell <60 C, EMRAX inlet within limit",T4,D13;D21,prototype,200000,6,planned
+V34,"DC fast charge 10-80% at -10, 25, 35, 45 C",SAE J3400 station or emulator,3 bikes,<=25 min at 25 and 35 C; cold with preheat <=25 min; cell <55 C,T6,D12;D14,prototype,150000,5,planned
+V35,Coastdown and constant-speed range at 70 and 77 mph,SAE J2263 adapted; chassis dyno,2 bikes,"Range >=145 mi at 70 mph, 90 kg rider; measured CdA",T3,,prototype,80000,4,planned
+V36,Wind tunnel CdA with rider,Full-scale tunnel,1 bike,CdA <=0.38 m2,T3,,prototype,120000,3,planned
+V37,Acceleration and top speed,GPS-instrumented,2 bikes,0-60 mph <=4.0 s; 125 mph sustained; 130 mph governor,T4;T5,,prototype,50000,3,planned
+V38,"Weigh the bike wet, ready to ride",Calibrated scales,every prototype,<=240 kg (529 lb),T1,D31,prototype,2000,1,planned
+V39,"Handling and high-speed stability, gusts at 77 mph",Proving ground,2 bikes,Weave and wobble damping positive in all modes; rider rating >=4/5,T8,D33,prototype,150000,6,planned
+V40,"Vehicle-level fault injection (throttle, VCU, ABS, 12 V loss)",Vehicle on rollers and track,2 bikes,Safe state in every case; limp-home >=25 min,T8,D22;D36;D42;D43;D45,prototype,80000,4,planned
+V41,"Brake compliance pre-test, including high-speed stop",FMVSS 122 S6; 125 mph stop for design margin,2 bikes,"Dry stop limits met (front only 37.3 m, rear only 53.9 m from 60 km/h); fade ratio met; regen off for friction tests",T4,D34;D35,prototype,150000,6,planned
+V42,ABS and regen blending on low-mu surfaces,Supplier calibration loops,2 bikes,No wheel lock above 15 km/h; regen never reduces total deceleration below demand,T8,D35;D36;D46,prototype,200000,8,planned
+V43,Tip-over and low-side slide,10 falls each side; 30 and 50 km/h slide,2 bikes,Pack never touches ground; isolation >=100 ohm/V; vent gas path clear,T2 safety,D04;D08,prototype,60000,3,planned
+V44,Lighting photometry and installation; reflectors; stop-lamp logic,FMVSS 108,1 set,All lamps meet photometry and spacing; stop lamp on regen,T10,D44;D46,pre-production,60000,4,planned
+V45,"Mirrors, controls and displays, tyres and rims, glazing, brake fluid audit","FMVSS 111, 123, 119, 120, 205, 116",1 bike,All items meet the standard or a supplier certificate is on file,T10,,pre-production,50000,4,planned
+V46,Vehicle EMC and radio,UN R10 practice; FCC Part 15,1 bike,Emissions and immunity under limits; keyless and telematics grants,T8,,pre-production,150000,6,planned
+V47,"Climate, altitude and wading trips","Hot, cold, 4,000 m; 450 mm wading",2 bikes,No faults; isolation held after wading,T8,D15;D20,pre-production,120000,5,planned
+V50,Durability fleet: road and gravel,"3 bikes x 30,000 km (reduced from the earlier plan)",3 bikes,No structural or HV fault; wear within limits; pyro false trips logged,T1;T8,D32;D19;D45,pre-production,450000,30,planned
+V51,"Pre-production confirmation (brakes, lighting, EMC, charging)",Repeat key tests on production-intent bikes,5 bikes,Results match prototype within tolerance,T1-T10,,pre-production,300000,12,planned
+V52,"US certification file: Part 565 VIN, 566 registration, 567 label, FMVSS self-certification","49 CFR 565, 566, 567, 571",1 file,Complete file; label and VIN pad on the frame,US launch,,pre-production,60000,8,planned
+HW1,Prototype hardware: 3 hand-built mules,Build,3 bikes,n/a,T1-T10,,prototype,450000,20,planned
+HW2,Test packs (beyond the ones in bikes) and modules,Build,"12 packs, 6 modules",n/a,T2,,prototype,264000,24,planned
+HW3,Pre-production builds: 8 bikes on soft tooling,Build,8 bikes,n/a,T1-T10,,pre-production,760000,16,planned
+EU1,"EU add-on: UN R136 REESS tests (vibration, thermal shock, mechanical shock, short, overcharge, over-discharge, over-temperature)",UN R136 Annex 8,3 packs,As R136,EU later,,EU add-on,450000,16,planned
+EU2,"EU add-on: R78 braking, R53 lighting, R10 EMC witnessed tests, R81 mirrors, R41 noise","UN R78, R53, R10, R81, R41",2 bikes,As each regulation,EU later,,EU add-on,450000,16,planned
+EU3,"EU add-on: L3e-A3 type approval, technical service, CoP",Regulation (EU) 168/2013,1 file,Approval granted,EU later,,EU add-on,350000,16,planned
