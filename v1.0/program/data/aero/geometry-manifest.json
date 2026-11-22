@@ -1,0 +1,368 @@
+{
+ "prepared": "2026-11-22 US Central, Claude Sonnet 5.5 (claude-sonnet-5-5)",
+ "bike": "cad/Bavuso-V1.0-adventure.FCStd",
+ "bike_sha256": "40b0bde88be8f8bce4f1d5da6c7904c033a4591db8304223559a90d1136f81c7",
+ "rider": "cad/Bavuso-V1.0-adventure-rider.FCStd (RiderStudy group)",
+ "rider_file_sha256": "3ecb544427357313c81b1f069877d113ce3b77d509c542c2b65e5108f5b0bfce",
+ "bike_objects_differing_between_files": 0,
+ "tessellation_mm": {
+  "linear": 0.8,
+  "angular_rad": 0.3
+ },
+ "axles_m": {
+  "front": [
+   1.49,
+   0.0,
+   0.3315
+  ],
+  "rear": [
+   0.0,
+   0.0,
+   0.325
+  ]
+ },
+ "patches": {
+  "lower_body": {
+   "objects": [
+    "Pack_case_structural_4mm_STUDY",
+    "Pack_case_pad_front_m1",
+    "Pack_case_pad_rear_m1",
+    "Pack_case_pad_front_1",
+    "Pack_case_pad_rear_1",
+    "OBC_3p3kW_envelope",
+    "HV_cabinet_2mm_STUDY",
+    "GX14_main_positive_OUTLINE",
+    "GX14_main_negative_OUTLINE",
+    "GX14_main_chg_positive_OUTLINE",
+    "GX14_main_chg_negative_OUTLINE",
+    "DCDC_converter_0p8kW",
+    "EMRAX_228_MV_LC_supplier_STEP",
+    "Upper_rail_0_m1",
+    "Upper_rail_1_m1",
+    "Upper_rail_yoke_leg_m1",
+    "Upper_rail_pivot_block_m1",
+    "Upper_rail_node_rail_m1",
+    "Upper_rail_node_yoke_m1",
+    "Upper_post_front_m1",
+    "Upper_post_rear_m1",
+    "Lower_downlink_m1",
+    "Head_gusset_m1",
+    "Lower_pack_rear_link_m1",
+    "Tail_brace_m1",
+    "Upper_rail_0_1",
+    "Upper_rail_1_1",
+    "Upper_rail_yoke_leg_1",
+    "Upper_rail_pivot_block_1",
+    "Upper_rail_node_rail_1",
+    "Upper_rail_node_yoke_1",
+    "Upper_post_front_1",
+    "Upper_post_rear_1",
+    "Lower_downlink_1",
+    "Head_gusset_1",
+    "Lower_pack_rear_link_1",
+    "Tail_brace_1",
+    "Upper_rail_yoke_cross",
+    "Tail_shock_cross_tube",
+    "Lower_body_battery_covers_STUDY",
+    "Waist_ledge_plates",
+    "Pivot_cover_cap_m1",
+    "Pivot_cover_cap_1",
+    "Belly_skid_plate_STUDY",
+    "Seam_trim_tank_1",
+    "Seam_trim_tank_m1",
+    "Seam_trim_tail_1",
+    "Seam_trim_tail_m1",
+    "Coolant_pump_loop",
+    "Coolant_thermostat_wax",
+    "Coolant_PTC_heater_3kW",
+    "Crash_guard_mount_front_m1",
+    "Crash_guard_slider_front_m1",
+    "Crash_guard_mount_rear_m1",
+    "Crash_guard_slider_rear_m1",
+    "Pivot_slider_m1",
+    "Crash_guard_mount_front_1",
+    "Crash_guard_slider_front_1",
+    "Crash_guard_mount_rear_1",
+    "Crash_guard_slider_rear_1",
+    "Pivot_slider_1"
+   ],
+   "triangles": 36552
+  },
+  "fairing_tank": {
+   "objects": [
+    "Cascadia_CM200_supplier_STEP",
+    "Orion_BMS2_108_supplier_STEP",
+    "NACS_charge_inlet",
+    "Horn_R28",
+    "Upper_rail_2_m1",
+    "Upper_rail_2_1",
+    "Head_tube",
+    "Display_reserve",
+    "Display_glass",
+    "Display_mount",
+    "Upper_body_fairing_tank_STUDY",
+    "Headlamp_installation_STUDY",
+    "Headlamp_DRL_blade",
+    "Front_indicator_reserve_m1",
+    "Front_indicator_reserve_1"
+   ],
+   "triangles": 23228
+  },
+  "swingarm_pegs": {
+   "objects": [
+    "Front_pulley_PITCH_STUDY",
+    "Motor_pulley_bearing_carrier",
+    "Drive_belt_14mm_STUDY",
+    "Swingarm_1",
+    "Swingarm_cross_brace",
+    "Independent_hollow_pivot_stub_m1",
+    "Independent_hollow_pivot_stub_1",
+    "Pivot_6008_size_reference_1",
+    "Pivot_6008_size_reference_2",
+    "Shock_body_STUDY",
+    "Shock_rod_STUDY",
+    "Shock_Upper_eye_STUDY",
+    "Shock_Lower_eye_STUDY",
+    "Shock_spring_STUDY",
+    "Shock_reservoir_STUDY",
+    "Swingarm_shock_tower",
+    "Shock_bridge_diagonal_m1",
+    "Shock_bridge_diagonal_1",
+    "Peg_bracket_m1",
+    "Peg_bracket_1",
+    "Peg_reference_m1",
+    "Peg_rubber_m1",
+    "Peg_reference_1",
+    "Peg_rubber_1",
+    "Rear_caliper_reserve",
+    "Rear_caliper_bracket",
+    "Rear_brake_hose",
+    "Rear_caliper_banjo",
+    "Rear_brake_junction",
+    "Side_stand_retracted"
+   ],
+   "triangles": 53548
+  },
+  "wheel_rear": {
+   "objects": [
+    "Rear_pulley_PITCH_STUDY",
+    "Rear_nominal_tire",
+    "Rear_wheel_carbon_BST_STUDY",
+    "Rear_disc_p1",
+    "Rear_disc_carrier_p1"
+   ],
+   "triangles": 53042
+  },
+  "seat_tail": {
+   "objects": [
+    "Tail_rail_m1",
+    "Tail_rail_1",
+    "Shock_top_bracket",
+    "Tail_side_panels_STUDY",
+    "Seat_two_level_STUDY",
+    "Seat_welt",
+    "Tail_undertray_STUDY",
+    "Rear_rack_STUDY",
+    "Taillamp_installation_STUDY",
+    "Rear_hugger_STUDY",
+    "Rear_indicator_reserve_m1",
+    "Rear_indicator_reserve_1",
+    "Plate_hanger_arm",
+    "Licence_plate_US",
+    "Plate_lamp",
+    "Rear_indicator_stalk_m1",
+    "Rear_indicator_stalk_1",
+    "Rear_reflector_red",
+    "Side_reflector_red_m1",
+    "Side_reflector_red_1"
+   ],
+   "triangles": 163440
+  },
+  "wheel_front": {
+   "objects": [
+    "Front_nominal_tire",
+    "Front_wheel_carbon_BST_STUDY",
+    "Front_disc_m1",
+    "Front_disc_carrier_m1",
+    "Front_disc_p1",
+    "Front_disc_carrier_p1"
+   ],
+   "triangles": 79106
+  },
+  "fork_fender": {
+   "objects": [
+    "Fork_outer_tube_m1",
+    "Fork_inner_tube_m1",
+    "Fork_axle_clamp_m1",
+    "Fork_top_cap_m1",
+    "Fork_reflector_m1",
+    "Fork_outer_tube_1",
+    "Fork_inner_tube_1",
+    "Fork_axle_clamp_1",
+    "Fork_top_cap_1",
+    "Fork_reflector_1",
+    "Lower_triple_clamp",
+    "Front_caliper_reserve_m1",
+    "Front_caliper_reserve_1",
+    "Front_brake_hose_upper",
+    "Front_brake_splitter",
+    "Front_brake_hose_caliper_m1",
+    "Front_caliper_banjo_m1",
+    "Front_brake_hose_caliper_1",
+    "Front_caliper_banjo_1",
+    "Front_fender_STUDY"
+   ],
+   "triangles": 41984
+  },
+  "bars_controls": {
+   "objects": [
+    "Upper_triple_clamp",
+    "Bar_riser_m1",
+    "Bar_riser_1",
+    "Bar_half_m1",
+    "Hand_grip_reserve_m1",
+    "Hand_lever_m1",
+    "Bar_half_1",
+    "Hand_grip_reserve_1",
+    "Hand_lever_1",
+    "Lever_perch_m1",
+    "Switch_cube_m1",
+    "Harness_connector_m1",
+    "Harness_bar_m1",
+    "Front_master_cylinder",
+    "Front_brake_reservoir",
+    "Front_master_banjo",
+    "Lever_perch_1",
+    "Switch_cube_1",
+    "Harness_connector_1",
+    "Harness_bar_1",
+    "Steering_damper_semiactive",
+    "Handguard_m1",
+    "Handguard_1"
+   ],
+   "triangles": 73243
+  },
+  "screen": {
+   "objects": [
+    "Windscreen_STUDY"
+   ],
+   "triangles": 12
+  },
+  "mirrors": {
+   "objects": [
+    "Mirror_stalk_m1",
+    "Mirror_glass_m1",
+    "Mirror_body_m1",
+    "Mirror_stalk_1",
+    "Mirror_glass_1",
+    "Mirror_body_1"
+   ],
+   "triangles": 3440
+  },
+  "rad_pod": {
+   "objects": [
+    "Radiator_pod_grille_m1",
+    "Radiator_pod_shroud_m1",
+    "Radiator_pod_grille_1",
+    "Radiator_pod_shroud_1"
+   ],
+   "triangles": 352
+  },
+  "rad_core_neg": {
+   "objects": [
+    "Radiator_core_m1"
+   ],
+   "triangles": 12
+  },
+  "rad_fan_neg": {
+   "objects": [
+    "Radiator_fan_m1"
+   ],
+   "triangles": 12
+  },
+  "rad_core_pos": {
+   "objects": [
+    "Radiator_core_1"
+   ],
+   "triangles": 12
+  },
+  "rad_fan_pos": {
+   "objects": [
+    "Radiator_fan_1"
+   ],
+   "triangles": 12
+  },
+  "rider_legs": {
+   "objects": [
+    "Rider_00",
+    "Rider_02",
+    "Rider_03",
+    "Rider_04",
+    "Rider_05",
+    "Rider_13",
+    "Rider_14",
+    "Rider_16",
+    "Rider_17",
+    "Rider_18",
+    "Rider_19",
+    "Rider_27"
+   ],
+   "triangles": 10024
+  },
+  "rider_torso_arms": {
+   "objects": [
+    "Rider_01",
+    "Rider_06",
+    "Rider_07",
+    "Rider_08",
+    "Rider_09",
+    "Rider_10",
+    "Rider_11",
+    "Rider_12",
+    "Rider_15",
+    "Rider_20",
+    "Rider_21",
+    "Rider_22",
+    "Rider_23",
+    "Rider_24",
+    "Rider_25",
+    "Rider_26",
+    "Rider_28"
+   ],
+   "triangles": 17134
+  },
+  "rider_helmet": {
+   "objects": [
+    "Rider_29",
+    "Rider_30"
+   ],
+   "triangles": 1864
+  }
+ },
+ "unmatched_objects_put_in_lower_body": [
+  "Tail_shock_cross_tube"
+ ],
+ "skipped_objects": [
+  "Cell_lane_1",
+  "Cell_lane_2",
+  "Cell_lane_3",
+  "Cell_lane_4"
+ ],
+ "bounds_m": {
+  "min": [
+   -0.3249,
+   -0.5035,
+   0.0001
+  ],
+  "max": [
+   1.8215,
+   0.5035,
+   1.7975
+  ]
+ },
+ "frontal_area_m2": {
+  "total": 0.8241,
+  "bike_only": 0.5601,
+  "rider_only": 0.5149
+ }
+}

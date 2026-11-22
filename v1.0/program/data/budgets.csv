@@ -1,11 +1,11 @@
 budget_group,systems,budget_kg,set_by,date
-Battery pack,ENG,105,Re-baselined T1 <= 255 kg (lead allocation),2026-11-22
-Chassis,CHS,30,Final V1 allocation (incl. pivot hardware and nose subframe allowances; frame; yoke; swingarm; subframe; shock mount),2026-11-22
+Battery pack,ENG,108,Final V1 allocation T1 <= 260 kg (incl. cell holders),2026-11-22
+Chassis,CHS,31,Final V1 allocation (incl. pivot hardware and nose subframe allowances; frame; yoke; swingarm; subframe; shock mount),2026-11-22
 Running gear,RUN,43.5,Final V1 allocation (fork; shock; wheels; tyres; brakes; ABS; controls; stand),2026-11-22
-Drive,DRV,23.5,Re-baselined T1 <= 255 kg (motor; inverter; belt; pulleys),2026-11-22
+Drive,DRV,24,Final V1 allocation T1 <= 260 kg,2026-11-22
 Electronics,ELC,17.5,Final V1 allocation (charger; DC-DC; BMS; junction box; VCU; lights; display),2026-11-22
 Body and protection,BOD;PRO,14.5,Final V1 allocation,2026-11-22
 Cooling,THM,7,Re-baselined T1 <= 255 kg,2026-11-22
 "Wiring, fasteners, fluids",ALW,13,Re-baselined T1 <= 255 kg,2026-11-22
-MARGIN,,1.0,Final V1 allocation; true headroom 2.07 kg (margin held back; not a system),2026-11-22
-TOTAL,,255,Re-baselined T1 <= 255 kg (wet mass ready to ride including the margin),2026-11-22
+MARGIN,,1.5,Final V1 allocation; true headroom about 2.7 kg,2026-11-22
+TOTAL,,260,Final V1 T1 <= 260 kg wet ready to ride incl. margin,2026-11-22

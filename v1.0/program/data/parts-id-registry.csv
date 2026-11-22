@@ -102,6 +102,7 @@ upper_rail_node|Upper_rail_node_yoke_1,BV-CHS-0047
 pivot_6008|Pivot_6008_size_reference_1,BV-CHS-0048
 pivot_6008|Pivot_6008_size_reference_2,BV-CHS-0049
 chassis_unmodelled,BV-CHS-0050
+swingarm_hub_carrier,BV-CHS-0051
 motor_emrax228|EMRAX_228_MV_LC_supplier_STEP,BV-DRV-0001
 inverter_cm200|Cascadia_CM200_supplier_STEP,BV-DRV-0002
 belt_drive|Drive_belt_14mm_STUDY,BV-DRV-0003
@@ -146,6 +147,7 @@ pack_case|Pack_case_pad_front_m1,BV-ENG-0008
 pack_case|Pack_case_pad_rear_m1,BV-ENG-0009
 pack_case|Pack_case_pad_front_1,BV-ENG-0010
 pack_case|Pack_case_pad_rear_1,BV-ENG-0011
+cell_holders,BV-ENG-0102
 crash_guard|Crash_guard_mount_m1,BV-PRO-0001
 crash_guard|Crash_guard_m1,BV-PRO-0002
 pivot_slider|Pivot_slider_m1,BV-PRO-0003

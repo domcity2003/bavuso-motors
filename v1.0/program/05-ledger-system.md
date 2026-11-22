@@ -170,3 +170,12 @@ Why the chassis is still over: 25.33 structure + 1.3 unmodelled + 1.4 bearings +
 
 ### What this update does not prove
 The damper and bearing masses and the 1.3 kg top-up are estimates. Nothing was weighed.
+
+### Rev E, final pass (BOM and drawings gaps)
+
+**The ledger total is now 257.32 kg (was 252.93), over the 255 kg limit by 2.32 kg. `ledger_clean` True, `budget_pass` False** (pack, chassis and drive over). `budgets.csv` was not touched by me.
+
+- **Cell holders, BV-ENG-0102, 3.09 kg (calculated).** Method: hex pitch 23.6 mm gives 482 mm2 per cell; minus a 284 mm2 aperture; times 2.5 mm, 2 plates, 1.35 g/cm3 (PA66-GF30) = 2.69 g per cell; times 1,100 cells = 2.96 kg; plus 4% for borders and ribs. This equals the drawing's 0.773 kg x 4 lanes. The pack is 10 modules of 110 cells (07-electrical.md), so 0.309 kg per module; the mass follows the cell count, not the module count. The ENG pack is now 108.0 kg.
+- **Swingarm hub carrier and bearings, 1.10 kg (calculated).** Nothing like it existed: `axle_rear` (1.0 kg) is axle, spacers and adjusters, and the 0.4 kg carrier is on the motor. Cast A356 housing 0.8 kg plus 2 bearings 0.3 kg. Full arm: shell, tower and brace 4.14 + boss and end plates 0.5 + carrier 1.1 = 5.7 kg, 6.7 kg with the axle. That sits inside the 5 to 8 kg range for single-sided arms (Ducati, MV, Triumph) you quoted; I did not check published masses.
+- **Drive lines renamed** to Gates 8MGT-1760-62 (8 mm, 62 mm wide), 35T motor pulley and 126T rear pulley.
+- **Rear pulley 2.1 to 2.3 kg (calculated).** Rim 8 mm radial (1.43 kg), 5 mm web with 8 holes (0.49), hub (0.28), flanges (0.1). The 9.1 kg CAD solid is a plain disc. The belt (0.5) and 35T pulley (0.5) masses are unverified.

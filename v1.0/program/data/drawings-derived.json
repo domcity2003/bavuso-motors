@@ -1,0 +1,13 @@
+{
+ "BV-ENG-0101": {
+  "mass_kg": 1.3242,
+  "volume_mm3": 490458,
+  "density_g_cm3": 2.7
+ },
+ "BV-ENG-0102": {
+  "mass_kg": 0.7729,
+  "volume_mm3": 572530,
+  "density_g_cm3": 1.35,
+  "note": "per module, plates only, concept geometry; NOT counted in the ledger total"
+ }
+}

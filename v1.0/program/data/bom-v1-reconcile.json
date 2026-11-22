@@ -1,38 +1,43 @@
 {
  "prepared": "2026-11-22",
  "ledger_file": "program/data/parts-ledger.csv",
- "ledger_rows": 218,
- "ledger_total_kg": 252.9315,
- "bom_leaf_sum_kg": 252.9315,
- "bom_system_sum_kg": 252.9315,
+ "ledger_rows": 220,
+ "ledger_total_kg": 257.3215,
+ "bom_leaf_sum_kg": 257.3215,
+ "bom_system_sum_kg": 257.3215,
  "diff_kg": 0.0,
  "within_0p1": true,
  "by_system_kg": {
-  "pack": 104.909,
-  "chassis": 29.777,
+  "pack": 107.999,
+  "chassis": 30.877,
   "running": 43.08,
-  "drive": 23.45,
+  "drive": 23.65,
   "elec": 17.437,
   "body": 14.448,
   "cooling": 6.9,
   "wiring": 12.93
  },
- "unassigned_rows": [],
- "part_lines": 220,
- "assemblies": 34,
+ "unassigned_rows": [
+  [
+   "BV-ENG-0102",
+   "Cell holders: 2 PA66-GF30 plates, 2.5 mm, with a 19 mm aperture per cell, 1,100 cells"
+  ]
+ ],
+ "part_lines": 222,
+ "assemblies": 35,
  "lid_mass_kg": 1.3242,
  "holder_est_kg": 0.7729,
- "rollup_total_kg": 252.9,
+ "rollup_total_kg": 257.3,
  "rollup_by_system_kg": {
-  "ENG": 104.91,
+  "ENG": 108.0,
   "RUN": 43.08,
-  "CHS": 29.78,
-  "DRV": 23.45,
+  "CHS": 30.88,
+  "DRV": 23.65,
   "ELC": 17.44,
   "ALW": 12.93,
   "BOD": 12.81,
   "THM": 6.9,
   "PRO": 1.63
  },
- "diff_to_rollup_kg": 0.032
+ "diff_to_rollup_kg": 0.022
 }

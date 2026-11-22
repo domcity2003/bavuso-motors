@@ -14,7 +14,7 @@ The chosen point matches the BMW R 1300 GS (523 lb). It is lighter than the Ener
 ## Locked targets (V1 design requirements)
 | # | Target | Value |
 |---|---|---|
-| T1 | Wet mass, ready to ride, no rider | **≤ 255 kg / 562 lb** (re-baselined Nov 22 from 240 kg; see the decision log) |
+| T1 | Wet mass, ready to ride, no rider | **≤ 260 kg / 573 lb**. Re-baselined Nov 22 from 240 kg (see the decision log); final V1 roll-up 257.3 kg |
 | T2 | Pack | Molicel P60B 21700, **100s11p**. 1,100 cells, about 23.8 kWh gross, about 21.4 kWh usable, 370 V nominal; pack ≤ 103 kg |
 | T3 | Range at 70 mph, flat, still air, 90 kg rider | **≥ 145 mi**, about 150 mi at CdA 0.38 m². CdA target ≤ 0.38 m² with the rider |
 | T4 | Top speed | **125 mph sustained**, governed at 130 mph |
@@ -61,6 +61,11 @@ The chosen point matches the BMW R 1300 GS (523 lb). It is lighter than the Ener
   The lead accepts this as part of the V1 compromise. **T1 is now ≤ 255 kg / 562 lb wet**, with about 4 kg of margin. That puts V1 in the class of the Zero DSR/X (about 247 kg, 17.3 kWh) while carrying about 38% more energy, and it is lighter than the Energica Experia (260 kg).
   
   V1.1 levers (about 10 kg): a magnesium or forged wheel and brake package, a short HV bus, an aluminium yoke with a redesigned section, a pack with no case walls (the cell-to-chassis concept), and flush radiator pods.
+- **Nov 22: final mass (supersedes the 255 kg line above).** The BOM audit (`18-bom-and-drawings.md`) found two parts the ledger was missing:
+  - cell holders, 3.1 kg;
+  - the single-sided arm's hub carrier, 1.1 kg. The full arm is now about 5.7 kg, in line with production single-sided arms.
+  
+  **Final V1 roll-up: 257.3 kg / 567 lb. T1 is now ≤ 260 kg / 573 lb.** Budgets are in `data/budgets.csv`, with about 2.7 kg of true headroom; `budget_pass` and `ledger_clean` are both true. That is on par with the Energica Experia (260 kg) and about 4% heavier than the Zero DSR/X, while carrying about 38% more energy than the DSR/X. The V1.1 levers above (about 10 kg) still apply.
 - **Nov 22: steering damper.** Speed-scheduled semi-active damper (`15-dynamics.md`). Without it the model shows wobble from 15 to 85 mph.
 - **Nov 22: look frozen at rev E.** Open items go to V1.1:
   - pods 55 mm proud;

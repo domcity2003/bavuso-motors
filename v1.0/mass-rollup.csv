@@ -12,14 +12,15 @@ Cascadia_CM200_supplier_STEP,Electronics,6.75,955,-1,781,,supplier,slot,manufact
 Rear_nominal_tire,RunningGear,5.2,0,0,325,R1.0,estimate,slot,hardware-shortlist.csv (class reference parts-register.csv)
 Front_nominal_tire,RunningGear,3.9,1490,0,332,F1.0,estimate,slot,hardware-shortlist.csv (class reference parts-register.csv)
 Rear_wheel_carbon_BST_STUDY,RunningGear,3.3,0,0,325,R1.0,estimate,slot,"hardware-shortlist.csv wheels ALT (carbon composite, BST class): 2.6 front / 3.3 rear; adopted by the lead"
+"Cell holders: 2 PA66-GF30 plates, 2.5 mm, with a 19 mm aperture per cell, 1,100 cells",Allowance,3.09,860,0,425,,CAD,allow,"method: hex cell pitch 23.6 mm gives 482 mm2 per cell, minus 284 mm2 aperture, x 2.5 mm x 2 plates x 1.35 g/cm3 = 2.69 g/cell, x1,100 = 2.96 kg, +4% border/ribs = 3.09 kg; equals the drawing agent 0.773 kg per 275-cell lane x4 (18-bom-and-drawings.md); the pack is 10 modules of 110 cells (07-electrical.md), so 0.309 kg per module"
 OBC_3p3kW_envelope,Electronics,3.0,900,0,673,,supplier,slot,catalogue max 3 kg: detailed-design/electrical/electrical-bom.csv; components-electrical.csv V1-E007; https://www.brogenmotors.com/wp-content/uploads/2024/06/Requirement_SheetOBC.pdf
 Fasteners (titanium where visible),Allowance,3.0,750,0,600,,estimate,allow,allowance; covers all bolts
 Seat_two_level_STUDY,BodyStudy,2.6,332,0,862,,estimate,kg,"foam + base and cover [CAD stand-in: implied density 0.18 g/cm3, mass cannot be checked from the model]"
 Front_wheel_carbon_BST_STUDY,RunningGear,2.6,1490,0,332,F1.0,estimate,slot,"hardware-shortlist.csv wheels ALT (carbon composite, BST class): 2.6 front / 3.3 rear; adopted by the lead"
 "Coolant in loop (1.66 L glycol), hoses and clamps 0.59, sensors 0.10",Allowance,2.35,880,0,600,,estimate,allow,10-thermal.md section 5: coolant 2.72 minus 1.06 in pack ribbons/manifolds + hoses 0.59 + sensors 0.10; the shortlist 1.6 omits sensors and part of the glycol
+Rear_pulley_PITCH_STUDY,Drive,2.3,0,-142,325,R1.0,CAD,slot,hardware-shortlist.csv (reduction REC)
 Swingarm_1,Chassis,2.278,285,139,366,R0.5,CAD,shell,"cast A356 box arm, 4.0 mm wall (program structures FEA; rev D)"
 Upper_rail_yoke_cross,Chassis,2.228,556,0,598,,CAD,vol,32x2.5 chromoly
-Rear_pulley_PITCH_STUDY,Drive,2.1,0,-142,325,R1.0,estimate,slot,hardware-shortlist.csv (reduction REC)
 "VCU, distribution box, keyless, HVIL bonding",Allowance,2.1,1200,0,880,,CAD,allow,electrical-bom.csv: VCU 0.40 + distribution 1.15 + keyless 0.25 + bonding 0.30
 LV wiring harness,Allowance,2.08,760,0,700,,CAD,allow,electrical-bom.csv 2.4 kg minus modelled bar-harness legs 0.32
 Body brackets and fixings,Allowance,2.0,850,0,700,,estimate,allow,allowance; no BOM count exists
@@ -46,6 +47,7 @@ Belly_skid_plate_STUDY,BodyStudy,1.154,785,0,231,,CAD,vol,skid plate (generator 
 Nose subframe and headlamp brackets,Allowance,1.15,1330,0,900,,estimate,allow,allowance; dash bracket is Display_mount (modelled)
 Coolant_PTC_heater_3kW,Cooling,1.14,945,120,668,,estimate,kg,"3 kW HV PTC heater, scaled from 1.9 kg for 5 kW (10-thermal.md section 5) [CAD stand-in: implied density 9.87 g/cm3, mass cannot be checked from the model]"
 Bosch ABS 10-class two-channel module with sensors and lines [NOT IN CAD: from supplier table],Allowance,1.1,700,0,760,,estimate,slotfill,ABS 9 hydraulic unit 0.65 kg (Bosch datasheet https://www.bosch.co.jp/tms2015/en/products/pdf/2WP_ProductDataSheet_ABS9_base_plus_EN_lowres_20151030.pdf); ABS 10 about 0.45 (estimate) + sensors 0.2 + lines 0.45
+Swingarm hub carrier housing (cast A356) and 2 wheel bearings,Allowance,1.1,0,138,312,R1.0,CAD,allow,"single-sided arm: A356 housing OD 110 / bore 62 x 70 long = 454 cm3 x 2.68 g/cm3 x 65% (ribbed, cored) = 0.8 kg + 2 bearings 0.15 kg = 0.3 kg; the stub axle is in the rear_axle allowance (1.0 kg), not here"
 Head_tube,Chassis,1.042,1171,0,930,,CAD,vol,head tube
 "Rear axle, spacers, adjusters",Allowance,1.0,0,0,312,R1.0,estimate,allow,allowance
 "Paint, decals, rubber, misc",Allowance,1.0,800,0,650,,estimate,allow,allowance

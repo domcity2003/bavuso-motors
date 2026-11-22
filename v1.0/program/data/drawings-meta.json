@@ -1,0 +1,92 @@
+{
+ "BV-ASM-0201": {
+  "Xe": 1308.1978622866195,
+  "Ye": 428.8699049883588,
+  "Ze": 663.3084090589699,
+  "scale": "1:10",
+  "iso_scale": "1:8.52",
+  "secs": 0,
+  "file": "BV-ASM-0201_frame-welded-assembly.pdf",
+  "mass_kg": 16.9898
+ },
+ "BV-ASM-0202": {
+  "Xe": 95.0,
+  "Ye": 439.4940885550099,
+  "Ze": 272.5,
+  "scale": "1:5",
+  "iso_scale": "1:3.12",
+  "secs": 0,
+  "file": "BV-ASM-0202_pivot-yoke.pdf",
+  "mass_kg": 8.6514
+ },
+ "BV-ASM-0203": {
+  "Xe": 572.9914357792147,
+  "Ye": 221.0000002,
+  "Ze": 245.64319937748576,
+  "scale": "1:3",
+  "iso_scale": "1:3.48",
+  "secs": 0,
+  "file": "BV-ASM-0203_swingarm-cast-A356.pdf",
+  "mass_kg": 4.1362
+ },
+ "BV-ENG-0001": {
+  "Xe": 520.0000001000001,
+  "Ye": 331.4000002,
+  "Ze": 374.0000001000001,
+  "scale": "1:5",
+  "iso_scale": "1:4.82",
+  "secs": 3,
+  "file": "BV-ENG-0001_pack-case-tub.pdf",
+  "mass_kg": 6.5312
+ },
+ "BV-ENG-0101": {
+  "Xe": 493.97114294652715,
+  "Ye": 331.4000002,
+  "Ze": 3.049392198316923,
+  "scale": "1:3",
+  "iso_scale": "1:3.76",
+  "secs": 0,
+  "file": "BV-ENG-0101_pack-lid.pdf",
+  "mass_kg": 1.3242
+ },
+ "BV-BOD-0004": {
+  "Xe": 614.5407268045012,
+  "Ye": 450.03627421328065,
+  "Ze": 407.0000002000002,
+  "scale": "1:10",
+  "iso_scale": "1:6.25",
+  "secs": 7,
+  "file": "BV-BOD-0004_lower-body-panel.pdf",
+  "mass_kg": 0.9221
+ },
+ "BV-DRV-0006": {
+  "Xe": 331.856365273261,
+  "Ye": 70.00000019999999,
+  "Ze": 331.85636527326096,
+  "scale": "1:3",
+  "iso_scale": "1:1.98",
+  "secs": 0,
+  "file": "BV-DRV-0006_rear-pulley-hub.pdf",
+  "mass_kg": 2.1
+ },
+ "BV-DRV-0007": {
+  "Xe": 72.0,
+  "Ye": 114.00000019999999,
+  "Ze": 72.0,
+  "scale": "1:1.5",
+  "iso_scale": "1.07:1",
+  "secs": 0,
+  "file": "BV-DRV-0007_motor-carrier.pdf",
+  "mass_kg": 0.4
+ },
+ "BV-ENG-0102": {
+  "Xe": 514.2999950153518,
+  "Ye": 75.2,
+  "Ze": 374.2493919983167,
+  "scale": "1:3",
+  "iso_scale": "1:4.13",
+  "secs": 5,
+  "file": "BV-ENG-0102_module-cell-holder.pdf",
+  "mass_kg": 0.7729158899336662
+ }
+}

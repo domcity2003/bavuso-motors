@@ -2,24 +2,24 @@
  "prepared": "2026-11-22 (Claude Sonnet 5.5, mass-rollup.py ledger version)",
  "model": "Bavuso-V1.0-adventure.FCStd",
  "mode": "V1 (supplier slots)",
- "total_kg": 252.9,
- "total_lb": 558,
+ "total_kg": 257.3,
+ "total_lb": 567,
  "cog_mm": {
-  "x_from_rear_axle": 791,
-  "y": 3.3,
-  "height": 532
+  "x_from_rear_axle": 788,
+  "y": 3.7,
+  "height": 530
  },
  "front_rear_split_pct": [
-  53.1,
-  46.9
+  52.9,
+  47.1
  ],
  "unsprung_kg": {
   "front": 13.5,
-  "rear": 17.8
+  "rear": 19.1
  },
- "pitch_inertia_point_mass_kgm2": 37.4,
+ "pitch_inertia_point_mass_kgm2": 38.3,
  "cells_kg": 82.5,
- "pack_kg": 104.9,
+ "pack_kg": 108.0,
  "by_group": {
   "Energy": {
    "kg": 90.4,
@@ -27,9 +27,9 @@
    "z": 432
   },
   "Allowance": {
-   "kg": 40.1,
-   "x": 800,
-   "z": 551
+   "kg": 44.3,
+   "x": 784,
+   "z": 536
   },
   "RunningGear": {
    "kg": 37.3,
@@ -47,9 +47,9 @@
    "z": 748
   },
   "Drive": {
-   "kg": 16.7,
-   "x": 462,
-   "z": 392
+   "kg": 16.9,
+   "x": 456,
+   "z": 391
   },
   "BodyStudy": {
    "kg": 13.5,
@@ -70,18 +70,18 @@
  "by_source": {
   "measured": 0.0,
   "supplier": 109.8,
-  "calculated": 68.1,
-  "estimate": 75.1
+  "calculated": 74.6,
+  "estimate": 73.0
  },
  "by_status": {
-  "proposed": 181.4,
-  "concept": 71.5
+  "proposed": 181.6,
+  "concept": 75.7
  },
  "by_system": {
-  "ENG": 104.91,
+  "ENG": 108.0,
   "RUN": 43.08,
-  "CHS": 29.78,
-  "DRV": 23.45,
+  "CHS": 30.88,
+  "DRV": 23.65,
   "ELC": 17.44,
   "ALW": 12.93,
   "BOD": 12.81,
@@ -90,30 +90,30 @@
  },
  "optimiser_reference_kg": 222.5,
  "budget": {
-  "target_total_kg": 255.0,
-  "margin_kg": 1.0,
-  "design_cap_kg": 254.0,
+  "target_total_kg": 260.0,
+  "margin_kg": 1.5,
+  "design_cap_kg": 258.5,
   "groups": [
    {
     "group": "Battery pack",
     "systems": "ENG",
-    "budget_kg": 105.0,
-    "raw_kg": 104.91,
-    "headroom_kg": 0.09,
-    "headroom_pct": 0.1,
-    "growth_adjusted_kg": 116.13,
+    "budget_kg": 108.0,
+    "raw_kg": 108.0,
+    "headroom_kg": 0.0,
+    "headroom_pct": 0.0,
+    "growth_adjusted_kg": 119.68,
     "estimate_share_pct": 0.0,
     "flag": "TIGHT"
    },
    {
     "group": "Chassis",
     "systems": "CHS",
-    "budget_kg": 30.0,
-    "raw_kg": 29.78,
-    "headroom_kg": 0.22,
-    "headroom_pct": 0.7,
-    "growth_adjusted_kg": 32.98,
-    "estimate_share_pct": 11.0,
+    "budget_kg": 31.0,
+    "raw_kg": 30.88,
+    "headroom_kg": 0.12,
+    "headroom_pct": 0.4,
+    "growth_adjusted_kg": 34.24,
+    "estimate_share_pct": 10.0,
     "flag": "TIGHT"
    },
    {
@@ -130,12 +130,12 @@
    {
     "group": "Drive",
     "systems": "DRV",
-    "budget_kg": 23.5,
-    "raw_kg": 23.45,
-    "headroom_kg": 0.05,
-    "headroom_pct": 0.2,
-    "growth_adjusted_kg": 25.82,
-    "estimate_share_pct": 15.0,
+    "budget_kg": 24.0,
+    "raw_kg": 23.65,
+    "headroom_kg": 0.35,
+    "headroom_pct": 1.5,
+    "growth_adjusted_kg": 26.04,
+    "estimate_share_pct": 6.0,
     "flag": "TIGHT"
    },
    {

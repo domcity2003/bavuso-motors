@@ -1,0 +1,47 @@
+{
+ "check_vs_06": {
+  "mph": 70,
+  "cda": 0.38,
+  "range_mi": 154.0,
+  "wh_per_mi": 144.7,
+  "aero_share_of_wheel_power_pct": 82.4
+ },
+ "note_check": "06-drive-performance.md quotes 154 mi at CdA 0.38 and 140 mi at 0.43",
+ "at_cda": [
+  {
+   "mph": 70,
+   "cda": 0.4,
+   "range_mi": 148.2,
+   "wh_per_mi": 150.4,
+   "aero_share_of_wheel_power_pct": 83.2
+  }
+ ],
+ "sensitivity": {
+  "0.33": 170.7,
+  "0.38": 154.0,
+  "0.43": 140.0,
+  "0.48": 128.3
+ },
+ "with_rev_E_mass_250.6kg": [
+  {
+   "mph": 70,
+   "cda": 0.4,
+   "range_mi": 147.4,
+   "wh_per_mi": 151.2,
+   "aero_share_of_wheel_power_pct": 82.7
+  }
+ ],
+ "inputs": {
+  "bike_kg": 240.0,
+  "rider_kg": 90.0,
+  "crr": 0.015,
+  "aux_W": 300.0,
+  "rho": 1.225,
+  "pack_kwh": 23.76,
+  "usable_soc": [
+   5.0,
+   95.0
+  ],
+  "source": "program/tools/drive-lib.py + cruise_range of drive-range.py (unchanged)"
+ }
+}
