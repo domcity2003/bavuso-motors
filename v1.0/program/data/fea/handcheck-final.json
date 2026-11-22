@@ -1,0 +1,9 @@
+{
+ "shock_static_hand_N": 4154,
+ "shock_static_fea_N": -4063.0,
+ "belt_design_Mz_Nm": 2870,
+ "bearing_force_each_N_at_span": 35878,
+ "arm_axle_Zz_mm3": 22995,
+ "arm_axle_stress_MPa_hand_Mz_only": 124.8,
+ "tube_38x3_400mm_1kN_MPa": 37.3
+}

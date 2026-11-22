@@ -1,0 +1,21 @@
+model: 8191 nodes, 7572 elements, mass 355.0 kg, CoG x 673 z 521 (model), Ff 1574 N, Fr 1909 N
+{'torsion': {'D': 30.5, 'UR2': 17.1, '': 13.9, 'HT': 7.8, 'UR1': 6.2, 'PACK_top': 5.3, 'PACK_side': 4.2, 'T': 3.3, 'PACK_front': 2.5, 'UR0': 1.6, 'JNT': 1.5, 'ST': 1.5, 'LEVE': 1.0}, 'lateral': {'PACK_rear': 34.3, 'PACK_side': 15.4, 'UR0': 11.0, 'D': 8.5, 'UR1': 7.2, '': 6.6, 'T': 3.4, 'UR2': 3.3, 'PACK_top': 2.3, 'PACK_bottom': 2.1, 'ST': 1.6, 'PACK_front': 1.3}}
+{"torsion_kNm_per_deg": 4.232, "head_twist_deg_per_kNm": 0.2363, "lateral_kN_per_mm": 0.977, "lateral_head_defl_mm_per_kN": 1.0241}
+C1_static_1g_solo -4063.0 SAR05 103 | STUBR 103 | SAR06 101 | SAR04 100 | SAR07 99 | SAR08 98
+C2_front_bump_3g -4764.0 DLL 146 | DLR 146 | ST0R 133 | ST0L 133 | UR1L 122 | UR1R 122
+C3_braking_1.1g -537.0 UR2R 250 | UR2L 250 | DLL 245 | DLR 245 | HT 217 | UR1R 154
+C4_braking_plus_bump -1036.0 UR2R 258 | UR2L 257 | DLL 225 | DLR 225 | HT 214 | STUBR 142
+C5L_corner_lean_left -8619.0 STB 153 | ST0L 140 | ST0R 139 | DLL 127 | SAX 123 | SAR05 121
+C5R_corner_lean_right -8619.0 STB 153 | ST0L 146 | ST0R 134 | DLL 128 | SAR05 128 | SAR04 128
+C6_rear_bump_3g -11488.0 STB 203 | SAX 164 | TRR 143 | SAR05 142 | SAR04 141 | SAR06 136
+D1_belt_design_11.3kN -1689.0 STUBR 255 | SAR12 167 | SAR05 166 | SAR06 166 | SAR07 166 | SAR08 166
+D2_launch_peak_torque -3003.0 STUBR 176 | SAR05 134 | SAR06 133 | SAR07 132 | SAR08 132 | SAR09 131
+D3_regen_peak_torque -5123.0 ST0L 143 | ST0R 135 | DLL 110 | SAR05 109 | SAR06 106 | SAR04 106
+C7a_pack_20g_longitudinal None ST1L 446 | ST1R 446 | RLL 263 | RLR 263 | PACK_rear 242 | PACK_top 232
+C7b_pack_8g_lateral None RLL 285 | RLR 284 | PACK_side 209 | ST1R 194 | PACK_front 163 | ST0R 144
+C7c_pack_5g_vertical None PACK_bottom 94 | PACK_side 70 | PACK_rear 67 | RLL 58 | RLR 58 | PACK_front 54
+C7d_pack_10g_vertical_drop None PACK_bottom 187 | PACK_side 139 | PACK_rear 134 | RLL 116 | RLR 116 | PACK_front 107
+C9b_slider_21kN_front_lug None RLL 456 | RLR 456 | ST1R 455 | ST1L 447 | DLL 320 | DLR 304
+C9c_slider_21kN_rear_link_lug None RLR 436 | RLL 300 | ST1R 135 | ST1L 74 | PACK_rear 66 | ST0R 51
+C7e_crush_underside_10kN None PACK_bottom 1038 | PACK_side 460 | PACK_rear 432 | PACK_front 187 | PACK_top 127 | RLL 97
+C7f_crush_side_10kN None PACK_side 972 | PACK_front 461 | ST1R 402 | RLL 393 | RLR 352 | PACK_top 342

@@ -1,0 +1,693 @@
+{
+ "runs": [
+  {
+   "filler": "air gap, no filler",
+   "busbar": "strip busbar (0.2 W/K)",
+   "retained": 0.4,
+   "kJ_per_Wh": 4.5,
+   "coolant_flowing": true,
+   "trigger_peak_C": 489,
+   "hottest_neighbour_C": 81.8,
+   "verdict": "PASS (<120)"
+  },
+  {
+   "filler": "air gap, no filler",
+   "busbar": "strip busbar (0.2 W/K)",
+   "retained": 0.4,
+   "kJ_per_Wh": 4.5,
+   "coolant_flowing": false,
+   "trigger_peak_C": 502,
+   "hottest_neighbour_C": 105.8,
+   "verdict": "PASS (<120)"
+  },
+  {
+   "filler": "air gap, no filler",
+   "busbar": "strip busbar (0.2 W/K)",
+   "retained": 0.6,
+   "kJ_per_Wh": 4.5,
+   "coolant_flowing": true,
+   "trigger_peak_C": 724,
+   "hottest_neighbour_C": 104.2,
+   "verdict": "PASS (<120)"
+  },
+  {
+   "filler": "air gap, no filler",
+   "busbar": "strip busbar (0.2 W/K)",
+   "retained": 0.6,
+   "kJ_per_Wh": 4.5,
+   "coolant_flowing": false,
+   "trigger_peak_C": 732,
+   "hottest_neighbour_C": 138.4,
+   "verdict": "MARGINAL (120-170)"
+  },
+  {
+   "filler": "air gap, no filler",
+   "busbar": "strip busbar (0.2 W/K)",
+   "retained": 0.8,
+   "kJ_per_Wh": 7.0,
+   "coolant_flowing": true,
+   "trigger_peak_C": 1449,
+   "hottest_neighbour_C": 175.9,
+   "verdict": "PROPAGATES (>170)"
+  },
+  {
+   "filler": "air gap, no filler",
+   "busbar": "strip busbar (0.2 W/K)",
+   "retained": 0.8,
+   "kJ_per_Wh": 7.0,
+   "coolant_flowing": false,
+   "trigger_peak_C": 1452,
+   "hottest_neighbour_C": 241.1,
+   "verdict": "PROPAGATES (>170)"
+  },
+  {
+   "filler": "air gap, no filler",
+   "busbar": "wire-bond fuse links (0.005 W/K)",
+   "retained": 0.4,
+   "kJ_per_Wh": 4.5,
+   "coolant_flowing": true,
+   "trigger_peak_C": 500,
+   "hottest_neighbour_C": 74.1,
+   "verdict": "PASS (<120)"
+  },
+  {
+   "filler": "air gap, no filler",
+   "busbar": "wire-bond fuse links (0.005 W/K)",
+   "retained": 0.4,
+   "kJ_per_Wh": 4.5,
+   "coolant_flowing": false,
+   "trigger_peak_C": 513,
+   "hottest_neighbour_C": 104.5,
+   "verdict": "PASS (<120)"
+  },
+  {
+   "filler": "air gap, no filler",
+   "busbar": "wire-bond fuse links (0.005 W/K)",
+   "retained": 0.6,
+   "kJ_per_Wh": 4.5,
+   "coolant_flowing": true,
+   "trigger_peak_C": 740,
+   "hottest_neighbour_C": 92.6,
+   "verdict": "PASS (<120)"
+  },
+  {
+   "filler": "air gap, no filler",
+   "busbar": "wire-bond fuse links (0.005 W/K)",
+   "retained": 0.6,
+   "kJ_per_Wh": 4.5,
+   "coolant_flowing": false,
+   "trigger_peak_C": 748,
+   "hottest_neighbour_C": 136.5,
+   "verdict": "MARGINAL (120-170)"
+  },
+  {
+   "filler": "air gap, no filler",
+   "busbar": "wire-bond fuse links (0.005 W/K)",
+   "retained": 0.8,
+   "kJ_per_Wh": 7.0,
+   "coolant_flowing": true,
+   "trigger_peak_C": 1481,
+   "hottest_neighbour_C": 153.6,
+   "verdict": "MARGINAL (120-170)"
+  },
+  {
+   "filler": "air gap, no filler",
+   "busbar": "wire-bond fuse links (0.005 W/K)",
+   "retained": 0.8,
+   "kJ_per_Wh": 7.0,
+   "coolant_flowing": false,
+   "trigger_peak_C": 1484,
+   "hottest_neighbour_C": 237.3,
+   "verdict": "PROPAGATES (>170)"
+  },
+  {
+   "filler": "intumescent PU foam k0.08",
+   "busbar": "strip busbar (0.2 W/K)",
+   "retained": 0.4,
+   "kJ_per_Wh": 4.5,
+   "coolant_flowing": true,
+   "trigger_peak_C": 487,
+   "hottest_neighbour_C": 81.5,
+   "verdict": "PASS (<120)"
+  },
+  {
+   "filler": "intumescent PU foam k0.08",
+   "busbar": "strip busbar (0.2 W/K)",
+   "retained": 0.4,
+   "kJ_per_Wh": 4.5,
+   "coolant_flowing": false,
+   "trigger_peak_C": 500,
+   "hottest_neighbour_C": 104.2,
+   "verdict": "PASS (<120)"
+  },
+  {
+   "filler": "intumescent PU foam k0.08",
+   "busbar": "strip busbar (0.2 W/K)",
+   "retained": 0.6,
+   "kJ_per_Wh": 4.5,
+   "coolant_flowing": true,
+   "trigger_peak_C": 722,
+   "hottest_neighbour_C": 103.6,
+   "verdict": "PASS (<120)"
+  },
+  {
+   "filler": "intumescent PU foam k0.08",
+   "busbar": "strip busbar (0.2 W/K)",
+   "retained": 0.6,
+   "kJ_per_Wh": 4.5,
+   "coolant_flowing": false,
+   "trigger_peak_C": 730,
+   "hottest_neighbour_C": 136.2,
+   "verdict": "MARGINAL (120-170)"
+  },
+  {
+   "filler": "intumescent PU foam k0.08",
+   "busbar": "strip busbar (0.2 W/K)",
+   "retained": 0.8,
+   "kJ_per_Wh": 7.0,
+   "coolant_flowing": true,
+   "trigger_peak_C": 1469,
+   "hottest_neighbour_C": 173.2,
+   "verdict": "PROPAGATES (>170)"
+  },
+  {
+   "filler": "intumescent PU foam k0.08",
+   "busbar": "strip busbar (0.2 W/K)",
+   "retained": 0.8,
+   "kJ_per_Wh": 7.0,
+   "coolant_flowing": false,
+   "trigger_peak_C": 1472,
+   "hottest_neighbour_C": 239.6,
+   "verdict": "PROPAGATES (>170)"
+  },
+  {
+   "filler": "intumescent PU foam k0.08",
+   "busbar": "wire-bond fuse links (0.005 W/K)",
+   "retained": 0.4,
+   "kJ_per_Wh": 4.5,
+   "coolant_flowing": true,
+   "trigger_peak_C": 498,
+   "hottest_neighbour_C": 74.0,
+   "verdict": "PASS (<120)"
+  },
+  {
+   "filler": "intumescent PU foam k0.08",
+   "busbar": "wire-bond fuse links (0.005 W/K)",
+   "retained": 0.4,
+   "kJ_per_Wh": 4.5,
+   "coolant_flowing": false,
+   "trigger_peak_C": 511,
+   "hottest_neighbour_C": 102.6,
+   "verdict": "PASS (<120)"
+  },
+  {
+   "filler": "intumescent PU foam k0.08",
+   "busbar": "wire-bond fuse links (0.005 W/K)",
+   "retained": 0.6,
+   "kJ_per_Wh": 4.5,
+   "coolant_flowing": true,
+   "trigger_peak_C": 738,
+   "hottest_neighbour_C": 92.3,
+   "verdict": "PASS (<120)"
+  },
+  {
+   "filler": "intumescent PU foam k0.08",
+   "busbar": "wire-bond fuse links (0.005 W/K)",
+   "retained": 0.6,
+   "kJ_per_Wh": 4.5,
+   "coolant_flowing": false,
+   "trigger_peak_C": 747,
+   "hottest_neighbour_C": 133.9,
+   "verdict": "MARGINAL (120-170)"
+  },
+  {
+   "filler": "intumescent PU foam k0.08",
+   "busbar": "wire-bond fuse links (0.005 W/K)",
+   "retained": 0.8,
+   "kJ_per_Wh": 7.0,
+   "coolant_flowing": true,
+   "trigger_peak_C": 1503,
+   "hottest_neighbour_C": 149.6,
+   "verdict": "MARGINAL (120-170)"
+  },
+  {
+   "filler": "intumescent PU foam k0.08",
+   "busbar": "wire-bond fuse links (0.005 W/K)",
+   "retained": 0.8,
+   "kJ_per_Wh": 7.0,
+   "coolant_flowing": false,
+   "trigger_peak_C": 1506,
+   "hottest_neighbour_C": 234.7,
+   "verdict": "PROPAGATES (>170)"
+  },
+  {
+   "filler": "foam + 0.5 mm aerogel sheet",
+   "busbar": "strip busbar (0.2 W/K)",
+   "retained": 0.4,
+   "kJ_per_Wh": 4.5,
+   "coolant_flowing": true,
+   "trigger_peak_C": 490,
+   "hottest_neighbour_C": 81.8,
+   "verdict": "PASS (<120)"
+  },
+  {
+   "filler": "foam + 0.5 mm aerogel sheet",
+   "busbar": "strip busbar (0.2 W/K)",
+   "retained": 0.4,
+   "kJ_per_Wh": 4.5,
+   "coolant_flowing": false,
+   "trigger_peak_C": 503,
+   "hottest_neighbour_C": 105.9,
+   "verdict": "PASS (<120)"
+  },
+  {
+   "filler": "foam + 0.5 mm aerogel sheet",
+   "busbar": "strip busbar (0.2 W/K)",
+   "retained": 0.6,
+   "kJ_per_Wh": 4.5,
+   "coolant_flowing": true,
+   "trigger_peak_C": 727,
+   "hottest_neighbour_C": 104.0,
+   "verdict": "PASS (<120)"
+  },
+  {
+   "filler": "foam + 0.5 mm aerogel sheet",
+   "busbar": "strip busbar (0.2 W/K)",
+   "retained": 0.6,
+   "kJ_per_Wh": 4.5,
+   "coolant_flowing": false,
+   "trigger_peak_C": 735,
+   "hottest_neighbour_C": 138.8,
+   "verdict": "MARGINAL (120-170)"
+  },
+  {
+   "filler": "foam + 0.5 mm aerogel sheet",
+   "busbar": "strip busbar (0.2 W/K)",
+   "retained": 0.8,
+   "kJ_per_Wh": 7.0,
+   "coolant_flowing": true,
+   "trigger_peak_C": 1478,
+   "hottest_neighbour_C": 174.1,
+   "verdict": "PROPAGATES (>170)"
+  },
+  {
+   "filler": "foam + 0.5 mm aerogel sheet",
+   "busbar": "strip busbar (0.2 W/K)",
+   "retained": 0.8,
+   "kJ_per_Wh": 7.0,
+   "coolant_flowing": false,
+   "trigger_peak_C": 1481,
+   "hottest_neighbour_C": 245.0,
+   "verdict": "PROPAGATES (>170)"
+  },
+  {
+   "filler": "foam + 0.5 mm aerogel sheet",
+   "busbar": "wire-bond fuse links (0.005 W/K)",
+   "retained": 0.4,
+   "kJ_per_Wh": 4.5,
+   "coolant_flowing": true,
+   "trigger_peak_C": 501,
+   "hottest_neighbour_C": 73.9,
+   "verdict": "PASS (<120)"
+  },
+  {
+   "filler": "foam + 0.5 mm aerogel sheet",
+   "busbar": "wire-bond fuse links (0.005 W/K)",
+   "retained": 0.4,
+   "kJ_per_Wh": 4.5,
+   "coolant_flowing": false,
+   "trigger_peak_C": 514,
+   "hottest_neighbour_C": 104.6,
+   "verdict": "PASS (<120)"
+  },
+  {
+   "filler": "foam + 0.5 mm aerogel sheet",
+   "busbar": "wire-bond fuse links (0.005 W/K)",
+   "retained": 0.6,
+   "kJ_per_Wh": 4.5,
+   "coolant_flowing": true,
+   "trigger_peak_C": 743,
+   "hottest_neighbour_C": 92.0,
+   "verdict": "PASS (<120)"
+  },
+  {
+   "filler": "foam + 0.5 mm aerogel sheet",
+   "busbar": "wire-bond fuse links (0.005 W/K)",
+   "retained": 0.6,
+   "kJ_per_Wh": 4.5,
+   "coolant_flowing": false,
+   "trigger_peak_C": 752,
+   "hottest_neighbour_C": 137.0,
+   "verdict": "MARGINAL (120-170)"
+  },
+  {
+   "filler": "foam + 0.5 mm aerogel sheet",
+   "busbar": "wire-bond fuse links (0.005 W/K)",
+   "retained": 0.8,
+   "kJ_per_Wh": 7.0,
+   "coolant_flowing": true,
+   "trigger_peak_C": 1512,
+   "hottest_neighbour_C": 149.0,
+   "verdict": "MARGINAL (120-170)"
+  },
+  {
+   "filler": "foam + 0.5 mm aerogel sheet",
+   "busbar": "wire-bond fuse links (0.005 W/K)",
+   "retained": 0.8,
+   "kJ_per_Wh": 7.0,
+   "coolant_flowing": false,
+   "trigger_peak_C": 1516,
+   "hottest_neighbour_C": 241.1,
+   "verdict": "PROPAGATES (>170)"
+  },
+  {
+   "filler": "foam + 1.0 mm aerogel sheet",
+   "busbar": "strip busbar (0.2 W/K)",
+   "retained": 0.4,
+   "kJ_per_Wh": 4.5,
+   "coolant_flowing": true,
+   "trigger_peak_C": 491,
+   "hottest_neighbour_C": 81.9,
+   "verdict": "PASS (<120)"
+  },
+  {
+   "filler": "foam + 1.0 mm aerogel sheet",
+   "busbar": "strip busbar (0.2 W/K)",
+   "retained": 0.4,
+   "kJ_per_Wh": 4.5,
+   "coolant_flowing": false,
+   "trigger_peak_C": 504,
+   "hottest_neighbour_C": 106.7,
+   "verdict": "PASS (<120)"
+  },
+  {
+   "filler": "foam + 1.0 mm aerogel sheet",
+   "busbar": "strip busbar (0.2 W/K)",
+   "retained": 0.6,
+   "kJ_per_Wh": 4.5,
+   "coolant_flowing": true,
+   "trigger_peak_C": 728,
+   "hottest_neighbour_C": 104.2,
+   "verdict": "PASS (<120)"
+  },
+  {
+   "filler": "foam + 1.0 mm aerogel sheet",
+   "busbar": "strip busbar (0.2 W/K)",
+   "retained": 0.6,
+   "kJ_per_Wh": 4.5,
+   "coolant_flowing": false,
+   "trigger_peak_C": 737,
+   "hottest_neighbour_C": 140.0,
+   "verdict": "MARGINAL (120-170)"
+  },
+  {
+   "filler": "foam + 1.0 mm aerogel sheet",
+   "busbar": "strip busbar (0.2 W/K)",
+   "retained": 0.8,
+   "kJ_per_Wh": 7.0,
+   "coolant_flowing": true,
+   "trigger_peak_C": 1482,
+   "hottest_neighbour_C": 174.5,
+   "verdict": "PROPAGATES (>170)"
+  },
+  {
+   "filler": "foam + 1.0 mm aerogel sheet",
+   "busbar": "strip busbar (0.2 W/K)",
+   "retained": 0.8,
+   "kJ_per_Wh": 7.0,
+   "coolant_flowing": false,
+   "trigger_peak_C": 1485,
+   "hottest_neighbour_C": 247.4,
+   "verdict": "PROPAGATES (>170)"
+  },
+  {
+   "filler": "foam + 1.0 mm aerogel sheet",
+   "busbar": "wire-bond fuse links (0.005 W/K)",
+   "retained": 0.4,
+   "kJ_per_Wh": 4.5,
+   "coolant_flowing": true,
+   "trigger_peak_C": 502,
+   "hottest_neighbour_C": 73.9,
+   "verdict": "PASS (<120)"
+  },
+  {
+   "filler": "foam + 1.0 mm aerogel sheet",
+   "busbar": "wire-bond fuse links (0.005 W/K)",
+   "retained": 0.4,
+   "kJ_per_Wh": 4.5,
+   "coolant_flowing": false,
+   "trigger_peak_C": 516,
+   "hottest_neighbour_C": 105.6,
+   "verdict": "PASS (<120)"
+  },
+  {
+   "filler": "foam + 1.0 mm aerogel sheet",
+   "busbar": "wire-bond fuse links (0.005 W/K)",
+   "retained": 0.6,
+   "kJ_per_Wh": 4.5,
+   "coolant_flowing": true,
+   "trigger_peak_C": 745,
+   "hottest_neighbour_C": 91.9,
+   "verdict": "PASS (<120)"
+  },
+  {
+   "filler": "foam + 1.0 mm aerogel sheet",
+   "busbar": "wire-bond fuse links (0.005 W/K)",
+   "retained": 0.6,
+   "kJ_per_Wh": 4.5,
+   "coolant_flowing": false,
+   "trigger_peak_C": 753,
+   "hottest_neighbour_C": 138.4,
+   "verdict": "MARGINAL (120-170)"
+  },
+  {
+   "filler": "foam + 1.0 mm aerogel sheet",
+   "busbar": "wire-bond fuse links (0.005 W/K)",
+   "retained": 0.8,
+   "kJ_per_Wh": 7.0,
+   "coolant_flowing": true,
+   "trigger_peak_C": 1516,
+   "hottest_neighbour_C": 148.8,
+   "verdict": "MARGINAL (120-170)"
+  },
+  {
+   "filler": "foam + 1.0 mm aerogel sheet",
+   "busbar": "wire-bond fuse links (0.005 W/K)",
+   "retained": 0.8,
+   "kJ_per_Wh": 7.0,
+   "coolant_flowing": false,
+   "trigger_peak_C": 1520,
+   "hottest_neighbour_C": 244.0,
+   "verdict": "PROPAGATES (>170)"
+  },
+  {
+   "filler": "2 mm aerogel, full gap (k0.025)",
+   "busbar": "strip busbar (0.2 W/K)",
+   "retained": 0.4,
+   "kJ_per_Wh": 4.5,
+   "coolant_flowing": true,
+   "trigger_peak_C": 492,
+   "hottest_neighbour_C": 82.0,
+   "verdict": "PASS (<120)"
+  },
+  {
+   "filler": "2 mm aerogel, full gap (k0.025)",
+   "busbar": "strip busbar (0.2 W/K)",
+   "retained": 0.4,
+   "kJ_per_Wh": 4.5,
+   "coolant_flowing": false,
+   "trigger_peak_C": 505,
+   "hottest_neighbour_C": 107.1,
+   "verdict": "PASS (<120)"
+  },
+  {
+   "filler": "2 mm aerogel, full gap (k0.025)",
+   "busbar": "strip busbar (0.2 W/K)",
+   "retained": 0.6,
+   "kJ_per_Wh": 4.5,
+   "coolant_flowing": true,
+   "trigger_peak_C": 729,
+   "hottest_neighbour_C": 104.3,
+   "verdict": "PASS (<120)"
+  },
+  {
+   "filler": "2 mm aerogel, full gap (k0.025)",
+   "busbar": "strip busbar (0.2 W/K)",
+   "retained": 0.6,
+   "kJ_per_Wh": 4.5,
+   "coolant_flowing": false,
+   "trigger_peak_C": 738,
+   "hottest_neighbour_C": 140.6,
+   "verdict": "MARGINAL (120-170)"
+  },
+  {
+   "filler": "2 mm aerogel, full gap (k0.025)",
+   "busbar": "strip busbar (0.2 W/K)",
+   "retained": 0.8,
+   "kJ_per_Wh": 7.0,
+   "coolant_flowing": true,
+   "trigger_peak_C": 1483,
+   "hottest_neighbour_C": 174.7,
+   "verdict": "PROPAGATES (>170)"
+  },
+  {
+   "filler": "2 mm aerogel, full gap (k0.025)",
+   "busbar": "strip busbar (0.2 W/K)",
+   "retained": 0.8,
+   "kJ_per_Wh": 7.0,
+   "coolant_flowing": false,
+   "trigger_peak_C": 1487,
+   "hottest_neighbour_C": 248.6,
+   "verdict": "PROPAGATES (>170)"
+  },
+  {
+   "filler": "2 mm aerogel, full gap (k0.025)",
+   "busbar": "wire-bond fuse links (0.005 W/K)",
+   "retained": 0.4,
+   "kJ_per_Wh": 4.5,
+   "coolant_flowing": true,
+   "trigger_peak_C": 502,
+   "hottest_neighbour_C": 73.8,
+   "verdict": "PASS (<120)"
+  },
+  {
+   "filler": "2 mm aerogel, full gap (k0.025)",
+   "busbar": "wire-bond fuse links (0.005 W/K)",
+   "retained": 0.4,
+   "kJ_per_Wh": 4.5,
+   "coolant_flowing": false,
+   "trigger_peak_C": 516,
+   "hottest_neighbour_C": 106.1,
+   "verdict": "PASS (<120)"
+  },
+  {
+   "filler": "2 mm aerogel, full gap (k0.025)",
+   "busbar": "wire-bond fuse links (0.005 W/K)",
+   "retained": 0.6,
+   "kJ_per_Wh": 4.5,
+   "coolant_flowing": true,
+   "trigger_peak_C": 746,
+   "hottest_neighbour_C": 91.9,
+   "verdict": "PASS (<120)"
+  },
+  {
+   "filler": "2 mm aerogel, full gap (k0.025)",
+   "busbar": "wire-bond fuse links (0.005 W/K)",
+   "retained": 0.6,
+   "kJ_per_Wh": 4.5,
+   "coolant_flowing": false,
+   "trigger_peak_C": 754,
+   "hottest_neighbour_C": 139.1,
+   "verdict": "MARGINAL (120-170)"
+  },
+  {
+   "filler": "2 mm aerogel, full gap (k0.025)",
+   "busbar": "wire-bond fuse links (0.005 W/K)",
+   "retained": 0.8,
+   "kJ_per_Wh": 7.0,
+   "coolant_flowing": true,
+   "trigger_peak_C": 1518,
+   "hottest_neighbour_C": 148.7,
+   "verdict": "MARGINAL (120-170)"
+  },
+  {
+   "filler": "2 mm aerogel, full gap (k0.025)",
+   "busbar": "wire-bond fuse links (0.005 W/K)",
+   "retained": 0.8,
+   "kJ_per_Wh": 7.0,
+   "coolant_flowing": false,
+   "trigger_peak_C": 1522,
+   "hottest_neighbour_C": 245.6,
+   "verdict": "PROPAGATES (>170)"
+  }
+ ],
+ "ribbon_lateral_sweep": [
+  {
+   "ribbon_lateral_W_per_K": 0.3,
+   "retained": 0.4,
+   "kJ_per_Wh": 4.5,
+   "hottest_neighbour_C": 102.6
+  },
+  {
+   "ribbon_lateral_W_per_K": 0.3,
+   "retained": 0.6,
+   "kJ_per_Wh": 4.5,
+   "hottest_neighbour_C": 133.9
+  },
+  {
+   "ribbon_lateral_W_per_K": 0.3,
+   "retained": 0.8,
+   "kJ_per_Wh": 7.0,
+   "hottest_neighbour_C": 234.7
+  },
+  {
+   "ribbon_lateral_W_per_K": 0.1,
+   "retained": 0.4,
+   "kJ_per_Wh": 4.5,
+   "hottest_neighbour_C": 92.2
+  },
+  {
+   "ribbon_lateral_W_per_K": 0.1,
+   "retained": 0.6,
+   "kJ_per_Wh": 4.5,
+   "hottest_neighbour_C": 118.3
+  },
+  {
+   "ribbon_lateral_W_per_K": 0.1,
+   "retained": 0.8,
+   "kJ_per_Wh": 7.0,
+   "hottest_neighbour_C": 202.4
+  },
+  {
+   "ribbon_lateral_W_per_K": 0.03,
+   "retained": 0.4,
+   "kJ_per_Wh": 4.5,
+   "hottest_neighbour_C": 81.4
+  },
+  {
+   "ribbon_lateral_W_per_K": 0.03,
+   "retained": 0.6,
+   "kJ_per_Wh": 4.5,
+   "hottest_neighbour_C": 102.1
+  },
+  {
+   "ribbon_lateral_W_per_K": 0.03,
+   "retained": 0.8,
+   "kJ_per_Wh": 7.0,
+   "hottest_neighbour_C": 168.7
+  },
+  {
+   "ribbon_lateral_W_per_K": 0.0,
+   "retained": 0.4,
+   "kJ_per_Wh": 4.5,
+   "hottest_neighbour_C": 74.6
+  },
+  {
+   "ribbon_lateral_W_per_K": 0.0,
+   "retained": 0.6,
+   "kJ_per_Wh": 4.5,
+   "hottest_neighbour_C": 91.9
+  },
+  {
+   "ribbon_lateral_W_per_K": 0.0,
+   "retained": 0.8,
+   "kJ_per_Wh": 7.0,
+   "hottest_neighbour_C": 147.7
+  }
+ ],
+ "hand_adiabatic_bound_C": {
+  "ret 0.4/4.5 kJ/Wh": 126,
+  "ret 0.6/4.5 kJ/Wh": 170,
+  "ret 0.8/7.0 kJ/Wh": 309
+ },
+ "shape_factor_m": 0.516391906260834,
+ "G_cool_W_per_K": 1.5017450038355498,
+ "vent": {
+  "gas_stp_L_per_cell": 9.0,
+  "gas_hot_L_per_cell": 23.8,
+  "jet_velocity_ms": 298,
+  "vent_area_mm2_one_cell": 44.4,
+  "vent_area_mm2_one_group_of_11": 489.0,
+  "vent_area_mm2_one_lane_275": 12214.0
+ }
+}

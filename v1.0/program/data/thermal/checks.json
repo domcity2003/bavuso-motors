@@ -1,0 +1,235 @@
+{
+ "thermal_closure_pct": {
+  "max_abs": 0.0151,
+  "n_cases": 35
+ },
+ "electrical_balance_drive": {
+  "125mph_25C": {
+   "ocv_MJ": 80.064,
+   "sum_MJ": 80.064,
+   "residual_pct": -0.0,
+   "wheel_MJ": 71.53,
+   "losses_MJ": {
+    "belt": 0.781,
+    "motor": 3.039,
+    "inverter": 1.585,
+    "pack_lib": 2.634,
+    "aux": 0.495
+   }
+  },
+  "hardride_25C": {
+   "ocv_MJ": 31.01,
+   "sum_MJ": 31.01,
+   "residual_pct": 0.0,
+   "wheel_MJ": 26.22,
+   "losses_MJ": {
+    "belt": 0.426,
+    "motor": 1.672,
+    "inverter": 1.41,
+    "pack_lib": 0.563,
+    "aux": 0.72
+   }
+  }
+ },
+ "charge_balance_25C": {
+  "station_kWh": 17.948,
+  "chemical_kWh": 17.111,
+  "cell_heat_kWh": 0.791,
+  "external_kWh": 0.046,
+  "residual_pct": -0.0,
+  "chemical_vs_70pct_nameplate_kWh": [
+   17.11,
+   16.63
+  ],
+  "minutes": 17.1,
+  "drive06_minutes": 15.5,
+  "drive06_kWh": 17.98
+ },
+ "hand_checks": {
+  "cell_heat_3C_start_W_hand": 6961,
+  "cell_heat_3C_start_W_model": 6961,
+  "adiabatic_cell_rise_K": 30.0,
+  "model_mean_rise_K": 20.2,
+  "heat_removed_by_radiator_pct": 22.9,
+  "radiator_125mph_Q_W": {
+   "e_NTU": 3355,
+   "counterflow_LMTD_upper_bound": 3443,
+   "UA_WperK": 213,
+   "air_capacity_WperK": 689,
+   "coolant_capacity_WperK": 1328
+  },
+  "loads_125mph_W": {
+   "cells": 1561,
+   "motor": 1826,
+   "inverter": 960,
+   "dcdc": 21,
+   "total_to_coolant": 4418,
+   "drive06": {
+    "pack": "1.7-2.7 kW",
+    "motor": "1.9 kW",
+    "inverter": "1.0 kW"
+   },
+   "wheel_kW": 43.3,
+   "cell_A": 11.1
+  },
+  "ribbon_heat_W_per_ribbon_3C": 249,
+  "ribbon_coolant_rise_K": 11.5,
+  "cell_core_to_coolant_K_at_5W": 5.4
+ },
+ "timestep_convergence": {
+  "dt0.25": {
+   "charge35_min": 23.0,
+   "charge35_core": 48.6,
+   "mph125_38C_core": 60.9,
+   "mph125_38C_inlet": 57.3
+  },
+  "dt0.5": {
+   "charge35_min": 23.0,
+   "charge35_core": 48.6,
+   "mph125_38C_core": 60.9,
+   "mph125_38C_inlet": 57.3
+  },
+  "dt1.0": {
+   "charge35_min": 23.0,
+   "charge35_core": 48.6,
+   "mph125_38C_core": 60.9,
+   "mph125_38C_inlet": 57.3
+  },
+  "dt2.0": {
+   "charge35_min": 23.0,
+   "charge35_core": 48.6,
+   "mph125_38C_core": 60.9,
+   "mph125_38C_inlet": 57.3
+  }
+ },
+ "cell_fd_convergence": {
+  "8x16": [
+   0.3292,
+   0.8039
+  ],
+  "16x32": [
+   0.3228,
+   0.8063
+  ],
+  "24x48": [
+   0.3216,
+   0.8067
+  ]
+ },
+ "hydraulics": {
+  "ribbon": {
+   "velocity_ms": 0.124,
+   "Re": 87,
+   "dp_kPa": 3.3
+  },
+  "trunk_14mm": {
+   "velocity_ms": 2.38,
+   "Re": 16143,
+   "dp_kPa": 24.8
+  },
+  "dp_pack_branch_kPa": 12.9,
+  "dp_drive_branch_kPa": 38.9,
+  "balancing_orifice_kPa": 25.9,
+  "total_kPa": 73.7,
+  "flow_lpm": 22,
+  "hydraulic_W": 27.0,
+  "pump_electrical_W": 108,
+  "pump_note": "CWA50 class: about 25 L/min at 53 kPa (datasheet in thermal-study.md); this duty is at the edge of that curve"
+ },
+ "mass_bills": {
+  "revC_165x128x28_slim": {
+   "items": [
+    [
+     "radiator cores + tanks (dry)",
+     1.06,
+     "est, scaled from thermal-study.md 0.805 kg per 210x140x32"
+    ],
+    [
+     "fans x2 (slim)",
+     0.5,
+     "est"
+    ],
+    [
+     "pump (CWA50 class, 22 L/min)",
+     0.55,
+     "est, thermal-study.md"
+    ],
+    [
+     "4-port valve (radiator bypass)",
+     0.45,
+     "est"
+    ],
+    [
+     "PTC heater 3 kW",
+     1.14,
+     "est, 1.9 kg per 5 kW"
+    ],
+    [
+     "hoses: 1.6 m 14 mm trunk + 2.2 m 12 mm branches, clamps",
+     0.59,
+     "est"
+    ],
+    [
+     "temperature sensors",
+     0.1,
+     "est"
+    ],
+    [
+     "coolant 2.55 L 50/50 EG",
+     2.72,
+     "calc from volumes"
+    ]
+   ],
+   "total_kg": 7.11,
+   "coolant_L": 2.55,
+   "with_wax_thermostat_instead_of_valve_kg": 6.81
+  },
+  "lean_152x118x28_slim": {
+   "items": [
+    [
+     "radiator cores + tanks (dry)",
+     0.9,
+     "est, scaled from thermal-study.md 0.805 kg per 210x140x32"
+    ],
+    [
+     "fans x2 (slim)",
+     0.5,
+     "est"
+    ],
+    [
+     "pump (CWA50 class, 22 L/min)",
+     0.55,
+     "est, thermal-study.md"
+    ],
+    [
+     "4-port valve (radiator bypass)",
+     0.45,
+     "est"
+    ],
+    [
+     "PTC heater 3 kW",
+     1.14,
+     "est, 1.9 kg per 5 kW"
+    ],
+    [
+     "hoses: 1.6 m 14 mm trunk + 2.2 m 12 mm branches, clamps",
+     0.59,
+     "est"
+    ],
+    [
+     "temperature sensors",
+     0.1,
+     "est"
+    ],
+    [
+     "coolant 2.51 L 50/50 EG",
+     2.68,
+     "calc from volumes"
+    ]
+   ],
+   "total_kg": 6.91,
+   "coolant_L": 2.51,
+   "with_wax_thermostat_instead_of_valve_kg": 6.61
+  }
+ }
+}

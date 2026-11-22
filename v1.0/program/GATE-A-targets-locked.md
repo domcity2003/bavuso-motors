@@ -49,3 +49,8 @@ The chosen point matches the BMW R 1300 GS (523 lb). It is lighter than the Ener
 - **Nov 21: inverter.** The inverter is the Cascadia CM200DX (6.75 kg), driving an EMRAX 228 with the LV winding. The emDrive H100 gives only about 29 kW continuous on this 360 V pack (`07-electrical.md`). The drive budget rises from 20 to 23 kg and the margin falls from 12 to 9 kg (3.75%). The total stays at 240 kg.
 - **Nov 21: nominal voltage.** The pack nominal is 360 V (P60B 3.6 V per cell), not 370 V.
 - **Nov 21: hot-day top speed.** Sustained 125 mph is required at 25 °C ambient. On a 38 °C day the pack reaches about 57 °C, which is still under the cell's 60 °C limit, so V1 has no chiller. A hot-day derate is allowed. Drive is final: ratio 3.60, 8 mm Gates belt, 23.1 kg (`06-drive-performance.md`).
+- **Nov 21: thermal (`10-thermal.md`).**
+  - **Hot days:** 125 mph sustained at 25 °C. At 38 °C, full speed is allowed for about 10 min, then the bike derates to about 105 mph for the rest of the pack. Correcting the Gate A note above: the cell would reach 60.9 °C without the derate.
+  - **Cold charging:** keep the 3 kW PTC heater. Preheat is triggered when the rider navigates to a charger (14 min at −10 °C), so no heater mass is added.
+  - **Cooling mass:** a wax thermostat replaces the 4-port valve. The 1.1 kg of pack ribbons and manifold coolant is booked to the pack, so cooling comes to about 5.7 kg against its 6 kg budget.
+  - **Radiators:** rev C halves kept.
