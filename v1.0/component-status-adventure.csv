@@ -1,13 +1,17 @@
 id,group,basis,source,solids,volume_mm3,hidden
-Pack_case_structural_4mm_STUDY,Energy,"PROPOSED 4mm structural shell, outline generated from motor/front-tyre/ground clearances; carries head-tube and pivot loads; wall sizing, lid, joints, vent and crash qualification NOT done",,1,3485369.0924775414,False
-Battery_installation_keepout,Keepouts,Stepped outer battery boundary incl. motor cutout,,1,49656477.817601524,True
+Pack_case_structural_4mm_STUDY,Energy,"PROPOSED 3 mm structural shell (rev D; object name kept for downstream tools: it was 4 mm in rev A-C) with 4 mm doubler pads at the lug stations; its machined outer skin is the visible lower body: front follows the front-tyre arc, bottom 8x45 chamfer, front corners 9x45. Outline generated from motor/front-tyre/ground clearances; carries head-tube and pivot loads; wall sizing, lid, joints, vent and crash qualification NOT done",,1,2914993.0206646495,False
+Pack_case_pad_front_m1,Energy,"4 mm doubler pad (3 mm wall + 1 mm) at the front-link lug station, outside the case front arc",,1,4080.0,False
+Pack_case_pad_rear_m1,Energy,"4 mm doubler pad (3 mm wall + 1 mm) at the rear-link lug station, on the case rear face",,1,4080.0,False
+Pack_case_pad_front_1,Energy,"4 mm doubler pad (3 mm wall + 1 mm) at the front-link lug station, outside the case front arc",,1,4080.0,False
+Pack_case_pad_rear_1,Energy,"4 mm doubler pad (3 mm wall + 1 mm) at the rear-link lug station, on the case rear face",,1,4080.0,False
+Battery_installation_keepout,Keepouts,Stepped outer battery boundary incl. motor cutout,,1,51605775.73784067,True
 Cell_lane_1,Energy,"275 Molicel P60B 21700 cylinder bodies (21.6x70.2), axis across the bike; busbars, cooling ribbon and potting unresolved",https://www.molicel.com/wp-content/uploads/Product-Data-Sheet-of-INR-21700-P60B_80145.pdf,275,7074034.762149529,False
 Cell_lane_2,Energy,"275 Molicel P60B 21700 cylinder bodies (21.6x70.2), axis across the bike; busbars, cooling ribbon and potting unresolved",https://www.molicel.com/wp-content/uploads/Product-Data-Sheet-of-INR-21700-P60B_80145.pdf,275,7074034.7621495165,False
 Cell_lane_3,Energy,"275 Molicel P60B 21700 cylinder bodies (21.6x70.2), axis across the bike; busbars, cooling ribbon and potting unresolved",https://www.molicel.com/wp-content/uploads/Product-Data-Sheet-of-INR-21700-P60B_80145.pdf,275,7074034.7621495165,False
 Cell_lane_4,Energy,"275 Molicel P60B 21700 cylinder bodies (21.6x70.2), axis across the bike; busbars, cooling ribbon and potting unresolved",https://www.molicel.com/wp-content/uploads/Product-Data-Sheet-of-INR-21700-P60B_80145.pdf,275,7074034.762149529,False
 EMRAX_228_MV_LC_supplier_STEP,Drive,"ACTUAL supplier STEP 2025 (with accessories); rotor axis on pivot X540/Z350, shaft toward -Y (belt side). HV-winding variant has the same housing",https://emrax.com/wp-content/uploads/2025/06/Emrax_228_MV_1UVW_LC_with_accessories.step,64,3370178.219660383,False
 OBC_3p3kW_envelope,Electronics,"CLASS envelope 260x190x65 for a 3.3 kW cold-plate AC charger (estimate; vendor not selected), 12mm above the pack roof",program/data/hardware-shortlist.csv,1,3210999.9999999995,False
-Cascadia_CM200_supplier_STEP,Electronics,ACTUAL manufacturer CM200DX CAD; middle level of the tank stack above the charger; connector/service clearances unverified,https://www.cascadiamotion.com/cm-200,32,3665637.4946796848,False
+Cascadia_CM200_supplier_STEP,Electronics,ACTUAL manufacturer CM200DX CAD; middle level of the tank stack above the charger; connector/service clearances unverified,https://www.cascadiamotion.com/cm-200,32,3665637.494679679,False
 Orion_BMS2_108_supplier_STEP,Electronics,"ACTUAL Orion 108-cell enclosure STEP, unscaled, top of the tank stack under the cover; carrier/heatsink/harness not modeled",https://www.orionbms.com/products/orion-bms-standard/,67,478593.3992128086,False
 HV_cabinet_2mm_STUDY,Electronics,"PROPOSED single HV box (four GX14 contactors, fuse, precharge, busbars); material, seals, interlock and mounts unresolved",,1,443351.99999999994,False
 GX14_main_positive_OUTLINE,Electronics,GX14 manufacturer DRAWING outline only (114.8x59.8x57.3); supplier STEP not retrieved; reverse-break duty unconfirmed,https://www.sensata.com/sites/default/files/a/sensata-gigavac-gx14-series-open-contactors-datasheet.pdf,1,393366.7919999994,False
@@ -16,52 +20,52 @@ GX14_main_chg_positive_OUTLINE,Electronics,GX14 manufacturer DRAWING outline onl
 GX14_main_chg_negative_OUTLINE,Electronics,GX14 manufacturer DRAWING outline only (114.8x59.8x57.3); supplier STEP not retrieved; reverse-break duty unconfirmed,https://www.sensata.com/sites/default/files/a/sensata-gigavac-gx14-series-open-contactors-datasheet.pdf,1,393366.7919999994,False
 DCDC_converter_0p8kW,Electronics,Single 0.8 kW HV-to-12 V DC-DC envelope (class estimate); replaces the 1.2 kW unit,,1,990000.0,False
 Coolant_pump_loop,Cooling,Shared-loop service-bay envelope (hardware shortlist); position to be confirmed by interference sweep,,1,262143.99999999997,False
-Coolant_4port_valve,Cooling,Shared-loop service-bay envelope (hardware shortlist); position to be confirmed by interference sweep,,1,98800.0,False
+Coolant_thermostat_wax,Cooling,Shared-loop service-bay envelope (hardware shortlist); position to be confirmed by interference sweep,,1,48640.0,False
 Coolant_PTC_heater_3kW,Cooling,Shared-loop service-bay envelope (hardware shortlist); position to be confirmed by interference sweep,,1,115500.0,False
 Rear_nominal_tire,RunningGear,150/70R17 section on a 17x4.50 rim with an illustrative road-adventure groove pattern; loaded radius/growth not modelled,,1,25557701.886714,False
 Rear_wheel_STUDY,RunningGear,"ILLUSTRATIVE cast/forged 10-spoke 17x4.50 wheel: J-flange rim with drop centre, hub with disc flanges; OEM hub/offset CAD absent",,12,2964436.6589901736,False
-Rear_disc_p1,RunningGear,"267.0x6mm floating disc, three staggered drill rows; offset PROPOSED",,1,148738.07586567907,False
-Rear_disc_carrier_p1,RunningGear,"Floating-disc carrier with 10 bobbins, illustrative",,1,102089.47536818513,False
+Rear_disc_p1,RunningGear,"267.0x5mm floating disc, three staggered drill rows; offset PROPOSED",,1,123948.39655473083,False
+Rear_disc_carrier_p1,RunningGear,"Floating-disc carrier with 10 bobbins, illustrative",,1,102570.4488940194,False
 Front_nominal_tire,RunningGear,110/80R19 section on a 19x3.00 rim with an illustrative road-adventure groove pattern; loaded radius/growth not modelled,,1,16456725.933490084,False
 Front_wheel_STUDY,RunningGear,"ILLUSTRATIVE cast/forged 10-spoke 19x3.00 wheel: J-flange rim with drop centre, hub with disc flanges; OEM hub/offset CAD absent",,12,2687746.957830701,False
-Front_disc_m1,RunningGear,"300x5mm floating disc, three staggered drill rows; offset PROPOSED",,1,143646.1824927389,False
-Front_disc_carrier_m1,RunningGear,"Floating-disc carrier with 10 bobbins, illustrative",,1,137059.8334944908,False
-Front_disc_p1,RunningGear,"300x5mm floating disc, three staggered drill rows; offset PROPOSED",,1,143646.18249273897,False
-Front_disc_carrier_p1,RunningGear,"Floating-disc carrier with 10 bobbins, illustrative",,1,137059.83349449065,False
+Front_disc_m1,RunningGear,"320x5mm floating disc, three staggered drill rows; offset PROPOSED",,1,155584.23457637997,False
+Front_disc_carrier_m1,RunningGear,"Floating-disc carrier with 10 bobbins, illustrative",,1,173816.46754148832,False
+Front_disc_p1,RunningGear,"320x5mm floating disc, three staggered drill rows; offset PROPOSED",,1,155584.23457637997,False
+Front_disc_carrier_p1,RunningGear,"Floating-disc carrier with 10 bobbins, illustrative",,1,173816.46754148838,False
 Rear_bump_sampled_keepout,Keepouts,"21 samples, droop 51mm to bump 170mm from static; growth absent",,21,1324004588.9013333,True
 Front_bump_sampled_keepout,Keepouts,"21 samples, 170mm at 25deg from static; steering sweep NOT included",,21,964246062.0050632,True
 Steering_sweep_keepout,Keepouts,Envelope of fork legs/clamps about steering axis at any lock; body is cut to it,,1,36329377.44611236,True
-Upper_rail_0_m1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,103959.62070028021,False
-Upper_rail_1_m1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,113393.28102827707,False
-Upper_rail_2_m1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,76275.60378003074,False
-Upper_post_front_m1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,25780.012402724038,False
-Upper_post_rear_m1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,20660.388080071774,False
-Lower_downlink_m1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,98031.56581886116,False
-Head_gusset_m1,Chassis,6mm 4130 head gusset (solo load case; was 10 mm; FEA to confirm),,1,33202.33798791069,False
-Lower_pack_rear_link_m1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,28846.821981266374,False
-Tail_rail_m1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,113067.8705332345,False
-Tail_brace_m1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,60564.47076382453,False
-Upper_rail_0_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,103959.62070028039,False
-Upper_rail_1_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,113393.28102827724,False
-Upper_rail_2_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,76275.60378003065,False
-Upper_post_front_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,25780.012402724045,False
-Upper_post_rear_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,20660.38808007178,False
-Lower_downlink_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,98031.5658188611,False
-Head_gusset_1,Chassis,6mm 4130 head gusset (solo load case; was 10 mm; FEA to confirm),,1,33202.33798791068,False
-Lower_pack_rear_link_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,28846.821981266403,False
-Tail_rail_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,113067.87053323459,False
-Tail_brace_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,60564.47076382453,False
-Swingarm_1,Chassis,PROPOSED single-sided right-hand box swingarm (belt side open); section/fatigue NOT qualified,,1,2543498.0559334457,False
-Head_tube,Chassis,Head tube on steering axis; bearing seats unresolved,,1,114888.04334177903,False
-Swingarm_cross_brace,Chassis,PROPOSED 60x6 A356 cross tube (solo case: 54x4) ahead of the tyre; carries the shock tower; bolt-in (inside the belt loop),,1,90477.86842338601,False
+Upper_rail_0_m1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,64132.836432003765,False
+Upper_rail_1_m1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,185657.47368358556,False
+Upper_rail_2_m1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,127126.00630005059,False
+Upper_post_front_m1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,35063.0448800589,False
+Upper_post_rear_m1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,25212.049794183236,False
+Lower_downlink_m1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,132104.15823508345,False
+Head_gusset_m1,Chassis,6mm 4130 head gusset (solo load case; was 10 mm; FEA to confirm),,1,19652.38467427849,False
+Lower_pack_rear_link_m1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,63381.11830728846,False
+Tail_rail_m1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,138811.00177071188,False
+Tail_brace_m1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,64194.629774218716,False
+Upper_rail_0_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,64132.836432003765,False
+Upper_rail_1_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,185657.4736835856,False
+Upper_rail_2_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,127126.0063000506,False
+Upper_post_front_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,35063.044880058915,False
+Upper_post_rear_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,25212.049794183236,False
+Lower_downlink_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,132104.15823508348,False
+Head_gusset_1,Chassis,6mm 4130 head gusset (solo load case; was 10 mm; FEA to confirm),,1,19652.38467427849,False
+Lower_pack_rear_link_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,63381.11830728849,False
+Tail_rail_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,138811.00177071188,False
+Tail_brace_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,64194.62977421869,False
+Swingarm_1,Chassis,PROPOSED single-sided right-hand box swingarm (belt side open); section/fatigue NOT qualified,,1,3371146.5020142784,False
+Head_tube,Chassis,Head tube on steering axis; bearing seats unresolved,,1,132771.5595223399,False
+Swingarm_cross_brace,Chassis,PROPOSED 60x6 A356 cross tube (solo case: 54x4) ahead of the tyre; carries the shock tower; bolt-in (inside the belt loop),,1,175327.57360786624,False
 Fork_outer_tube_m1,RunningGear,"USD outer tube (43 mm class fork), illustrative; supplier fork not selected",,1,966291.0683911484,False
 Fork_inner_tube_m1,RunningGear,"USD 43mm chrome inner tube, illustrative; 170mm travel",,1,492086.55244309147,False
-Fork_axle_clamp_m1,RunningGear,"USD axle foot with pinch bolts and radial caliper lugs (108mm), illustrative",,1,526961.184963986,False
+Fork_axle_clamp_m1,RunningGear,"USD axle foot with pinch bolts and radial caliper lugs (108mm), illustrative",,1,531756.3799538147,False
 Fork_top_cap_m1,RunningGear,"Fork cap with preload/rebound adjuster, illustrative",,1,19773.18416169416,False
 Fork_reflector_m1,RunningGear,"Side reflector (amber), illustrative",,1,2076.22342311712,False
 Fork_outer_tube_1,RunningGear,"USD outer tube (43 mm class fork), illustrative; supplier fork not selected",,1,966291.0683911484,False
 Fork_inner_tube_1,RunningGear,"USD 43mm chrome inner tube, illustrative; 170mm travel",,1,492086.55244309147,False
-Fork_axle_clamp_1,RunningGear,"USD axle foot with pinch bolts and radial caliper lugs (108mm), illustrative",,1,526958.3842047887,False
+Fork_axle_clamp_1,RunningGear,"USD axle foot with pinch bolts and radial caliper lugs (108mm), illustrative",,1,531753.5362655639,False
 Fork_top_cap_1,RunningGear,"Fork cap with preload/rebound adjuster, illustrative",,1,19773.18416169416,False
 Fork_reflector_1,RunningGear,"Side reflector (amber), illustrative",,1,2076.22342311712,False
 Lower_triple_clamp,RunningGear,"Lower triple clamp, illustrative",,1,381812.0647101416,False
@@ -69,9 +73,9 @@ Upper_triple_clamp,RunningGear,"Upper triple clamp, illustrative",,1,299995.1937
 Bar_riser_m1,RunningGear,"Pull-back bar riser with clamp, illustrative",,1,98820.46938178336,False
 Bar_riser_1,RunningGear,"Pull-back bar riser with clamp, illustrative",,1,98820.60040630441,False
 Independent_hollow_pivot_stub_m1,Chassis,Proposed 40OD/30ID fixed frame stub (left: outboard belt-pulley carrier support); loads/fits not approved,,1,3298.672286269283,False
-Independent_hollow_pivot_stub_1,Chassis,Proposed 40OD/30ID fixed frame stub; loads/fits not approved,,1,21991.148575128558,False
-Pivot_6008_size_reference_1,Chassis,6008 dimensional reference only,,1,35625.66069170826,False
-Pivot_reference,Keepouts,Independent outboard pivots,,2,25289.820861397864,True
+Independent_hollow_pivot_stub_1,Chassis,Proposed 40OD/30ID fixed frame stub; loads/fits not approved,,1,119883.17566098654,False
+Pivot_6008_size_reference_1,Chassis,6008 dimensional reference only,,1,40149.554112877544,False
+Pivot_reference,Keepouts,Independent outboard pivots,,2,123181.84794725591,True
 Shock_and_spring_keepout,Keepouts,263mm eye distance at sag; 90mm OD spring reservation,,1,1292079.7585647549,True
 Shock_body_STUDY,Chassis,"Damper body envelope (50mm OD); spec in rear-suspension.md, supplier not selected",,1,323976.74240144744,False
 Shock_rod_STUDY,Chassis,18mm damper shaft envelope,,1,20892.44074475665,False
@@ -79,38 +83,32 @@ Shock_Upper_eye_STUDY,Chassis,"Eye with 12mm bolt, spherical bearing",,1,27646.0
 Shock_Lower_eye_STUDY,Chassis,"Eye with 12mm bolt, spherical bearing",,1,27646.01535159018,False
 Shock_spring_STUDY,Chassis,"Visual coil: 88mm OD, 12mm wire; rate ~107 N/mm per rear-kinematics.py",,1,202524.20431427905,False
 Shock_reservoir_STUDY,Chassis,Remote reservoir under the seat (hose not modelled),,1,182463.7013204952,False
-Swingarm_shock_tower,Chassis,"PROPOSED twin 8mm plates, brace to shock lower eye; section/fatigue NOT qualified",,2,130056.67018248462,False
-Tail_shock_cross_tube,Chassis,"Forged 4130 box shock bridge 80x45x5 laid flat (structural-fea.md CR-10, re-sectioned Nov 14)",,1,228616.50955414015,False
+Swingarm_shock_tower,Chassis,"PROPOSED twin 8mm plates, brace to shock lower eye; section/fatigue NOT qualified",,2,276119.8518613105,False
+Tail_shock_cross_tube,Chassis,"Forged 4130 box shock bridge 80x45x5 laid flat (structural-fea.md CR-10, re-sectioned Nov 14)",,1,118216.22929936307,False
 Shock_bridge_diagonal_m1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,32463.591258651046,False
 Shock_bridge_diagonal_1,Chassis,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,32463.591258651046,False
 Shock_top_bracket,Chassis,"PROPOSED twin 8mm plates, cross tube to shock top eye",,2,64594.01810488753,False
-Upper_body_fairing_tank_STUDY,BodyStudy,"PROPOSED 3mm shell traced from baseline image; open below, steering cavity, frame notches and grilles cut; tooling/CFD/fixings unresolved",,1,1624399.5999731852,False
-Lower_body_battery_covers_STUDY,BodyStudy,"PROPOSED 2.5mm battery side covers/belly pan; 390mm wide below the shoulder (was 434), flaring to the tank width; front wall follows the front-tyre travel envelope; impact protection unresolved",,1,1865640.637307883,False
-Waist_ledge_plates,BodyStudy,3mm plates closing the cover top between the tail panel and the cover wall under the thighs (Nov 20),,4,20098.029404268393,False
-Motor_side_covers_STUDY,BodyStudy,PROPOSED 3mm motor side covers/belly behind the battery covers; swingarm and shock pass the open rear; cooling/belt access unresolved,,3,270066.691848908,False
+Upper_body_fairing_tank_STUDY,BodyStudy,"PROPOSED 3mm shell traced from baseline image; open below, steering cavity, frame notches and grilles cut; tooling/CFD/fixings unresolved",,1,1769902.3621251325,False
+Lower_body_battery_covers_STUDY,BodyStudy,"PROPOSED 2.5mm motor-bay filler cover (rev D: the structural pack case is the visible battery body; this only closes the flank between the motor cover and the case rear face); 195 half-width, bevelled belly",,1,477257.6778188684,False
+Waist_ledge_plates,BodyStudy,3mm plates closing the cover top between the tail panel and the cover wall under the thighs (Nov 20),,4,19024.131263754967,False
+Motor_side_covers_STUDY,BodyStudy,PROPOSED 3mm motor side covers/belly behind the battery covers; swingarm and shock pass the open rear; cooling/belt access unresolved,,3,275233.95298083045,False
 Pivot_cover_cap_m1,BodyStudy,"Pivot/motor-axis cover cap on the motor cover, illustrative",,1,34255.926294743105,False
 Pivot_cover_cap_1,BodyStudy,"Pivot/motor-axis cover cap on the motor cover, illustrative",,1,34255.926294743105,False
-Seam_trim_m1,BodyStudy,Seam closing strip inside the tank/battery-cover joint,,2,23566.73009000912,False
-Seam_trim_1,BodyStudy,Seam closing strip inside the tank/battery-cover joint,,2,23566.744682161843,False
-Battery_side_panel_m1,BodyStudy,"Proud 2.5mm battery cover plate traced from baseline, follows the cover section; fixings/seal unresolved",,1,270128.12031489174,False
-Belly_side_panel_m1,BodyStudy,Proud belly fairing plate traced from baseline,,1,139841.11294457898,False
-Panel_bolts_m1,BodyStudy,"M6 button-head positions, illustrative",,8,2235.3955119129914,False
-Battery_side_panel_1,BodyStudy,"Proud 2.5mm battery cover plate traced from baseline, follows the cover section; fixings/seal unresolved",,1,270128.1221966155,False
-Belly_side_panel_1,BodyStudy,Proud belly fairing plate traced from baseline,,1,139841.1129440604,False
-Panel_bolts_1,BodyStudy,"M6 button-head positions, illustrative",,8,2235.393674157361,False
-Tail_side_panels_STUDY,BodyStudy,PROPOSED 3mm subframe covers traced from baseline; passenger rating not established,,1,1137458.4978603162,False
+Panel_bolts_m1,BodyStudy,"M6 button-head positions on the case flank, illustrative",,9,2138.2464998495557,False
+Panel_bolts_1,BodyStudy,"M6 button-head positions on the case flank, illustrative",,9,2138.2464998495557,False
+Tail_side_panels_STUDY,BodyStudy,PROPOSED 3mm subframe covers traced from baseline; passenger rating not established,,1,799766.4633303683,False
 Seat_two_level_STUDY,BodyStudy,PROPOSED stepped rider/passenger saddle traced from baseline; foam/pan/fit unresolved,,1,14817123.668228758,False
 Seat_welt,BodyStudy,"Piped welt along the seat top edges, illustrative",,246,42150.51777630905,False
-Tail_undertray_STUDY,BodyStudy,"PROPOSED 3mm undertray/inner fender, 25mm outside the rear tyre travel envelope; drainage and fixings unresolved",,2,384145.35107656557,False
-Rear_rack_STUDY,BodyStudy,PROPOSED short aluminium luggage-rack mount plate on two posts (the grab rail is gone: solo bike); load rating unresolved,,1,55688.081715847555,False
-Belly_skid_plate_STUDY,BodyStudy,PROPOSED 5mm aluminium skid plate under the belly; sets the static ground clearance (bottom Z176 unchanged),,1,960999.9999999999,False
-Windscreen_STUDY,BodyStudy,PROPOSED 6mm screen traced from baseline; optics/buffeting unresolved,,1,626137.6637007542,False
-Headlamp_installation_STUDY,BodyStudy,Full-width LED light band (smoked lens) flush with the beak; approved optical unit not selected,,1,550882.8867442608,False
-Headlamp_DRL_blade,BodyStudy,DRL light blade along the top of the lamp band; optics not selected,,1,67958.52476502689,False
+Tail_undertray_STUDY,BodyStudy,"PROPOSED 3mm undertray/inner fender, 25mm outside the rear tyre travel envelope; drainage and fixings unresolved",,2,350695.72589307587,False
+Rear_rack_STUDY,BodyStudy,PROPOSED short aluminium luggage-rack mount plate on two posts (the grab rail is gone: solo bike); load rating unresolved,,1,45190.053469968254,False
+Belly_skid_plate_STUDY,BodyStudy,PROPOSED 3mm aluminium slim skid plate under the belly; sets the static ground clearance (bottom Z176 unchanged); rev D,,1,427500.0,False
+Windscreen_STUDY,BodyStudy,PROPOSED 4mm screen traced from baseline; optics/buffeting unresolved,,1,415683.3491414308,False
+Headlamp_installation_STUDY,BodyStudy,Full-width LED light band (smoked lens) flush with the beak; approved optical unit not selected,,1,549610.1838348903,False
+Headlamp_DRL_blade,BodyStudy,DRL light blade along the top of the lamp band; optics not selected,,1,67963.53669989586,False
 Taillamp_installation_STUDY,BodyStudy,Tail stop lamp reservation,,1,31999.999999999996,False
-Front_fender_STUDY,BodyStudy,Proposed fender on fork lowers; steering/bump mounts not validated,,1,434711.25118933,False
-Rear_hugger_STUDY,BodyStudy,Proposed swingarm-mounted hugger; bump clearance follows wheel,,1,911899.6275819996,False
-Bar_half_m1,RunningGear,"28.6mm tapered bar half: straight centre run, bent back ~29 deg / down ~11 deg to the grip; illustrative",,3,135084.89526350633,False
+Front_fender_STUDY,BodyStudy,Proposed fender on fork lowers; steering/bump mounts not validated,,1,234330.34883371415,False
+Rear_hugger_STUDY,BodyStudy,Proposed swingarm-mounted hugger; bump clearance follows wheel,,1,289069.9828286374,False
+Bar_half_m1,RunningGear,"28.6mm tapered bar half: straight centre run, bent back ~29 deg / down ~11 deg to the grip; illustrative",,4,187487.41237949466,False
 Hand_grip_reserve_m1,RunningGear,Grip on the bar-end axis; throttle unselected,,1,118029.63599536855,False
 Mirror_stalk_m1,BodyStudy,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,16975.835656632982,False
 Mirror_glass_m1,BodyStudy,"Mirror glass, illustrative",,1,24959.99999999976,False
@@ -121,7 +119,7 @@ Peg_bracket_m1,Chassis,"Machined peg hanger plate, illustrative",,1,35003.671298
 Hand_lever_m1,RunningGear,Brake (right) / regen-or-rear (left) lever envelope,,1,11405.59312395055,False
 Front_indicator_reserve_m1,BodyStudy,Lamp reservation under nose,,1,18251.137778040502,False
 Rear_indicator_reserve_m1,BodyStudy,Lamp reservation,,1,18617.57422727557,False
-Front_caliper_reserve_m1,RunningGear,Brembo Stylema-class radial 4-piston caliper envelope straddling the 300mm disc,,1,173341.1359623936,False
+Front_caliper_reserve_m1,RunningGear,Brembo Stylema-class radial 4-piston caliper envelope straddling the 300mm disc,,1,185592.91596633638,False
 Bar_half_1,RunningGear,"28.6mm tapered bar half: straight centre run, bent back ~29 deg / down ~11 deg to the grip; illustrative",,3,135290.45867658613,False
 Hand_grip_reserve_1,RunningGear,Grip on the bar-end axis; throttle unselected,,1,118029.63599536856,False
 Mirror_stalk_1,BodyStudy,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,16975.83565663298,False
@@ -133,13 +131,12 @@ Peg_bracket_1,Chassis,"Machined peg hanger plate, illustrative",,1,35003.6712983
 Hand_lever_1,RunningGear,Brake (right) / regen-or-rear (left) lever envelope,,1,11405.593123950548,False
 Front_indicator_reserve_1,BodyStudy,Lamp reservation under nose,,1,18251.137778040502,False
 Rear_indicator_reserve_1,BodyStudy,Lamp reservation,,1,18617.57422727557,False
-Front_caliper_reserve_1,RunningGear,Brembo Stylema-class radial 4-piston caliper envelope straddling the 300mm disc,,1,173341.13596239637,False
-Plate_hanger_arm,BodyStudy,"Cast plate hanger from inside the tail tip, with plate bracket; 20mm+ off the tyre at full bump",,1,213659.5285116522,False
+Front_caliper_reserve_1,RunningGear,Brembo Stylema-class radial 4-piston caliper envelope straddling the 300mm disc,,1,185592.91596627844,False
+Plate_hanger_arm,BodyStudy,"Cast plate hanger from inside the tail tip, with plate bracket; 20mm+ off the tyre at full bump",,2,156355.6483801021,False
 Licence_plate_US,BodyStudy,US 7x4in motorcycle plate envelope,,1,72404.24771931898,False
 Plate_lamp,BodyStudy,Plate lamp reservation above the plate,,1,2880.0,False
 Rear_indicator_stalk_m1,BodyStudy,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,6558.0746643687,False
 Rear_indicator_stalk_1,BodyStudy,PROPOSED centerline and section; material/joints/fatigue NOT qualified,,1,6558.0746643687,False
-Bar_centre,RunningGear,Bar centre section (28.6mm),,1,51393.942538606076,False
 Rear_caliper_reserve,RunningGear,2-piston caliper shaped to the Kawasaki 43080-0156 candidate reserve,,1,159194.6764012135,False
 Rear_caliper_bracket,RunningGear,"Floating caliper bracket on the axle, torque-arm stop on the swingarm; illustrative",,1,30465.94680304946,False
 Lever_perch_m1,RunningGear,"Lever perch clamp with pivot boss, illustrative",,1,29477.013035705088,False
@@ -151,14 +148,14 @@ Front_brake_reservoir,RunningGear,"Brake fluid reservoir with cap, illustrative"
 Front_master_banjo,RunningGear,Banjo fitting,,1,2814.867017616469,False
 Front_brake_hose_upper,RunningGear,"Front brake hose, master cylinder to the clamp splitter; routing PROPOSED",,1,44331.11866695817,False
 Front_brake_splitter,RunningGear,"Hose splitter on the lower clamp, illustrative",,1,22588.3007072908,False
-Front_brake_hose_caliper_m1,RunningGear,"Front brake hose, splitter to caliper; travel slack not validated",,1,44307.25435568247,False
-Front_caliper_banjo_m1,RunningGear,Banjo bolt,,1,2814.867017616461,False
+Front_brake_hose_caliper_m1,RunningGear,"Front brake hose, splitter to caliper; travel slack not validated",,1,44145.05047401541,False
+Front_caliper_banjo_m1,RunningGear,Banjo bolt,,1,2814.8670176164596,False
 Lever_perch_1,RunningGear,"Lever perch clamp with pivot boss, illustrative",,1,29477.015238416854,False
 Switch_cube_1,RunningGear,"Handlebar switch housing (indicators/horn/lights left, start/mode right), illustrative",,1,30766.470644210458,False
 Harness_connector_1,RunningGear,"Switch-harness connector on the top clamp, illustrative",,1,12167.362697409253,False
 Harness_bar_1,RunningGear,Switch harness leg to the steering-head connector; routing PROPOSED,,1,10894.888365619754,False
-Front_brake_hose_caliper_1,RunningGear,"Front brake hose, splitter to caliper; travel slack not validated",,1,44307.2543556466,False
-Front_caliper_banjo_1,RunningGear,Banjo bolt,,1,2814.867017616461,False
+Front_brake_hose_caliper_1,RunningGear,"Front brake hose, splitter to caliper; travel slack not validated",,1,44145.0504739772,False
+Front_caliper_banjo_1,RunningGear,Banjo bolt,,1,2814.867017616459,False
 Rear_brake_hose,RunningGear,"Rear brake hose, caliper to frame junction; arm-travel loop not validated",,1,55663.355952212,False
 Rear_caliper_banjo,RunningGear,Banjo bolt,,1,2412.7431579569616,False
 Rear_brake_junction,RunningGear,"Hose-to-hard-line junction on the tail brace, illustrative",,1,5978.430628670096,False
@@ -170,25 +167,30 @@ Rear_pulley_PITCH_STUDY,Drive,"8mm-pitch 35T motor / 126T wheel sprocket (3.60:1
 Motor_pulley_bearing_carrier,Drive,"Pulley bearing carrier on the motor flange, spline to the rotor; 55 mm beyond the motor face (drive-performance CR-6); illustrative",,1,301014.84169635957,False
 Drive_belt_14mm_STUDY,Drive,"Closed 8MGT-1760-62 belt loop (8 mm pitch, 62 mm wide) at rest position; installs from the open left side; name kept for the ledger rule",,1,438556.06159052526,False
 Radiator_core_m1,Cooling,"Shared-loop radiator half 165x128x28 (two halves in parallel = 0.042 m2, was 0.058 m2), under the upper rail, angled 35 deg in plan",,1,591359.9999999998,False
-Radiator_fan_m1,Cooling,"24mm slim fan behind the core, illustrative",,1,373632.0000000001,False
-Radiator_pod_grille_m1,BodyStudy,Louvred grille in the pod mouth,,5,34321.28571428572,False
-Radiator_pod_shroud_m1,BodyStudy,"3mm side-pod shroud over the radiator, open front for the grille (thermal-study.md CR-1)",,2,302329.6781978886,False
+Radiator_fan_m1,Cooling,"24mm slim fan behind the core, illustrative",,1,373632.0000000002,False
+Radiator_pod_grille_m1,BodyStudy,Louvred grille in the pod mouth,,5,23058.439024390267,False
+Radiator_pod_shroud_m1,BodyStudy,"3mm side-pod shroud over the radiator, open front for the grille (thermal-study.md CR-1)",,2,260916.5524541333,False
 Radiator_core_1,Cooling,"Shared-loop radiator half 165x128x28 (two halves in parallel = 0.042 m2, was 0.058 m2), under the upper rail, angled 35 deg in plan",,1,591359.9999999999,False
 Radiator_fan_1,Cooling,"24mm slim fan behind the core, illustrative",,1,373632.00000000023,False
-Radiator_pod_grille_1,BodyStudy,Louvred grille in the pod mouth,,5,34321.28571428574,False
-Radiator_pod_shroud_1,BodyStudy,"3mm side-pod shroud over the radiator, open front for the grille (thermal-study.md CR-1)",,2,302329.6781978885,False
+Radiator_pod_grille_1,BodyStudy,Louvred grille in the pod mouth,,5,23058.43902439026,False
+Radiator_pod_shroud_1,BodyStudy,"3mm side-pod shroud over the radiator, open front for the grille (thermal-study.md CR-1)",,2,260916.55245413218,False
 NACS_charge_inlet,Electronics,Volex NACS inlet 1000V/500A behind a flap in the tank flank (electrical-detailed.md CR-7),,1,542640.0,False
 Steering_damper_envelope,RunningGear,"Semi-active steering damper >=28 Nm.s/rad, speed-scheduled (dynamics-study.md)",,1,215999.9999999999,False
-Crash_guard_mount_m1,Protection,"Guard mount stubs bolted to the upper rail, pack front lug and rear link through grommeted cover holes (holes not modelled)",,3,40125.12431274848,False
-Crash_guard_m1,Protection,"25x2 25CrMo4 crash guard (was 28x2.5; solo 240 kg bike), anchors to confirm (compliance CR-1; routed outside the radiator pods)",,15,220183.58570918572,False
-Pivot_slider_m1,Protection,POM pivot slider puck on an M10 (compliance CR-3),,1,66758.84388878311,False
-Handguard_m1,Protection,Aluminium handguard backbone 22x3 (compliance CR-2),,13,220417.33663933107,False
-Crash_guard_mount_1,Protection,"Guard mount stubs bolted to the upper rail, pack front lug and rear link through grommeted cover holes (holes not modelled)",,3,40125.12431274847,False
-Crash_guard_1,Protection,"25x2 25CrMo4 crash guard (was 28x2.5; solo 240 kg bike), anchors to confirm (compliance CR-1; routed outside the radiator pods)",,15,220183.58570918572,False
-Pivot_slider_1,Protection,POM pivot slider puck on an M10 (compliance CR-3),,1,66758.84388878311,False
-Handguard_1,Protection,Aluminium handguard backbone 22x3 (compliance CR-2),,13,220417.3366393311,False
-Rear_reflector_red,BodyStudy,60mm red rear reflector (FMVSS 108),,1,7920.0,False
+Crash_guard_mount_front_m1,Protection,12 mm stud from the frame-link lug to the slider puck (lug bolt-through not modelled; compliance CR-1),,1,11762.12289504017,False
+Crash_guard_slider_front_m1,Protection,34 mm crash slider puck (POM/aluminium class; counted at steel density) on the link lug stud; tip is outboard of the radiator pods and tank skirt,,1,17762.064327112384,False
+Crash_guard_mount_rear_m1,Protection,12 mm stud from the frame-link lug to the slider puck (lug bolt-through not modelled; compliance CR-1),,1,11762.122895040195,False
+Crash_guard_slider_rear_m1,Protection,34 mm crash slider puck (POM/aluminium class; counted at steel density) on the link lug stud; tip is outboard of the radiator pods and tank skirt,,1,17762.064327112403,False
+Pivot_slider_m1,Protection,POM pivot slider puck on an M10 (compliance CR-3); tip level with the link-lug sliders,,1,94247.7796076938,False
+Crash_guard_mount_front_1,Protection,12 mm stud from the frame-link lug to the slider puck (lug bolt-through not modelled; compliance CR-1),,1,11762.12289504017,False
+Crash_guard_slider_front_1,Protection,34 mm crash slider puck (POM/aluminium class; counted at steel density) on the link lug stud; tip is outboard of the radiator pods and tank skirt,,1,17762.064327112384,False
+Crash_guard_mount_rear_1,Protection,12 mm stud from the frame-link lug to the slider puck (lug bolt-through not modelled; compliance CR-1),,1,11762.122895040195,False
+Crash_guard_slider_rear_1,Protection,34 mm crash slider puck (POM/aluminium class; counted at steel density) on the link lug stud; tip is outboard of the radiator pods and tank skirt,,1,17762.064327112403,False
+Pivot_slider_1,Protection,POM pivot slider puck on an M10 (compliance CR-3); tip level with the link-lug sliders,,1,94247.7796076938,False
+Handguard_m1,Protection,Aluminium handguard backbone 22x3 (compliance CR-2),,13,108658.44655097066,False
+Handguard_1,Protection,Aluminium handguard backbone 22x3 (compliance CR-2),,13,108658.44655097065,False
+Rear_reflector_red,BodyStudy,"60x34 mm red rear reflector (FMVSS 108; rev D enlarged from 60x22 to reach 2,040 mm2)",,1,12240.0,False
 Side_reflector_red_m1,BodyStudy,Red side reflector,,1,3053.6280592892767,False
 Side_reflector_red_1,BodyStudy,Red side reflector,,1,3053.6280592892767,False
-Horn_R28,Electronics,"R28 class I horn below the left radiator pod, outboard of the battery plate (compliance CR-11)",,1,222660.37932317657,False
+Horn_R28,Electronics,"R28 class I horn below the left radiator pod, outboard of the case flank and above the link-lug slider (compliance CR-11)",,1,158776.0927124282,False
 Side_stand_retracted,RunningGear,"Side stand, retracted, with interlock switch (compliance CR-12)",,1,104833.36050816604,False
+Shock_sweep_keepout,Keepouts,"Spring/body envelope at 9 positions, droop to end of stroke",,9,10788124.827349871,True

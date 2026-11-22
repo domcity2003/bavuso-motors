@@ -85,21 +85,20 @@
  "elbow_deg": 94.8,
  "leg_overlap_cm3_by_part": {
   "Seat_two_level_STUDY": 1473.9,
-  "Tail_side_panels_STUDY": 163.9,
-  "Upper_rail_0_m1": 21.4,
-  "Upper_rail_1_m1": 21.4,
-  "Upper_rail_0_1": 21.4,
-  "Upper_rail_1_1": 21.4,
-  "Lower_body_battery_covers_STUDY": 19.7,
-  "HV_cabinet_2mm_STUDY": 13.8,
-  "Tail_rail_m1": 10.0,
-  "Tail_rail_1": 10.0,
+  "Tail_side_panels_STUDY": 164.1,
+  "Upper_rail_1_m1": 34.9,
+  "Upper_rail_1_1": 34.9,
+  "Upper_body_fairing_tank_STUDY": 14.9,
+  "Upper_rail_0_m1": 13.2,
+  "Upper_rail_0_1": 13.2,
+  "HV_cabinet_2mm_STUDY": 12.7,
+  "Tail_rail_m1": 12.3,
+  "Tail_rail_1": 12.3,
   "Seat_welt": 9.1,
   "Peg_bracket_m1": 7.7,
   "Peg_bracket_1": 7.7,
-  "Battery_side_panel_m1": 6.4,
-  "Battery_side_panel_1": 6.4,
-  "Waist_ledge_plates": 5.7,
-  "Tail_shock_cross_tube": 2.8
+  "Waist_ledge_plates": 5.4,
+  "Lower_body_battery_covers_STUDY": 2.7,
+  "Tail_shock_cross_tube": 1.7
  }
 }

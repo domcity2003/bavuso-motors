@@ -120,6 +120,10 @@ cells_p60b|Cell_lane_3,BV-ENG-0004
 cells_p60b|Cell_lane_4,BV-ENG-0005
 pack_int_elec,BV-ENG-0006
 pack_int_therm,BV-ENG-0007
+pack_case|Pack_case_pad_front_m1,BV-ENG-0008
+pack_case|Pack_case_pad_rear_m1,BV-ENG-0009
+pack_case|Pack_case_pad_front_1,BV-ENG-0010
+pack_case|Pack_case_pad_rear_1,BV-ENG-0011
 crash_guard|Crash_guard_mount_m1,BV-PRO-0001
 crash_guard|Crash_guard_m1,BV-PRO-0002
 pivot_slider|Pivot_slider_m1,BV-PRO-0003
@@ -128,6 +132,14 @@ crash_guard|Crash_guard_mount_1,BV-PRO-0005
 crash_guard|Crash_guard_1,BV-PRO-0006
 pivot_slider|Pivot_slider_1,BV-PRO-0007
 handguard|Handguard_1,BV-PRO-0008
+crash_guard|Crash_guard_mount_front_m1,BV-PRO-0009
+crash_guard|Crash_guard_slider_front_m1,BV-PRO-0010
+crash_guard|Crash_guard_mount_rear_m1,BV-PRO-0011
+crash_guard|Crash_guard_slider_rear_m1,BV-PRO-0012
+crash_guard|Crash_guard_mount_front_1,BV-PRO-0013
+crash_guard|Crash_guard_slider_front_1,BV-PRO-0014
+crash_guard|Crash_guard_mount_rear_1,BV-PRO-0015
+crash_guard|Crash_guard_slider_rear_1,BV-PRO-0016
 lower_triple_clamp|Lower_triple_clamp,BV-RUN-0001
 upper_triple_clamp|Upper_triple_clamp,BV-RUN-0002
 bar|Bar_riser_m1,BV-RUN-0003
