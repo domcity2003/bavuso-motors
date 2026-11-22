@@ -1,0 +1,38 @@
+{
+ "prepared": "2026-11-22",
+ "ledger_file": "program/data/parts-ledger.csv",
+ "ledger_rows": 218,
+ "ledger_total_kg": 252.9315,
+ "bom_leaf_sum_kg": 252.9315,
+ "bom_system_sum_kg": 252.9315,
+ "diff_kg": 0.0,
+ "within_0p1": true,
+ "by_system_kg": {
+  "pack": 104.909,
+  "chassis": 29.777,
+  "running": 43.08,
+  "drive": 23.45,
+  "elec": 17.437,
+  "body": 14.448,
+  "cooling": 6.9,
+  "wiring": 12.93
+ },
+ "unassigned_rows": [],
+ "part_lines": 220,
+ "assemblies": 34,
+ "lid_mass_kg": 1.3242,
+ "holder_est_kg": 0.7729,
+ "rollup_total_kg": 252.9,
+ "rollup_by_system_kg": {
+  "ENG": 104.91,
+  "RUN": 43.08,
+  "CHS": 29.78,
+  "DRV": 23.45,
+  "ELC": 17.44,
+  "ALW": 12.93,
+  "BOD": 12.81,
+  "THM": 6.9,
+  "PRO": 1.63
+ },
+ "diff_to_rollup_kg": 0.032
+}
