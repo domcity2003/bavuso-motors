@@ -1,5 +1,8 @@
 # Bavuso V1 CAD architecture (rev C)
 
+> **Superseded in part (Nov 22, 2026).** This document predates the final V1 numbers; the authority is `00-V1-final-spec.md`. Stale here: the 255.3 kg rev C roll-up and the "not yet at 240 kg" framing (final 257.9 kg, T1 <= 260 kg, CAD rev E in `16-cad-revE.md`); the 267 x 6 rear disc (final 267 x 5); the rev C layout and masses.
+
+
 November 21, 2026, US Central. Prepared by Claude Sonnet 5.5 (claude-sonnet-5-5) for the Bavuso V1 program.
 
 Files: `tools/build-adventure.py` (rev C, evolved in place), `cad/Bavuso-V1.0-adventure.FCStd` and `.step`, `geometry-adventure-audit.json`, `program/data/cad-parts.csv` (every solid), `program/data/run/build-full.log` (full-build log with all checks), `program/data/run/final-pair-recheck.json`, `program/tools/verify-final-pairs.py`, `tools/export-cad-parts.py`. Renders: `visuals/cycles-adventure-*.png` and `visuals/cycles-adventure-rider-*.png`.

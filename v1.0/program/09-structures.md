@@ -1,5 +1,8 @@
 # Bavuso V1: structures (frame, single-sided swingarm, pack case)
 
+> **Superseded in part (Nov 22, 2026).** Round 1 and the first headings are the Nov 21 text; the authority is `00-V1-final-spec.md`. **The FEA was run at 240 kg scaling, not the final 257.9 kg, and the yoke cross-member was not re-run at its built height of Z545.** Thin margins (rear-bump cross-brace SF 1.28 becomes roughly 1.19 to 1.24 against 1.2; belt case D1 1.20; fatigue D 0.49 against 0.50) are unproven at the final mass. Stale here: "does not fit 18 kg" (final chassis 30.9 kg), the CG of 574 mm for the 355 kg case, and the EMRAX-housing-as-yoke assumption (final: steel pivot yoke).
+
+
 November 21, 2026, US Central. Prepared by Claude Sonnet 5.5 (claude-sonnet-5-5) for the Bavuso V1 program.
 
 Scripts (`program/tools/`): `fea-frame-v1.py` (model and load cases), `fea-fatigue-v1.py`, `fea-size-v1.py` (sizing loop), `fea-swingarm-v1.py` (arm shell model), `fea-handcheck-v1.py`, `fea-summary-v1.py`. Results and solver files: `program/data/fea/` (`results-final-h*.json`, `arm-final-h*.json`, `sweep-*.csv`, `run/`). The old `detailed-design/tools/fea-*.py` are untouched. Labels: calculated = FEA or hand calculation; estimate = my assumption.
@@ -224,3 +227,21 @@ The roll-up 22.7 kg is on rev C/D tube sizes; applying this round's change (+2.0
 - Bearing loads are model reactions; life uses my oscillation assumption (51 mm travel per g), small angle fretting is not covered; fits, seals, preload, spindle bending and the bore in the arm boss are not designed.
 - Pivot spindle and blocks are solid steel in the model; hollowing them would save weight but was not run. 7075 yoke only run at the steel size (fails).
 - Everything from round 1 still applies: assumed spectrum, rigid bosses, local brace bolt-on reinforcement, motor-end belt load at the left stub, pivot slider, buckling and crash plasticity.
+
+## Round 3 (final), November 22, 2026: yoke at Z545, bike scaled to 257.3 kg
+
+Re-run of the full solo model (`fea-frame-v1.py --variant r3 --bike_kg 257.3`, 12 mm mesh; results `data/fea/results-r3-h12.json`): cross-member at Z545, legs on the same line, total 257.3 + 90 + 25 = 372.3 kg. All other sections as Round 2.
+
+| Check | SF / D | Required | Verdict |
+|---|---|---|---|
+| C6 rear bump 3 g (cross brace) | 1.23 | 1.2 | pass, thin |
+| D1 belt design (arm, beam model) | 1.19 (shell model about 1.25) | 1.2 | marginal, 0.01 short in the beam model |
+| C9c rear slider 21 kN | 1.08 | 1.0 | pass |
+| C9b front slider | 1.18 | 1.0 | pass |
+| Fatigue, down-link at headstock | D 0.57 | 0.5 | **fail** |
+| Fatigue, upper rail 1 | D 0.57 | 0.5 | **fail** |
+| Torsion / lateral at head | 5.0 kNm/deg / 1.68 kN/mm | 3 / 1.5 | pass |
+
+Yoke mass at Z545: legs 2.43 kg + cross-member 2.23 kg = 4.66 kg (+0.2). Chassis modelled 25.6 kg.
+
+**Smallest changes to restore margin (estimated by scaling, not re-run):** down-link 38 x 4.0 to 38 x 4.25 (+0.13 kg); upper rail 1 38 x 2.25 to 38 x 2.5 (+0.20 kg); swingarm wall 4.0 to 4.25 (+0.11 kg, lifts D1 to about 1.25). Total about +0.45 kg, giving about 26.0 kg modelled. These three edits were not run; confirm at 12 mm before release. The 90 mm of clearance question (Z545 against motor, thighs, pegs) is not checked here.

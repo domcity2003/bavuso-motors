@@ -1,0 +1,35 @@
+| Case | Worst member | Stress MPa | SF | Required | Verdict | Worst pack stress away from lugs (MPa, vs 140) |
+|---|---|---|---|---|---|---|
+| C1_static_1g_solo | SAR05 | 104 | 1.93 | 1.5 | pass | 36 |
+| C2_front_bump_3g | SAR05 | 106 | 1.88 | 1.2 | pass | 48 |
+| C3_braking_1.1g | UR1R | 288 | 1.51 | 1.2 | pass | 32 |
+| C4_braking_plus_bump | UR2L | 287 | 1.52 | 1.2 | pass | 30 |
+| C5L_corner_lean_left | SAR05 | 123 | 1.62 | 1.2 | pass | 45 |
+| C5R_corner_lean_right | SAR05 | 130 | 1.53 | 1.2 | pass | 43 |
+| C6_rear_bump_3g | SAX | 162 | 1.23 | 1.2 | pass | 38 |
+| D1_belt_design_11.3kN | SAR05 | 168 | 1.19 | 1.2 | FAIL | 60 |
+| D2_launch_peak_torque | SAR05 | 135 | 1.48 | 1.2 | pass | 34 |
+| D3_regen_peak_torque | SAR05 | 108 | 1.85 | 1.2 | pass | 54 |
+| C7a_pack_20g_longitudinal | ST1L | 317 | 1.37 | 1.0 | pass | 117 |
+| C7b_pack_8g_lateral | RLL | 273 | 1.59 | 1.0 | pass | 157 |
+| C7c_pack_5g_vertical | RLL | 55 | 7.91 | 1.0 | pass | 46 |
+| C7d_pack_10g_vertical_drop | RLL | 110 | 3.95 | 1.0 | pass | 92 |
+| C9b_slider_21kN_front_lug | RLL | 368 | 1.18 | 1.0 | pass | 82 |
+| C9c_slider_21kN_rear_link_lug | RLR | 402 | 1.08 | 1.0 | pass | 28 |
+| C7e_crush_underside_10kN | RLL | 87 | 4.99 | 1.0 | pass | 583 |
+| C7f_crush_side_10kN | RLL | 319 | 1.36 | 1.0 | pass | 575 |
+
+Fatigue worst 8:
+| DLR | FAT 63 | D 0.57 | FAIL |
+| UR1R | FAT 63 | D 0.57 | FAIL |
+| PACK_rear@lug | FAT 28 | D 0.56 | FAIL |
+| DLL | FAT 63 | D 0.47 | pass |
+| UR2L | FAT 63 | D 0.46 | pass |
+| HT | FAT 63 | D 0.46 | pass |
+| UR2R | FAT 63 | D 0.44 | pass |
+| UR1L | FAT 63 | D 0.34 | pass |
+
+Stiffness {'torsion_kNm_per_deg': 4.996, 'head_twist_deg_per_kNm': 0.2002, 'lateral_kN_per_mm': 1.683, 'lateral_head_defl_mm_per_kN': 0.5942}
+Bearing loads (frame model): {'C1_static_1g_solo': {'in': [-18087.2, 0.0, -131.5], 'out': [14854.9, -1.1, 758.4], 'stub_in': [18087.2, 0.2, 63.5], 'stub_out': [-14854.9, 1.1, -758.4]}, 'C6_rear_bump_3g': {'in': [-7513.9, 0.0, 7760.0], 'out': [8947.0, 35.4, -4453.1], 'stub_in': [7557.2, 0.5, -7938.1], 'stub_out': [-8947.0, -35.4, 4453.1]}, 'D1_belt_design_11.3kN': {'in': [-43552.1, 0.0, -629.4], 'out': [33462.2, -4.7, -340.0], 'stub_in': [43552.1, 0.2, 561.4], 'stub_out': [-33462.2, 4.7, 340.0]}}
+Mass by member (kg): {'YKL': 2.43, 'DL': 2.32, 'PX': 2.23, 'UR1': 1.94, 'SAR': 1.84, 'TR': 1.78, 'STUB': 1.78, 'UR2': 1.54, 'RL': 1.05, 'HT': 1.04, 'TB': 1.01, 'TX': 0.93, 'GUS': 0.75, 'STW': 0.64, 'UR0': 0.62, 'PIV': 0.61, 'SAX': 0.61, 'STB': 0.6, 'SD': 0.59, 'ST0': 0.44, 'ST1': 0.35, 'LUGF': 0.14, 'LUGT0': 0.1, 'LUGT1': 0.1, 'LUGR': 0.1} total 25.52
+pack case mass kg 9.96 area 0.9218

@@ -1,5 +1,8 @@
 # Bavuso V1 compliance: standards matrix
 
+> **Superseded in part (Nov 22, 2026).** This document predates the final V1 numbers; the authority is `00-V1-final-spec.md`. Stale here: dual 300 mm front discs (final 320 x 5 front, 267 x 5 rear; the stopping and fade analysis is in `15-dynamics.md`); "V1 not re-checked" for FMVSS 108, 111 and 123 (the rev D/E CAD ran a 91-check envelope screen, `16-cad-revE.md`, still not a certification test); the 240 kg-era masses. Everything here remains paper; no standard has been tested.
+
+
 November 21, 2026, US Central. Prepared by Claude Sonnet 5.5 (claude-sonnet-5-5) for the Bavuso V1 program.
 
 Companion files: `13-dfmea.md` (risk table), `14-dvpr.md` (test plan and budget). Sources inside the program: `GATE-A-targets-locked.md`, `02-hardware.md`, `06-drive-performance.md`, `07-electrical.md`, `09-structures.md`, `10-thermal.md`. The older `detailed-design/compliance-and-validation.md` (Nov 12, a 328 kg bike with a different pack and motor) is out of date; I reused its regulation list and the NHTSA paperwork steps, and dropped its rev C CAD findings (turn-signal spacing, mirror size, tyre load) because the V1 CAD has not been re-checked against them.
@@ -35,12 +38,12 @@ The motorcycle standards live in 49 CFR Part 571. Official text: `https://www.ec
 | Requirement | How V1 meets it | Evidence today | Status |
 |---|---|---|---|
 | **FMVSS 108** lamps and reflectors (`571.108`) | DOT-marked headlamp, tail/stop, four turn signals, plate lamp, red rear and side reflectors; the slim light band must sit in front of a certified lamp, not replace it | Lamp masses in `07-electrical.md` BOM; rev C failed spacing (front signals 236 mm apart vs 406 mm) and V1 CAD not re-checked | open (DFMEA D44) |
-| **FMVSS 111** mirrors (`571.111`) | Two mirrors, glass at least the required area; fold-away | Rev C glass was 6,156 mm2 vs 8,065 mm2 flat; V1 not re-checked | open |
+| **FMVSS 111** mirrors (`571.111`) | Two mirrors, glass at least the required area; fold-away | Rev C glass was 6,156 mm2 vs 8,065 mm2 flat; rev E envelope screen passes (`16-cad-revE.md`), no test | open |
 | **FMVSS 116** brake fluid (`571.116`) | DOT 4 fluid from a labelled supplier | Specified in the hardware shortlist class (not a named part) | met by design |
 | **FMVSS 106** brake hoses (`571.106`, not in your list but mandatory) | DOT-marked hoses | Brake lines in the ledger; not named | met by design |
 | **FMVSS 119** motorcycle tyres (`571.119`) | 110/80R19 and 150/70R17, V-rated (149 mph vs 130 mph governor); rear load margin large at the 355 kg solo gross | `02-hardware.md` (V rating); load index not checked against V1 GVWR | met by design (confirm load index) |
 | **FMVSS 120** tyre selection and rims (`571.120`) | The standard's scope is vehicles other than passenger cars and, as I understand it, excludes motorcycles; motorcycle rim rules sit in 119 (rim marking, load rating) | Not confirmed in this session | open (confirm scope with NHTSA) |
-| **FMVSS 122** motorcycle brake systems (`571.122`) | Dual 300 mm front discs, rear disc, Bosch ABS 10 class; friction brakes must pass with regen off; high-speed stop from 160 km/h; fade test | No stopping analysis from 125 mph (`02-hardware.md` fallback is 320 mm discs) | needs test (D34, D35) |
+| **FMVSS 122** motorcycle brake systems (`571.122`) | Dual 320 x 5 mm front discs, 267 x 5 rear disc, Bosch ABS 10 class; friction brakes must pass with regen off; high-speed stop from 160 km/h; fade test | Stopping and fade analysis in `15-dynamics.md` (front discs 362-375 C in a 125-0 mph stop, limit about 450 C; estimate) | needs test (D34, D35) |
 | **FMVSS 123** controls and displays (`571.123`) | ISO symbols, tell-tales (ABS, HV fault, ready), mph speedometer, left lever rear brake allowed on a bike with no clutch, side-stand interlock | Display and VCU in BOM; tell-tale list not written | needs test |
 | **FMVSS 205** glazing (`571.205`) | Polycarbonate screen certified and marked by its supplier | Clear screen in the look target T10 | met by design (supplier certificate) |
 | **49 CFR 567** certification label (`https://www.ecfr.gov/current/title-49/part-567`) | Label on the frame with GVWR and axle ratings; proposed GVWR about 355 kg (240 + 90 rider + 25 luggage, T7) | Label pad not in CAD | open |
@@ -106,7 +109,7 @@ Not part of the V1 US launch. The earlier study's route (whole-vehicle type appr
 | **UN R78** braking (UNECE regulation index above) | Category 3 bike with ABS; regen declared and tested | No brake analysis | open |
 | **UN R53** installation of lighting devices (index above) | Lamp positions, angles, visibility | Same light-band question as FMVSS 108; the EU front signal spacing is also stricter | open |
 | **UN R10** EMC (index above) | Drive and charge modes | None | open |
-| **UN R81** mirrors | Glass fits a 78 mm circle | Rev C failed; V1 not re-checked | open |
+| **UN R81** mirrors | Glass fits a 78 mm circle | Rev C failed; rev E envelope screen only, no test | open |
 | **UN R85** power measurement | Declared peak and 30-minute power | Dyno test planned | open |
 | **UN R41** noise | Drive-by test | None | open |
 | **EU Battery Regulation 2023/1542** (`https://eur-lex.europa.eu/eli/reg/2023/1542/oj`) | EV battery: carbon-footprint declaration, labelling, battery passport (earlier study dates the passport from February 2027) | None | open |

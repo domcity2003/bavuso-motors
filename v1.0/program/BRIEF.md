@@ -1,5 +1,8 @@
 # Bavuso V1 final-spec program: shared brief for all agents
 
+> **Superseded in part (Nov 22, 2026).** This brief is the Nov 21 starting point; the authority is `00-V1-final-spec.md`. Stale here: the framing line "a buildable 240 kg, about 150-mile bike" (final: 257.9 kg / 569 lb, about 152 mi at 70 mph calculated at an assumed CdA 0.38, pending aero); the 240 kg target (T1 is now <= 260 kg, 2.1 kg headroom); `cost-model.csv` as the cost source (final `cost-model-v1.csv`, $29.5k at 10k/yr).
+
+
 November 21, 2026, US Central. Written by Claude Opus 5.5 (program lead). Read this before doing anything.
 
 ## Goal

@@ -1,5 +1,8 @@
 # Parts ledger and Gate A budget check
 
+> **Superseded in part (Nov 22, 2026).** The early sections describe the ledger at earlier states; the authority is `00-V1-final-spec.md`. Final: 257.9 kg / 569 lb against T1 <= 260 kg (the last section, 257.32 kg, is current except that the rear disc fix moved it to about 257.5). Stale here: the 240 kg budget check, the 277.75 kg and 247.93 kg runs, and the 252.93 kg rev E run against a 255 kg limit; "budget_pass" now means little because group budgets were re-set to the actuals (headroom 2.1 kg, 0 kg measured).
+
+
 November 21, 2026, US Central. Prepared by Claude Sonnet 5.5 (claude-sonnet-5-5) for the Bavuso V1 program.
 
 ## The plain answer

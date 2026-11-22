@@ -1,0 +1,98 @@
+metric,document,stated_value,status,correct_value,basis_or_note
+Wet mass (no rider),GATE-A-targets-locked.md headline and mass table,240 kg / 529 lb (total 240; "today ~320"),STALE,257.3 kg / 567 lb,mass-rollup.json total_kg and parts-ledger.csv sum 257.3215; T1 line in same file says <=260
+Wet mass,GATE-A-targets-locked.md T1 and decision log,<=260 kg; final roll-up 257.3 kg,CURRENT,257.3 kg,matches ledger; headroom 2.68 kg (1.0 pct)
+Wet mass,01-targets.md,240 kg ceiling incl 12 kg (5 pct) margin,STALE,257.3 kg; margin now 2.7 kg,REQ-001 margin policy abandoned in practice
+Wet mass,03-mass-ledger.md,319.6 kg (old bike audit),HISTORICAL,n/a,audit of the Nov 21 rev C era bike
+Wet mass,05-ledger-system.md,240 target; rev E 252.93 vs 255 limit; later 257.32,PARTLY STALE,257.32 kg,last paragraph of the file is correct
+Wet mass,06-drive-performance.md,bike 240 kg + 90 kg rider,STALE,257.3 + 90 = 347.3 kg,recomputed in 19 section 2
+Wet mass,08-cad-revD.md,246.4 kg (about 248),HISTORICAL,n/a,rev D
+Wet mass,09-structures.md,FEA scaled to 240 kg; 255 kg snapshot sensitivity,STALE,257.3 kg,unscaled run at 255 kg already gave C6 SF about 1.18 (needs 1.2)
+Wet mass,11-cost.md,257.322 kg priced,CURRENT,257.3 kg,ties to BOM and ledger
+Wet mass,13-dfmea.md,"already at its 240 kg limit",STALE,257.3 kg,
+Wet mass,14-dvpr.md,T1 mass 240 kg,STALE,<=260 kg,
+Wet mass,15-dynamics.md,247.9 kg snapshot (rev D),STALE,257.3 kg,+9.4 kg (3.8 pct); CG and inertias not re-run
+Wet mass,16-cad-revE.md,250.6 kg (about 250.5 with fixes),SUPERSEDED,257.3 kg,ledger later added holders 3.09 kg hub carrier 1.1 kg pads 1.3 kg damper 0.5 kg etc
+Wet mass,18-bom-and-drawings.md,252.9315 kg (BOM = ledger),STALE,257.3215 kg,bom-v1-reconcile.json is current (257.3215); the md and drawing sheets still show 252.93-era numbers
+Wet mass,data/aero/range-70mph.json,240 kg and 250.6 kg cases,STALE,257.3 kg,
+Wet mass,BRIEF.md framing,"buildable 240 kg, about 150-mile bike",STALE,257.3 kg and about 152 mi (calc),owner framing text must change
+Wet mass in lb,GATE-A,567 lb (final line),CURRENT,567 lb,257.3 x 2.2046 = 567.2
+Pack gross energy,06 07 Gate A,23.76 kWh (1100 x 21.6 Wh),CURRENT,23.76 kWh,
+Pack gross energy,01-targets.md,23.0 kWh gross / 20.7 usable,STALE,23.76 / 21.4,
+Pack gross energy,02-hardware.md,21.6 kWh (100s10p P60B),STALE,23.76,100s11p chosen later
+Pack usable energy,Gate A T2,about 21.4 kWh (5-95 pct),CURRENT,21.4 kWh,0.9 x 23.76 = 21.38
+Pack nominal voltage,GATE-A T2 table,370 V,CONFLICT,360 V,Gate A decision log itself says 360 V (3.6 V per cell); T2 row never updated; 06 07 use 360 V
+Pack nominal voltage,01-targets.md,340 V (old pack),STALE,360 V,
+Pack voltage window,06 and 07,250-420 V,CURRENT,250-420 V,
+Pack mass,GATE-A T2,<= 103 kg,NOT MET AS WRITTEN,108.0 kg,ledger ENG 108.0 (cells 82.5 + case 7.9 + internals 14.5 + holders 3.09); budgets.csv set to 108
+Pack mass,01-targets.md,100 kg (230 Wh/kg),STALE,108.0 kg (220 Wh/kg),23.76 / 108.0
+Pack mass,02-hardware.md,93.75 kg,STALE,108.0 kg,
+Cells,06 07 11,1100 x P60B 75 g max = 82.5 kg,CURRENT,82.5 kg,datasheet is v0.1; 75 g is a maximum
+Range at 70 mph (CdA 0.38),GATE-A T3,about 150 mi (>=145),STALE (basis 240 kg),152.4 mi,19 recompute at 257.3 kg with 06 method
+Range at 70 mph (CdA 0.38),01-targets.md,146 mi (older flat 90 pct model),STALE,152.4 mi (map model) or about 149 (flat-90 pct scaling),
+Range at 70 mph (CdA 0.38),06-drive-performance.md,154 mi (151 Gate A flat model),STALE (240 kg),152.4 mi,-1.6 mi for +17.3 kg
+Range at 70 mph (CdA 0.38),data/aero/range-70mph.json,154.0 (240 kg); 147.4 at CdA 0.40 and 250.6 kg,STALE,152.4 at 0.38; 147.0 at 0.40,
+Range at 70 mph (CdA 0.43),06-drive-performance.md,140 mi,STALE,138.8 mi,fails T3
+Range at 70 mph,19 recompute,CdA 0.41 gives 143.9 mi,RECOMPUTED,T3 break-even CdA about 0.407,T3 holds only at CdA <= 0.407 (0.40 gives 147.0)
+Range at 77 mph (CdA 0.38),06-drive-performance.md,133 mi,STALE,132.2 mi,
+Range at 77 mph,01-targets.md,125 mi,STALE,132.2 mi,older model
+Range at 125 mph,01 and 06,about 54 mi (01) / 57 mi (06),CONFLICT,56.9 mi (map model),01 used flat 90 pct efficiency
+CdA,GATE-A T3 01 06 14,0.38 m2 target,ASSUMPTION,unmeasured,no V1 CFD result exists; 17-aero.md pending; aero json uses 0.40 as an input not a result
+CdA,Freeze review PDF,0.385 fine / 0.413 mid mesh (Nov 12); 0.423 with rider allowance,OLD,n/a,7 pct mesh change vs 2 pct goal never closed
+Top speed,Gate A T4,125 sustained; governed 130,CURRENT,125 / 130,
+Top speed,06-drive-performance.md,135 mph (6500 rpm limit),CURRENT,135 mph (model),ratio check 6500/3.6 rpm x r 0.319 m = 134.9 mph
+Top speed,01-targets.md,125 verified / governed 130,OVERCLAIM,not verified,nothing is verified; calculated only
+Peak power,Gate A T5,>= 90 kW,CURRENT,124 kW datasheet motor peak; 96-103 kW at SOC 5-10,06 table; 81-86 kW cold low SOC
+Peak power at 10 pct SOC,06 vs 07,103 kW (400 A cap) vs 96 kW (350 A cap),CONFLICT,96 kW at the 350 A cap in 07,07 caps DC current at 350 A = GX14 carry rating; 06 assumes 400 A
+DC current cap,06 vs 07,400 A (06) vs 350 A (07),CONFLICT,350 A (contactor limit),06 also shows 365 A peak at SOC 50 which exceeds 350 A
+Pack fuse,07-electrical.md vs 06,400 A fuse (07) vs fuse >=450 A requested (06),CONFLICT,unresolved,350 A cap is 0.88 of fuse rating; fuse not selected
+Continuous power,Gate A T5,>= 55 kW,CURRENT,61.6 kW at 5500 rpm; <56 kW below 103 mph,06; inverter-limited 107 Nm
+Continuous power,01-targets.md,60 kW continuous,STALE,>=55 kW,Gate A lowered it
+0-60 mph,06-drive-performance.md,3.95 s,STALE (240 kg),4.15 s,19 recompute; 0-100 km/h 4.31; 0-100 mph 7.26; 60-100 3.11
+0-60 mph with 25 kg luggage,06-drive-performance.md,4.24 s,STALE,4.44 s,
+0-60 mph,02-hardware.md,4.5-5 s (EMRAX 188 hand estimate),SUPERSEDED,4.15 s,
+DC fast charge 10-80 pct (25 C),Gate A T6,<=25 min; about 20 min,CURRENT,about 20 min at 2C cap,
+DC fast charge 10-80 pct (25 C),06-drive-performance.md,15.5 min (3C cap); 21.0 (2C cap),CONFLICT,pick one,3C cap relies on unconfirmed cell charge life
+DC fast charge 10-80 pct (25 C),07-electrical.md,20.2 min (12.5 A per cell),CONFLICT,pick one,
+DC fast charge 10-80 pct (25 C),10-thermal.md,17.1 min,CONFLICT,pick one,"thermal model with cell derate"
+DC fast charge 10-80 pct (35 C),06 vs 10,20.1 min vs 23.0 min,CONFLICT,23.0 (more detailed thermal model),
+DC fast charge (cold -10 C),10-thermal.md,25.4 min with 3 kW PTC (marginal miss); 14.0 with preheat,CURRENT,25.4 / 14.0,Gate A only quotes the preheat number
+DC fast charge (45 C),10-thermal.md,40.9 min,CURRENT,40.9 min,not mentioned in Gate A or dossier-facing text
+AC charge,Gate A T6 vs ledger,3.3 kW minimum (CAD OBC_3p3kW) vs BROGEN 6.6 kW (ledger and cost),CONFLICT,decide,ledger mass 3.0 kg for the 6.6 kW unit; cost uses 6.6 kW unit ($700 at 10k)
+Hot day 125 mph (38 C),06-drive-performance.md,pack 57 C; marginal,STALE,derate to about 105 mph; core reaches 60.9 C after full pack,10-thermal.md and Gate A correction
+Hot day 125 mph (25 C),06 vs 10,pack 46 C vs hottest core 50.7 C,CONFLICT,50.7 C (more detailed),different models
+Cooling mass,Gate A decision log vs ledger,about 5.7 kg vs 6.9 kg,CONFLICT,6.9 kg (budget 7.0),
+Electronics mass,07-electrical.md,18.36 kg (0.36 over 18),STALE,17.44 kg (budget 17.5),ledger after charger and HV changes
+Drive mass,06 vs ledger vs 18,23.1 vs 23.65 vs 23.45 kg,CONFLICT,23.65 kg,ledger includes 0.4 kg carrier and motor 13.2 (06 uses 13.5)
+Motor mass,06 vs ledger,13.5 kg vs 13.2 kg,CONFLICT,13.2 to 13.5 kg (supplier range),EMRAX LV+43% LC
+Motor winding,ledger vs CAD vs 06/07,HV winding (ledger name); MV (CAD solid name); LV+43% (06 07),CONFLICT,LV+43%,fix names before BOM is used to order
+Chassis mass,GATE-A budget vs ledger,18 kg budget; ledger 30.88 kg,STALE budget,30.88 kg (budget 31),"09 models 25.4; +1.3 unmodelled +1.4 bearings +1.75 allowances +1.1 hub carrier"
+Running gear mass,Gate A table vs ledger,37 kg vs 43.08,STALE,43.08 kg,
+Body and protection,Gate A table vs ledger,15 vs 14.45,OK,14.45 kg,
+Wheelbase,15-dynamics.md and aero manifest,1490 mm,CURRENT,1490 mm,
+Wheelbase,drive-lib.py (06),1480 mm,STALE,1490 mm,used only in the traction cap; 0-60 is torque limited so no effect
+CG height / x from rear axle (bike),mass-rollup.json vs 15,530 / 788 mm (257.3 kg) vs 535 / 798 mm (247.9 kg),STALE,530 / 788 mm,
+CG (bike + rider),06 drive-lib vs 15,738 / 643 mm (old 283 kg) vs 732 / 667 mm,STALE,732 / 667 mm (rev D),06 traction numbers use old CG
+CG height 09 FEA,09-structures.md,574 mm above ground (355 kg case),CONFLICT,about 667 mm (rider on) per 15,check FEA load-case CG
+Front disc size,CAD ledger cost 15 08,320 x 5 mm,CURRENT,320 x 5,
+Front disc size,02 12 13 14,300 mm,STALE,320 mm,12 says dual 300 mm; 14 says 300 mm discs pass fade
+Rear disc size,CAD and 15-dynamics.md,267 x 5 mm (fade 426 C pass),CURRENT,267 x 5,
+Rear disc size,ledger BV-RUN-0060 BOM cost supplier-masses.csv,245 x 5 mm 0.85 kg,CONFLICT,267 x 5 (0.97 kg from CAD volume),slot name is stale from shortlist
+Rear disc size,03 04,267 x 6 mm,STALE,267 x 5,
+Belt,06 16 18 11 ledger (renamed),Gates 8MGT-1760-62; 35T / 126T; 3.60:1,CURRENT,8MGT-1760-62 35T/126T,center distance checks to 545.9 vs 545.6 mm (hand check agrees)
+Belt,02-hardware.md,single 3.8:1 stage; 20 mm / 14 mm earlier,STALE,3.60:1 8 mm pitch 62 mm wide,
+Belt-to-tyre clearance,16-cad-revE.md,12.0 mm (limit 12),ZERO MARGIN,12.0 mm,tightest check; tyre growth and alignment not included
+Pulley outer flange |Y|,15 vs 16,181 mm (lean 47.7 deg) vs 177 mm,STALE (15),177 mm gives about 48.6 deg = peg + 3.0 exactly,dynamics not re-run on rev E
+Lean angle pegs/pulley,15-dynamics.md,45.6 deg pegs; pulley 47.7 deg (short by 0.9),OPEN,48.6 deg predicted at rev E,needs rerun
+Frame torsion / lateral stiffness,09 Round 1 vs Round 2 vs 15,4.4 kNm/deg and 1.3 kN/mm vs 5.0 and 1.67,STALE (15),5.0 / 1.67,15 uses the lower round-1 values (conservative)
+Pivot bearings,09 16,2 x 32012 X,CURRENT,2 x 32012 X,
+Wobble damping,15-dynamics.md,zeta 0.039 wobble / 0.028 weave worst (luggage),CURRENT,0.028,thin; fork stiffness 30 kNm/rad is an estimate
+Cost at 10k/yr,GATE-A T9 and 11-cost.md,<=32k target; 29.5k estimate,CURRENT,$29507 (est),
+Cost at 10k/yr,01-targets and 14-dvpr,24.8k (old cost-model.csv); 14 cites cost-model.csv,STALE,29.5k,
+Cost fragility,11-cost.md,$32.3k if cells motor inverter stay at 1k prices,CURRENT,fails T9 by $0.3k,
+Validation program cost,14-dvpr.md vs freeze review,7.04 M US (28 months) vs 10.9 M older,NOT RECONCILED,n/a,review asked to reconcile with startup cash; 11 reuses NRE of 32.4 M from October file
+Seat height,Gate A / comfort-study,about 830 mm / 832 mm,CURRENT,832 mm,
+Rider,Gate A T7,90 kg described as 95th-percentile male,QUESTIONABLE,close to US adult male average,95th percentile male is clearly heavier; label or change
+Estimate share of mass,mass-rollup.json,measured 0.0 / supplier 109.8 / calculated 74.6 / estimate 73.0 kg,CURRENT,0 kg measured,nothing weighed
+Growth-adjusted mass,mass-budget-report.csv,sum of growth_adjusted by group about 286.8 kg,INFORMATION,about 287 kg,ledger's own +15 pct concept +10 pct proposed rule
+Cells per module,07 vs CAD/drawings,10 modules of 10s11p (110 cells) vs 4 lanes of 275 cells,CONFLICT,state both,electrical module != mechanical lane; holders drawn per lane
+HV cable section,07 vs ledger vs cost vs 06,50 mm2 (07); 50/35/4/2.5/6 (ledger); 35 mm2 set (cost); 70 mm2 requested (06),CONFLICT,decide,

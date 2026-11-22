@@ -2,22 +2,22 @@
  "prepared": "2026-11-22 (Claude Sonnet 5.5, mass-rollup.py ledger version)",
  "model": "Bavuso-V1.0-adventure.FCStd",
  "mode": "V1 (supplier slots)",
- "total_kg": 257.3,
- "total_lb": 567,
+ "total_kg": 257.9,
+ "total_lb": 569,
  "cog_mm": {
-  "x_from_rear_axle": 788,
+  "x_from_rear_axle": 787,
   "y": 3.7,
-  "height": 530
+  "height": 529
  },
  "front_rear_split_pct": [
-  52.9,
-  47.1
+  52.8,
+  47.2
  ],
  "unsprung_kg": {
   "front": 13.5,
-  "rear": 19.1
+  "rear": 19.3
  },
- "pitch_inertia_point_mass_kgm2": 38.3,
+ "pitch_inertia_point_mass_kgm2": 38.4,
  "cells_kg": 82.5,
  "pack_kg": 108.0,
  "by_group": {
@@ -27,14 +27,14 @@
    "z": 432
   },
   "Allowance": {
-   "kg": 44.3,
-   "x": 784,
+   "kg": 44.7,
+   "x": 783,
    "z": 536
   },
   "RunningGear": {
-   "kg": 37.3,
-   "x": 901,
-   "z": 523
+   "kg": 37.4,
+   "x": 898,
+   "z": 522
   },
   "Chassis": {
    "kg": 30.4,
@@ -70,17 +70,17 @@
  "by_source": {
   "measured": 0.0,
   "supplier": 109.8,
-  "calculated": 74.6,
-  "estimate": 73.0
+  "calculated": 75.0,
+  "estimate": 73.1
  },
  "by_status": {
-  "proposed": 181.6,
-  "concept": 75.7
+  "proposed": 181.8,
+  "concept": 76.1
  },
  "by_system": {
   "ENG": 108.0,
-  "RUN": 43.08,
-  "CHS": 30.88,
+  "RUN": 43.23,
+  "CHS": 31.33,
   "DRV": 23.65,
   "ELC": 17.44,
   "ALW": 12.93,
@@ -91,8 +91,8 @@
  "optimiser_reference_kg": 222.5,
  "budget": {
   "target_total_kg": 260.0,
-  "margin_kg": 1.5,
-  "design_cap_kg": 258.5,
+  "margin_kg": 1.0,
+  "design_cap_kg": 259.0,
   "groups": [
    {
     "group": "Battery pack",
@@ -108,11 +108,11 @@
    {
     "group": "Chassis",
     "systems": "CHS",
-    "budget_kg": 31.0,
-    "raw_kg": 30.88,
-    "headroom_kg": 0.12,
-    "headroom_pct": 0.4,
-    "growth_adjusted_kg": 34.24,
+    "budget_kg": 31.5,
+    "raw_kg": 31.33,
+    "headroom_kg": 0.17,
+    "headroom_pct": 0.5,
+    "growth_adjusted_kg": 34.76,
     "estimate_share_pct": 10.0,
     "flag": "TIGHT"
    },
@@ -120,10 +120,10 @@
     "group": "Running gear",
     "systems": "RUN",
     "budget_kg": 43.5,
-    "raw_kg": 43.08,
-    "headroom_kg": 0.42,
-    "headroom_pct": 1.0,
-    "growth_adjusted_kg": 47.95,
+    "raw_kg": 43.23,
+    "headroom_kg": 0.27,
+    "headroom_pct": 0.6,
+    "growth_adjusted_kg": 48.12,
     "estimate_share_pct": 97.0,
     "flag": "TIGHT"
    },

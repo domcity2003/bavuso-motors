@@ -1,5 +1,8 @@
 # Bavuso V1: the target point (weight, range, power, charging, price)
 
+> **Superseded in part (Nov 22, 2026).** This document predates the final V1 numbers; the authority is `00-V1-final-spec.md`. Final: 257.9 kg / 569 lb (T1 <= 260 kg, 2.1 kg headroom), pack 100s11p 108.0 kg, 360 V, 23.76 kWh gross, CAD rev E, cost $29.5k at 10k/yr. All of it is analysis or estimate; nothing is built or weighed. Stale here: the 240 kg ceiling with a 12 kg (5%) margin (REQ-001); 23.0 / 20.7 kWh (final 23.76 / 21.4); 340 V nominal (360 V); pack 100 kg (108.0 kg); 146 / 125 mi at 70 / 77 mph (final 152.4 / 132.2 mi, calculated at an assumed CdA 0.38, pending aero); "125 mph verified" (calculated only, nothing verified); 60 kW continuous (final >= 55 kW, 61.6 kW); $24.8k unit cost ($29.5k).
+
+
 November 21, 2026, US Central. Prepared by Claude Sonnet 5.5 (claude-sonnet-5-5) for the Bavuso V1 program.
 
 ## The plain answer

@@ -1,5 +1,8 @@
 # Bavuso V1 DFMEA (design failure mode and effects analysis)
 
+> **Superseded in part (Nov 22, 2026).** This document predates the final V1 numbers; the authority is `00-V1-final-spec.md`. Stale here: "already at its 240 kg limit" (final 257.9 kg, T1 <= 260 kg); D24 and D30 describe the EMRAX housing as the yoke (final: steel pivot yoke at Z545, see new row D47); D34 and the open item on 300 vs 320 mm (final 320 x 5 front, 267 x 5 rear); the steering damper listed as "not analysed" (semi-active damper analysed in `15-dynamics.md`, see new row D48). Rows D47 and D48 were added Nov 22 and are not in the counts above.
+
+
 November 21, 2026, US Central. Prepared by Claude Sonnet 5.5 (claude-sonnet-5-5) for the Bavuso V1 program.
 
 Full table with causes, today's controls and detection: `program/data/dfmea-v1.csv` (46 rows). Generator: `program/tools/build-dfmea-dvpr.py`. Test links point to `14-dvpr.md` (`program/data/dvpr-v1.csv`). Inputs: `09-structures.md`, `10-thermal.md`, `07-electrical.md`, `06-drive-performance.md`, `02-hardware.md`, `12-compliance.md`.
@@ -45,7 +48,7 @@ Method: AIAG-VDA style (severity S, occurrence O, detection D, each 1 to 10, the
 | D29 | Pivot bearings (right side 80 mm span) | Overload or short life (43.6 kN in, 33.4 kN out at design; CAD span of 36 mm gives 85/74 kN); Bearing failure, pivot play, handling loss | 9 | 5 | 5 | Apply CAD change; bearing life calculation; pivot rig test at 1.2x design plus the 21 kN slider case | V07, V31 |
 | D30 | Pivot stub to yoke joint (belt-side move open item) | Joint fatigue or slip where belt loop closes through stubs and motor housing; Loss of rear axle alignment; crack in stub | 9 | 5 | 6 | Design the joint; test with V07/V08; reconsider arm on belt side if it fails | V07, V08 |
 | D32 | Tube welds (down-link, rails, headstock) | Weld fatigue crack (Miner D 0.40-0.49 vs 0.5); Frame crack, handling loss, possible separation | 9 | 5 | 5 | Rig test to 1.5 lives with crack monitoring; measure real road loads on a mule | V31, V50 |
-| D34 | Front brake (dual 300 mm, Stylema) | Fade or insufficient stopping from 125-130 mph; Longer stopping distance, FMVSS 122 high-speed test fail | 9 | 5 | 5 | Brake dyno then vehicle high-speed stop; decide 300 vs 320 mm before CAD freeze | V11, V41 |
+| D34 | Front brake (dual 320 x 5 mm, Stylema) | Fade or insufficient stopping from 125-130 mph; Longer stopping distance, FMVSS 122 high-speed test fail | 9 | 5 | 5 | Brake dyno then vehicle high-speed stop; 320 mm adopted in rev E; confirm by dyno | V11, V41 |
 | D35 | ABS and regen blending | Regen torque locks the rear wheel or reduces total deceleration; Rear wheel lock, fall | 9 | 4 | 5 | Calibrate on low-mu surfaces; regen off for the friction-only FMVSS 122 tests | V41, V42 |
 
 ## Medium-priority items
@@ -90,6 +93,8 @@ Method: AIAG-VDA style (severity S, occurrence O, detection D, each 1 to 10, the
 | D44 | Front indicators and light band (FMVSS 108) | Lamp spacing and photometry do not comply (rev C fails; V1 design unchecked) | 7 | 5 | 3 | V44 |
 | D45 | 12 V supply (DC-DC and 4.5 Ah battery) | DC-DC failure; 12 V battery flat after parking | 8 | 3 | 3 | V40, V50 |
 | D46 | Brake lamp logic under regen | No brake lamp when regen slows the bike | 7 | 5 | 4 | V42, V44 |
+| D47 | Steel pivot yoke (rev E, cross-member Z545, welded to cast nodes; replaces D24 and D30 load path) | Yoke weld or section fatigue/yield under the 11.3 kN belt pull, or stiffness shortfall; Rear axle misalignment, belt tension loss, frame crack, handling loss | 9 | 5 | 5 | Static and fatigue rig on the yoke; re-run FEA at 257.9 kg with the cross-member at Z545 (09 Round 2 ran at 240 kg scaling); confirm weld class | V08, V07, V31 |
+| D48 | Semi-active steering damper (speed-scheduled, about 0.5 kg, Ohlins EC class) | Controller, valve or speed-signal fault leaves the damper unscheduled; Without scheduled damping wobble is unstable at 15-85 mph (zeta down to -0.15); a fixed stiff setting takes weave at 130 mph to zero | 9 | 4 | 5 | Define the fail-safe state with the supplier (proposal: fixed medium damping plus a speed limit near 85 mph), dash warning, fault-injection test | V53 |
 
 ## Open design items this table depends on
 
@@ -97,12 +102,12 @@ Method: AIAG-VDA style (severity S, occurrence O, detection D, each 1 to 10, the
 2. **Pack vents and barriers (D02, D03).** Four lane vents of at least 600 mm2, slotted ribbon and wire-bond links are specified in `10-thermal.md` but not yet in CAD.
 3. **Pivot (D29).** The CAD change (62 mm stub, 80 mm span, about 50 mm tapered rollers) is in `09-structures.md` and has not been applied.
 4. **Active discharge (D17).** Must be specified with Cascadia; the inverter's own bleed takes about 88 s.
-5. **Front brake size (D34).** Choose 300 mm or 320 mm discs before CAD freeze, from the brake dyno and stopping analysis.
+5. **Front brake size (D34).** 320 x 5 mm front and 267 x 5 mm rear are adopted (CAD rev E); confirm with the brake dyno.
 
 ## What this does not prove
 
 - No row has field, test or supplier failure-rate data behind it. Occurrence scores are judgement; they rank, they do not predict.
-- The list is not exhaustive: the fork, triple clamps, axles, wheel bearings, steering damper, stands, dash software, keyless and cybersecurity are not analysed (the structures study did not model them either).
+- The list is not exhaustive: the fork, triple clamps, axles, wheel bearings, stands, dash software, keyless and cybersecurity are not analysed (the structures study did not model them either).
 - This is a design FMEA only. There is no process FMEA (cell assembly, welding, casting), no hazard analysis and no FMEDA, so the ASIL levels in `12-compliance.md` are proposals.
 - Action priority is an approximation of the AIAG-VDA table, not the licensed table.
-- Mitigations marked "planned" are not in the CAD or the mass ledger; some add mass (5 mm front wall, ribs, bearings) on a bike that is already at its 240 kg limit.
+- Mitigations marked "planned" are not in the CAD or the mass ledger; some add mass (5 mm front wall, ribs, bearings) on a bike that is already near its 260 kg limit (257.9 kg final).

@@ -1,5 +1,8 @@
 # Bavuso V1 hardware sourcing (light re-architecture)
 
+> **Superseded in part (Nov 22, 2026).** This document predates the final V1 numbers; the authority is `00-V1-final-spec.md`. Final: 257.9 kg / 569 lb (T1 <= 260 kg, 2.1 kg headroom), pack 100s11p 108.0 kg, 360 V, 23.76 kWh gross, CAD rev E, cost $29.5k at 10k/yr. All of it is analysis or estimate; nothing is built or weighed. Stale here: the EMRAX 188 + emDrive H100 drive (final EMRAX 228 LC LV+43% + Cascadia CM200DX, 23.65 kg); 100s10p, 21.6 kWh, 93.75 kg, 370 V (final 100s11p, 23.76 kWh, 108.0 kg, 360 V); the single 3.8:1 belt (final 8MGT 35T/126T, 3.60:1, 62 mm); 0-60 of 4.5-5 s (final 4.15 s); the 328.4 kg starting bike; dual 300 mm front discs (final 320 x 5 front, 267 x 5 rear).
+
+
 November 21, 2026, US Central. Prepared by Claude Sonnet 5.5 (claude-sonnet-5-5) for the Bavuso V1 program.
 
 Data: `program/data/hardware-shortlist.csv` (one recommended row plus one alternate per slot; `REC:` / `ALT:` / `STRETCH:` prefixes). Today's masses come from `mass-rollup.csv` (328.4 kg bike). Every number is labelled supplier (published), calculated, or estimate in the CSV.
@@ -32,7 +35,7 @@ Today's "equivalent lines" are the `mass-rollup.csv` items listed in the last co
 | Rear shock | Ohlins STX 46 class | 3.0 | 4.4 | -1.4 | Body, spring, reservoir, rod, eyes |
 | Wheels | Forged 19x3.0 / 17x4.5 | 7.6 | 7.6 | 0.0 | Front and rear wheel |
 | Tyres | 110/80R19 + 150/70R17 | 9.1 | 10.9 | -1.8 | Nominal tyres |
-| Brakes | Dual 300 mm + Stylema, P34 rear | 8.58 | 9.68 | -1.1 | Discs, calipers, levers, hoses, masters |
+| Brakes | Dual 320 mm + Stylema, 267 x 5 rear (final, rev E) | 8.58 | 9.68 | -1.1 | Discs, calipers, levers, hoses, masters |
 | ABS | Bosch ABS 10 class | 1.1 | 1.6 | -0.5 | ABS allowance |
 | **Total** | | **163.3** | **240.5** | **-77.2** | |
 | Total without the pack | | 69.6 | 106.9 | -37.3 | |
@@ -85,7 +88,7 @@ All masses here are estimates; makers do not publish fork or shock masses.
 - **Shock:** Ohlins STX 46 / TTX class (KT 122 retail EUR 869, [Ohlins](https://www.ohlins.eu/en/products/motorcycle/kt-122--4458/)). Dropping semi-active valves is the main saving.
 - **Wheels:** no saving from aluminium; forged alloy stays at 7.6 kg per set. Carbon (BST class) would save about 1.7 kg for about 4.5k USD per set. Not verified; low confidence.
 - **Tyres:** 110/80R19 + 150/70R17 saves about 1.8 kg and also helps the belt-to-tyre clash found earlier (the 170 mm tyre overlaps the belt by 12 mm). Check the speed rating against 125+ mph (V rating is 149 mph).
-- **Brakes:** Brembo Stylema is 0.625 kg without pads ([Brembo](https://www.bremboparts.com/africa/en/catalogue-bike/caliper/220D02010)) versus 0.85 kg in the ledger. Dual 300 mm discs are enough for 230 kg only if a stopping analysis from 125 mph confirms it; keep dual 320 mm (+0.95 kg) as the fallback.
+- **Brakes:** Brembo Stylema is 0.625 kg without pads ([Brembo](https://www.bremboparts.com/africa/en/catalogue-bike/caliper/220D02010)) versus 0.85 kg in the ledger. Dual 320 mm front discs are now the final choice (CAD rev E, ledger, cost; fade analysis in `15-dynamics.md`); the 300 mm option is dropped.
 - **ABS:** Bosch ABS 9 hydraulic unit is 0.65 kg ([Bosch datasheet](https://www.bosch.co.jp/tms2015/en/products/pdf/2WP_ProductDataSheet_ABS9_base_plus_EN_lowres_20151030.pdf)); ABS 10 is described as 30% lighter ([Autocar Pro](https://autocarpro.in/news-international/bosch-motorcycle-abs-goes-production-kawasaki-suzuki-22471)). Total with sensors and lines about 1.1 kg (my estimate). Regen braking must be blended with ABS; that is a software and homologation task, not a parts one.
 
 ## 5. Cooling

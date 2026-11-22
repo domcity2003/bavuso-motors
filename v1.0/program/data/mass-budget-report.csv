@@ -1,10 +1,10 @@
 budget_group,systems,budget_kg,raw_kg,headroom_kg,headroom_pct,growth_adjusted_kg,estimate_share_pct,flag
 Battery pack,ENG,108.0,108.0,0.0,0.0,119.68,0.0,TIGHT
-Chassis,CHS,31.0,30.88,0.12,0.4,34.24,10.0,TIGHT
-Running gear,RUN,43.5,43.08,0.42,1.0,47.95,97.0,TIGHT
+Chassis,CHS,31.5,31.33,0.17,0.5,34.76,10.0,TIGHT
+Running gear,RUN,43.5,43.23,0.27,0.6,48.12,97.0,TIGHT
 Drive,DRV,24.0,23.65,0.35,1.5,26.04,6.0,TIGHT
 Electronics,ELC,17.5,17.44,0.06,0.4,19.52,47.0,TIGHT
 Body and protection,BOD;PRO,14.5,14.45,0.05,0.4,16.61,42.0,TIGHT
 Cooling,THM,7.0,6.9,0.1,1.4,7.93,100.0,TIGHT
 "Wiring, fasteners, fluids",ALW,13.0,12.93,0.07,0.5,14.87,41.0,TIGHT
-TOTAL,,260.0,257.32,2.68,1.0,,,ok
+TOTAL,,260.0,257.92,2.08,0.8,,,ok

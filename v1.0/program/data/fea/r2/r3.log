@@ -1,0 +1,21 @@
+model: 8467 nodes, 7854 elements, mass 372.3 kg, CoG x 682 z 519 (model), Ff 1672 N, Fr 1981 N
+{'torsion': {'D': 36.4, '': 15.1, 'UR2': 14.8, 'HT': 6.5, 'UR1': 6.2, 'PACK_side': 4.7, 'PACK_top': 3.7, 'T': 2.3, 'UR0': 1.8, 'JNT': 1.8, 'ST': 1.6, 'PACK_front': 1.2, 'LEVE': 1.2}, 'lateral': {'PACK_rear': 35.9, 'PACK_side': 18.1, 'UR1': 9.5, '': 9.5, 'UR0': 6.8, 'D': 5.0, 'PACK_top': 2.9, 'UR2': 2.4, 'PACK_bottom': 2.1, 'ST': 1.7, 'T': 1.5, 'YK': 1.4}}
+{"torsion_kNm_per_deg": 4.996, "head_twist_deg_per_kNm": 0.2002, "lateral_kN_per_mm": 1.683, "lateral_head_defl_mm_per_kN": 0.5942}
+C1_static_1g_solo -4202.0 ST1L 157 | PX 154 | YKLR 148 | UR0L 140 | TRL 140 | ST0L 134
+C2_front_bump_3g -4957.0 UR1L 218 | ST0L 194 | ST1L 177 | TRL 165 | DLL 164 | PX 143
+C3_braking_1.1g -514.0 UR1R 288 | DLR 280 | UR2L 277 | UR2R 255 | HT 229 | ST1L 228
+C4_braking_plus_bump -1049.0 UR2L 287 | UR2R 266 | DLR 264 | ST1L 263 | UR1R 250 | ST0L 229
+C5L_corner_lean_left -8914.0 ST0L 180 | ST1L 174 | TRL 165 | UR1L 159 | DLL 132 | SAR05 123
+C5R_corner_lean_right -8914.0 ST0L 198 | ST1L 194 | UR1L 176 | TRL 173 | DLL 139 | UR0L 134
+C6_rear_bump_3g -11851.0 ST1L 181 | TRL 177 | ST0L 172 | SAX 162 | STB 152 | SAR05 146
+D1_belt_design_11.3kN -1828.0 PX 349 | YKLR 342 | RLR 340 | UR0L 317 | UR0R 287 | ST1L 263
+D2_launch_peak_torque -3136.0 RLR 252 | PX 242 | YKLR 237 | UR0R 207 | UR0L 197 | ST1R 187
+D3_regen_peak_torque -5267.0 ST1L 221 | ST0L 208 | UR0L 170 | UR1L 154 | TRL 149 | PX 141
+C7a_pack_20g_longitudinal None ST1L 317 | ST1R 317 | RLR 260 | RLL 259 | PACK_rear 224 | PACK_side 156
+C7b_pack_8g_lateral None RLL 273 | RLR 269 | PACK_front 157 | PACK_side 152 | ST1R 127 | PACK_top 126
+C7c_pack_5g_vertical None RLL 55 | RLR 55 | PACK_bottom 46 | PACK_front 42 | PACK_side 41 | PACK_rear 40
+C7d_pack_10g_vertical_drop None RLL 110 | RLR 110 | PACK_bottom 92 | PACK_front 84 | PACK_side 82 | PACK_rear 80
+C9b_slider_21kN_front_lug None RLL 368 | LUGFR 367 | RLR 364 | DLR 327 | ST1R 282 | DLL 281
+C9c_slider_21kN_rear_link_lug None RLR 402 | RLL 282 | LUGRR 153 | LUGRL 140 | ST1R 119 | ST1L 65
+C7e_crush_underside_10kN None PACK_bottom 583 | PACK_side 260 | PACK_rear 247 | PACK_front 138 | RLL 87 | RLR 87
+C7f_crush_side_10kN None PACK_side 575 | PACK_front 409 | RLL 319 | RLR 308 | PACK_top 306 | ST1R 230

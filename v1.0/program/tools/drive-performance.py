@@ -3,7 +3,7 @@
 Run from v1.0:  ../.tools/FreeCAD_1.1.4-Windows-x86_64-py311/bin/python.exe program/tools/drive-performance.py
 Writes program/data/drive-performance.json and program/data/drive-accel-trace.csv
 Drive: EMRAX 228 LC LV+43% winding, Cascadia CM200DX, 8MGT belt 35T/126T (G = 3.600), 150/70R17 rear tyre.
-Bike 240 kg + 90 kg rider.
+Bike 257.5 kg (Nov 22 final) + 90 kg rider.
 """
 import importlib.util, json, math, os, csv
 

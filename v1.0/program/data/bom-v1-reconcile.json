@@ -1,16 +1,16 @@
 {
  "prepared": "2026-11-22",
  "ledger_file": "program/data/parts-ledger.csv",
- "ledger_rows": 220,
- "ledger_total_kg": 257.3215,
- "bom_leaf_sum_kg": 257.3215,
- "bom_system_sum_kg": 257.3215,
+ "ledger_rows": 221,
+ "ledger_total_kg": 257.9215,
+ "bom_leaf_sum_kg": 257.9215,
+ "bom_system_sum_kg": 257.9215,
  "diff_kg": 0.0,
  "within_0p1": true,
  "by_system_kg": {
   "pack": 107.999,
-  "chassis": 30.877,
-  "running": 43.08,
+  "chassis": 31.327,
+  "running": 43.23,
   "drive": 23.65,
   "elec": 17.437,
   "body": 14.448,
@@ -19,19 +19,23 @@
  },
  "unassigned_rows": [
   [
+   "BV-CHS-0052",
+   "Round 3 wall increases (CAD at next rebuild)"
+  ],
+  [
    "BV-ENG-0102",
    "Cell holders: 2 PA66-GF30 plates, 2.5 mm, with a 19 mm aperture per cell, 1,100 cells"
   ]
  ],
- "part_lines": 222,
- "assemblies": 35,
+ "part_lines": 223,
+ "assemblies": 36,
  "lid_mass_kg": 1.3242,
  "holder_est_kg": 0.7729,
- "rollup_total_kg": 257.3,
+ "rollup_total_kg": 257.9,
  "rollup_by_system_kg": {
   "ENG": 108.0,
-  "RUN": 43.08,
-  "CHS": 30.88,
+  "RUN": 43.23,
+  "CHS": 31.33,
   "DRV": 23.65,
   "ELC": 17.44,
   "ALW": 12.93,

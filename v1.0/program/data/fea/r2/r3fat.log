@@ -1,0 +1,16 @@
+DLR       FAT63  range/1g   75.9  D 0.573 ({'bump': 0.0217, 'brake': 0.525, 'corner': 0.00567, 'drive': 0.0212}) FAIL
+UR1R      FAT63  range/1g   95.0  D 0.568 ({'bump': 0.0914, 'brake': 0.437, 'corner': 0.0162, 'drive': 0.0233}) FAIL
+PACK_rear@lug FAT28  range/1g   49.1  D 0.56 ({'bump': 0.14, 'brake': 0.0653, 'corner': 0.024, 'drive': 0.331}) FAIL
+DLL       FAT63  range/1g   72.6  D 0.471 ({'bump': 0.0158, 'brake': 0.453, 'corner': 1.88e-06, 'drive': 0.00217}) pass
+UR2L      FAT63  range/1g   52.6  D 0.457 ({'bump': 0.00248, 'brake': 0.454, 'corner': 1.19e-08, 'drive': 0.000757}) pass
+HT        FAT63  range/1g   61.7  D 0.456 ({'bump': 0.00904, 'brake': 0.446, 'corner': 6.15e-07, 'drive': 0.00164}) pass
+UR2R      FAT63  range/1g   51.0  D 0.436 ({'bump': 0.00249, 'brake': 0.432, 'corner': 1.9e-06, 'drive': 0.00168}) pass
+UR1L      FAT63  range/1g   85.9  D 0.344 ({'bump': 0.0569, 'brake': 0.286, 'corner': 4.91e-08, 'drive': 0.00127}) pass
+ST1R      FAT63  range/1g   87.6  D 0.333 ({'bump': 0.0596, 'brake': 0.00309, 'corner': 0.000273, 'drive': 0.27}) pass
+ST0R      FAT63  range/1g   95.7  D 0.311 ({'bump': 0.0889, 'brake': 0.0657, 'corner': 0.0151, 'drive': 0.141}) pass
+PACK_side@lug FAT28  range/1g   33.4  D 0.287 ({'bump': 0.0373, 'brake': 0.137, 'corner': 0.00646, 'drive': 0.106}) pass
+STW       FAT40  range/1g   82.3  D 0.223 ({'bump': 0.211, 'brake': 0.00217, 'corner': 0.01, 'drive': 0.000254}) pass
+PX        FAT63  range/1g  100.3  D 0.195 ({'bump': 0.0893, 'brake': 0.000267, 'corner': 0.0059, 'drive': 0.0991}) pass
+RLR       FAT63  range/1g   61.3  D 0.193 ({'bump': 0.00885, 'brake': 0.00192, 'corner': 3.83e-08, 'drive': 0.182}) pass
+STUBR     FAT45  range/1g   72.8  D 0.162 ({'bump': 0.0937, 'brake': 0.000458, 'corner': 0.00484, 'drive': 0.0632}) pass
+SAX       FAT40  range/1g   76.2  D 0.16 ({'bump': 0.156, 'brake': 0.00172, 'corner': 0.00189, 'drive': 0.000201}) pass

@@ -1,5 +1,8 @@
 # Mass ledger audit and rebuild scheme
 
+> **Superseded in part (Nov 22, 2026).** This is a historical audit of the Nov 21 rev C-era bike (319.6 kg); the authority is `00-V1-final-spec.md`. Final: 257.9 kg / 569 lb with the ledger, BOM and `mass-rollup.json` tied, nothing weighed. Stale here: every bike and system total (final pack 108.0, chassis 30.9, running gear 43.2, drive 23.65, electronics 17.44 kg); the 267 x 6 rear disc (final 267 x 5); the EMRAX 188-era drive; the roughly 4 kg of suspected overlaps listed as "not applied" are still not applied.
+
+
 November 21, 2026, US Central. Prepared by Claude Sonnet 5.5 (claude-sonnet-5-5) for the Bavuso V1 program.
 
 ## The plain answer

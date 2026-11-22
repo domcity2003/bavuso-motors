@@ -103,6 +103,7 @@ pivot_6008|Pivot_6008_size_reference_1,BV-CHS-0048
 pivot_6008|Pivot_6008_size_reference_2,BV-CHS-0049
 chassis_unmodelled,BV-CHS-0050
 swingarm_hub_carrier,BV-CHS-0051
+round3_walls,BV-CHS-0052
 motor_emrax228|EMRAX_228_MV_LC_supplier_STEP,BV-DRV-0001
 inverter_cm200|Cascadia_CM200_supplier_STEP,BV-DRV-0002
 belt_drive|Drive_belt_14mm_STUDY,BV-DRV-0003

@@ -49,6 +49,7 @@ Coolant_PTC_heater_3kW,Cooling,1.14,945,120,668,,estimate,kg,"3 kW HV PTC heater
 Bosch ABS 10-class two-channel module with sensors and lines [NOT IN CAD: from supplier table],Allowance,1.1,700,0,760,,estimate,slotfill,ABS 9 hydraulic unit 0.65 kg (Bosch datasheet https://www.bosch.co.jp/tms2015/en/products/pdf/2WP_ProductDataSheet_ABS9_base_plus_EN_lowres_20151030.pdf); ABS 10 about 0.45 (estimate) + sensors 0.2 + lines 0.45
 Swingarm hub carrier housing (cast A356) and 2 wheel bearings,Allowance,1.1,0,138,312,R1.0,CAD,allow,"single-sided arm: A356 housing OD 110 / bore 62 x 70 long = 454 cm3 x 2.68 g/cm3 x 65% (ribbed, cored) = 0.8 kg + 2 bearings 0.15 kg = 0.3 kg; the stub axle is in the rear_axle allowance (1.0 kg), not here"
 Head_tube,Chassis,1.042,1171,0,930,,CAD,vol,head tube
+Rear_disc_p1,RunningGear,1.0,0,68,325,R1.0,estimate,slot,hardware-shortlist.csv
 "Rear axle, spacers, adjusters",Allowance,1.0,0,0,312,R1.0,estimate,allow,allowance
 "Paint, decals, rubber, misc",Allowance,1.0,800,0,650,,estimate,allow,allowance
 Upper_rail_1_1,Chassis,0.971,810,160,801,,CAD,vol,32x2.5 chromoly
@@ -61,7 +62,6 @@ Fork_axle_clamp_m1,RunningGear,0.9,1459,-102,372,F0.4,estimate,slot,hardware-sho
 Fork_axle_clamp_1,RunningGear,0.9,1459,102,372,F0.4,estimate,slot,hardware-shortlist.csv; makers do not publish fork mass [slot total 6.800 kg split by volume over 8 solids]
 Tail_rail_1,Chassis,0.888,254,115,813,,CAD,vol,28x2 chromoly
 Tail_rail_m1,Chassis,0.888,254,-114,813,,CAD,vol,28x2 chromoly
-Rear_disc_p1,RunningGear,0.85,0,68,325,R1.0,estimate,slot,hardware-shortlist.csv
 Fork_inner_tube_m1,RunningGear,0.832,1400,-105,524,F0.4,estimate,slot,hardware-shortlist.csv; makers do not publish fork mass [slot total 6.800 kg split by volume over 8 solids]
 Fork_inner_tube_1,RunningGear,0.832,1400,105,524,F0.4,estimate,slot,hardware-shortlist.csv; makers do not publish fork mass [slot total 6.800 kg split by volume over 8 solids]
 Radiator_core_m1,Cooling,0.805,1066,-211,727,,estimate,kg,dry core with plastic tanks (thermal-study.md); coolant is in the coolant allowance
@@ -101,6 +101,7 @@ Hand_lever_m1,RunningGear,0.45,940,-384,1108,,estimate,kg,"lever with radial mas
 Hand_lever_1,RunningGear,0.45,940,384,1108,,estimate,kg,"lever with radial master cylinder [CAD stand-in: implied density 39.45 g/cm3, mass cannot be checked from the model]"
 Plate_hanger_arm,BodyStudy,0.45,-229,0,789,,estimate,kg,cast plate hanger with plate bracket
 Rear_caliper_reserve,RunningGear,0.45,-120,71,325,R1.0,estimate,slot,hardware-shortlist.csv
+Round 3 wall increases (CAD at next rebuild),Allowance,0.45,700,0,500,,CAD,allow,"09-structures.md Round 3: down-link 38x4.0 to 4.25 (+0.13), upper rail 1 38x2.25 to 2.5 (+0.20), swingarm wall 4.0 to 4.25 (+0.11); the swingarm shell rule stays at 4.0 mm so this is not double counted; delete this line and update the rules when the CAD is rebuilt"
 Motor_pulley_bearing_carrier,Drive,0.4,540,-117,403,,estimate,kg,aluminium bearing carrier on the motor flange (rev D); was wrongly bound to the pulley slot at 0.5 kg
 Horn_R28,Electronics,0.4,1030,-242,593,,supplier,kg,R28 horn
 Upper_rail_pivot_block_m1,Chassis,0.395,540,-201,403,,CAD,vol,32x2.5 chromoly

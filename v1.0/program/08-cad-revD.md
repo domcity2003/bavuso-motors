@@ -1,5 +1,8 @@
 # Bavuso V1 CAD rev D: mass and look
 
+> **Superseded in part (Nov 22, 2026).** This is the rev D record; the current CAD is rev E (`16-cad-revE.md`) and the authority is `00-V1-final-spec.md`. Stale here: 246.4 kg (about 248 kg) and the 240 kg goal (final 257.9 kg, T1 <= 260 kg); the ledger slot saying 300 mm front discs (final 320 x 5 front, 267 x 5 rear); 87 checks (rev E has 91); aluminium wheels and the pre-yoke chassis (final carbon wheels, steel pivot yoke at Z545).
+
+
 November 22, 2026, US Central. Prepared by Claude Sonnet 5.5 (claude-sonnet-5-5) for the Bavuso V1 program.
 
 Files: `tools/build-adventure.py` (rev D), `cad/Bavuso-V1.0-adventure.FCStd` and `.step`, `program/data/cad-parts.csv`, `program/data/run/build-full-revD.log` (full build, all checks and the broad overlap sweep), `mass-rollup.csv/json`, `program/data/parts-ledger.csv`. Renders: `visuals/cycles-adventure-*.png` and `-rider-*.png`; the rev C originals are in `visuals/revC-before/`.

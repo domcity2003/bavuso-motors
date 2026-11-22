@@ -5,6 +5,37 @@ November 21, 2026, US Central. Prepared by Claude Sonnet 5.5 (claude-sonnet-5-5)
 Scripts: `program/tools/drive-lib.py` (models), `drive-design.py`, `drive-performance.py`, `drive-range.py`, `drive-charge.py`. Results: `program/data/drive-design.json`, `drive-performance.json`, `drive-range.json`, `drive-charge.json`, `drive-accel-trace.csv`. Run each from `v1.0` with FreeCAD python.
 Labels: **supplier** = published datasheet, **calc** = computed from supplier numbers, **est** = my estimate.
 
+## Final V1 update (Nov 22, 2026, US Central)
+
+Re-run by Claude Sonnet 5.5 (claude-sonnet-5-5) at the final roll-up of **257.5 kg / 568 lb** (the ledger kept ticking up while the work ran: it was 257.3 kg, then 257.5 kg, and reads 257.9 kg / 569 lb at the end; the drive figures were run at 257.5 kg, and the extra mass changes 0-60 and range by less than 0.05 s and 0.2 mi), rider 90 kg, so 347.5 kg on the road. **The sections below are the Nov 21 text at 240 kg and are kept as history; where they differ, this section wins, and `00-V1-final-spec.md` is the authority.** Scripts and data files were re-run and overwritten (`drive-design.py`, `drive-performance.py`, `drive-range.py`, `drive-charge.py`; `drive-lib.py` now has the final mass, a 350 A DC cap, wheelbase 1,490 mm and CG 732 / 667 mm). Everything here is a calculation or an estimate; nothing is built, weighed or tested.
+
+**Three inputs changed besides mass.** (1) The BMS discharge cap is now **350 A**, the contactor and VCU limit in `07-electrical.md` (was 400 A here, which the contactors do not allow). (2) Wheelbase 1,490 mm and CG 732 / 667 mm (bike plus rider, rev D per `15-dynamics.md`) replace the old 1,480 mm and 738 / 643 mm; these affect only the grip and wheelie caps, not 0-60, which is torque-limited. (3) The charge headline is one figure (see below). Not changed: CdA 0.38 (**assumed, unmeasured**), Crr 0.015, 300 W auxiliaries, flat still air.
+
+| Quantity | Nov 21 (240 kg, 400 A) | **Final (257.5 kg, 350 A)** |
+|---|---|---|
+| 0-60 mph | 3.95 s | **4.15 s** (4.44 s with 25 kg luggage; 5.47 s wet, mu 0.7) |
+| 0-100 km/h / 0-100 mph | 4.10 / 6.91 s | **4.31 / 7.26 s** (SOC 90, 25 C) |
+| 60-100 mph roll-on | 2.96 s | **3.12 s** |
+| 0-100 mph at SOC 10 / 5 | 6.96 / 7.09 s | **7.48 / 7.69 s** (the 350 A cap costs time at low charge) |
+| Range at 70 mph, CdA 0.38 | 154 mi | **152.4 mi** (146 Wh/mi) |
+| Range at 77 mph, CdA 0.38 | 133 mi | **132.2 mi** (169 Wh/mi) |
+| Range at 125 mph | 57 mi | **56.9 mi** |
+| Range with 25 kg luggage, 70 / 77 mph | 152 / 132 mi | **150.9 / 130.9 mi** |
+| Range at CdA 0.43, 70 / 77 mph | 140 / 121 mi | **138.8 / 119.8 mi** |
+| Top speed | 135 mph (6,500 rpm limit) | **135 mph, unchanged** (governed at 130 mph; power-limited peak 178 mph) |
+| Wheel power at 125 / 130 mph | 43.3 / 48.5 kW | **43.5 / 48.7 kW** |
+| Peak shaft power, 25 C, at 350 A: SOC 100 / 50 / 20 / 10 / 5 | 124 / 122 / 111 / 103 / 96 kW | **124 / 109 / 100 / 93 / 87 kW** |
+| Peak shaft power, 5 C: SOC 100 / 50 / 20 / 10 / 5 | n/a | **115 / 99 / 86 / 83 / 81 kW** |
+| DC fast charge 10-80%, 25 C | 15.5 min (3C cap) | **about 21 min** (see below) |
+
+**PENDING AERO, currently calculated at assumed CdA 0.38: 152.4 / 132.2 mi at 70 / 77 mph.** T3 (at least 145 mi at 70 mph) holds with a 5% margin at CdA 0.38 and fails above a break-even CdA of about **0.407** (0.405 gives 145.4 mi, 0.41 gives 143.9). No CdA has been measured or computed for V1; `17-aero.md` is pending. Real-world range is 15 to 20% lower than calculated (about 120 to 130 mi at 70 mph with wind, hills and cold). The Gate A flat-90%-efficiency model gives 149.7 / 128.6 mi.
+
+**Power at low charge, honestly.** With the 350 A cap this model gives 93 kW at 10% SOC and **87 kW at 5% SOC at 25 C**, below T5's 90 kW; `07-electrical.md`'s separate hand model gives 96 kW at 10%. Both are models. At 5 C the bike is below 90 kW at 20% SOC and lower (86 kW or less). Treat T5 as met above about 10% SOC at 25 C and not met on a cold, nearly empty pack unless it is pre-warmed. Continuous power is unchanged (61.6 kW at 5,500 rpm, inverter-limited; below 56 kW under 103 mph). The 125 mph sustained case is unchanged: 27.4 min and 57 mi, pack 46 C at 25 C ambient; at 38 C the pack reaches 56.7 C and `10-thermal.md`'s more detailed model (hottest core 60.9 C, derate to about 105 mph) overrides this model's "marginal".
+
+**One charge-time headline: about 21 minutes for 10-80% DC at 25 C ambient, with the charge current capped at 2C per cell (12 A per cell, about 137 A at the pack, 51 kW average, 54 kW peak), on NACS V3 or any 150 kW-or-better DC station.** This script gives 21.0 min; the independent hand model in `07-electrical.md` gives 20.2 min at 12.5 A per cell. Gate A's "about 20 min" is the same figure rounded; the target is 25 min or better. I use the 2C cap because the P60B datasheet (version 0.1) gives a 5C maximum but no cycle life above 2C. The faster numbers quoted earlier (15.5 min at a 3C cap in this document, 17.1 min in `10-thermal.md`) assume the unconfirmed 3C charge life and are **not claimed**. Other conditions, from `10-thermal.md`, which uses the 3C-cap profile: 23.0 min at 35 C, 25.4 min at -10 C with the 3 kW heater (14.0 min if pre-heated on the ride in), 40.9 min at 45 C, and 27.4 min at 35 C if the bike arrives hot at 42 C. **Open inconsistency:** `10-thermal.md` row 13 shows the 2C cap at 35 C takes 27.4 min, so the 25-minute claim at 35 C holds only if the cell is trusted to 3C. AC (booked unit, BROGEN 6.6 kW, 94% efficient): **2.7 h for 10-80%, 3.5 h for 10-100%**; at 3.3 kW it would be 5.5 h and 7.0 h; a 120 V outlet is not supported by the BROGEN class unit (see `07-electrical.md`).
+
+**Parts that changed names or values since this document was written:** drive mass is **23.65 kg** in the ledger (motor 13.2 kg, not the 13.5 kg used here; carrier 0.4 kg and others added), the motor winding is **LV+43%** (the ledger and CAD solid names "HV" and "MV" are stale labels), and the HV cable and fuse values are in `07-electrical.md`, "Final values". The line "CAD change request 9" (35 mm2 cable, 400 A cap, 450 A fuse) is superseded by that table.
+
 ## The plain answer
 
 **The drive works and meets T3 to T6 on paper, with three conditions.** It is an EMRAX 228 liquid-cooled motor (LV+43% winding) on a Cascadia CM200DX inverter, a single 8 mm Gates belt at 3.60:1, and the P60B 100s11p pack.

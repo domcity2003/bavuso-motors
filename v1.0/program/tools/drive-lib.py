@@ -19,7 +19,7 @@ G0 = 9.80665
 RHO = 1.225
 
 # ------------------------------------------------------------------ vehicle (Gate A)
-BIKE_KG = 240.0
+BIKE_KG = 257.5   # Nov 22 final roll-up (mass-rollup.json; was 240.0 in the Nov 21 run)
 RIDER_KG = 90.0
 M_TOT = BIKE_KG + RIDER_KG
 CDA = 0.38
@@ -32,7 +32,7 @@ def r_eff(v):
     """Rolling radius grows about 1.5% from 0 to 60 m/s (centrifugal growth) [est]."""
     return R_E0 * (1.0 + 0.015 * min(v, 60.0) / 60.0)
 # CoG (rider on) from mass-rollup.md: 738 mm ahead of rear axle, 643 mm high; wheelbase ~1480 mm.  [calc, old 283 kg roll-up]
-COG_B, COG_H, WHEELBASE = 0.738, 0.643, 1.480
+COG_B, COG_H, WHEELBASE = 0.732, 0.667, 1.490  # Nov 22: rev D bike+rider per 15-dynamics (was 0.738, 0.643, 1.480)
 # Rotating inertia reflected to the wheel (kg equivalent): wheels 2 x ~0.62 kg m2 / r^2 plus motor rotor [est]
 I_WHEELS = 2 * 0.62
 J_MOTOR = 0.0398 + 0.004   # EMRAX 228 LC rotor 0.0398 kg m2 [supplier] + pulley/shaft [est]
@@ -207,7 +207,7 @@ def traction_limit_a(mu):
 
 # ------------------------------------------------------------------ whole drivetrain
 P_MOTOR_PEAK_W = 124e3     # datasheet S2 30 s peak [supplier]
-I_PACK_CAP = 400.0         # BMS discharge limit, A (36 A per cell = 0.6 x the 60 A rating; 10-30 s pulses) [est]
+I_PACK_CAP = 350.0         # BMS discharge limit, A (36 A per cell = 0.6 x the 60 A rating; 10-30 s pulses) [est]
 ETA_BELT_PEAK = 0.985
 
 class Drive:

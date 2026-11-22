@@ -3,19 +3,19 @@
 November 21, 2026, US Central. Decided by Claude Opus 5.5 (program lead), on the owner's instruction to complete V1. The evidence is in `01-targets.md`, `02-hardware.md` and `03-mass-ledger.md`. The owner can revise these targets later.
 
 ## The plain answer
-**V1 is a 240 kg (529 lb) solo adventure-touring EV.** It does about 150 miles at 70 mph, reaches 125+ mph, and charges 10–80% in about 20 minutes on native NACS.
+**V1 is a 258 kg (569 lb) solo adventure-touring EV** (final roll-up 257.9 kg against T1 ≤ 260 kg; the program started from a 240 kg target, see the decision log). It does about 150 miles at 70 mph (calculated at the assumed CdA), reaches 125+ mph, and charges 10–80% in about 20 minutes on native NACS.
 
 It replaces the brief's "under 400 lb + 200 mi" targets, which cannot both be met:
 - At 400 lb the bike carries about 11 kWh, enough for roughly 74 miles.
 - 200 miles needs about 32 kWh and a 631 lb bike.
 
-The chosen point matches the BMW R 1300 GS (523 lb). It is lighter than the Energica Experia (573 lb) and the Zero DSR/X (544 lb).
+The final V1 sits about 6 lb under the Energica Experia (573 lb), 23 lb over the Zero DSR/X (544 lb) while carrying about 38% more energy, and 44 lb over the petrol BMW R 1300 GS (523 lb).
 
 ## Locked targets (V1 design requirements)
 | # | Target | Value |
 |---|---|---|
-| T1 | Wet mass, ready to ride, no rider | **≤ 260 kg / 573 lb**. Re-baselined Nov 22 from 240 kg (see the decision log); final V1 roll-up 257.3 kg |
-| T2 | Pack | Molicel P60B 21700, **100s11p**. 1,100 cells, about 23.8 kWh gross, about 21.4 kWh usable, 370 V nominal; pack ≤ 103 kg |
+| T1 | Wet mass, ready to ride, no rider | **≤ 260 kg / 573 lb**. Re-baselined Nov 22 from 240 kg (see the decision log); final V1 roll-up 257.9 kg |
+| T2 | Pack | Molicel P60B 21700, **100s11p**. 1,100 cells, about 23.8 kWh gross, about 21.4 kWh usable, **360 V nominal; pack ≤ 108 kg** (revised Nov 22 from 370 V / 103 kg: 360 V per the Nov 21 decision; 108 kg after the case, cell holders and pack coolant were booked) |
 | T3 | Range at 70 mph, flat, still air, 90 kg rider | **≥ 145 mi**, about 150 mi at CdA 0.38 m². CdA target ≤ 0.38 m² with the rider |
 | T4 | Top speed | **125 mph sustained**, governed at 130 mph |
 | T5 | Power | **≥ 90 kW peak, ≥ 55 kW continuous**: EMRAX 228-class axial-flux motor plus a matched inverter, single-stage belt drive. EMRAX 188 (60 kW) rejected as too thin for a premium bike |
@@ -65,7 +65,7 @@ The chosen point matches the BMW R 1300 GS (523 lb). It is lighter than the Ener
   - cell holders, 3.1 kg;
   - the single-sided arm's hub carrier, 1.1 kg. The full arm is now about 5.7 kg, in line with production single-sided arms.
   
-  **Final V1 roll-up: 257.3 kg / 567 lb. T1 is now ≤ 260 kg / 573 lb.** Budgets are in `data/budgets.csv`, with about 2.7 kg of true headroom; `budget_pass` and `ledger_clean` are both true. That is on par with the Energica Experia (260 kg) and about 4% heavier than the Zero DSR/X, while carrying about 38% more energy than the DSR/X. The V1.1 levers above (about 10 kg) still apply.
+  **Final V1 roll-up: 257.9 kg / 569 lb (after the rear disc and the structures Round 3 walls). T1 is now ≤ 260 kg / 573 lb.** Budgets are in `data/budgets.csv`, with about 2.7 kg of true headroom; `budget_pass` and `ledger_clean` are both true. That is on par with the Energica Experia (260 kg) and about 4% heavier than the Zero DSR/X, while carrying about 38% more energy than the DSR/X. The V1.1 levers above (about 10 kg) still apply.
 - **Nov 22: steering damper.** Speed-scheduled semi-active damper (`15-dynamics.md`). Without it the model shows wobble from 15 to 85 mph.
 - **Nov 22: look frozen at rev E.** Open items go to V1.1:
   - pods 55 mm proud;

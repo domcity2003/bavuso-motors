@@ -1,5 +1,8 @@
 # Bavuso V1 rev E: indented BOM and concept drawing pack
 
+> **Superseded in part (Nov 22, 2026).** This document is a snapshot of the 252.93 kg ledger; the authority is `00-V1-final-spec.md`. Final: 257.9 kg / 569 lb (`bom-v1-reconcile.json` and `data/bom-v1-indented.csv` are the current BOM and tie to the ledger). Stale here: 252.9315 kg everywhere, the assembly masses, and the drawing-sheet mass columns; the lid and cell-holder IDs are provisional (not in `parts-id-registry.csv`); the drawing index page may show scale and mass columns shifted by one row.
+
+
 November 22, 2026, US Central. Prepared by Claude Sonnet 5.5 (claude-sonnet-5-5) for the Bavuso V1 program.
 
 Files: `program/data/bom-v1-indented.csv` (263 rows), `program/data/bom-v1-reconcile.json`, `drawings/` (9 sheets plus `V1-drawing-pack.pdf`), scripts `program/tools/bom-v1.py` and `program/tools/drawings-v1.py`, side data `program/data/drawings-derived.json` and `drawings-meta.json`. Inputs: `program/data/parts-ledger.csv` (read only), `cad/Bavuso-V1.0-adventure.FCStd` (rev E, read only).
