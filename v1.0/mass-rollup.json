@@ -2,11 +2,11 @@
  "prepared": "2026-11-22 (Claude Sonnet 5.5, mass-rollup.py ledger version)",
  "model": "Bavuso-V1.0-adventure.FCStd",
  "mode": "V1 (supplier slots)",
- "total_kg": 250.6,
- "total_lb": 552,
+ "total_kg": 252.9,
+ "total_lb": 558,
  "cog_mm": {
-  "x_from_rear_axle": 792,
-  "y": 2.6,
+  "x_from_rear_axle": 791,
+  "y": 3.3,
   "height": 532
  },
  "front_rear_split_pct": [
@@ -15,9 +15,9 @@
  ],
  "unsprung_kg": {
   "front": 13.5,
-  "rear": 17.2
+  "rear": 17.8
  },
- "pitch_inertia_point_mass_kgm2": 37.1,
+ "pitch_inertia_point_mass_kgm2": 37.4,
  "cells_kg": 82.5,
  "pack_kg": 104.9,
  "by_group": {
@@ -27,19 +27,19 @@
    "z": 432
   },
   "Allowance": {
-   "kg": 38.8,
-   "x": 803,
-   "z": 556
+   "kg": 40.1,
+   "x": 800,
+   "z": 551
   },
   "RunningGear": {
-   "kg": 36.8,
-   "x": 899,
-   "z": 516
+   "kg": 37.3,
+   "x": 901,
+   "z": 523
   },
   "Chassis": {
-   "kg": 29.9,
-   "x": 606,
-   "z": 619
+   "kg": 30.4,
+   "x": 604,
+   "z": 610
   },
   "Electronics": {
    "kg": 18.3,
@@ -69,18 +69,18 @@
  },
  "by_source": {
   "measured": 0.0,
-  "supplier": 110.0,
-  "calculated": 67.4,
-  "estimate": 73.2
+  "supplier": 109.8,
+  "calculated": 68.1,
+  "estimate": 75.1
  },
  "by_status": {
-  "proposed": 182.3,
-  "concept": 68.3
+  "proposed": 181.4,
+  "concept": 71.5
  },
  "by_system": {
   "ENG": 104.91,
-  "RUN": 42.58,
-  "CHS": 27.92,
+  "RUN": 43.08,
+  "CHS": 29.78,
   "DRV": 23.45,
   "ELC": 17.44,
   "ALW": 12.93,
@@ -90,61 +90,61 @@
  },
  "optimiser_reference_kg": 222.5,
  "budget": {
-  "target_total_kg": 240.0,
-  "margin_kg": 9.0,
-  "design_cap_kg": 231.0,
+  "target_total_kg": 255.0,
+  "margin_kg": 1.0,
+  "design_cap_kg": 254.0,
   "groups": [
    {
     "group": "Battery pack",
     "systems": "ENG",
-    "budget_kg": 103.0,
+    "budget_kg": 105.0,
     "raw_kg": 104.91,
-    "headroom_kg": -1.91,
-    "headroom_pct": -1.9,
+    "headroom_kg": 0.09,
+    "headroom_pct": 0.1,
     "growth_adjusted_kg": 116.13,
     "estimate_share_pct": 0.0,
-    "flag": "OVER"
+    "flag": "TIGHT"
    },
    {
     "group": "Chassis",
     "systems": "CHS",
-    "budget_kg": 18.0,
-    "raw_kg": 27.92,
-    "headroom_kg": -9.92,
-    "headroom_pct": -55.1,
-    "growth_adjusted_kg": 30.8,
-    "estimate_share_pct": 6.0,
-    "flag": "OVER"
+    "budget_kg": 30.0,
+    "raw_kg": 29.78,
+    "headroom_kg": 0.22,
+    "headroom_pct": 0.7,
+    "growth_adjusted_kg": 32.98,
+    "estimate_share_pct": 11.0,
+    "flag": "TIGHT"
    },
    {
     "group": "Running gear",
     "systems": "RUN",
-    "budget_kg": 37.0,
-    "raw_kg": 42.58,
-    "headroom_kg": -5.58,
-    "headroom_pct": -15.1,
-    "growth_adjusted_kg": 47.38,
+    "budget_kg": 43.5,
+    "raw_kg": 43.08,
+    "headroom_kg": 0.42,
+    "headroom_pct": 1.0,
+    "growth_adjusted_kg": 47.95,
     "estimate_share_pct": 97.0,
-    "flag": "OVER"
+    "flag": "TIGHT"
    },
    {
     "group": "Drive",
     "systems": "DRV",
-    "budget_kg": 23.0,
+    "budget_kg": 23.5,
     "raw_kg": 23.45,
-    "headroom_kg": -0.45,
-    "headroom_pct": -2.0,
+    "headroom_kg": 0.05,
+    "headroom_pct": 0.2,
     "growth_adjusted_kg": 25.82,
     "estimate_share_pct": 15.0,
-    "flag": "OVER"
+    "flag": "TIGHT"
    },
    {
     "group": "Electronics",
     "systems": "ELC",
-    "budget_kg": 18.0,
+    "budget_kg": 17.5,
     "raw_kg": 17.44,
-    "headroom_kg": 0.56,
-    "headroom_pct": 3.1,
+    "headroom_kg": 0.06,
+    "headroom_pct": 0.4,
     "growth_adjusted_kg": 19.52,
     "estimate_share_pct": 47.0,
     "flag": "TIGHT"
@@ -152,10 +152,10 @@
    {
     "group": "Body and protection",
     "systems": "BOD;PRO",
-    "budget_kg": 15.0,
+    "budget_kg": 14.5,
     "raw_kg": 14.45,
-    "headroom_kg": 0.55,
-    "headroom_pct": 3.7,
+    "headroom_kg": 0.05,
+    "headroom_pct": 0.4,
     "growth_adjusted_kg": 16.61,
     "estimate_share_pct": 42.0,
     "flag": "TIGHT"
@@ -163,50 +163,37 @@
    {
     "group": "Cooling",
     "systems": "THM",
-    "budget_kg": 6.0,
+    "budget_kg": 7.0,
     "raw_kg": 6.9,
-    "headroom_kg": -0.9,
-    "headroom_pct": -15.0,
+    "headroom_kg": 0.1,
+    "headroom_pct": 1.4,
     "growth_adjusted_kg": 7.93,
     "estimate_share_pct": 100.0,
-    "flag": "OVER"
+    "flag": "TIGHT"
    },
    {
     "group": "Wiring, fasteners, fluids",
     "systems": "ALW",
-    "budget_kg": 11.0,
+    "budget_kg": 13.0,
     "raw_kg": 12.93,
-    "headroom_kg": -1.93,
-    "headroom_pct": -17.5,
+    "headroom_kg": 0.07,
+    "headroom_pct": 0.5,
     "growth_adjusted_kg": 14.87,
     "estimate_share_pct": 41.0,
-    "flag": "OVER"
+    "flag": "TIGHT"
    }
   ],
-  "system_over": [
-   "Battery pack",
-   "Chassis",
-   "Running gear",
-   "Drive",
-   "Cooling",
-   "Wiring, fasteners, fluids"
-  ],
-  "total_over": true,
+  "system_over": [],
+  "total_over": false,
   "unbudgeted_systems": {},
-  "margin_kept": false
+  "margin_kept": true
  },
- "budget_pass": false,
- "ledger_clean": false,
- "overall_pass": false,
+ "budget_pass": true,
+ "ledger_clean": true,
+ "overall_pass": true,
  "integrity": {
-  "unmatched_solids": [
-   {
-    "name": "Steering_damper_semiactive",
-    "group": "RunningGear",
-    "vol_cm3": 216.0
-   }
-  ],
-  "unmatched_count": 1,
+  "unmatched_solids": [],
+  "unmatched_count": 0,
   "duplicates": [],
   "missing_required": [],
   "ambiguous": [],

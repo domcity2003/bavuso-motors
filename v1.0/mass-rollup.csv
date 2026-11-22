@@ -31,6 +31,7 @@ NACS_charge_inlet,Electronics,1.6,894,174,900,,supplier,slot,inlet 1.3 kg + 0.3 
 Orion_BMS2_108_supplier_STEP,Electronics,1.5,899,1,874,,estimate,slot,Ledger estimate for the lightened board set; original unit 2.4 kg. https://www.orionbms.com/downloads/documents/orionbms2_specifications.pdf
 Side_stand_retracted,RunningGear,1.4,445,238,297,,estimate,kg,"forged side stand with switch [CAD stand-in: implied density 13.35 g/cm3, mass cannot be checked from the model]"
 Lower_triple_clamp,RunningGear,1.3,1242,0,817,,estimate,kg,forged clamp with stem
+"Chassis unmodelled: pack mounting pads 0.8, swingarm arm boss and end plates 0.5",Allowance,1.3,700,0,400,,CAD,allow,"09-structures.md Round 2 mass table: not modelled, about +1.3 kg (modelled 25.4 kg to a true figure of about 26.7 kg)"
 Shock_body_STUDY,Chassis,1.238,422,0,622,R0.5,estimate,slot,hardware-shortlist.csv; https://www.ohlins.eu/en/products/motorcycle/kt-122--4458/ [slot total 3.000 kg split by volume over 6 solids]
 Upper_rail_yoke_leg_m1,Chassis,1.216,548,-176,501,,CAD,vol,32x2.5 chromoly
 Upper_rail_yoke_leg_1,Chassis,1.216,548,176,501,,CAD,vol,32x2.5 chromoly
@@ -69,6 +70,8 @@ Upper_rail_2_m1,Chassis,0.768,1103,-115,897,,CAD,vol,32x2.5 chromoly
 Upper_rail_2_1,Chassis,0.768,1103,115,898,,CAD,vol,32x2.5 chromoly
 Swingarm_shock_tower,Chassis,0.746,356,0,431,R0.5,CAD,vol,twin 8 mm aluminium plates
 Upper_triple_clamp,RunningGear,0.7,1131,0,1056,,estimate,kg,machined clamp
+Pivot_6008_size_reference_1,Chassis,0.7,540,116,403,R0.5,estimate,kg,"32012 X tapered roller bearing 60x95x23 (09-structures.md Round 2); 2 solids = 1 pair on the single-sided arm pivot; planning mass 0.7 kg, check the SKF catalogue mass"
+Pivot_6008_size_reference_2,Chassis,0.7,540,174,403,R0.5,estimate,kg,"32012 X tapered roller bearing 60x95x23 (09-structures.md Round 2); 2 solids = 1 pair on the single-sided arm pivot; planning mass 0.7 kg, check the SKF catalogue mass"
 Rear brake pedal and master cylinder,Allowance,0.7,520,200,430,,estimate,allow,allowance
 Shock_reservoir_STUDY,Chassis,0.697,405,0,733,R0.5,estimate,slot,hardware-shortlist.csv; https://www.ohlins.eu/en/products/motorcycle/kt-122--4458/ [slot total 3.000 kg split by volume over 6 solids]
 Shock_top_bracket,Chassis,0.685,482,0,718,,CAD,vol,"twin 8 mm plates, shock mount"
@@ -88,6 +91,7 @@ Lower_pack_rear_link_1,Chassis,0.525,599,170,421,,CAD,vol,32x2.5 chromoly
 Swingarm_cross_brace,Chassis,0.513,380,37,380,R0.5,CAD,vol,50x5 aluminium tube
 Tail_brace_1,Chassis,0.504,350,153,618,,CAD,vol,28x2 chromoly
 Tail_brace_m1,Chassis,0.504,350,-153,618,,CAD,vol,28x2 chromoly
+Steering_damper_semiactive,RunningGear,0.5,1052,0,1056,,estimate,kg,"semi-active rotary steering damper, Ohlins EC class about 0.5 kg (estimate; not checked against a published mass)"
 Drive_belt_14mm_STUDY,Drive,0.5,188,-142,352,R0.5,estimate,slot,"drive-study.md; Gates publishes belt mass, confirm"
 Front_pulley_PITCH_STUDY,Drive,0.5,540,-142,403,,estimate,slot,hardware-shortlist.csv (reduction REC)
 Windscreen_STUDY,BodyStudy,0.499,1249,0,1127,,CAD,vol,polycarbonate screen
@@ -138,10 +142,6 @@ Upper_post_rear_1,Chassis,0.178,706,146,700,,CAD,vol,32x2.5 chromoly post
 Upper_post_rear_m1,Chassis,0.178,706,-146,700,,CAD,vol,32x2.5 chromoly post
 Head_gusset_m1,Chassis,0.154,1154,-37,885,,CAD,vol,10 mm 4130 gusset
 Head_gusset_1,Chassis,0.154,1154,37,885,,CAD,vol,10 mm 4130 gusset
-Upper_rail_node_yoke_m1,Chassis,0.15,556,-158,598,,CAD,vol,32x2.5 chromoly
-Upper_rail_node_yoke_1,Chassis,0.15,556,158,598,,CAD,vol,32x2.5 chromoly
-Upper_rail_node_rail_m1,Chassis,0.15,570,-125,768,,CAD,vol,32x2.5 chromoly
-Upper_rail_node_rail_1,Chassis,0.15,570,125,768,,CAD,vol,32x2.5 chromoly
 Coolant_thermostat_wax,Cooling,0.15,871,126,660,,estimate,kg,wax thermostat replacing the 4-port valve (10-thermal.md: saves 0.30 kg of the 0.45 kg valve)
 Switch_cube_m1,RunningGear,0.15,971,-250,1128,,estimate,kg,switch housing
 Switch_cube_1,RunningGear,0.15,970,256,1128,,estimate,kg,switch housing
@@ -152,8 +152,6 @@ Crash_guard_slider_rear_1,Protection,0.139,657,282,439,,CAD,vol,28x2.5 25CrMo4 c
 Crash_guard_slider_rear_m1,Protection,0.139,657,-282,439,,CAD,vol,28x2.5 25CrMo4 crash guard
 Crash_guard_slider_front_m1,Protection,0.139,1091,-282,585,,CAD,vol,28x2.5 25CrMo4 crash guard
 Crash_guard_slider_front_1,Protection,0.139,1091,282,585,,CAD,vol,28x2.5 25CrMo4 crash guard
-Pivot_6008_size_reference_1,Chassis,0.12,540,116,403,R0.5,supplier,kg,6008 bearing (catalogue 0.12 kg)
-Pivot_6008_size_reference_2,Chassis,0.12,540,174,403,R0.5,supplier,kg,6008 bearing (catalogue 0.12 kg)
 Lever_perch_m1,RunningGear,0.12,959,-285,1127,,estimate,kg,forged perch
 Lever_perch_1,RunningGear,0.12,959,285,1127,,estimate,kg,forged perch
 Shock_Upper_eye_STUDY,Chassis,0.106,482,0,695,R0.5,estimate,slot,hardware-shortlist.csv; https://www.ohlins.eu/en/products/motorcycle/kt-122--4458/ [slot total 3.000 kg split by volume over 6 solids]
@@ -213,5 +211,9 @@ Fork_reflector_m1,RunningGear,0.01,1443,-132,433,F1.0,estimate,kg,side reflector
 Fork_reflector_1,RunningGear,0.01,1443,132,433,F1.0,estimate,kg,side reflector
 Side_reflector_red_m1,BodyStudy,0.01,-80,-136,813,,estimate,kg,reflector
 Side_reflector_red_1,BodyStudy,0.01,-80,136,813,,estimate,kg,reflector
+Upper_rail_node_rail_m1,Chassis,0.0,570,-125,768,,CAD,kg,"cast node: its mass is already inside the Round 2 chassis figure (09-structures.md), so zero here to avoid a double count"
+Upper_rail_node_yoke_m1,Chassis,0.0,556,-158,598,,CAD,kg,"cast node: its mass is already inside the Round 2 chassis figure (09-structures.md), so zero here to avoid a double count"
+Upper_rail_node_rail_1,Chassis,0.0,570,125,768,,CAD,kg,"cast node: its mass is already inside the Round 2 chassis figure (09-structures.md), so zero here to avoid a double count"
+Upper_rail_node_yoke_1,Chassis,0.0,556,158,598,,CAD,kg,"cast node: its mass is already inside the Round 2 chassis figure (09-structures.md), so zero here to avoid a double count"
 Headlamp_DRL_blade,BodyStudy,0.0,1422,0,913,,estimate,kg,DRL: included in the headlamp figure
 Front_master_cylinder,RunningGear,0.0,991,-286,1130,,estimate,kg,counted inside the lever (Hand_lever_*); one master cylinder exists

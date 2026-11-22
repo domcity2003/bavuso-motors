@@ -79,6 +79,7 @@ rule('Rear_indicator_stalk_*', 'ELC', 'kg', 0.02, 'E', 'indicator stalk')
 rule('Plate_lamp', 'ELC', 'kg', 0.05, 'E', 'plate lamp')
 # ---- cooling ----
 rule('Motor_pulley_bearing_carrier', 'DRV', 'kg', 0.4, 'E', 'aluminium bearing carrier on the motor flange (rev D); was wrongly bound to the pulley slot at 0.5 kg')
+rule('Steering_damper_semiactive', 'RUN', 'kg', 0.5, 'E', 'semi-active rotary steering damper, Ohlins EC class about 0.5 kg (estimate; not checked against a published mass)')
 rule('Radiator_core_*', 'THM', 'kg', 0.805, 'E', 'dry core with plastic tanks (thermal-study.md); coolant is in the coolant allowance')
 rule('Radiator_fan_*', 'THM', 'kg', 0.55, 'E', '190 mm BLDC fan with shroud (thermal-study.md)')
 rule('Coolant_pump_*', 'THM', 'kg', 0.55, 'E', 'EWP-class pump, 1.10 kg for two (thermal-study.md)')
@@ -98,7 +99,8 @@ for p, n in [('Upper_post_*', '32x2.5 chromoly post'), ('Head_gusset_*', '10 mm 
              ('Tail_rail_*', '28x2 chromoly'), ('Tail_brace_*', '28x2 chromoly'), ('Tail_shock_cross_tube', '28x3 chromoly'),
              ('Head_tube', 'head tube'), ('Shock_top_bracket', 'twin 8 mm plates, shock mount'), ('Independent_hollow_pivot_stub_*', 'pivot stub')]:
     rule(p, 'CHS', 'vol', STEEL, 'C', n, required=(p == 'Head_tube'), **CRM)
-rule('Pivot_6008_size_reference_*', 'CHS', 'kg', 0.12, 'S', '6008 bearing (catalogue 0.12 kg)', uns=('R', 0.5))
+rule('Pivot_6008_*', 'CHS', 'kg', 0.7, 'E', '32012 X tapered roller bearing 60x95x23 (09-structures.md Round 2); 2 solids = 1 pair on the single-sided arm pivot; planning mass 0.7 kg, check the SKF catalogue mass', uns=('R', 0.5))
+rule('Upper_rail_node_*', 'CHS', 'kg', 0.0, 'C', 'cast node: its mass is already inside the Round 2 chassis figure (09-structures.md), so zero here to avoid a double count')
 # ---- swingarm ----
 rule('Swingarm_1', 'CHS', 'shell', (ALU, 4.0), 'C', 'cast A356 box arm, 4.0 mm wall (program structures FEA; rev D)', uns=('R', 0.5), mat='aluminium 4.0 mm wall', proc='fabricated box', required=True)
 rule('Swingarm_m1', 'CHS', 'shell', (ALU, 4.0), 'C', 'cast A356 box arm, 4.0 mm wall (program structures FEA; rev D)', uns=('R', 0.5), mat='aluminium 4.0 mm wall', proc='fabricated box')
@@ -182,6 +184,7 @@ ALLOW = [
  ('VCU, distribution box, keyless, HVIL bonding', 'vcu_dist', 'ELC', 2.10, 'C', 'electrical-bom.csv: VCU 0.40 + distribution 1.15 + keyless 0.25 + bonding 0.30', (1200, 0, 880), None, 'EXCLUDES horn (modelled)', r'vcu|keyless|distribution_box', 'both'),
  ('Coolant in loop (1.66 L glycol), hoses and clamps 0.59, sensors 0.10', 'coolant_fluid', 'THM', 2.35, 'E', '10-thermal.md section 5: coolant 2.72 minus 1.06 in pack ribbons/manifolds + hoses 0.59 + sensors 0.10; the shortlist 1.6 omits sensors and part of the glycol', (880, 0, 600), None, 'EXCLUDES pumps, cores, fans (modelled) and the pack-side coolant (in pack_int_therm)', r'coolant_(fluid|hose)', 'both'),
  ('Rear brake pedal and master cylinder', 'rear_pedal', 'RUN', 0.7, 'E', 'allowance', (520, 200, 430), None, '', r'brake_pedal|rear_master', 'both'),
+ ('Chassis unmodelled: pack mounting pads 0.8, swingarm arm boss and end plates 0.5', 'chassis_unmodelled', 'CHS', 1.3, 'C', '09-structures.md Round 2 mass table: not modelled, about +1.3 kg (modelled 25.4 kg to a true figure of about 26.7 kg)', (700, 0, 400), None, 'EXCLUDES the modelled chassis solids and the 32012 X bearings; lug plates 0.44 kg are inside the 25.4 kg but have no CAD solids, offset by CAD solids not in the Round 2 table', r'pack_pad_alw|arm_boss|end_plate', 'both'),
  ('Nose subframe and headlamp brackets', 'nose_subframe', 'CHS', 1.15, 'E', 'allowance; dash bracket is Display_mount (modelled)', (1330, 0, 900), None, 'EXCLUDES Display_mount', r'nose_subframe|headlamp_bracket', 'both'),
  ('Body brackets and fixings', 'body_brackets', 'ALW', 2.0, 'E', 'allowance; no BOM count exists', (850, 0, 700), None, '', r'body_bracket', 'both'),
  ('Fasteners (titanium where visible)', 'fasteners', 'ALW', 3.0, 'E', 'allowance; covers all bolts', (750, 0, 600), None, '', r'fastener', 'both'),

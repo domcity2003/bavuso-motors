@@ -14,7 +14,7 @@ The chosen point matches the BMW R 1300 GS (523 lb). It is lighter than the Ener
 ## Locked targets (V1 design requirements)
 | # | Target | Value |
 |---|---|---|
-| T1 | Wet mass, ready to ride, no rider | **≤ 240 kg / 529 lb**, including a 12 kg (5%) margin |
+| T1 | Wet mass, ready to ride, no rider | **≤ 255 kg / 562 lb** (re-baselined Nov 22 from 240 kg; see the decision log) |
 | T2 | Pack | Molicel P60B 21700, **100s11p**. 1,100 cells, about 23.8 kWh gross, about 21.4 kWh usable, 370 V nominal; pack ≤ 103 kg |
 | T3 | Range at 70 mph, flat, still air, 90 kg rider | **≥ 145 mi**, about 150 mi at CdA 0.38 m². CdA target ≤ 0.38 m² with the rider |
 | T4 | Top speed | **125 mph sustained**, governed at 130 mph |
@@ -54,3 +54,15 @@ The chosen point matches the BMW R 1300 GS (523 lb). It is lighter than the Ener
   - **Cold charging:** keep the 3 kW PTC heater. Preheat is triggered when the rider navigates to a charger (14 min at −10 °C), so no heater mass is added.
   - **Cooling mass:** a wax thermostat replaces the 4-port valve. The 1.1 kg of pack ribbons and manifold coolant is booked to the pack, so cooling comes to about 5.7 kg against its 6 kg budget.
   - **Radiators:** rev C halves kept.
+- **Nov 22: mass target re-baselined (T1).** Rev E, the frozen V1 geometry, rolls up to about 251 kg (about 553 lb) once the ledger fixes from `16-cad-revE.md` are in. The two gaps:
+  - Running gear is 45 kg against a 37 kg budget, because real catalogue wheels, tyres, suspension and brakes weigh more than the budget assumed.
+  - The chassis is 25 kg against 18 kg. The steel pivot yoke is needed for a single-sided arm with an opposite-side belt (`09-structures.md`, Round 2).
+  
+  The lead accepts this as part of the V1 compromise. **T1 is now ≤ 255 kg / 562 lb wet**, with about 4 kg of margin. That puts V1 in the class of the Zero DSR/X (about 247 kg, 17.3 kWh) while carrying about 38% more energy, and it is lighter than the Energica Experia (260 kg).
+  
+  V1.1 levers (about 10 kg): a magnesium or forged wheel and brake package, a short HV bus, an aluminium yoke with a redesigned section, a pack with no case walls (the cell-to-chassis concept), and flush radiator pods.
+- **Nov 22: steering damper.** Speed-scheduled semi-active damper (`15-dynamics.md`). Without it the model shows wobble from 15 to 85 mph.
+- **Nov 22: look frozen at rev E.** Open items go to V1.1:
+  - pods 55 mm proud;
+  - no R15 edges on the lower body;
+  - second flank line.

@@ -95,6 +95,13 @@ upper_rail|Upper_rail_node_rail_1,BV-CHS-0040
 upper_rail|Upper_rail_node_yoke_1,BV-CHS-0041
 upper_rail|Upper_rail_yoke_cross,BV-CHS-0042
 pivot_6008_size_reference|Pivot_6008_size_reference_2,BV-CHS-0043
+upper_rail_node|Upper_rail_node_rail_m1,BV-CHS-0044
+upper_rail_node|Upper_rail_node_yoke_m1,BV-CHS-0045
+upper_rail_node|Upper_rail_node_rail_1,BV-CHS-0046
+upper_rail_node|Upper_rail_node_yoke_1,BV-CHS-0047
+pivot_6008|Pivot_6008_size_reference_1,BV-CHS-0048
+pivot_6008|Pivot_6008_size_reference_2,BV-CHS-0049
+chassis_unmodelled,BV-CHS-0050
 motor_emrax228|EMRAX_228_MV_LC_supplier_STEP,BV-DRV-0001
 inverter_cm200|Cascadia_CM200_supplier_STEP,BV-DRV-0002
 belt_drive|Drive_belt_14mm_STUDY,BV-DRV-0003
@@ -225,6 +232,7 @@ axle_rear,BV-RUN-0067
 steer_bearings,BV-RUN-0068
 wheel_front_carbon|Front_wheel_carbon_BST_STUDY,BV-RUN-0069
 wheel_rear_carbon|Rear_wheel_carbon_BST_STUDY,BV-RUN-0070
+steering_damper_semiactive|Steering_damper_semiactive,BV-RUN-0071
 coolant_pump|Coolant_pump_loop,BV-THM-0001
 coolant_4port_valve|Coolant_4port_valve,BV-THM-0002
 radiator_core|Radiator_core_m1,BV-THM-0003

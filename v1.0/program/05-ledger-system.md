@@ -140,3 +140,33 @@ What changed (all in `tools/mass-rollup.py` and `program/data/supplier-masses.cs
 ### What this update does not prove
 
 The coolant, HV cable and pack-internals rows are still concept-level estimates and the CAD may change them. The carbon wheel mass is an estimate; no maker publishes it, and certification is unresolved.
+
+## Rev E
+
+November 22, 2026, US Central. Prepared by Claude Sonnet 5.5 (claude-sonnet-5-5) for the Bavuso V1 program.
+
+**The plain answer: on the rev E CAD the ledger reads 252.93 kg against the re-baselined 255 kg limit. `ledger_clean` is True, but `budget_pass` is False because the chassis is 4.78 kg over its 25 kg line.** The total passes with 2.07 kg to spare, which is less than the 3.5 kg margin the lead wants kept (design cap 251.5 kg).
+
+| System | Budget kg | Rev E kg | Headroom |
+|---|---|---|---|
+| Battery pack | 105.0 | 104.91 | +0.09 |
+| Chassis | 25.0 | 29.78 | -4.78 |
+| Running gear | 45.0 | 43.08 | +1.92 |
+| Drive | 23.5 | 23.45 | +0.05 |
+| Electronics | 18.0 | 17.44 | +0.56 |
+| Body and protection | 15.0 | 14.45 | +0.55 |
+| Cooling | 7.0 | 6.90 | +0.10 |
+| Wiring, fasteners, fluids | 13.0 | 12.93 | +0.07 |
+| **Total** | **255.0** (margin 3.5) | **252.93** | **+2.07** |
+
+Changes:
+- **Budgets** (`budgets.csv`, backup in `program/data/run/`): the lead's allocation; the eight systems sum to 251.5 kg and the margin is 3.5 kg, total exactly 255.
+- **Steering damper:** `Steering_damper_semiactive` 0.5 kg (estimate, Ohlins EC class; I did not check a published mass). It was the one unmatched solid.
+- **Nodes zeroed:** `Upper_rail_node_*` (4 solids, 0.6 kg) set to 0. The Round 2 chassis table in `09-structures.md` (25.4 kg modelled) has no separate line for nodes; the CAD solids without nodes sum to 25.33 kg, which matches it.
+- **Pivot bearings:** `Pivot_6008_*` is now 32012 X at 0.7 kg each. Round 2 specifies one pair on the single-sided arm pivot and the CAD has two bearing solids, so 1 pair = 1.4 kg (was 0.24 kg). The 0.7 kg is a planning figure; the catalogue mass is likely lower and should be checked.
+- **Chassis booked to Round 2:** new allowance `chassis_unmodelled` 1.3 kg (pack mounting pads 0.8, arm boss and end plates 0.5), bringing the structure to about 26.6 kg against Round 2's 26.7 kg. Lug plates (0.44 kg) were not added: the CAD solids already match the 25.4 kg figure without them.
+
+Why the chassis is still over: 25.33 structure + 1.3 unmodelled + 1.4 bearings + 1.75 existing allowances (nose subframe 1.15, pivot hardware 0.6) = 29.78 kg. The 25 kg line looks like it was set from the Round 2 structure alone, without the bearings and allowances.
+
+### What this update does not prove
+The damper and bearing masses and the 1.3 kg top-up are estimates. Nothing was weighed.
