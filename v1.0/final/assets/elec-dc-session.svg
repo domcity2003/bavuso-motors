@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 980" width="1500" height="980" font-family="Segoe UI, Arial, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="context-stroke"/></marker></defs>
+<rect width="1500" height="980" fill="#ffffff"/>
+<text x="24" y="34" font-size="22" fill="#1f2937" text-anchor="start" font-weight="700">Bavuso V1: DC fast-charge session at a NACS Supercharger (DIN 70121 / ISO 15118)</text>
+<rect x="65" y="60" width="170" height="40" rx="6" fill="#f3f4f6" stroke="#1f2937" stroke-width="1.5"/>
+<text x="150.0" y="84.0" font-size="13" fill="#1f2937" text-anchor="middle" font-weight="700">BMS</text>
+<polyline points="150,100 150,940" fill="none" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="7 5" stroke-linejoin="round"/>
+<rect x="395" y="60" width="170" height="40" rx="6" fill="#f3f4f6" stroke="#1f2937" stroke-width="1.5"/>
+<text x="480.0" y="84.0" font-size="13" fill="#1f2937" text-anchor="middle" font-weight="700">EVCC (bike)</text>
+<polyline points="480,100 480,940" fill="none" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="7 5" stroke-linejoin="round"/>
+<rect x="795" y="60" width="170" height="40" rx="6" fill="#f3f4f6" stroke="#1f2937" stroke-width="1.5"/>
+<text x="880.0" y="84.0" font-size="13" fill="#1f2937" text-anchor="middle" font-weight="700">Station SECC</text>
+<polyline points="880,100 880,940" fill="none" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="7 5" stroke-linejoin="round"/>
+<rect x="1165" y="60" width="170" height="40" rx="6" fill="#f3f4f6" stroke="#1f2937" stroke-width="1.5"/>
+<text x="1250.0" y="84.0" font-size="13" fill="#1f2937" text-anchor="middle" font-weight="700">Station power</text>
+<polyline points="1250,100 1250,940" fill="none" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="7 5" stroke-linejoin="round"/>
+<rect x="20" y="110" width="1460" height="95" fill="#2563eb" opacity="0.10"/>
+<text x="26" y="125" font-size="11" fill="#374151" text-anchor="start" font-weight="700">1 CONNECT</text>
+<polyline points="880,150 480,150" fill="none" stroke="#1f2937" stroke-width="2" marker-end="url(#a)" stroke-linejoin="round"/>
+<text x="680.0" y="143" font-size="12" fill="#1f2937" text-anchor="middle">Plug seated: PP + CP, state A to B (12 V to 9 V)</text>
+<text x="680.0" y="164" font-size="10" fill="#6b7280" text-anchor="middle" font-style="italic">inlet latch locks; K4/K5 stay open</text>
+<polyline points="480,185 150,185" fill="none" stroke="#1f2937" stroke-width="2" marker-end="url(#a)" stroke-linejoin="round"/>
+<text x="315.0" y="178" font-size="12" fill="#1f2937" text-anchor="middle">Wake: charge request, read pack V / SOC / limits</text>
+<rect x="20" y="205" width="1460" height="125" fill="#7c3aed" opacity="0.10"/>
+<text x="26" y="220" font-size="11" fill="#374151" text-anchor="start" font-weight="700">2 COMMUNICATE</text>
+<polyline points="480,240 880,240" fill="none" stroke="#1f2937" stroke-width="2" marker-end="url(#a)" stroke-linejoin="round"/>
+<text x="680.0" y="233" font-size="12" fill="#1f2937" text-anchor="middle">SLAC matching over control pilot (HomePlug Green PHY PLC)</text>
+<polyline points="480,272 880,272" fill="none" stroke="#1f2937" stroke-width="2" marker-end="url(#a)" stroke-linejoin="round"/>
+<text x="680.0" y="265" font-size="12" fill="#1f2937" text-anchor="middle">SECC discovery (SDP), TCP (TLS only in ISO 15118)</text>
+<polyline points="480,304 880,304" fill="none" stroke="#1f2937" stroke-width="2" marker-end="url(#a)" stroke-linejoin="round"/>
+<text x="680.0" y="297" font-size="12" fill="#1f2937" text-anchor="middle">supportedAppProtocol: DIN 70121 / ISO 15118-2 (-20 later)</text>
+<text x="680.0" y="318" font-size="10" fill="#6b7280" text-anchor="middle" font-style="italic">Tesla's CAN-over-pilot is legacy; Superchargers speak both</text>
+<rect x="20" y="330" width="1460" height="110" fill="#b45309" opacity="0.10"/>
+<text x="26" y="345" font-size="11" fill="#374151" text-anchor="start" font-weight="700">3 AUTHORISE</text>
+<polyline points="480,366 880,366" fill="none" stroke="#1f2937" stroke-width="2" marker-end="url(#a)" stroke-linejoin="round"/>
+<text x="680.0" y="359" font-size="12" fill="#1f2937" text-anchor="middle">SessionSetup, ServiceDiscovery, PaymentSelection (EIM)</text>
+<polyline points="880,404 480,404" fill="none" stroke="#b45309" stroke-width="2" marker-end="url(#a)" stroke-linejoin="round"/>
+<text x="680.0" y="397" font-size="12" fill="#b45309" text-anchor="middle">Authorised: account / app / vehicle ID (network rules)</text>
+<text x="680.0" y="418" font-size="10" fill="#6b7280" text-anchor="middle" font-style="italic">Plug&amp;Charge needs ISO 15118 certificates. Access for Bavuso is NOT established (report section 3)</text>
+<rect x="20" y="440" width="1460" height="160" fill="#0f766e" opacity="0.10"/>
+<text x="26" y="455" font-size="11" fill="#374151" text-anchor="start" font-weight="700">4 PARAMETERS + CABLE CHECK</text>
+<polyline points="150,476 480,476" fill="none" stroke="#1f2937" stroke-width="2" marker-end="url(#a)" stroke-linejoin="round"/>
+<text x="315.0" y="469" font-size="12" fill="#1f2937" text-anchor="middle">Limits: Vmax 420 V, Imax 137 A (12.5 A/cell), target 80%</text>
+<polyline points="480,508 880,508" fill="none" stroke="#1f2937" stroke-width="2" marker-end="url(#a)" stroke-linejoin="round"/>
+<text x="680.0" y="501" font-size="12" fill="#1f2937" text-anchor="middle">ChargeParameterDiscovery: EV max V/I/power, SOC</text>
+<polyline points="480,540 880,540" fill="none" stroke="#1f2937" stroke-width="2" marker-end="url(#a)" stroke-linejoin="round"/>
+<text x="680.0" y="533" font-size="12" fill="#1f2937" text-anchor="middle">CableCheck: bike IMD paused, station tests isolation</text>
+<text x="680.0" y="554" font-size="10" fill="#6b7280" text-anchor="middle" font-style="italic">station contactors close, 500 V test</text>
+<polyline points="880,578 480,578" fill="none" stroke="#1f2937" stroke-width="2" marker-end="url(#a)" stroke-linejoin="round"/>
+<text x="680.0" y="571" font-size="12" fill="#1f2937" text-anchor="middle">CableCheck OK</text>
+<rect x="20" y="600" width="1460" height="100" fill="#c2410c" opacity="0.10"/>
+<text x="26" y="615" font-size="11" fill="#374151" text-anchor="start" font-weight="700">5 PRECHARGE + CLOSE</text>
+<polyline points="480,628 880,628" fill="none" stroke="#1f2937" stroke-width="2" marker-end="url(#a)" stroke-linejoin="round"/>
+<text x="680.0" y="621" font-size="12" fill="#1f2937" text-anchor="middle">PreCharge: EV bus voltage (shunt U3 vs pack U1)</text>
+<text x="680.0" y="642" font-size="10" fill="#6b7280" text-anchor="middle" font-style="italic">station ramps its output to within 20 V of the pack</text>
+<polyline points="480,668 150,668" fill="none" stroke="#1f2937" stroke-width="2" marker-end="url(#a)" stroke-linejoin="round"/>
+<text x="315.0" y="661" font-size="12" fill="#1f2937" text-anchor="middle">PowerDelivery(start): BMS permits, VCU closes K4/K5</text>
+<rect x="20" y="700" width="1460" height="150" fill="#15803d" opacity="0.10"/>
+<text x="26" y="715" font-size="11" fill="#374151" text-anchor="start" font-weight="700">6 CHARGE</text>
+<polyline points="480,738 880,738" fill="none" stroke="#1f2937" stroke-width="2" marker-end="url(#a)" stroke-linejoin="round"/>
+<text x="680.0" y="731" font-size="12" fill="#1f2937" text-anchor="middle">CurrentDemand: target V and I every 100-250 ms</text>
+<text x="680.0" y="752" font-size="10" fill="#6b7280" text-anchor="middle" font-style="italic">start about 137 A, tapers with SOC / temperature</text>
+<polyline points="880,780 1250,780" fill="none" stroke="#15803d" stroke-width="2" marker-end="url(#a)" stroke-linejoin="round"/>
+<text x="1065.0" y="773" font-size="12" fill="#15803d" text-anchor="middle">Deliver V, I (up to 58 kW peak at 12.5 A/cell, 53 kW average)</text>
+<polyline points="150,818 480,818" fill="none" stroke="#1f2937" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#a)" stroke-linejoin="round"/>
+<text x="315.0" y="811" font-size="12" fill="#1f2937" text-anchor="middle">Derate on pack temperature or cell voltage; stop at 80%</text>
+<rect x="20" y="850" width="1460" height="90" fill="#6b7280" opacity="0.10"/>
+<text x="26" y="865" font-size="11" fill="#374151" text-anchor="start" font-weight="700">7 STOP</text>
+<polyline points="480,876 880,876" fill="none" stroke="#1f2937" stroke-width="2" marker-end="url(#a)" stroke-linejoin="round"/>
+<text x="680.0" y="869" font-size="12" fill="#1f2937" text-anchor="middle">PowerDelivery(stop), current ramps to near 0</text>
+<polyline points="480,906 880,906" fill="none" stroke="#1f2937" stroke-width="2" marker-end="url(#a)" stroke-linejoin="round"/>
+<text x="680.0" y="899" font-size="12" fill="#1f2937" text-anchor="middle">WeldingDetection: K4/K5 open, U3 falls; SessionStop</text>
+<text x="24" y="962" font-size="12" fill="#6b7280" text-anchor="start">Then CP back to B, inlet unlocks only after weld check passes. A gap of 10-80% in about 20 min means the cell cap of 12.5 A (2.08 C) is held to about 80% SOC (calculated).</text>
+</svg>

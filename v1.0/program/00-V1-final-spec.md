@@ -62,7 +62,7 @@ Key: **met** = supported by analysis with margin; **met-thin** = passes on paper
 | T4 | 125 mph sustained, governed 130 | **Met-thin, not verified** | 135 mph limit, 2.4x power margin; 25 C thermal passes in two models; at 38 C derates to about 105 mph |
 | T5 | >= 90 kW peak, >= 55 kW continuous | **Met-thin** | 124 kW at high charge; 93 kW at 10% SOC and 87 kW at 5% (25 C, 350 A cap); 86 kW or less cold at low charge; continuous 61.6 kW, below 56 kW under 103 mph |
 | T6 | Native NACS, DC 10-80% <= 25 min, AC >= 3.3 kW | **Met-thin, not verified** | about 21 min at 25 C and a 2C cap; the 35 C and cold figures lean on a 3C cap the cell data does not confirm; AC 6.6 kW booked; Supercharger access not established |
-| T7 | Solo 90 kg + 25 kg luggage | **Not verified** | FEA at 240 kg scaling with thin factors; the "95th percentile" label is wrong |
+| T7 | Solo 90 kg + 25 kg luggage | **Met, thin** | FEA Round 3 (`09-structures.md`) at 257.3 kg + 90 kg rider + 25 kg luggage, yoke at Z545: all strength cases pass after +0.45 kg of wall increases (D1 arm SF about 1.25 vs 1.2; fatigue Miner D ≤ 0.5). Not tested. The rider is 1,755 mm, about the adult male average (not the 95th percentile) |
 | T8 | Comfort, 77 mph gust stability, positive damping | **Met-thin, not verified** | positive damping only with the scheduled damper (0.028 thinnest); dynamics run at rev D mass; damper fail-safe now in DFMEA D48 and test V53 |
 | T9 | Unit cost <= $32k at 10k/yr | **Met-thin (estimate)** | $29.5k; $32.3k with cells, motor and inverter at 1k prices; no quotes |
 | T10 | Frozen appearance direction | **Met-thin** | direction kept; pods 55 mm proud, no R15 on the lower body and the second flank line are open (V1.1) |
