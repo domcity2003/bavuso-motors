@@ -1,0 +1,277 @@
+{
+ "rotating_mass_equivalent_kg": 11.068415880441625,
+ "F_launch_N": 2382.2673857684385,
+ "mu_dry": 1.05,
+ "wheelbase_m": 1.4900341408170323,
+ "disc_front": {
+  "m": 1.2057778179669447,
+  "od": 0.32,
+  "band": 0.03471951468804066,
+  "thick": 0.005,
+  "vol_mm3": 155584.23457637997,
+  "n": 2,
+  "mu_pad": 0.45
+ },
+ "disc_rear": {
+  "m": 0.960600073299164,
+  "od": 0.267,
+  "band": 0.033843339409751164,
+  "thick": 0.005,
+  "vol_mm3": 123948.39655473083,
+  "n": 1,
+  "mu_pad": 0.42
+ },
+ "bike_only": {
+  "label": "bike alone",
+  "m": 247.93000000000026,
+  "cg_x_from_rear_axle_mm": 798.5040212963336,
+  "cg_h_mm": 535.5297664663409,
+  "stoppie_g": 1.2913009935632829,
+  "front_only_tyre_g": 0.9037447671767094,
+  "rear_only_dry_g": 0.3537944422139049,
+  "rear_only_wet_mu05_g": 0.19670340865456887,
+  "wheelie_g": 1.4910544124656442,
+  "traction_limited_accel_dry_g": 0.7826719843530806,
+  "traction_limited_accel_wet_mu07_g": 0.4340808936251976,
+  "ideal_front_share": {
+   "0.3": {
+    "front_pct": 64.37187745982094,
+    "rear_load_N": 866.544809338026,
+    "rear_load_pct_of_static": 76.76761641976559
+   },
+   "0.5": {
+    "front_pct": 71.56003176845569,
+    "rear_load_N": 691.71500184975,
+    "rear_load_pct_of_static": 61.27936069960929
+   },
+   "0.8": {
+    "front_pct": 82.3422632314078,
+    "rear_load_N": 429.47029061733656,
+    "rear_load_pct_of_static": 38.04697711937489
+   },
+   "1.0": {
+    "front_pct": 89.53041754004254,
+    "rear_load_N": 254.64048312906107,
+    "rear_load_pct_of_static": 22.558721399218626
+   }
+  },
+  "abs_mean_decel_g": 0.9450000000000001,
+  "stop_60mph_1g_m": 39.35100359633027,
+  "stop_60mph_1g_no_buildup_m": 36.66876359633027,
+  "stop_60mph_abs_m": 41.485164440561135,
+  "stop_77mph_1g_m": 63.83362448962284,
+  "stop_77mph_1g_no_buildup_m": 60.39141648962284,
+  "stop_77mph_abs_m": 67.34846883557972,
+  "stoppie_margin_vs_1g_pct": 29.130099356328287,
+  "launch": {
+   "a_peak_g": 0.9376146617783712,
+   "a_avg_0_60_g": null,
+   "front_load_at_peak_N": 483.78882534507625,
+   "front_load_pct_of_static": 37.117340994423635,
+   "rear_mu_needed": 1.2226759981088382,
+   "wheelie_margin_pct": 59.026354135457446
+  }
+ },
+ "solo": {
+  "label": "bike + 90 kg rider",
+  "m": 337.9300000000003,
+  "cg_x_from_rear_axle_mm": 732.4801519841385,
+  "cg_h_mm": 666.7733584174234,
+  "stoppie_g": 1.1361491566353772,
+  "front_only_tyre_g": 0.9736455600953395,
+  "rear_only_dry_g": 0.3631865764044806,
+  "rear_only_wet_mu05_g": 0.20772878660620928,
+  "wheelie_g": 1.0985444195351013,
+  "traction_limited_accel_dry_g": 1.0069748316888643,
+  "traction_limited_accel_wet_mu07_g": 0.5182170708170211,
+  "ideal_front_share": {
+   "0.3": {
+    "front_pct": 62.58327470255414,
+    "rear_load_N": 1240.399353415034,
+    "rear_load_pct_of_static": 73.59501626631241
+   },
+   "0.5": {
+    "front_pct": 71.53304759905717,
+    "rear_load_N": 943.7060317578457,
+    "rear_load_pct_of_static": 55.991693777187365
+   },
+   "0.8": {
+    "front_pct": 84.95770694381173,
+    "rear_load_N": 498.666049272063,
+    "rear_load_pct_of_static": 29.586710043499775
+   },
+   "1.0": {
+    "front_pct": 93.90747984031476,
+    "rear_load_N": 201.97272761487466,
+    "rear_load_pct_of_static": 11.983387554374733
+   }
+  },
+  "abs_mean_decel_g": 0.9450000000000001,
+  "stop_60mph_1g_m": 39.35100359633027,
+  "stop_60mph_1g_no_buildup_m": 36.66876359633027,
+  "stop_60mph_abs_m": 41.485164440561135,
+  "stop_77mph_1g_m": 63.83362448962284,
+  "stop_77mph_1g_no_buildup_m": 60.39141648962284,
+  "stop_77mph_abs_m": 67.34846883557972,
+  "stoppie_margin_vs_1g_pct": 13.614915663537719,
+  "launch": {
+   "a_peak_g": 0.6958218176843117,
+   "a_avg_0_60_g": 0.69219989935354,
+   "front_load_at_peak_N": 597.4255322476808,
+   "front_load_pct_of_static": 36.659655694325025,
+   "rear_mu_needed": 0.8765852154690416,
+   "wheelie_margin_pct": 57.87725989838124
+  }
+ },
+ "solo_luggage": {
+  "label": "bike + rider + 25 kg luggage",
+  "m": 362.9300000000003,
+  "cg_x_from_rear_axle_mm": 675.1357500344418,
+  "cg_h_mm": 681.4612211996802,
+  "stoppie_g": 1.19581036371813,
+  "front_only_tyre_g": 0.9152907256259434,
+  "rear_only_dry_g": 0.38794684461800794,
+  "rear_only_wet_mu05_g": 0.22255682772784469,
+  "wheelie_g": 0.9907177826581202,
+  "traction_limited_accel_dry_g": 1.1047688400040443,
+  "traction_limited_accel_wet_mu07_g": 0.5631021899203406,
+  "ideal_front_share": {
+   "0.3": {
+    "front_pct": 59.0304673094301,
+    "rear_load_N": 1458.6560121900166,
+    "rear_load_pct_of_static": 74.91241010261771
+   },
+   "0.5": {
+    "front_pct": 68.17738820918899,
+    "rear_load_N": 1132.9942267791507,
+    "rear_load_pct_of_static": 58.187350171029514
+   },
+   "0.8": {
+    "front_pct": 81.89776955882735,
+    "rear_load_N": 644.5015486628517,
+    "rear_load_pct_of_static": 33.09976027364721
+   },
+   "1.0": {
+    "front_pct": 91.04469045858623,
+    "rear_load_N": 318.83976325198637,
+    "rear_load_pct_of_static": 16.374700342059043
+   }
+  },
+  "abs_mean_decel_g": 0.9450000000000001,
+  "stop_60mph_1g_m": 39.35100359633027,
+  "stop_60mph_1g_no_buildup_m": 36.66876359633027,
+  "stop_60mph_abs_m": 41.485164440561135,
+  "stop_77mph_1g_m": 63.83362448962284,
+  "stop_77mph_1g_no_buildup_m": 60.39141648962284,
+  "stop_77mph_abs_m": 67.34846883557972,
+  "stoppie_margin_vs_1g_pct": 19.58103637181301,
+  "launch": {
+   "a_peak_g": 0.6493094670874345,
+   "a_avg_0_60_g": 0.6448560383128497,
+   "front_load_at_peak_N": 555.9182080143291,
+   "front_load_pct_of_static": 34.460703294804986,
+   "rear_mu_needed": 0.7929195479438493,
+   "wheelie_margin_pct": 52.580215271173984
+  }
+ },
+ "thermal": {
+  "bike + 90 kg rider: 125 to 0 mph at 0.6 g, 1 stop, front disc": {
+   "peak_C": 288.161762397312,
+   "first_stop_rise_K": 228.16176239731197,
+   "stops": 1,
+   "share": 0.7600793404730868
+  },
+  "bike + 90 kg rider: 125 to 0 mph at 0.6 g, 1 stop, rear disc 267x5": {
+   "peak_C": 236.24894680696895,
+   "first_stop_rise_K": 176.24894680696895,
+   "stops": 1,
+   "share": 0.23992065952691322
+  },
+  "bike + 90 kg rider: 125 to 0 mph at 0.9 g, 1 stop, front disc": {
+   "peak_C": 361.6594785213737,
+   "first_stop_rise_K": 301.6594785213737,
+   "stops": 1,
+   "share": 0.8943259339206325
+  },
+  "bike + 90 kg rider: 125 to 0 mph at 0.9 g, 1 stop, rear disc 267x5": {
+   "peak_C": 145.61448651901725,
+   "first_stop_rise_K": 85.61448651901725,
+   "stops": 1,
+   "share": 0.10567406607936747
+  },
+  "bike + 90 kg rider: 3 stops 125 to 0 mph at 0.6 g, 1 km apart, front disc": {
+   "peak_C": 444.10585302200684,
+   "first_stop_rise_K": 228.16176239731197,
+   "stops": 3,
+   "share": 0.7600793404730868
+  },
+  "bike + 90 kg rider: 3 stops 125 to 0 mph at 0.6 g, 1 km apart, rear disc 267x5": {
+   "peak_C": 354.54619116627686,
+   "first_stop_rise_K": 176.24894680696895,
+   "stops": 3,
+   "share": 0.23992065952691322
+  },
+  "bike + rider + 25 kg luggage: 125 to 0 mph at 0.6 g, 1 stop, front disc": {
+   "peak_C": 297.4119389925495,
+   "first_stop_rise_K": 237.4119389925495,
+   "stops": 1,
+   "share": 0.7275084865906843
+  },
+  "bike + rider + 25 kg luggage: 125 to 0 mph at 0.6 g, 1 stop, rear disc 267x5": {
+   "peak_C": 278.420883980637,
+   "first_stop_rise_K": 218.42088398063697,
+   "stops": 1,
+   "share": 0.27249151340931566
+  },
+  "bike + rider + 25 kg luggage: 125 to 0 mph at 0.9 g, 1 stop, front disc": {
+   "peak_C": 375.3331440361756,
+   "first_stop_rise_K": 315.3331440361756,
+   "stops": 1,
+   "share": 0.8647123000870678
+  },
+  "bike + rider + 25 kg luggage: 125 to 0 mph at 0.9 g, 1 stop, rear disc 267x5": {
+   "peak_C": 179.72009048394358,
+   "first_stop_rise_K": 119.72009048394358,
+   "stops": 1,
+   "share": 0.1352876999129322
+  },
+  "bike + rider + 25 kg luggage: 3 stops 125 to 0 mph at 0.6 g, 1 km apart, front disc": {
+   "peak_C": 459.5401185534791,
+   "first_stop_rise_K": 237.4119389925495,
+   "stops": 3,
+   "share": 0.7275084865906843
+  },
+  "bike + rider + 25 kg luggage: 3 stops 125 to 0 mph at 0.6 g, 1 km apart, rear disc 267x5": {
+   "peak_C": 425.89386624390676,
+   "first_stop_rise_K": 218.42088398063697,
+   "stops": 3,
+   "share": 0.27249151340931566
+  },
+  "R78 heat fade, rear only, 80 km/h, 10 stops, 267x5": {
+   "peak_C": 312.24529258792097,
+   "first_stop_rise_K": 151.7316133773933,
+   "stops": 10,
+   "share": 1.0
+  },
+  "R78 heat fade, rear only, 80 km/h, 10 stops, 267x6": {
+   "peak_C": 299.21343426646433,
+   "first_stop_rise_K": 129.17206248943958,
+   "stops": 10,
+   "share": 1.0
+  },
+  "R78 heat fade, front only, 100 km/h, 10 stops, 320x5": {
+   "peak_C": 210.47264705517094,
+   "first_stop_rise_K": 90.62369534510131,
+   "stops": 10,
+   "share": 1.0
+  },
+  "energy_check_solo_0.6g": {
+   "KE_MJ": 0.5448867595344108,
+   "drag_MJ": 0.09442352027888476,
+   "rolling_MJ": 0.013190144587400015,
+   "E_per_front_disc_kJ": 152.88663288490847,
+   "adiabatic_rise_K": 254.53200447182704,
+   "simulated_first_stop_rise_K": 228.16176239731197
+  }
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "fork": {
+  "k_leg": 7.25,
+  "air_gap": 200.0,
+  "preload": 33.90372791300538,
+  "sag_with_luggage": 50.15896086444407,
+  "x_brake_solo": 149.53324150506387,
+  "x_brake_luggage": 152.7311574050301,
+  "x_corner45": 80.86808827481426,
+  "ride_hz": 1.791750724322167,
+  "ok": true,
+  "rear_ride_hz_solo": 1.7372404762568563
+ },
+ "unsprung": {
+  "front": 14.3,
+  "rear": 18.0
+ },
+ "rear_wheel_rate_N_mm": 20.077732137265375
+}

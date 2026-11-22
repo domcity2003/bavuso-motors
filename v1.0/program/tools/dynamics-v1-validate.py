@@ -93,3 +93,43 @@ if __name__ == '__main__':
     print('bench @5 m/s:', np.round(np.sort_complex(bench_eig(5.0)), 4))
     OUT.mkdir(exist_ok=True)
     (OUT / 'validation-meijaard.json').write_text(json.dumps(res, indent=1))
+
+
+# ---------------------------------------------------------------------------------------------------------------------
+# Part 2 (rev D checks): the flexible coordinates reduce to the rigid model when stiff, and the rigid rev D model equals the
+# old dyn-model.py (same method, validated in the first study) on the same inputs.
+# ---------------------------------------------------------------------------------------------------------------------
+def part2():
+    sp2 = importlib.util.spec_from_file_location('stab', HERE / 'dynamics-v1-stability.py'); st = importlib.util.module_from_spec(sp2); sp2.loader.exec_module(st)
+    old_spec = importlib.util.spec_from_file_location('oldmodel', HERE.parents[1] / 'detailed-design' / 'tools' / 'dyn-model.py')
+    old = importlib.util.module_from_spec(old_spec); old_spec.loader.exec_module(old)
+    out = {}
+    pr = st.params('solo', frame=False, fork=False, rear=False)
+    m_new = dm.Model(pr); m_old = old.Model(dict(pr, k_twist=None))
+    worst = 0.0
+    for mph in (20, 40, 60, 80, 100, 130):
+        v = mph * 0.44704; fz = st.fz_at(pr, v * 3.6)
+        a = np.sort_complex(m_new.eig(v, fz)[0]); b = np.sort_complex(m_old.eig(v, fz)[0])
+        worst = max(worst, float(np.max(np.abs(a - b))))
+    out['rigid_new_vs_old_max_eig_diff'] = worst
+    print(f'rigid rev D model vs the old validated dyn-model.py: max eigenvalue difference {worst:.2e} 1/s')
+    pf = st.params('solo', k_frame=1e10, k_fork=1e10)
+    pf['rear_flex'] = dict(st.REAR_FLEX, EI=st.EI_SA * 1e6, k_ep=st.K_SA_TORS * 1e6)
+    m_flex = dm.Model(pf)
+    worst = 0.0; rows = []
+    for mph in (20, 40, 60, 80, 100, 130):
+        v = mph * 0.44704; fz = st.fz_at(pr, v * 3.6)
+        a = m_flex.eig(v, fz)[0]; b = m_new.eig(v, fz)[0]
+        # compare the slow rigid-body roots (|lambda| < 60): every rigid root must appear in the stiff-flex model
+        sa = [z for z in a if abs(z) < 60]; sb = [z for z in b if abs(z) < 60]
+        err = max(min(abs(x - y) for y in sa) for x in sb)
+        worst = max(worst, float(err)); rows.append((mph, float(err)))
+    out['stiff_flex_vs_rigid_max_slow_eig_diff'] = worst
+    print(f'stiff-flex model (frame 1e10, fork 1e10, swingarm x1e6) vs rigid, slow roots: max difference {worst:.2e} 1/s', rows)
+    # steady-sidewind hand check: roll angle of a rigid, tyre-less balance: phi = F z_cp / (m g h_cg) at small angles (lateral force at ground)
+    out['sidewind_hand_check'] = 'see gust-results.json: roll_deg versus F z_cp / (m g h_cg)'
+    (OUT / 'validation-rev-d.json').write_text(json.dumps(out, indent=1))
+
+
+if __name__ == '__main__':
+    part2()

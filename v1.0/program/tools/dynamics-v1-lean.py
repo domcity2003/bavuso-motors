@@ -5,7 +5,7 @@ on the leaning side touches the road when
     |y| sin(phi) = (z - drop(x) - rho(x)) cos(phi) + rho(x)
 rho = tyre crown radius (front 65 mm, rear 90 mm: ESTIMATES for 110/80R19 and 150/70R17, swept 45-85), drop(x) = extra suspension +
 tyre compression at the steady-turn load factor n = 1/cos(phi): front fork (coil + air spring) and rear shock (wheel rate), linear in x
-between the axles for sprung parts, tyre part only for unsprung parts. Ride height with the rider on (and with luggage) is the CAD
+between the axles for sprung parts, tyre part only for unsprung parts; swingarm parts go from the tyre part at the axle to the frame drop at the pivot (X540). Ride height with the rider on (and with luggage) is the CAD
 position (the rear preload adjuster keeps it). Points: tessellation vertices of every CAD solid (dynamics-v1-extract.py).
 The fork spring is re-fitted to the rev D loads with the sweep of dyn-suspension.py (30% sag, preload <= 35 mm, >= 15 mm left in a
 0.94 g stop, >= 40 mm left at 45 deg lean).
@@ -126,7 +126,9 @@ def touch_angle(pts, side, case, loaded, rho_f=RHO_F, rho_r=RHO_R):
         phi = math.radians(deg)
         df, dr, tf, tr, dr_s = drops(phi, case) if loaded else (0.0, 0.0, 0.0, 0.0, 0.0)
         sprung = dr + (df - dr) * np.clip(x / (WB * 1000), 0, 1)
-        sa = tr + dr_s * np.clip((540 - x) / 540, 0, 1)
+        # swingarm parts: tyre compression only at the axle (x = 0), the frame's own drop at the pivot (x = 540), linear between
+        s540 = dr + (df - dr) * 540.0 / (WB * 1000)
+        sa = tr + (s540 - tr) * np.clip(x / 540.0, 0, 1)
         d = np.where(kind == 0, sprung, np.where(kind == 1, tf, sa))
         gg = y * math.sin(phi) - ((z - d - rho) * math.cos(phi) + rho)
         if np.any(gg >= 0):
@@ -139,7 +141,7 @@ def group_of(name):
 
 
 if __name__ == '__main__':
-    res = dict(fork=FR, unsprung_kg=dict(front=UNSPRUNG_F, rear=UNSPRUNG_R), crown_mm=dict(front=RHO_F, rear=RHO_R))
+    res = dict(note='+Y is the swingarm (right) side, -Y the belt (left) side, as in mass-rollup.csv', fork=FR, unsprung_kg=dict(front=UNSPRUNG_F, rear=UNSPRUNG_R), crown_mm=dict(front=RHO_F, rear=RHO_R))
     print('fork fit', FR)
     allpts = []; owner = []
     for name, rec in CAD.items():
@@ -165,7 +167,7 @@ if __name__ == '__main__':
         for loaded in (False, True):
             key = f"{case}_{'turn' if loaded else 'static'}"
             res[key] = {}
-            for side, sname in ((1, 'left'), (-1, 'right')):
+            for side, sname in ((1, 'plus_Y_swingarm_side'), (-1, 'minus_Y_belt_side')):
                 per = per_part(case, loaded, side)
                 res[key][sname] = per[:10]
                 hard = [p for p in per if p[2] == 'hard']; soft = [p for p in per if p[2] == 'soft']
@@ -173,16 +175,24 @@ if __name__ == '__main__':
                 res[key][sname + '_first_soft'] = soft[0] if soft else None
                 for p in per[:12]:
                     rows_csv.append([case, 'loaded steady turn' if loaded else 'upright geometry', sname, p[0], p[1], p[2], p[3][0], p[3][1], p[3][2]])
-            print(key, 'L first hard', res[key]['left_first_hard'], 'soft', res[key]['left_first_soft'], '\n         R first hard', res[key]['right_first_hard'], 'soft', res[key]['right_first_soft'])
+            print(key, '+Y first hard', res[key]['plus_Y_swingarm_side_first_hard'], 'soft', res[key]['plus_Y_swingarm_side_first_soft'], '| -Y first hard', res[key]['minus_Y_belt_side_first_hard'], 'soft', res[key]['minus_Y_belt_side_first_soft'])
     # crown-radius sensitivity of the first hard part, loaded solo, both sides
     res['crown_sensitivity'] = {}
     for rf, rr in ((45.0, 60.0), (65.0, 90.0), (85.0, 110.0)):
         out = {}
-        for side, sname in ((1, 'left'), (-1, 'right')):
+        for side, sname in ((1, 'plus_Y_swingarm_side'), (-1, 'minus_Y_belt_side')):
             per = per_part('solo', True, side, rho_f=rf, rho_r=rr)
             hard = [p for p in per if p[2] == 'hard']; out[sname] = hard[0][:2] if hard else None
         res['crown_sensitivity'][f'{rf:.0f}/{rr:.0f}'] = out
     print('crown sensitivity', res['crown_sensitivity'])
+    # belt-side pulley: how far inboard must its outer face be to clear? (synthetic point at the flange bottom, x = 0)
+    res['pulley_sweep'] = {}
+    for zlow, lab in ((159.0, 'flange bottom z159'), (165.0, 'no outer flange, tooth OD z165')):
+        for yout in (181.0, 170.0, 160.0, 150.0, 140.0, 130.0):
+            pt = np.array([[0.0, -yout, zlow, 2]])
+            res['pulley_sweep'][f'{lab}, outer face |Y| {yout:.0f}'] = {c: round(float(touch_angle(pt, -1, c, True)[0]), 2) for c in ('solo', 'solo_luggage')}
+    for k_, v_ in res['pulley_sweep'].items():
+        print(k_, v_)
     res['grip_lean_deg'] = {f'mu {mu}': math.degrees(math.atan(mu)) for mu in (0.8, 1.05, 1.2)}
     df, dr, tf, tr, drs = drops(math.radians(45))
     res['drop_at_45deg_mm_solo'] = dict(front_vertical=df, rear_vertical=dr, front_tyre=tf, rear_tyre=tr)

@@ -1,0 +1,5 @@
+{
+ "rigid_new_vs_old_max_eig_diff": 0.0,
+ "stiff_flex_vs_rigid_max_slow_eig_diff": 0.0007759370805234247,
+ "sidewind_hand_check": "see gust-results.json: roll_deg versus F z_cp / (m g h_cg)"
+}

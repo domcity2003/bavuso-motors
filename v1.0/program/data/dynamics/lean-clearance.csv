@@ -1,0 +1,97 @@
+load,condition,side,touch_deg,part,class,x_mm,y_mm,z_mm
+solo,upright geometry,plus_Y_swingarm_side,49.2,Peg_rubber_1,soft,445,311,316
+solo,upright geometry,plus_Y_swingarm_side,53.1,Side_stand_retracted,soft,331,249,275
+solo,upright geometry,plus_Y_swingarm_side,57.7,Pivot_slider_1,soft,535,284,379
+solo,upright geometry,plus_Y_swingarm_side,58.55,Peg_bracket_1,soft,431,236,309
+solo,upright geometry,plus_Y_swingarm_side,58.65,Peg_reference_1,soft,415,237,312
+solo,upright geometry,plus_Y_swingarm_side,59.9,Crash_guard_slider_rear_1,soft,655,292,424
+solo,upright geometry,plus_Y_swingarm_side,60.25,Lower_body_battery_covers_STUDY,hard,659,197,263
+solo,upright geometry,plus_Y_swingarm_side,60.35,Motor_side_covers_STUDY,hard,577,197,263
+solo,upright geometry,plus_Y_swingarm_side,62.7,Crash_guard_mount_rear_1,hard,655,272,434
+solo,upright geometry,plus_Y_swingarm_side,63.5,Pivot_cover_cap_1,hard,535,228,357
+solo,upright geometry,plus_Y_swingarm_side,65.15,Pack_case_structural_4mm_STUDY,hard,1101,166,259
+solo,upright geometry,plus_Y_swingarm_side,66.85,Crash_guard_slider_front_1,soft,1096,292,571
+solo,upright geometry,minus_Y_belt_side,48.6,Rear_pulley_PITCH_STUDY,hard,0,-181,159
+solo,upright geometry,minus_Y_belt_side,49.2,Peg_rubber_m1,soft,445,-311,316
+solo,upright geometry,minus_Y_belt_side,51.4,Drive_belt_14mm_STUDY,hard,0,-172,161
+solo,upright geometry,minus_Y_belt_side,57.7,Pivot_slider_m1,soft,539,-284,378
+solo,upright geometry,minus_Y_belt_side,58.55,Peg_bracket_m1,soft,431,-236,309
+solo,upright geometry,minus_Y_belt_side,58.55,Peg_reference_m1,soft,419,-237,311
+solo,upright geometry,minus_Y_belt_side,59.9,Crash_guard_slider_rear_m1,soft,657,-292,424
+solo,upright geometry,minus_Y_belt_side,60.25,Lower_body_battery_covers_STUDY,hard,659,-196,262
+solo,upright geometry,minus_Y_belt_side,60.35,Motor_side_covers_STUDY,hard,577,-196,263
+solo,upright geometry,minus_Y_belt_side,62.7,Crash_guard_mount_rear_m1,hard,657,-272,433
+solo,upright geometry,minus_Y_belt_side,63.5,Pivot_cover_cap_m1,hard,538,-228,357
+solo,upright geometry,minus_Y_belt_side,65.15,Pack_case_structural_4mm_STUDY,hard,1101,-166,259
+solo,loaded steady turn,plus_Y_swingarm_side,45.55,Peg_rubber_1,soft,445,311,316
+solo,loaded steady turn,plus_Y_swingarm_side,48.05,Side_stand_retracted,soft,331,249,275
+solo,loaded steady turn,plus_Y_swingarm_side,52.85,Peg_bracket_1,soft,431,236,309
+solo,loaded steady turn,plus_Y_swingarm_side,53.0,Peg_reference_1,soft,415,237,312
+solo,loaded steady turn,plus_Y_swingarm_side,53.25,Pivot_slider_1,soft,535,284,379
+solo,loaded steady turn,plus_Y_swingarm_side,53.35,Lower_body_battery_covers_STUDY,hard,659,196,262
+solo,loaded steady turn,plus_Y_swingarm_side,53.35,Motor_side_covers_STUDY,hard,578,196,262
+solo,loaded steady turn,plus_Y_swingarm_side,55.55,Crash_guard_slider_rear_1,soft,655,292,424
+solo,loaded steady turn,plus_Y_swingarm_side,57.25,Pack_case_structural_4mm_STUDY,hard,1101,166,259
+solo,loaded steady turn,plus_Y_swingarm_side,57.6,Pivot_cover_cap_1,hard,535,228,357
+solo,loaded steady turn,plus_Y_swingarm_side,58.0,Crash_guard_mount_rear_1,hard,655,272,434
+solo,loaded steady turn,plus_Y_swingarm_side,58.6,Cell_lane_4,hard,1045,155,255
+solo,loaded steady turn,minus_Y_belt_side,45.55,Peg_rubber_m1,soft,445,-311,316
+solo,loaded steady turn,minus_Y_belt_side,47.65,Rear_pulley_PITCH_STUDY,hard,8,-181,159
+solo,loaded steady turn,minus_Y_belt_side,50.25,Drive_belt_14mm_STUDY,hard,14,-172,162
+solo,loaded steady turn,minus_Y_belt_side,52.85,Peg_bracket_m1,soft,431,-236,309
+solo,loaded steady turn,minus_Y_belt_side,52.9,Peg_reference_m1,soft,419,-237,311
+solo,loaded steady turn,minus_Y_belt_side,53.2,Pivot_slider_m1,soft,539,-284,378
+solo,loaded steady turn,minus_Y_belt_side,53.35,Lower_body_battery_covers_STUDY,hard,659,-196,262
+solo,loaded steady turn,minus_Y_belt_side,53.35,Motor_side_covers_STUDY,hard,577,-196,263
+solo,loaded steady turn,minus_Y_belt_side,55.55,Crash_guard_slider_rear_m1,soft,657,-292,424
+solo,loaded steady turn,minus_Y_belt_side,57.25,Pack_case_structural_4mm_STUDY,hard,1101,-166,259
+solo,loaded steady turn,minus_Y_belt_side,57.6,Pivot_cover_cap_m1,hard,538,-228,357
+solo,loaded steady turn,minus_Y_belt_side,58.0,Crash_guard_mount_rear_m1,hard,657,-272,433
+solo_luggage,upright geometry,plus_Y_swingarm_side,49.2,Peg_rubber_1,soft,445,311,316
+solo_luggage,upright geometry,plus_Y_swingarm_side,53.1,Side_stand_retracted,soft,331,249,275
+solo_luggage,upright geometry,plus_Y_swingarm_side,57.7,Pivot_slider_1,soft,535,284,379
+solo_luggage,upright geometry,plus_Y_swingarm_side,58.55,Peg_bracket_1,soft,431,236,309
+solo_luggage,upright geometry,plus_Y_swingarm_side,58.65,Peg_reference_1,soft,415,237,312
+solo_luggage,upright geometry,plus_Y_swingarm_side,59.9,Crash_guard_slider_rear_1,soft,655,292,424
+solo_luggage,upright geometry,plus_Y_swingarm_side,60.25,Lower_body_battery_covers_STUDY,hard,659,197,263
+solo_luggage,upright geometry,plus_Y_swingarm_side,60.35,Motor_side_covers_STUDY,hard,577,197,263
+solo_luggage,upright geometry,plus_Y_swingarm_side,62.7,Crash_guard_mount_rear_1,hard,655,272,434
+solo_luggage,upright geometry,plus_Y_swingarm_side,63.5,Pivot_cover_cap_1,hard,535,228,357
+solo_luggage,upright geometry,plus_Y_swingarm_side,65.15,Pack_case_structural_4mm_STUDY,hard,1101,166,259
+solo_luggage,upright geometry,plus_Y_swingarm_side,66.85,Crash_guard_slider_front_1,soft,1096,292,571
+solo_luggage,upright geometry,minus_Y_belt_side,48.6,Rear_pulley_PITCH_STUDY,hard,0,-181,159
+solo_luggage,upright geometry,minus_Y_belt_side,49.2,Peg_rubber_m1,soft,445,-311,316
+solo_luggage,upright geometry,minus_Y_belt_side,51.4,Drive_belt_14mm_STUDY,hard,0,-172,161
+solo_luggage,upright geometry,minus_Y_belt_side,57.7,Pivot_slider_m1,soft,539,-284,378
+solo_luggage,upright geometry,minus_Y_belt_side,58.55,Peg_bracket_m1,soft,431,-236,309
+solo_luggage,upright geometry,minus_Y_belt_side,58.55,Peg_reference_m1,soft,419,-237,311
+solo_luggage,upright geometry,minus_Y_belt_side,59.9,Crash_guard_slider_rear_m1,soft,657,-292,424
+solo_luggage,upright geometry,minus_Y_belt_side,60.25,Lower_body_battery_covers_STUDY,hard,659,-196,262
+solo_luggage,upright geometry,minus_Y_belt_side,60.35,Motor_side_covers_STUDY,hard,577,-196,263
+solo_luggage,upright geometry,minus_Y_belt_side,62.7,Crash_guard_mount_rear_m1,hard,657,-272,433
+solo_luggage,upright geometry,minus_Y_belt_side,63.5,Pivot_cover_cap_m1,hard,538,-228,357
+solo_luggage,upright geometry,minus_Y_belt_side,65.15,Pack_case_structural_4mm_STUDY,hard,1101,-166,259
+solo_luggage,loaded steady turn,plus_Y_swingarm_side,45.15,Peg_rubber_1,soft,395,310,315
+solo_luggage,loaded steady turn,plus_Y_swingarm_side,47.5,Side_stand_retracted,soft,331,249,275
+solo_luggage,loaded steady turn,plus_Y_swingarm_side,52.25,Peg_bracket_1,soft,431,236,309
+solo_luggage,loaded steady turn,plus_Y_swingarm_side,52.4,Peg_reference_1,soft,415,237,312
+solo_luggage,loaded steady turn,plus_Y_swingarm_side,52.75,Motor_side_covers_STUDY,hard,478,196,262
+solo_luggage,loaded steady turn,plus_Y_swingarm_side,52.8,Lower_body_battery_covers_STUDY,hard,595,196,262
+solo_luggage,loaded steady turn,plus_Y_swingarm_side,52.8,Pivot_slider_1,soft,535,284,379
+solo_luggage,loaded steady turn,plus_Y_swingarm_side,55.2,Crash_guard_slider_rear_1,soft,655,292,424
+solo_luggage,loaded steady turn,plus_Y_swingarm_side,56.9,Pack_case_structural_4mm_STUDY,hard,676,166,259
+solo_luggage,loaded steady turn,plus_Y_swingarm_side,57.05,Pivot_cover_cap_1,hard,535,228,357
+solo_luggage,loaded steady turn,plus_Y_swingarm_side,57.6,Crash_guard_mount_rear_1,hard,655,272,434
+solo_luggage,loaded steady turn,plus_Y_swingarm_side,58.15,Cell_lane_4,hard,715,155,255
+solo_luggage,loaded steady turn,minus_Y_belt_side,45.15,Peg_rubber_m1,soft,395,-310,315
+solo_luggage,loaded steady turn,minus_Y_belt_side,47.5,Rear_pulley_PITCH_STUDY,hard,16,-181,160
+solo_luggage,loaded steady turn,minus_Y_belt_side,50.1,Drive_belt_14mm_STUDY,hard,14,-172,162
+solo_luggage,loaded steady turn,minus_Y_belt_side,52.25,Peg_bracket_m1,soft,431,-236,309
+solo_luggage,loaded steady turn,minus_Y_belt_side,52.3,Peg_reference_m1,soft,419,-237,311
+solo_luggage,loaded steady turn,minus_Y_belt_side,52.75,Motor_side_covers_STUDY,hard,478,-196,263
+solo_luggage,loaded steady turn,minus_Y_belt_side,52.75,Pivot_slider_m1,soft,539,-284,378
+solo_luggage,loaded steady turn,minus_Y_belt_side,52.8,Lower_body_battery_covers_STUDY,hard,595,-196,262
+solo_luggage,loaded steady turn,minus_Y_belt_side,55.2,Crash_guard_slider_rear_m1,soft,657,-292,424
+solo_luggage,loaded steady turn,minus_Y_belt_side,56.9,Pack_case_structural_4mm_STUDY,hard,676,-166,259
+solo_luggage,loaded steady turn,minus_Y_belt_side,57.0,Pivot_cover_cap_m1,hard,538,-228,357
+solo_luggage,loaded steady turn,minus_Y_belt_side,57.6,Crash_guard_mount_rear_m1,hard,657,-272,433

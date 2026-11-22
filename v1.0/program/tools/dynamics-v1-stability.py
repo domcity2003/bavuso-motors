@@ -148,7 +148,10 @@ def track(md, p):
             ks = ks if direction > 0 else ks[::-1]
             for k in ks:
                 pred = prev if prevprev is None else 2 * prev - prevprev
-                best = min((c['l'] for c in allm[k]), key=lambda z: abs(z - pred) / (1 + 0.05 * abs(pred)))
+                pool = [c['l'] for c in allm[k]]
+                if abs(prev.imag) > 1.0:      # an oscillatory mode stays oscillatory (keep the tracker off the real roots)
+                    pool = [z for z in pool if abs(z.imag) > 0.5] or pool
+                best = min(pool, key=lambda z: abs(z - pred) / (1 + 0.05 * abs(pred)))
                 prevprev, prev = prev, best
                 res[float(k)][mode] = best
     for m in SPEEDS_MPH:
