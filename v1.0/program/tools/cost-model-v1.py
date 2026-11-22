@@ -1,168 +1,227 @@
-"""Bavuso V1 unit-cost model (current architecture): 100 / 1,000 / 10,000 bikes per year.
+"""Bavuso V1 unit-cost model, keyed to the final BOM (program/data/bom-v1-indented.csv), at 100 / 1,000 / 10,000 bikes per year.
 
 Run from v1.0:  ../.tools/FreeCAD_1.1.4-Windows-x86_64-py311/bin/python.exe program/tools/cost-model-v1.py
 Writes program/data/cost-model-v1.csv and program/data/cost-model-v1.json
 
-Labels: quote = published list/retail price; est = my estimate (no supplier contacted); calc = computed here.
-Every price in USD per bike (per piece x qty). "p10k" is the piece price at 10,000 bikes/yr; other volumes use a
-curve multiplier. Tooling is listed separately and amortised over 5 years of volume.
+Every level-3 BOM part number must be priced exactly once (the script stops otherwise), and the mass of each cost line
+is taken from the BOM, so cost and BOM reconcile. Labels: est = my estimate (no supplier contacted); calc = computed here.
+Price = piece price at 10k bikes/yr times a curve multiplier for 100 and 1k. Tooling is separate and amortised.
 """
 import csv, json, os, copy
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(HERE, "..", "data")
+BOM_CSV = os.path.join(DATA, "bom-v1-indented.csv")
 VOLS = [100, 1000, 10000]
 AMORT_YEARS = 5
 
-# volume curves: multiplier on the 10k piece price at (100, 1k, 10k)
-CURVE = {
-    "oe":      (1.55, 1.20, 1.0),   # OE-class purchased parts (suspension, brakes, wheels)
-    "oe_prem": (1.70, 1.30, 1.0),
-    "elec":    (2.00, 1.35, 1.0),   # custom / low-volume electronics
-    "gen":     (1.30, 1.10, 1.0),   # commodity purchased
-    "mach":    (1.90, 1.30, 1.0),   # machined / fabricated made parts
-    "body":    (3.20, 1.50, 1.0),   # low-volume composite/vacuum-form -> injection moulded
-    "flat":    (1.0, 1.0, 1.0),
+CURVE = {                       # multiplier on the 10k piece price at (100, 1k, 10k)
+    "oe": (1.55, 1.20, 1.0), "oe_prem": (1.70, 1.30, 1.0), "elec": (2.00, 1.35, 1.0), "gen": (1.30, 1.10, 1.0),
+    "mach": (1.90, 1.30, 1.0), "body": (3.20, 1.50, 1.0), "carbon": (2.10, 1.45, 1.0), "flat": (1.0, 1.0, 1.0),
 }
 TOOL_SCALE = {"mach": (0.30, 0.60, 1.0), "body": (0.25, 0.60, 1.0), "none": (0, 0, 0)}
 
-# ---------------------------------------------------------------- inputs that sensitivities change
 BASE = dict(
-    cell_usd=(6.00, 4.80, 3.80),          # per P60B cell at 100 / 1k / 10k bikes (est; see report)
-    motor_usd=(6800.0, 5520.0, 4800.0),   # EMRAX 228 LV winding, low-volume supplier
+    cell_usd=(6.00, 4.80, 3.80),          # per P60B cell
+    motor_usd=(6800.0, 5520.0, 4800.0),   # EMRAX 228 LV, low-volume supplier
     inv_usd=(5500.0, 4000.0, 3200.0),     # Cascadia CM200DX, low-volume supplier
-    labour_rate=45.0,                      # USD/h loaded direct labour
-    overhead_on_labour=0.60,               # plant overhead (energy, supervision, space) as share of labour
+    wheel_usd=(4410.0, 3045.0, 2100.0),   # carbon wheel set, OEM price estimate
+    labour_rate=45.0,
+    overhead_on_labour=0.60,
 )
-BAT_HOURS = (18.0, 7.0, 2.4)             # pack assembly h/pack
-BIKE_HOURS = (38.0, 16.0, 7.5)           # bike assembly h/bike
+BAT_HOURS = (18.0, 7.0, 2.4)
+BIKE_HOURS = (38.0, 16.0, 7.5)
 EOL_HOURS = (2.0, 1.0, 0.5)
-EOL_ENERGY = 1.0                         # USD of electricity per EOL (about 5 kWh in/out)
-CELL_QC = (120.0, 70.0, 40.0)            # incoming cell screening + pack end-of-line test, USD/pack
-WARRANTY = (0.040, 0.032, 0.028)         # share of material cost
-LOGISTICS = (0.040, 0.030, 0.025)        # inbound freight, duty, handling, share of purchased parts
-SCRAP_MADE = (0.04, 0.03, 0.02)          # share of made-part cost
-SCRAP_CELL = (0.015, 0.010, 0.007)       # cell/pack yield loss, share of cell cost
+EOL_ENERGY = 1.0
+CELL_QC = (120.0, 70.0, 40.0)
+WARRANTY = (0.040, 0.032, 0.028)
+LOGISTICS = (0.040, 0.030, 0.025)
+SCRAP_MADE = (0.04, 0.03, 0.02)
+SCRAP_CELL = (0.015, 0.010, 0.007)
+EXTRA_TOOLING = {"Pack assembly line (wire bonder, fixtures, leak/HV test)": (250e3, 900e3, 3.0e6),
+                 "Vehicle assembly line, jigs and fixtures": (150e3, 800e3, 3.5e6),
+                 "End-of-line rig (dyno, brake, charge, HV safety)": (150e3, 500e3, 1.4e6)}
 
 
-def mk(group, item, qty, kg, p10k, curve, basis, src="", tool=0.0, tscale="none", mb="buy", notes=""):
-    return dict(group=group, item=item, qty=qty, kg=kg, p10k=p10k, curve=curve, basis=basis, src=src,
+def load_bom():
+    leaves = {}
+    for r in csv.DictReader(open(BOM_CSV, encoding="utf-8-sig")):
+        if r["level"] != "3":
+            continue
+        pn = r["part_number"]
+        m = float(r["mass_ext_kg"] or 0)
+        if pn in leaves and leaves[pn]["kg"] >= m:   # BV-ENG-0102 appears twice; the 0 kg provisional row is skipped
+            continue
+        leaves[pn] = dict(pn=pn, desc=r["description"], kg=m, mp=r["material_process"], mb=r["make_buy"])
+    total = sum(float(r["mass_ext_kg"] or 0) for r in csv.DictReader(open(BOM_CSV, encoding="utf-8-sig")) if r["level"] == "0")
+    return leaves, total
+
+
+def mk(pns, item, p10k, curve, basis, src="", tool=0.0, tscale="none", mb="buy", notes="", qty=1, kg=None):
+    return dict(pns=pns, item=item, qty=qty, kg=kg, p10k=p10k, curve=curve, basis=basis, src=src,
                 tool=tool, tscale=tscale, mb=mb, notes=notes)
 
 
 def metal_part(mass, usd_kg, bty, proc10k):
-    """made part at 10k: material (with buy-to-fly) + process"""
     return mass * usd_kg * bty + proc10k
 
 
-def build_bom(p):
+def N(prefix, nums):
+    return [f"BV-{prefix}-{n:04d}" for n in nums]
+
+
+def build_bom():
+    leaves, total_mass = load_bom()
     L = []
+    A = L.append
     # ---------------- PACK
-    L.append(mk("Pack", "Molicel INR-21700-P60B cells (1,100)", 1100, 0.075, 1.0, "cells", "est",
-                "https://www.molicel.com/wp-content/uploads/Product-Data-Sheet-of-INR-21700-P60B_80145.pdf; "
-                "B2B listings 3.35-8.00 USD/cell (hardware-shortlist.csv); P50B retail 7.50 at 1000 (batteryjunction/18650batterystore)",
-                notes="piece price comes from cell_usd curve"))
-    # pack case: 3 mm 5052/6061 sheet, 5 mm front wall, 8.3 kg
-    case10k = metal_part(8.3, 4.6, 1.55, 165.0)   # laser cut, press-brake, TIG/FSW weld, leak test
-    L.append(mk("Pack", "Pack case, 3 mm Al with 5 mm front wall, welded", 1, 8.3, case10k, "mach", "est",
-                "program/09-structures.md (case mass 7.7-8.3 kg); sheet 4.6 USD/kg x 1.55 buy-to-fly + 165 USD process at 10k",
-                tool=350000, tscale="mach", mb="make", notes="weld fixtures + brake dies, 10k tool set"))
-    L.append(mk("Pack", "Busbars, series links, wire bonds, fuse collectors", 1, 11.8, 480.0, "elec", "est",
-                "elec-bom.csv 300 USD at 10k + 2,200 wire bonds + collector plates; ledger 11.8 kg incl. internals", mb="make"))
-    L.append(mk("Pack", "Cooling ribbons, manifolds, gap filler, fire barrier", 1, 6.2, 330.0, "elec", "est",
-                "ledger BV-ENG-0007 6.19 kg; extruded Al ribbons + polymer manifolds, my estimate"))
-    L.append(mk("Pack", "BMS sense harness, fuses, thermistors", 1, 0.97, 130.0, "elec", "est", "elec-bom.csv 100 USD at 10k x 1.3"))
-    L.append(mk("Pack", "Manual service disconnect + 400 A fuse", 1, 0.4, 70.0, "gen", "est", "elec-bom.csv 60 USD at 10k"))
-    L.append(mk("Pack", "BMS, Orion BMS2 (108 groups) + thermistor module", 1, 1.62, 520.0, "elec", "est",
-                "https://www.orionbms.com/downloads/documents/orionbms2_specifications.pdf; retail 700+250, 10k est 450+120 less 0 (kept)"))
+    A(mk(N("ENG", [2, 3, 4, 5]), "Molicel INR-21700-P60B cells, 100s11p (1,100)", 1.0, "cells", "est",
+         "https://www.molicel.com/wp-content/uploads/Product-Data-Sheet-of-INR-21700-P60B_80145.pdf; B2B listings 3.35-8.00 USD/cell; P50B retail 7.50 at 1000",
+         qty=1100, notes="piece price from cell_usd curve"))
+    A(mk(N("ENG", [1, 101, 8, 9, 10, 11]), "Pack case: 3 mm Al tub, 5 mm front wall, lid, pads", metal_part(7.9, 4.6, 1.55, 165.0), "mach", "est",
+         "09-structures.md; sheet 4.6 USD/kg x 1.55 buy-to-fly + 165 USD cut/form/weld/leak test", tool=350000, tscale="mach", mb="make"))
+    A(mk(N("ENG", [6]), "Pack internals electrical: busbars, bonds, fuse collectors, tap harness, MSD", 680.0, "elec", "est",
+         "elec-bom.csv busbar 300 + sense harness 100 + MSD 60 at 10k, scaled up for 2,200 wire bonds"))
+    A(mk(N("ENG", [7]), "Pack internals thermal: ribbons, manifolds, gap filler, fire barrier (7.25 kg)", 386.0, "elec", "est", "prior 330 USD at 6.2 kg, scaled by mass"))
+    A(mk(N("ENG", [102]), "Cell holders, PA66-GF30 plates, 4 modules (3.1 kg)", 42.0, "body", "est",
+         "3.1 kg x 4.5 USD/kg + moulding; 19 mm apertures x 1,100", tool=120000, tscale="body", mb="make", notes="2 large multi-cavity tools"))
+    A(mk(N("ELC", [18]), "BMS Orion BMS2 + thermistor module", 570.0, "elec", "est", "https://www.orionbms.com/downloads/documents/orionbms2_specifications.pdf; retail 700+250"))
     # ---------------- DRIVE
-    L.append(mk("Drive", "EMRAX 228 axial-flux motor, LV+43% winding, liquid cooled", 1, 13.2, 1.0, "motor", "est",
-                "No list price published. Shortlist estimate 7,500 USD; EMRAX is a low-volume supplier",
-                notes="piece price comes from motor_usd curve"))
-    L.append(mk("Drive", "Cascadia CM200DX inverter (300/740 Arms)", 1, 6.75, 1.0, "inv", "est",
-                "https://www.fuel2electric.com/cascadia-motion-cm200-inverter (plain CM200 listed 7,202 USD retail, 1 unit); shortlist 2,500 USD is an old estimate",
-                notes="piece price comes from inv_usd curve"))
-    L.append(mk("Drive", "Rear pulley 80T, CNC Al (hard anodised)", 1, 2.1, metal_part(2.1, 7.0, 1.8, 38.0), "mach", "est",
-                "drive-design: 80T x 8 mm Gates; 6082 bar + 15 min CNC", tool=15000, tscale="mach", mb="make"))
-    L.append(mk("Drive", "Motor pulley 21T (one; the ledger lists it twice)", 1, 0.5, metal_part(0.5, 7.0, 2.0, 14.0), "mach", "est",
-                "drive-design", mb="make"))
-    L.append(mk("Drive", "Gates carbon belt, 8 mm pitch", 1, 0.5, 110.0, "oe", "est", "gates.com Carbon Drive class; OEM price estimate"))
-    L.append(mk("Drive", "Motor-arm yoke / pivot housing interface, machined Al", 1, 1.2, 105.0, "mach", "est",
-                "09-structures.md: motor housing and pivot stubs form a load-bearing yoke", tool=40000, tscale="mach", mb="make"))
-    L.append(mk("Drive", "Belt tensioner, guard, motor mounts, fasteners", 1, 0.8, 60.0, "gen", "est", ""))
+    A(mk(N("DRV", [1]), "EMRAX 228 axial-flux motor, LV+43% winding, liquid cooled", 1.0, "motor", "est",
+         "No published price; shortlist estimate 7,500 USD; low-volume supplier", notes="piece price from motor_usd curve"))
+    A(mk(N("DRV", [2]), "Cascadia CM200DX inverter", 1.0, "inv", "est",
+         "https://www.fuel2electric.com/cascadia-motion-cm200-inverter (CM200 retail 7,202 USD, one unit)", notes="piece price from inv_usd curve"))
+    A(mk(N("DRV", [6]), "Rear pulley 126T 8M, lightened, anodised (2.3 kg)", metal_part(2.3, 7.0, 1.9, 40.0), "mach", "est", "6082 bar + CNC", tool=15000, tscale="mach", mb="make"))
+    A(mk(N("DRV", [4]), "Motor pulley 35T 8M", metal_part(0.5, 7.0, 2.0, 14.0), "mach", "est", "", mb="make"))
+    A(mk(N("DRV", [3]), "Gates Poly Chain GT Carbon 8MGT-1760 belt", 110.0, "oe", "est", "gates.com; OEM price estimate"))
+    A(mk(N("DRV", [7]), "Motor pulley bearing carrier, machined Al", 35.0, "mach", "est", "", tool=12000, tscale="mach", mb="make"))
     # ---------------- CHASSIS
-    frame10k = metal_part(22.0, 9.0, 1.15, 5.5 * 55.0 + 105.0)   # 4130 tube + 5.5 h robot-assisted weld + coat/stress relief
-    L.append(mk("Chassis", "Steel tube frame (25CrMo4/4130), TIG welded, coated, 25 kg incl. pads", 1, 25.0, frame10k, "frame", "est",
-                "09-structures.md modelled 23.4 kg + 1.5; tube 9 USD/kg x 1.15 + 5.5 h weld at 10k (14 h at 100/yr) + coat/heat treat",
-                tool=1000000, tscale="mach", mb="make", notes="frame labour hours curve in script"))
-    L.append(mk("Chassis", "Cast A356-T6 single-sided swingarm, machined", 1, 3.4, 92.0, "arm", "est",
-                "09-structures.md: cast A356 box arm; 10k = LP die cast + T6 + 20 min CNC + X-ray sampling; 100/yr = sand cast + full machining",
-                tool=210000, tscale="mach", mb="make"))
-    L.append(mk("Chassis", "Cast headstock + head tube/gusset", 1, 1.9, 48.0, "mach", "est", "09-structures.md (FAT 63 cast headstock)",
-                tool=60000, tscale="mach", mb="make"))
-    L.append(mk("Chassis", "Pack lug blocks (8) and pads, machined steel", 1, 2.3, 78.0, "mach", "est", "09-structures.md lug blocks 1.8 kg + pads 0.5", mb="make"))
-    L.append(mk("Chassis", "Shock tower, cross brace, nose subframe, headlamp brackets", 1, 2.6, 85.0, "mach", "est", "ledger BV-CHS-0027/0023/0032", mb="make"))
-    L.append(mk("Chassis", "Swingarm pivot: 2 tapered roller bearings (~50 mm), bolt, seals", 1, 1.4, 95.0, "oe", "est", "09-structures.md bearing need 44 kN each"))
-    L.append(mk("Chassis", "Crash guards (pair) + mounts + sliders", 1, 4.0, 92.0, "mach", "est", "ledger BV-PRO", mb="make"))
-    L.append(mk("Chassis", "Handguards (pair), 6082 bent tube", 1, 1.2, 46.0, "mach", "est", "ledger BV-PRO", mb="make"))
+    tubes = [pn for pn, l in leaves.items() if pn.startswith("BV-CHS") and l["mp"].startswith("25CrMo4")]
+    A(mk(tubes, "Welded 25CrMo4 frame + load-bearing steel pivot yoke (tube, jig-welded, stress relieved, coated)", 0.0, "frame", "est",
+         "09-structures.md; tube 9 USD/kg x 1.15-1.30, weld hours scaled by kg (14 / 9 / 5.5 h per 22 kg), coat/heat treat/stub machining",
+         tool=1000000, tscale="mach", mb="make"))
+    A(mk(N("CHS", [44, 45, 46, 47]), "Cast steel frame nodes (4 in BOM, mass booked inside the tubes)", 128.0, "mach", "est",
+         "investment-cast steel, ~32 USD each at 10k incl. machining", tool=60000, tscale="mach", mb="make"))
+    A(mk(N("CHS", [50]), "Pack mounting pads and arm boss/end plates (1.3 kg), machined", 95.0, "mach", "est", "", mb="make"))
+    A(mk(N("CHS", [32]), "Nose subframe and headlamp brackets", 35.0, "mach", "est", "", mb="make"))
+    A(mk(N("CHS", [21]), "Cast A356-T6 single-sided swingarm, machined", 92.0, "arm", "est",
+         "LP die cast + T6 + CNC + X-ray sampling at 10k; sand cast at 100/yr", tool=210000, tscale="mach", mb="make"))
+    A(mk(N("CHS", [51]), "Swingarm hub carrier (cast A356) with 2 wheel bearings", 62.0, "mach", "est", "cast + machined + bearings", tool=80000, tscale="mach", mb="make"))
+    A(mk(N("CHS", [27]), "Swingarm shock tower, plate", 22.0, "mach", "est", "", mb="make"))
+    A(mk(N("CHS", [23]), "Swingarm cross brace (cast boss and rib)", 28.0, "mach", "est", "09-structures.md: unreinforced bolt-on fails", mb="make"))
+    A(mk(N("CHS", [33]), "Swingarm pivot bolt and hardware", 30.0, "gen", "est", ""))
+    A(mk(N("CHS", [48, 49]), "Pivot bearings, 2 x 32012 tapered roller + seals", 96.0, "oe", "est", "SKF/Timken class; 32012 about 38 USD OEM each"))
+    A(mk(N("PRO", [9, 10, 11, 12, 13, 14, 15, 16]), "Crash guard sliders and mounts, 25CrMo4", 75.0, "mach", "est", "", mb="make"))
+    A(mk(N("PRO", [4, 8]), "Handguards (pair), 6082 bent tube", 46.0, "mach", "est", "", mb="make"))
+    A(mk(N("PRO", [3, 7]), "Pivot sliders", 12.0, "gen", "est", ""))
     # ---------------- RUNNING GEAR
-    L.append(mk("Running gear", "43 mm USD fork, 170 mm travel, cartridge damping", 1, 6.8, 950.0, "oe_prem", "est",
-                "Ohlins FGRT 301 retail EUR 3,975 (aftermarket); OE price ~25% of that, est"))
-    L.append(mk("Running gear", "Rear shock, Ohlins STX 46 class, remote reservoir", 1, 3.0, 520.0, "oe_prem", "est",
-                "https://www.ohlins.eu/en/products/motorcycle/kt-122--4458/ retail EUR 869"))
-    L.append(mk("Running gear", "Forged Al wheels 19x3.00 / 17x4.50 with bearings", 1, 7.6, 1050.0, "oe_prem", "est", "shortlist 1,800 est for set; OE volume price"))
-    L.append(mk("Running gear", "Tyres 110/80R19 + 150/70R17", 1, 9.1, 175.0, "oe", "est", "shortlist 260 retail pair; OE price"))
-    L.append(mk("Running gear", "Front brakes: 2 x 300 mm discs, 2 x Brembo Stylema, carriers", 1, 3.65, 640.0, "oe_prem", "est",
-                "https://www.bremboparts.com/africa/en/catalogue-bike/caliper/220D02010; shortlist 1,500 retail-ish"))
-    L.append(mk("Running gear", "Rear brake: 245 mm disc, P34 caliper, carrier, bracket", 1, 1.7, 130.0, "oe", "est", "shortlist 350"))
-    L.append(mk("Running gear", "Master cylinder (19RCS class), levers, hoses, rear pedal/master", 1, 3.2, 380.0, "oe", "est",
-                "https://www.motosport.com/brembo-19rcs-brake-master-cylinder retail 553-689"))
-    L.append(mk("Running gear", "Bosch ABS 10-class two-channel + sensors", 1, 1.1, 175.0, "oe_prem", "est", "shortlist 120 est; sensors added"))
-    L.append(mk("Running gear", "Triple clamps (forged, machined), steering bearings, damper", 1, 3.4, 190.0, "mach", "est", "ledger BV-RUN-0001/0002/0068/0034", mb="make", tool=60000, tscale="mach"))
-    L.append(mk("Running gear", "Bars, risers, grips, switch cubes, pegs, stand, axles, spacers", 1, 5.6, 360.0, "gen", "est", "ledger BV-RUN misc"))
-    # ---------------- ELECTRONICS (elec-bom.csv 10k x 1.15 contingency unless noted)
-    E = [
-        ("HV box enclosure, busbars, contactors x4 (Gigavac GX14), precharge, pyro fuse, shunt, iso monitor", 5.9, 1.15 * (120 + 520 + 25 + 140 + 90 + 40 + 30 + 120), "https://www.digikey.fr/en/products/detail/sensata-gigavac-clean-energy/GX14CBB/17867714"),
-        ("NACS inlet (Volex J3400, 1000 V) + lid", 1.6, 1.15 * 150, "https://www.volex.com/media/z3rmrwl5/volex-nacs-ev-charging-inlet.pdf"),
-        ("EVCC (ADVANTICS class) charge controller", 0.3, 1.15 * 150, ""),
-        ("Onboard charger 3.3 kW, 100-264 V", 3.5, 1.15 * 550, "class estimate; no part verified"),
-        ("DC-DC 0.8 kW", 1.5, 1.15 * 150, ""),
-        ("VCU (custom at scale)", 0.4, 1.15 * 200, "AEM VCU200 is prototype only"),
-        ("Power distribution unit (smart fuses)", 0.8, 1.15 * 150, ""),
-        ("TFT dash 6.5 in", 0.75, 1.15 * 180, ""),
-        ("Keyless module, antennas, fob", 0.25, 1.15 * 80, ""),
-        ("Telematics / gateway", 0.15, 1.15 * 45, ""),
-        ("12 V LiFePO4 battery", 0.9, 1.15 * 60, ""),
-        ("LED headlamp + DRL band, tail lamp, 4 indicators, plate lamp, horn", 2.3, 1.15 * (120 + 30 + 40 + 6 + 8), ""),
-        ("Small sensors (TPMS x2, stand, brake switches)", 0.25, 1.15 * 40, ""),
-        ("HV cables, connectors, sleeves (35 mm2 set)", 5.5, 380.0, "elec-harness.csv 5.5 kg; elec-bom 300 USD at 10k x 1.25"),
-        ("LV harness incl. connectors and loom", 2.0, 320.0, "elec-harness.csv 2.0 kg; elec-bom 200 USD at 10k is light for a bike this size"),
-    ]
-    for name, kg, p, src in E:
-        L.append(mk("Electronics", name, 1, kg, round(p, 1), "elec", "est", ("elec-bom.csv 10k price x 1.15; " + src).strip("; ")))
+    A(mk(N("RUN", range(36, 44)), "43 mm USD fork, 170 mm, cartridge damping", 950.0, "oe_prem", "est", "Ohlins FGRT 301 retail EUR 3,975; OE ~25%"))
+    A(mk(N("RUN", range(44, 50)), "Rear shock, Ohlins STX 46 class, remote reservoir", 520.0, "oe_prem", "est", "https://www.ohlins.eu/en/products/motorcycle/kt-122--4458/ retail EUR 869"))
+    A(mk(N("RUN", [69, 70]), "Carbon composite wheels 19x3.00 / 17x4.50 (BST class), with bearings", 1.0, "wheels", "est",
+         "BST-class set about 4,500 USD retail (+2.7k over forged, per coordinator); OEM estimate 2,100 at 10k (~47% of retail)", notes="piece price from wheel_usd curve"))
+    A(mk(N("RUN", [52, 53]), "Tyres 110/80R19 + 150/70R17", 175.0, "oe", "est", "shortlist 260 retail pair"))
+    A(mk(N("RUN", [54, 55]), "Front discs 320x5 floating (pair)", 150.0, "oe_prem", "est", "OE ~75 each"))
+    A(mk(N("RUN", [58, 59]), "Brembo Stylema 220D02010 calipers (pair)", 460.0, "oe_prem", "est", "https://www.bremboparts.com/africa/en/catalogue-bike/caliper/220D02010; retail ~450 each, OE est 230"))
+    A(mk(N("RUN", [56, 57]), "Front disc carriers (pair), machined Al", 56.0, "mach", "est", "", mb="make"))
+    A(mk(N("RUN", [60]), "Rear disc 245x5", 28.0, "oe", "est", ""))
+    A(mk(N("RUN", [61, 62, 63]), "Rear caliper P34 class, bracket, carrier", 85.0, "oe", "est", ""))
+    A(mk(N("RUN", [64]), "Bosch ABS 10-class two-channel + sensors", 175.0, "oe_prem", "est", "shortlist 120 est; sensors added"))
+    A(mk(N("RUN", [65]), "Rear brake pedal and master cylinder", 95.0, "oe", "est", ""))
+    A(mk(N("RUN", [20, 21, 22, 23, 24, 25, 26, 29, 30, 31, 32, 33]), "Front master cylinder (19RCS class), reservoir, hoses, banjos, splitters", 200.0, "oe", "est",
+         "https://www.motosport.com/brembo-19rcs-brake-master-cylinder retail 553-689; OE est 140"))
+    A(mk(N("RUN", [71]), "Steering damper, semi-active", 320.0, "oe_prem", "est", "Ohlins steering damper retail ~600 USD; electronic valve adds cost"))
+    A(mk(N("RUN", [1]), "Lower triple clamp, forged + machined", 60.0, "mach", "est", "", tool=30000, tscale="mach", mb="make"))
+    A(mk(N("RUN", [2]), "Upper triple clamp, forged + machined", 40.0, "mach", "est", "", tool=25000, tscale="mach", mb="make"))
+    A(mk(N("RUN", [68]), "Steering bearings, stem nut", 28.0, "gen", "est", ""))
+    A(mk(N("RUN", [66, 67]), "Axles, spacers, adjusters", 53.0, "gen", "est", ""))
+    A(mk(N("RUN", [10, 16]), "Hand levers (pair)", 60.0, "oe", "est", ""))
+    A(mk(N("RUN", [3, 4]), "Bar risers (pair)", 36.0, "gen", "est", ""))
+    A(mk(N("RUN", [5, 11]), "Bar halves (pair)", 60.0, "gen", "est", ""))
+    A(mk(N("RUN", [6, 12]), "Grips (pair)", 18.0, "gen", "est", ""))
+    A(mk(N("RUN", [19, 28]), "Switch cubes (pair)", 76.0, "elec", "est", ""))
+    A(mk(N("RUN", [18, 27]), "Lever perches (pair)", 16.0, "gen", "est", ""))
+    A(mk(N("RUN", [35]), "Side stand", 26.0, "gen", "est", ""))
+    A(mk(N("RUN", [9, 15]), "Peg brackets (pair)", 44.0, "mach", "est", "", mb="make"))
+    A(mk(N("RUN", [7, 13]), "Pegs (pair)", 20.0, "gen", "est", ""))
+    A(mk(N("RUN", [8, 14]), "Peg rubbers (pair)", 6.0, "gen", "est", ""))
+    # ---------------- ELECTRONICS (elec-bom.csv 10k x 1.15 unless noted)
+    A(mk(N("ELC", [16]), "BROGEN PV1776 6.6 kW onboard charger", 700.0, "elec", "est", "shortlist ALT 900 USD est; the BOM carries the 6.6 kW unit (3.3 kW class is about 550)"))
+    A(mk(N("ELC", [23]), "NACS inlet (Volex J3400, 1000 V) + lid", 172.0, "elec", "est", "https://www.volex.com/media/z3rmrwl5/volex-nacs-ev-charging-inlet.pdf; elec-bom 150 x 1.15"))
+    A(mk(N("ELC", [24]), "EVCC charge controller (ADVANTICS class)", 172.0, "elec", "est", "elec-bom 150 x 1.15"))
+    A(mk(N("ELC", [26]), "VCU, power distribution unit, keyless, telematics, HVIL bonding", 546.0, "elec", "est", "elec-bom 200+150+80+45 x 1.15"))
+    A(mk(N("ELC", [1]), "HV cabinet, 2 mm folded Al", 38.0, "mach", "est", "", tool=25000, tscale="mach", mb="make"))
+    A(mk(N("ELC", [19, 20, 21, 22]), "HV box: 4 x Gigavac GX14, precharge, pyro fuse, shunt, iso monitor, relays, fuses", 1248.0, "elec", "est",
+         "https://www.digikey.fr/en/products/detail/sensata-gigavac-clean-energy/GX14CBB/17867714; elec-bom 10k sum 1,085 x 1.15"))
+    A(mk(N("ELC", [17]), "DC-DC 0.8 kW", 172.0, "elec", "est", "elec-bom 150 x 1.15"))
+    A(mk(N("ELC", [25]), "12 V LiFePO4 battery", 69.0, "elec", "est", ""))
+    A(mk(N("ELC", [2, 3]), "LED headlamp with DRL blade", 138.0, "elec", "est", ""))
+    A(mk(N("ELC", [4]), "Tail / brake lamp", 35.0, "elec", "est", ""))
+    A(mk(N("ELC", [5, 6, 7, 8]), "Indicators x4", 48.0, "elec", "est", ""))
+    A(mk(N("ELC", [10, 11]), "Rear indicator stalks", 8.0, "gen", "est", ""))
+    A(mk(N("ELC", [9]), "Plate lamp", 7.0, "gen", "est", ""))
+    A(mk(N("ELC", [12, 13, 14]), "TFT dash 6.5 in, glass, mount", 207.0, "elec", "est", "elec-bom 180 x 1.15"))
+    A(mk(N("ELC", [15]), "Horn", 9.0, "gen", "est", ""))
     # ---------------- COOLING
-    L.append(mk("Cooling", "Radiator cores (2 x 165x128x28 mm), fans (2), shrouds", 1, 3.4, 160.0, "gen", "est", "10-thermal.md; ledger BV-THM"))
-    L.append(mk("Cooling", "Pump, wax thermostat, 3 kW PTC heater, coolant, hoses, sensors", 1, 7.0, 190.0, "gen", "est", "10-thermal.md (wax thermostat replaces 4-port valve)"))
-    # ---------------- BODY (piece price at 10k, tooling = 10k injection/stamp tooling)
-    B = [
-        ("Lower body / battery covers, painted PP/ABS", 1.96, 48, 110000),
-        ("Upper fairing / tank cover, painted", 1.55, 52, 120000),
-        ("Tail and side panels, painted", 1.19, 34, 85000),
-        ("Rear hugger", 0.96, 20, 50000),
-        ("Front fender", 0.46, 16, 35000),
-        ("Tail undertray", 0.40, 12, 30000),
-        ("Radiator pod shrouds + grilles", 0.75, 28, 45000),
-        ("Motor side covers, seam trim, ledges, pivot caps", 0.40, 24, 35000),
-        ("Windscreen, polycarbonate", 0.75, 28, 45000),
-        ("Seat, two-level, with cover", 2.6, 85, 40000),
-        ("Aluminium panels: belly skid, battery sides (2), belly sides (2)", 5.3, 110, 60000),
-    ]
-    for name, kg, p, t in B:
-        L.append(mk("Body", name, 1, kg, float(p), "body", "est", "program/data/parts-ledger.csv masses; my estimate of moulded part + paint", tool=t, tscale="body", mb="make"))
-    L.append(mk("Body", "Rear rack, mirrors, plate hanger, reflectors, seat welt", 1, 2.2, 125.0, "gen", "est", "ledger BV-BOD"))
-    L.append(mk("Body", "Paint, decals, rubber, misc", 1, 1.0, 55.0, "gen", "est", ""))
-    L.append(mk("Body", "Fasteners (titanium where visible), body brackets and fixings", 1, 5.0, 230.0, "gen", "est", "ledger BV-ALW-0007/0008"))
-    return L
+    A(mk(N("THM", [3, 5]), "Radiator cores (2)", 84.0, "gen", "est", "10-thermal.md: 2 x 165x128x28 mm"))
+    A(mk(N("THM", [4, 6]), "Radiator fans (2)", 40.0, "gen", "est", ""))
+    A(mk(N("THM", [1]), "Coolant pump", 48.0, "gen", "est", ""))
+    A(mk(N("THM", [8]), "Wax thermostat", 12.0, "gen", "est", ""))
+    A(mk(N("THM", [9]), "PTC heater 3 kW", 58.0, "gen", "est", ""))
+    A(mk(N("THM", [7]), "Coolant, hoses, clamps, sensors", 75.0, "gen", "est", ""))
+    # ---------------- WIRING / FASTENERS
+    A(mk(N("ALW", [6]), "HV cables, connectors, conduit (35 mm2 set)", 380.0, "elec", "est", "elec-bom 300 x 1.25"))
+    A(mk(N("ALW", [1, 2, 3, 4, 5]), "LV harness incl. connectors, bars and loom", 320.0, "elec", "est", "elec-bom 200 is light for this size"))
+    A(mk(N("ALW", [8]), "Fasteners (titanium where visible)", 170.0, "gen", "est", ""))
+    A(mk(N("ALW", [7]), "Body brackets and fixings", 55.0, "gen", "est", ""))
+    # ---------------- BODY
+    def body(pns, item, p, tool=0.0):
+        A(mk(pns, item, float(p), "body", "est", "moulded/formed part + paint, my estimate", tool=tool, tscale="body" if tool else "none", mb="make"))
+    body(N("BOD", [4]), "Lower body battery covers", 34, 80000)
+    body(N("BOD", [3]), "Upper body fairing / tank cover", 48, 120000)
+    body(N("BOD", [17]), "Tail side panels", 26, 70000)
+    body(N("BOD", [25]), "Rear hugger", 12, 35000)
+    body(N("BOD", [24]), "Front fender", 11, 28000)
+    body(N("BOD", [20]), "Tail undertray", 11, 25000)
+    body(N("BOD", [35, 37, 34, 36]), "Radiator pod shrouds and grilles", 30, 35000)
+    body(N("BOD", [23]), "Windscreen, polycarbonate", 26, 45000)
+    body(N("BOD", [5, 42, 43, 44, 45]), "Waist ledge plates and seam trims", 12, 15000)
+    body(N("BOD", [18]), "Seat, two-level, with cover", 85, 40000)
+    body(N("BOD", [22]), "Belly skid plate, Al", 38, 35000)
+    for pns, item, pr in [(N("BOD", [21]), "Rear rack", 38), (N("BOD", [32]), "Plate hanger arm", 10), (N("BOD", [33]), "Licence plate", 6),
+                          (N("BOD", [19]), "Seat welt", 2), (N("BOD", [38, 39, 40, 1, 2]), "Reflectors", 12), (N("BOD", [7, 8]), "Pivot cover caps", 6),
+                          (N("BOD", [28, 31, 26, 29, 27, 30]), "Mirrors (pair)", 58), (N("BOD", [41]), "Paint, decals, rubber, misc", 55)]:
+        A(mk(pns, item, float(pr), "gen", "est", ""))
+    # ---------------- cost lines with NO BOM line (mass 0, flagged)
+    A(mk([], "ALLOWANCE (no BOM line): belt guard and tensioner", 45.0, "gen", "est", "not in bom-v1-indented.csv", kg=0.0))
+    A(mk([], "ALLOWANCE (no BOM line): TPMS x2, stand and brake switches, sensors", 46.0, "elec", "est", "elec-bom 'small sensors'; not in the BOM", kg=0.0))
+    A(mk([], "ALLOWANCE (no BOM line): consumables, labels, grease, threadlock, brake fluid", 60.0, "gen", "est", "", kg=0.0))
+    covered = {}
+    for l in L:
+        if l["pns"]:
+            m = 0.0
+            for pn in l["pns"]:
+                if pn not in leaves:
+                    raise SystemExit("cost line refers to a part number not in the BOM: " + pn)
+                if pn in covered:
+                    raise SystemExit(f"part number {pn} priced twice")
+                covered[pn] = l["item"]
+                m += leaves[pn]["kg"]
+            l["kg"] = m
+    missing = [pn for pn in leaves if pn not in covered]
+    if missing:
+        raise SystemExit("BOM leaves with no cost line: " + ", ".join(missing))
+    bom_sum = sum(l["kg"] for l in L)
+    return L, bom_sum, total_mass
+
+
+def group_of(l):
+    if not l["pns"]:
+        return "Allowances (no BOM line)"
+    pn = l["pns"][0]
+    if pn == "BV-ELC-0018":
+        return "Pack"
+    return {"ENG": "Pack", "DRV": "Drive", "CHS": "Chassis", "PRO": "Chassis", "RUN": "Running gear", "ELC": "Electronics",
+            "ALW": "Electronics", "THM": "Cooling", "BOD": "Body"}[pn.split("-")[1]]
 
 
 def piece_price(line, vi, p):
@@ -173,22 +232,25 @@ def piece_price(line, vi, p):
         return p["motor_usd"][vi]
     if c == "inv":
         return p["inv_usd"][vi]
+    if c == "wheels":
+        return p["wheel_usd"][vi]
     if c == "frame":
-        # material at 10k fixed; labour hours 14 / 9 / 5.5 at rate; coat/heat treat 105 -> 135 at low volume
-        hrs = (14.0, 9.0, 5.5)[vi]
-        return 22.0 * 9.0 * (1.30, 1.20, 1.15)[vi] + hrs * 55.0 * (p["labour_rate"] / 45.0) + (135.0, 120.0, 105.0)[vi]
+        m = line["kg"]
+        hrs = (14.0, 9.0, 5.5)[vi] * m / 22.0
+        return m * 9.0 * (1.30, 1.20, 1.15)[vi] + hrs * 55.0 * (p["labour_rate"] / 45.0) + (200.0, 180.0, 165.0)[vi]
     if c == "arm":
         return (470.0, 150.0, 92.0)[vi]
     return line["p10k"] * CURVE[c][vi]
 
 
-def compute(p, tooling_extra=None):
-    bom = build_bom(p)
+BOM_LINES, BOM_SUM, LEDGER_TOTAL = build_bom()
+
+
+def compute(p):
     res = {}
     for vi, v in enumerate(VOLS):
-        mat = made = cells = purchased = 0.0
-        tool_total = 0.0
-        for l in bom:
+        cells = made = purchased = tool_total = 0.0
+        for l in BOM_LINES:
             ext = piece_price(l, vi, p) * l["qty"]
             if l["curve"] == "cells":
                 cells += ext
@@ -196,30 +258,24 @@ def compute(p, tooling_extra=None):
                 made += ext
             else:
                 purchased += ext
-            ts = TOOL_SCALE[l["tscale"]][vi]
-            tool_total += l["tool"] * ts
-        extra = {"Pack assembly line (wire bonder, fixtures, leak/HV test)": (250e3, 900e3, 3.0e6),
-                 "Vehicle assembly line, jigs and fixtures": (150e3, 800e3, 3.5e6),
-                 "End-of-line rig (dyno, brake, charge, HV safety)": (150e3, 500e3, 1.4e6)}
-        for k, t in extra.items():
+            tool_total += l["tool"] * TOOL_SCALE[l["tscale"]][vi]
+        for t in EXTRA_TOOLING.values():
             tool_total += t[vi]
         mat = cells + made + purchased
-        lab_rate = p["labour_rate"]
-        pack_lab = BAT_HOURS[vi] * lab_rate
-        bike_lab = BIKE_HOURS[vi] * lab_rate
-        direct_lab = pack_lab + bike_lab
-        overhead = direct_lab * p["overhead_on_labour"]
-        eol = EOL_HOURS[vi] * (lab_rate * 1.2) + EOL_ENERGY
+        r = p["labour_rate"]
+        pack_lab, bike_lab = BAT_HOURS[vi] * r, BIKE_HOURS[vi] * r
+        overhead = (pack_lab + bike_lab) * p["overhead_on_labour"]
+        eol = EOL_HOURS[vi] * r * 1.2 + EOL_ENERGY
         qc = CELL_QC[vi]
         logistics = LOGISTICS[vi] * (purchased + cells)
         scrap = SCRAP_MADE[vi] * made + SCRAP_CELL[vi] * cells
         warranty = WARRANTY[vi] * mat
-        tool_amort = tool_total / (AMORT_YEARS * v)
-        total = mat + direct_lab + overhead + eol + qc + logistics + scrap + warranty + tool_amort
+        amort = tool_total / (AMORT_YEARS * v)
+        total = mat + pack_lab + bike_lab + overhead + eol + qc + logistics + scrap + warranty + amort
         res[v] = dict(cells=cells, made=made, purchased=purchased, material=mat, pack_labour=pack_lab, bike_labour=bike_lab,
                       overhead=overhead, eol=eol, qc=qc, logistics=logistics, scrap=scrap, warranty=warranty,
-                      tooling_total=tool_total, tooling_amort=tool_amort, total=total)
-    return bom, res
+                      tooling_total=tool_total, tooling_amort=amort, total=total)
+    return res
 
 
 def variant(**kw):
@@ -229,21 +285,21 @@ def variant(**kw):
 
 
 def main():
-    bom, base = compute(BASE)
-    # ----- sensitivities
-    sens = {}
-    sens["cells -30%"] = compute(variant(cell_usd=tuple(c * 0.7 for c in BASE["cell_usd"])))[1]
-    sens["cells +30%"] = compute(variant(cell_usd=tuple(c * 1.3 for c in BASE["cell_usd"])))[1]
-    # volume-supplier equivalents (YASA/Bosch/Inverter OEM class), 10k only is the headline; lower volumes shown for completeness
-    sens["motor+inverter at volume-supplier pricing (motor 2,800 / inverter 1,500 at 10k)"] = compute(variant(
-        motor_usd=(5200.0, 3800.0, 2800.0), inv_usd=(3300.0, 2200.0, 1500.0)))[1]
-    sens["stress: cells, motor, inverter stay at 1k-bike prices at 10k"] = compute(variant(cell_usd=(6.0, 4.8, 4.8), motor_usd=(6800.0, 5520.0, 5520.0), inv_usd=(5500.0, 4000.0, 4000.0)))[1]
-    sens["labour rate 30 USD/h"] = compute(variant(labour_rate=30.0))[1]
-    sens["labour rate 65 USD/h"] = compute(variant(labour_rate=65.0))[1]
-    sens["cells -30% + volume-supplier motor/inverter"] = compute(variant(
-        cell_usd=tuple(c * 0.7 for c in BASE["cell_usd"]), motor_usd=(5200.0, 3800.0, 2800.0), inv_usd=(3300.0, 2200.0, 1500.0)))[1]
-
-    # ----- NRE (reused from startup-costs.csv base cases; engineering-level planning figures)
+    base = compute(BASE)
+    c7 = tuple(c * 0.7 for c in BASE["cell_usd"])
+    c13 = tuple(c * 1.3 for c in BASE["cell_usd"])
+    VM, VI = (5200.0, 3800.0, 2800.0), (3300.0, 2200.0, 1500.0)
+    sens = {
+        "cells -30%": compute(variant(cell_usd=c7)),
+        "cells +30%": compute(variant(cell_usd=c13)),
+        "motor+inverter at volume-supplier pricing (10k: motor 2,800 / inverter 1,500)": compute(variant(motor_usd=VM, inv_usd=VI)),
+        "stress: cells, motor, inverter stay at 1k-bike prices at 10k": compute(variant(cell_usd=(6.0, 4.8, 4.8), motor_usd=(6800.0, 5520.0, 5520.0), inv_usd=(5500.0, 4000.0, 4000.0))),
+        "labour rate 30 USD/h": compute(variant(labour_rate=30.0)),
+        "labour rate 65 USD/h": compute(variant(labour_rate=65.0)),
+        "forged wheels instead of carbon (10k set 1,050)": compute(variant(wheel_usd=(1785.0, 1365.0, 1050.0))),
+        "cells -30% + volume-supplier motor/inverter": compute(variant(cell_usd=c7, motor_usd=VM, inv_usd=VI)),
+        "carbon-wheel OEM price +50% (10k 3,150)": compute(variant(wheel_usd=(6615.0, 4568.0, 3150.0))),
+    }
     nre = {v: {} for v in VOLS}
     with open(os.path.join(HERE, "..", "..", "startup-costs.csv"), encoding="utf-8-sig") as f:
         for r in csv.DictReader(f):
@@ -251,32 +307,34 @@ def main():
                 nre[int(r["annual_volume_scenario"])][r["cost_id"]] = float(r["usd_base"])
     nre_tot = {v: sum(nre[v].values()) for v in VOLS}
 
-    # ----- cost-down levers at 10k (each computed against base)
     t10 = base[10000]["total"]
     levers = []
     def lev(name, **kw):
-        r = compute(variant(**kw))[1][10000]["total"]
-        levers.append((name, t10 - r))
-    lev("Cells 3.80 -> 3.10 USD (direct supply contract at 11M cells/yr, about 143 USD/kWh)", cell_usd=(6.0, 4.8, 3.10))
+        levers.append((name, t10 - compute(variant(**kw))[10000]["total"]))
     lev("Motor 4,800 -> 2,800 USD (volume axial-flux supplier)", motor_usd=(6800, 5520, 2800))
-    lev("Inverter 3,200 -> 1,500 USD (automotive SiC/IGBT inverter at volume)", inv_usd=(5500, 4000, 1500))
+    lev("Inverter 3,200 -> 1,500 USD (automotive inverter at volume)", inv_usd=(5500, 4000, 1500))
+    lev("Carbon wheels -> forged (about 1,050 USD set at 10k)", wheel_usd=(1785.0, 1365.0, 1050.0))
+    lev("Cells 3.80 -> 3.10 USD (direct supply contract, about 143 USD/kWh)", cell_usd=(6.0, 4.8, 3.10))
     lev("Assembly labour 45 -> 30 USD/h (lower-cost plant location)", labour_rate=30.0)
 
-    # ---------------- write CSV
-    rows = []
-    hdr = ["section", "group", "item", "qty", "make_buy", "mass_kg", "label", "unit_usd_100", "unit_usd_1k", "unit_usd_10k",
+    hdr = ["section", "group", "part_numbers", "item", "qty", "make_buy", "mass_kg", "label", "unit_usd_100", "unit_usd_1k", "unit_usd_10k",
            "ext_usd_100", "ext_usd_1k", "ext_usd_10k", "tooling_usd_100", "tooling_usd_1k", "tooling_usd_10k", "source_or_basis"]
-    mass = 0.0
-    for l in bom:
+    rows = []
+    gsum = {}
+    for l in BOM_LINES:
         u = [piece_price(l, i, BASE) for i in range(3)]
         tl = [l["tool"] * TOOL_SCALE[l["tscale"]][i] for i in range(3)]
-        mass += l["kg"] * l["qty"]
-        rows.append(["BOM", l["group"], l["item"], l["qty"], l["mb"], l["kg"], l["basis"]] + [round(x, 2) for x in u] +
+        g = group_of(l)
+        for i in range(3):
+            gsum.setdefault(g, [0, 0, 0])[i] += u[i] * l["qty"]
+        rows.append(["BOM", g, " ".join(l["pns"]), l["item"], l["qty"], l["mb"], round(l["kg"], 4), l["basis"]] + [round(x, 2) for x in u] +
                     [round(x * l["qty"], 2) for x in u] + [round(x) for x in tl] + [(l["src"] + " " + l["notes"]).strip()])
     def sec(section, item, vals, label="calc", basis=""):
-        rows.append([section, "", item, "", "", "", label, "", "", "", round(vals[100], 2), round(vals[1000], 2), round(vals[10000], 2), "", "", "", basis])
-    sec("SUMMARY", "Cells (incl. in material)", {v: base[v]["cells"] for v in VOLS})
-    sec("SUMMARY", "Made parts (material + process)", {v: base[v]["made"] for v in VOLS})
+        rows.append([section, "", "", item, "", "", "", label, "", "", "", round(vals[100], 2), round(vals[1000], 2), round(vals[10000], 2), "", "", "", basis])
+    for g, x in gsum.items():
+        sec("GROUP", g, dict(zip(VOLS, x)))
+    sec("SUMMARY", "Cells (included in material)", {v: base[v]["cells"] for v in VOLS})
+    sec("SUMMARY", "Made parts", {v: base[v]["made"] for v in VOLS})
     sec("SUMMARY", "Purchased parts", {v: base[v]["purchased"] for v in VOLS})
     sec("SUMMARY", "MATERIAL SUBTOTAL", {v: base[v]["material"] for v in VOLS})
     sec("CONVERSION", "Pack assembly labour", {v: base[v]["pack_labour"] for v in VOLS}, "est", f"{BAT_HOURS} h x {BASE['labour_rate']} USD/h")
@@ -287,40 +345,35 @@ def main():
     sec("CONVERSION", "Inbound logistics, duty, handling", {v: base[v]["logistics"] for v in VOLS}, "est", f"{LOGISTICS} of purchased+cells")
     sec("CONVERSION", "Scrap and yield loss", {v: base[v]["scrap"] for v in VOLS}, "est", f"made {SCRAP_MADE}, cells {SCRAP_CELL}")
     sec("CONVERSION", "Warranty reserve", {v: base[v]["warranty"] for v in VOLS}, "est", f"{WARRANTY} of material")
-    sec("CONVERSION", f"Tooling and capital amortised over {AMORT_YEARS} yr of volume", {v: base[v]["tooling_amort"] for v in VOLS}, "calc")
+    sec("CONVERSION", f"Tooling and capital amortised over {AMORT_YEARS} yr of volume", {v: base[v]["tooling_amort"] for v in VOLS})
     sec("TOTAL", "UNIT COST (ex-works, incl. amortised tooling, excl. NRE)", {v: base[v]["total"] for v in VOLS})
     sec("TOTAL", "Target T9 at 10k", {100: 0, 1000: 0, 10000: 32000}, "target")
-    sec("TOOLING", "One-off tooling and capital total (parts tooling + 3 lines)", {v: base[v]["tooling_total"] for v in VOLS}, "est")
+    sec("TOOLING", "One-off tooling and capital (parts tooling + 3 lines)", {v: base[v]["tooling_total"] for v in VOLS}, "est")
     for k in ("ENGINEERING", "SPECIALISTS", "PROTOTYPES", "CELL_LIFE", "COMPLIANCE"):
         sec("NRE", f"{k.title()} (reused from startup-costs.csv base; not re-derived)", {v: nre[v][k] for v in VOLS}, "est")
     sec("NRE", "NRE total", nre_tot)
-    sec("NRE", "NRE per bike over 5 yr of volume (information, not in unit cost)", {v: nre_tot[v] / (AMORT_YEARS * v) for v in VOLS}, "calc")
+    sec("NRE", "NRE per bike over 5 yr of volume (information, not in unit cost)", {v: nre_tot[v] / (AMORT_YEARS * v) for v in VOLS})
     for k, r in sens.items():
         sec("SENSITIVITY", "Unit cost: " + k, {v: r[v]["total"] for v in VOLS})
     for k, d in levers:
-        rows.append(["LEVER", "", k, "", "", "", "calc", "", "", "", "", "", round(d), "", "", "", "saving per bike at 10k"])
+        rows.append(["LEVER", "", "", k, "", "", "", "calc", "", "", "", "", "", round(d), "", "", "", "saving per bike at 10k"])
     with open(os.path.join(DATA, "cost-model-v1.csv"), "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f); w.writerow(hdr); w.writerows(rows)
-    out = dict(base={str(v): base[v] for v in VOLS}, sens={k: {str(v): r[v]["total"] for v in VOLS} for k, r in sens.items()},
-               levers=levers, nre_total={str(v): nre_tot[v] for v in VOLS}, bom_mass_kg=mass)
+    out = dict(bom_file="bom-v1-indented.csv", bom_mass_priced_kg=BOM_SUM, bom_mass_ledger_kg=LEDGER_TOTAL,
+               base={str(v): base[v] for v in VOLS}, groups={g: x for g, x in gsum.items()},
+               sens={k: {str(v): r[v]["total"] for v in VOLS} for k, r in sens.items()},
+               levers=levers, nre_total={str(v): nre_tot[v] for v in VOLS})
     with open(os.path.join(DATA, "cost-model-v1.json"), "w") as f:
         json.dump(out, f, indent=1)
-    # console
-    print("BOM mass kg (sum of lines):", round(mass, 1))
+    print("priced BOM mass", round(BOM_SUM, 3), "ledger total", round(LEDGER_TOTAL, 3), "cost lines", len(BOM_LINES))
     for v in VOLS:
-        b = base[v]
-        print(v, {k: round(x) for k, x in b.items()})
+        print(v, {k: round(x) for k, x in base[v].items()})
     for k, r in sens.items():
         print(k, [round(r[v]["total"]) for v in VOLS])
     for k, d in levers:
         print("LEVER", k, round(d))
     print("NRE", nre_tot)
-    # group subtotals at 10k
-    g = {}
-    for l in bom:
-        for i, v in enumerate(VOLS):
-            g.setdefault(l["group"], [0, 0, 0])[i] += piece_price(l, i, BASE) * l["qty"]
-    for k, x in g.items():
+    for k, x in gsum.items():
         print("GROUP", k, [round(y) for y in x])
 
 

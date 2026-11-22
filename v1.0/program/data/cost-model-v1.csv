@@ -1,98 +1,145 @@
-section,group,item,qty,make_buy,mass_kg,label,unit_usd_100,unit_usd_1k,unit_usd_10k,ext_usd_100,ext_usd_1k,ext_usd_10k,tooling_usd_100,tooling_usd_1k,tooling_usd_10k,source_or_basis
-BOM,Pack,"Molicel INR-21700-P60B cells (1,100)",1100,buy,0.075,est,6.0,4.8,3.8,6600.0,5280.0,4180.0,0,0,0,https://www.molicel.com/wp-content/uploads/Product-Data-Sheet-of-INR-21700-P60B_80145.pdf; B2B listings 3.35-8.00 USD/cell (hardware-shortlist.csv); P50B retail 7.50 at 1000 (batteryjunction/18650batterystore) piece price comes from cell_usd curve
-BOM,Pack,"Pack case, 3 mm Al with 5 mm front wall, welded",1,make,8.3,est,425.94,291.43,224.18,425.94,291.43,224.18,105000,210000,350000,"program/09-structures.md (case mass 7.7-8.3 kg); sheet 4.6 USD/kg x 1.55 buy-to-fly + 165 USD process at 10k weld fixtures + brake dies, 10k tool set"
-BOM,Pack,"Busbars, series links, wire bonds, fuse collectors",1,make,11.8,est,960.0,648.0,480.0,960.0,648.0,480.0,0,0,0,"elec-bom.csv 300 USD at 10k + 2,200 wire bonds + collector plates; ledger 11.8 kg incl. internals"
-BOM,Pack,"Cooling ribbons, manifolds, gap filler, fire barrier",1,buy,6.2,est,660.0,445.5,330.0,660.0,445.5,330.0,0,0,0,"ledger BV-ENG-0007 6.19 kg; extruded Al ribbons + polymer manifolds, my estimate"
-BOM,Pack,"BMS sense harness, fuses, thermistors",1,buy,0.97,est,260.0,175.5,130.0,260.0,175.5,130.0,0,0,0,elec-bom.csv 100 USD at 10k x 1.3
-BOM,Pack,Manual service disconnect + 400 A fuse,1,buy,0.4,est,91.0,77.0,70.0,91.0,77.0,70.0,0,0,0,elec-bom.csv 60 USD at 10k
-BOM,Pack,"BMS, Orion BMS2 (108 groups) + thermistor module",1,buy,1.62,est,1040.0,702.0,520.0,1040.0,702.0,520.0,0,0,0,"https://www.orionbms.com/downloads/documents/orionbms2_specifications.pdf; retail 700+250, 10k est 450+120 less 0 (kept)"
-BOM,Drive,"EMRAX 228 axial-flux motor, LV+43% winding, liquid cooled",1,buy,13.2,est,6800.0,5520.0,4800.0,6800.0,5520.0,4800.0,0,0,0,"No list price published. Shortlist estimate 7,500 USD; EMRAX is a low-volume supplier piece price comes from motor_usd curve"
-BOM,Drive,Cascadia CM200DX inverter (300/740 Arms),1,buy,6.75,est,5500.0,4000.0,3200.0,5500.0,4000.0,3200.0,0,0,0,"https://www.fuel2electric.com/cascadia-motion-cm200-inverter (plain CM200 listed 7,202 USD retail, 1 unit); shortlist 2,500 USD is an old estimate piece price comes from inv_usd curve"
-BOM,Drive,"Rear pulley 80T, CNC Al (hard anodised)",1,make,2.1,est,122.47,83.8,64.46,122.47,83.8,64.46,4500,9000,15000,drive-design: 80T x 8 mm Gates; 6082 bar + 15 min CNC
-BOM,Drive,Motor pulley 21T (one; the ledger lists it twice),1,make,0.5,est,39.9,27.3,21.0,39.9,27.3,21.0,0,0,0,drive-design
-BOM,Drive,"Gates carbon belt, 8 mm pitch",1,buy,0.5,est,170.5,132.0,110.0,170.5,132.0,110.0,0,0,0,gates.com Carbon Drive class; OEM price estimate
-BOM,Drive,"Motor-arm yoke / pivot housing interface, machined Al",1,make,1.2,est,199.5,136.5,105.0,199.5,136.5,105.0,12000,24000,40000,09-structures.md: motor housing and pivot stubs form a load-bearing yoke
-BOM,Drive,"Belt tensioner, guard, motor mounts, fasteners",1,buy,0.8,est,78.0,66.0,60.0,78.0,66.0,60.0,0,0,0,
-BOM,Chassis,"Steel tube frame (25CrMo4/4130), TIG welded, coated, 25 kg incl. pads",1,make,25.0,est,1162.4,852.6,635.2,1162.4,852.6,635.2,300000,600000,1000000,09-structures.md modelled 23.4 kg + 1.5; tube 9 USD/kg x 1.15 + 5.5 h weld at 10k (14 h at 100/yr) + coat/heat treat frame labour hours curve in script
-BOM,Chassis,"Cast A356-T6 single-sided swingarm, machined",1,make,3.4,est,470.0,150.0,92.0,470.0,150.0,92.0,63000,126000,210000,09-structures.md: cast A356 box arm; 10k = LP die cast + T6 + 20 min CNC + X-ray sampling; 100/yr = sand cast + full machining
-BOM,Chassis,Cast headstock + head tube/gusset,1,make,1.9,est,91.2,62.4,48.0,91.2,62.4,48.0,18000,36000,60000,09-structures.md (FAT 63 cast headstock)
-BOM,Chassis,"Pack lug blocks (8) and pads, machined steel",1,make,2.3,est,148.2,101.4,78.0,148.2,101.4,78.0,0,0,0,09-structures.md lug blocks 1.8 kg + pads 0.5
-BOM,Chassis,"Shock tower, cross brace, nose subframe, headlamp brackets",1,make,2.6,est,161.5,110.5,85.0,161.5,110.5,85.0,0,0,0,ledger BV-CHS-0027/0023/0032
-BOM,Chassis,"Swingarm pivot: 2 tapered roller bearings (~50 mm), bolt, seals",1,buy,1.4,est,147.25,114.0,95.0,147.25,114.0,95.0,0,0,0,09-structures.md bearing need 44 kN each
-BOM,Chassis,Crash guards (pair) + mounts + sliders,1,make,4.0,est,174.8,119.6,92.0,174.8,119.6,92.0,0,0,0,ledger BV-PRO
-BOM,Chassis,"Handguards (pair), 6082 bent tube",1,make,1.2,est,87.4,59.8,46.0,87.4,59.8,46.0,0,0,0,ledger BV-PRO
-BOM,Running gear,"43 mm USD fork, 170 mm travel, cartridge damping",1,buy,6.8,est,1615.0,1235.0,950.0,1615.0,1235.0,950.0,0,0,0,"Ohlins FGRT 301 retail EUR 3,975 (aftermarket); OE price ~25% of that, est"
-BOM,Running gear,"Rear shock, Ohlins STX 46 class, remote reservoir",1,buy,3.0,est,884.0,676.0,520.0,884.0,676.0,520.0,0,0,0,https://www.ohlins.eu/en/products/motorcycle/kt-122--4458/ retail EUR 869
-BOM,Running gear,Forged Al wheels 19x3.00 / 17x4.50 with bearings,1,buy,7.6,est,1785.0,1365.0,1050.0,1785.0,1365.0,1050.0,0,0,0,"shortlist 1,800 est for set; OE volume price"
-BOM,Running gear,Tyres 110/80R19 + 150/70R17,1,buy,9.1,est,271.25,210.0,175.0,271.25,210.0,175.0,0,0,0,shortlist 260 retail pair; OE price
-BOM,Running gear,"Front brakes: 2 x 300 mm discs, 2 x Brembo Stylema, carriers",1,buy,3.65,est,1088.0,832.0,640.0,1088.0,832.0,640.0,0,0,0,"https://www.bremboparts.com/africa/en/catalogue-bike/caliper/220D02010; shortlist 1,500 retail-ish"
-BOM,Running gear,"Rear brake: 245 mm disc, P34 caliper, carrier, bracket",1,buy,1.7,est,201.5,156.0,130.0,201.5,156.0,130.0,0,0,0,shortlist 350
-BOM,Running gear,"Master cylinder (19RCS class), levers, hoses, rear pedal/master",1,buy,3.2,est,589.0,456.0,380.0,589.0,456.0,380.0,0,0,0,https://www.motosport.com/brembo-19rcs-brake-master-cylinder retail 553-689
-BOM,Running gear,Bosch ABS 10-class two-channel + sensors,1,buy,1.1,est,297.5,227.5,175.0,297.5,227.5,175.0,0,0,0,shortlist 120 est; sensors added
-BOM,Running gear,"Triple clamps (forged, machined), steering bearings, damper",1,make,3.4,est,361.0,247.0,190.0,361.0,247.0,190.0,18000,36000,60000,ledger BV-RUN-0001/0002/0068/0034
-BOM,Running gear,"Bars, risers, grips, switch cubes, pegs, stand, axles, spacers",1,buy,5.6,est,468.0,396.0,360.0,468.0,396.0,360.0,0,0,0,ledger BV-RUN misc
-BOM,Electronics,"HV box enclosure, busbars, contactors x4 (Gigavac GX14), precharge, pyro fuse, shunt, iso monitor",1,buy,5.9,est,2495.6,1684.53,1247.8,2495.6,1684.53,1247.8,0,0,0,elec-bom.csv 10k price x 1.15; https://www.digikey.fr/en/products/detail/sensata-gigavac-clean-energy/GX14CBB/17867714
-BOM,Electronics,"NACS inlet (Volex J3400, 1000 V) + lid",1,buy,1.6,est,345.0,232.88,172.5,345.0,232.88,172.5,0,0,0,elec-bom.csv 10k price x 1.15; https://www.volex.com/media/z3rmrwl5/volex-nacs-ev-charging-inlet.pdf
-BOM,Electronics,EVCC (ADVANTICS class) charge controller,1,buy,0.3,est,345.0,232.88,172.5,345.0,232.88,172.5,0,0,0,elec-bom.csv 10k price x 1.15
-BOM,Electronics,"Onboard charger 3.3 kW, 100-264 V",1,buy,3.5,est,1265.0,853.88,632.5,1265.0,853.88,632.5,0,0,0,elec-bom.csv 10k price x 1.15; class estimate; no part verified
-BOM,Electronics,DC-DC 0.8 kW,1,buy,1.5,est,345.0,232.88,172.5,345.0,232.88,172.5,0,0,0,elec-bom.csv 10k price x 1.15
-BOM,Electronics,VCU (custom at scale),1,buy,0.4,est,460.0,310.5,230.0,460.0,310.5,230.0,0,0,0,elec-bom.csv 10k price x 1.15; AEM VCU200 is prototype only
-BOM,Electronics,Power distribution unit (smart fuses),1,buy,0.8,est,345.0,232.88,172.5,345.0,232.88,172.5,0,0,0,elec-bom.csv 10k price x 1.15
-BOM,Electronics,TFT dash 6.5 in,1,buy,0.75,est,414.0,279.45,207.0,414.0,279.45,207.0,0,0,0,elec-bom.csv 10k price x 1.15
-BOM,Electronics,"Keyless module, antennas, fob",1,buy,0.25,est,184.0,124.2,92.0,184.0,124.2,92.0,0,0,0,elec-bom.csv 10k price x 1.15
-BOM,Electronics,Telematics / gateway,1,buy,0.15,est,103.4,69.8,51.7,103.4,69.8,51.7,0,0,0,elec-bom.csv 10k price x 1.15
-BOM,Electronics,12 V LiFePO4 battery,1,buy,0.9,est,138.0,93.15,69.0,138.0,93.15,69.0,0,0,0,elec-bom.csv 10k price x 1.15
-BOM,Electronics,"LED headlamp + DRL band, tail lamp, 4 indicators, plate lamp, horn",1,buy,2.3,est,469.2,316.71,234.6,469.2,316.71,234.6,0,0,0,elec-bom.csv 10k price x 1.15
-BOM,Electronics,"Small sensors (TPMS x2, stand, brake switches)",1,buy,0.25,est,92.0,62.1,46.0,92.0,62.1,46.0,0,0,0,elec-bom.csv 10k price x 1.15
-BOM,Electronics,"HV cables, connectors, sleeves (35 mm2 set)",1,buy,5.5,est,760.0,513.0,380.0,760.0,513.0,380.0,0,0,0,elec-bom.csv 10k price x 1.15; elec-harness.csv 5.5 kg; elec-bom 300 USD at 10k x 1.25
-BOM,Electronics,LV harness incl. connectors and loom,1,buy,2.0,est,640.0,432.0,320.0,640.0,432.0,320.0,0,0,0,elec-bom.csv 10k price x 1.15; elec-harness.csv 2.0 kg; elec-bom 200 USD at 10k is light for a bike this size
-BOM,Cooling,"Radiator cores (2 x 165x128x28 mm), fans (2), shrouds",1,buy,3.4,est,208.0,176.0,160.0,208.0,176.0,160.0,0,0,0,10-thermal.md; ledger BV-THM
-BOM,Cooling,"Pump, wax thermostat, 3 kW PTC heater, coolant, hoses, sensors",1,buy,7.0,est,247.0,209.0,190.0,247.0,209.0,190.0,0,0,0,10-thermal.md (wax thermostat replaces 4-port valve)
-BOM,Body,"Lower body / battery covers, painted PP/ABS",1,make,1.96,est,153.6,72.0,48.0,153.6,72.0,48.0,27500,66000,110000,program/data/parts-ledger.csv masses; my estimate of moulded part + paint
-BOM,Body,"Upper fairing / tank cover, painted",1,make,1.55,est,166.4,78.0,52.0,166.4,78.0,52.0,30000,72000,120000,program/data/parts-ledger.csv masses; my estimate of moulded part + paint
-BOM,Body,"Tail and side panels, painted",1,make,1.19,est,108.8,51.0,34.0,108.8,51.0,34.0,21250,51000,85000,program/data/parts-ledger.csv masses; my estimate of moulded part + paint
-BOM,Body,Rear hugger,1,make,0.96,est,64.0,30.0,20.0,64.0,30.0,20.0,12500,30000,50000,program/data/parts-ledger.csv masses; my estimate of moulded part + paint
-BOM,Body,Front fender,1,make,0.46,est,51.2,24.0,16.0,51.2,24.0,16.0,8750,21000,35000,program/data/parts-ledger.csv masses; my estimate of moulded part + paint
-BOM,Body,Tail undertray,1,make,0.4,est,38.4,18.0,12.0,38.4,18.0,12.0,7500,18000,30000,program/data/parts-ledger.csv masses; my estimate of moulded part + paint
-BOM,Body,Radiator pod shrouds + grilles,1,make,0.75,est,89.6,42.0,28.0,89.6,42.0,28.0,11250,27000,45000,program/data/parts-ledger.csv masses; my estimate of moulded part + paint
-BOM,Body,"Motor side covers, seam trim, ledges, pivot caps",1,make,0.4,est,76.8,36.0,24.0,76.8,36.0,24.0,8750,21000,35000,program/data/parts-ledger.csv masses; my estimate of moulded part + paint
-BOM,Body,"Windscreen, polycarbonate",1,make,0.75,est,89.6,42.0,28.0,89.6,42.0,28.0,11250,27000,45000,program/data/parts-ledger.csv masses; my estimate of moulded part + paint
-BOM,Body,"Seat, two-level, with cover",1,make,2.6,est,272.0,127.5,85.0,272.0,127.5,85.0,10000,24000,40000,program/data/parts-ledger.csv masses; my estimate of moulded part + paint
-BOM,Body,"Aluminium panels: belly skid, battery sides (2), belly sides (2)",1,make,5.3,est,352.0,165.0,110.0,352.0,165.0,110.0,15000,36000,60000,program/data/parts-ledger.csv masses; my estimate of moulded part + paint
-BOM,Body,"Rear rack, mirrors, plate hanger, reflectors, seat welt",1,buy,2.2,est,162.5,137.5,125.0,162.5,137.5,125.0,0,0,0,ledger BV-BOD
-BOM,Body,"Paint, decals, rubber, misc",1,buy,1.0,est,71.5,60.5,55.0,71.5,60.5,55.0,0,0,0,
-BOM,Body,"Fasteners (titanium where visible), body brackets and fixings",1,buy,5.0,est,299.0,253.0,230.0,299.0,253.0,230.0,0,0,0,ledger BV-ALW-0007/0008
-SUMMARY,,Cells (incl. in material),,,,calc,,,,6600.0,5280.0,4180.0,,,,
-SUMMARY,,Made parts (material + process),,,,calc,,,,5866.71,3575.83,2617.84,,,,
-SUMMARY,,Purchased parts,,,,calc,,,,31335.2,23292.31,18655.6,,,,
-SUMMARY,,MATERIAL SUBTOTAL,,,,calc,,,,43801.91,32148.14,25453.44,,,,
-CONVERSION,,Pack assembly labour,,,,est,,,,810.0,315.0,108.0,,,,"(18.0, 7.0, 2.4) h x 45.0 USD/h"
-CONVERSION,,Bike assembly labour,,,,est,,,,1710.0,720.0,337.5,,,,"(38.0, 16.0, 7.5) h x 45.0 USD/h"
-CONVERSION,,Plant overhead on labour (60%),,,,est,,,,1512.0,621.0,267.3,,,,
-CONVERSION,,End-of-line test (labour + energy),,,,est,,,,109.0,55.0,28.0,,,,"(2.0, 1.0, 0.5) h at 1.2x rate"
-CONVERSION,,Cell screening and pack end-of-line test,,,,est,,,,120.0,70.0,40.0,,,,
-CONVERSION,,"Inbound logistics, duty, handling",,,,est,,,,1517.41,857.17,570.89,,,,"(0.04, 0.03, 0.025) of purchased+cells"
-CONVERSION,,Scrap and yield loss,,,,est,,,,333.67,160.07,81.62,,,,"made (0.04, 0.03, 0.02), cells (0.015, 0.01, 0.007)"
-CONVERSION,,Warranty reserve,,,,est,,,,1752.08,1028.74,712.7,,,,"(0.04, 0.032, 0.028) of material"
-CONVERSION,,Tooling and capital amortised over 5 yr of volume,,,,calc,,,,2468.5,726.8,205.8,,,,
-TOTAL,,"UNIT COST (ex-works, incl. amortised tooling, excl. NRE)",,,,calc,,,,54134.57,36701.93,27805.24,,,,
-TOTAL,,Target T9 at 10k,,,,target,,,,0,0,32000,,,,
-TOOLING,,One-off tooling and capital total (parts tooling + 3 lines),,,,est,,,,1234250.0,3634000.0,10290000.0,,,,
-NRE,,Engineering (reused from startup-costs.csv base; not re-derived),,,,est,,,,6480000.0,12600000.0,23400000.0,,,,
-NRE,,Specialists (reused from startup-costs.csv base; not re-derived),,,,est,,,,600000.0,1200000.0,2500000.0,,,,
-NRE,,Prototypes (reused from startup-costs.csv base; not re-derived),,,,est,,,,900000.0,1800000.0,3500000.0,,,,
-NRE,,Cell_Life (reused from startup-costs.csv base; not re-derived),,,,est,,,,350000.0,700000.0,1200000.0,,,,
-NRE,,Compliance (reused from startup-costs.csv base; not re-derived),,,,est,,,,500000.0,1000000.0,1800000.0,,,,
-NRE,,NRE total,,,,calc,,,,8830000.0,17300000.0,32400000.0,,,,
-NRE,,"NRE per bike over 5 yr of volume (information, not in unit cost)",,,,calc,,,,17660.0,3460.0,648.0,,,,
-SENSITIVITY,,Unit cost: cells -30%,,,,calc,,,,51966.47,35003.88,26476.0,,,,
-SENSITIVITY,,Unit cost: cells +30%,,,,calc,,,,56302.67,38399.97,29134.48,,,,
-SENSITIVITY,,"Unit cost: motor+inverter at volume-supplier pricing (motor 2,800 / inverter 1,500 at 10k)",,,,calc,,,,50030.57,32963.69,23909.14,,,,
-SENSITIVITY,,"Unit cost: stress: cells, motor, inverter stay at 1k-bike prices at 10k",,,,calc,,,,54134.57,36701.93,30571.8,,,,
-SENSITIVITY,,Unit cost: labour rate 30 USD/h,,,,calc,,,,52477.37,35956.7,27452.97,,,,
-SENSITIVITY,,Unit cost: labour rate 65 USD/h,,,,calc,,,,56344.17,37695.57,28274.94,,,,
-SENSITIVITY,,Unit cost: cells -30% + volume-supplier motor/inverter,,,,calc,,,,47862.47,31265.64,22579.9,,,,
-LEVER,,"Cells 3.80 -> 3.10 USD (direct supply contract at 11M cells/yr, about 143 USD/kWh)",,,,calc,,,,,,816,,,,saving per bike at 10k
-LEVER,,"Motor 4,800 -> 2,800 USD (volume axial-flux supplier)",,,,calc,,,,,,2106,,,,saving per bike at 10k
-LEVER,,"Inverter 3,200 -> 1,500 USD (automotive SiC/IGBT inverter at volume)",,,,calc,,,,,,1790,,,,saving per bike at 10k
-LEVER,,Assembly labour 45 -> 30 USD/h (lower-cost plant location),,,,calc,,,,,,352,,,,saving per bike at 10k
+section,group,part_numbers,item,qty,make_buy,mass_kg,label,unit_usd_100,unit_usd_1k,unit_usd_10k,ext_usd_100,ext_usd_1k,ext_usd_10k,tooling_usd_100,tooling_usd_1k,tooling_usd_10k,source_or_basis
+BOM,Pack,BV-ENG-0002 BV-ENG-0003 BV-ENG-0004 BV-ENG-0005,"Molicel INR-21700-P60B cells, 100s11p (1,100)",1100,buy,82.5,est,6.0,4.8,3.8,6600.0,5280.0,4180.0,0,0,0,https://www.molicel.com/wp-content/uploads/Product-Data-Sheet-of-INR-21700-P60B_80145.pdf; B2B listings 3.35-8.00 USD/cell; P50B retail 7.50 at 1000 piece price from cell_usd curve
+BOM,Pack,BV-ENG-0001 BV-ENG-0101 BV-ENG-0008 BV-ENG-0009 BV-ENG-0010 BV-ENG-0011,"Pack case: 3 mm Al tub, 5 mm front wall, lid, pads",1,make,7.8994,est,420.52,287.73,221.33,420.52,287.73,221.33,105000,210000,350000,09-structures.md; sheet 4.6 USD/kg x 1.55 buy-to-fly + 165 USD cut/form/weld/leak test
+BOM,Pack,BV-ENG-0006,"Pack internals electrical: busbars, bonds, fuse collectors, tap harness, MSD",1,buy,7.26,est,1360.0,918.0,680.0,1360.0,918.0,680.0,0,0,0,"elec-bom.csv busbar 300 + sense harness 100 + MSD 60 at 10k, scaled up for 2,200 wire bonds"
+BOM,Pack,BV-ENG-0007,"Pack internals thermal: ribbons, manifolds, gap filler, fire barrier (7.25 kg)",1,buy,7.25,est,772.0,521.1,386.0,772.0,521.1,386.0,0,0,0,"prior 330 USD at 6.2 kg, scaled by mass"
+BOM,Pack,BV-ENG-0102,"Cell holders, PA66-GF30 plates, 4 modules (3.1 kg)",1,make,3.09,est,134.4,63.0,42.0,134.4,63.0,42.0,30000,72000,120000,"3.1 kg x 4.5 USD/kg + moulding; 19 mm apertures x 1,100 2 large multi-cavity tools"
+BOM,Pack,BV-ELC-0018,BMS Orion BMS2 + thermistor module,1,buy,1.5,est,1140.0,769.5,570.0,1140.0,769.5,570.0,0,0,0,https://www.orionbms.com/downloads/documents/orionbms2_specifications.pdf; retail 700+250
+BOM,Drive,BV-DRV-0001,"EMRAX 228 axial-flux motor, LV+43% winding, liquid cooled",1,buy,13.2,est,6800.0,5520.0,4800.0,6800.0,5520.0,4800.0,0,0,0,"No published price; shortlist estimate 7,500 USD; low-volume supplier piece price from motor_usd curve"
+BOM,Drive,BV-DRV-0002,Cascadia CM200DX inverter,1,buy,6.75,est,5500.0,4000.0,3200.0,5500.0,4000.0,3200.0,0,0,0,"https://www.fuel2electric.com/cascadia-motion-cm200-inverter (CM200 retail 7,202 USD, one unit) piece price from inv_usd curve"
+BOM,Drive,BV-DRV-0006,"Rear pulley 126T 8M, lightened, anodised (2.3 kg)",1,make,2.3,est,134.12,91.77,70.59,134.12,91.77,70.59,4500,9000,15000,6082 bar + CNC
+BOM,Drive,BV-DRV-0004,Motor pulley 35T 8M,1,make,0.5,est,39.9,27.3,21.0,39.9,27.3,21.0,0,0,0,
+BOM,Drive,BV-DRV-0003,Gates Poly Chain GT Carbon 8MGT-1760 belt,1,buy,0.5,est,170.5,132.0,110.0,170.5,132.0,110.0,0,0,0,gates.com; OEM price estimate
+BOM,Drive,BV-DRV-0007,"Motor pulley bearing carrier, machined Al",1,make,0.4,est,66.5,45.5,35.0,66.5,45.5,35.0,3600,7200,12000,
+BOM,Chassis,BV-CHS-0006 BV-CHS-0016 BV-CHS-0022 BV-CHS-0002 BV-CHS-0012 BV-CHS-0028 BV-CHS-0009 BV-CHS-0019 BV-CHS-0003 BV-CHS-0013 BV-CHS-0031 BV-CHS-0008 BV-CHS-0018 BV-CHS-0010 BV-CHS-0020 BV-CHS-0001 BV-CHS-0011 BV-CHS-0029 BV-CHS-0030 BV-CHS-0004 BV-CHS-0014 BV-CHS-0005 BV-CHS-0015 BV-CHS-0007 BV-CHS-0017 BV-CHS-0042 BV-CHS-0025 BV-CHS-0034 BV-CHS-0038 BV-CHS-0035 BV-CHS-0039 BV-CHS-0024,"Welded 25CrMo4 frame + load-bearing steel pivot yoke (tube, jig-welded, stress relieved, coated)",1,make,21.7912,est,1217.65,905.65,690.17,1217.65,905.65,690.17,300000,600000,1000000,"09-structures.md; tube 9 USD/kg x 1.15-1.30, weld hours scaled by kg (14 / 9 / 5.5 h per 22 kg), coat/heat treat/stub machining"
+BOM,Chassis,BV-CHS-0044 BV-CHS-0045 BV-CHS-0046 BV-CHS-0047,"Cast steel frame nodes (4 in BOM, mass booked inside the tubes)",1,make,0.0,est,243.2,166.4,128.0,243.2,166.4,128.0,18000,36000,60000,"investment-cast steel, ~32 USD each at 10k incl. machining"
+BOM,Chassis,BV-CHS-0050,"Pack mounting pads and arm boss/end plates (1.3 kg), machined",1,make,1.3,est,180.5,123.5,95.0,180.5,123.5,95.0,0,0,0,
+BOM,Chassis,BV-CHS-0032,Nose subframe and headlamp brackets,1,make,1.15,est,66.5,45.5,35.0,66.5,45.5,35.0,0,0,0,
+BOM,Chassis,BV-CHS-0021,"Cast A356-T6 single-sided swingarm, machined",1,make,2.278,est,470.0,150.0,92.0,470.0,150.0,92.0,63000,126000,210000,LP die cast + T6 + CNC + X-ray sampling at 10k; sand cast at 100/yr
+BOM,Chassis,BV-CHS-0051,Swingarm hub carrier (cast A356) with 2 wheel bearings,1,make,1.1,est,117.8,80.6,62.0,117.8,80.6,62.0,24000,48000,80000,cast + machined + bearings
+BOM,Chassis,BV-CHS-0027,"Swingarm shock tower, plate",1,make,0.7455,est,41.8,28.6,22.0,41.8,28.6,22.0,0,0,0,
+BOM,Chassis,BV-CHS-0023,Swingarm cross brace (cast boss and rib),1,make,0.5127,est,53.2,36.4,28.0,53.2,36.4,28.0,0,0,0,09-structures.md: unreinforced bolt-on fails
+BOM,Chassis,BV-CHS-0033,Swingarm pivot bolt and hardware,1,buy,0.6,est,39.0,33.0,30.0,39.0,33.0,30.0,0,0,0,
+BOM,Chassis,BV-CHS-0048 BV-CHS-0049,"Pivot bearings, 2 x 32012 tapered roller + seals",1,buy,1.4,est,148.8,115.2,96.0,148.8,115.2,96.0,0,0,0,SKF/Timken class; 32012 about 38 USD OEM each
+BOM,Chassis,BV-PRO-0009 BV-PRO-0010 BV-PRO-0011 BV-PRO-0012 BV-PRO-0013 BV-PRO-0014 BV-PRO-0015 BV-PRO-0016,"Crash guard sliders and mounts, 25CrMo4",1,make,0.9268,est,142.5,97.5,75.0,142.5,97.5,75.0,0,0,0,
+BOM,Chassis,BV-PRO-0004 BV-PRO-0008,"Handguards (pair), 6082 bent tube",1,make,0.5868,est,87.4,59.8,46.0,87.4,59.8,46.0,0,0,0,
+BOM,Chassis,BV-PRO-0003 BV-PRO-0007,Pivot sliders,1,buy,0.12,est,15.6,13.2,12.0,15.6,13.2,12.0,0,0,0,
+BOM,Running gear,BV-RUN-0036 BV-RUN-0037 BV-RUN-0038 BV-RUN-0039 BV-RUN-0040 BV-RUN-0041 BV-RUN-0042 BV-RUN-0043,"43 mm USD fork, 170 mm, cartridge damping",1,buy,6.7998,est,1615.0,1235.0,950.0,1615.0,1235.0,950.0,0,0,0,"Ohlins FGRT 301 retail EUR 3,975; OE ~25%"
+BOM,Running gear,BV-RUN-0044 BV-RUN-0045 BV-RUN-0046 BV-RUN-0047 BV-RUN-0048 BV-RUN-0049,"Rear shock, Ohlins STX 46 class, remote reservoir",1,buy,2.9999,est,884.0,676.0,520.0,884.0,676.0,520.0,0,0,0,https://www.ohlins.eu/en/products/motorcycle/kt-122--4458/ retail EUR 869
+BOM,Running gear,BV-RUN-0069 BV-RUN-0070,"Carbon composite wheels 19x3.00 / 17x4.50 (BST class), with bearings",1,buy,5.9,est,4410.0,3045.0,2100.0,4410.0,3045.0,2100.0,0,0,0,"BST-class set about 4,500 USD retail (+2.7k over forged, per coordinator); OEM estimate 2,100 at 10k (~47% of retail) piece price from wheel_usd curve"
+BOM,Running gear,BV-RUN-0052 BV-RUN-0053,Tyres 110/80R19 + 150/70R17,1,buy,9.1,est,271.25,210.0,175.0,271.25,210.0,175.0,0,0,0,shortlist 260 retail pair
+BOM,Running gear,BV-RUN-0054 BV-RUN-0055,Front discs 320x5 floating (pair),1,buy,2.4,est,255.0,195.0,150.0,255.0,195.0,150.0,0,0,0,OE ~75 each
+BOM,Running gear,BV-RUN-0058 BV-RUN-0059,Brembo Stylema 220D02010 calipers (pair),1,buy,1.25,est,782.0,598.0,460.0,782.0,598.0,460.0,0,0,0,"https://www.bremboparts.com/africa/en/catalogue-bike/caliper/220D02010; retail ~450 each, OE est 230"
+BOM,Running gear,BV-RUN-0056 BV-RUN-0057,"Front disc carriers (pair), machined Al",1,make,0.5,est,106.4,72.8,56.0,106.4,72.8,56.0,0,0,0,
+BOM,Running gear,BV-RUN-0060,Rear disc 245x5,1,buy,0.85,est,43.4,33.6,28.0,43.4,33.6,28.0,0,0,0,
+BOM,Running gear,BV-RUN-0061 BV-RUN-0062 BV-RUN-0063,"Rear caliper P34 class, bracket, carrier",1,buy,0.85,est,131.75,102.0,85.0,131.75,102.0,85.0,0,0,0,
+BOM,Running gear,BV-RUN-0064,Bosch ABS 10-class two-channel + sensors,1,buy,1.1,est,297.5,227.5,175.0,297.5,227.5,175.0,0,0,0,shortlist 120 est; sensors added
+BOM,Running gear,BV-RUN-0065,Rear brake pedal and master cylinder,1,buy,0.7,est,147.25,114.0,95.0,147.25,114.0,95.0,0,0,0,
+BOM,Running gear,BV-RUN-0020 BV-RUN-0021 BV-RUN-0022 BV-RUN-0023 BV-RUN-0024 BV-RUN-0025 BV-RUN-0026 BV-RUN-0029 BV-RUN-0030 BV-RUN-0031 BV-RUN-0032 BV-RUN-0033,"Front master cylinder (19RCS class), reservoir, hoses, banjos, splitters",1,buy,1.04,est,310.0,240.0,200.0,310.0,240.0,200.0,0,0,0,https://www.motosport.com/brembo-19rcs-brake-master-cylinder retail 553-689; OE est 140
+BOM,Running gear,BV-RUN-0071,"Steering damper, semi-active",1,buy,0.5,est,544.0,416.0,320.0,544.0,416.0,320.0,0,0,0,Ohlins steering damper retail ~600 USD; electronic valve adds cost
+BOM,Running gear,BV-RUN-0001,"Lower triple clamp, forged + machined",1,make,1.3,est,114.0,78.0,60.0,114.0,78.0,60.0,9000,18000,30000,
+BOM,Running gear,BV-RUN-0002,"Upper triple clamp, forged + machined",1,make,0.7,est,76.0,52.0,40.0,76.0,52.0,40.0,7500,15000,25000,
+BOM,Running gear,BV-RUN-0068,"Steering bearings, stem nut",1,buy,0.3,est,36.4,30.8,28.0,36.4,30.8,28.0,0,0,0,
+BOM,Running gear,BV-RUN-0066 BV-RUN-0067,"Axles, spacers, adjusters",1,buy,1.15,est,68.9,58.3,53.0,68.9,58.3,53.0,0,0,0,
+BOM,Running gear,BV-RUN-0010 BV-RUN-0016,Hand levers (pair),1,buy,0.9,est,93.0,72.0,60.0,93.0,72.0,60.0,0,0,0,
+BOM,Running gear,BV-RUN-0003 BV-RUN-0004,Bar risers (pair),1,buy,0.5,est,46.8,39.6,36.0,46.8,39.6,36.0,0,0,0,
+BOM,Running gear,BV-RUN-0005 BV-RUN-0011,Bar halves (pair),1,buy,0.5,est,78.0,66.0,60.0,78.0,66.0,60.0,0,0,0,
+BOM,Running gear,BV-RUN-0006 BV-RUN-0012,Grips (pair),1,buy,0.4,est,23.4,19.8,18.0,23.4,19.8,18.0,0,0,0,
+BOM,Running gear,BV-RUN-0019 BV-RUN-0028,Switch cubes (pair),1,buy,0.3,est,152.0,102.6,76.0,152.0,102.6,76.0,0,0,0,
+BOM,Running gear,BV-RUN-0018 BV-RUN-0027,Lever perches (pair),1,buy,0.24,est,20.8,17.6,16.0,20.8,17.6,16.0,0,0,0,
+BOM,Running gear,BV-RUN-0035,Side stand,1,buy,1.4,est,33.8,28.6,26.0,33.8,28.6,26.0,0,0,0,
+BOM,Running gear,BV-RUN-0009 BV-RUN-0015,Peg brackets (pair),1,make,0.7,est,83.6,57.2,44.0,83.6,57.2,44.0,0,0,0,
+BOM,Running gear,BV-RUN-0007 BV-RUN-0013,Pegs (pair),1,buy,0.5,est,26.0,22.0,20.0,26.0,22.0,20.0,0,0,0,
+BOM,Running gear,BV-RUN-0008 BV-RUN-0014,Peg rubbers (pair),1,buy,0.2,est,7.8,6.6,6.0,7.8,6.6,6.0,0,0,0,
+BOM,Electronics,BV-ELC-0016,BROGEN PV1776 6.6 kW onboard charger,1,buy,3.0,est,1400.0,945.0,700.0,1400.0,945.0,700.0,0,0,0,shortlist ALT 900 USD est; the BOM carries the 6.6 kW unit (3.3 kW class is about 550)
+BOM,Electronics,BV-ELC-0023,"NACS inlet (Volex J3400, 1000 V) + lid",1,buy,1.6,est,344.0,232.2,172.0,344.0,232.2,172.0,0,0,0,https://www.volex.com/media/z3rmrwl5/volex-nacs-ev-charging-inlet.pdf; elec-bom 150 x 1.15
+BOM,Electronics,BV-ELC-0024,EVCC charge controller (ADVANTICS class),1,buy,0.3,est,344.0,232.2,172.0,344.0,232.2,172.0,0,0,0,elec-bom 150 x 1.15
+BOM,Electronics,BV-ELC-0026,"VCU, power distribution unit, keyless, telematics, HVIL bonding",1,buy,2.1,est,1092.0,737.1,546.0,1092.0,737.1,546.0,0,0,0,elec-bom 200+150+80+45 x 1.15
+BOM,Electronics,BV-ELC-0001,"HV cabinet, 2 mm folded Al",1,make,1.1971,est,72.2,49.4,38.0,72.2,49.4,38.0,7500,15000,25000,
+BOM,Electronics,BV-ELC-0019 BV-ELC-0020 BV-ELC-0021 BV-ELC-0022,"HV box: 4 x Gigavac GX14, precharge, pyro fuse, shunt, iso monitor, relays, fuses",1,buy,2.7,est,2496.0,1684.8,1248.0,2496.0,1684.8,1248.0,0,0,0,"https://www.digikey.fr/en/products/detail/sensata-gigavac-clean-energy/GX14CBB/17867714; elec-bom 10k sum 1,085 x 1.15"
+BOM,Electronics,BV-ELC-0017,DC-DC 0.8 kW,1,buy,1.2,est,344.0,232.2,172.0,344.0,232.2,172.0,0,0,0,elec-bom 150 x 1.15
+BOM,Electronics,BV-ELC-0025,12 V LiFePO4 battery,1,buy,0.9,est,138.0,93.15,69.0,138.0,93.15,69.0,0,0,0,
+BOM,Electronics,BV-ELC-0002 BV-ELC-0003,LED headlamp with DRL blade,1,buy,1.2,est,276.0,186.3,138.0,276.0,186.3,138.0,0,0,0,
+BOM,Electronics,BV-ELC-0004,Tail / brake lamp,1,buy,0.25,est,70.0,47.25,35.0,70.0,47.25,35.0,0,0,0,
+BOM,Electronics,BV-ELC-0005 BV-ELC-0006 BV-ELC-0007 BV-ELC-0008,Indicators x4,1,buy,0.2,est,96.0,64.8,48.0,96.0,64.8,48.0,0,0,0,
+BOM,Electronics,BV-ELC-0010 BV-ELC-0011,Rear indicator stalks,1,buy,0.04,est,10.4,8.8,8.0,10.4,8.8,8.0,0,0,0,
+BOM,Electronics,BV-ELC-0009,Plate lamp,1,buy,0.05,est,9.1,7.7,7.0,9.1,7.7,7.0,0,0,0,
+BOM,Electronics,BV-ELC-0012 BV-ELC-0013 BV-ELC-0014,"TFT dash 6.5 in, glass, mount",1,buy,0.8,est,414.0,279.45,207.0,414.0,279.45,207.0,0,0,0,elec-bom 180 x 1.15
+BOM,Electronics,BV-ELC-0015,Horn,1,buy,0.4,est,11.7,9.9,9.0,11.7,9.9,9.0,0,0,0,
+BOM,Cooling,BV-THM-0003 BV-THM-0005,Radiator cores (2),1,buy,1.61,est,109.2,92.4,84.0,109.2,92.4,84.0,0,0,0,10-thermal.md: 2 x 165x128x28 mm
+BOM,Cooling,BV-THM-0004 BV-THM-0006,Radiator fans (2),1,buy,1.1,est,52.0,44.0,40.0,52.0,44.0,40.0,0,0,0,
+BOM,Cooling,BV-THM-0001,Coolant pump,1,buy,0.55,est,62.4,52.8,48.0,62.4,52.8,48.0,0,0,0,
+BOM,Cooling,BV-THM-0008,Wax thermostat,1,buy,0.15,est,15.6,13.2,12.0,15.6,13.2,12.0,0,0,0,
+BOM,Cooling,BV-THM-0009,PTC heater 3 kW,1,buy,1.14,est,75.4,63.8,58.0,75.4,63.8,58.0,0,0,0,
+BOM,Cooling,BV-THM-0007,"Coolant, hoses, clamps, sensors",1,buy,2.35,est,97.5,82.5,75.0,97.5,82.5,75.0,0,0,0,
+BOM,Electronics,BV-ALW-0006,"HV cables, connectors, conduit (35 mm2 set)",1,buy,5.53,est,760.0,513.0,380.0,760.0,513.0,380.0,0,0,0,elec-bom 300 x 1.25
+BOM,Electronics,BV-ALW-0001 BV-ALW-0002 BV-ALW-0003 BV-ALW-0004 BV-ALW-0005,"LV harness incl. connectors, bars and loom",1,buy,2.4,est,640.0,432.0,320.0,640.0,432.0,320.0,0,0,0,elec-bom 200 is light for this size
+BOM,Electronics,BV-ALW-0008,Fasteners (titanium where visible),1,buy,3.0,est,221.0,187.0,170.0,221.0,187.0,170.0,0,0,0,
+BOM,Electronics,BV-ALW-0007,Body brackets and fixings,1,buy,2.0,est,71.5,60.5,55.0,71.5,60.5,55.0,0,0,0,
+BOM,Body,BV-BOD-0004,Lower body battery covers,1,make,0.9221,est,108.8,51.0,34.0,108.8,51.0,34.0,20000,48000,80000,"moulded/formed part + paint, my estimate"
+BOM,Body,BV-BOD-0003,Upper body fairing / tank cover,1,make,1.6629,est,153.6,72.0,48.0,153.6,72.0,48.0,30000,72000,120000,"moulded/formed part + paint, my estimate"
+BOM,Body,BV-BOD-0017,Tail side panels,1,make,0.7735,est,83.2,39.0,26.0,83.2,39.0,26.0,17500,42000,70000,"moulded/formed part + paint, my estimate"
+BOM,Body,BV-BOD-0025,Rear hugger,1,make,0.3035,est,38.4,18.0,12.0,38.4,18.0,12.0,8750,21000,35000,"moulded/formed part + paint, my estimate"
+BOM,Body,BV-BOD-0024,Front fender,1,make,0.246,est,35.2,16.5,11.0,35.2,16.5,11.0,7000,16800,28000,"moulded/formed part + paint, my estimate"
+BOM,Body,BV-BOD-0020,Tail undertray,1,make,0.3699,est,35.2,16.5,11.0,35.2,16.5,11.0,6250,15000,25000,"moulded/formed part + paint, my estimate"
+BOM,Body,BV-BOD-0035 BV-BOD-0037 BV-BOD-0034 BV-BOD-0036,Radiator pod shrouds and grilles,1,make,0.5964,est,96.0,45.0,30.0,96.0,45.0,30.0,8750,21000,35000,"moulded/formed part + paint, my estimate"
+BOM,Body,BV-BOD-0023,"Windscreen, polycarbonate",1,make,0.4988,est,83.2,39.0,26.0,83.2,39.0,26.0,11250,27000,45000,"moulded/formed part + paint, my estimate"
+BOM,Body,BV-BOD-0005 BV-BOD-0042 BV-BOD-0043 BV-BOD-0044 BV-BOD-0045,Waist ledge plates and seam trims,1,make,0.077,est,38.4,18.0,12.0,38.4,18.0,12.0,3750,9000,15000,"moulded/formed part + paint, my estimate"
+BOM,Body,BV-BOD-0018,"Seat, two-level, with cover",1,make,2.6,est,272.0,127.5,85.0,272.0,127.5,85.0,10000,24000,40000,"moulded/formed part + paint, my estimate"
+BOM,Body,BV-BOD-0022,"Belly skid plate, Al",1,make,1.1542,est,121.6,57.0,38.0,121.6,57.0,38.0,8750,21000,35000,"moulded/formed part + paint, my estimate"
+BOM,Body,BV-BOD-0021,Rear rack,1,buy,0.9,est,49.4,41.8,38.0,49.4,41.8,38.0,0,0,0,
+BOM,Body,BV-BOD-0032,Plate hanger arm,1,buy,0.45,est,13.0,11.0,10.0,13.0,11.0,10.0,0,0,0,
+BOM,Body,BV-BOD-0033,Licence plate,1,buy,0.2,est,7.8,6.6,6.0,7.8,6.6,6.0,0,0,0,
+BOM,Body,BV-BOD-0019,Seat welt,1,buy,0.05,est,2.6,2.2,2.0,2.6,2.2,2.0,0,0,0,
+BOM,Body,BV-BOD-0038 BV-BOD-0039 BV-BOD-0040 BV-BOD-0001 BV-BOD-0002,Reflectors,1,buy,0.07,est,15.6,13.2,12.0,15.6,13.2,12.0,0,0,0,
+BOM,Body,BV-BOD-0007 BV-BOD-0008,Pivot cover caps,1,buy,0.08,est,7.8,6.6,6.0,7.8,6.6,6.0,0,0,0,
+BOM,Body,BV-BOD-0028 BV-BOD-0031 BV-BOD-0026 BV-BOD-0029 BV-BOD-0027 BV-BOD-0030,Mirrors (pair),1,buy,0.86,est,75.4,63.8,58.0,75.4,63.8,58.0,0,0,0,
+BOM,Body,BV-BOD-0041,"Paint, decals, rubber, misc",1,buy,1.0,est,71.5,60.5,55.0,71.5,60.5,55.0,0,0,0,
+BOM,Allowances (no BOM line),,ALLOWANCE (no BOM line): belt guard and tensioner,1,buy,0.0,est,58.5,49.5,45.0,58.5,49.5,45.0,0,0,0,not in bom-v1-indented.csv
+BOM,Allowances (no BOM line),,"ALLOWANCE (no BOM line): TPMS x2, stand and brake switches, sensors",1,buy,0.0,est,92.0,62.1,46.0,92.0,62.1,46.0,0,0,0,elec-bom 'small sensors'; not in the BOM
+BOM,Allowances (no BOM line),,"ALLOWANCE (no BOM line): consumables, labels, grease, threadlock, brake fluid",1,buy,0.0,est,78.0,66.0,60.0,78.0,66.0,60.0,0,0,0,
+GROUP,,,Pack,,,,calc,,,,10426.92,7839.33,6079.33,,,,
+GROUP,,,Drive,,,,calc,,,,12711.02,9816.57,8236.59,,,,
+GROUP,,,Chassis,,,,calc,,,,2823.95,1855.35,1411.17,,,,
+GROUP,,,Running gear,,,,calc,,,,10658.05,7816.0,5857.0,,,,
+GROUP,,,Electronics,,,,calc,,,,8809.9,6002.75,4494.0,,,,
+GROUP,,,Cooling,,,,calc,,,,412.1,348.7,317.0,,,,
+GROUP,,,Body,,,,calc,,,,1308.7,705.2,520.0,,,,
+GROUP,,,Allowances (no BOM line),,,,calc,,,,228.5,177.6,151.0,,,,
+SUMMARY,,,Cells (included in material),,,,calc,,,,6600.0,5280.0,4180.0,,,,
+SUMMARY,,,Made parts,,,,calc,,,,4933.79,3018.14,2234.08,,,,
+SUMMARY,,,Purchased parts,,,,calc,,,,35845.35,26263.35,20652.0,,,,
+SUMMARY,,,MATERIAL SUBTOTAL,,,,calc,,,,47379.14,34561.49,27066.08,,,,
+CONVERSION,,,Pack assembly labour,,,,est,,,,810.0,315.0,108.0,,,,"(18.0, 7.0, 2.4) h x 45.0 USD/h"
+CONVERSION,,,Bike assembly labour,,,,est,,,,1710.0,720.0,337.5,,,,"(38.0, 16.0, 7.5) h x 45.0 USD/h"
+CONVERSION,,,Plant overhead on labour (60%),,,,est,,,,1512.0,621.0,267.3,,,,
+CONVERSION,,,End-of-line test (labour + energy),,,,est,,,,109.0,55.0,28.0,,,,"(2.0, 1.0, 0.5) h at 1.2x rate"
+CONVERSION,,,Cell screening and pack end-of-line test,,,,est,,,,120.0,70.0,40.0,,,,
+CONVERSION,,,"Inbound logistics, duty, handling",,,,est,,,,1697.81,946.3,620.8,,,,"(0.04, 0.03, 0.025) of purchased+cells"
+CONVERSION,,,Scrap and yield loss,,,,est,,,,296.35,143.34,73.94,,,,"made (0.04, 0.03, 0.02), cells (0.015, 0.01, 0.007)"
+CONVERSION,,,Warranty reserve,,,,est,,,,1895.17,1105.97,757.85,,,,"(0.04, 0.032, 0.028) of material"
+CONVERSION,,,Tooling and capital amortised over 5 yr of volume,,,,calc,,,,2508.2,734.6,207.1,,,,
+TOTAL,,,"UNIT COST (ex-works, incl. amortised tooling, excl. NRE)",,,,calc,,,,58037.67,39272.7,29506.58,,,,
+TOTAL,,,Target T9 at 10k,,,,target,,,,0,0,32000,,,,
+TOOLING,,,One-off tooling and capital (parts tooling + 3 lines),,,,est,,,,1254100.0,3673000.0,10355000.0,,,,
+NRE,,,Engineering (reused from startup-costs.csv base; not re-derived),,,,est,,,,6480000.0,12600000.0,23400000.0,,,,
+NRE,,,Specialists (reused from startup-costs.csv base; not re-derived),,,,est,,,,600000.0,1200000.0,2500000.0,,,,
+NRE,,,Prototypes (reused from startup-costs.csv base; not re-derived),,,,est,,,,900000.0,1800000.0,3500000.0,,,,
+NRE,,,Cell_Life (reused from startup-costs.csv base; not re-derived),,,,est,,,,350000.0,700000.0,1200000.0,,,,
+NRE,,,Compliance (reused from startup-costs.csv base; not re-derived),,,,est,,,,500000.0,1000000.0,1800000.0,,,,
+NRE,,,NRE total,,,,calc,,,,8830000.0,17300000.0,32400000.0,,,,
+NRE,,,"NRE per bike over 5 yr of volume (information, not in unit cost)",,,,calc,,,,17660.0,3460.0,648.0,,,,
+SENSITIVITY,,,Unit cost: cells -30%,,,,calc,,,,55869.57,37574.65,28177.34,,,,
+SENSITIVITY,,,Unit cost: cells +30%,,,,calc,,,,60205.77,40970.75,30835.82,,,,
+SENSITIVITY,,,"Unit cost: motor+inverter at volume-supplier pricing (10k: motor 2,800 / inverter 1,500)",,,,calc,,,,53933.67,35534.46,25610.48,,,,
+SENSITIVITY,,,"Unit cost: stress: cells, motor, inverter stay at 1k-bike prices at 10k",,,,calc,,,,58037.67,39272.7,32273.14,,,,
+SENSITIVITY,,,Unit cost: labour rate 30 USD/h,,,,calc,,,,56383.1,38529.13,29155.31,,,,
+SENSITIVITY,,,Unit cost: labour rate 65 USD/h,,,,calc,,,,60243.76,40264.12,29974.94,,,,
+SENSITIVITY,,,"Unit cost: forged wheels instead of carbon (10k set 1,050)",,,,calc,,,,55202.67,37488.54,28400.93,,,,
+SENSITIVITY,,,Unit cost: cells -30% + volume-supplier motor/inverter,,,,calc,,,,51765.57,33836.41,24281.24,,,,
+SENSITIVITY,,,"Unit cost: carbon-wheel OEM price +50% (10k 3,150)",,,,calc,,,,60419.07,40890.13,30612.23,,,,
+LEVER,,,"Motor 4,800 -> 2,800 USD (volume axial-flux supplier)",,,,calc,,,,,,2106,,,,saving per bike at 10k
+LEVER,,,"Inverter 3,200 -> 1,500 USD (automotive inverter at volume)",,,,calc,,,,,,1790,,,,saving per bike at 10k
+LEVER,,,"Carbon wheels -> forged (about 1,050 USD set at 10k)",,,,calc,,,,,,1106,,,,saving per bike at 10k
+LEVER,,,"Cells 3.80 -> 3.10 USD (direct supply contract, about 143 USD/kWh)",,,,calc,,,,,,816,,,,saving per bike at 10k
+LEVER,,,Assembly labour 45 -> 30 USD/h (lower-cost plant location),,,,calc,,,,,,351,,,,saving per bike at 10k
