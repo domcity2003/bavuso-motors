@@ -1,10 +1,10 @@
 budget_group,systems,budget_kg,raw_kg,headroom_kg,headroom_pct,growth_adjusted_kg,estimate_share_pct,flag
-Battery pack,ENG,103.0,104.92,-1.92,-1.9,116.14,0.0,OVER
-Chassis,CHS,18.0,22.56,-4.56,-25.4,24.91,8.0,OVER
-Running gear,RUN,37.0,45.38,-8.38,-22.6,50.51,97.0,OVER
+Battery pack,ENG,103.0,104.91,-1.91,-1.9,116.13,0.0,OVER
+Chassis,CHS,18.0,27.92,-9.92,-55.1,30.8,6.0,OVER
+Running gear,RUN,37.0,42.58,-5.58,-15.1,47.38,97.0,OVER
 Drive,DRV,23.0,23.45,-0.45,-2.0,25.82,15.0,OVER
 Electronics,ELC,18.0,17.44,0.56,3.1,19.52,47.0,TIGHT
-Body and protection,BOD;PRO,15.0,14.35,0.65,4.3,16.49,43.0,TIGHT
+Body and protection,BOD;PRO,15.0,14.45,0.55,3.7,16.61,42.0,TIGHT
 Cooling,THM,6.0,6.9,-0.9,-15.0,7.93,100.0,OVER
 "Wiring, fasteners, fluids",ALW,11.0,12.93,-1.93,-17.5,14.87,41.0,OVER
-TOTAL,,240.0,247.93,-7.93,-3.3,,,OVER
+TOTAL,,240.0,250.57,-10.57,-4.4,,,OVER

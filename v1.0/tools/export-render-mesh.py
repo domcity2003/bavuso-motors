@@ -34,13 +34,15 @@ def kind(o):
     if 'Seat' in n:return 'seat'
     if 'inner_tube' in n or 'Shock_rod' in n:return 'chrome'
     if 'disc' in n and 'carrier' not in n:return 'disc'
-    if 'Peg_bracket' in n or 'Hand_lever' in n or 'pulley' in n:return 'alu'
+    if 'pulley' in n:return 'anodised'    # rev E: dark anodised pulleys (they rendered as bright aluminium)
+    if 'Peg_bracket' in n or 'Hand_lever' in n:return 'alu'
     if 'Headlamp' in n or 'Plate_lamp' in n:return 'lamp_white'
     if 'Taillamp' in n:return 'lamp_red'
     if 'indicator' in n:return 'lamp_amber'
     if 'Windscreen' in n:return 'glass'
     if 'Licence' in n:return 'plate'
-    if 'wheel_STUDY' in n:return 'wheel'
+    if 'wheel_' in n and 'STUDY' in n:return 'carbon' if 'carbon' in n.lower() else 'wheel'   # rev E: carbon wheels (Front_wheel_carbon_BST_STUDY)
+    if n.startswith('Seam_trim'):return 'gloss'
     if 'Mirror_body' in n or 'Display' in n:return 'plastic'
     if 'Panel_bolts' in n:return 'bolt'
     if n.startswith(('Upper_body','Lower_body','Tail_side','Motor_side','Front_fender','Rear_hugger')):return 'paint'

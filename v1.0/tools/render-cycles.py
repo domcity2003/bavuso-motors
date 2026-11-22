@@ -74,6 +74,9 @@ MATS=dict(
     seat=mat('seat',g(.014),.62,spec=.3,sheen=.3,bump=.35,bump_scale=350,bevel=.003),
     chrome=mat('chrome',g(.92),.05,metal=1),disc=mat('disc',g(.6),.3,metal=1,aniso=.6,bevel=.0008),
     alu=mat('alu',g(.75),.25,metal=1,aniso=.5,bevel=.001),
+    anodised=mat('anodised',g(.022),.34,metal=1,aniso=.3,bevel=.001),             # rev E: dark anodised pulleys
+    carbon=mat('carbon',g(.008),.22,metal=.1,coat=1.,coat_rough=.04,aniso=.4,bevel=.0015),   # rev E: gloss-clearcoat carbon wheels
+    gloss=mat('gloss',g(.006),.08,spec=.8,coat=1.,coat_rough=.02,bevel=.0008),           # rev E: gloss black trim line
     bolt=mat('bolt',g(.05),.35,metal=.9,bevel=.0006),                      # black-oxide button heads (zinc read as white dots)
     hose=mat('hose',g(.012),.42,spec=.4,coat=.25,coat_rough=.3,bump=.08,bump_scale=3000),   # brake hose / harness sleeve
     mirror=mat('mirror',g(.95),.02,metal=1),

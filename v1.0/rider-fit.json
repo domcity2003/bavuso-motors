@@ -14,17 +14,17 @@
    ],
    "knee": [
     689,
-    -294,
-    554
+    -297,
+    555
    ],
    "ankle": [
     277,
-    -275,
+    -281,
     427
    ],
    "ball": [
     420,
-    -275,
+    -281,
     333
    ],
    "shoulder": [
@@ -51,17 +51,17 @@
    ],
    "knee": [
     689,
-    294,
-    554
+    297,
+    555
    ],
    "ankle": [
     277,
-    275,
+    281,
     427
    ],
    "ball": [
     420,
-    275,
+    281,
     333
    ],
    "shoulder": [
@@ -81,24 +81,28 @@
    ]
   }
  },
- "knee_deg": 82.0,
+ "knee_deg": 82.4,
  "elbow_deg": 94.8,
  "leg_overlap_cm3_by_part": {
-  "Seat_two_level_STUDY": 1473.9,
-  "Tail_side_panels_STUDY": 164.1,
-  "Upper_rail_1_m1": 34.9,
-  "Upper_rail_1_1": 34.9,
-  "Upper_body_fairing_tank_STUDY": 14.9,
-  "Upper_rail_0_m1": 13.2,
-  "Upper_rail_0_1": 13.2,
-  "HV_cabinet_2mm_STUDY": 12.7,
-  "Tail_rail_m1": 12.3,
-  "Tail_rail_1": 12.3,
-  "Seat_welt": 9.1,
+  "Seat_two_level_STUDY": 1458.2,
+  "Tail_side_panels_STUDY": 156.2,
+  "Upper_rail_1_m1": 23.1,
+  "Upper_rail_1_1": 23.1,
+  "Upper_rail_node_rail_m1": 19.1,
+  "Upper_rail_node_rail_1": 19.1,
+  "Upper_rail_0_m1": 16.8,
+  "Upper_rail_0_1": 16.8,
+  "Upper_body_fairing_tank_STUDY": 13.1,
+  "HV_cabinet_2mm_STUDY": 10.6,
+  "Tail_rail_m1": 9.9,
+  "Tail_rail_1": 9.9,
+  "Seat_welt": 9.2,
   "Peg_bracket_m1": 7.7,
   "Peg_bracket_1": 7.7,
-  "Waist_ledge_plates": 5.4,
-  "Lower_body_battery_covers_STUDY": 2.7,
-  "Tail_shock_cross_tube": 1.7
+  "Waist_ledge_plates": 4.3,
+  "Lower_body_battery_covers_STUDY": 3.4,
+  "Seam_trim_tail_1": 2.9,
+  "Seam_trim_tail_m1": 2.9,
+  "Tail_shock_cross_tube": 1.6
  }
 }

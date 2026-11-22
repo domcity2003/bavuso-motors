@@ -179,10 +179,10 @@
       "sag_mm": 51.0,
       "anti_squat_static_pct": 118,
       "anti_squat_range_pct": [
-        102,
+        101,
         127
       ],
-      "cog_height_rider_on_mm": 675
+      "cog_height_rider_on_mm": 677
     }
   },
   "actual_supplier_geometry": [
@@ -197,8 +197,8 @@
     "3.3 kW charger class envelope",
     "DC-DC, pump, valve, PTC envelopes"
   ],
-  "solid_objects": 188,
-  "total_solids": 1831,
+  "solid_objects": 199,
+  "total_solids": 1813,
   "cell_count": 1100,
   "all_cell_points_inside_inner_case": true,
   "critical_pair_checks": [
@@ -225,14 +225,14 @@
     },
     {
       "check": "pack_vs_pivot_stubs",
-      "gap_mm": 103.99,
+      "gap_mm": 104.99,
       "overlap_mm3": 0.0,
       "required_mm": 20,
       "passed": true
     },
     {
       "check": "pack_vs_swingarm",
-      "gap_mm": 90.99,
+      "gap_mm": 78.99,
       "overlap_mm3": 0.0,
       "required_mm": 20,
       "passed": true
@@ -246,7 +246,7 @@
     },
     {
       "check": "belt_and_pulleys_vs_pegs",
-      "gap_mm": 18.0,
+      "gap_mm": 17.0,
       "overlap_mm3": 0.0,
       "required_mm": 5,
       "passed": true
@@ -295,7 +295,7 @@
     },
     {
       "check": "lower_body_vs_pack",
-      "gap_mm": 5.18,
+      "gap_mm": 14.3,
       "overlap_mm3": 0.0,
       "required_mm": 5,
       "passed": true
@@ -345,6 +345,27 @@
     {
       "check": "cabinet_vs_motor",
       "gap_mm": 114.75,
+      "overlap_mm3": 0.0,
+      "required_mm": 10,
+      "passed": true
+    },
+    {
+      "check": "yoke_cross_vs_motor",
+      "gap_mm": 51.0,
+      "overlap_mm3": 0.0,
+      "required_mm": 10,
+      "passed": true
+    },
+    {
+      "check": "yoke_cross_vs_pack",
+      "gap_mm": 13.95,
+      "overlap_mm3": 0.0,
+      "required_mm": 10,
+      "passed": true
+    },
+    {
+      "check": "yoke_cross_vs_cabinet",
+      "gap_mm": 24.48,
       "overlap_mm3": 0.0,
       "required_mm": 10,
       "passed": true
@@ -400,7 +421,7 @@
     },
     {
       "check": "lower_body_vs_front_bump",
-      "gap_mm": 418.37,
+      "gap_mm": 115.12,
       "overlap_mm3": 0.0,
       "required_mm": 20,
       "passed": true
@@ -449,7 +470,7 @@
     },
     {
       "check": "frame_vs_tyre_fender_lock_sweep",
-      "gap_mm": 23.41,
+      "gap_mm": 22.41,
       "overlap_mm3": 0.0,
       "required_mm": 20,
       "passed": true
@@ -477,35 +498,35 @@
     },
     {
       "check": "lower_body_vs_motor",
-      "gap_mm": 10.5,
+      "gap_mm": 45.42,
       "overlap_mm3": 0.0,
       "required_mm": 10,
       "passed": true
     },
     {
       "check": "motor_cover_vs_motor",
-      "gap_mm": 42.5,
+      "gap_mm": 45.42,
       "overlap_mm3": 0.0,
       "required_mm": 10,
       "passed": true
     },
     {
       "check": "motor_cover_vs_rear_bump",
-      "gap_mm": 151.97,
+      "gap_mm": 186.27,
       "overlap_mm3": 0.0,
       "required_mm": 20,
       "passed": true
     },
     {
       "check": "plate_vs_rear_bump",
-      "gap_mm": 24.03,
+      "gap_mm": 21.51,
       "overlap_mm3": 0.0,
       "required_mm": 20,
       "passed": true
     },
     {
       "check": "plate_arm_vs_rear_bump",
-      "gap_mm": 28.55,
+      "gap_mm": 28.84,
       "overlap_mm3": 0.0,
       "required_mm": 20,
       "passed": true
@@ -555,7 +576,7 @@
     },
     {
       "check": "shock_vs_frame",
-      "gap_mm": 100.72,
+      "gap_mm": 40.07,
       "overlap_mm3": 0.0,
       "required_mm": 10,
       "passed": true
@@ -597,7 +618,7 @@
     },
     {
       "check": "swingarm_sweep_vs_pack",
-      "gap_mm": 90.99,
+      "gap_mm": 78.99,
       "overlap_mm3": 0.0,
       "required_mm": 20,
       "passed": true
@@ -611,14 +632,21 @@
     },
     {
       "check": "swingarm_sweep_vs_motor_cover",
-      "gap_mm": 10.5,
+      "gap_mm": 37.37,
       "overlap_mm3": 0.0,
       "required_mm": 10,
       "passed": true
     },
     {
       "check": "swingarm_sweep_vs_cabinet",
-      "gap_mm": 193.75,
+      "gap_mm": 181.75,
+      "overlap_mm3": 0.0,
+      "required_mm": 10,
+      "passed": true
+    },
+    {
+      "check": "swingarm_sweep_vs_yoke_cross",
+      "gap_mm": 108.98,
       "overlap_mm3": 0.0,
       "required_mm": 10,
       "passed": true
@@ -632,7 +660,7 @@
     },
     {
       "check": "cabinet_vs_motor_cover",
-      "gap_mm": 85.76,
+      "gap_mm": 77.39,
       "overlap_mm3": 0.0,
       "required_mm": 5,
       "passed": true
@@ -724,7 +752,7 @@
     },
     {
       "check": "fmvss108_rear_reflector_height",
-      "gap_mm": 642.1,
+      "gap_mm": 737.1,
       "overlap_mm3": 0.0,
       "required_mm": 381,
       "passed": true,
@@ -756,7 +784,7 @@
     },
     {
       "check": "plate_height_min",
-      "gap_mm": 573.1,
+      "gap_mm": 668.1,
       "overlap_mm3": 0.0,
       "required_mm": 0,
       "passed": true,
@@ -835,135 +863,9 @@
       "method": "regulatory geometry: ignition/kill (start/mode) switch housing on the right grip; value in mm; range 0.001..None"
     }
   ],
-  "checks_passed": 87,
-  "checks_total": 87,
-  "interferences": [
-    {
-      "a": "Pack_case_structural_4mm_STUDY",
-      "b": "Pack_case_pad_front_m1",
-      "overlap_mm3": 5.5
-    },
-    {
-      "a": "Pack_case_structural_4mm_STUDY",
-      "b": "Pack_case_pad_front_1",
-      "overlap_mm3": 5.5
-    },
-    {
-      "a": "Pack_case_structural_4mm_STUDY",
-      "b": "Upper_post_front_m1",
-      "overlap_mm3": 148.8
-    },
-    {
-      "a": "Pack_case_structural_4mm_STUDY",
-      "b": "Upper_post_rear_m1",
-      "overlap_mm3": 61.0
-    },
-    {
-      "a": "Pack_case_structural_4mm_STUDY",
-      "b": "Upper_post_front_1",
-      "overlap_mm3": 148.8
-    },
-    {
-      "a": "Pack_case_structural_4mm_STUDY",
-      "b": "Upper_post_rear_1",
-      "overlap_mm3": 61.0
-    },
-    {
-      "a": "Pack_case_pad_front_m1",
-      "b": "Battery_installation_keepout",
-      "overlap_mm3": 5.5
-    },
-    {
-      "a": "Pack_case_pad_front_1",
-      "b": "Battery_installation_keepout",
-      "overlap_mm3": 5.5
-    },
-    {
-      "a": "Upper_post_front_m1",
-      "b": "Battery_installation_keepout",
-      "overlap_mm3": 148.8
-    },
-    {
-      "a": "Upper_post_rear_m1",
-      "b": "Battery_installation_keepout",
-      "overlap_mm3": 61.0
-    },
-    {
-      "a": "Upper_post_front_1",
-      "b": "Battery_installation_keepout",
-      "overlap_mm3": 148.8
-    },
-    {
-      "a": "Upper_post_rear_1",
-      "b": "Battery_installation_keepout",
-      "overlap_mm3": 61.0
-    },
-    {
-      "a": "Upper_body_fairing_tank_STUDY",
-      "b": "Radiator_pod_shroud_m1",
-      "overlap_mm3": 6.4
-    },
-    {
-      "a": "Upper_body_fairing_tank_STUDY",
-      "b": "Radiator_pod_shroud_1",
-      "overlap_mm3": 6.4
-    },
-    {
-      "a": "Seat_two_level_STUDY",
-      "b": "Rear_rack_STUDY",
-      "overlap_mm3": 12068.9
-    },
-    {
-      "a": "Hand_grip_reserve_m1",
-      "b": "Handguard_m1",
-      "overlap_mm3": 461.8
-    },
-    {
-      "a": "Hand_grip_reserve_1",
-      "b": "Handguard_1",
-      "overlap_mm3": 461.8
-    },
-    {
-      "a": "Licence_plate_US",
-      "b": "Rear_reflector_red",
-      "overlap_mm3": 8160.0
-    },
-    {
-      "a": "Front_brake_hose_upper",
-      "b": "Handguard_m1",
-      "overlap_mm3": 648.1
-    },
-    {
-      "a": "Radiator_core_m1",
-      "b": "Radiator_pod_shroud_m1",
-      "overlap_mm3": 18791.2
-    },
-    {
-      "a": "Radiator_fan_m1",
-      "b": "Radiator_pod_shroud_m1",
-      "overlap_mm3": 11078.0
-    },
-    {
-      "a": "Radiator_pod_grille_m1",
-      "b": "Radiator_pod_shroud_m1",
-      "overlap_mm3": 265.6
-    },
-    {
-      "a": "Radiator_core_1",
-      "b": "Radiator_pod_shroud_1",
-      "overlap_mm3": 18791.2
-    },
-    {
-      "a": "Radiator_fan_1",
-      "b": "Radiator_pod_shroud_1",
-      "overlap_mm3": 11078.0
-    },
-    {
-      "a": "Radiator_pod_grille_1",
-      "b": "Radiator_pod_shroud_1",
-      "overlap_mm3": 265.6
-    }
-  ],
+  "checks_passed": 91,
+  "checks_total": 91,
+  "interferences": [],
   "exclusions": [
     "steering lock beyond cylinder envelope",
     "tire growth",

@@ -4,70 +4,74 @@ Cell_lane_2,Energy,20.625,862,-40,431,,supplier,slot,75 g max per cell: https://
 Cell_lane_3,Energy,20.625,862,40,431,,supplier,slot,75 g max per cell: https://www.molicel.com/wp-content/uploads/Product-Data-Sheet-of-INR-21700-P60B_80145.pdf ; 1100 cells = Gate A T2 [slot total 82.500 kg split by volume over 4 solids]
 Cell_lane_4,Energy,20.625,862,120,431,,supplier,slot,75 g max per cell: https://www.molicel.com/wp-content/uploads/Product-Data-Sheet-of-INR-21700-P60B_80145.pdf ; 1100 cells = Gate A T2 [slot total 82.500 kg split by volume over 4 solids]
 EMRAX_228_MV_LC_supplier_STEP,Drive,13.2,540,-21,403,,supplier,slot,v1.0/sources/EMRAX-228-datasheet-v1.7.pdf (local copy of emrax.com datasheet): published 12.9-13.5 kg; 13.2 per hardware-shortlist.csv
-Pack_case_structural_4mm_STUDY,Energy,7.87,877,0,447,,CAD,vol,"4 mm aluminium structural case, CAD volume"
+Pack_case_structural_4mm_STUDY,Energy,7.855,876,0,447,,CAD,vol,"4 mm aluminium structural case, CAD volume"
 "Pack internals: electrical (busbars, fuse collectors, films, NTCs, tap harness)",Allowance,7.26,860,0,425,,CAD,allow,electrical-bom.csv excl. BMS (03-mass-ledger.md)
 "Pack internals: thermal (ribbons, manifolds, fire-barrier foam, vent)",Allowance,7.25,860,0,425,,CAD,allow,thermal-study.md 6.19 (03-mass-ledger.md) + 1.06 coolant in ribbons and manifolds moved here from the loop (10-thermal.md section 5: ribbons 0.81 + manifolds 0.25)
 Cascadia_CM200_supplier_STEP,Electronics,6.75,955,-1,781,,supplier,slot,manufacturer published 6.75 kg: https://www.cascadiamotion.com/cm-200
 "HV cables, connectors and conduit",Allowance,5.53,640,0,520,,CAD,allow,"07-electrical.md / elec-harness.csv: 8.4 m cable (50/35/4/2.5/6 mm2) 2.99 + 2.54 connectors, lugs, conduit; lengths +-30%; short-bus layout could save about 1 kg"
 Rear_nominal_tire,RunningGear,5.2,0,0,325,R1.0,estimate,slot,hardware-shortlist.csv (class reference parts-register.csv)
-Rear_wheel_STUDY,RunningGear,4.2,0,0,325,R1.0,estimate,slot,hardware-shortlist.csv; no maker publishes wheel mass
 Front_nominal_tire,RunningGear,3.9,1490,0,332,F1.0,estimate,slot,hardware-shortlist.csv (class reference parts-register.csv)
-Front_wheel_STUDY,RunningGear,3.4,1490,0,331,F1.0,estimate,slot,hardware-shortlist.csv; no maker publishes wheel mass
+Rear_wheel_carbon_BST_STUDY,RunningGear,3.3,0,0,325,R1.0,estimate,slot,"hardware-shortlist.csv wheels ALT (carbon composite, BST class): 2.6 front / 3.3 rear; adopted by the lead"
 OBC_3p3kW_envelope,Electronics,3.0,900,0,673,,supplier,slot,catalogue max 3 kg: detailed-design/electrical/electrical-bom.csv; components-electrical.csv V1-E007; https://www.brogenmotors.com/wp-content/uploads/2024/06/Requirement_SheetOBC.pdf
 Fasteners (titanium where visible),Allowance,3.0,750,0,600,,estimate,allow,allowance; covers all bolts
 Seat_two_level_STUDY,BodyStudy,2.6,332,0,862,,estimate,kg,"foam + base and cover [CAD stand-in: implied density 0.18 g/cm3, mass cannot be checked from the model]"
+Front_wheel_carbon_BST_STUDY,RunningGear,2.6,1490,0,332,F1.0,estimate,slot,"hardware-shortlist.csv wheels ALT (carbon composite, BST class): 2.6 front / 3.3 rear; adopted by the lead"
 "Coolant in loop (1.66 L glycol), hoses and clamps 0.59, sensors 0.10",Allowance,2.35,880,0,600,,estimate,allow,10-thermal.md section 5: coolant 2.72 minus 1.06 in pack ribbons/manifolds + hoses 0.59 + sensors 0.10; the shortlist 1.6 omits sensors and part of the glycol
-Rear_pulley_PITCH_STUDY,Drive,2.1,0,-144,325,R1.0,estimate,slot,hardware-shortlist.csv (reduction REC)
+Swingarm_1,Chassis,2.278,285,139,366,R0.5,CAD,shell,"cast A356 box arm, 4.0 mm wall (program structures FEA; rev D)"
+Upper_rail_yoke_cross,Chassis,2.228,556,0,598,,CAD,vol,32x2.5 chromoly
+Rear_pulley_PITCH_STUDY,Drive,2.1,0,-142,325,R1.0,estimate,slot,hardware-shortlist.csv (reduction REC)
 "VCU, distribution box, keyless, HVIL bonding",Allowance,2.1,1200,0,880,,CAD,allow,electrical-bom.csv: VCU 0.40 + distribution 1.15 + keyless 0.25 + bonding 0.30
-Swingarm_1,Chassis,2.092,308,139,369,R0.5,CAD,shell,"cast A356 box arm, 4.0 mm wall (program structures FEA; rev D)"
 LV wiring harness,Allowance,2.08,760,0,700,,CAD,allow,electrical-bom.csv 2.4 kg minus modelled bar-harness legs 0.32
 Body brackets and fixings,Allowance,2.0,850,0,700,,estimate,allow,allowance; no BOM count exists
-Upper_body_fairing_tank_STUDY,BodyStudy,1.688,996,-1,872,,CAD,vol,3 mm painted panel
+Independent_hollow_pivot_stub_1,Chassis,1.776,540,145,403,,CAD,vol,pivot stub
+Upper_body_fairing_tank_STUDY,BodyStudy,1.663,995,-3,871,,CAD,vol,3 mm painted panel
 Fork_outer_tube_m1,RunningGear,1.635,1234,-105,880,F0.4,estimate,slot,hardware-shortlist.csv; makers do not publish fork mass [slot total 6.800 kg split by volume over 8 solids]
 Fork_outer_tube_1,RunningGear,1.635,1234,105,880,F0.4,estimate,slot,hardware-shortlist.csv; makers do not publish fork mass [slot total 6.800 kg split by volume over 8 solids]
 NACS_charge_inlet,Electronics,1.6,894,174,900,,supplier,slot,inlet 1.3 kg + 0.3 kg lid: https://www.volex.com/media/z3rmrwl5/volex-nacs-ev-charging-inlet.pdf
 Orion_BMS2_108_supplier_STEP,Electronics,1.5,899,1,874,,estimate,slot,Ledger estimate for the lightened board set; original unit 2.4 kg. https://www.orionbms.com/downloads/documents/orionbms2_specifications.pdf
-Upper_rail_1_m1,Chassis,1.457,810,-160,801,,CAD,vol,32x2.5 chromoly
-Upper_rail_1_1,Chassis,1.457,810,160,801,,CAD,vol,32x2.5 chromoly
 Side_stand_retracted,RunningGear,1.4,445,238,297,,estimate,kg,"forged side stand with switch [CAD stand-in: implied density 13.35 g/cm3, mass cannot be checked from the model]"
 Lower_triple_clamp,RunningGear,1.3,1242,0,817,,estimate,kg,forged clamp with stem
 Shock_body_STUDY,Chassis,1.238,422,0,622,R0.5,estimate,slot,hardware-shortlist.csv; https://www.ohlins.eu/en/products/motorcycle/kt-122--4458/ [slot total 3.000 kg split by volume over 6 solids]
+Upper_rail_yoke_leg_m1,Chassis,1.216,548,-176,501,,CAD,vol,32x2.5 chromoly
+Upper_rail_yoke_leg_1,Chassis,1.216,548,176,501,,CAD,vol,32x2.5 chromoly
 Headlamp_installation_STUDY,BodyStudy,1.2,1422,0,889,,estimate,kg,LED headlamp
 DCDC_converter_0p8kW,Electronics,1.2,855,-155,695,,estimate,slot,hardware-shortlist.csv (REC); 12 V loads about 300-500 W peak
 Front_disc_m1,RunningGear,1.2,1490,-56,332,F1.0,estimate,slot,hardware-shortlist.csv brakes_front ALT (discs 1.2 kg each); rev D CAD uses 320x5
 Front_disc_p1,RunningGear,1.2,1490,56,332,F1.0,estimate,slot,hardware-shortlist.csv brakes_front ALT (discs 1.2 kg each); rev D CAD uses 320x5
 HV_cabinet_2mm_STUDY,Electronics,1.197,680,0,675,,CAD,vol,2 mm aluminium cabinet
+Lower_downlink_1,Chassis,1.166,1138,92,744,,CAD,vol,32x2.5 chromoly
+Lower_downlink_m1,Chassis,1.166,1138,-92,744,,CAD,vol,32x2.5 chromoly
 Belly_skid_plate_STUDY,BodyStudy,1.154,785,0,231,,CAD,vol,skid plate (generator builds 6 mm)
 Nose subframe and headlamp brackets,Allowance,1.15,1330,0,900,,estimate,allow,allowance; dash bracket is Display_mount (modelled)
 Coolant_PTC_heater_3kW,Cooling,1.14,945,120,668,,estimate,kg,"3 kW HV PTC heater, scaled from 1.9 kg for 5 kW (10-thermal.md section 5) [CAD stand-in: implied density 9.87 g/cm3, mass cannot be checked from the model]"
-Steering_damper_envelope,RunningGear,1.1,1052,0,1056,,estimate,kg,semi-active rotary steering damper
 Bosch ABS 10-class two-channel module with sensors and lines [NOT IN CAD: from supplier table],Allowance,1.1,700,0,760,,estimate,slotfill,ABS 9 hydraulic unit 0.65 kg (Bosch datasheet https://www.bosch.co.jp/tms2015/en/products/pdf/2WP_ProductDataSheet_ABS9_base_plus_EN_lowres_20151030.pdf); ABS 10 about 0.45 (estimate) + sensors 0.2 + lines 0.45
-Tail_rail_m1,Chassis,1.09,254,-114,813,,CAD,vol,28x2 chromoly
-Tail_rail_1,Chassis,1.09,254,114,813,,CAD,vol,28x2 chromoly
 Head_tube,Chassis,1.042,1171,0,930,,CAD,vol,head tube
-Lower_downlink_1,Chassis,1.037,1138,92,744,,CAD,vol,32x2.5 chromoly
-Lower_downlink_m1,Chassis,1.037,1138,-92,744,,CAD,vol,32x2.5 chromoly
 "Rear axle, spacers, adjusters",Allowance,1.0,0,0,312,R1.0,estimate,allow,allowance
 "Paint, decals, rubber, misc",Allowance,1.0,800,0,650,,estimate,allow,allowance
-Upper_rail_2_m1,Chassis,0.998,1103,-115,897,,CAD,vol,32x2.5 chromoly
-Upper_rail_2_1,Chassis,0.998,1103,115,898,,CAD,vol,32x2.5 chromoly
-Independent_hollow_pivot_stub_1,Chassis,0.941,540,145,403,,CAD,vol,pivot stub
+Upper_rail_1_1,Chassis,0.971,810,160,801,,CAD,vol,32x2.5 chromoly
+Upper_rail_1_m1,Chassis,0.971,810,-160,801,,CAD,vol,32x2.5 chromoly
 Tail_shock_cross_tube,Chassis,0.928,482,0,741,,CAD,vol,28x3 chromoly
-Rear_rack_STUDY,BodyStudy,0.9,-129,0,924,,estimate,kg,"aluminium rack (25 kg luggage case) [CAD stand-in: implied density 19.92 g/cm3, mass cannot be checked from the model]"
+Lower_body_battery_covers_STUDY,BodyStudy,0.922,753,0,417,,CAD,vol,3 mm painted panel
+Rear_rack_STUDY,BodyStudy,0.9,-148,0,924,,estimate,kg,"aluminium rack (25 kg luggage case) [CAD stand-in: implied density 20.01 g/cm3, mass cannot be checked from the model]"
 12 V lithium battery,Allowance,0.9,300,0,720,,supplier,allow,Shorai LFX14A4-BS12 (electrical-bom.csv)
 Fork_axle_clamp_m1,RunningGear,0.9,1459,-102,372,F0.4,estimate,slot,hardware-shortlist.csv; makers do not publish fork mass [slot total 6.800 kg split by volume over 8 solids]
 Fork_axle_clamp_1,RunningGear,0.9,1459,102,372,F0.4,estimate,slot,hardware-shortlist.csv; makers do not publish fork mass [slot total 6.800 kg split by volume over 8 solids]
+Tail_rail_1,Chassis,0.888,254,115,813,,CAD,vol,28x2 chromoly
+Tail_rail_m1,Chassis,0.888,254,-114,813,,CAD,vol,28x2 chromoly
 Rear_disc_p1,RunningGear,0.85,0,68,325,R1.0,estimate,slot,hardware-shortlist.csv
-Tail_side_panels_STUDY,BodyStudy,0.84,273,4,791,,CAD,vol,3 mm panel
 Fork_inner_tube_m1,RunningGear,0.832,1400,-105,524,F0.4,estimate,slot,hardware-shortlist.csv; makers do not publish fork mass [slot total 6.800 kg split by volume over 8 solids]
 Fork_inner_tube_1,RunningGear,0.832,1400,105,524,F0.4,estimate,slot,hardware-shortlist.csv; makers do not publish fork mass [slot total 6.800 kg split by volume over 8 solids]
 Radiator_core_m1,Cooling,0.805,1066,-211,727,,estimate,kg,dry core with plastic tanks (thermal-study.md); coolant is in the coolant allowance
 Radiator_core_1,Cooling,0.805,1066,211,727,,estimate,kg,dry core with plastic tanks (thermal-study.md); coolant is in the coolant allowance
 Shock_spring_STUDY,Chassis,0.774,389,2,582,R0.5,estimate,slot,hardware-shortlist.csv; https://www.ohlins.eu/en/products/motorcycle/kt-122--4458/ [slot total 3.000 kg split by volume over 6 solids]
+Tail_side_panels_STUDY,BodyStudy,0.773,265,1,788,,CAD,vol,3 mm panel
+Upper_rail_2_m1,Chassis,0.768,1103,-115,897,,CAD,vol,32x2.5 chromoly
+Upper_rail_2_1,Chassis,0.768,1103,115,898,,CAD,vol,32x2.5 chromoly
 Swingarm_shock_tower,Chassis,0.746,356,0,431,R0.5,CAD,vol,twin 8 mm aluminium plates
 Upper_triple_clamp,RunningGear,0.7,1131,0,1056,,estimate,kg,machined clamp
 Rear brake pedal and master cylinder,Allowance,0.7,520,200,430,,estimate,allow,allowance
 Shock_reservoir_STUDY,Chassis,0.697,405,0,733,R0.5,estimate,slot,hardware-shortlist.csv; https://www.ohlins.eu/en/products/motorcycle/kt-122--4458/ [slot total 3.000 kg split by volume over 6 solids]
+Shock_top_bracket,Chassis,0.685,482,0,718,,CAD,vol,"twin 8 mm plates, shock mount"
 GX14_main_positive_OUTLINE,Electronics,0.675,640,-68,668,,estimate,slot,GX14 0.45 kg each (1.8) + box 0.6 + fuse and precharge 0.3 (hardware-shortlist.csv); https://www.digikey.fr/en/products/detail/sensata-gigavac-clean-energy/GX14CBB/17867714 [slot total 2.700 kg split by volume over 4 solids]
 GX14_main_negative_OUTLINE,Electronics,0.675,715,-68,668,,estimate,slot,GX14 0.45 kg each (1.8) + box 0.6 + fuse and precharge 0.3 (hardware-shortlist.csv); https://www.digikey.fr/en/products/detail/sensata-gigavac-clean-energy/GX14CBB/17867714 [slot total 2.700 kg split by volume over 4 solids]
 GX14_main_chg_positive_OUTLINE,Electronics,0.675,640,68,668,,estimate,slot,GX14 0.45 kg each (1.8) + box 0.6 + fuse and precharge 0.3 (hardware-shortlist.csv); https://www.digikey.fr/en/products/detail/sensata-gigavac-clean-energy/GX14CBB/17867714 [slot total 2.700 kg split by volume over 4 solids]
@@ -79,27 +83,27 @@ Swingarm pivot bolt and hardware,Allowance,0.6,540,0,390,R0.5,estimate,allow,all
 Coolant_pump_loop,Cooling,0.55,812,132,672,,estimate,kg,"EWP-class pump, 1.10 kg for two (thermal-study.md)"
 Radiator_fan_m1,Cooling,0.55,1081,-189,727,,estimate,kg,190 mm BLDC fan with shroud (thermal-study.md)
 Radiator_fan_1,Cooling,0.55,1081,189,727,,estimate,kg,190 mm BLDC fan with shroud (thermal-study.md)
-Shock_top_bracket,Chassis,0.507,482,0,718,,CAD,vol,"twin 8 mm plates, shock mount"
+Lower_pack_rear_link_m1,Chassis,0.525,599,-170,421,,CAD,vol,32x2.5 chromoly
+Lower_pack_rear_link_1,Chassis,0.525,599,170,421,,CAD,vol,32x2.5 chromoly
+Swingarm_cross_brace,Chassis,0.513,380,37,380,R0.5,CAD,vol,50x5 aluminium tube
 Tail_brace_1,Chassis,0.504,350,153,618,,CAD,vol,28x2 chromoly
 Tail_brace_m1,Chassis,0.504,350,-153,618,,CAD,vol,28x2 chromoly
-Upper_rail_0_1,Chassis,0.503,555,160,586,,CAD,vol,32x2.5 chromoly
-Upper_rail_0_m1,Chassis,0.503,555,-160,586,,CAD,vol,32x2.5 chromoly
-Lower_body_battery_covers_STUDY,BodyStudy,0.501,651,0,372,,CAD,vol,3 mm painted panel
-Drive_belt_14mm_STUDY,Drive,0.5,188,-141,352,R0.5,estimate,slot,"drive-study.md; Gates publishes belt mass, confirm"
-Front_pulley_PITCH_STUDY,Drive,0.5,540,-144,403,,estimate,slot,hardware-shortlist.csv (reduction REC)
+Drive_belt_14mm_STUDY,Drive,0.5,188,-142,352,R0.5,estimate,slot,"drive-study.md; Gates publishes belt mass, confirm"
+Front_pulley_PITCH_STUDY,Drive,0.5,540,-142,403,,estimate,slot,hardware-shortlist.csv (reduction REC)
 Windscreen_STUDY,BodyStudy,0.499,1249,0,1127,,CAD,vol,polycarbonate screen
-Lower_pack_rear_link_m1,Chassis,0.498,599,-170,421,,CAD,vol,32x2.5 chromoly
-Lower_pack_rear_link_1,Chassis,0.498,599,170,421,,CAD,vol,32x2.5 chromoly
-Swingarm_cross_brace,Chassis,0.473,380,37,380,R0.5,CAD,vol,50x5 aluminium tube
 Hand_lever_m1,RunningGear,0.45,940,-384,1108,,estimate,kg,"lever with radial master cylinder [CAD stand-in: implied density 39.45 g/cm3, mass cannot be checked from the model]"
 Hand_lever_1,RunningGear,0.45,940,384,1108,,estimate,kg,"lever with radial master cylinder [CAD stand-in: implied density 39.45 g/cm3, mass cannot be checked from the model]"
-Plate_hanger_arm,BodyStudy,0.45,-253,0,752,,estimate,kg,cast plate hanger with plate bracket
+Plate_hanger_arm,BodyStudy,0.45,-229,0,789,,estimate,kg,cast plate hanger with plate bracket
 Rear_caliper_reserve,RunningGear,0.45,-120,71,325,R1.0,estimate,slot,hardware-shortlist.csv
-Motor_pulley_bearing_carrier,Drive,0.4,540,-119,403,,estimate,kg,aluminium bearing carrier on the motor flange (rev D); was wrongly bound to the pulley slot at 0.5 kg
+Motor_pulley_bearing_carrier,Drive,0.4,540,-117,403,,estimate,kg,aluminium bearing carrier on the motor flange (rev D); was wrongly bound to the pulley slot at 0.5 kg
 Horn_R28,Electronics,0.4,1030,-242,593,,supplier,kg,R28 horn
-Tail_undertray_STUDY,BodyStudy,0.368,87,0,815,,CAD,vol,3 mm undertray / inner fender
-Peg_bracket_m1,Chassis,0.35,489,-233,368,,estimate,kg,"machined aluminium hanger [CAD stand-in: implied density 10.00 g/cm3, mass cannot be checked from the model]"
-Peg_bracket_1,Chassis,0.35,489,233,368,,estimate,kg,"machined aluminium hanger [CAD stand-in: implied density 10.00 g/cm3, mass cannot be checked from the model]"
+Upper_rail_pivot_block_m1,Chassis,0.395,540,-201,403,,CAD,vol,32x2.5 chromoly
+Upper_rail_pivot_block_1,Chassis,0.395,540,201,403,,CAD,vol,32x2.5 chromoly
+Tail_undertray_STUDY,BodyStudy,0.37,87,0,815,,CAD,vol,3 mm undertray / inner fender
+Peg_bracket_m1,Chassis,0.35,489,-239,368,,estimate,kg,"machined aluminium hanger [CAD stand-in: implied density 10.00 g/cm3, mass cannot be checked from the model]"
+Peg_bracket_1,Chassis,0.35,489,239,368,,estimate,kg,"machined aluminium hanger [CAD stand-in: implied density 10.00 g/cm3, mass cannot be checked from the model]"
+Upper_rail_0_m1,Chassis,0.308,563,-141,683,,CAD,vol,32x2.5 chromoly
+Upper_rail_0_1,Chassis,0.308,563,141,683,,CAD,vol,32x2.5 chromoly
 Rear_hugger_STUDY,BodyStudy,0.304,108,0,622,,CAD,vol,swingarm-mounted hugger
 Mirror_body_m1,BodyStudy,0.3,843,-345,1284,,estimate,kg,mirror head
 Mirror_body_1,BodyStudy,0.3,843,355,1284,,estimate,kg,mirror head
@@ -108,9 +112,6 @@ ADVANTICS ADM-CS-EVCC charge controller [NOT IN CAD: from supplier table],Allowa
 "Steering bearings, stem nut",Allowance,0.3,1190,0,860,,estimate,allow,allowance; damper is modelled
 Handguard_m1,Protection,0.293,982,-381,1115,,CAD,vol,22x3 6082 handguard backbone
 Handguard_1,Protection,0.293,982,381,1115,,CAD,vol,22x3 6082 handguard backbone
-Motor_side_covers_STUDY,BodyStudy,0.289,535,0,370,,CAD,vol,3 mm panel
-Upper_post_front_1,Chassis,0.275,955,165,718,,CAD,vol,32x2.5 chromoly post
-Upper_post_front_m1,Chassis,0.275,955,-165,718,,CAD,vol,32x2.5 chromoly post
 Radiator_pod_shroud_m1,BodyStudy,0.274,1092,-248,739,,CAD,vol,3 mm pod shroud
 Radiator_pod_shroud_1,BodyStudy,0.274,1092,248,739,,CAD,vol,3 mm pod shroud
 Shock_bridge_diagonal_m1,Chassis,0.255,511,-120,587,,CAD,vol,25x2.5 chromoly
@@ -119,22 +120,28 @@ Bar_riser_m1,RunningGear,0.25,1043,-40,1108,,estimate,kg,bar section / riser
 Bar_riser_1,RunningGear,0.25,1043,40,1108,,estimate,kg,bar section / riser
 Taillamp_installation_STUDY,BodyStudy,0.25,-143,0,869,,estimate,kg,LED tail lamp
 Bar_half_m1,RunningGear,0.25,998,-114,1144,,estimate,kg,bar section / riser
-Peg_reference_m1,RunningGear,0.25,420,-213,323,,estimate,kg,"rider peg [CAD stand-in: implied density 21.16 g/cm3, mass cannot be checked from the model]"
+Peg_reference_m1,RunningGear,0.25,420,-217,323,,estimate,kg,"rider peg [CAD stand-in: implied density 18.77 g/cm3, mass cannot be checked from the model]"
 Bar_half_1,RunningGear,0.25,993,158,1142,,estimate,kg,bar section / riser
-Peg_reference_1,RunningGear,0.25,420,214,323,,estimate,kg,"rider peg [CAD stand-in: implied density 21.16 g/cm3, mass cannot be checked from the model]"
+Peg_reference_1,RunningGear,0.25,420,217,323,,estimate,kg,"rider peg [CAD stand-in: implied density 18.77 g/cm3, mass cannot be checked from the model]"
 Front_disc_carrier_m1,RunningGear,0.25,1490,-56,331,F1.0,estimate,slot,hardware-shortlist.csv
 Front_disc_carrier_p1,RunningGear,0.25,1490,56,332,F1.0,estimate,slot,hardware-shortlist.csv
 Front_fender_STUDY,BodyStudy,0.246,1490,0,651,,CAD,vol,fork-mounted fender
+Upper_post_front_1,Chassis,0.225,955,165,718,,CAD,vol,32x2.5 chromoly post
+Upper_post_front_m1,Chassis,0.225,955,-165,718,,CAD,vol,32x2.5 chromoly post
 Hand_grip_reserve_m1,RunningGear,0.2,916,-351,1112,,estimate,kg,grip and throttle tube (switch housing is Switch_cube)
 Hand_grip_reserve_1,RunningGear,0.2,916,351,1112,,estimate,kg,grip and throttle tube (switch housing is Switch_cube)
-Licence_plate_US,BodyStudy,0.2,-340,0,624,,supplier,kg,US motorcycle plate
-Upper_post_rear_m1,Chassis,0.198,706,-146,700,,CAD,vol,32x2.5 chromoly post
-Upper_post_rear_1,Chassis,0.198,706,146,700,,CAD,vol,32x2.5 chromoly post
+Licence_plate_US,BodyStudy,0.2,-300,0,719,,supplier,kg,US motorcycle plate
 Front_brake_hose_upper,RunningGear,0.18,1177,-112,1032,,estimate,kg,braided hose with fluid
 Front_brake_hose_caliper_m1,RunningGear,0.18,1320,-113,626,,estimate,kg,braided hose with fluid
 Front_brake_hose_caliper_1,RunningGear,0.18,1320,113,626,,estimate,kg,braided hose with fluid
+Upper_post_rear_1,Chassis,0.178,706,146,700,,CAD,vol,32x2.5 chromoly post
+Upper_post_rear_m1,Chassis,0.178,706,-146,700,,CAD,vol,32x2.5 chromoly post
 Head_gusset_m1,Chassis,0.154,1154,-37,885,,CAD,vol,10 mm 4130 gusset
 Head_gusset_1,Chassis,0.154,1154,37,885,,CAD,vol,10 mm 4130 gusset
+Upper_rail_node_yoke_m1,Chassis,0.15,556,-158,598,,CAD,vol,32x2.5 chromoly
+Upper_rail_node_yoke_1,Chassis,0.15,556,158,598,,CAD,vol,32x2.5 chromoly
+Upper_rail_node_rail_m1,Chassis,0.15,570,-125,768,,CAD,vol,32x2.5 chromoly
+Upper_rail_node_rail_1,Chassis,0.15,570,125,768,,CAD,vol,32x2.5 chromoly
 Coolant_thermostat_wax,Cooling,0.15,871,126,660,,estimate,kg,wax thermostat replacing the 4-port valve (10-thermal.md: saves 0.30 kg of the 0.45 kg valve)
 Switch_cube_m1,RunningGear,0.15,971,-250,1128,,estimate,kg,switch housing
 Switch_cube_1,RunningGear,0.15,970,256,1128,,estimate,kg,switch housing
@@ -145,13 +152,14 @@ Crash_guard_slider_rear_1,Protection,0.139,657,282,439,,CAD,vol,28x2.5 25CrMo4 c
 Crash_guard_slider_rear_m1,Protection,0.139,657,-282,439,,CAD,vol,28x2.5 25CrMo4 crash guard
 Crash_guard_slider_front_m1,Protection,0.139,1091,-282,585,,CAD,vol,28x2.5 25CrMo4 crash guard
 Crash_guard_slider_front_1,Protection,0.139,1091,282,585,,CAD,vol,28x2.5 25CrMo4 crash guard
-Pivot_6008_size_reference_1,Chassis,0.12,540,115,403,R0.5,supplier,kg,6008 bearing (catalogue 0.12 kg)
+Pivot_6008_size_reference_1,Chassis,0.12,540,116,403,R0.5,supplier,kg,6008 bearing (catalogue 0.12 kg)
+Pivot_6008_size_reference_2,Chassis,0.12,540,174,403,R0.5,supplier,kg,6008 bearing (catalogue 0.12 kg)
 Lever_perch_m1,RunningGear,0.12,959,-285,1127,,estimate,kg,forged perch
 Lever_perch_1,RunningGear,0.12,959,285,1127,,estimate,kg,forged perch
 Shock_Upper_eye_STUDY,Chassis,0.106,482,0,695,R0.5,estimate,slot,hardware-shortlist.csv; https://www.ohlins.eu/en/products/motorcycle/kt-122--4458/ [slot total 3.000 kg split by volume over 6 solids]
 Shock_Lower_eye_STUDY,Chassis,0.106,315,0,492,R0.5,estimate,slot,hardware-shortlist.csv; https://www.ohlins.eu/en/products/motorcycle/kt-122--4458/ [slot total 3.000 kg split by volume over 6 solids]
-Peg_rubber_m1,RunningGear,0.1,420,-275,323,,estimate,kg,peg rubber
-Peg_rubber_1,RunningGear,0.1,420,275,323,,estimate,kg,peg rubber
+Peg_rubber_m1,RunningGear,0.1,420,-281,323,,estimate,kg,peg rubber
+Peg_rubber_1,RunningGear,0.1,420,281,323,,estimate,kg,peg rubber
 Front_brake_reservoir,RunningGear,0.1,970,-280,1165,,estimate,kg,reservoir with fluid
 Rear_disc_carrier_p1,RunningGear,0.1,0,68,325,R1.0,estimate,slot,hardware-shortlist.csv
 Crash_guard_mount_rear_m1,Protection,0.092,657,-220,439,,CAD,vol,28x2.5 25CrMo4 crash guard
@@ -166,8 +174,8 @@ Front_brake_splitter,RunningGear,0.08,1305,0,846,,estimate,kg,splitter
 Harness_connector_1,RunningGear,0.08,1076,30,1013,,estimate,kg,bar harness leg and connector (inside the LV harness total)
 Harness_bar_1,RunningGear,0.08,1026,137,1086,,estimate,kg,bar harness leg and connector (inside the LV harness total)
 Shock_rod_STUDY,Chassis,0.08,350,0,534,R0.5,estimate,slot,hardware-shortlist.csv; https://www.ohlins.eu/en/products/motorcycle/kt-122--4458/ [slot total 3.000 kg split by volume over 6 solids]
-Pivot_slider_m1,Protection,0.06,540,-260,403,,estimate,kg,POM puck
-Pivot_slider_1,Protection,0.06,540,260,403,,estimate,kg,POM puck
+Pivot_slider_m1,Protection,0.06,540,-263,403,,estimate,kg,POM puck
+Pivot_slider_1,Protection,0.06,540,263,403,,estimate,kg,POM puck
 Seat_welt,BodyStudy,0.05,301,0,860,,estimate,kg,seat piping
 Mirror_glass_m1,BodyStudy,0.05,827,-345,1284,,estimate,kg,mirror glass
 Front_indicator_reserve_m1,BodyStudy,0.05,1310,-205,743,,estimate,kg,indicator
@@ -175,24 +183,28 @@ Rear_indicator_reserve_m1,BodyStudy,0.05,-300,-131,728,,estimate,kg,indicator
 Mirror_glass_1,BodyStudy,0.05,827,355,1284,,estimate,kg,mirror glass
 Front_indicator_reserve_1,BodyStudy,0.05,1310,205,743,,estimate,kg,indicator
 Rear_indicator_reserve_1,BodyStudy,0.05,-300,131,728,,estimate,kg,indicator
-Plate_lamp,BodyStudy,0.05,-342,0,682,,estimate,kg,"plate lamp [CAD stand-in: implied density 17.36 g/cm3, mass cannot be checked from the model]"
+Plate_lamp,BodyStudy,0.05,-302,0,777,,estimate,kg,"plate lamp [CAD stand-in: implied density 17.36 g/cm3, mass cannot be checked from the model]"
 Rear_brake_junction,RunningGear,0.05,473,167,467,,estimate,kg,"junction [CAD stand-in: implied density 8.36 g/cm3, mass cannot be checked from the model]"
 Display_glass,RunningGear,0.05,1097,0,1159,,estimate,kg,TFT cover glass
-Pivot_cover_cap_m1,BodyStudy,0.04,540,-225,403,,estimate,kg,moulded cap
-Pivot_cover_cap_1,BodyStudy,0.04,540,225,403,,estimate,kg,moulded cap
+Pivot_cover_cap_m1,BodyStudy,0.04,540,-228,403,,estimate,kg,moulded cap
+Pivot_cover_cap_1,BodyStudy,0.04,540,228,403,,estimate,kg,moulded cap
 Fork_top_cap_m1,RunningGear,0.033,1135,-105,1092,F0.4,estimate,slot,hardware-shortlist.csv; makers do not publish fork mass [slot total 6.800 kg split by volume over 8 solids]
 Fork_top_cap_1,RunningGear,0.033,1135,105,1092,F0.4,estimate,slot,hardware-shortlist.csv; makers do not publish fork mass [slot total 6.800 kg split by volume over 8 solids]
 Front_master_banjo,RunningGear,0.03,1006,-261,1135,,estimate,kg,"banjo bolt [CAD stand-in: implied density 10.66 g/cm3, mass cannot be checked from the model]"
 Front_caliper_banjo_m1,RunningGear,0.03,1332,-81,359,,estimate,kg,"banjo bolt [CAD stand-in: implied density 10.66 g/cm3, mass cannot be checked from the model]"
 Front_caliper_banjo_1,RunningGear,0.03,1332,81,359,,estimate,kg,"banjo bolt [CAD stand-in: implied density 10.66 g/cm3, mass cannot be checked from the model]"
 Rear_caliper_banjo,RunningGear,0.03,-116,92,304,,estimate,kg,"banjo bolt [CAD stand-in: implied density 12.43 g/cm3, mass cannot be checked from the model]"
-Rear_reflector_red,BodyStudy,0.03,-341,0,642,,estimate,kg,reflector
+Rear_reflector_red,BodyStudy,0.03,-301,0,737,,estimate,kg,reflector
 Independent_hollow_pivot_stub_m1,Chassis,0.026,540,-189,403,,CAD,vol,pivot stub
 Radiator_pod_grille_m1,BodyStudy,0.024,994,-245,721,,CAD,vol,pod grille louvres
 Radiator_pod_grille_1,BodyStudy,0.024,994,245,721,,CAD,vol,pod grille louvres
-Rear_indicator_stalk_m1,BodyStudy,0.02,-300,-74,728,,estimate,kg,indicator stalk
-Rear_indicator_stalk_1,BodyStudy,0.02,-300,74,728,,estimate,kg,indicator stalk
+Rear_indicator_stalk_m1,BodyStudy,0.02,-290,-70,759,,estimate,kg,indicator stalk
+Rear_indicator_stalk_1,BodyStudy,0.02,-290,71,759,,estimate,kg,indicator stalk
 Waist_ledge_plates,BodyStudy,0.02,598,0,616,,CAD,vol,3 mm closing plates under the thighs
+Seam_trim_tail_m1,BodyStudy,0.015,277,-168,812,,CAD,vol,trim
+Seam_trim_tail_1,BodyStudy,0.015,277,168,812,,CAD,vol,trim
+Seam_trim_tank_1,BodyStudy,0.013,1040,207,846,,CAD,vol,trim
+Seam_trim_tank_m1,BodyStudy,0.013,1040,-207,846,,CAD,vol,trim
 Pack_case_pad_rear_m1,Energy,0.011,674,-130,439,,CAD,vol,"4 mm aluminium structural case, CAD volume"
 Pack_case_pad_rear_1,Energy,0.011,674,130,439,,CAD,vol,"4 mm aluminium structural case, CAD volume"
 Pack_case_pad_front_m1,Energy,0.011,1070,-130,585,,CAD,vol,"4 mm aluminium structural case, CAD volume"
@@ -201,7 +213,5 @@ Fork_reflector_m1,RunningGear,0.01,1443,-132,433,F1.0,estimate,kg,side reflector
 Fork_reflector_1,RunningGear,0.01,1443,132,433,F1.0,estimate,kg,side reflector
 Side_reflector_red_m1,BodyStudy,0.01,-80,-136,813,,estimate,kg,reflector
 Side_reflector_red_1,BodyStudy,0.01,-80,136,813,,estimate,kg,reflector
-Panel_bolts_m1,BodyStudy,0.0,860,-167,453,,estimate,kg,counted in the fastener allowance
-Panel_bolts_1,BodyStudy,0.0,860,167,453,,estimate,kg,counted in the fastener allowance
 Headlamp_DRL_blade,BodyStudy,0.0,1422,0,913,,estimate,kg,DRL: included in the headlamp figure
 Front_master_cylinder,RunningGear,0.0,991,-286,1130,,estimate,kg,counted inside the lever (Hand_lever_*); one master cylinder exists

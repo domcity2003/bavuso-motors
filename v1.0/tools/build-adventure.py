@@ -56,7 +56,16 @@ def rounded(s,r):
         f=s.makeFillet(r,s.Edges)
         if f.isValid():return f
     except Exception:pass
+    if r>=8:print("NOTE rounded(): fillet r=%g failed, edges left sharp"%r,flush=True)
     return s
+def rounded_first(s,rs):
+    """First radius in rs whose fillet works on every edge (quiet); the solid unchanged if none does."""
+    for r in rs:
+        try:
+            f=s.makeFillet(r,s.Edges)
+            if f.isValid():return f,r
+        except Exception:pass
+    return s,0
 frame_segs=[]
 def tube(name,a,b,ro,ri,g='Chassis'):
     if g=='Chassis' and name.split('_')[0] in ('Upper','Lower','Tail'):frame_segs.append((a,b,ro))
@@ -167,12 +176,7 @@ def band_solid(b,inset):
     if inset:fc=fc.makeOffset2D(-inset,join=2)
     bx=fc.extrude(V(0,2*(YO-inset),0));bx.translate(V(0,-(YO-inset),0))
     if b is bands[0]:bx=bx.cut(_corner_cut(YO-CH-PACK_FLOOR-inset*math.sqrt(2)))   # only the bottom band reaches the floor edge
-    c=b['xmid']+YO-FCH-inset*math.sqrt(2)   # front vertical corners: removes x+|y| > c
-    for sy in (-1,1):
-        w=Part.makeBox(200,200,1200);w.rotate(V(0,0,0),V(0,0,1),-45);w.translate(V(c-YO-20,YO+20,-100))   # face on x+y=c
-        if sy<0:w=w.mirror(V(0,0,0),V(0,1,0))
-        bx=bx.cut(w)
-    return bx
+    return bx   # rev E: the front vertical corners are no longer a per-band chamfer (it stepped band by band); one swept radius is cut after the bands are fused (below)
 def _corner_cut(c):   # removes y-z > c (and its mirror): a 45 deg chamfer along the case's bottom outer edges
     z1=PACK_FLOOR-60;tri=[V(0,c+z1,z1),V(0,c+z1+300,z1),V(0,c+z1+300,z1+300)]
     f=Part.Face(Part.makePolygon(tri+[tri[0]]));f.translate(V(-500,0,0));w=f.extrude(V(3000,0,0))
@@ -180,11 +184,30 @@ def _corner_cut(c):   # removes y-z > c (and its mirror): a 45 deg chamfer along
 outer=band_solid(bands[0],0).fuse([band_solid(b,0) for b in bands[1:]]).removeSplitter()
 inner=band_solid(bands[0],WALL).fuse([band_solid(b,WALL) for b in bands[1:]]).removeSplitter()
 _ic=inner.copy();_ic.translate(V(-2.0,0,0));inner=inner.common(_ic)   # FEA: 5 mm front wall (3 mm elsewhere): cavity front moves back 2 mm, rear/sides unchanged
+# Rev E: ONE smooth front corner radius swept up the front-tyre arc (R15 outside, R12 inside: a constant 3 mm wall), instead of rev D's 9x45 chamfer
+# whose plane was vertical in every band while the arc is not (it stepped band by band and read as jagged). The cutter is a ruled loft of
+# corner-region polygons, one every 6 mm in Z, each placed on the arc at that height.
+def _corner_cutter(front_x,yc,r,z0,z1,step=12.0,ext=25.0):
+    n=max(2,int((z1-z0)/step));wires=[]
+    for i in range(n+1):
+        z=z0+(z1-z0)*i/n;xf=front_x(z)
+        pts=[(xf,yc-r)]+[(xf-r+r*math.cos(math.radians(90*k/6)),yc-r+r*math.sin(math.radians(90*k/6))) for k in range(1,7)]+[(xf-r,yc+ext),(xf+ext,yc+ext),(xf+ext,yc-r)]
+        wires.append(Part.makePolygon([V(x,y,z) for x,y in pts+[pts[0]]]))
+    s=Part.makeLoft(wires,True,True)
+    s=s if s.Volume>0 else s.reversed()
+    return Part.makeCompound([s,s.mirror(V(0,0,0),V(0,1,0))])
+_zc0,_zc1=PACK_FLOOR-10.0,bands[-1]['zhi']+10.0
+inner_plain=inner
+outer_sharp=outer   # conservative envelope (sharp front corners) for every clearance check and the body trims: the swept-radius faces make distToShape very slow
+outer=outer.cut(_corner_cutter(xfront,YO,15.0,_zc0,_zc1))
+inner=inner.cut(_corner_cutter(lambda z:xfront(z)-5.1,YO-WALL,12.0,_zc0,_zc1))
+assert outer.isValid() and inner.isValid() and len(outer.Solids)==1 and len(inner.Solids)==1
 # Four burst vents (program/10-thermal.md T5), one per lane: 28 mm round ports (615 mm2) in the case floor at X900, ducted to the belly gap above the skid.
 VENT_D=28.0
 _vents=Part.makeCompound([cyl((900,ly,PACK_FLOOR-5),(900,ly,PACK_FLOOR+WALL+2),VENT_D/2) for ly in LANES]);_vents=Part.makeCompound([cyl((900,ly,PACK_FLOOR-5),(900,ly,PACK_FLOOR+WALL+2),VENT_D/2) for ly in LANES])
 P['pack_vents']=dict(count=NLANE,diameter_mm=VENT_D,area_mm2_each=round(math.pi*(VENT_D/2)**2),y_mm=list(LANES),x_mm=900,note='burst-disc ports in the floor; belly skid gap (17 mm) is the duct')
 _ribs=Part.makeCompound([box(bands[0]['xlo']+25,ry-1.5,PACK_FLOOR+WALL-0.5,bands[0]['xcell']-bands[0]['xlo']-60,3.0,9.5) for ry in (-80.0,0.0,80.0)])   # floor ribs in the three lane gaps (FEA: 3 mm walls + 5 mm front + floor ribs)
+case_simple=outer_sharp.cut(inner_plain).cut(_vents).fuse(_ribs).removeSplitter()   # sharp-corner twin of the case, used only while the distance checks and the sweep run (the swept-radius faces make them very slow)
 case=add('Pack_case_structural_4mm_STUDY',outer.cut(inner).cut(_vents).fuse(_ribs).removeSplitter(),'Energy',
          'PROPOSED 3 mm structural shell (rev D; object name kept for downstream tools: it was 4 mm in rev A-C) with 4 mm doubler pads at the lug stations; '
          'its machined outer skin is the visible lower body: front follows the front-tyre arc, bottom 8x45 chamfer, front corners 9x45. '
@@ -200,6 +223,7 @@ for _sy in (-1,1):
     add(sname('Pack_case_pad_front',_sy),_pf,'Energy','4 mm doubler pad (3 mm wall + 1 mm) at the front-link lug station, outside the case front arc',color=(.16,.17,.18))
     _pr=box(_br['xlo']-1.0,100 if _sy>0 else -160,_zr-34,1.0,60,68)
     add(sname('Pack_case_pad_rear',_sy),_pr,'Energy','4 mm doubler pad (3 mm wall + 1 mm) at the rear-link lug station, on the case rear face',color=(.16,.17,.18))
+outer=outer_sharp
 add('Battery_installation_keepout',outer,'Keepouts','Stepped outer battery boundary incl. motor cutout',hide=True)
 cell_source='https://www.molicel.com/wp-content/uploads/Product-Data-Sheet-of-INR-21700-P60B_80145.pdf'
 cells=[];cellmap=[];bylane={}
@@ -335,12 +359,12 @@ def wheel(name,x,z,width,r,front,rim_in):
             pts.append(c+v*(a*math.copysign(abs(cp)**.45,cp))+Y*(b*math.copysign(abs(sp_)**.45,sp_)))
         bs=Part.BSplineCurve();bs.interpolate(pts,PeriodicFlag=True);return Part.Wire(bs.toShape())
     spokes=[]
-    for k in range(10):
-        t=k*math.tau/10+math.radians(9)
-        spokes.append(Part.makeLoft([sect(t,40,13,15,0),sect(t+math.radians(2),bead*.55,8.5,10,0),
-                                     sect(t+math.radians(5),bead-6,6.5,8,0)],True,False))
-    add(name+'_wheel_STUDY',Part.makeCompound([rim,hub]+spokes),'RunningGear',
-        f'ILLUSTRATIVE cast/forged 10-spoke {rim_in}x{ws/25.4:.2f} wheel: J-flange rim with drop centre, hub with disc flanges; OEM hub/offset CAD absent',color=(.1,.105,.11))
+    for k in range(5):   # rev E: five wide blade spokes, as on a moulded carbon wheel (BST class); the ledger binds the carbon slot by the name
+        t=k*math.tau/5+math.radians(9)
+        spokes.append(Part.makeLoft([sect(t,40,24,15,0),sect(t+math.radians(3),bead*.55,19,11,0),
+                                     sect(t+math.radians(7),bead-6,16,9,0)],True,False))
+    add(name+"_wheel_carbon_BST_STUDY",Part.makeCompound([rim,hub]+spokes),"RunningGear",
+        f"ILLUSTRATIVE carbon-composite 5-blade-spoke {rim_in}x{ws/25.4:.2f} wheel (BST class, adopted rev E: ALT row of hardware-shortlist.csv, {2.6 if front else 3.3} kg estimate); J-flange rim, hub with disc flanges; certification (fatigue, impact) NOT done",color=(.1,.105,.11))
     discR=160 if front else 133.5   # rev D: front dual 320x5 (cost +0.5 kg over 300 mm per hardware-shortlist.csv ALT; coordinator decision); rear 267x5 (CAD and brake calc agree at 5 mm)
     dth=5
     for side in ([-1,1] if front else [1]):
@@ -406,6 +430,10 @@ steerKeep=add('Steering_sweep_keepout',Part.makeCylinder(140,(steer_hi-steer_lo)
 # rider's thighs is 368 mm across the tubes (was 428). The upper rail runs from there back out to Y+-195 at X1050.
 # Nov 20 (thighs still pressed into the waist): node pulled in again to Y+-125, 310 mm across the tubes.
 RAIL_NODE_Y,TAIL_RAIL_END_Y=125.0,104.0
+YK_Z=545.0;YK_X=540+(554.4-540)*(YK_Z-350)/(525-350);YK_Y=195+(161.5-195)*(YK_Z-350)/(525-350)   # yoke top on the Round 2 leg line, extended to the cross-member height
+def boxtube(a,b,w,wall):
+    d=b-a;L=d.Length;s=Part.makeBox(w,w,L,V(-w/2,-w/2,0)).cut(Part.makeBox(w-2*wall,w-2*wall,L,V(-w/2+wall,-w/2+wall,0)))
+    s.Placement=A.Placement(a,A.Rotation(V(0,0,1),d));return s
 def urail_y(x):return RAIL_NODE_Y+(195-RAIL_NODE_Y)*(x-570)/480
 def urail_z(x):return 715.0+65*(x-570)/480
 for side in [-1,1]:
@@ -414,17 +442,28 @@ for side in [-1,1]:
     # behind the pack's top steps (X>=590) instead of leaning forward into them.
     # Sizes from detailed-design/structural-fea.md (4130): 44x3.5 / 38x3 / 45x4; the head joint moves up to w=120 on the axis.
     # Nov 21 FEA re-run (structural-fea.md): middle rail 38x4.5 (was 38x3) for fatigue at the narrower +-125 node; tail rails 38x3.5.
-    for i,(a,b,ro,ri) in enumerate([((540,y,PZ),(570,yn,715),19,17.5),((570,yn,715),(1050,y,780),19,15.5),((1050,y,780),(1156.2,side*35,908.8),20,15)]):   # rev D FEA table: rail0 38x1.5, rail1 38x3.5, rail2 40x5
+    for i,(a,b,ro,ri) in enumerate([((YK_X,side*YK_Y,YK_Z),(570,yn,715),19,17.0),((570,yn,715),(1050,y,780),19,16.75),((1050,y,780),(1156.2,side*35,908.8),21,17.5)]):   # rev E Round 2 table: rail0 38x2.0 from the yoke top, rail1 38x2.25, rail2 42x3.5
         tube(sname(f'Upper_rail_{i}',side),a,b,ro,ri)
+    # Rev E (program/09-structures.md Round 2): steel pivot yoke = two 50x50x4.25 box legs from the pivot node up the Upper_rail_0 line, joined over the motor by a
+    # 60x40x5 box cross-member. FEA placed the cross at Z525 (bottom Z495) but the EMRAX housing with accessories reaches Z505, so it is at Z545 (bottom Z515) here.
+    yl=boxtube(V(540,side*195,PZ),V(YK_X,side*YK_Y,YK_Z),50,4.25)
+    add(sname('Upper_rail_yoke_leg',side),yl,'Chassis','Round 2 pivot-yoke leg, 50x50x4.25 box 4130 (forged/cast or fabricated), node to cross-member; FEA at 525, built to 545; joints/welds NOT designed',color=(.1,.105,.11))
+    # 70x70 steel pivot block at the node (thin-wall: 3 mm shell with a 70 long face-to-face core removed), carries the spindle end
+    by0,by1=(185,217) if side>0 else (-217,-185)
+    blk=box(505,min(by0,by1),PZ-35,70,32,70);blk=blk.cut(box(508,min(by0,by1)+3,PZ-32,64,26,64))
+    add(sname('Upper_rail_pivot_block',side),blk,'Chassis','Round 2 70x70 steel pivot block at the node, hollow/cast, 3 mm walls; spindle seat; NOT designed in detail',color=(.1,.105,.11))
+    # cosmetic investment-cast steel nodes (3 mm shells) at the rail node, the yoke top and the headstock end of the seat rail; mass is tiny, joint design not done
+    for nm,pt in (('yoke',V(YK_X,side*YK_Y,YK_Z)),):   # post-build edit: the 'rail' node at (570,+-125,715) overlapped the seat pan by 1,250 mm3 and the rider's thigh, so it is no longer built (the saved rev E model still has it, 0.3 kg)
+        add(sname('Upper_rail_node_'+nm,side),Part.makeSphere(24,pt).cut(Part.makeSphere(21,pt)),'Chassis','Cosmetic cast-steel node shell (Round 2: FAT 63 cast nodes at tube clusters); shape illustrative',color=(.1,.105,.11))
     # Posts from the upper rail down to machined pads on the pack roof (FEA CR-7): triangulate each side loop.
     for nm,xr,xp in (('front',960,950),('rear',700,712)):   # front post 40 aft of the FEA X1000 so the side-pod radiator clears it
-        tube(sname(f'Upper_post_{nm}',side),(xr,side*urail_y(xr),urail_z(xr)-14),(xp,side*148,roof(xp-20,xp+20)),13.5,11.0 if nm=='front' else 11.25)   # FEA: 27x2.5 front / 27x2.25 rear, feet at Y+-148
+        tube(sname(f'Upper_post_{nm}',side),(xr,side*urail_y(xr),urail_z(xr)-14),(xp,side*148,roof(xp-20,xp+20)),13.5,11.5)   # FEA: 27x2.5 front / 27x2.25 rear, feet at Y+-148
     # No lower rails: the structural pack is the lower frame. A down-link pair runs from the head tube to
     # lugs on the pack front face, and a rear link pair from the pivot node down to the pack's rear step.
     # The links stop short of the case; the bolted lugs between them are not modelled.
     LUG_Y=144.7;zf_lug=532.0   # rev D: lug brackets on the case face (Y144.7, FEA bracket); rev C had Y178, 11 mm outside the 333 mm case.    # was 400: a higher lug runs the link further back and outboard past the steered tyre (lock sweep, Nov 11)
     bf=next(b for b in bands if b['zlo']<=zf_lug<=b['zhi'])
-    tube(sname('Lower_downlink',side),(1184,side*39,850),(bf['xhi']+22,side*LUG_Y,zf_lug),18,14.25)   # FEA: down-link 36x3.75
+    tube(sname('Lower_downlink',side),(1184,side*39,850),(bf["xhi"]+22,side*LUG_Y,zf_lug),19,15.0)   # FEA: down-link 36x3.75
     # Head gusset (FEA CR-5): 10mm plate, 60 wide, from the upper-rail head joint to 35% down the down-link.
     g0=V(1156.2,side*37,908.8);g1=V(1184,side*39,850)+(V(bf['xhi']+22,side*LUG_Y,zf_lug)-V(1184,side*39,850))*.35
     gp=[(g0.x,g0.z),(1184,850),(g1.x,g1.z),(g0.x-30,g0.z-60)]
@@ -433,8 +472,8 @@ for side in [-1,1]:
     # Rear link: pivot node straight forward to a lug on the pack's rear face beside the motor.
     zr_lug=PZ+36
     br=next(b for b in bands if b['zlo']<=zr_lug<=b['zhi'])
-    tube(sname('Lower_pack_rear_link',side),(540,y,PZ),(br['xlo']-17,side*LUG_Y,zr_lug),20,15.75)   # FEA: rear pack link 40x4.25 (sized by the 21 kN rear slider); lug on the case rear face
-    tube(sname('Tail_rail',side),(568,yn,692),(-60,side*TAIL_RAIL_END_Y,TAIL_RAIL_END),15,12.5)   # 38x3.5 (FEA CR-9; Nov 21 re-run: 3.5 wall for the crash-guard case); rear end up 8.5 for the 170/60 tyre   # 10mm higher than V1.0: 20mm off the tyre at full bump
+    tube(sname('Lower_pack_rear_link',side),(540,y,PZ),(br["xlo"]-17,side*LUG_Y,zr_lug),21,16.75)   # FEA: rear pack link 40x4.25 (sized by the 21 kN rear slider); lug on the case rear face
+    tube(sname('Tail_rail',side),(568,yn,692),(-60,side*TAIL_RAIL_END_Y,TAIL_RAIL_END),15,13.0)   # 38x3.5 (FEA CR-9; Nov 21 re-run: 3.5 wall for the crash-guard case); rear end up 8.5 for the 170/60 tyre   # 10mm higher than V1.0: 20mm off the tyre at full bump
     tube(sname('Tail_brace',side),(540,y,PZ),(160,side*111.4,779.7),12.5,11)   # FEA bug fix: end on the tail rail (was Y144 Z740, 52 mm off it)
     # SINGLE-SIDED swingarm (program/06-drive-performance.md CR-3/5): the 62 mm belt plane (Y-107..-181) leaves no room for a left arm,
     # and an endless belt must slide on from the open side. One heavier right-hand box arm carries the wheel, the belt pull stays
@@ -448,11 +487,13 @@ for side in [-1,1]:
             return Part.makePolygon(q+[q[0]])
         arm_=Part.makeLoft([sect(V(540,side*ya,PZ)+adir*38,117,54),sect(V(0,side*ya,RZ)-adir*30,102.5,57),],True)   # rev D FEA: cast A356-T6 box 117x54 at the pivot to 102.5x57 at the axle, 4.0 wall (ledger rule still uses 4.25)
         arm_=rounded(arm_,5)   # rev D: eased edges so the single-sided arm reads as a cast/machined feature (falls back to sharp edges if the fillet fails)
-        arm_=arm_.fuse(cyl((540,side*105,PZ),(540,side*185,PZ),44))   # pivot boss spans Y105-185 (two tapered-roller bearings at Y105 and Y185).fuse(cyl((0,side*(ya-20),RZ),(0,side*(ya+20),RZ),34))
+        arm_=arm_.fuse(cyl((540,side*105,PZ),(540,side*185,PZ),56)).cut(cyl((540,side*104,PZ),(540,side*186,PZ),47.5))   # Round 2: boss OD 112 bored 95 for the two 32012 X bearings (rev D: OD 88, no bore)   # pivot boss spans Y105-185 (two tapered-roller bearings at Y105 and Y185).fuse(cyl((0,side*(ya-20),RZ),(0,side*(ya+20),RZ),34))
         add(sname('Swingarm',side),arm_,'Chassis','PROPOSED single-sided right-hand box swingarm (belt side open); section/fatigue NOT qualified',color=(.13,.14,.15))
+yc=box(YK_X-20,-YK_Y,YK_Z-30,40,2*YK_Y,60).cut(box(YK_X-15,-YK_Y-1,YK_Z-25,30,2*YK_Y+2,50))
+add('Upper_rail_yoke_cross',yc,'Chassis','Round 2 yoke cross-member 60 (Z) x 40 (X) x 5 box 4130 over the motor, at Z545 (FEA ran Z525, bottom 495, which clashes with the housing top near Z505); weld to the legs not designed',color=(.1,.105,.11))
 head_lo=sa-sd*30;head_hi=sa+sd*200
 add('Head_tube',cyl(tuple(head_lo),tuple(head_hi),28,24.5),'Chassis','Head tube on steering axis; bearing seats unresolved')
-add('Swingarm_cross_brace',cyl((380,-36,arm_z(380)),(380,110,arm_z(380)),37.5,32),'Chassis','PROPOSED 60x6 A356 cross tube (solo case: 54x4) ahead of the tyre; carries the shock tower; bolt-in (inside the belt loop)',color=(.13,.14,.15))   # FEA 76x5.5; 75x5.5 here: the last 0.5 mm keeps 10 mm to the motor housing
+add('Swingarm_cross_brace',cyl((380,-36,arm_z(380)),(380,110,arm_z(380)),37.5,31.5),'Chassis','PROPOSED 60x6 A356 cross tube (solo case: 54x4) ahead of the tyre; carries the shock tower; bolt-in (inside the belt loop)',color=(.13,.14,.15))   # FEA 76x5.5; 75x5.5 here: the last 0.5 mm keeps 10 mm to the motor housing
 # Upside-down fork built in the steering frame: local Z along the steering axis from the lower axis point,
 # local X forward-perpendicular. Tubes sit 36.1mm ahead of the axis; the axle sits W_AXLE down the axis.
 steer_pl=A.Placement(sa,A.Rotation(V(0,1,0),-25))
@@ -496,9 +537,10 @@ stubs=[]
 for side in [-1,1]:
     # right: the swingarm pivot. left: the outboard bearing carrier that holds the belt-pulley load (7.4 kN peak, 11.3 kN design); detachable for belt fitting
     y0,y1=(105,185) if side>0 else (186,192)
-    stub=cyl((540,side*y0,PZ),(540,side*y1,PZ),31,22) if side>0 else cyl((540,side*y0,PZ),(540,side*y1,PZ),20,15);stubs.append(stub)   # right: FEA 62 OD x 9 wall, bearings at Y105/Y185
+    stub=cyl((540,side*y0,PZ),(540,side*y1,PZ),30) if side>0 else cyl((540,side*y0,PZ),(540,side*y1,PZ),20,15);stubs.append(stub)   # right: FEA 62 OD x 9 wall, bearings at Y105/Y185
     add(sname('Independent_hollow_pivot_stub',side),stub,'Chassis','Proposed 40OD/30ID fixed frame stub'+('' if side>0 else ' (left: outboard belt-pulley carrier support)')+'; loads/fits not approved')
-    if side>0:add(sname('Pivot_6008_size_reference',side),cyl((540,side*105,PZ),(540,side*125,PZ),40,31),'Chassis','6008 dimensional reference only')
+    if side>0:
+        for k_,(b0,b1) in enumerate(((105,128),(162,185)),1):add(f"Pivot_6008_size_reference_{k_}",cyl((540,b0,PZ),(540,b1,PZ),47.5,30),"Chassis","Round 2: SKF 32012 X tapered-roller bearing 60x95x23 (name kept for the ledger rule, which still says 6008 at 0.12 kg: a 32012 X is about 0.7 kg)")
 add('Pivot_reference',Part.makeCompound(stubs),'Keepouts','Independent outboard pivots',hide=True)
 # Rear shock: one central direct-mount coil-over, no linkage (KTM PDS layout), chosen by tools/rear-kinematics.py.
 # Lower eye on a tower 210mm behind the pivot and 120mm above the arm line; top eye hangs from a cross tube
@@ -543,7 +585,7 @@ add('Tail_shock_cross_tube',box(SHOCK_TOP[0]-40,-yt,zt-45,80,2*yt,45).cut(box(SH
 SHOCK_TUBE=(SHOCK_TOP[0],zt)   # X and top Z of the bridge, for the seat-pan relief
 for sy in (-1,1):   # diagonals from the bridge to the pivot nodes (CR-12)
     tube(sname('Shock_bridge_diagonal',sy),(SHOCK_TOP[0],sy*60,zt-22),(540,sy*180,PZ+30),11,9.5)
-add('Shock_top_bracket',Part.makeCompound([stadium((SHOCK_TOP[0],zt-22),SHOCK_TOP,18,sy*34 if sy<0 else 22,sy*22 if sy<0 else 34) for sy in (-1,1)]),
+add('Shock_top_bracket',Part.makeCompound([stadium((SHOCK_TOP[0],zt-22),SHOCK_TOP,20,sy*34 if sy<0 else 20,sy*20 if sy<0 else 34) for sy in (-1,1)]),
     'Chassis','PROPOSED twin 8mm plates, cross tube to shock top eye',color=(.13,.14,.15))
 # Swingarm rotation about the pivot (= motor axis) to a given rear axle height, for sweeps of arm-mounted parts.
 arm_static=V(0,0,RZ)-V(540,0,PZ)
@@ -626,7 +668,7 @@ frame_notch=_notch(6)   # tube + 6mm
 lamps=dict(Taillamp_installation_STUDY=box(-151,-50,806,16,100,20))   # rev D: tail tip 35 mm shorter (X-155)
 for side in [-1,1]:
     lamps[sname('Front_indicator_reserve',side)]=box(1290,side*205-14,680,40,28,20)   # 410mm apart, 125 below the lamp band (FMVSS 108 / R53)
-    lamps[sname('Rear_indicator_reserve',side)]=box(-318,116 if side>0 else -146,664,36,30,22)   # on the plate hanger, 262mm apart
+    lamps[sname('Rear_indicator_reserve',side)]=box(-312,116 if side>0 else -146,696,36,30,22)   # on the plate hanger, 262mm apart
 lamp_cut=Part.makeCompound(list(lamps.values()))
 # Re-trace (Oct 26) on a 50mm grid over the baseline. The image's wheel axles sit ~35mm below the model's,
 # so traced Z values carry +35mm. Tank/battery split is the baseline's slanted seam, not a flat line.
@@ -729,40 +771,43 @@ upper_body=tidy(upper_body.cut(outer),'case')
 upper_body=tidy(upper_body.cut(box(600,-138,550,166,276,140)),'hvbox')
 ub_obj=add('Upper_body_fairing_tank_STUDY',upper_body,'BodyStudy',
     'PROPOSED 3mm shell traced from baseline image; open below, steering cavity, frame notches and grilles cut; tooling/CFD/fixings unresolved',color=(.11,.12,.13))
-# Lower body (rev D): the pack case is the visible battery body now, so this is only a small motor-bay filler cover on each flank,
-# between the motor cover (X470-585) and the case rear face (X676), from the belly line to the knee-pocket line. It keeps the old
-# cover section (195 half-width, bevelled belly) so the pegs, belt side and frame pivot node still sit behind a closed flank.
-FILL_X1=bands[0]['xlo']-8.0   # must stay ahead of the motor housing (X659); the case band that starts at X656 is cleared by a notch below
-lower_body=panel(top=[(585,WAIST_Z),(600,WAIST_Z),(615,POCKET_Z-12),(FILL_X1,POCKET_Z-12)],   # top 12 below the pocket line: clear of the case's rear shelf (Z525+)
-                 
-                 bot=[(585,BELLY_Z),(FILL_X1,BELLY_Z)],
-                 inner_bot=[(585,BELLY_Z+2.5),(FILL_X1-2.5,BELLY_Z+2.5)],
-                 half=[(585,217),(630,217),(FILL_X1,217)],
-                 r=10,open_top=True,open_rear=True,section=lambda t:belly_section(-t))
-lower_body=lower_body.cut(frame_notch).cut(box(640,-172,476,40,344,60))   # notch the front wall's top where the case's Z484+ band starts (X656)
+# Lower body (rev E): ONE continuous cover. Rev D left a flat case slab (Y+-166) with a separate motor-bay box behind it (Y+-217), a step and gaps.
+# Now a single 2 mm shell runs from the motor-bay front (X470) over the case flank to 8 mm behind the front-tyre arc; its plan width eases from 217
+# at the motor bay to 180 at the nose (so it reads as one tapering flank, 8 to 40 mm outboard of the case), its top is 1.5 mm under the tank skirt so
+# tank flank and lower body are one family, vertical edges are R15 and the belly line rolls up into the pack chin. The bottom skin closes only under
+# the motor bay; under the case the cover is open (the case floor is the belly). Replaces Motor_side_covers_STUDY and the rev D filler.
+SK_T=2.0;SK_BOT=205.0
+def _ub_bot(x):
+    for (x0,z0),(x1,z1) in zip(UB_BOT,UB_BOT[1:]):
+        if x0<=x<=x1:return z0+(z1-z0)*(x-x0)/(x1-x0)
+    return UB_BOT[0][1] if x<UB_BOT[0][0] else UB_BOT[-1][1]
+SK_ZT=_ub_bot(1050)-1.5
+SK_XE_TOP,SK_XE_BOT=xfront(SK_ZT)-8.0,xfront(SK_BOT)-8.0
+FILL_X1=bands[0]['xlo']-8.0   # rear face of the case bottom band; kept as the reference for the waist ledge below
+sk_top=[(470,WAIST_Z),(600,WAIST_Z),(615,POCKET_Z-12),(700,POCKET_Z-12)]+[(x,_ub_bot(x)-1.5) for x in (745,800,860,920,980,1030)]+[(SK_XE_TOP,SK_ZT)]
+sk_bot=[(470,200),(585,BELLY_Z),(640,BELLY_Z),(700,SK_BOT),(SK_XE_BOT,SK_BOT)]
+def _above(pts):   # everything above a polyline, as a slab across the bike
+    poly=[(pts[0][0]-60,3000),(pts[0][0]-60,pts[0][1])]+list(pts)+[(pts[-1][0]+60,pts[-1][1]),(pts[-1][0]+60,3000)]
+    return xz_prism(poly,-600,600)
+lower_body=panel(top=[(x,z+30) for x,z in sk_top],bot=sk_bot,t=SK_T,   # raised 30 so the R15 top-edge fillet is cut off cleanly below
+                 inner_bot=[(470,200+SK_T),(585,BELLY_Z+SK_T),(640,BELLY_Z+SK_T),(700,SK_BOT+SK_T),(SK_XE_BOT+40,SK_BOT+SK_T)],
+                 half=[(470,222),(500,225),(600,225),(640,222),(760,205),(900,196),(1000,188),(1110,180)],
+                 r=15,open_top=True,open_rear=True,open_front=True,section=lambda t:belly_section(-t,hw=225.0,hb=199.0))   # 225 half-width round the pivot node: the Round 2 yoke legs are 50 wide (outer face Y220)
+lower_body=lower_body.cut(_above(sk_top)).cut(box(645,-400,150,700,800,SK_BOT+8.0-150))   # no belly skin under the case (the case floor is the belly)
+lower_body=lower_body.cut(frame_notch)
+for side in [-1,1]:lower_body=lower_body.cut(cyl((420,side*140,270),(420,side*240,270),18))   # peg mount bosses pass through
+motor_cover=lower_body    # same solid: the rev D motor cover and filler are one part now (checks keep both names)
 add('Lower_body_battery_covers_STUDY',lower_body,'BodyStudy',
-    'PROPOSED 2.5mm motor-bay filler cover (rev D: the structural pack case is the visible battery body; this only closes the flank between the motor cover and the case rear face); 195 half-width, bevelled belly',color=(.13,.14,.15))
-# Floor rises to the belly line behind the pack.
-MC_X=470
-motor_cover=panel(top=[(MC_X,WAIST_Z),(585,WAIST_Z)],bot=[(MC_X,200),(585,BELLY_Z)],half=[(MC_X,215),(585,217)],
-                  r=8,open_top=True,open_front=True,open_rear=True,section=lambda t:belly_section(-t))
-motor_cover=motor_cover.cut(frame_notch)
-for side in [-1,1]:motor_cover=motor_cover.cut(cyl((420,side*140,270),(420,side*240,270),18))   # peg mount bosses pass through
+    'PROPOSED 2 mm continuous lower body (rev E): one shell from the motor bay over the case flank, plan width 217 to 180, R15 vertical edges, top flush under the tank skirt; replaces the rev D filler and the separate motor-bay covers; moulding/fixings unresolved',color=(.13,.14,.15))
 # No rear bulkhead: with the motor on the lowered pivot, the swingarm arms pass through where it stood.
 waist_ledge=Part.makeCompound([rounded(box(x0,(182 if sy>0 else -209),z0-3,l,27,3),1) for sy in (-1,1) for x0,l,z0 in ((530,68,WAIST_Z),(617,FILL_X1-617,POCKET_Z))])   # between the tail wall (<=182) and the cover's inner face (>=213)
 add('Waist_ledge_plates',waist_ledge,'BodyStudy','3mm plates closing the cover top between the tail panel and the cover wall under the thighs (Nov 20)',color=(.12,.13,.14))
-add('Motor_side_covers_STUDY',motor_cover,'BodyStudy',
-    'PROPOSED 3mm motor side covers/belly behind the battery covers; swingarm and shock pass the open rear; cooling/belt access unresolved',color=(.12,.13,.14))
 # Round cap over the swingarm pivot / motor axis on each motor cover, as in the baseline: a 92mm ring with a recessed face and centre boss.
 for side in [-1,1]:
-    y0=side*222.5      # outboard of the frame pivot-node tubes (Y195+19), standing proud of the narrower motor cover
+    y0=side*225.5      # outboard of the frame pivot-node tubes (Y195+19), standing proud of the narrower motor cover
     cap=cyl((540,y0,PZ),(540,y0+side*6,PZ),46).cut(cyl((540,y0+side*4,PZ),(540,y0+side*7,PZ),32)).fuse(cyl((540,y0,PZ),(540,y0+side*5,PZ),16))
     add(sname('Pivot_cover_cap',side),cap,'BodyStudy','Pivot/motor-axis cover cap on the motor cover, illustrative',color=(.07,.075,.08))
-# Rev D: no seam trim and no proud battery/belly plates. The case flank carries M6 button heads on a 3 x 3 grid (positions inside the
-# arc front and the rear face; counted in the fastener allowance, rule Panel_bolts_*).
-for side in [-1,1]:
-    bolts=[cyl((x,side*YO,z),(x,side*(YO+2.5),z),5.5) for z in (520,400,280) for x in (700,860,1020)]
-    add(sname('Panel_bolts',side),Part.makeCompound(bolts),'BodyStudy','M6 button-head positions on the case flank, illustrative',color=(.25,.26,.27))
+# Rev E: the case flank is covered by the continuous lower body, so the M6 button heads (rule Panel_bolts_*, 0 kg, in the fastener allowance) are gone from the visible surface.
 # Tail and under-seat side panels, open below and toward the tank; tail tip rises above the seat end like the baseline.
 # Extra top points stop the spline swinging below Z776 over the tyre (full-bump tyre top is Z754 at X-22).
 # Re-traced Nov 11 from a close crop of the baseline (X=(1310-px)*1.35, Z=(935-py)*1.35+25): the side cover under
@@ -789,8 +834,10 @@ floor_=solid([(x,z+3) for x,z in fl],fl,[(x,w-4.5) for x,w in TAIL_HALF])
 tube_holes=_notch(1)
 # Plate hanger: a cast arm from inside the tail tip down and back to the plate, a bracket behind the plate, the plate
 # lamp above it and the rear indicators on short stalks (262mm apart; FMVSS 108 asks 229mm). 20mm+ off the tyre at full bump.
-hanger_line=((-118,793),(-318,662))   # rev D: slimmer arm (12 x 36 section, was 14 x 52), rooted 32 mm further forward under the shorter tail
-plate_hanger=stadium(*hanger_line,6,-18,18).fuse(box(-338,-25,600,14,50,70))
+# Rev E tail tidy: the plate rides 95 mm higher and 44 mm further forward (its lowest edge still 22 mm off the full-bump tyre envelope), so the
+# long spindly arm (240 mm, 12 x 36) is a short chunky cast bracket (165 mm, 20 x 48) rooted under the tail, with the indicators on a short flat wing.
+hanger_line=((-140,785),(-292,712))
+plate_hanger=stadium(*hanger_line,10,-24,24).fuse(box(-298,-25,650,14,50,70))
 undertray=Part.makeCompound([s for s in (ring.cut(tube_holes),floor_.cut(stadium(*hanger_line,10,-24,24))) if s.Volume>1])
 # Thick stepped saddle: pillion pad Z889 stepping down at X284 to the rider dip at Z800 (traced +35mm).
 # Nov 11 (seat "looks uncomfortable"): lofted through crowned sections instead of an extruded slab: domed top, rolled
@@ -852,9 +899,9 @@ undertray=undertray.cut(tail_body)   # trims the 8 mm3 where the skin met the wa
 add('Tail_undertray_STUDY',undertray,'BodyStudy','PROPOSED 3mm undertray/inner fender, 25mm outside the rear tyre travel envelope; drainage and fixings unresolved',color=(.08,.085,.09))
 # Rear rack over the tail tip (the baseline has one): 8mm aluminium plate with two slots, on two posts down to the tail top.
 tail_outer=rounded(solid(TAIL_TOP,TAIL_BOT,TAIL_HALF),10)
-rack=rounded(box(-165,-72,868,70,144,6),3)   # rev D: smaller rack plate to suit the shorter tail
-for sy in (-1,1):rack=rack.cut(box(-151,12 if sy>0 else -52,860,38,40,20))
-for sy in (-1,1):rack=rack.fuse(cyl((-130,sy*62,870),(-130,sy*62,800),7).cut(tail_outer))
+rack=rounded(box(-185,-72,868,70,144,6),3)   # rev E: 20 mm further aft, so it no longer nicks the seat tail (rev D: 12,069 mm3 at the seat tip, X-112)
+for sy in (-1,1):rack=rack.cut(box(-171,12 if sy>0 else -52,860,38,40,20))
+for sy in (-1,1):rack=rack.fuse(cyl((-132,sy*62,870),(-132,sy*62,800),7).cut(tail_outer))
 add('Rear_rack_STUDY',rack,'BodyStudy','PROPOSED short aluminium luggage-rack mount plate on two posts (the grab rail is gone: solo bike); load rating unresolved',color=(.1,.105,.11))
 skid=rounded(box(500,-125,176,570,250,3),5)   # rev D slim skid: 3mm 5083, X500-1070 x 250 wide (rev C 5 mm, 620 x 310; was 6 mm, 660 x 350); the case flank sliders take the side impacts; FEA/crash test to confirm
 add('Belly_skid_plate_STUDY',skid,'BodyStudy','PROPOSED 3mm aluminium slim skid plate under the belly; sets the static ground clearance (bottom Z176 unchanged); rev D',color=(.2,.21,.22))
@@ -898,13 +945,13 @@ for side in [-1,1]:
     mir=rounded(mir,12);mir.translate(V(0,280 if side>0 else -420,0))
     add(sname('Mirror_glass',side),box(825.6,(280 if side>0 else -420)+10,1191,2.4,130,80),'BodyStudy','Mirror glass, illustrative',color=(.7,.72,.75))
     add(sname('Mirror_body',side),mir,'BodyStudy','Mirror head envelope; field of view unvalidated',color=(.07,.075,.08))
-    tube(sname('Peg_reference',side),(420,side*190,270),(420,side*237,270),12,8,'RunningGear')   # inner end clear of the belt-side arm sweep
-    pg=rounded(box(392,239 if side>0 else -311,261,56,72,16),3)
-    for xt in (394,436):pg=pg.fuse(box(xt,239 if side>0 else -311,276,10,72,4))   # cleats
+    tube(sname('Peg_reference',side),(420,side*190,270),(420,side*243,270),12,8,'RunningGear')   # inner end clear of the belt-side arm sweep
+    pg=rounded(box(392,245 if side>0 else -317,261,56,72,16),3)
+    for xt in (394,436):pg=pg.fuse(box(xt,245 if side>0 else -317,276,10,72,4))   # cleats
     add(sname('Peg_rubber',side),pg,'RunningGear','Wide 56x72 serrated adventure peg, folding; illustrative',color=(.06,.06,.065))
     hanger=Part.Face(Part.makePolygon([V(x,0,z) for x,z in [(545,382),(562,350),(545,320),(432,254),(406,268),(418,290),(545,382)]])).extrude(V(0,6,0))
     hanger=rounded(hanger,2.5).cut(stadium((520,334),(462,296),8,-1,7))   # machined lightening slot
-    hanger.translate(V(0,side*233-3,0))   # outside the pivot cap (Y222.5-228.5)
+    hanger.translate(V(0,side*239-3,0))   # outside the pivot cap (Y222.5-228.5)
     add(sname('Peg_bracket',side),hanger,'Chassis','Machined peg hanger plate, illustrative',color=(.62,.63,.64))
     fwd=V(gd.y,-gd.x,0)*side;fwd.normalize()   # forward of the grip, in the bar plane
     add(sname('Hand_lever',side),cyl(tuple(bp[2]+fwd*32+gd*5),tuple(bp[2]+fwd*40+gd*150),5),'RunningGear',
@@ -914,11 +961,11 @@ for side in [-1,1]:
     add(sname('Front_caliper_reserve',side),caliper(FX,FZ,side*54,side,160,20.5,4),'RunningGear',
         'Brembo Stylema-class radial 4-piston caliper envelope straddling the 300mm disc',color=(.16,.17,.18))
 add('Plate_hanger_arm',plate_hanger,'BodyStudy','Cast plate hanger from inside the tail tip, with plate bracket; 20mm+ off the tyre at full bump',color=(.08,.085,.09))
-_pl=box(-342,-89,520,4,178,102);_pl=_pl.makeFillet(8,[e for e in _pl.Edges if abs(e.Length-4)<.01])
+_pl=box(-302,-89,615,4,178,102);_pl=_pl.makeFillet(8,[e for e in _pl.Edges if abs(e.Length-4)<.01])
 add('Licence_plate_US',_pl,'BodyStudy','US 7x4in motorcycle plate envelope',color=(.85,.86,.88))
-add('Plate_lamp',box(-346,-20,624,8,40,9),'BodyStudy','Plate lamp reservation above the plate',color=(.9,.92,.95))
+add("Plate_lamp",box(-306,-20,719,8,40,9),'BodyStudy','Plate lamp reservation above the plate',color=(.9,.92,.95))
 for side in [-1,1]:
-    tube(sname('Rear_indicator_stalk',side),(-300,side*32.5,675),(-300,side*116,675),5,0,'BodyStudy')
+    add(sname("Rear_indicator_stalk",side),rounded(box(-296,25 if side>0 else -116,700,12,91,12),3),"BodyStudy","Short flat indicator wing on the plate bracket (rev E; was a 84 mm round stalk); the plate hides most of it from behind",color=(.08,.085,.09))
 add('Rear_caliper_reserve',caliper(0,RZ,66,1,133.5,22,2),'RunningGear','2-piston caliper shaped to the Kawasaki 43080-0156 candidate reserve',color=(.16,.17,.18))
 add('Rear_caliper_bracket',stadium((0,RZ+10),(-110,RZ+40),14,88,96),'RunningGear','Floating caliper bracket on the axle, torque-arm stop on the swingarm; illustrative',color=(.12,.12,.13))
 # ---- Brake hydraulics, switchgear and harness (Nov 11 realism pass). Every production bike shows these; their
@@ -979,16 +1026,16 @@ add('Display_mount',steer(box(34,-22,226,20,44,47)),'RunningGear','Display brack
 # Drive (program/06-drive-performance.md): 8 mm-pitch Gates Poly Chain GT Carbon, 35T motor / 126T wheel = 3.60:1, belt 8MGT-1760-62 (62 mm wide).
 ratio=126/35;pitch=8.0;fr=35*pitch/(2*math.pi);rr=126*pitch/(2*math.pi)   # pitch radii 44.6 / 160.4 mm; centre distance 545.6 (stock belt 545.9)
 BY_IN=-107.0                                      # inner flange face: 12 mm off the 190-wide (+-95) rear tyre envelope
-BELT_Y0=BY_IN-3-62-3.0+3                          # belt Y-172..-110 inside the flanges (68 mm sprocket face)
+BELT_Y0=BY_IN-3-62-1.0                          # belt Y-172..-110 inside the flanges (68 mm sprocket face)
 for name,x,z,radius in [('Front',540,PZ,fr),('Rear',0,RZ,rr)]:
-    pul=cyl((x,BY_IN-3,z),(x,BY_IN-71,z),radius-.8,20)                               # 68 mm toothed face, OD 87.7 / 319.5
-    for y0_ in (BY_IN,BY_IN-71):pul=pul.fuse(cyl((x,y0_,z),(x,y0_-3,z),radius+5.5,20))   # bolt-on belt-tracking flanges (OD +12)
+    pul=cyl((x,BY_IN-3,z),(x,BY_IN-67,z),radius-.8,20)                               # 68 mm toothed face, OD 87.7 / 319.5
+    for y0_ in (BY_IN,BY_IN-67):pul=pul.fuse(cyl((x,y0_,z),(x,y0_-3,z),radius+5.5,20))   # bolt-on belt-tracking flanges (OD +12)
     if name=='Rear':
         for k in range(8):
             t=k*math.tau/8;pul=pul.cut(cyl((x+rr*.58*math.cos(t),BY_IN-80,z+rr*.58*math.sin(t)),(x+rr*.58*math.cos(t),BY_IN+10,z+rr*.58*math.sin(t)),rr*.22))   # lightening holes
     add(name+'_pulley_PITCH_STUDY',pul,'Drive','8mm-pitch 35T motor / 126T wheel sprocket (3.60:1), 68 mm face, bolt-on flanges; supplier not selected',color=(.55,.56,.57))
 # The pulley runs on its own two-bearing carrier on the motor flange (the EMRAX shaft bearings must not carry the 11.3 kN belt pull); about 55 mm of extra shaft length.
-add('Motor_pulley_bearing_carrier',cyl((540,-60,PZ),(540,BY_IN-71,PZ),36,22),'Drive','Pulley bearing carrier on the motor flange, spline to the rotor; 55 mm beyond the motor face (drive-performance CR-6); illustrative',color=(.5,.5,.52))
+add('Motor_pulley_bearing_carrier',cyl((540,-60,PZ),(540,BY_IN-67,PZ),36,22),'Drive','Pulley bearing carrier on the motor flange, spline to the rotor; 55 mm beyond the motor face (drive-performance CR-6); illustrative',color=(.5,.5,.52))
 def hull2(c1,r1,c2,r2,n=72):
     """2D convex hull of two circles in XZ, as a face at Y=0."""
     pts=[(c[0]+r*math.cos(k*math.tau/n),c[1]+r*math.sin(k*math.tau/n)) for c,r in ((c1,r1),(c2,r2)) for k in range(n)]
@@ -1002,7 +1049,7 @@ def hull2(c1,r1,c2,r2,n=72):
     lo=half(pts);up=half(pts[::-1]);ring=lo[:-1]+up[:-1]
     return Part.Face(Part.makePolygon([V(x,0,z) for x,z in ring+[ring[0]]]))
 belt=hull2((540,PZ),fr+3.5,(0,RZ),rr+3.5).cut(hull2((540,PZ),fr-.5,(0,RZ),rr-.5))
-belt.translate(V(0,BY_IN-3-62,0));belt=belt.extrude(V(0,62,0))
+belt.translate(V(0,BY_IN-3-62-1.0,0));belt=belt.extrude(V(0,62,0))
 add('Drive_belt_14mm_STUDY',belt,'Drive','Closed 8MGT-1760-62 belt loop (8 mm pitch, 62 mm wide) at rest position; installs from the open left side; name kept for the ledger rule',color=(.05,.05,.05))
 
 notes=D.addObject('Spreadsheet::Sheet','DesignStatus')
@@ -1039,8 +1086,9 @@ for side in [-1,1]:
         w2=Part.makePolygon([V(x,0,z) for x,z in sp+[sp[0]]]);f2=Part.Face(w2) if ds==0 else Part.Face(Part.Wire(Part.Face(w2).makeOffset2D(-ds).OuterWire))
         b=f2.extrude(V(0,1000,0));b.translate(V(0,-500,0))
         return a.common(b)
-    po=rounded(pod(0,0),14)
-    shell=po.cut(pod(3,3))
+    po,_rp=rounded_first(pod(0,0),(20,17,14))   # rev E: the biggest radius that works (rev D: 14); flush with the flank is not possible with the cores unchanged (outer corner at Y269 vs the 222 flank)
+    _pi,_=rounded_first(pod(3,3),(_rp-3,)) if _rp else (pod(3,3),0)
+    shell=po.cut(_pi)
     shell=shell.cut(xz_prism([(960,630),(1005,588),(1035,588),(1000,700)],side*190,side*400))      # open raked front: the grille sits there
     shell=shell.cut(box(900,(222-40) if side>0 else -222,580,320,40,200))   # open where it meets the tank side
     grille=Part.makeCompound([xz_prism([(968+k*6.5,640+k*11),(988+k*6.5,640+k*11),(988+k*6.5,646+k*11),(968+k*6.5,646+k*11)],side*224,side*300) for k in range(5)])
@@ -1055,8 +1103,41 @@ nacs=box(860,127,805,68,95,84)
 ub_obj.Shape=upper_body
 add('NACS_charge_inlet',nacs,'Electronics','Volex NACS inlet 1000V/500A behind a flap in the tank flank (electrical-detailed.md CR-7)',color=(.15,.15,.16))
 upper_body=tidy(upper_body.cut(nacs.copy()),'nacs');ub_obj.Shape=upper_body
+# ---- Rev E character line (gloss-black trim, flush with the matte panels): one line from the beak's light band, along the tank shoulder crease and on
+# under the saddle edge to the tail tip, plus one split line along the lower body. Each strip is the panel's own skin clipped to a band (the same
+# trick as the light band), and the panel is cut by the same band, so it sits flush. Named Seam_trim_* (ledger rule: painted-panel volume).
+_sf_ub=side_face(UB_TOP,UB_BOT)
+def _crease_z(x):
+    zb,zt=_span(_sf_ub,max(x,700.0),'z');h=zt-zb;return zb+min(.60*h,max(.45*h,h-150))   # the tank_prof shoulder crease
+def _zl_tail(x):
+    for (x0,z0),(x1,z1) in zip(TAIL_TOP,TAIL_TOP[1:]):
+        if x0<=x<=x1:return z0+(z1-z0)*(x-x0)/(x1-x0)-30.0
+    return (TAIL_TOP[0][1] if x<TAIL_TOP[0][0] else TAIL_TOP[-1][1])-30.0
+def zline(x):
+    if x>=780:return _crease_z(x)
+    if x<=640:return _zl_tail(x)
+    s=(x-640)/140.0;s=s*s*(3-2*s);return _zl_tail(x)*(1-s)+_crease_z(x)*s
+def _band(xs,zf,hw,y0=30.0):
+    poly=[(x,zf(x)+hw) for x in xs]+[(x,zf(x)-hw) for x in reversed(xs)]
+    return xz_prism(poly,y0,400.0),xz_prism(poly,-400.0,-y0)
+def _trim(shell,tag,xs,zf,hw,color=(.03,.03,.035)):
+    try:
+        br,bl=_band(xs,zf,hw);out=shell
+        for b_,sd in ((br,1),(bl,-1)):
+            strip=shell.common(b_)
+            if strip.Volume>10:
+                add(sname('Seam_trim_'+tag,sd),strip,'BodyStudy','Gloss-black character-line trim (rev E), flush insert in the panel skin; part of the continuous beak-to-tail line',color=color)
+                out=out.cut(b_)
+        return out
+    except Exception as e:
+        print('NOTE trim',tag,'skipped:',e,flush=True);return shell
+upper_pre=upper_body;tail_pre=tail_body;lower_pre=lower_body   # untrimmed shells: the trim slots are 5-7 mm bands, and the trimmed lofts make every distance check 10x slower, so clearance checks use these
+upper_body=tidy(_trim(upper_body,'tank',[1386-12*i for i in range(int((1386-702)/12)+1)],zline,3.5),'trim_tank');ub_obj.Shape=upper_body
+tail_body=tidy(_trim(tail_body,'tail',[702-12*i for i in range(int((702+146)/12)+1)],zline,3.5),'trim_tail');D.getObject('Tail_side_panels_STUDY').Shape=tail_body
+_xe_l=xfront(432.0)-12.0
+lower_body=tidy(_trim(lower_body,'flank',[480+12*i for i in range(int((_xe_l-480)/12)+1)],lambda x:432.0,2.5),'trim_flank');D.getObject('Lower_body_battery_covers_STUDY').Shape=lower_body;motor_cover=lower_body
 # Steering damper (dynamics-study.md CR-2): semi-active rotary damper on the top clamp, behind the axis.
-add('Steering_damper_envelope',steer(box(-95,-30,227,80,60,45)),'RunningGear','Semi-active steering damper >=28 Nm.s/rad, speed-scheduled (dynamics-study.md)',color=(.75,.6,.2))
+add('Steering_damper_semiactive',steer(box(-95,-30,227,80,60,45)),'RunningGear','Semi-active steering damper >=28 Nm.s/rad, speed-scheduled (dynamics-study.md)',color=(.75,.6,.2))
 # Crash protection (compliance-and-validation.md CR-1..3), rev D: no exposed guard tubes. Three crash sliders per side are the
 # outermost points in a lowside fall: at the front-link lug, at the rear-link lug and at the swingarm pivot (existing POM puck).
 # Each is a 12 mm steel stud from the lug (bolted through; the lug/bracket is not modelled) with a 34 mm puck at Y+-272..292.
@@ -1072,8 +1153,8 @@ for side in [-1,1]:
         add(sname('Crash_guard_mount_'+nm,side),stud,'Protection','12 mm stud from the frame-link lug to the slider puck (lug bolt-through not modelled; compliance CR-1)',color=(.08,.08,.085))
         add(sname('Crash_guard_slider_'+nm,side),puck,'Protection','34 mm crash slider puck (POM/aluminium class; counted at steel density) on the link lug stud; tip is outboard of the radiator pods and tank skirt',color=(.05,.05,.05))
         sliders.append(puck)
-        if nm=='rear':lower_body=lower_body.cut(stud.fuse(puck));D.getObject('Lower_body_battery_covers_STUDY').Shape=lower_body   # the stud passes through a hole in the filler cover
-    add(sname('Pivot_slider',side),cyl((540,side*236,PZ),(540,side*(SLIDER_TIP-8),PZ),25),'Protection','POM pivot slider puck on an M10 (compliance CR-3); tip level with the link-lug sliders',color=(.05,.05,.05))
+        if nm=='rear':lower_body=lower_body.cut(stud.fuse(puck));D.getObject('Lower_body_battery_covers_STUDY').Shape=lower_body;motor_cover=lower_body   # the stud passes through a hole in the filler cover
+    add(sname('Pivot_slider',side),cyl((540,side*243,PZ),(540,side*(SLIDER_TIP-8),PZ),25),'Protection','POM pivot slider puck on an M10 (compliance CR-3); tip level with the link-lug sliders',color=(.05,.05,.05))
 for side in [-1,1]:
     _,b1,b2=bar_pts(side);gd=b2-b1;gd.normalize();fw=V(gd.y,-gd.x,0)*side;fw.normalize();up=V(0,0,1)
     hp=[b2+gd*g_+fw*f_+up*u_ for g_,f_,u_ in [(127,0,0),(132,0,0),(175,10,0),(182,75,5),(120,112,8),(-20,115,5),(-110,60,-5),(-110,0,-14)]]
@@ -1081,7 +1162,7 @@ for side in [-1,1]:
     add(sname('Handguard',side),Part.makeCompound(hg),'Protection',
         'Aluminium handguard backbone 22x3 (compliance CR-2)',color=(.1,.1,.11))
 # Legal fit-out (compliance CR-10..13).
-add('Rear_reflector_red',box(-344,-30,572,6,60,34),'BodyStudy','60x34 mm red rear reflector (FMVSS 108; rev D enlarged from 60x22 to reach 2,040 mm2)',color=(.6,.05,.05))
+add("Rear_reflector_red",box(-304,-30,667,6,60,34),'BodyStudy','60x34 mm red rear reflector (FMVSS 108; rev D enlarged from 60x22 to reach 2,040 mm2)',color=(.6,.05,.05))
 for side in [-1,1]:
     add(sname('Side_reflector_red',side),cyl((-80,side*134,760),(-80,side*137,760),18),'BodyStudy','Red side reflector',color=(.6,.05,.05))
 add('Horn_R28',cyl((1030,-224,540),(1030,-259,540),38),'Electronics','R28 class I horn below the left radiator pod, outboard of the case flank and above the link-lug slider (compliance CR-11)',color=(.12,.12,.12))
@@ -1093,7 +1174,9 @@ for o in D.Objects:
         if not (o.Shape.isValid() and o.Shape.Volume>0):raise RuntimeError('Invalid shape '+o.Name)
 # Every cell sits inside the inner case: its band's inner box holds the whole circle with CLR to spare by
 # construction, and spot points on each cylinder are confirmed inside the fused inner solid.
-cellcontain=all(inner.isInside(V(x+dx,ly+dy,z+dz),1e-6,True) for _,x,z,ly in cells
+# Rev E: the swept front-corner cutter makes `inner` slow to classify, so only points near a front corner use it; the rest use the plain inner (same cavity elsewhere).
+def _near_corner(x,y,z):return abs(y)>YI-40.0 and x>xfront(z)-60.0
+cellcontain=all((inner if _near_corner(x+dx,ly+dy,z+dz) else inner_plain).isInside(V(x+dx,ly+dy,z+dz),1e-6,True) for _,x,z,ly in cells
                 for dx,dz in ((CELL_R,0),(-CELL_R,0),(0,CELL_R),(0,-CELL_R)) for dy in (-CELL_L/2+.01,CELL_L/2-.01))
 assert cellcontain
 visible=[o for o in D.Objects if o.TypeId=='Part::Feature' and o.InList and o.InList[0].Name!='Keepouts']
@@ -1117,6 +1200,15 @@ layout['rear_suspension']=dict(layout='central direct-mount coil-over, no linkag
     cog_height_rider_on_mm=round(h1))
 print(json.dumps(layout),flush=True)
 print(json.dumps(P['pack_summary']),flush=True)
+_final_shapes=dict(upper=upper_body,tail=tail_body,lower=lower_body);case_final=case.Shape
+def _use_pre_trim():
+    global upper_body,tail_body,lower_body,motor_cover
+    upper_body,tail_body,lower_body=upper_pre,tail_pre,lower_pre;motor_cover=lower_body
+    case.Shape=case_simple;ub_obj.Shape=upper_pre;D.getObject('Tail_side_panels_STUDY').Shape=tail_pre;D.getObject('Lower_body_battery_covers_STUDY').Shape=lower_pre
+def _use_final():
+    global upper_body,tail_body,lower_body,motor_cover
+    upper_body,tail_body,lower_body=_final_shapes['upper'],_final_shapes['tail'],_final_shapes['lower'];motor_cover=lower_body
+    case.Shape=case_final;ub_obj.Shape=upper_body;D.getObject('Tail_side_panels_STUDY').Shape=tail_body;D.getObject('Lower_body_battery_covers_STUDY').Shape=lower_body
 fast=bool(os.environ.get('BAVUSO_FAST'));nocheck=bool(os.environ.get('BAVUSO_NOCHECK'))   # NOCHECK: save and export without the slow checks/sweep (use after a full run, for small edits)
 O=lambda n:D.getObject(n).Shape
 checks=[]
@@ -1149,6 +1241,7 @@ def check(label,a,b,minimum=0):
     print(json.dumps(checks[-1]),flush=True)
 interferences=[]
 if not fast and not nocheck:
+    _use_pre_trim()
     frame=Part.makeCompound([O(o.Name) for o in visible if o.Name.startswith(('Upper_rail','Lower_','Tail_','Head_tube'))])
     check('pack_vs_motor_supplier',outer,ms,20)
     check('pack_vs_front_bump',outer,frontSweep.Shape,20)
@@ -1172,6 +1265,9 @@ if not fast and not nocheck:
     check('charger_vs_steering_sweep',charger,steerKeep.Shape,10)
     check('inverter_vs_steering_sweep',invs,steerKeep.Shape,10)
     check('cabinet_vs_motor',cab_out,ms,10)
+    check('yoke_cross_vs_motor',O('Upper_rail_yoke_cross'),ms,10)
+    check('yoke_cross_vs_pack',O('Upper_rail_yoke_cross'),outer,10)
+    check('yoke_cross_vs_cabinet',O('Upper_rail_yoke_cross'),cab_out,10)
     check('cabinet_vs_pack',cab_out,outer,3)
     check('cabinet_vs_seat',cab_out,seat,10)
     check('seat_vs_rear_bump',seat,rearSweep.Shape,20)
@@ -1263,6 +1359,7 @@ if not fast and not nocheck:
     check('swingarm_sweep_vs_pegs',armSweep,Part.makeCompound([O(sname('Peg_reference',sd)) for sd in (-1,1)]),5)
     check('swingarm_sweep_vs_motor_cover',armSweep,motor_cover,10)
     check('swingarm_sweep_vs_cabinet',armSweep,cab_out,10)
+    check('swingarm_sweep_vs_yoke_cross',armSweep,O('Upper_rail_yoke_cross'),10)
     check('cabinet_vs_rear_bump',cab_out,rearSweep.Shape,20)
     check('cabinet_vs_motor_cover',cab_out,motor_cover,5)
     check('cabinet_vs_skid',cab_out,skid,10)
@@ -1277,6 +1374,7 @@ if not fast and not nocheck:
         if not ({ga,gb}&{'BodyStudy','Electronics','Energy','Cooling','Protection'}):continue
         if {na,nb}=={'Battery_installation_keepout','Pack_case_structural_4mm_STUDY'}:continue
         if not sa_.BoundBox.intersect(sb_.BoundBox):continue
+        if 'Seam_trim' in na+nb:continue   # flush inserts in their panels (checked against the untrimmed shells)
         if 'Mirror_stalk' in na+nb and any(k in na+nb for k in ('Mirror_body','Hand_grip','Bar_half')):continue  # intended joints
         if 'Mirror_glass' in na+nb and 'Mirror_body' in na+nb:continue
         if 'Seat_welt' in na+nb and 'Seat_two_level' in na+nb:continue
@@ -1288,6 +1386,7 @@ if not fast and not nocheck:
         v=sum(x.common(y).Volume for x in sa_.Solids for y in sb_.Solids if x.BoundBox.intersect(y.BoundBox))
         if v>1.0:interferences.append(dict(a=na,b=nb,overlap_mm3=round(v,1)));print('OVERLAP',na,nb,round(v),flush=True)
 
+if not fast and not nocheck:_use_final()
 # ---------------------------------------------------------------- regulatory geometry checks (program/12-compliance.md; rev D addition)
 # Heights are above ground (model Z + LIFT). Limits are the FMVSS 571 values as read by the compliance agent; they are screening checks on the CAD
 # envelopes, not certification (lamps are class envelopes, no photometry, no visibility angles).

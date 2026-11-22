@@ -48,6 +48,10 @@ rear_reflector_red|Rear_reflector_red,BV-BOD-0038
 side_reflector_red|Side_reflector_red_m1,BV-BOD-0039
 side_reflector_red|Side_reflector_red_1,BV-BOD-0040
 paint_misc,BV-BOD-0041
+seam_trim|Seam_trim_tank_1,BV-BOD-0042
+seam_trim|Seam_trim_tank_m1,BV-BOD-0043
+seam_trim|Seam_trim_tail_1,BV-BOD-0044
+seam_trim|Seam_trim_tail_m1,BV-BOD-0045
 upper_rail|Upper_rail_0_m1,BV-CHS-0001
 upper_rail|Upper_rail_1_m1,BV-CHS-0002
 upper_rail|Upper_rail_2_m1,BV-CHS-0003
@@ -81,6 +85,16 @@ shock_bridge_diagonal|Shock_bridge_diagonal_1,BV-CHS-0030
 shock_top_bracket|Shock_top_bracket,BV-CHS-0031
 nose_subframe,BV-CHS-0032
 pivot_hardware,BV-CHS-0033
+upper_rail|Upper_rail_yoke_leg_m1,BV-CHS-0034
+upper_rail|Upper_rail_pivot_block_m1,BV-CHS-0035
+upper_rail|Upper_rail_node_rail_m1,BV-CHS-0036
+upper_rail|Upper_rail_node_yoke_m1,BV-CHS-0037
+upper_rail|Upper_rail_yoke_leg_1,BV-CHS-0038
+upper_rail|Upper_rail_pivot_block_1,BV-CHS-0039
+upper_rail|Upper_rail_node_rail_1,BV-CHS-0040
+upper_rail|Upper_rail_node_yoke_1,BV-CHS-0041
+upper_rail|Upper_rail_yoke_cross,BV-CHS-0042
+pivot_6008_size_reference|Pivot_6008_size_reference_2,BV-CHS-0043
 motor_emrax228|EMRAX_228_MV_LC_supplier_STEP,BV-DRV-0001
 inverter_cm200|Cascadia_CM200_supplier_STEP,BV-DRV-0002
 belt_drive|Drive_belt_14mm_STUDY,BV-DRV-0003
@@ -209,6 +223,8 @@ rear_pedal,BV-RUN-0065
 axle_front,BV-RUN-0066
 axle_rear,BV-RUN-0067
 steer_bearings,BV-RUN-0068
+wheel_front_carbon|Front_wheel_carbon_BST_STUDY,BV-RUN-0069
+wheel_rear_carbon|Rear_wheel_carbon_BST_STUDY,BV-RUN-0070
 coolant_pump|Coolant_pump_loop,BV-THM-0001
 coolant_4port_valve|Coolant_4port_valve,BV-THM-0002
 radiator_core|Radiator_core_m1,BV-THM-0003
