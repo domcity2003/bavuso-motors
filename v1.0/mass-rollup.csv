@@ -6,20 +6,20 @@ Cell_lane_4,Energy,20.625,862,120,431,,supplier,slot,75 g max per cell: https://
 EMRAX_228_MV_LC_supplier_STEP,Drive,13.2,540,-21,403,,supplier,slot,v1.0/sources/EMRAX-228-datasheet-v1.7.pdf (local copy of emrax.com datasheet): published 12.9-13.5 kg; 13.2 per hardware-shortlist.csv
 Pack_case_structural_4mm_STUDY,Energy,7.87,877,0,447,,CAD,vol,"4 mm aluminium structural case, CAD volume"
 "Pack internals: electrical (busbars, fuse collectors, films, NTCs, tap harness)",Allowance,7.26,860,0,425,,CAD,allow,electrical-bom.csv excl. BMS (03-mass-ledger.md)
+"Pack internals: thermal (ribbons, manifolds, fire-barrier foam, vent)",Allowance,7.25,860,0,425,,CAD,allow,thermal-study.md 6.19 (03-mass-ledger.md) + 1.06 coolant in ribbons and manifolds moved here from the loop (10-thermal.md section 5: ribbons 0.81 + manifolds 0.25)
 Cascadia_CM200_supplier_STEP,Electronics,6.75,955,-1,781,,supplier,slot,manufacturer published 6.75 kg: https://www.cascadiamotion.com/cm-200
-"Pack internals: thermal (ribbons, manifolds, fire-barrier foam, vent)",Allowance,6.19,860,0,425,,CAD,allow,thermal-study.md (03-mass-ledger.md)
-"Coolant, hoses, sensors (3.9 L glycol 4.19 + hoses 0.95 + sensors 0.10)",Allowance,5.24,880,0,600,,estimate,allow,thermal-study.md sized-parts table; single-loop V1 may need less (shortlist 1.6)
+"HV cables, connectors and conduit",Allowance,5.53,640,0,520,,CAD,allow,"07-electrical.md / elec-harness.csv: 8.4 m cable (50/35/4/2.5/6 mm2) 2.99 + 2.54 connectors, lugs, conduit; lengths +-30%; short-bus layout could save about 1 kg"
 Rear_nominal_tire,RunningGear,5.2,0,0,325,R1.0,estimate,slot,hardware-shortlist.csv (class reference parts-register.csv)
 Rear_wheel_STUDY,RunningGear,4.2,0,0,325,R1.0,estimate,slot,hardware-shortlist.csv; no maker publishes wheel mass
 Front_nominal_tire,RunningGear,3.9,1490,0,332,F1.0,estimate,slot,hardware-shortlist.csv (class reference parts-register.csv)
-HV cables and lugs,Allowance,3.72,640,0,520,,CAD,allow,electrical-bom.csv: 2.12 cable + 1.20 connectors + 0.40 lugs; shortlist hopes 1.5 with shorter runs
 Front_wheel_STUDY,RunningGear,3.4,1490,0,331,F1.0,estimate,slot,hardware-shortlist.csv; no maker publishes wheel mass
 OBC_3p3kW_envelope,Electronics,3.0,900,0,673,,supplier,slot,catalogue max 3 kg: detailed-design/electrical/electrical-bom.csv; components-electrical.csv V1-E007; https://www.brogenmotors.com/wp-content/uploads/2024/06/Requirement_SheetOBC.pdf
 Fasteners (titanium where visible),Allowance,3.0,750,0,600,,estimate,allow,allowance; covers all bolts
 Seat_two_level_STUDY,BodyStudy,2.6,332,0,862,,estimate,kg,"foam + base and cover [CAD stand-in: implied density 0.18 g/cm3, mass cannot be checked from the model]"
-Swingarm_1,Chassis,2.223,308,139,369,R0.5,CAD,shell,"fabricated box arm, 4.5/4.0 mm walls (structural-fea.md)"
+"Coolant in loop (1.66 L glycol), hoses and clamps 0.59, sensors 0.10",Allowance,2.35,880,0,600,,estimate,allow,10-thermal.md section 5: coolant 2.72 minus 1.06 in pack ribbons/manifolds + hoses 0.59 + sensors 0.10; the shortlist 1.6 omits sensors and part of the glycol
 Rear_pulley_PITCH_STUDY,Drive,2.1,0,-144,325,R1.0,estimate,slot,hardware-shortlist.csv (reduction REC)
 "VCU, distribution box, keyless, HVIL bonding",Allowance,2.1,1200,0,880,,CAD,allow,electrical-bom.csv: VCU 0.40 + distribution 1.15 + keyless 0.25 + bonding 0.30
+Swingarm_1,Chassis,2.092,308,139,369,R0.5,CAD,shell,"cast A356 box arm, 4.0 mm wall (program structures FEA; rev D)"
 LV wiring harness,Allowance,2.08,760,0,700,,CAD,allow,electrical-bom.csv 2.4 kg minus modelled bar-harness legs 0.32
 Body brackets and fixings,Allowance,2.0,850,0,700,,estimate,allow,allowance; no BOM count exists
 Upper_body_fairing_tank_STUDY,BodyStudy,1.688,996,-1,872,,CAD,vol,3 mm painted panel
@@ -34,9 +34,12 @@ Lower_triple_clamp,RunningGear,1.3,1242,0,817,,estimate,kg,forged clamp with ste
 Shock_body_STUDY,Chassis,1.238,422,0,622,R0.5,estimate,slot,hardware-shortlist.csv; https://www.ohlins.eu/en/products/motorcycle/kt-122--4458/ [slot total 3.000 kg split by volume over 6 solids]
 Headlamp_installation_STUDY,BodyStudy,1.2,1422,0,889,,estimate,kg,LED headlamp
 DCDC_converter_0p8kW,Electronics,1.2,855,-155,695,,estimate,slot,hardware-shortlist.csv (REC); 12 V loads about 300-500 W peak
+Front_disc_m1,RunningGear,1.2,1490,-56,332,F1.0,estimate,slot,hardware-shortlist.csv brakes_front ALT (discs 1.2 kg each); rev D CAD uses 320x5
+Front_disc_p1,RunningGear,1.2,1490,56,332,F1.0,estimate,slot,hardware-shortlist.csv brakes_front ALT (discs 1.2 kg each); rev D CAD uses 320x5
 HV_cabinet_2mm_STUDY,Electronics,1.197,680,0,675,,CAD,vol,2 mm aluminium cabinet
 Belly_skid_plate_STUDY,BodyStudy,1.154,785,0,231,,CAD,vol,skid plate (generator builds 6 mm)
 Nose subframe and headlamp brackets,Allowance,1.15,1330,0,900,,estimate,allow,allowance; dash bracket is Display_mount (modelled)
+Coolant_PTC_heater_3kW,Cooling,1.14,945,120,668,,estimate,kg,"3 kW HV PTC heater, scaled from 1.9 kg for 5 kW (10-thermal.md section 5) [CAD stand-in: implied density 9.87 g/cm3, mass cannot be checked from the model]"
 Steering_damper_envelope,RunningGear,1.1,1052,0,1056,,estimate,kg,semi-active rotary steering damper
 Bosch ABS 10-class two-channel module with sensors and lines [NOT IN CAD: from supplier table],Allowance,1.1,700,0,760,,estimate,slotfill,ABS 9 hydraulic unit 0.65 kg (Bosch datasheet https://www.bosch.co.jp/tms2015/en/products/pdf/2WP_ProductDataSheet_ABS9_base_plus_EN_lowres_20151030.pdf); ABS 10 about 0.45 (estimate) + sensors 0.2 + lines 0.45
 Tail_rail_m1,Chassis,1.09,254,-114,813,,CAD,vol,28x2 chromoly
@@ -48,8 +51,6 @@ Lower_downlink_m1,Chassis,1.037,1138,-92,744,,CAD,vol,32x2.5 chromoly
 "Paint, decals, rubber, misc",Allowance,1.0,800,0,650,,estimate,allow,allowance
 Upper_rail_2_m1,Chassis,0.998,1103,-115,897,,CAD,vol,32x2.5 chromoly
 Upper_rail_2_1,Chassis,0.998,1103,115,898,,CAD,vol,32x2.5 chromoly
-Front_disc_m1,RunningGear,0.95,1490,-56,332,F1.0,estimate,slot,hardware-shortlist.csv
-Front_disc_p1,RunningGear,0.95,1490,56,332,F1.0,estimate,slot,hardware-shortlist.csv
 Independent_hollow_pivot_stub_1,Chassis,0.941,540,145,403,,CAD,vol,pivot stub
 Tail_shock_cross_tube,Chassis,0.928,482,0,741,,CAD,vol,28x3 chromoly
 Rear_rack_STUDY,BodyStudy,0.9,-129,0,924,,estimate,kg,"aluminium rack (25 kg luggage case) [CAD stand-in: implied density 19.92 g/cm3, mass cannot be checked from the model]"
@@ -86,7 +87,6 @@ Upper_rail_0_m1,Chassis,0.503,555,-160,586,,CAD,vol,32x2.5 chromoly
 Lower_body_battery_covers_STUDY,BodyStudy,0.501,651,0,372,,CAD,vol,3 mm painted panel
 Drive_belt_14mm_STUDY,Drive,0.5,188,-141,352,R0.5,estimate,slot,"drive-study.md; Gates publishes belt mass, confirm"
 Front_pulley_PITCH_STUDY,Drive,0.5,540,-144,403,,estimate,slot,hardware-shortlist.csv (reduction REC)
-Motor_pulley_bearing_carrier,Drive,0.5,540,-119,403,,estimate,slot,hardware-shortlist.csv (reduction REC)
 Windscreen_STUDY,BodyStudy,0.499,1249,0,1127,,CAD,vol,polycarbonate screen
 Lower_pack_rear_link_m1,Chassis,0.498,599,-170,421,,CAD,vol,32x2.5 chromoly
 Lower_pack_rear_link_1,Chassis,0.498,599,170,421,,CAD,vol,32x2.5 chromoly
@@ -95,6 +95,7 @@ Hand_lever_m1,RunningGear,0.45,940,-384,1108,,estimate,kg,"lever with radial mas
 Hand_lever_1,RunningGear,0.45,940,384,1108,,estimate,kg,"lever with radial master cylinder [CAD stand-in: implied density 39.45 g/cm3, mass cannot be checked from the model]"
 Plate_hanger_arm,BodyStudy,0.45,-253,0,752,,estimate,kg,cast plate hanger with plate bracket
 Rear_caliper_reserve,RunningGear,0.45,-120,71,325,R1.0,estimate,slot,hardware-shortlist.csv
+Motor_pulley_bearing_carrier,Drive,0.4,540,-119,403,,estimate,kg,aluminium bearing carrier on the motor flange (rev D); was wrongly bound to the pulley slot at 0.5 kg
 Horn_R28,Electronics,0.4,1030,-242,593,,supplier,kg,R28 horn
 Tail_undertray_STUDY,BodyStudy,0.368,87,0,815,,CAD,vol,3 mm undertray / inner fender
 Peg_bracket_m1,Chassis,0.35,489,-233,368,,estimate,kg,"machined aluminium hanger [CAD stand-in: implied density 10.00 g/cm3, mass cannot be checked from the model]"
@@ -134,6 +135,7 @@ Front_brake_hose_caliper_m1,RunningGear,0.18,1320,-113,626,,estimate,kg,braided 
 Front_brake_hose_caliper_1,RunningGear,0.18,1320,113,626,,estimate,kg,braided hose with fluid
 Head_gusset_m1,Chassis,0.154,1154,-37,885,,CAD,vol,10 mm 4130 gusset
 Head_gusset_1,Chassis,0.154,1154,37,885,,CAD,vol,10 mm 4130 gusset
+Coolant_thermostat_wax,Cooling,0.15,871,126,660,,estimate,kg,wax thermostat replacing the 4-port valve (10-thermal.md: saves 0.30 kg of the 0.45 kg valve)
 Switch_cube_m1,RunningGear,0.15,971,-250,1128,,estimate,kg,switch housing
 Switch_cube_1,RunningGear,0.15,970,256,1128,,estimate,kg,switch housing
 Rear_brake_hose,RunningGear,0.15,168,124,399,,estimate,kg,braided hose with fluid

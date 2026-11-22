@@ -2,24 +2,24 @@
  "prepared": "2026-11-22 (Claude Sonnet 5.5, mass-rollup.py ledger version)",
  "model": "Bavuso-V1.0-adventure.FCStd",
  "mode": "V1 (supplier slots)",
- "total_kg": 246.4,
- "total_lb": 543,
+ "total_kg": 247.9,
+ "total_lb": 547,
  "cog_mm": {
   "x_from_rear_axle": 798,
-  "y": 1.4,
-  "height": 536
+  "y": 2.0,
+  "height": 535
  },
  "front_rear_split_pct": [
-  53.5,
-  46.5
+  53.6,
+  46.4
  ],
  "unsprung_kg": {
-  "front": 13.8,
+  "front": 14.3,
   "rear": 18.0
  },
- "pitch_inertia_point_mass_kgm2": 38.0,
+ "pitch_inertia_point_mass_kgm2": 38.3,
  "cells_kg": 82.5,
- "pack_kg": 103.9,
+ "pack_kg": 104.9,
  "by_group": {
   "Energy": {
    "kg": 90.4,
@@ -27,19 +27,19 @@
    "z": 432
   },
   "RunningGear": {
-   "kg": 39.1,
-   "x": 887,
-   "z": 525
+   "kg": 39.6,
+   "x": 895,
+   "z": 523
   },
   "Allowance": {
    "kg": 38.8,
-   "x": 815,
-   "z": 564
+   "x": 803,
+   "z": 556
   },
   "Chassis": {
-   "kg": 24.6,
-   "x": 633,
-   "z": 660
+   "kg": 24.5,
+   "x": 634,
+   "z": 661
   },
   "Electronics": {
    "kg": 18.3,
@@ -47,7 +47,7 @@
    "z": 748
   },
   "Drive": {
-   "kg": 16.8,
+   "kg": 16.7,
    "x": 462,
    "z": 392
   },
@@ -57,9 +57,9 @@
    "z": 788
   },
   "Cooling": {
-   "kg": 3.3,
-   "x": 1028,
-   "z": 718
+   "kg": 4.5,
+   "x": 1002,
+   "z": 703
   },
   "Protection": {
    "kg": 1.6,
@@ -70,22 +70,22 @@
  "by_source": {
   "measured": 0.0,
   "supplier": 109.9,
-  "calculated": 59.3,
-  "estimate": 77.2
+  "calculated": 62.0,
+  "estimate": 76.0
  },
  "by_status": {
-  "proposed": 178.8,
-  "concept": 67.6
+  "proposed": 178.6,
+  "concept": 69.3
  },
  "by_system": {
-  "ENG": 103.86,
-  "RUN": 44.88,
-  "DRV": 23.55,
-  "CHS": 22.69,
+  "ENG": 104.92,
+  "RUN": 45.38,
+  "DRV": 23.45,
+  "CHS": 22.56,
   "ELC": 17.44,
+  "ALW": 12.93,
   "BOD": 12.71,
-  "ALW": 11.12,
-  "THM": 8.5,
+  "THM": 6.9,
   "PRO": 1.63
  },
  "optimiser_reference_kg": 222.5,
@@ -98,10 +98,10 @@
     "group": "Battery pack",
     "systems": "ENG",
     "budget_kg": 103.0,
-    "raw_kg": 103.86,
-    "headroom_kg": -0.86,
-    "headroom_pct": -0.8,
-    "growth_adjusted_kg": 114.92,
+    "raw_kg": 104.92,
+    "headroom_kg": -1.92,
+    "headroom_pct": -1.9,
+    "growth_adjusted_kg": 116.14,
     "estimate_share_pct": 0.0,
     "flag": "OVER"
    },
@@ -109,10 +109,10 @@
     "group": "Chassis",
     "systems": "CHS",
     "budget_kg": 18.0,
-    "raw_kg": 22.69,
-    "headroom_kg": -4.69,
-    "headroom_pct": -26.1,
-    "growth_adjusted_kg": 25.05,
+    "raw_kg": 22.56,
+    "headroom_kg": -4.56,
+    "headroom_pct": -25.4,
+    "growth_adjusted_kg": 24.91,
     "estimate_share_pct": 8.0,
     "flag": "OVER"
    },
@@ -120,10 +120,10 @@
     "group": "Running gear",
     "systems": "RUN",
     "budget_kg": 37.0,
-    "raw_kg": 44.88,
-    "headroom_kg": -7.88,
-    "headroom_pct": -21.3,
-    "growth_adjusted_kg": 49.96,
+    "raw_kg": 45.38,
+    "headroom_kg": -8.38,
+    "headroom_pct": -22.6,
+    "growth_adjusted_kg": 50.51,
     "estimate_share_pct": 97.0,
     "flag": "OVER"
    },
@@ -131,10 +131,10 @@
     "group": "Drive",
     "systems": "DRV",
     "budget_kg": 23.0,
-    "raw_kg": 23.55,
-    "headroom_kg": -0.55,
-    "headroom_pct": -2.4,
-    "growth_adjusted_kg": 25.91,
+    "raw_kg": 23.45,
+    "headroom_kg": -0.45,
+    "headroom_pct": -2.0,
+    "growth_adjusted_kg": 25.82,
     "estimate_share_pct": 15.0,
     "flag": "OVER"
    },
@@ -164,10 +164,10 @@
     "group": "Cooling",
     "systems": "THM",
     "budget_kg": 6.0,
-    "raw_kg": 8.5,
-    "headroom_kg": -2.5,
-    "headroom_pct": -41.7,
-    "growth_adjusted_kg": 9.77,
+    "raw_kg": 6.9,
+    "headroom_kg": -0.9,
+    "headroom_pct": -15.0,
+    "growth_adjusted_kg": 7.93,
     "estimate_share_pct": 100.0,
     "flag": "OVER"
    },
@@ -175,11 +175,11 @@
     "group": "Wiring, fasteners, fluids",
     "systems": "ALW",
     "budget_kg": 11.0,
-    "raw_kg": 11.12,
-    "headroom_kg": -0.12,
-    "headroom_pct": -1.1,
-    "growth_adjusted_kg": 12.79,
-    "estimate_share_pct": 48.0,
+    "raw_kg": 12.93,
+    "headroom_kg": -1.93,
+    "headroom_pct": -17.5,
+    "growth_adjusted_kg": 14.87,
+    "estimate_share_pct": 41.0,
     "flag": "OVER"
    }
   ],
@@ -196,28 +196,15 @@
   "margin_kept": false
  },
  "budget_pass": false,
- "ledger_clean": false,
+ "ledger_clean": true,
  "overall_pass": false,
  "integrity": {
-  "unmatched_solids": [
-   {
-    "name": "Coolant_thermostat_wax",
-    "group": "Cooling",
-    "vol_cm3": 48.6
-   },
-   {
-    "name": "Coolant_PTC_heater_3kW",
-    "group": "Cooling",
-    "vol_cm3": 115.5
-   }
-  ],
-  "unmatched_count": 2,
+  "unmatched_solids": [],
+  "unmatched_count": 0,
   "duplicates": [],
   "missing_required": [],
   "ambiguous": [],
-  "slot_count_mismatch": [
-   "pulley_front: 2 CAD solid(s) matched, 1 expected (Front_pulley_PITCH_STUDY, Motor_pulley_bearing_carrier)"
-  ],
+  "slot_count_mismatch": [],
   "slots_filled_without_cad": [
    "evcc",
    "abs_module"

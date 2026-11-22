@@ -154,3 +154,73 @@ Sweep (all through `fea-size-v1.py`, 36 mm mesh, then the chosen one re-run fine
 - Not run: buckling, crash plasticity, modal or wobble coupling, fork, triple clamps, axles, wheel bearings. Mass-rollup snapshot used (`mass-rollup-snapshot.csv`, scaled to 240 kg); an unscaled run at the 255 kg roll-up (370 kg total) raises stresses 3 to 4 % (rail 2 braking 270 MPa, bridge bump 209 MPa, cross brace 169 MPa), so the pass margins above hold, but C6 (SF 1.2 required) drops to about 1.18 on the cross brace: the design only closes at 240 kg.
 - Crash sliders replace guard tubes in the latest CAD; C9b/c are kept as a conservative stand-in for slider loads.
 - Sizing loop oscillates at the last 0.25 mm step on the tower and tail rail; the chosen walls were hand-fixed and then checked at 12 mm.
+
+## Round 2 (November 22, 2026): frame-side pivot yoke, bearings, cast nodes, thin lugs, on rev D
+
+Rev D geometry applied (front lug at Z532, links to Y144.7). The EMRAX housing is **no longer** used as a load path. Scripts: `fea-frame-v1.py` (new options `yoke_leg`, `yoke_box`, `piv_blk`, `yoke_mat`, `zf_lug`), `fea-size-v1.py`, `fea-bearing-v1.py`. Results: `program/data/fea/results-r2g-h12.json` (final), `r2/`, `bearing-r2g.json`, `arm-r2g-h*.json`.
+
+### The plain answer
+- **A steel frame-side yoke carries the 2.9 kNm belt loop and every case passes at the 12 mm mesh.** It is a box portal: two legs up from the pivot nodes to a cross-member that passes over the motor. It costs **4.5 kg** (steel).
+- **Chassis mass modelled: 25.4 kg including the yoke (round 1: 23.4 kg without one). Roll-up on rev D is 22.7 kg, so the ledger should go to about 24.7 kg (+2.0)** and the true figure with unmodelled pads and bosses is about 26.7 kg. The cast-node and thin-lug savings (about -2.5 kg) are used up by the yoke and the 60 mm solid pivot spindle.
+- **Pivot bearings: a pair of 32012 X tapered rollers per pivot (60 x 95 x 23) is more than enough.** L10 is over 2,000 design lives at the oscillating duty; static safety 2.8 at the 43.8 kN peak. Ratings (C 101 kN, C0 122 kN) are distributor figures for SKF; confirm with SKF.
+- **A 7075 yoke of the same size fails** (the softer yoke pushes the belt moment into the posts: 538 MPa at the 11.3 kN case). A resized 7075 yoke would save about 2 kg; not designed.
+
+### CAD change request (model coordinates; on top of rev D)
+| Part | Rev D | Change to |
+|---|---|---|
+| **Yoke legs (new, 2)** | none | box **50 (Y) x 50 (X) x 4.25 wall**, forged/cast or fabricated 4130, from the pivot node (540, +-195, 350) along the Upper_rail_0 line to (554.4, +-161.5, 525) |
+| **Yoke cross-member (new)** | none | box **60 (Z) x 40 (X) x 5 wall**, along Y at X554.4, Z525, between the two leg tops (Y +-161.5). Passes over the motor: bottom edge Z495 against the housing top near Z505 with accessories: **check against the supplier STEP, the cross may need Z545, which I did not run** |
+| Upper_rail_0 | 38 x 1.5 from the pivot node | **38 x 2.0 from the yoke top (554.4, +-161.5, 525)** to (570, +-125, 715) |
+| Pivot spindle, right | 62 x 9 hollow | **60 mm solid steel**, Y105 to 185 |
+| Pivot blocks (both nodes) | 40 x 60 | **70 x 70 steel block** (hollow/cast to save mass) |
+| Pivot bearings | 6008 | **2 x 32012 X (60 x 95 x 23) at Y105 and Y185**, back-to-back, preloaded; the cast arm boss is bored 95 mm |
+| Upper_rail_1 (seat rail) | 38 x 3.5 | **38 x 2.25** (FAT 63 cast nodes) |
+| Upper_rail_2 | 40 x 5 | **42 x 3.5** |
+| Down-link | 36 x 3.75 | **38 x 4.0** |
+| Rear pack link | 40 x 4.25 | **42 x 4.25** |
+| Tail rail | 30 x 2.5 | **30 x 2.0** |
+| Posts front / rear | 27 x 2.5 / 27 x 2.25 | **27 x 2.0 / 27 x 2.0** |
+| Cross brace (A356) | 75 x 5.5 | **75 x 6.0** (75 x 5.5 gives SF 1.19 at the 3 g rear bump, needs 1.2) |
+| Top shock plates | 12 x 36 | **14 x 40** |
+| Lug brackets (8) | 30 x 40 blocks | **12 x 40 plates** (thin-wall brackets; mass 1.8 kg to 0.44 kg) |
+| Nodes (rails, posts, links, tail) | TIG tube joints | **investment-cast or forged steel nodes with full-penetration butt welds (FAT 63)** at every tube cluster; the headstock already is |
+| Head tube, gusset, bridge, diagonals, arm, tower | rev D | unchanged |
+
+### Results (12 mm mesh, solo, 240 kg scaling)
+| Check | Result | Required | Verdict |
+|---|---|---|---|
+| C1 static | SF 1.95 (arm) | 1.5 | pass |
+| C3 / C4 braking | SF 1.61 / 1.59 | 1.2 | pass |
+| C5L / C5R | 1.65 / 1.56 | 1.2 | pass |
+| C6 rear bump | 1.28 (brace) | 1.2 | pass |
+| D1 belt design 11.3 kN | 1.20 (arm beam model; shell model 1.26) | 1.2 | pass, no spare |
+| D2 / D3 | 1.49 / 1.86 | 1.2 | pass |
+| C7a-d pack inertia (tubes) | 1.48 to 8.5 | 1.0 | pass |
+| C9b / C9c sliders 21 kN | 1.18 / 1.08 | 1.0 | pass |
+| Fatigue worst weld (down-link at headstock, FAT 63) | D 0.49; upper rail 1 0.47; headstock 0.40 | 0.5 | pass |
+| Torsion / lateral at head | 5.0 kNm/deg / 1.67 kN/mm | 3 / 1.5 | pass (the yoke stiffens the frame) |
+| Pivot bearing L10 (in / out) | 2,050 / 3,870 design lives | 1 | pass |
+| Pivot bearing static C0/P0 (in / out) | 2.8 / 3.6 | at least 2 | pass |
+| Arm, cast (re-run at 12 and 8 mm) | lateral 1.01 / 1.02 kN/mm, torsion 1.48, SF 1.26 / 1.27 | 1.2 | unchanged |
+
+The cast-node (FAT 63) result is now verified at the fine mesh; the first sweep at 36 mm had put the down-link and top plates at D 0.54 and 0.52, which the 38 x 4.0 and 14 x 40 fix. The thin lug brackets pass (stress 370 MPa at the 21 kN front slider, SF 1.18); their bolt group and bending were not re-checked.
+
+### Mass (calculated)
+| Item | kg |
+|---|---|
+| Yoke legs 2.18 + cross-member 2.28 | **4.46** |
+| Pivot spindle 1.78 + blocks 0.61 | 2.39 |
+| Down-links 2.32, upper rails 1.0 + 1.9 + 1.5, tail rails and braces 1.8 + 1.0 | 9.5 |
+| Rear links 1.05, posts 0.8, head tube 1.04, gusset 0.75, bridge 0.93 + plates 0.6 + diagonals 0.59 | 5.8 |
+| Swingarm cast 1.84, brace 0.61, tower 0.64 | 3.1 |
+| Lug brackets | 0.44 |
+| **Modelled chassis** | **25.4** |
+| Not modelled: pack pads 0.8, arm boss and end plates 0.5 | about +1.3 |
+
+The roll-up 22.7 kg is on rev C/D tube sizes; applying this round's change (+2.0 kg net) gives about 24.7 kg.
+
+### Not proved (round 2)
+- The yoke shape is a portal over the motor; I did not check it against the motor STEP, the pegs or the rider's thighs, and did not run Z545. No yoke weld or casting detail, no yoke-to-pivot-node joint.
+- Bearing loads are model reactions; life uses my oscillation assumption (51 mm travel per g), small angle fretting is not covered; fits, seals, preload, spindle bending and the bore in the arm boss are not designed.
+- Pivot spindle and blocks are solid steel in the model; hollowing them would save weight but was not run. 7075 yoke only run at the steel size (fails).
+- Everything from round 1 still applies: assumed spectrum, rigid bosses, local brace bolt-on reinforcement, motor-end belt load at the left stub, pivot slider, buckling and crash plasticity.

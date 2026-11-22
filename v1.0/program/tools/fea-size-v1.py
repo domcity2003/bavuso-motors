@@ -33,7 +33,7 @@ def group(m):
     if m.startswith('SAR'): return 'arm'
     for pre, g in (('UR0', 'rail0'), ('UR1', 'rail'), ('UR2', 'rail2'), ('DL', 'downlink'), ('RL', 'rearlink'), ('TR', 'tailrail'), ('TB', 'tailbrace'),
                    ('ST0', 'post0'), ('ST1', 'post1'), ('SD', 'shock_diag'), ('TX', 'tailx_box'), ('STB', 'topbr'), ('HT', 'headtube'), ('GUS', 'head_gusset'),
-                   ('STUB', 'stub'), ('SAX', 'brace'), ('STW', 'tower'), ('PIV', 'piv'), ('LUG', 'lug'), ('YOKE', 'yoke')):
+                   ('STUB', 'stub'), ('YKL', 'yoke_leg'), ('PX', 'yoke_box'), ('SAX', 'brace'), ('STW', 'tower'), ('PIV', 'piv'), ('LUG', 'lug'), ('YOKE', 'yoke')):
         if m.startswith(pre): return g
     return None
 
@@ -58,7 +58,7 @@ def evaluate(R):
     return ratios, D
 
 def chassis_mass(R):
-    tot = 0.0; keep = ('UR0', 'UR1', 'UR2', 'DL', 'RL', 'TR', 'TB', 'ST0', 'ST1', 'SD', 'TX', 'STB', 'HT', 'GUS', 'STUB', 'SAR', 'SAX', 'STW', 'PIV', 'LUG')
+    tot = 0.0; keep = ('UR0', 'UR1', 'UR2', 'DL', 'RL', 'TR', 'TB', 'ST0', 'ST1', 'SD', 'TX', 'STB', 'HT', 'GUS', 'STUB', 'SAR', 'SAX', 'STW', 'PIV', 'LUG', 'YKL', 'PX')
     for k, v in R['member_mass_kg'].items():
         if k.startswith(keep): tot += v
     return tot
@@ -90,6 +90,11 @@ def step(V, R):
             s = newV['struts'][k]; ro, t = s[2], s[3]; f = min(1.4, max(0.75, grp[nm][0] ** 0.9)); f = 1.0 if 0.92 <= grp[nm][0] <= 1.0 else f; tn = max(1.5, quant(t * f))
             if tn > args.tmax * 2 * ro: ro += 1.0; tn = quant(tn * 0.8)
             newV['struts'][k] = [s[0], s[1], ro, tn, s[4]]
+    for nm in ('yoke_leg', 'yoke_box'):
+        if nm in grp and nm not in FIX and not 0.92 <= grp[nm][0] <= 1.0:
+            a, b, t = newV[nm]; f = min(1.3, max(0.8, grp[nm][0] ** 0.9)); tn = max(3.0, quant(t * f))
+            if tn > 8: a += 6; tn = 6.0
+            newV[nm] = [a, b, tn]
     if 'tailx_box' in grp and 'tailx_box' not in FIX:
         a, b, t = newV['tailx_box']; f = min(1.4, max(0.75, grp['tailx_box'][0] ** 0.9)); tn = max(2.0, quant(t * f))
         if tn > 8: a += 5; tn = 6.0
@@ -136,7 +141,7 @@ for it in range(args.iters + 1):
     V = R['V']; newV, grp = step(V, R)
     mx = max(g[0] for g in grp.values()); worst = max(grp.items(), key=lambda kv: kv[1][0])
     print('it %d: chassis %.2f kg, max ratio %.2f (%s %s %s) arm_p %s arm_a %s' % (it, m, mx, worst[0], worst[1][1], worst[1][2], V['arm_pivot'], V['arm_axle']), flush=True)
-    rowsout.append(dict(it=it, kg=round(m, 3), max_ratio=round(mx, 3), worst=worst[0], **{k: json.dumps(V[k]) for k in ('rail', 'rail0', 'rail2', 'downlink', 'rearlink', 'tailrail', 'tailbrace', 'shock_diag', 'tailx_box', 'topbr', 'stub', 'brace', 'tower', 'arm_pivot', 'arm_axle', 'head_gusset', 'struts')}))
+    rowsout.append(dict(it=it, kg=round(m, 3), max_ratio=round(mx, 3), worst=worst[0], **{k: json.dumps(V[k]) for k in ('rail', 'rail0', 'rail2', 'downlink', 'rearlink', 'tailrail', 'tailbrace', 'shock_diag', 'tailx_box', 'topbr', 'stub', 'yoke_leg', 'yoke_box', 'brace', 'tower', 'arm_pivot', 'arm_axle', 'head_gusset', 'struts')}))
     if newV == V and it > 0: print('converged'); break
     V = newV
 with open(logf, 'w', newline='') as fh:

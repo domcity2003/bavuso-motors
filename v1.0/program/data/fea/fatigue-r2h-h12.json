@@ -1,0 +1,953 @@
+{
+ "source": "results-r2h-h12.json",
+ "gamma_Mf": 1.25,
+ "D_allow": 0.5,
+ "spectrum_x": 1.0,
+ "welded": [
+  {
+   "member": "ST1R",
+   "FAT": 63,
+   "detail": "steel tube on cast/forged node, full-penetration butt weld (scenario FAT 63)",
+   "range_per_pm1g_MPa": 123.4,
+   "miner_D": 1.44,
+   "parts": {
+    "bump": 0.172,
+    "brake": 0.00352,
+    "corner": 0.00996,
+    "drive": 1.26
+   },
+   "verdict": "FAIL",
+   "life_x_design": 0.35
+  },
+  {
+   "member": "PACK_rear@lug",
+   "FAT": 28,
+   "detail": "Al 6082 case seam/bolt-hole net section (FAT 28)",
+   "range_per_pm1g_MPa": 56.1,
+   "miner_D": 0.932,
+   "parts": {
+    "bump": 0.207,
+    "brake": 0.0736,
+    "corner": 0.0302,
+    "drive": 0.621
+   },
+   "verdict": "FAIL",
+   "life_x_design": 0.54
+  },
+  {
+   "member": "UR1R",
+   "FAT": 63,
+   "detail": "steel tube on cast/forged node, full-penetration butt weld (scenario FAT 63)",
+   "range_per_pm1g_MPa": 108.9,
+   "miner_D": 0.674,
+   "parts": {
+    "bump": 0.183,
+    "brake": 0.415,
+    "corner": 0.0208,
+    "drive": 0.0548
+   },
+   "verdict": "FAIL",
+   "life_x_design": 0.74
+  },
+  {
+   "member": "DLR",
+   "FAT": 63,
+   "detail": "cast steel headstock, full-penetration butt weld on 60 mm spigot (FAT 63)",
+   "range_per_pm1g_MPa": 73.4,
+   "miner_D": 0.542,
+   "parts": {
+    "bump": 0.0188,
+    "brake": 0.481,
+    "corner": 0.00447,
+    "drive": 0.0373
+   },
+   "verdict": "FAIL",
+   "life_x_design": 0.92
+  },
+  {
+   "member": "UR0R",
+   "FAT": 63,
+   "detail": "steel tube on cast/forged node, full-penetration butt weld (scenario FAT 63)",
+   "range_per_pm1g_MPa": 138.1,
+   "miner_D": 0.491,
+   "parts": {
+    "bump": 0.305,
+    "brake": 0.00725,
+    "corner": 0.018,
+    "drive": 0.161
+   },
+   "verdict": "pass",
+   "life_x_design": 1.02
+  },
+  {
+   "member": "ST0R",
+   "FAT": 63,
+   "detail": "steel tube on cast/forged node, full-penetration butt weld (scenario FAT 63)",
+   "range_per_pm1g_MPa": 112.4,
+   "miner_D": 0.47,
+   "parts": {
+    "bump": 0.138,
+    "brake": 0.0481,
+    "corner": 0.0211,
+    "drive": 0.263
+   },
+   "verdict": "pass",
+   "life_x_design": 1.06
+  },
+  {
+   "member": "RLR",
+   "FAT": 63,
+   "detail": "steel tube on cast/forged node, full-penetration butt weld (scenario FAT 63)",
+   "range_per_pm1g_MPa": 99.9,
+   "miner_D": 0.465,
+   "parts": {
+    "bump": 0.0883,
+    "brake": 0.00205,
+    "corner": 0.000332,
+    "drive": 0.375
+   },
+   "verdict": "pass",
+   "life_x_design": 1.07
+  },
+  {
+   "member": "UR2L",
+   "FAT": 63,
+   "detail": "cast steel headstock, full-penetration butt weld on 60 mm spigot (FAT 63)",
+   "range_per_pm1g_MPa": 49.8,
+   "miner_D": 0.399,
+   "parts": {
+    "bump": 0.00183,
+    "brake": 0.395,
+    "corner": 1.37e-10,
+    "drive": 0.00153
+   },
+   "verdict": "pass",
+   "life_x_design": 1.25
+  },
+  {
+   "member": "HT",
+   "FAT": 63,
+   "detail": "cast steel headstock, full-penetration butt weld on 60 mm spigot (FAT 63)",
+   "range_per_pm1g_MPa": 58.6,
+   "miner_D": 0.397,
+   "parts": {
+    "bump": 0.0071,
+    "brake": 0.387,
+    "corner": 1.17e-07,
+    "drive": 0.00257
+   },
+   "verdict": "pass",
+   "life_x_design": 1.26
+  },
+  {
+   "member": "DLL",
+   "FAT": 63,
+   "detail": "cast steel headstock, full-penetration butt weld on 60 mm spigot (FAT 63)",
+   "range_per_pm1g_MPa": 68.0,
+   "miner_D": 0.388,
+   "parts": {
+    "bump": 0.0123,
+    "brake": 0.373,
+    "corner": 2.39e-07,
+    "drive": 0.00216
+   },
+   "verdict": "pass",
+   "life_x_design": 1.29
+  },
+  {
+   "member": "UR2R",
+   "FAT": 63,
+   "detail": "cast steel headstock, full-penetration butt weld on 60 mm spigot (FAT 63)",
+   "range_per_pm1g_MPa": 48.0,
+   "miner_D": 0.373,
+   "parts": {
+    "bump": 0.00273,
+    "brake": 0.366,
+    "corner": 9.14e-06,
+    "drive": 0.00386
+   },
+   "verdict": "pass",
+   "life_x_design": 1.34
+  },
+  {
+   "member": "PACK_side@lug",
+   "FAT": 28,
+   "detail": "Al 6082 case seam/bolt-hole net section (FAT 28)",
+   "range_per_pm1g_MPa": 36.6,
+   "miner_D": 0.339,
+   "parts": {
+    "bump": 0.0545,
+    "brake": 0.124,
+    "corner": 0.0075,
+    "drive": 0.153
+   },
+   "verdict": "pass",
+   "life_x_design": 1.47
+  },
+  {
+   "member": "SDR",
+   "FAT": 63,
+   "detail": "steel tube on cast/forged node, full-penetration butt weld (scenario FAT 63)",
+   "range_per_pm1g_MPa": 132.7,
+   "miner_D": 0.337,
+   "parts": {
+    "bump": 0.236,
+    "brake": 0.0013,
+    "corner": 0.0138,
+    "drive": 0.0851
+   },
+   "verdict": "pass",
+   "life_x_design": 1.49
+  },
+  {
+   "member": "UR1L",
+   "FAT": 63,
+   "detail": "steel tube on cast/forged node, full-penetration butt weld (scenario FAT 63)",
+   "range_per_pm1g_MPa": 79.6,
+   "miner_D": 0.254,
+   "parts": {
+    "bump": 0.0282,
+    "brake": 0.222,
+    "corner": 2.39e-10,
+    "drive": 0.00363
+   },
+   "verdict": "pass",
+   "life_x_design": 1.97
+  },
+  {
+   "member": "TBR",
+   "FAT": 63,
+   "detail": "steel tube on cast/forged node, full-penetration butt weld (scenario FAT 63)",
+   "range_per_pm1g_MPa": 77.9,
+   "miner_D": 0.197,
+   "parts": {
+    "bump": 0.0243,
+    "brake": 2.39e-05,
+    "corner": 8.99e-07,
+    "drive": 0.173
+   },
+   "verdict": "pass",
+   "life_x_design": 2.54
+  },
+  {
+   "member": "STW",
+   "FAT": 40,
+   "detail": "A356-T6 cast tower/brace node, bolted, no weld (FAT 40)",
+   "range_per_pm1g_MPa": 79.7,
+   "miner_D": 0.19,
+   "parts": {
+    "bump": 0.183,
+    "brake": 0.00191,
+    "corner": 0.00459,
+    "drive": 0.000254
+   },
+   "verdict": "pass",
+   "life_x_design": 2.63
+  },
+  {
+   "member": "ST1L",
+   "FAT": 63,
+   "detail": "steel tube on cast/forged node, full-penetration butt weld (scenario FAT 63)",
+   "range_per_pm1g_MPa": 58.7,
+   "miner_D": 0.177,
+   "parts": {
+    "bump": 0.00735,
+    "brake": 0.0073,
+    "corner": 1.82e-08,
+    "drive": 0.162
+   },
+   "verdict": "pass",
+   "life_x_design": 2.83
+  },
+  {
+   "member": "TRR",
+   "FAT": 63,
+   "detail": "steel tube on cast/forged node, full-penetration butt weld (scenario FAT 63)",
+   "range_per_pm1g_MPa": 115.7,
+   "miner_D": 0.167,
+   "parts": {
+    "bump": 0.141,
+    "brake": 0.000418,
+    "corner": 0.00229,
+    "drive": 0.0237
+   },
+   "verdict": "pass",
+   "life_x_design": 2.99
+  },
+  {
+   "member": "UR0L",
+   "FAT": 63,
+   "detail": "steel tube on cast/forged node, full-penetration butt weld (scenario FAT 63)",
+   "range_per_pm1g_MPa": 84.5,
+   "miner_D": 0.16,
+   "parts": {
+    "bump": 0.0533,
+    "brake": 4.84e-05,
+    "corner": 0.000804,
+    "drive": 0.105
+   },
+   "verdict": "pass",
+   "life_x_design": 3.13
+  },
+  {
+   "member": "STUBR",
+   "FAT": 45,
+   "detail": "machined stub welded to the pivot block (FAT 45)",
+   "range_per_pm1g_MPa": 68.0,
+   "miner_D": 0.148,
+   "parts": {
+    "bump": 0.0762,
+    "brake": 0.000326,
+    "corner": 0.00116,
+    "drive": 0.0704
+   },
+   "verdict": "pass",
+   "life_x_design": 3.38
+  },
+  {
+   "member": "SAX",
+   "FAT": 40,
+   "detail": "A356-T6 cast tower/brace node, bolted, no weld (FAT 40)",
+   "range_per_pm1g_MPa": 73.7,
+   "miner_D": 0.143,
+   "parts": {
+    "bump": 0.14,
+    "brake": 0.00151,
+    "corner": 0.000838,
+    "drive": 0.000201
+   },
+   "verdict": "pass",
+   "life_x_design": 3.5
+  },
+  {
+   "member": "TRL",
+   "FAT": 63,
+   "detail": "steel tube on cast/forged node, full-penetration butt weld (scenario FAT 63)",
+   "range_per_pm1g_MPa": 105.6,
+   "miner_D": 0.129,
+   "parts": {
+    "bump": 0.107,
+    "brake": 0.000248,
+    "corner": 0.000778,
+    "drive": 0.0214
+   },
+   "verdict": "pass",
+   "life_x_design": 3.88
+  },
+  {
+   "member": "ST0L",
+   "FAT": 63,
+   "detail": "steel tube on cast/forged node, full-penetration butt weld (scenario FAT 63)",
+   "range_per_pm1g_MPa": 53.2,
+   "miner_D": 0.102,
+   "parts": {
+    "bump": 0.00262,
+    "brake": 0.0815,
+    "corner": 1.86e-07,
+    "drive": 0.018
+   },
+   "verdict": "pass",
+   "life_x_design": 4.9
+  },
+  {
+   "member": "STB",
+   "FAT": 56,
+   "detail": "forged steel bridge, integral clevis, no weld (FAT 56)",
+   "range_per_pm1g_MPa": 87.4,
+   "miner_D": 0.0846,
+   "parts": {
+    "bump": 0.0841,
+    "brake": 0.000314,
+    "corner": 2.78e-05,
+    "drive": 6.33e-05
+   },
+   "verdict": "pass",
+   "life_x_design": 5.91
+  },
+  {
+   "member": "PACK_top@lug",
+   "FAT": 28,
+   "detail": "Al 6082 case seam/bolt-hole net section (FAT 28)",
+   "range_per_pm1g_MPa": 26.4,
+   "miner_D": 0.0741,
+   "parts": {
+    "bump": 0.00902,
+    "brake": 0.0626,
+    "corner": 2.56e-06,
+    "drive": 0.0025
+   },
+   "verdict": "pass",
+   "life_x_design": 6.74
+  },
+  {
+   "member": "RLL",
+   "FAT": 63,
+   "detail": "steel tube on cast/forged node, full-penetration butt weld (scenario FAT 63)",
+   "range_per_pm1g_MPa": 59.4,
+   "miner_D": 0.0702,
+   "parts": {
+    "bump": 0.00802,
+    "brake": 0.00171,
+    "corner": 1.74e-07,
+    "drive": 0.0604
+   },
+   "verdict": "pass",
+   "life_x_design": 7.13
+  },
+  {
+   "member": "PACK_rear",
+   "FAT": 28,
+   "detail": "Al 6082 case seam/bolt-hole net section (FAT 28)",
+   "range_per_pm1g_MPa": 28.2,
+   "miner_D": 0.0533,
+   "parts": {
+    "bump": 0.0102,
+    "brake": 0.003,
+    "corner": 3.96e-06,
+    "drive": 0.0401
+   },
+   "verdict": "pass",
+   "life_x_design": 9.38
+  },
+  {
+   "member": "SAR02",
+   "FAT": 40,
+   "detail": "Al box arm (welded 6061 FAT 22; cast/forged A356/6082 FAT 40)",
+   "range_per_pm1g_MPa": 43.8,
+   "miner_D": 0.0503,
+   "parts": {
+    "bump": 0.0129,
+    "brake": 5.14e-05,
+    "corner": 7.46e-07,
+    "drive": 0.0373
+   },
+   "verdict": "pass",
+   "life_x_design": 9.95
+  },
+  {
+   "member": "SAR05",
+   "FAT": 40,
+   "detail": "Al box arm (welded 6061 FAT 22; cast/forged A356/6082 FAT 40)",
+   "range_per_pm1g_MPa": 41.8,
+   "miner_D": 0.0484,
+   "parts": {
+    "bump": 0.011,
+    "brake": 1.35e-05,
+    "corner": 1.12e-08,
+    "drive": 0.0373
+   },
+   "verdict": "pass",
+   "life_x_design": 10.34
+  },
+  {
+   "member": "SAR01",
+   "FAT": 40,
+   "detail": "Al box arm (welded 6061 FAT 22; cast/forged A356/6082 FAT 40)",
+   "range_per_pm1g_MPa": 41.3,
+   "miner_D": 0.0459,
+   "parts": {
+    "bump": 0.0106,
+    "brake": 2.41e-05,
+    "corner": 3.89e-07,
+    "drive": 0.0353
+   },
+   "verdict": "pass",
+   "life_x_design": 10.89
+  },
+  {
+   "member": "PX",
+   "FAT": 63,
+   "detail": "steel tube on cast/forged node, full-penetration butt weld (scenario FAT 63)",
+   "range_per_pm1g_MPa": 72.5,
+   "miner_D": 0.0444,
+   "parts": {
+    "bump": 0.0156,
+    "brake": 3.79e-05,
+    "corner": 1.37e-05,
+    "drive": 0.0287
+   },
+   "verdict": "pass",
+   "life_x_design": 11.26
+  },
+  {
+   "member": "SAR06",
+   "FAT": 40,
+   "detail": "Al box arm (welded 6061 FAT 22; cast/forged A356/6082 FAT 40)",
+   "range_per_pm1g_MPa": 38.2,
+   "miner_D": 0.0438,
+   "parts": {
+    "bump": 0.00833,
+    "brake": 2.94e-06,
+    "corner": 1.07e-09,
+    "drive": 0.0355
+   },
+   "verdict": "pass",
+   "life_x_design": 11.42
+  },
+  {
+   "member": "SAR03",
+   "FAT": 40,
+   "detail": "Al box arm (welded 6061 FAT 22; cast/forged A356/6082 FAT 40)",
+   "range_per_pm1g_MPa": 43.5,
+   "miner_D": 0.0433,
+   "parts": {
+    "bump": 0.0127,
+    "brake": 5.62e-05,
+    "corner": 4e-07,
+    "drive": 0.0306
+   },
+   "verdict": "pass",
+   "life_x_design": 11.54
+  },
+  {
+   "member": "SAR00",
+   "FAT": 40,
+   "detail": "Al box arm (welded 6061 FAT 22; cast/forged A356/6082 FAT 40)",
+   "range_per_pm1g_MPa": 38.9,
+   "miner_D": 0.0423,
+   "parts": {
+    "bump": 0.0088,
+    "brake": 1.45e-05,
+    "corner": 2.03e-07,
+    "drive": 0.0335
+   },
+   "verdict": "pass",
+   "life_x_design": 11.81
+  },
+  {
+   "member": "SAR07",
+   "FAT": 40,
+   "detail": "Al box arm (welded 6061 FAT 22; cast/forged A356/6082 FAT 40)",
+   "range_per_pm1g_MPa": 34.5,
+   "miner_D": 0.0367,
+   "parts": {
+    "bump": 0.00302,
+    "brake": 2.78e-07,
+    "corner": 7.02e-11,
+    "drive": 0.0337
+   },
+   "verdict": "pass",
+   "life_x_design": 13.62
+  },
+  {
+   "member": "SAR04",
+   "FAT": 40,
+   "detail": "Al box arm (welded 6061 FAT 22; cast/forged A356/6082 FAT 40)",
+   "range_per_pm1g_MPa": 39.4,
+   "miner_D": 0.036,
+   "parts": {
+    "bump": 0.00918,
+    "brake": 4.06e-06,
+    "corner": 7.7e-09,
+    "drive": 0.0268
+   },
+   "verdict": "pass",
+   "life_x_design": 13.9
+  },
+  {
+   "member": "SAR08",
+   "FAT": 40,
+   "detail": "Al box arm (welded 6061 FAT 22; cast/forged A356/6082 FAT 40)",
+   "range_per_pm1g_MPa": 30.6,
+   "miner_D": 0.0337,
+   "parts": {
+    "bump": 0.0016,
+    "brake": 1.86e-08,
+    "corner": 2.91e-12,
+    "drive": 0.0321
+   },
+   "verdict": "pass",
+   "life_x_design": 14.85
+  },
+  {
+   "member": "SAR09",
+   "FAT": 40,
+   "detail": "Al box arm (welded 6061 FAT 22; cast/forged A356/6082 FAT 40)",
+   "range_per_pm1g_MPa": 26.7,
+   "miner_D": 0.0315,
+   "parts": {
+    "bump": 0.00102,
+    "brake": 7.79e-10,
+    "corner": 6.31e-14,
+    "drive": 0.0305
+   },
+   "verdict": "pass",
+   "life_x_design": 15.85
+  },
+  {
+   "member": "PACK_side",
+   "FAT": 28,
+   "detail": "Al 6082 case seam/bolt-hole net section (FAT 28)",
+   "range_per_pm1g_MPa": 27.7,
+   "miner_D": 0.0294,
+   "parts": {
+    "bump": 0.00948,
+    "brake": 0.00625,
+    "corner": 4.85e-07,
+    "drive": 0.0137
+   },
+   "verdict": "pass",
+   "life_x_design": 16.98
+  },
+  {
+   "member": "SAR10",
+   "FAT": 40,
+   "detail": "Al box arm (welded 6061 FAT 22; cast/forged A356/6082 FAT 40)",
+   "range_per_pm1g_MPa": 22.6,
+   "miner_D": 0.0294,
+   "parts": {
+    "bump": 0.000304,
+    "brake": 1.71e-11,
+    "corner": 5.35e-16,
+    "drive": 0.0291
+   },
+   "verdict": "pass",
+   "life_x_design": 17.03
+  },
+  {
+   "member": "SAR11",
+   "FAT": 40,
+   "detail": "Al box arm (welded 6061 FAT 22; cast/forged A356/6082 FAT 40)",
+   "range_per_pm1g_MPa": 18.4,
+   "miner_D": 0.0278,
+   "parts": {
+    "bump": 0.000107,
+    "brake": 1.43e-13,
+    "corner": 1.03e-18,
+    "drive": 0.0277
+   },
+   "verdict": "pass",
+   "life_x_design": 17.99
+  },
+  {
+   "member": "TBL",
+   "FAT": 63,
+   "detail": "steel tube on cast/forged node, full-penetration butt weld (scenario FAT 63)",
+   "range_per_pm1g_MPa": 69.0,
+   "miner_D": 0.0275,
+   "parts": {
+    "bump": 0.0132,
+    "brake": 1.6e-09,
+    "corner": 8.24e-12,
+    "drive": 0.0143
+   },
+   "verdict": "pass",
+   "life_x_design": 18.18
+  },
+  {
+   "member": "LUGRR",
+   "FAT": 45,
+   "detail": "steel lug block welded to tube end (FAT 45)",
+   "range_per_pm1g_MPa": 29.4,
+   "miner_D": 0.0269,
+   "parts": {
+    "bump": 0.000958,
+    "brake": 1.67e-08,
+    "corner": 3.96e-12,
+    "drive": 0.026
+   },
+   "verdict": "pass",
+   "life_x_design": 18.57
+  },
+  {
+   "member": "SAR12",
+   "FAT": 40,
+   "detail": "Al box arm (welded 6061 FAT 22; cast/forged A356/6082 FAT 40)",
+   "range_per_pm1g_MPa": 14.1,
+   "miner_D": 0.0264,
+   "parts": {
+    "bump": 1.79e-05,
+    "brake": 2.52e-16,
+    "corner": 3.3e-22,
+    "drive": 0.0264
+   },
+   "verdict": "pass",
+   "life_x_design": 18.95
+  },
+  {
+   "member": "SDL",
+   "FAT": 63,
+   "detail": "steel tube on cast/forged node, full-penetration butt weld (scenario FAT 63)",
+   "range_per_pm1g_MPa": 48.6,
+   "miner_D": 0.0199,
+   "parts": {
+    "bump": 0.00166,
+    "brake": 1.05e-07,
+    "corner": 3.49e-12,
+    "drive": 0.0182
+   },
+   "verdict": "pass",
+   "life_x_design": 25.12
+  },
+  {
+   "member": "PACK_bottom",
+   "FAT": 28,
+   "detail": "Al 6082 case seam/bolt-hole net section (FAT 28)",
+   "range_per_pm1g_MPa": 21.0,
+   "miner_D": 0.017,
+   "parts": {
+    "bump": 0.00166,
+    "brake": 0.00168,
+    "corner": 3.81e-08,
+    "drive": 0.0136
+   },
+   "verdict": "pass",
+   "life_x_design": 29.49
+  },
+  {
+   "member": "YKLR",
+   "FAT": 63,
+   "detail": "steel tube on cast/forged node, full-penetration butt weld (scenario FAT 63)",
+   "range_per_pm1g_MPa": 60.4,
+   "miner_D": 0.0105,
+   "parts": {
+    "bump": 0.00843,
+    "brake": 3e-06,
+    "corner": 2.16e-07,
+    "drive": 0.0021
+   },
+   "verdict": "pass",
+   "life_x_design": 47.51
+  },
+  {
+   "member": "PACK_front@lug",
+   "FAT": 28,
+   "detail": "Al 6082 case seam/bolt-hole net section (FAT 28)",
+   "range_per_pm1g_MPa": 15.9,
+   "miner_D": 0.00575,
+   "parts": {
+    "bump": 0.000324,
+    "brake": 0.00525,
+    "corner": 2.17e-12,
+    "drive": 0.00017
+   },
+   "verdict": "pass",
+   "life_x_design": 87.0
+  },
+  {
+   "member": "LUGRL",
+   "FAT": 45,
+   "detail": "steel lug block welded to tube end (FAT 45)",
+   "range_per_pm1g_MPa": 22.0,
+   "miner_D": 0.00455,
+   "parts": {
+    "bump": 0.000163,
+    "brake": 1.07e-10,
+    "corner": 1.54e-14,
+    "drive": 0.00438
+   },
+   "verdict": "pass",
+   "life_x_design": 109.99
+  },
+  {
+   "member": "PACK_top",
+   "FAT": 28,
+   "detail": "Al 6082 case seam/bolt-hole net section (FAT 28)",
+   "range_per_pm1g_MPa": 13.1,
+   "miner_D": 0.00414,
+   "parts": {
+    "bump": 0.000184,
+    "brake": 0.00381,
+    "corner": 1.33e-13,
+    "drive": 0.000151
+   },
+   "verdict": "pass",
+   "life_x_design": 120.67
+  },
+  {
+   "member": "LUGFR",
+   "FAT": 45,
+   "detail": "steel lug block welded to tube end (FAT 45)",
+   "range_per_pm1g_MPa": 27.0,
+   "miner_D": 0.00404,
+   "parts": {
+    "bump": 0.000507,
+    "brake": 0.00315,
+    "corner": 1.94e-11,
+    "drive": 0.000383
+   },
+   "verdict": "pass",
+   "life_x_design": 123.71
+  },
+  {
+   "member": "LUGFL",
+   "FAT": 45,
+   "detail": "steel lug block welded to tube end (FAT 45)",
+   "range_per_pm1g_MPa": 24.9,
+   "miner_D": 0.00214,
+   "parts": {
+    "bump": 0.000272,
+    "brake": 0.00187,
+    "corner": 2.55e-15,
+    "drive": 5.04e-08
+   },
+   "verdict": "pass",
+   "life_x_design": 233.69
+  },
+  {
+   "member": "PACK_front",
+   "FAT": 28,
+   "detail": "Al 6082 case seam/bolt-hole net section (FAT 28)",
+   "range_per_pm1g_MPa": 10.0,
+   "miner_D": 0.00141,
+   "parts": {
+    "bump": 1.89e-05,
+    "brake": 0.00139,
+    "corner": 7.9e-17,
+    "drive": 6.47e-11
+   },
+   "verdict": "pass",
+   "life_x_design": 354.03
+  },
+  {
+   "member": "YKLL",
+   "FAT": 63,
+   "detail": "steel tube on cast/forged node, full-penetration butt weld (scenario FAT 63)",
+   "range_per_pm1g_MPa": 20.9,
+   "miner_D": 0.00137,
+   "parts": {
+    "bump": 1.49e-05,
+    "brake": 7.04e-13,
+    "corner": 4.38e-17,
+    "drive": 0.00135
+   },
+   "verdict": "pass",
+   "life_x_design": 365.95
+  },
+  {
+   "member": "TX",
+   "FAT": 63,
+   "detail": "steel tube on cast/forged node, full-penetration butt weld (scenario FAT 63)",
+   "range_per_pm1g_MPa": 45.8,
+   "miner_D": 0.00134,
+   "parts": {
+    "bump": 0.00134,
+    "brake": 4.7e-08,
+    "corner": 3.94e-12,
+    "drive": 2.4e-06
+   },
+   "verdict": "pass",
+   "life_x_design": 372.22
+  },
+  {
+   "member": "PIV",
+   "FAT": 45,
+   "detail": "machined stub welded to the pivot block (FAT 45)",
+   "range_per_pm1g_MPa": 25.5,
+   "miner_D": 0.00101,
+   "parts": {
+    "bump": 0.00031,
+    "brake": 1.75e-10,
+    "corner": 4.2e-13,
+    "drive": 0.000704
+   },
+   "verdict": "pass",
+   "life_x_design": 492.99
+  },
+  {
+   "member": "PACK_bottom@lug",
+   "FAT": 28,
+   "detail": "Al 6082 case seam/bolt-hole net section (FAT 28)",
+   "range_per_pm1g_MPa": 4.5,
+   "miner_D": 1.07e-05,
+   "parts": {
+    "bump": 3.05e-10,
+    "brake": 1.07e-05,
+    "corner": 5.6e-24,
+    "drive": 2.16e-11
+   },
+   "verdict": "pass",
+   "life_x_design": 46871.79
+  },
+  {
+   "member": "LUGT1R",
+   "FAT": 45,
+   "detail": "steel lug block welded to tube end (FAT 45)",
+   "range_per_pm1g_MPa": 6.4,
+   "miner_D": 8.27e-07,
+   "parts": {
+    "bump": 1.67e-11,
+    "brake": 7.66e-20,
+    "corner": 2.41e-25,
+    "drive": 8.27e-07
+   },
+   "verdict": "pass",
+   "life_x_design": 604464.35
+  },
+  {
+   "member": "LUGT1L",
+   "FAT": 45,
+   "detail": "steel lug block welded to tube end (FAT 45)",
+   "range_per_pm1g_MPa": 4.0,
+   "miner_D": 8.06e-07,
+   "parts": {
+    "bump": 6.46e-16,
+    "brake": 4.19e-24,
+    "corner": 5.17e-30,
+    "drive": 8.06e-07
+   },
+   "verdict": "pass",
+   "life_x_design": 620419.66
+  },
+  {
+   "member": "LUGT0L",
+   "FAT": 45,
+   "detail": "steel lug block welded to tube end (FAT 45)",
+   "range_per_pm1g_MPa": 2.0,
+   "miner_D": 7.25e-13,
+   "parts": {
+    "bump": 2.13e-22,
+    "brake": 7.25e-13,
+    "corner": 3.23e-37,
+    "drive": 3.01e-23
+   },
+   "verdict": "pass",
+   "life_x_design": 690127893633.57
+  },
+  {
+   "member": "LUGT0R",
+   "FAT": 45,
+   "detail": "steel lug block welded to tube end (FAT 45)",
+   "range_per_pm1g_MPa": 3.6,
+   "miner_D": 5.67e-13,
+   "parts": {
+    "bump": 7.27e-17,
+    "brake": 5.67e-13,
+    "corner": 1.72e-28,
+    "drive": 2.61e-19
+   },
+   "verdict": "pass",
+   "life_x_design": 881885667877.44
+  },
+  {
+   "member": "GUSL",
+   "FAT": 63,
+   "detail": "cast steel headstock, full-penetration butt weld on 60 mm spigot (FAT 63)",
+   "range_per_pm1g_MPa": 0.5,
+   "miner_D": 7.4e-39,
+   "parts": {
+    "bump": 7.4e-39,
+    "brake": 1.26e-66,
+    "corner": 9.82e-58,
+    "drive": 4.59e-70
+   },
+   "verdict": "pass",
+   "life_x_design": 6.757235304466109e+37
+  },
+  {
+   "member": "GUSR",
+   "FAT": 63,
+   "detail": "cast steel headstock, full-penetration butt weld on 60 mm spigot (FAT 63)",
+   "range_per_pm1g_MPa": 0.5,
+   "miner_D": 7.4e-39,
+   "parts": {
+    "bump": 7.4e-39,
+    "brake": 6.94e-65,
+    "corner": 2.25e-57,
+    "drive": 2.57e-67
+   },
+   "verdict": "pass",
+   "life_x_design": 6.75723530466772e+37
+  }
+ ]
+}

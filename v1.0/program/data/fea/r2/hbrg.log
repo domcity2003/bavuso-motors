@@ -1,0 +1,16 @@
+{
+ "stub_in": {
+  "design_lives_of_L10": 2053.28,
+  "damage_sum": 0.0004870252909146067,
+  "max_radial_kN": 43.8,
+  "static_safety_C0_over_P0": 2.79,
+  "mean_P_static_kN": 22.0
+ },
+ "stub_out": {
+  "design_lives_of_L10": 3876.58,
+  "damage_sum": 0.0002579591383779825,
+  "max_radial_kN": 33.6,
+  "static_safety_C0_over_P0": 3.63,
+  "mean_P_static_kN": 18.0
+ }
+}

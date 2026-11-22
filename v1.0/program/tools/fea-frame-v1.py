@@ -35,9 +35,10 @@ MAT = {
     'AL6082': dict(E=70000, nu=0.33, fy=250, fu=290, note='6082-T6 plate/extrusion pack case; FSW seam HAZ ~140 MPa'),
     'STRIG':  dict(E=2.0e7, nu=0.29, fy=1e9, fu=1e9, note='near-rigid connector (head joint cluster, wheels, steerer, test lever): 100x steel modulus'),
     'ST109':  dict(E=205000, nu=0.29, fy=900, fu=1000, note='10.9 bolt / axle steel'),
+    'AL7075': dict(E=71000, nu=0.33, fy=480, fu=540, note='7075-T6 machined plate (yoke option)'),
     'ALFORK': dict(E=70000, nu=0.33, fy=1e9, fu=1e9, note='fork, stiffness only'),
 }
-RHO = {'A356': 2.68e-6, 'ST4130': 7.85e-6, 'AL6061': 2.70e-6, 'AL6082': 2.70e-6, 'ST109': 7.85e-6}   # kg/mm^3
+RHO = {'AL7075': 2.81e-6, 'A356': 2.68e-6, 'ST4130': 7.85e-6, 'AL6061': 2.70e-6, 'AL6082': 2.70e-6, 'ST109': 7.85e-6}   # kg/mm^3
 
 # ------------------------------------------------------------------ design variables (baseline = CAD)
 V = dict(
@@ -47,7 +48,7 @@ V = dict(
     brace=(27, 4.0), tower=(10, 44), topbr=(12, 36),
     pack_t=4.0, pad_t=4.0, pad_r=45.0,
     piv_in=112.0, piv_out=148.0,   # arm pivot bearing stations (Y, right side); CAD boss 107-153
-    yoke=None, arm_mat='AL6061', arm_y=130.0, arm_fat=22, arm_note='',
+    yoke_mat='ST4130', zf_lug=532.0, yoke_leg=None, yoke_box=None, piv_blk=(40, 60), yoke=None, arm_mat='AL6061', arm_y=130.0, arm_fat=22, arm_note='',
     lug=(30, 40),
     ur_head_w=120.0,       # steering-axis station (mm from SA0) where the upper rails meet the head tube; None = with the down-links (z850)
     dl_head_w=None,        # same for the down-links
@@ -197,7 +198,11 @@ def build(suspension=True):
         piv = (540, y, PZ); ur0b = (570, yn, zn); t715 = (GE['tj_z'] - PZ) / (zn - PZ); p715 = lerp(piv, ur0b, t715)
         if V['pivot_cross']:
             pc = lerp(piv, ur0b, (V['pivot_cross'][1] - PZ) / (zn - PZ)); info['pc_' + S] = pc
-            chain('UR0' + S, [piv, pc, p715, ur0b] if zn != GE['tj_z'] else [piv, pc, ur0b], rail)
+            if V['yoke_leg']:
+                chain('YKL' + S, [piv, pc], boxs(*V['yoke_leg'], V['yoke_mat']))
+                chain('UR0' + S, [pc, p715, ur0b], pipe(*V['rail0'], 'ST4130'))
+            else:
+                chain('UR0' + S, [piv, pc, p715, ur0b] if zn != GE['tj_z'] else [piv, pc, ur0b], rail)
         else:
             chain('UR0' + S, [piv, p715, ur0b] if zn != GE['tj_z'] else [piv, ur0b], pipe(*V['rail0'], 'ST4130') if V['rail0'] else rail)
         ur1e = np.array([1050, y, 780.0]); ur1p = [np.array(ur0b, float)]
@@ -221,12 +226,12 @@ def build(suspension=True):
             beam('GUS' + S, hu, lerp(hj, (xf_pre + 17, 180 * s, 470.0), 0.35), rect(V['head_gusset'], 60, 'ST4130'))
             # the gusset end is a node of the down-link (chain below)
         # front down-link and lug onto pack front face (build-adventure.py 386-388)
-        zf = 470.0; xf = pack_x_at(zf, True); lf = (xf + 22, 178 * s, zf); FYL = 144.7   # rev C: link end Y178 is outside the 333 case; bracket wraps to Y144.7
+        zf = V['zf_lug']; xf = pack_x_at(zf, True); FYL = 144.7; lf = (xf + 22, FYL * s, zf)   # rev C: link end Y178 is outside the 333 case; bracket wraps to Y144.7
         chain('DL' + S, [hj, lerp(hj, lf, 0.35), lf], dl)
         pf = (xf + 4, FYL * s, zf); ids = beam('LUGF' + S, lf, pf, rect(*V['lug'], 'ST4130'), n=1)
         lugs['F' + S] = dict(ref=ids[-1], foot=np.array([xf, FYL * s, zf]), outer=ids[0])
         # rear link (390-392)
-        zr = PZ + 36; xr = pack_x_at(zr, False); lr = (xr - 17, 175 * s, zr)
+        zr = PZ + 36; xr = pack_x_at(zr, False); lr = (xr - 17, 144.7 * s, zr)
         beam('RL' + S, piv, lr, rl)
         pr = (xr - 4, FYL * s, zr); ids = beam('LUGR' + S, lr, pr, rect(*V['lug'], 'ST4130'), n=1)
         lugs['R' + S] = dict(ref=ids[-1], foot=np.array([xr, FYL * s, zr]), outer=ids[0])
@@ -239,7 +244,7 @@ def build(suspension=True):
         # pivot node block + stub (444-448)
         if s > 0:   # right: arm pivot stub, bearing stations piv_out / piv_in (Y)
             ytop = max(150.0, V['piv_out'])
-            beam('PIV', piv, (540, ytop * s, PZ), rect(40, 60, 'ST4130'))
+            beam('PIV', piv, (540, ytop * s, PZ), rect(*V['piv_blk'], 'ST4130'))
             ys_ = sorted(set([V['piv_out'], V['piv_in']] + ([150.0] if ytop == 150.0 else [])), reverse=True)
             chain_pts = [(540, ytop * s, PZ)] + [(540, y_ * s, PZ) for y_ in ys_ if y_ < ytop]
             if V['piv_out'] < ytop: pass
@@ -247,7 +252,7 @@ def build(suspension=True):
             info['piv_out_node'] = node((540, V['piv_out'], PZ)); info['piv_in_node'] = node((540, V['piv_in'], PZ))
             info['pivot_' + S] = info['piv_out_node']
         else:       # left: carrier support stub (belt pulley bearing carrier outboard support, CAD Y-186..-192)
-            ids_ = beam('PIV', piv, (540, -189.0, PZ), rect(40, 60, 'ST4130'))
+            ids_ = beam('PIV', piv, (540, -189.0, PZ), rect(*V['piv_blk'], 'ST4130'))
             info['pivot_' + S] = ids_[-1]
         info['pivnode_' + S] = node(piv)
         info['tail490_' + S] = node(lerp(ta, tb, t490)); info['tail280_' + S] = node(lerp(ta, tb, t280))
@@ -256,7 +261,7 @@ def build(suspension=True):
     if V['yoke']:   # motor housing used as a load-bearing pivot yoke between the left carrier stub and the right pivot stub (belt loop closed through the motor)
         beam('YOKE', None, nodes[info['pivot_R']], pipe(V['yoke'][0], V['yoke'][1], 'AL6082'), a_id=info['pivot_L'])
     if V['pivot_cross']:
-        beam('PX', info['pc_L'], info['pc_R'], pipe(V['pivot_cross'][2], V['pivot_cross'][3], 'ST4130'))
+        beam('PX', info['pc_L'], info['pc_R'], boxs(*V['yoke_box'], V['yoke_mat']) if V['yoke_box'] else pipe(V['pivot_cross'][2], V['pivot_cross'][3], 'ST4130'))
     # tail shock cross tube and top bracket
     xs_ = GE['shock_x']; t_ = (568 - xs_) / 628
     yt = GE['node_y'] - (GE['node_y'] - GE['tail_y']) * t_; zt = GE['tj_z'] + (GE['tail_z'] - GE['tj_z']) * t_

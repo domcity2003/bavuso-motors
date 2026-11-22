@@ -106,3 +106,37 @@ Send the list of CAD solid names (or just run `--dump-solids`). Then: (1) run; (
 - `tools/mass-rollup.py` (rewritten), `program/tools/ledger-regression.py`
 - `program/data/budgets.csv`, `program/data/supplier-masses.csv`
 - `program/data/run/ledger-test/` (legacy, v1, v1b, synthetic outputs, console logs, `solids-old-cad.csv`)
+
+## Rev D update
+
+November 21, 2026, US Central. Prepared by Claude Sonnet 5.5 (claude-sonnet-5-5) for the Bavuso V1 program.
+
+**The plain answer: on the rev D CAD the ledger now reads 247.9 kg against 240 kg (ledger clean, budget still over), and 246.2 kg once the carbon wheels appear in the CAD.** The canonical `mass-rollup.csv` / `.json` and `parts-ledger.csv` were regenerated from the saved rev D model (no CAD rebuild).
+
+| System | Budget kg | Rev D kg | Over (-) / under |
+|---|---|---|---|
+| Battery pack | 103.0 | 104.92 | -1.92 |
+| Chassis | 18.0 | 22.56 | -4.56 |
+| Running gear | 37.0 | 45.38 | -8.38 |
+| Drive | 23.0 | 23.45 | -0.45 |
+| Electronics | 18.0 | 17.44 | +0.56 |
+| Body and protection | 15.0 | 14.35 | +0.65 |
+| Cooling | 6.0 | 6.90 | -0.90 |
+| Wiring, fasteners, fluids | 11.0 | 12.93 | -1.93 |
+| **Total** | **240.0** | **247.93** | **-7.93** |
+
+Drive budget is 23 kg in `budgets.csv` today (the 20 kg figure above was the first version).
+
+What changed (all in `tools/mass-rollup.py` and `program/data/supplier-masses.csv`; backups in `program/data/run/*bak-before-revD`):
+
+- **Coolant allowance 5.24 to 2.35 kg, not the 1.6 kg asked for.** `10-thermal.md` section 5 gives coolant 2.72 + hoses 0.59 + sensors 0.10. Of the coolant, 1.06 kg sits in the pack ribbons and manifolds, which that document says must be booked with the pack. So the loop allowance is 2.72 - 1.06 + 0.59 + 0.10 = 2.35 kg, and **pack thermal internals go from 6.19 to 7.25 kg** (+1.06). Net coolant change is -2.89 + 1.06 = -1.83 kg. Using 1.6 kg would have dropped about 0.75 kg of hoses, sensors and glycol; the shortlist's 1.6 covers "hoses and 2 L coolant" only. If the lead wants 1.6, change `coolant_fluid` to 1.6 (total 247.2 kg).
+- **HV cables 3.72 to 5.53 kg (not 1.5).** `07-electrical.md` computes 5.53 kg: 8.4 m of cable plus 2.54 kg of connectors, lugs and conduit (12 large and 14 small connectors, 8 lugs). Lengths are +-30% estimates. A short-bus layout could save about 1 kg. The 0.74 kg inlet-to-HV-box leads may overlap the NACS slot (1.6 kg "with HV leads"); I did not remove it.
+- **New rules:** `Coolant_thermostat_wax` 0.15 kg and `Coolant_PTC_heater_3kW` 1.14 kg (the 5 kW rule is now legacy-only); front discs 320x5 at 1.2 kg each (slot `disc_front`, was 0.95); swingarm shell wall 4.0 mm (was 4.25).
+- **Carbon wheels adopted as slots** `wheel_front_carbon` 2.6 kg and `wheel_rear_carbon` 3.3 kg (shortlist ALT, BST class). They bind when a CAD wheel name contains `carbon` or `BST` together with `front_wheel`/`wheel_front` (or rear), in either word order. Until then the forged slots apply. Tested on a copy of the rev D solid list with the wheels renamed `Front_wheel_carbon_BST` / `Rear_wheel_carbon_BST`: total 246.23 kg (-1.70 kg), ledger clean, outputs in `program/data/run/ledger-revD-carbon-test/`.
+- **Bug fixed:** `Motor_pulley_bearing_carrier` was matching the motor pulley slot and getting 0.5 kg as a second pulley. It now has its own 0.4 kg estimate rule (+DRV) and the pulley pattern excludes "carrier".
+
+**Open flags:** Radiator cores are counted at 0.805 kg each (1.61 kg) against 1.06 kg in `10-thermal.md`, so cooling may be about 0.55 kg heavy. `evcc` and `abs_module` are still carried from the supplier table (no CAD solid). Rear disc is 267x5 in CAD but the slot is 245x5 at 0.85 kg.
+
+### What this update does not prove
+
+The coolant, HV cable and pack-internals rows are still concept-level estimates and the CAD may change them. The carbon wheel mass is an estimate; no maker publishes it, and certification is unresolved.

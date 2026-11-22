@@ -87,6 +87,7 @@ belt_drive|Drive_belt_14mm_STUDY,BV-DRV-0003
 pulley_front|Front_pulley_PITCH_STUDY,BV-DRV-0004
 pulley_front|Motor_pulley_bearing_carrier,BV-DRV-0005
 pulley_rear|Rear_pulley_PITCH_STUDY,BV-DRV-0006
+motor_pulley_bearing_carrier|Motor_pulley_bearing_carrier,BV-DRV-0007
 hv_cabinet_2mm_study|HV_cabinet_2mm_STUDY,BV-ELC-0001
 headlamp_installation_study|Headlamp_installation_STUDY,BV-ELC-0002
 headlamp_drl_blade|Headlamp_DRL_blade,BV-ELC-0003
@@ -215,3 +216,5 @@ radiator_fan|Radiator_fan_m1,BV-THM-0004
 radiator_core|Radiator_core_1,BV-THM-0005
 radiator_fan|Radiator_fan_1,BV-THM-0006
 coolant_fluid,BV-THM-0007
+coolant_thermostat_wax|Coolant_thermostat_wax,BV-THM-0008
+coolant_ptc_heater_3kw|Coolant_PTC_heater_3kW,BV-THM-0009

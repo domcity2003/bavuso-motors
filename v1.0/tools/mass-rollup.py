@@ -78,10 +78,13 @@ rule('Rear_indicator_reserve_*', 'ELC', 'kg', 0.05, 'E', 'indicator')
 rule('Rear_indicator_stalk_*', 'ELC', 'kg', 0.02, 'E', 'indicator stalk')
 rule('Plate_lamp', 'ELC', 'kg', 0.05, 'E', 'plate lamp')
 # ---- cooling ----
+rule('Motor_pulley_bearing_carrier', 'DRV', 'kg', 0.4, 'E', 'aluminium bearing carrier on the motor flange (rev D); was wrongly bound to the pulley slot at 0.5 kg')
 rule('Radiator_core_*', 'THM', 'kg', 0.805, 'E', 'dry core with plastic tanks (thermal-study.md); coolant is in the coolant allowance')
 rule('Radiator_fan_*', 'THM', 'kg', 0.55, 'E', '190 mm BLDC fan with shroud (thermal-study.md)')
 rule('Coolant_pump_*', 'THM', 'kg', 0.55, 'E', 'EWP-class pump, 1.10 kg for two (thermal-study.md)')
-rule('Coolant_PTC_heater_5kW', 'THM', 'kg', 1.9, 'E', '5 kW HV PTC heater (thermal-study.md)')
+rule('Coolant_PTC_heater_5kW', 'THM', 'kg', 1.9, 'E', '5 kW HV PTC heater (thermal-study.md); superseded by the 3 kW unit', legacy=True)
+rule('Coolant_PTC_heater_3kW', 'THM', 'kg', 1.14, 'E', '3 kW HV PTC heater, scaled from 1.9 kg for 5 kW (10-thermal.md section 5)')
+rule('Coolant_thermostat_wax', 'THM', 'kg', 0.15, 'E', 'wax thermostat replacing the 4-port valve (10-thermal.md: saves 0.30 kg of the 0.45 kg valve)')
 rule('Coolant_4port_valve', 'THM', 'kg', 0.45, 'E', '4-port coolant valve')
 rule('Oil_cooler', 'THM', 'kg', 0.6, 'E', 'gear-oil cooler (IPM two-stage drive only)', legacy=True)
 # ---- protection ----
@@ -97,8 +100,8 @@ for p, n in [('Upper_post_*', '32x2.5 chromoly post'), ('Head_gusset_*', '10 mm 
     rule(p, 'CHS', 'vol', STEEL, 'C', n, required=(p == 'Head_tube'), **CRM)
 rule('Pivot_6008_size_reference_*', 'CHS', 'kg', 0.12, 'S', '6008 bearing (catalogue 0.12 kg)', uns=('R', 0.5))
 # ---- swingarm ----
-rule('Swingarm_1', 'CHS', 'shell', (ALU, 4.25), 'C', 'fabricated box arm, 4.5/4.0 mm walls (structural-fea.md)', uns=('R', 0.5), mat='aluminium 4.25 mm wall', proc='fabricated box', required=True)
-rule('Swingarm_m1', 'CHS', 'shell', (ALU, 4.25), 'C', 'fabricated box arm, 4.5/4.0 mm walls (structural-fea.md)', uns=('R', 0.5), mat='aluminium 4.25 mm wall', proc='fabricated box')
+rule('Swingarm_1', 'CHS', 'shell', (ALU, 4.0), 'C', 'cast A356 box arm, 4.0 mm wall (program structures FEA; rev D)', uns=('R', 0.5), mat='aluminium 4.0 mm wall', proc='fabricated box', required=True)
+rule('Swingarm_m1', 'CHS', 'shell', (ALU, 4.0), 'C', 'cast A356 box arm, 4.0 mm wall (program structures FEA; rev D)', uns=('R', 0.5), mat='aluminium 4.0 mm wall', proc='fabricated box')
 rule('Swingarm_cross_brace', 'CHS', 'vol', ALU, 'C', '50x5 aluminium tube', uns=('R', 0.5), mat='aluminium tube', proc='tube')
 rule('Swingarm_shock_tower', 'CHS', 'vol', ALU, 'C', 'twin 8 mm aluminium plates', uns=('R', 0.5), mat='aluminium plate', proc='plate')
 # ---- running gear: wheels/tyres/brakes/fork/shock (legacy; V1 = supplier slots) ----
@@ -172,12 +175,12 @@ rule('Side_reflector_red_*', 'BOD', 'kg', 0.01, 'E', 'reflector')
 # watch: if a CAD solid whose name matches the regex exists, print an OVERLAP warning (the allowance may now double count).
 ALLOW = [
  ('Pack internals: electrical (busbars, fuse collectors, films, NTCs, tap harness)', 'pack_int_elec', 'ENG', 7.26, 'C', 'electrical-bom.csv excl. BMS (03-mass-ledger.md)', (860, 0, 425), None, 'EXCLUDES BMS, cells, case', '', 'both'),
- ('Pack internals: thermal (ribbons, manifolds, fire-barrier foam, vent)', 'pack_int_therm', 'ENG', 6.19, 'C', 'thermal-study.md (03-mass-ledger.md)', (860, 0, 425), None, 'EXCLUDES cells, case, coolant', '', 'both'),
+ ('Pack internals: thermal (ribbons, manifolds, fire-barrier foam, vent)', 'pack_int_therm', 'ENG', 7.25, 'C', 'thermal-study.md 6.19 (03-mass-ledger.md) + 1.06 coolant in ribbons and manifolds moved here from the loop (10-thermal.md section 5: ribbons 0.81 + manifolds 0.25)', (860, 0, 425), None, 'EXCLUDES cells, case; INCLUDES the 1.06 kg of coolant held in the ribbons and manifolds', '', 'both'),
  ('LV wiring harness', 'lv_harness', 'ALW', 2.08, 'C', 'electrical-bom.csv 2.4 kg minus modelled bar-harness legs 0.32', (760, 0, 700), None, 'EXCLUDES Harness_* bar legs (modelled)', r'^lv_harness|^harness_lv', 'both'),
- ('HV cables and lugs', 'hv_cables', 'ALW', 3.72, 'C', 'electrical-bom.csv: 2.12 cable + 1.20 connectors + 0.40 lugs; shortlist hopes 1.5 with shorter runs', (640, 0, 520), None, 'EXCLUDES charge inlet', r'hv_cable', 'both'),
+ ('HV cables, connectors and conduit', 'hv_cables', 'ALW', 5.53, 'C', '07-electrical.md / elec-harness.csv: 8.4 m cable (50/35/4/2.5/6 mm2) 2.99 + 2.54 connectors, lugs, conduit; lengths +-30%; short-bus layout could save about 1 kg', (640, 0, 520), None, 'EXCLUDES charge inlet', r'hv_cable', 'both'),
  ('12 V lithium battery', 'battery_12v', 'ELC', 0.9, 'S', 'Shorai LFX14A4-BS12 (electrical-bom.csv)', (300, 0, 720), None, '', r'12v|lv_battery|shorai', 'both'),
  ('VCU, distribution box, keyless, HVIL bonding', 'vcu_dist', 'ELC', 2.10, 'C', 'electrical-bom.csv: VCU 0.40 + distribution 1.15 + keyless 0.25 + bonding 0.30', (1200, 0, 880), None, 'EXCLUDES horn (modelled)', r'vcu|keyless|distribution_box', 'both'),
- ('Coolant, hoses, sensors (3.9 L glycol 4.19 + hoses 0.95 + sensors 0.10)', 'coolant_fluid', 'THM', 5.24, 'E', 'thermal-study.md sized-parts table; single-loop V1 may need less (shortlist 1.6)', (880, 0, 600), None, 'EXCLUDES pumps, cores, fans (modelled)', r'coolant_(fluid|hose)', 'both'),
+ ('Coolant in loop (1.66 L glycol), hoses and clamps 0.59, sensors 0.10', 'coolant_fluid', 'THM', 2.35, 'E', '10-thermal.md section 5: coolant 2.72 minus 1.06 in pack ribbons/manifolds + hoses 0.59 + sensors 0.10; the shortlist 1.6 omits sensors and part of the glycol', (880, 0, 600), None, 'EXCLUDES pumps, cores, fans (modelled) and the pack-side coolant (in pack_int_therm)', r'coolant_(fluid|hose)', 'both'),
  ('Rear brake pedal and master cylinder', 'rear_pedal', 'RUN', 0.7, 'E', 'allowance', (520, 200, 430), None, '', r'brake_pedal|rear_master', 'both'),
  ('Nose subframe and headlamp brackets', 'nose_subframe', 'CHS', 1.15, 'E', 'allowance; dash bracket is Display_mount (modelled)', (1330, 0, 900), None, 'EXCLUDES Display_mount', r'nose_subframe|headlamp_bracket', 'both'),
  ('Body brackets and fixings', 'body_brackets', 'ALW', 2.0, 'E', 'allowance; no BOM count exists', (850, 0, 700), None, '', r'body_bracket', 'both'),

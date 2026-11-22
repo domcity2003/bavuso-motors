@@ -1,0 +1,324 @@
+{
+ "variant": "r2g",
+ "h": 12.0,
+ "V": {
+  "arm_pivot": [
+   54.0,
+   117.0,
+   4.0
+  ],
+  "arm_axle": [
+   57.0,
+   102.5,
+   4.0
+  ],
+  "arm_y": 138.5,
+  "piv_in": 105.0,
+  "piv_out": 185.0,
+  "brace": [
+   37.5,
+   6.0
+  ],
+  "tower": [
+   14.0,
+   66.0
+  ],
+  "arm_mat": "A356",
+  "arm_fat": 40
+ },
+ "cases": {
+  "A1_static": {
+   "axle_F_N": [
+    5900.0,
+    0.0,
+    2618.0
+   ],
+   "axle_M_Nmm": [
+    -485455.0,
+    0.0,
+    1666651.0
+   ],
+   "shock_N": 4140.0,
+   "arm_max_vm_MPa": 98.7,
+   "arm_max_vm_all_MPa": 141.8,
+   "brace_tower_max_vm_MPa": 484.6,
+   "bearing_in_N": [
+    -18185.0,
+    0.0,
+    -192.0
+   ],
+   "bearing_out_N": [
+    14913.0,
+    -0.0,
+    773.0
+   ],
+   "bearing_in_mag_N": 18186.0,
+   "bearing_out_mag_N": 14933.0,
+   "yaw_residual_Nmm": -6.0
+  },
+  "A5L_corner_left": {
+   "axle_F_N": [
+    5900.0,
+    397.0,
+    4597.0
+   ],
+   "axle_M_Nmm": [
+    -858802.0,
+    0.0,
+    1666651.0
+   ],
+   "shock_N": 8782.0,
+   "arm_max_vm_MPa": 113.9,
+   "arm_max_vm_all_MPa": 165.4,
+   "brace_tower_max_vm_MPa": 1006.8,
+   "bearing_in_N": [
+    -8690.0,
+    0.0,
+    2673.0
+   ],
+   "bearing_out_N": [
+    8365.0,
+    -397.0,
+    -484.0
+   ],
+   "bearing_in_mag_N": 9092.0,
+   "bearing_out_mag_N": 8388.0,
+   "yaw_residual_Nmm": -73.0
+  },
+  "A5R_corner_right": {
+   "axle_F_N": [
+    5900.0,
+    -397.0,
+    4597.0
+   ],
+   "axle_M_Nmm": [
+    -660228.0,
+    0.0,
+    1666651.0
+   ],
+   "shock_N": 8782.0,
+   "arm_max_vm_MPa": 121.7,
+   "arm_max_vm_all_MPa": 181.6,
+   "brace_tower_max_vm_MPa": 1017.5,
+   "bearing_in_N": [
+    -14052.0,
+    0.0,
+    4380.0
+   ],
+   "bearing_out_N": [
+    13727.0,
+    397.0,
+    -2191.0
+   ],
+   "bearing_in_mag_N": 14718.0,
+   "bearing_out_mag_N": 13906.0,
+   "yaw_residual_Nmm": -73.0
+  },
+  "A6_rear_bump_3g": {
+   "axle_F_N": [
+    5900.0,
+    0.0,
+    6147.0
+   ],
+   "axle_M_Nmm": [
+    -974271.0,
+    0.0,
+    1666651.0
+   ],
+   "shock_N": 12420.0,
+   "arm_max_vm_MPa": 133.2,
+   "arm_max_vm_all_MPa": 198.7,
+   "brace_tower_max_vm_MPa": 1444.8,
+   "bearing_in_N": [
+    -6030.0,
+    0.0,
+    6441.0
+   ],
+   "bearing_out_N": [
+    8015.0,
+    -0.0,
+    -2992.0
+   ],
+   "bearing_in_mag_N": 8823.0,
+   "bearing_out_mag_N": 8555.0,
+   "yaw_residual_Nmm": -17.0
+  },
+  "AD1_belt_design": {
+   "axle_F_N": [
+    11250.0,
+    0.0,
+    1805.0
+   ],
+   "axle_M_Nmm": [
+    -255779.0,
+    0.0,
+    3178232.0
+   ],
+   "shock_N": 417.0,
+   "arm_max_vm_MPa": 159.1,
+   "arm_max_vm_all_MPa": 221.8,
+   "brace_tower_max_vm_MPa": 48.6,
+   "bearing_in_N": [
+    -45655.0,
+    0.0,
+    -3501.0
+   ],
+   "bearing_out_N": [
+    34669.0,
+    -0.0,
+    2019.0
+   ],
+   "bearing_in_mag_N": 45789.0,
+   "bearing_out_mag_N": 34728.0,
+   "yaw_residual_Nmm": -24.0
+  },
+  "AD2_launch_peak": {
+   "axle_F_N": [
+    9821.0,
+    0.0,
+    2718.0
+   ],
+   "axle_M_Nmm": [
+    -379269.0,
+    0.0,
+    2426153.0
+   ],
+   "shock_N": 3044.0,
+   "arm_max_vm_MPa": 132.4,
+   "arm_max_vm_all_MPa": 186.7,
+   "brace_tower_max_vm_MPa": 354.0,
+   "bearing_in_N": [
+    -31567.0,
+    0.0,
+    -881.0
+   ],
+   "bearing_out_N": [
+    23678.0,
+    -0.0,
+    516.0
+   ],
+   "bearing_in_mag_N": 31579.0,
+   "bearing_out_mag_N": 23684.0,
+   "yaw_residual_Nmm": 64.0
+  },
+  "AD3_regen_peak": {
+   "axle_F_N": [
+    4686.0,
+    0.0,
+    2910.0
+   ],
+   "axle_M_Nmm": [
+    -702286.0,
+    0.0,
+    1672168.0
+   ],
+   "shock_N": 5236.0,
+   "arm_max_vm_MPa": 104.4,
+   "arm_max_vm_all_MPa": 151.6,
+   "brace_tower_max_vm_MPa": 600.6,
+   "bearing_in_N": [
+    -15940.0,
+    0.0,
+    -1114.0
+   ],
+   "bearing_out_N": [
+    14577.0,
+    -0.0,
+    2250.0
+   ],
+   "bearing_in_mag_N": 15979.0,
+   "bearing_out_mag_N": 14750.0,
+   "yaw_residual_Nmm": -75.0
+  },
+  "AR1_rear_brake": {
+   "axle_F_N": [
+    4400.0,
+    0.0,
+    2618.0
+   ],
+   "axle_M_Nmm": [
+    -485455.0,
+    487500.0,
+    1458901.0
+   ],
+   "shock_N": 6767.0,
+   "arm_max_vm_MPa": 96.1,
+   "arm_max_vm_all_MPa": 141.7,
+   "brace_tower_max_vm_MPa": 785.7,
+   "bearing_in_N": [
+    -10860.0,
+    0.0,
+    4502.0
+   ],
+   "bearing_out_N": [
+    10756.0,
+    -0.0,
+    -1891.0
+   ],
+   "bearing_in_mag_N": 11756.0,
+   "bearing_out_mag_N": 10921.0,
+   "yaw_residual_Nmm": 12.0
+  }
+ },
+ "ccx_s": 3.0,
+ "n_nodes": 1353,
+ "n_shell": 1330,
+ "sf": {
+  "A1_static": 2.03,
+  "A5L_corner_left": 1.76,
+  "A5R_corner_right": 1.64,
+  "A6_rear_bump_3g": 1.5,
+  "AD1_belt_design": 1.26,
+  "AD2_launch_peak": 1.51,
+  "AD3_regen_peak": 1.92,
+  "AR1_rear_brake": 2.08
+ },
+ "sf_brace_tower": {
+  "A1_static": 0.41,
+  "A5L_corner_left": 0.2,
+  "A5R_corner_right": 0.2,
+  "A6_rear_bump_3g": 0.14,
+  "AD1_belt_design": 4.12,
+  "AD2_launch_peak": 0.56,
+  "AD3_regen_peak": 0.33,
+  "AR1_rear_brake": 0.25
+ },
+ "fatigue": {
+  "FAT": 40,
+  "worst_D": 0.121,
+  "at_mm": [
+   154.0,
+   154.2,
+   244.6
+  ],
+  "at_s_mm": 397.0,
+  "verdict": "pass",
+  "D_if_welded_FAT22": 1.42,
+  "D_if_cast_FAT40": 0.121
+ },
+ "vm_by_station_mm_max_over_cases": {
+  "70": 134.9,
+  "101": 123.8,
+  "226": 122.9,
+  "257": 159.1,
+  "288": 151.6,
+  "320": 147.6,
+  "351": 147.7,
+  "382": 147.9,
+  "413": 148.9,
+  "444": 149.4,
+  "476": 148.0
+ },
+ "mass_arm_box_kg": 1.649,
+ "mass_caps_kg": 0.273,
+ "ccx_s_stiff": 1.9,
+ "stiffness": {
+  "lateral_kN_per_mm_at_axle": 1.011,
+  "camber_deg_per_kN_lateral": 0.0223,
+  "torsion_about_arm_axis_kNm_per_deg": 1.475,
+  "yaw_about_Z_kNm_per_deg": 1.722,
+  "vertical_kN_per_mm_at_axle_pivot_Y_locked": 3.112,
+  "roll_about_Y_note": "pivot rotation about Y locked in these runs (shock-supported in service)",
+  "lateral_kN_per_mm_at_wheel_centre": 1.011
+ }
+}
