@@ -1,48 +1,49 @@
-# Bavuso Motors
+<h1 align="center">Bavuso Motors V1</h1>
 
-An electric motorcycle project aiming for long range, strong performance, practical charging, and a comfortable, minimal design with broad appeal—the Tesla of motorcycles.
+<p align="center"><strong>Electric adventure touring · concept freeze</strong></p>
 
-## Initial design goals
+<p align="center">
+  <a href="v1.0/final/Bavuso-V1-Summary.pdf">2-page summary</a> ·
+  <a href="v1.0/cad/Bavuso-V1.0-adventure.FCStd">FreeCAD model</a> ·
+  <a href="v1.0/final/Bavuso-V1-Design-Dossier.pdf">Design dossier</a>
+</p>
 
-1. **Range:** 200 miles on a charge, using 70 mph as the baseline for highway range calculations.
-2. **Top speed:** 125+ mph.
-3. **Charging:** Compatible with Tesla charging stations, so riders can travel farther from home.
-4. **Weight:** Prefer under 400 pounds for the complete motorcycle, including its battery. Weight is the first requirement the owner would consider relaxing slightly if necessary to preserve the others; no revised maximum has been agreed.
-5. **Comfort and design:** Comfortable on the highway, with 77 mph as the expected speed for aerodynamic, comfort, and wind-stability design work. Confident handling in gusts and crosswinds without becoming a big, bulky motorcycle. Cool, minimal styling designed to work for a broad range of riders.
+<p align="center">
+  <a href="v1.0/final/assets/cycles-adventure-hero.jpg"><img src="v1.0/final/assets/cycles-adventure-hero.jpg" width="760" alt="Front three-quarter CAD render of the graphite Bavuso V1 electric motorcycle, with its touring windscreen and integrated battery enclosure"></a>
+</p>
 
-These are development targets, not validated specifications. The 200-mile range target and 125+ mph top-speed target are separate requirements; sustained range at top speed has not been specified.
+A solo electric adventure-touring motorcycle designed in CAD and evaluated through simulation. V1 integrates the battery, belt drive, chassis, cooling and rider package into one design. The motorcycle has yet to be built or road-tested.
 
-## Core challenge
+| Pack energy | Estimated wet mass | Modeled highway range | Modeled DC charge |
+| :---: | :---: | :---: | :---: |
+| **23.76 kWh** gross | **257.9 kg** without rider | **131.8 mi** at 70 mph | **~21 min** from 10–80% at 25 °C |
 
-Investigate battery size, weight, cost, energy storage, and power delivery. Use scientific research, calculations, and testing to determine what can meet the goals together.
+## What the design looks like
 
-## Engineering work
+<table>
+  <tr>
+    <td width="50%"><a href="v1.0/final/assets/cycles-adventure-rider-side.jpg"><img src="v1.0/final/assets/cycles-adventure-rider-side.jpg" alt="Side CAD render showing a seated rider, leg position and reach to the handlebar"></a></td>
+    <td width="50%"><a href="v1.0/final/assets/cycles-adventure-rear34.jpg"><img src="v1.0/final/assets/cycles-adventure-rear34.jpg" alt="Rear three-quarter CAD render showing the rear wheel, swingarm and tail packaging"></a></td>
+  </tr>
+  <tr>
+    <td><strong>Rider fit.</strong> Seat, pegs and controls in the modeled riding position.</td>
+    <td><strong>Rear packaging.</strong> Swingarm, rear wheel and luggage area.</td>
+  </tr>
+</table>
 
-- **Start here: [engineering development package B0](documentation/README.md).** Current product/system definitions, component and interface registers, packaging conflict study, verification and manufacturing-release requirements. It supersedes earlier concept recommendations where revisions conflict. It is not a build release.
-- **[Connected free CAD studio](documentation/cad-studio.md):** FreeCAD 1.1.4 installed locally and tested through its Python API. Open `Open Bavuso CAD.cmd` for the native reservation model. The model is editable engineering geometry with known unresolved conflicts.
+## The result that changed the design
 
-- [Competitor landscape (2026-10-30)](research/competitor-landscape-2026-10-30.md): who is closest to Bavuso (Verge TS Pro is the nearest), their specs, prices, charging and company status, and what it means for the goals. Desk research from public sources; many figures unverified.
-- [Product, brand and design research](research/design-strategy.md): market references, rider experience, mechanical design constraints, three design territories and the first drafting brief. Recommendations remain open for owner direction.
-- [Engineering handoff v0.1](engineering-handoff.md): component-by-component challenge, proposed specifications, packaging reservations, drive sizing, complete mass allocation, and validation gates. This is the current concept baseline; it does not establish that all goals have been met.
-- [Designer brief](designer-brief.md): compact engineering constraints for owner-led shape and rider-layout work.
-- Reproduce the handoff calculations with `./research/engineering-baseline.ps1`; exports include the mass budget, 25 performance scenarios and a summary JSON.
-- [Charging architecture study](research/charging-architecture.md): NACS/DC charging direction, Tesla access distinction, electrical pack reference, component candidates, and revised weight sensitivities.
-- [Working design direction](design-direction.md): preferred architecture, two active battery-size variations, and the remaining decisions that determine the final configuration.
-- Reproduce those variations with `./research/design-variants.ps1`. These calculations account for each candidate's estimated bike mass.
-- [Battery technology deep dive](research/battery-deep-dive.md): cell candidates, physical limits, charging and lifetime tradeoffs, and optimization opportunities for Bavuso.
-- Reproduce battery mass/integration sensitivity calculations with `./research/battery-screening.ps1`, after running the range model.
-- [First range and weight budget](research/range-weight-budget.md): a calculation-based feasibility study, with assumptions separated from the goals.
-- Reproduce the scenario calculations with `./research/range-weight-model.ps1` in PowerShell. Results are saved to `research/range-weight-scenarios.csv`.
+V1's range target was **145 miles at 70 mph**. The drivetrain model yielded **152.4 miles** with the original drag-area assumption of 0.38 m². Substituting the finest OpenFOAM mesh result, **0.46 m²**, reduced the estimate to **131.8 miles**, a **13.2-mile shortfall**. The run assumes flat road, still air, a 90 kg rider and a 25 °C pack. Mesh convergence remains open, and the range result makes drag reduction the first priority for V1.1.
 
-## Big-picture engineering questions
+[![Range sensitivity to drag area. The finest-mesh estimate falls below the 145-mile target, which requires a drag area around 0.407 square metres.](v1.0/final/assets/chart-range-cda.png)](v1.0/program/17-aero.md)
 
-- How do riding speed, rider posture, and weather affect the battery needed for 200 miles? Evaluate scenarios without replacing the owner's goals with a new range requirement.
-- What battery energy and power would those conditions require, and what weight and cost budget would remain for the rest of the motorcycle?
-- What does Tesla charging compatibility require, including station access, connector, charging protocol, electrical architecture, and thermal management?
-- How should rider fit, comfort, aerodynamics, and styling work together?
-- What existing motorcycles and battery technologies should we benchmark before choosing an architecture?
-- What calculations, simulations, and experiments would establish feasibility before building a rideable prototype?
+## Inspect the engineering
 
-## Project status
+| Work | Start here |
+| --- | --- |
+| **CAD and packaging** | [Editable FreeCAD assembly](v1.0/cad/Bavuso-V1.0-adventure.FCStd) · [CAD revision E and clearance checks](v1.0/program/16-cad-revE.md) · [Frame drawing](v1.0/drawings/BV-ASM-0201_frame-welded-assembly.pdf) |
+| **Aero and range** | [CFD study and mesh limits](v1.0/program/17-aero.md) · [Range model source](v1.0/program/tools/aero-v1-range.py) · [Saved range results](v1.0/program/data/aero/range-70mph.json) |
+| **Structure and cost** | [Structural analysis and FEA iterations](v1.0/program/09-structures.md) · [Cost model and volume sensitivity](v1.0/program/11-cost.md) |
+| **V1 decisions and open validation** | [Final spec and target verdicts](v1.0/program/00-V1-final-spec.md) · [Design dossier](v1.0/final/Bavuso-V1-Design-Dossier.pdf) |
 
-Engineering development around the owner's black/silver/tan appearance references. The 30.056 kWh energy reference remains approximately 433 lb before allowance / 446 lb with it. A new 26.299 kWh aero-led alternative is quantified in the B0 package, but its assumed low drag and mass integration are unproven. Current EMRAX v1.7 ratings supersede the older handoff's motor ratings; two windings require mapped comparison. FreeCAD is now installed and a native reservation model/export has been tested; five conservative envelope conflicts remain in that first coordinate study. Under 400 lb remains the preferred owner goal. Supplier qualification, detailed CAD/drawings, physical tests and Tesla access remain open. No vehicle parts have been purchased and no build release exists.
+The [B0 development package](documentation/README.md) records the earlier feasibility work and architecture alternatives that led to V1.
