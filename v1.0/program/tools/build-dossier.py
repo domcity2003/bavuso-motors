@@ -35,8 +35,8 @@ VIS = ROOT / "visuals"
 EDGE = r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
 
 STAMP = "Rev E \u00b7 November 22, 2026"
-ACCENT = "#C4622D"
-INK = "#16181B"
+ACCENT = "#B3121F"
+INK = "#0B0B0C"
 GREY = "#6B7078"
 LIGHT = "#D9DBDF"
 
@@ -292,68 +292,77 @@ def chart_timeline():
 
 # ----------------------------------------------------------------------------- html helpers
 CSS = r"""
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Barlow:wght@400;500;600&family=Michroma&display=block');
 @page { size: Letter; margin: 0; }
 * { box-sizing: border-box; }
+:root { --ink: #0B0B0C; --grey: #6F6B66; --rule: #D8D4CE; --rosso: #B3121F; --paper: #FFFFFF; --warm: #F4F2EF;
+  --disp: "Archivo", "Arial Narrow", "Segoe UI", Arial, sans-serif; --label: "Michroma", "Archivo", "Segoe UI", Arial, sans-serif;
+  --body: "Barlow", "Segoe UI", Arial, sans-serif; }
 html, body { margin: 0; padding: 0; background: #fff; }
-body { font-family: "Segoe UI", Arial, sans-serif; color: #16181B; font-size: 9.4pt; line-height: 1.42;
+body { font-family: var(--body); font-weight: 400; color: var(--ink); font-size: 10pt; line-height: 1.42;
+  font-variant-numeric: tabular-nums lining-nums;
   -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+b, strong { font-weight: 600; }
 .page { width: 8.5in; height: 11in; position: relative; overflow: hidden; page-break-after: always; break-after: page; background: #fff; }
 .page:last-child { page-break-after: auto; break-after: auto; }
 .hd { position: absolute; top: 0.38in; left: 0.75in; right: 0.75in; display: flex; justify-content: space-between;
-  font-size: 7.2pt; letter-spacing: 0.12em; text-transform: uppercase; color: #6B7078; border-bottom: 0.6pt solid #D9DBDF; padding-bottom: 5pt; }
-.hd b { color: #C4622D; font-weight: 600; }
+  font-family: var(--label); font-size: 5.6pt; letter-spacing: 0.24em; text-transform: uppercase; color: var(--grey); border-bottom: 0.5pt solid var(--rule); padding-bottom: 6pt; }
+.hd b { color: var(--ink); font-weight: 400; }
 .ft { position: absolute; bottom: 0.36in; left: 0.75in; right: 0.75in; display: flex; justify-content: space-between;
-  font-size: 7.2pt; color: #6B7078; border-top: 0.6pt solid #D9DBDF; padding-top: 5pt; }
+  font-size: 7.4pt; color: var(--grey); border-top: 0.5pt solid var(--rule); padding-top: 5pt; letter-spacing: 0.04em; }
 .bd { position: absolute; top: 0.78in; bottom: 0.72in; left: 0.75in; right: 0.75in; overflow: hidden; }
-h1 { font-size: 21pt; line-height: 1.12; font-weight: 600; letter-spacing: -0.01em; margin: 0 0 6pt 0; }
-h1 + .sub { color: #6B7078; margin: 0 0 12pt 0; font-size: 10pt; }
-h2 { font-size: 8.3pt; letter-spacing: 0.13em; text-transform: uppercase; color: #C4622D; margin: 13pt 0 5pt 0; font-weight: 600; }
-h3 { font-size: 10pt; margin: 9pt 0 3pt 0; font-weight: 600; }
+h1 { font-family: var(--disp); font-stretch: 118%; font-variation-settings: "wdth" 118; font-size: 20pt; line-height: 1.1; font-weight: 600; letter-spacing: -0.012em; margin: 0 0 6pt 0; }
+h1 + .sub { color: var(--grey); margin: 0 0 12pt 0; font-size: 10pt; }
+h2 { font-family: var(--label); font-size: 6.3pt; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink); margin: 14pt 0 6pt 0; font-weight: 400;
+  padding-top: 6pt; border-top: 0.5pt solid var(--rule); }
+h3 { font-family: var(--disp); font-stretch: 112%; font-size: 10pt; margin: 9pt 0 3pt 0; font-weight: 600; }
 p { margin: 0 0 6pt 0; }
-code { font-family: Consolas, monospace; font-size: 0.9em; background: #F1F2F4; padding: 0 2pt; }
-.lead { font-size: 11pt; line-height: 1.45; margin-bottom: 9pt; }
-.small { font-size: 7.6pt; color: #6B7078; line-height: 1.38; }
-.rule { height: 0.8pt; background: #16181B; margin: 8pt 0 10pt 0; width: 0.5in; }
-table { border-collapse: collapse; width: 100%; font-size: 8pt; margin: 3pt 0 8pt 0; }
-th { text-align: left; font-weight: 600; font-size: 7.2pt; letter-spacing: 0.06em; text-transform: uppercase; color: #6B7078;
-  border-bottom: 0.9pt solid #16181B; padding: 3pt 5pt 3pt 0; vertical-align: bottom; }
-td { border-bottom: 0.5pt solid #D9DBDF; padding: 3pt 5pt 3pt 0; vertical-align: top; }
+code { font-family: Consolas, monospace; font-size: 0.88em; padding: 0; color: #3A3835; }
+.lead { font-size: 11.4pt; line-height: 1.45; margin-bottom: 9pt; font-weight: 400; }
+.small { font-size: 7.8pt; color: var(--grey); line-height: 1.4; }
+.rule { height: 1.2pt; background: var(--rosso); margin: 8pt 0 10pt 0; width: 0.5in; }
+table { border-collapse: collapse; width: 100%; font-size: 8.4pt; margin: 3pt 0 8pt 0; }
+th { text-align: left; font-weight: 500; font-size: 6.9pt; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey);
+  border-bottom: 0.8pt solid var(--ink); padding: 3pt 5pt 3pt 0; vertical-align: bottom; }
+td { border-bottom: 0.4pt solid var(--rule); padding: 3pt 5pt 3pt 0; vertical-align: top; }
 td.n, th.n { text-align: right; padding-right: 8pt; font-variant-numeric: tabular-nums; }
-tr.tot td { font-weight: 600; border-top: 0.9pt solid #16181B; border-bottom: none; }
-tr.hl td { background: #FAF1EC; }
-.tight td { padding: 2pt 4pt 2pt 0; font-size: 7.6pt; }
+tr.tot td { font-weight: 600; border-top: 0.8pt solid var(--ink); border-bottom: none; }
+tr.hl td { background: var(--warm); }
+.tight td { padding: 2pt 4pt 2pt 0; font-size: 8pt; }
 .fig { margin: 4pt 0 8pt 0; page-break-inside: avoid; }
 .fig img { display: block; max-width: 100%; }
-.fig .cap { font-size: 7.6pt; color: #6B7078; margin-top: 3pt; }
-.cols2 { display: flex; gap: 0.25in; } .cols2 > div { flex: 1; min-width: 0; }
+.fig .cap { font-size: 7.8pt; color: var(--grey); margin-top: 3pt; }
+.cols2 { display: flex; gap: 0.25in; font-size: 9pt; line-height: 1.36; } .cols2 > div { flex: 1; min-width: 0; }
 .cols3 { display: flex; gap: 0.2in; } .cols3 > div { flex: 1; min-width: 0; }
 .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.12in; }
-.callout { border-left: 2.2pt solid #C4622D; background: #F6F6F7; padding: 7pt 10pt; margin: 6pt 0 9pt 0; }
-.callout.dark { background: #16181B; color: #fff; border-left-color: #C4622D; }
-.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 0.9pt solid #16181B; margin: 8pt 0 10pt 0; }
-.kpi { padding: 7pt 8pt 6pt 0; border-bottom: 0.5pt solid #D9DBDF; }
-.kpi .v { font-size: 17pt; font-weight: 600; letter-spacing: -0.01em; line-height: 1.1; }
-.kpi .l { font-size: 7.2pt; color: #6B7078; letter-spacing: 0.04em; text-transform: uppercase; margin-top: 2pt; }
-.kpi .s { font-size: 7.4pt; color: #6B7078; }
-.pill { display: inline-block; padding: 0.5pt 6pt; border-radius: 8pt; font-size: 7.2pt; font-weight: 600; white-space: nowrap; }
-.pill.met { background: #16181B; color: #fff; } .pill.thin { background: #F3D9CB; color: #7A3411; }
-.pill.nv { background: #E6E8EB; color: #3B3F46; } .pill.no { background: #C4622D; color: #fff; }
-.tag { font-size: 6.8pt; letter-spacing: 0.05em; text-transform: uppercase; color: #6B7078; white-space: nowrap; }
+.callout { border-left: 1.4pt solid var(--rosso); padding: 2pt 0 2pt 10pt; margin: 6pt 0 9pt 0; }
+.callout.dark { border-left: none; border-top: 0.8pt solid var(--ink); border-bottom: 0.8pt solid var(--ink); padding: 8pt 0; font-size: 10.4pt; }
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 0.8pt solid var(--ink); margin: 8pt 0 10pt 0; }
+.kpi { padding: 8pt 8pt 7pt 0; border-bottom: 0.4pt solid var(--rule); }
+.kpi .v { font-family: var(--disp); font-stretch: 118%; font-variation-settings: "wdth" 118; font-size: 17pt; font-weight: 500; letter-spacing: -0.015em; line-height: 1.1; }
+.kpi .l { font-family: var(--label); font-size: 5.4pt; color: var(--rosso); letter-spacing: 0.16em; text-transform: uppercase; margin-top: 4pt; }
+.kpi .s { font-size: 7.6pt; color: var(--grey); margin-top: 1pt; }
+.pill { display: inline-block; padding: 0 5pt; border-radius: 1.5pt; font-size: 7pt; font-weight: 500; white-space: nowrap; letter-spacing: 0.02em; border: 0.6pt solid var(--ink); color: var(--ink); }
+.pill.met { border-color: var(--ink); } .pill.thin { border-color: #9A958E; color: #4A4742; }
+.pill.nv { border-color: var(--rule); color: var(--grey); } .pill.no { border-color: var(--rosso); color: var(--rosso); }
+.tag { font-size: 6.8pt; letter-spacing: 0.06em; text-transform: uppercase; color: var(--grey); white-space: nowrap; }
 ul { margin: 2pt 0 6pt 14pt; padding: 0; } li { margin: 0 0 2.5pt 0; }
-.cover { background: #0E0F11; color: #fff; }
-.cover .heroband { position: absolute; top: 0; left: 0; right: 0; height: 5.31in; background: #ECEDEF; overflow: hidden; }
-.cover .heroband img { position: absolute; left: 0; top: 0; width: 8.5in; }
-.cover .txt { position: absolute; left: 0.75in; right: 0.75in; top: 6.0in; }
-.cover .eyebrow { font-size: 8.5pt; letter-spacing: 0.3em; text-transform: uppercase; color: #C4622D; margin-bottom: 8pt; }
-.cover h1 { font-size: 31pt; line-height: 1.08; font-weight: 500; letter-spacing: -0.015em; color: #fff; margin: 0 0 12pt 0; }
-.cover .rev { font-size: 12pt; color: #C9CCD1; margin-bottom: 14pt; }
-.cover .foot { position: absolute; left: 0.75in; right: 0.75in; bottom: 0.5in; font-size: 8pt; color: #8A8F98; border-top: 0.6pt solid #3a3d42; padding-top: 7pt; display: flex; justify-content: space-between; }
-.toc td { padding: 4pt 0; font-size: 9pt; } .toc td.p { text-align: right; color: #6B7078; width: 0.5in; }
-.toc td.num { color: #C4622D; width: 0.45in; font-weight: 600; }
-.sheetimg { border: 0.5pt solid #C9CCD1; width: 100%; display: block; }
+.cover { background: #0B0B0C; color: #fff; }
+.cover .heroband { position: absolute; top: 0; left: 0; right: 0; height: 6.8in; background: #ECECEE; overflow: hidden; }
+.cover .heroband img { position: absolute; left: -1.1in; top: -0.3in; width: 11.4in; }
+.cover .mark { position: absolute; left: 0.75in; top: 0.55in; font-family: var(--label); font-size: 9pt; letter-spacing: 0.5em; color: #0B0B0C; }
+.cover .txt { position: absolute; left: 0.75in; right: 0.75in; top: 7.25in; }
+.cover .wm { font-family: var(--label); font-size: 31pt; letter-spacing: 0.26em; color: #fff; margin: 0 0 10pt 0; font-weight: 400; line-height: 1.1; }
+.cover .eyebrow { font-family: var(--label); font-size: 6.4pt; letter-spacing: 0.3em; text-transform: uppercase; color: #fff; margin-bottom: 14pt; padding-top: 10pt; border-top: 1.2pt solid var(--rosso); display: inline-block; }
+.cover h1 { font-size: 15pt; line-height: 1.2; font-weight: 500; letter-spacing: 0; color: #E6E3DE; margin: 0 0 8pt 0; }
+.cover .rev { font-size: 9.5pt; color: #9A958E; margin-bottom: 12pt; }
+.cover .foot { position: absolute; left: 0.75in; right: 0.75in; bottom: 0.5in; font-size: 7.6pt; color: #8A857F; border-top: 0.5pt solid #34322F; padding-top: 7pt; display: flex; justify-content: space-between; }
+.toc td { padding: 4pt 0; font-size: 9.4pt; } .toc td.p { text-align: right; color: var(--grey); width: 0.5in; }
+.toc td.num { color: var(--rosso); width: 0.45in; font-weight: 500; }
+.sheetimg { border: 0.5pt solid var(--rule); width: 100%; display: block; }
 .mono { font-variant-numeric: tabular-nums; }
 .twoimg img { width: 100%; display: block; }
-.stamp { font-size: 7.6pt; letter-spacing: 0.1em; text-transform: uppercase; color: #6B7078; }
+.stamp { font-family: var(--label); font-size: 5.6pt; letter-spacing: 0.24em; text-transform: uppercase; color: var(--rosso); margin-bottom: 5pt; }
 """
 
 CHECK_JS = r"""
@@ -525,12 +534,12 @@ def build(doc_imgs):
 
     # ---------------- cover
     cover = ('<section class="page cover" data-cover="1"><div class="heroband" style="background:%s"><img src="%s"></div>'
-             '<div class="txt"><div class="eyebrow">Bavuso Motors</div>'
-             '<h1>Bavuso V1: Electric Adventure-Touring Motorcycle \u2014 Design Dossier</h1>'
+             '<div class="txt"><div class="wm">BAVUSO</div><div class="eyebrow">V1 Design Dossier</div>'
+             '<h1>Electric adventure-touring motorcycle</h1>'
              '<div class="rev">Rev E design freeze, November 2026</div>'
-             '<div style="font-size:9pt;color:#C9CCD1;max-width:5.6in">A simulation- and analysis-based design for a solo electric adventure-touring motorcycle: '
+             '<div style="font-size:9pt;color:#B9B4AD;max-width:5.6in">A paper design for a solo bike: '
              '%s kg (%s lb) wet, a %s kWh pack, native NACS charging. Nothing has been built or physically tested.</div></div>'
-             '<div class="foot"><span>%s</span><span>Engineering analysis carried out with AI engineering agents (Claude) under the owner\u2019s direction</span></div></section>'
+             '<div class="foot"><span>%s</span><span>Engineering analysis by AI engineering agents (Claude), directed by the owner</span></div></section>'
              % (I.get("hero_bg", "#ececee"), I.get("hero", ""), F["mass_kg"], F["mass_lb"], "23.8", STAMP))
     D.pages.append(dict(section="", title="Cover", html=cover, toc=False, raw=True))
 
@@ -540,9 +549,9 @@ def build(doc_imgs):
     # ---------------- executive summary
     aero_line = ("about %s mi at 70 mph, calculated at an assumed CdA of %s" % ("152", "0.38")) if AERO["status"] != "done" else \
         ("about %s mi at 70 mph at a CdA of %s" % (AERO["r70"], AERO["cda"]))
-    body = title("01 Executive summary", "A deliberate compromise, and a buildable one")
-    body += '<div class="lead">V1 is a <b>deliberate compromise</b>. The original goals were under 400 lb and 200 miles at 70 mph. With today\u2019s cells, physics makes those two goals incompatible: 400 lb only carries about 11 kWh, which is about 74 miles, and 200 miles needs about 32 kWh and a 631 lb bike.</div>'
-    body += p("The owner chose a buildable optimum instead: **about 258 kg / 569 lb, a 23.8 kWh pack, about 150 miles at 70 mph, 125 mph sustained, and native NACS fast charging.** It is a V1, and it comes with a planned improvement path (section 11): better cells, lower drag, a lighter chassis and, later, a two-up variant.")
+    body = title("01 Executive summary", "A deliberate compromise that can be built")
+    body += '<div class="lead">Under 400 lb and 200 miles at 70 mph cannot both close with today\u2019s cells. A 400 lb bike carries about 11 kWh, enough for about 74 miles, and 200 miles needs about 32 kWh and a 631 lb bike. V1 is a <b>deliberate compromise</b> between the two.</div>'
+    body += p("I chose a buildable bike: **about 258 kg / 569 lb, a 23.8 kWh pack, about 150 miles at 70 mph, 125 mph sustained and native NACS fast charging.** It is a V1 with a planned improvement path (section 11): better cells, lower drag, a lighter chassis and, later, a two-up variant.")
     body += kpis([("%s kg" % F["mass_kg"], "Wet mass, no rider", "%s lb; target at most 260 kg" % F["mass_lb"]),
                   ("%s kWh" % F["kwh_gross"], "Pack energy, gross", "%s kWh usable, %s V, 100s11p" % (F["kwh_usable"], F["volts"])),
                   ("%s mi" % AERO["r70"], "Range at 70 mph", "calculated at CdA %s%s" % (AERO["cda"], " (assumed)" if AERO["status"] != "done" else "")),
@@ -552,9 +561,9 @@ def build(doc_imgs):
                   ("~%s min" % F["chg"], "DC charge 10-80%", "NACS inlet, 25 C, 2C cell cap"),
                   ("$%sk" % F["cost10"], "Unit cost at 10k / yr", "estimate, no quotes")])
     body += h2("What V1 is")
-    body += p("A solo adventure-touring motorcycle with a Molicel P60B 21700 pack (100s11p, 1,100 cells) built into a structural aluminium case that forms the lower body, an EMRAX 228 axial-flux motor with a Cascadia CM200DX inverter, a single 8 mm Gates belt at 3.60:1, a steel-tube frame with cast nodes and a steel pivot yoke, and a cast single-sided swingarm. Compared with its closest electric rivals, V1 is level with the Energica Experia (260 kg), about 4% heavier than the Zero DSR/X (247 kg), and carries about 38% more energy than the DSR/X.")
+    body += p("V1 is a solo adventure-touring motorcycle. It has a Molicel P60B 21700 pack (100s11p, 1,100 cells) in a structural aluminium case that forms the lower body, an EMRAX 228 axial-flux motor with a Cascadia CM200DX inverter, and a single 8 mm Gates belt at 3.60:1. The frame is steel tube with cast nodes and a steel pivot yoke, with a cast single-sided swingarm. V1 is level with the Energica Experia (260 kg) and about 4% heavier than the Zero DSR/X (247 kg). It carries about 38% more energy than the DSR/X.")
     body += h2("How far the evidence goes")
-    body += p("The design is **coherent and carefully checked on paper**: the parts ledger, the bill of materials and the CAD roll-up agree on %s kg, and structures, thermal, dynamics, drive, electrical and cost models were run on it. **Nothing is built, weighed or tested**, supplier prices are estimates, and several margins are thin (mass headroom %s kg, range break-even at CdA about %s). The aerodynamic result is still pending. Sections 10 and 12 give the target-by-target verdicts and the limits in plain terms." % (F["mass_kg"], F["headroom"], F["cda_break"]))
+    body += p("The design is **coherent and checked on paper**. The parts ledger, the bill of materials and the CAD roll-up agree on %s kg, and structures, thermal, dynamics, drive, electrical and cost models were run on it. **Nothing is built, weighed or tested**, supplier prices are estimates, and several margins are thin (mass headroom %s kg, range break-even at CdA about %s). The aerodynamic result is still pending. Sections 10 and 12 give the verdict on each target and the limits." % (F["mass_kg"], F["headroom"], F["cda_break"]))
     if AERO["status"] != "done":
         body += callout("**" + AERO_PENDING_TEXT + "** (152.4 mi at 70 mph, 132.2 mi at 77 mph). Treat range as a calculation, not a finding.")
     D.add("Executive summary", "Executive summary", body, toc=True, num="01")
@@ -573,7 +582,7 @@ def build(doc_imgs):
         ("0-100 km/h / 0-100 mph / 60-100 mph", "%s s / %s s / %s s" % (F["z100kmh"], F["z100mph"], F["r60_100"]), "calculated"),
         ("Top speed", "%s mph limit (6,500 rpm), governed at %s mph; 125 mph needs %s kW at the wheel" % (F["top"], F["gov"], F["p125"]), "calculated"),
         ("CdA", ("%s m\u00b2 assumed (aero pending)" % AERO["cda"]) if AERO["status"] != "done" else "%s m\u00b2 (aero result)" % AERO["cda"], "assumption" if AERO["status"] != "done" else "calculated"),
-        ("Range at 70 / 77 mph", "%s / %s mi (flat, still air, 90 kg rider, 25 C). Real-world about 15-20%% lower%s" % (AERO["r70"], AERO["r77"], ("; fails T3 above CdA about " + F["cda_break"]) if AERO["status"] != "done" else ""), "calculated"),
+        ("Range at 70 / 77 mph", "%s / %s mi (flat, still air, 90 kg rider, 25 C). Real-world about 15 to 20%% lower%s" % (AERO["r70"], AERO["r77"], ("; fails T3 above CdA about " + F["cda_break"]) if AERO["status"] != "done" else ""), "calculated"),
         ("DC charging 10-80%", "about %s min at 25 C, 2C cell cap (23.0 min at 35 C, 25.4 min at -10 C with heater, 40.9 min at 45 C)" % F["chg"], "calculated"),
         ("AC charging / NACS", "BROGEN PV1776 6.6 kW (3.1 h for 10-90%); native J3400 inlet, DIN 70121 / ISO 15118 controller. Supercharger access not established", "supplier / design"),
         ("Brakes", "320 x 5 mm front discs, 267 x 5 mm rear disc; front discs 362-375 C in a 125-0 mph stop (limit about 450 C)", "measured (CAD) / calculated"),
@@ -584,10 +593,10 @@ def build(doc_imgs):
         ("Design rider case", "90 kg rider + 25 kg luggage, 1,755 mm (about the adult male average)", "assumption"),
         ("Validation plan", "about $%sM and %s months, all planned" % (F["dvpr"], F["months"]), "estimate"),
     ]
-    body = title("02 Specification", "Specification sheet", "Every value is analysis or estimate; the type column says which. Nothing is measured.")
+    body = title("02 Specification", "Specification sheet", "Every value is analysis or estimate, and the type column says which. Nothing is measured.")
     body += table(["Quantity", "Value", "Type"], [(a, b, Raw('<span class="tag">%s</span>' % esc(c))) for a, b, c in spec_rows],
                   cls="tight", widths=["24%", "61%", "15%"])
-    body += p("**measured** = from CAD geometry or a weighed part (no part is weighed); **supplier** = published datasheet or catalogue; **calculated** = computed by the program\u2019s scripts or hand checks; **estimate / assumption** = judgement.", "small")
+    body += p("Measured means from CAD geometry or a weighed part (no part is weighed). Supplier means a published datasheet or catalogue. Calculated means computed by the program\u2019s scripts or hand checks. Estimate and assumption mean judgement.", "small")
     D.add("Specification", "Specification sheet", body, toc=True, num="02")
 
     # ---------------- comparison
@@ -602,41 +611,41 @@ def build(doc_imgs):
         ("Price", "target MSRP about $45k; unit cost $%sk at 10k/yr" % F["cost10"], "UK GBP 25-28k", "$22,995", "n/a (petrol)"),
         ("Status", "Paper design, nothing built", "On sale", "On sale", "On sale"),
     ]
-    body = title("02 Specification", "How V1 compares", "Against the Energica Experia, Zero DSR/X and a petrol BMW R 1300 GS (the benchmark the owner named).")
+    body = title("02 Specification", "How V1 compares", "Against the Energica Experia, the Zero DSR/X and a petrol BMW R 1300 GS, the benchmark I named.")
     body += table(["", "Bavuso V1", "Energica Experia", "Zero DSR/X", "BMW R 1300 GS"], comp, cls="", widths=["15%", "27%", "20%", "19%", "19%"])
-    body += p("Competitor figures come from published maker pages and independent reviews as summarised in `01-targets.md` (several sources conflict, and rated ranges are measured at different speeds, so they are not like-for-like). V1 figures are calculations.", "small")
+    body += p("Competitor figures come from published maker pages and independent reviews, summarised in `01-targets.md`. Several sources conflict, and rated ranges are measured at different speeds, so the columns are not like-for-like. V1 figures are calculations.", "small")
     body += h2("Reading the comparison")
     body += ul([
-        "**Mass.** V1 is level with the Experia, about 4% (10 kg) heavier than the DSR/X and 44 lb over the petrol GS. It does not beat any of them on weight; it matches the electric class while carrying more energy.",
+        "**Mass.** V1 is level with the Experia, about 4% (10 kg) heavier than the DSR/X and 44 lb over the petrol GS. It beats none of them on weight. It matches the electric class while carrying more energy.",
         "**Energy.** 23.76 kWh is about 38% more than the DSR/X (17.3 kWh) and about 6% more than the Experia (22.5 kWh).",
-        "**Range.** A calculated 152 mi at 70 mph is not a like-for-like comparison with maker claims; real-world V1 range is expected to be about 120-130 mi.",
-        "**Charging.** V1 is designed around a native NACS inlet; the Experia uses CCS and the DSR/X has no DC fast charging. Supercharger network access is not established for V1.",
+        "**Range.** A calculated 152 mi at 70 mph does not compare directly with maker claims. Real-world V1 range should be about 120 to 130 mi.",
+        "**Charging.** V1 is designed around a native NACS inlet. The Experia uses CCS and the DSR/X has no DC fast charging. Supercharger network access is not established for V1.",
     ])
-    body += h2("Why not 400 lb")
-    body += p("At 400 lb the bike would be about 100 lb lighter than the Zero DSR/X yet would carry only 11 kWh, enough for about 74 miles at highway speed. A status product cannot be out-ranged by a cheaper bike; that is why V1 gives up the 400 lb goal instead of the range.")
+    body += h2("Why V1 gives up 400 lb")
+    body += p("A 400 lb bike would be about 100 lb lighter than the Zero DSR/X but would carry only 11 kWh, enough for about 74 miles at highway speed. A premium bike should not be out-ranged by a cheaper one. So V1 gives up the 400 lb goal and keeps the range.")
     D.add("Specification", "Comparison", body, toc=False)
 
-    # ---------------- design journey: sweep
+    # ---------------- how the design got here: sweep
     c1 = chart_target_tradeoff()
-    body = title("03 Design journey", "Choosing the target: a sweep, then one point", "The program swept mass, cell density, drag and range and picked a single recommended point, not either/or extremes.")
-    body += p("The owner\u2019s brief preferred a bike under 400 lb with 200 miles at 70 mph, 125 mph or more, native NACS charging and comfort in a 77 mph gust. The first job was to test whether those targets can coexist. They cannot with today\u2019s cells (about 230 Wh/kg at pack level):")
-    body += ul(["**400 lb** with about 140 kg of bike outside the battery leaves room for about 11 kWh: roughly 74 miles at 70 mph.",
-                "**200 miles** needs about 32 kWh and a 286 kg / 631 lb bike, heavier than every electric road bike and petrol adventure bike benchmarked."])
+    body = title("03 How the design got here", "One target point from a sweep", "The program swept mass, cell density, drag and range, then picked a single point instead of either extreme.")
+    body += p("My brief asked for a bike under 400 lb with 200 miles at 70 mph, 125 mph or more, native NACS charging and comfort in a 77 mph gust. The first job was to test whether those targets can coexist. They cannot with today\u2019s cells (about 230 Wh/kg at pack level).")
+    body += ul(["**400 lb** leaves about 140 kg of bike outside the battery, which has room for about 11 kWh. That is roughly 74 miles at 70 mph.",
+                "**200 miles** needs about 32 kWh and a 286 kg / 631 lb bike. That is heavier than every electric road bike and petrol adventure bike I benchmarked."])
     body += fig(c1, "Figure 3.1. The two original goals and the chosen V1 point. The anchor values are those quoted in Gate A and `01-targets.md`; the line only joins them.")
     if "target-sweep.png" in I:
         body += fig(I["target-sweep.png"], "Figure 3.2. The target sweep (`program/data/target-sweep.png`): the bike mass needed for a given 70 mph range, for different drag, pack density and rest-of-bike mass.", width="100%")
-    body += p("**Result.** Gate A locked a 23.8 kWh pack, a solo rider, and ten targets (T1 to T10, section 10). The mass target started at 240 kg and was re-baselined twice as real parts replaced the first budgets (next page).")
-    D.add("Design journey", "Target sweep", body, toc=True, num="03", toc_title="Design journey: target sweep and mass")
+    body += p("Gate A locked a 23.8 kWh pack, a solo rider and ten targets (T1 to T10, section 10). The mass target started at 240 kg and was re-baselined twice as real parts replaced the first budgets (next page).")
+    D.add("How the design got here", "Target sweep", body, toc=True, num="03", toc_title="How the design got here, target and mass")
 
-    # ---------------- design journey: mass and decisions
+    # ---------------- how the design got here: mass and decisions
     c2 = chart_mass_history()
     before = {"Pack": 131.1, "Chassis": 34.9, "Running gear": 44.9, "Drive": 23.6, "Electronics": 24.5, "Body": 30.8, "Cooling": 8.6, "Wiring etc.": 27.7}
     after = {"Pack": 108.0, "Chassis": 31.33, "Running gear": 43.23, "Drive": 23.65, "Electronics": 17.44, "Body": 14.45, "Cooling": 6.9, "Wiring etc.": 12.93}
     c3 = chart_mass_groups(before, after)
-    body = title("03 Design journey", "Mass: 328 kg down to 258 kg", "Weight was the main problem. The bike was re-architected, and it grew back a little as real parts were booked.")
-    body += fig(c2, "Figure 3.3. Roll-up mass through the program (git history of the ledger and CAD roll-ups). The dashed line is the mass target T1 as it was re-baselined (240, 255, then 260 kg).")
+    body = title("03 How the design got here", "From 328 kg down to 258 kg", "Weight was the main problem. I re-architected the bike, and it grew back a little as real parts were booked.")
+    body += fig(c2, "Figure 3.3. Roll-up mass through the program (git history of the ledger and CAD roll-ups). The dashed line is the mass target T1 as it was re-baselined (240, 255, then 260 kg).", width="92%")
     body += fig(c3, "Figure 3.4. Where the weight went, by system. The \u201cday-one\u201d bars are the Gate A table\u2019s \u201ctoday\u201d column (about 320 kg; the groups there sum to a little more because overlaps were removed later). The pack, body panels and wiring gave most of the saving.")
-    body += h2("Key decisions (Gate A decision log)")
+    body += h2("Key decisions from the Gate A log")
     dec = [
         ("Nov 21", "Inverter", "Cascadia CM200DX (6.75 kg) drives the EMRAX 228 LV winding; the lighter emDrive H100 gives only about 29 kW continuous on a 360 V pack. Belt ratio 3.60, 8 mm Gates belt."),
         ("Nov 21", "Hot day", "125 mph sustained at 25 C; on a 38 C day full speed for about 10 min, then a derate to about 105 mph. No chiller; keep the 3 kW heater and pre-heat on the way to a charger."),
@@ -646,22 +655,22 @@ def build(doc_imgs):
         ("Nov 22", "Look frozen at rev E", "Pods 55 mm proud, no R15 on the lower body and a second flank line go to V1.1."),
     ]
     body += table(["Date", "Decision", "What and why"], dec, cls="tight", widths=["9%", "17%", "74%"])
-    D.add("Design journey", "Mass and decisions", body, toc=False)
+    D.add("How the design got here", "Mass and decisions", body, toc=False)
 
     # ---------------- architecture: renders
-    body = title("04 Architecture", "The bike", "Renders of the rev E CAD (envelope-level geometry, matte black finish).")
+    body = title("04 Architecture", "The bike", "Renders of the rev E CAD, with envelope-level geometry and a matte black finish.")
     body += '<div class="grid2">'
     for key, cap in [("side", "Side view"), ("front34", "Front three-quarter"), ("rear34", "Rear three-quarter"), ("rider", "With rider (1,755 mm, 90 kg)")]:
         if key in I:
             body += '<div class="fig"><img src="%s" style="width:100%%"><div class="cap">%s</div></div>' % (I[key], cap)
     body += "</div>"
-    body += p("The look is frozen at rev E: beak, slim light band, clear screen, narrow waist, sculpted saddle, matte black, with one continuous lower body formed by the pack case. Open items logged to V1.1: radiator pods stand 55 mm proud of the flank, the lower body has no R15 edge radii yet, and the second flank line is not built. The CAD is an envelope model: it passes 91 of 91 geometry and regulatory-envelope checks, but it lacks many small parts (wiring, hoses, cell holders, lid) and two generator fixes.", "small")
-    D.add("Architecture", "Renders", body, toc=True, num="04", toc_title="Architecture: pack, drive, chassis, electrical")
+    body += p("The look is frozen at rev E: beak, slim light band, clear screen, narrow waist, sculpted saddle and matte black, with one continuous lower body formed by the pack case. Three items move to V1.1. The radiator pods stand 55 mm proud of the flank, the lower body has no R15 edge radii yet, and the second flank line is not built. The CAD is an envelope model. It passes 91 of 91 geometry and regulatory-envelope checks, but it lacks many small parts (wiring, hoses, cell holders, lid) and two generator fixes.", "small")
+    D.add("Architecture", "Renders", body, toc=True, num="04", toc_title="Architecture")
 
     # ---------------- architecture: layout + pack + drive
     body = title("04 Architecture", "Layout, pack and drive")
     body += h2("Layout")
-    body += p("Solo seat at %s, wheelbase %s. The centre of gravity sits %s, with a front/rear split of 52.8 / 47.2 percent (no rider). Mass is concentrated low: the pack is the largest single block, and its structural case forms the lower body." % (F["seat"], F["wheelbase"], F["cg"]))
+    body += p("The solo seat sits at %s on a %s wheelbase. The centre of gravity is %s, with a front/rear split of 52.8 / 47.2 percent (no rider). Mass sits low because the pack is the largest single block and its structural case forms the lower body." % (F["seat"], F["wheelbase"], F["cg"]))
     body += h2("Pack")
     body += table(["Item", "Value"], [
         ("Cells", "Molicel INR-21700-P60B, 100s11p, 1,100 cells x 75 g = 82.5 kg"),
@@ -679,7 +688,7 @@ def build(doc_imgs):
         ("Performance", "%s s 0-60 mph; %s mph limit governed at %s; %s kW continuous (inverter-limited)" % (F["z60"], F["top"], F["gov"], F["cont_kw"])),
         ("Drive mass", "23.65 kg"),
     ], cls="tight", widths=["20%", "80%"])
-    body += p("The belt on one side and a single-sided arm on the other is the hard structural problem: the belt pulls the wheel forward 274 mm away from the arm. Section 5 shows how the steel pivot yoke carries that load.", "small")
+    body += p("The belt on one side and a single-sided arm on the other is the hard structural problem, because the belt pulls the wheel forward 274 mm away from the arm. Section 5 shows how the steel pivot yoke carries that load.", "small")
     body += h2("Mass by system (ledger)")
     body += table(["System", "kg", "Share"], [
         (r["budget_group"], r["raw_kg"], "%.0f%%" % (100 * float(r["raw_kg"]) / float(mass_tot["raw_kg"]))) for r in mass_rows] + [("Total", mass_tot["raw_kg"], "100%")],
@@ -698,7 +707,7 @@ def build(doc_imgs):
         ("Brakes", "Two 320 x 5 mm front discs with Stylema-class calipers, 267 x 5 mm rear disc, ABS"),
     ], cls="tight", widths=["18%", "82%"])
     body += h2("Why the chassis weighs 31 kg and not 18 kg")
-    body += p("The Gate A budget of 18 kg assumed a conventional frame. Fatigue, not peak strength, sets the tube walls; a cast, not welded, arm is needed; and the belt-on-one-side layout forces a load-bearing yoke. The result is about 31 kg, accepted as part of the V1 compromise (T1 re-baselined). An aluminium yoke with a redesigned section is one of the V1.1 weight levers.")
+    body += p("The Gate A budget of 18 kg assumed a conventional frame. Fatigue, not peak strength, sets the tube walls. The arm must be cast, not welded, and the belt on one side forces a load-bearing yoke. That gives about 31 kg, which I accepted as part of the V1 compromise (T1 re-baselined). An aluminium yoke with a redesigned section is one of the V1.1 weight levers.")
     body += h2("Electrical system")
     body += table(["Item", "Value"], [
         ("HV bus", "360 V nominal pack; 350 A DC cap; four GX14 contactors (350 A carry); 450-A class fuse in the service disconnect; 500 A pyro; cables 50 mm\u00b2 DC bus, 35 mm\u00b2 inlet, 70 mm\u00b2 motor phases"),
@@ -717,7 +726,7 @@ def build(doc_imgs):
 
     # ---------------- validation: structures
     body = title("05 Validation", "Structures (09)", "Frame, pivot yoke, single-sided swingarm, pack case. Finite-element models (CalculiX, 12 mm mesh).")
-    body += p("**Method.** Solo load cases (90 kg rider + 25 kg luggage) with belt preload: static 1 g, 3 g bumps, 1.1 g braking, 45-degree lean in both directions, belt design pull 11.3 kN, launch and regen torque, pack inertia (20 g longitudinal), crash slider loads. Fatigue by IIW nominal stress over a 160,000 km road spectrum plus drive events, Miner sum D no more than 0.5.")
+    body += p("The solo load cases (90 kg rider + 25 kg luggage) carry belt preload: static 1 g, 3 g bumps, 1.1 g braking, 45-degree lean in both directions, belt design pull 11.3 kN, launch and regen torque, pack inertia (20 g longitudinal) and crash slider loads. Fatigue uses IIW nominal stress over a 160,000 km road spectrum plus drive events, with a Miner sum D of no more than 0.5.")
     body += h2("Round 3 result (yoke at Z545, bike scaled to 257.3 kg)")
     body += table(["Check", "Safety factor / D", "Required", "Verdict"], [
         ("C6 rear bump 3 g (cross brace)", "1.23", "1.2", Raw('<span class="pill thin">Pass, thin</span>')),
@@ -728,19 +737,19 @@ def build(doc_imgs):
         ("Fatigue, upper rail 1", "D 0.57", "0.5", Raw('<span class="pill no">Fail</span>')),
         ("Torsion / lateral stiffness at head", "5.0 kNm/deg / 1.68 kN/mm", "3 / 1.5", Raw('<span class="pill met">Pass</span>')),
     ], cls="tight", widths=["38%", "26%", "12%", "24%"])
-    body += p("**Fix (estimated, not re-run).** Down-link 38 x 4.0 to 38 x 4.25 (+0.13 kg), upper rail 1 38 x 2.25 to 38 x 2.5 (+0.20 kg), swingarm wall 4.0 to 4.25 (+0.11 kg): about +0.45 kg in total, to be confirmed at 12 mm before release. Those edits are not in the %s kg roll-up." % F["mass_kg"])
+    body += p("The fix is estimated, not re-run. The down-link goes from 38 x 4.0 to 38 x 4.25 (+0.13 kg), upper rail 1 from 38 x 2.25 to 38 x 2.5 (+0.20 kg) and the swingarm wall from 4.0 to 4.25 (+0.11 kg). That adds about 0.45 kg, to be confirmed at 12 mm before release. Those edits are not in the %s kg roll-up." % F["mass_kg"])
     body += h2("Findings that shaped the design")
-    body += ul(["The belt on one side and a single-sided arm on the other pushes 36-45 kN onto the pivot bearings: the first 46 mm pivot with 6008 bearings could not take it. Closing the belt loop through the frame failed (670 MPa against 435 MPa yield); the steel pivot yoke is the fix.",
-                "A welded 6061 arm fails fatigue by a wide margin; a cast A356 arm passes.",
-                "Pack case: a 4 mm front wall reached 167 MPa against a 140 MPa seam limit; a 5 mm front wall was adopted but only the 4 mm wall was analysed."])
+    body += ul(["The belt on one side and a single-sided arm on the other pushes 36 to 45 kN onto the pivot bearings. The first 46 mm pivot with 6008 bearings could not take it. Closing the belt loop through the frame failed (670 MPa against 435 MPa yield), so the steel pivot yoke is the fix.",
+                "A welded 6061 arm fails fatigue by a wide margin. A cast A356 arm passes.",
+                "In the pack case, a 4 mm front wall reached 167 MPa against a 140 MPa seam limit. I adopted a 5 mm front wall, but only the 4 mm wall was analysed."])
     body += h2("Limits")
-    body += p("FEA Round 3 re-ran the full frame and arm at the final 257.3 kg plus rider and luggage, with the yoke at its built position; strength and fatigue pass after +0.45 kg of wall increases that were sized by scaling, not re-run. Several factors sit at 1.2 to 1.26 against 1.2. Rigid bosses, nominal-stress welds, an assumed fatigue spectrum, no buckling or crash plasticity, no motor mount or torque reaction, and no cell-backed crush analysis. EMRAX has not confirmed the motor housing\u2019s role in the yoke. Fatigue of the carbon wheels, fork and axles was not analysed.", "small")
-    D.add("Validation", "Structures", body, toc=True, num="05", toc_title="Engineering validation: structures")
+    body += p("FEA Round 3 re-ran the full frame and arm at the final 257.3 kg plus rider and luggage, with the yoke at its built position. Strength and fatigue pass after +0.45 kg of wall increases that were sized by scaling, not re-run. Several factors sit at 1.2 to 1.26 against 1.2. The model uses rigid bosses, nominal-stress welds and an assumed fatigue spectrum. It has no buckling or crash plasticity, no motor mount or torque reaction, and no cell-backed crush analysis. EMRAX has not confirmed the motor housing\u2019s role in the yoke. Fatigue of the carbon wheels, fork and axles was not analysed.", "small")
+    D.add("Validation", "Structures", body, toc=True, num="05", toc_title="Validation, structures")
 
     # ---------------- validation: thermal
     c_ch = chart_charge_times()
     body = title("05 Validation", "Thermal (10)", "Lumped RK4 thermal network, e-NTU radiator, runaway screening model.")
-    body += p("**Method.** Lumped-parameter network for hottest cell, pack, motor, inverter and charger with a radiator and fan model, run over duty cycles from 25 C to 45 C and -10 C. A 2-D screening model checks cell-to-cell propagation. No CFD and no bench data.")
+    body += p("A lumped-parameter network covers the hottest cell, pack, motor, inverter and charger, with a radiator and fan model, over duty cycles from 25 C to 45 C and at -10 C. A 2-D screening model checks cell-to-cell propagation. There is no CFD and no bench data.")
     body += table(["Case", "Result", "Limit", "Verdict"], [
         ("125 mph, 25 C, 95 to 5% charge (27.5 min)", "cell core 50.7 C; motor inlet coolant 45.9 C; winding 86 C", "55 C BMS / 60 C cell; 50 C inlet; 100 C winding", Raw('<span class="pill met">Pass</span>')),
         ("130 mph governed, 25 C", "core 53.2 C, inlet 47.5 C, winding 91 C", "same", Raw('<span class="pill met">Pass</span>')),
@@ -753,7 +762,7 @@ def build(doc_imgs):
     ], cls="tight", widths=["27%", "33%", "22%", "18%"])
     body += fig(c_ch, "Figure 5.1. DC 10-80% charge time by condition. The 21 min headline uses the 2C cell cap; the other bars come from the thermal model\u2019s 3C-cap profile except where stated (at a 2C cap, 35 C takes 27.4 min).", width="82%")
     body += h2("Limits")
-    body += p("A lumped model with an assumed ram-air factor of 0.25 and assumed core conductance; two models disagree on the 25 C pack core (46 vs 50.7 C). No chiller; hot days derate. The propagation result is a screen, not UN R136 testing. The charge-life of the P60B above 2C is not on the datasheet (v0.1), so the faster figures are not claimed.", "small")
+    body += p("The model is lumped, with an assumed ram-air factor of 0.25 and assumed core conductance. Two models disagree on the 25 C pack core (46 vs 50.7 C). There is no chiller, so hot days derate. The propagation result is a screen, not UN R136 testing. The charge life of the P60B above 2C is not on the datasheet (v0.1), so I do not claim the faster figures.", "small")
     D.add("Validation", "Thermal", body, toc="sub", toc_title="Thermal")
 
     # ---------------- validation: aero
@@ -761,7 +770,7 @@ def build(doc_imgs):
     body = title("05 Validation", "Aerodynamics (17)")
     if AERO["status"] != "done":
         body += callout("**" + AERO_PENDING_TEXT + ".** Range is %s mi at 70 mph and %s mi at 77 mph. No CdA has been measured or computed for V1." % (F["r70"], F["r77"]), dark=True)
-        body += p("**Status.** A CFD case on the rev E geometry (rider and bike) is running; no converged result exists, so the aero section of this dossier carries an assumption, not a finding. The independent review noted that an earlier outside review found a 7% change in CdA across mesh refinement (0.413 to 0.385) against a 2% goal; that item is still open.")
+        body += p("A CFD case on the rev E geometry (rider and bike) is running. No converged result exists, so this section carries an assumption, not a finding. The independent review noted that an earlier outside review found a 7% change in CdA across mesh refinement (0.413 to 0.385) against a 2% goal. That item is still open.")
         body += h2("What the assumption means")
         body += table(["Quantity", "Value at assumed CdA 0.38", "Note"], [
             ("Range at 70 mph", "%s mi" % F["r70"], "146 Wh/mi"),
@@ -772,19 +781,19 @@ def build(doc_imgs):
             ("T3 break-even CdA", "about %s" % F["cda_break"], "T3 (at least 145 mi at 70 mph) fails above this"),
         ], cls="tight", widths=["34%", "30%", "36%"])
     else:
-        body += p("**Result.** CdA %s m\u00b2 with the rider; range %s mi at 70 mph and %s mi at 77 mph." % (AERO["cda"], AERO["r70"], AERO["r77"]))
+        body += p("CdA is %s m\u00b2 with the rider. Range is %s mi at 70 mph and %s mi at 77 mph." % (AERO["cda"], AERO["r70"], AERO["r77"]))
         if AERO.get("body"):
             body += callout(AERO["body"][:1500])
         if AERO.get("note"):
             body += p(AERO["note"], "small")
     body += fig(c_cda, "Figure 5.2. Range at 70 mph against CdA (257.3 kg re-run of the drive model; 25 C, flat, still air, 90 kg rider). The break-even CdA for the 145 mi target is about 0.407.", width="80%")
-    body += h2("Still to come from aero")
-    body += ul(["a V1 CdA with rider and its mesh convergence;", "cooling-duct pressure for the radiator model (the thermal study assumes a ram-air factor of 0.25);", "side force and centre of pressure for the gust analysis (dynamics currently assumes them)."])
+    body += h2("Still needed from aero")
+    body += ul(["A V1 CdA with rider and its mesh convergence.", "Cooling-duct pressure for the radiator model (the thermal study assumes a ram-air factor of 0.25).", "Side force and centre of pressure for the gust analysis (dynamics currently assumes them)."])
     D.add("Validation", "Aerodynamics", body, toc="sub", toc_title="Aerodynamics (pending)" if AERO["status"] != "done" else "Aerodynamics")
 
     # ---------------- validation: dynamics
     body = title("05 Validation", "Vehicle dynamics (15)", "Linear vehicle-dynamics model: weave, wobble, braking, launch, lean clearance, gusts. Run on rev D (247.9 kg).")
-    body += callout("**The one real stability problem: handlebar wobble.** With no damper it is unstable from 15 to 85 mph (damping ratio -0.11 to -0.15). A fixed damper that cures it removes weave damping at 130 mph. **A speed-scheduled semi-active damper cures both** (25 Nm\u00b7s/rad up to 50 mph, falling to 3 by 95 mph). Thinnest margins with it: wobble 0.039 and weave 0.028 (with luggage).")
+    body += callout("**Handlebar wobble is the one real stability problem.** With no damper it is unstable from 15 to 85 mph (damping ratio -0.11 to -0.15). A fixed damper that cures it removes weave damping at 130 mph. **A speed-scheduled semi-active damper fixes both** (25 Nm\u00b7s/rad up to 50 mph, falling to 3 by 95 mph). The thinnest margins with it are wobble 0.039 and weave 0.028 (with luggage).")
     body += table(["Item", "Result", "Criterion", "Verdict"], [
         ("Wobble and weave, scheduled damper", "weakest damping 0.028 (luggage case)", "positive (T8)", Raw('<span class="pill thin">Pass, thin</span>')),
         ("Stop from 60 / 77 mph at 1.0 g", "39.4 / 63.8 m", "inside UN R78", Raw('<span class="pill met">Pass</span>')),
@@ -798,7 +807,7 @@ def build(doc_imgs):
     if "dyn-damper-schedule.png" in I:
         body += fig(I["dyn-damper-schedule.png"], "Figure 5.3. Speed-scheduled damper (`damper-schedule.png`).", width="92%")
     body += h2("Limits")
-    body += p("Run on rev D at 247.9 kg, not re-run on rev E (the 177 mm pulley flange gives exactly the \u201cpegs + 3 degrees\u201d rule); hands-off rigid rider; fork stiffness, tyre properties, damping and the gust centre of pressure are estimates; no comfort or buffeting analysis. A failed damper (unscheduled state) is a safety case now in DFMEA D48 and test V53.", "small")
+    body += p("The model ran on rev D at 247.9 kg and was not re-run on rev E (the 177 mm pulley flange gives exactly the \u201cpegs + 3 degrees\u201d rule). The rider is rigid and hands-off. Fork stiffness, tyre properties, damping and the gust centre of pressure are estimates. There is no comfort or buffeting analysis. A failed damper (unscheduled state) is a safety case, now in DFMEA D48 and test V53.", "small")
     D.add("Validation", "Dynamics", body, toc="sub", toc_title="Vehicle dynamics")
 
     # ---------------- validation: drive
@@ -816,11 +825,11 @@ def build(doc_imgs):
     ], cls="tight", widths=["30%", "22%", "48%"])
     body += fig(c_pw, "Figure 5.4. Peak shaft power against state of charge at the 350 A DC cap. T5 (at least 90 kW) holds above about 10% charge at 25 C and is not met on a cold, nearly empty pack unless pre-warmed.", width="80%")
     body += h2("Limits")
-    body += p("The drive model\u2019s motor iron loss, efficiency map, pack resistance and 300 W of auxiliaries are estimates; flat road and still air. The EMRAX torque curve beyond its 5,500 rpm datasheet corner is a fitted model, and Gates rates the belt to 4,000 rpm (extrapolated to 6,262 rpm). The hand model in `07` gives 96 kW at 10% charge; the drive model gives 93 kW. Nothing here is verified by test.", "small")
+    body += p("Motor iron loss, the efficiency map, pack resistance and 300 W of auxiliaries are estimates, and the road is flat with still air. The EMRAX torque curve beyond its 5,500 rpm datasheet corner is a fitted model, and Gates rates the belt to 4,000 rpm (extrapolated to 6,262 rpm). The hand model in `07` gives 96 kW at 10% charge and the drive model gives 93 kW. Nothing here is verified by test.", "small")
     D.add("Validation", "Drive and performance", body, toc="sub", toc_title="Drive and performance")
 
     # ---------------- validation: electrical
-    body = title("05 Validation", "Electrical (07)", "Pack, HV system, charging, LV loads and harness.")
+    body = title("05 Validation", "Electrical (07)", "Pack, HV system, charging, LV loads and wiring.")
     body += table(["Item", "Result"], [
         ("Pack", "100s11p of P60B: 1,100 x 21.6 Wh = 23.76 kWh; 360 V nominal; 66 Ah"),
         ("Motor and inverter match", "Only the LV+43% winding makes full power at 360 V (650 A rms). The emDrive H100 gives about 29 kW continuous, so the Cascadia CM200DX was chosen at +3.25 kg (continuous power 61.6 kW, inverter-limited)"),
@@ -833,23 +842,23 @@ def build(doc_imgs):
     if "elec-lv-can.svg" in I:
         body += fig(I["elec-lv-can.svg"], "Figure 5.5. 12 V and CAN block diagram (`elec-lv-can.svg`).", width="100%")
     body += h2("Limits")
-    body += p("No supplier confirmed performance at the actual 360 V bus; the P60B fast-charge life is unconfirmed (the risk is reduced at a 2C cap, not retired); the BMS limits, regen and ABS blending, NACS handshake, charge derating, speed governor and damper schedule have no controls specification yet; the ledger and CAD still carry stale labels for the motor winding (\u201cHV\u201d, \u201cMV\u201d) and charger (3.3 kW).", "small")
+    body += p("No supplier has confirmed performance at the actual 360 V bus. The P60B fast-charge life is unconfirmed, and a 2C cap reduces that risk without retiring it. The BMS limits, regen and ABS blending, NACS handshake, charge derating, speed governor and damper schedule have no controls specification yet. The ledger and CAD still carry stale labels for the motor winding (\u201cHV\u201d, \u201cMV\u201d) and charger (3.3 kW).", "small")
     D.add("Validation", "Electrical", body, toc="sub", toc_title="Electrical")
 
     # ---------------- mass
     c_mb = chart_mass_budget(mass_rows)
-    body = title("06 Mass", "Mass: budget against actual", "Source: `program/data/mass-budget-report.csv`, `mass-rollup.json`, `parts-ledger.csv`, `bom-v1-reconcile.json`.")
+    body = title("06 Mass", "Mass, budget against actual", "Source: `program/data/mass-budget-report.csv`, `mass-rollup.json`, `parts-ledger.csv`, `bom-v1-reconcile.json`.")
     body += table(["System", "Budget kg", "Actual kg", "Headroom kg", "Headroom %", "Growth-adjusted kg", "Estimate share"],
                   [(r["budget_group"], r["budget_kg"], r["raw_kg"], r["headroom_kg"], r["headroom_pct"],
                     r["growth_adjusted_kg"] or "", ("%s%%" % r["estimate_share_pct"]) if r["estimate_share_pct"] else "") for r in mass_rows] +
                   [("Total", mass_tot["budget_kg"], mass_tot["raw_kg"], mass_tot["headroom_kg"], mass_tot["headroom_pct"], "about %s" % F["ledger_growth"], "")],
                   cls="tight", num_cols=(1, 2, 3, 4, 5, 6), total_last=True, widths=["26%", "11%", "11%", "13%", "12%", "16%", "11%"])
-    body += p("Estimate share is the ledger\u2019s own flag per group; the pack shows 0% because its cells are supplier data, but the pack case and internals (about 25 kg) are estimates.", "small")
+    body += p("Estimate share is the ledger\u2019s own flag per group. The pack shows 0% because its cells are supplier data, but the pack case and internals (about 25 kg) are estimates.", "small")
     body += fig(c_mb, "Figure 6.1. Budget against actual by system. The group budgets were re-set to the actuals when mass closed, so \u201cbudget pass\u201d shows the ledger is clean, not that mass is under control. Every group is flagged TIGHT.", width="92%")
     body += h2("Centre of gravity and sources")
-    body += p("Bike CG: **787 mm ahead of the rear axle, 529 mm high**; front/rear split 52.8 / 47.2 percent; unsprung mass 13.5 kg front and 19.3 kg rear. By source: **0 kg measured**, about 110 kg supplier, 75 kg calculated, 73 kg estimate (28%). The ledger\u2019s own growth rule (+15% on concept parts, +10% proposed) would give about 287 kg: a planning reference, not a forecast.")
-    body += callout("**Honest margin.** Headroom against T1 is %s kg (about 0.8%%). The first policy was 12 kg (5%%). Mass is a thin, unmeasured pass; the first weighed prototype is test V38." % F["headroom"])
-    D.add("Mass", "Mass", body, toc=True, num="06", toc_title="Mass: budget against actual")
+    body += p("The bike CG is **787 mm ahead of the rear axle and 529 mm high**, with a front/rear split of 52.8 / 47.2 percent. Unsprung mass is 13.5 kg front and 19.3 kg rear. By source, **0 kg is measured**, about 110 kg is supplier data, 75 kg is calculated and 73 kg is estimated (28%). The ledger\u2019s own growth rule (+15% on concept parts, +10% proposed) would give about 287 kg. That is a planning reference, not a forecast.")
+    body += callout("**The mass margin is thin.** Headroom against T1 is %s kg (about 0.8%%), against a first policy of 12 kg (5%%). Mass is an unmeasured pass, and the first weighed prototype is test V38." % F["headroom"])
+    D.add("Mass", "Mass", body, toc=True, num="06", toc_title="Mass, budget against actual")
 
     # ---------------- cost I
     g = cost["groups"]
@@ -870,7 +879,7 @@ def build(doc_imgs):
     body += table(["Per bike, USD", "100 / yr", "1,000 / yr", "10,000 / yr"], [(r[0],) + tuple("{:,.0f}".format(x) for x in r[1:]) for r in rows],
                   cls="tight", num_cols=(1, 2, 3), total_last=True, widths=["52%", "16%", "16%", "16%"])
     body += fig(c_cb, "Figure 7.1. Unit cost by system group at three volumes (material and purchased parts; labour, overhead, warranty and tooling excluded). Drive, pack and running gear are two thirds of the total.", width="95%")
-    body += p("Excluded from unit cost: NRE, dealer margin, outbound freight, financing, working capital, Supercharger network access, certification fees beyond the NRE line. At a $45k MSRP the 10k unit cost is 66% of MSRP before dealer margin.", "small")
+    body += p("Unit cost excludes NRE, dealer margin, outbound freight, financing, working capital, Supercharger network access and certification fees beyond the NRE line. At a $45k MSRP the 10k unit cost is 66% of MSRP before dealer margin.", "small")
     D.add("Cost", "Unit cost", body, toc=True, num="07", toc_title="Cost")
 
     # ---------------- cost II
@@ -884,7 +893,7 @@ def build(doc_imgs):
              ("Cells, motor, inverter at 1k prices", sens["stress: cells, motor, inverter stay at 1k-bike prices at 10k"]["10000"])]
     c_cs = chart_cost_sens(srows)
     body = title("07 Cost", "Sensitivities, levers and tooling")
-    body += fig(c_cs, "Figure 7.2. Unit cost at 10,000 / yr under single changes. The pass is fragile: it needs volume price breaks nobody has quoted, around 11 million cells a year at a $3.80 cell.", width="95%")
+    body += fig(c_cs, "Figure 7.2. Unit cost at 10,000 / yr under single changes. The pass is fragile. It needs volume price breaks nobody has quoted, around 11 million cells a year at a $3.80 cell.", width="95%")
     body += h2("Cost-down levers at 10k (dollars per bike)")
     body += table(["Lever", "Saving"], [(l[0], "{:,.0f}".format(l[1])) for l in cost["levers"]], cls="tight", num_cols=(1,), widths=["80%", "20%"])
     body += h2("One-off tooling and NRE (kept out of unit cost)")
@@ -892,9 +901,9 @@ def build(doc_imgs):
         ("Tooling and capital (parts tooling, pack line, vehicle line, test rigs)", "1.25 M", "3.67 M", "%.2f M" % (base["10000"]["tooling_total"] / 1e6)),
         ("NRE (engineering, specialists, prototypes, cell life, compliance)", "%.2f M" % (cost["nre_total"]["100"] / 1e6), "%.2f M" % (cost["nre_total"]["1000"] / 1e6), "%.2f M" % (cost["nre_total"]["10000"] / 1e6)),
     ], cls="tight", num_cols=(1, 2, 3), widths=["52%", "16%", "16%", "16%"])
-    body += p("The NRE is reused from an October startup-cost study, not re-derived; the verification plan (section 9) is about $%sM and is not reconciled with it. Largest 10k tooling items: pack line $3.0M, vehicle line $3.5M, frame jigs and robot cell $1.0M." % F["dvpr"], "small")
+    body += p("The NRE is reused from an October startup-cost study, not re-derived. The verification plan (section 9) is about $%sM and is not reconciled with it. The largest 10k tooling items are the pack line ($3.0M), the vehicle line ($3.5M) and frame jigs and robot cell ($1.0M)." % F["dvpr"], "small")
     body += h2("Key price assumptions")
-    body += p("P60B $3.80 at 10k (about $176/kWh; no published P60B price); EMRAX 228 $4,800 and CM200DX $3,200 at 10k (low-volume specialists, estimates); carbon wheel set $2,100 at 10k (47% of a $4.5k retail anchor); assembly 7.5 h at $45/h plus 60% overhead.", "small")
+    body += p("P60B is $3.80 at 10k (about $176/kWh; no published P60B price). EMRAX 228 is $4,800 and CM200DX $3,200 at 10k, both low-volume specialists and estimates. The carbon wheel set is $2,100 at 10k (47% of a $4.5k retail anchor). Assembly is 7.5 h at $45/h plus 60% overhead.", "small")
     D.add("Cost", "Sensitivities and tooling", body, toc=False)
 
     # ---------------- compliance + DFMEA
@@ -906,20 +915,18 @@ def build(doc_imgs):
     comp_rows = [r for r in comp_rows if not r[0].startswith("Total")]
     tot_vals = [sum(int(r[i]) for r in comp_rows) for i in (1, 2, 3, 4)]
     body = title("08 Compliance and safety", "Compliance (12)", "Standards matrix: FMVSS / NHTSA, EPA / CARB, battery, charging, functional safety, EU (later).")
-    body += p("**V1 can be sold in the US with no emissions certification, but it has not been tested against a single standard.** The US route is self-certification: the maker states the bike meets every applicable FMVSS and files with NHTSA. Nothing in the design blocks that. The EU route (type approval) is a separate, larger job and stays \u201clater\u201d. Everything below is paper.")
+    body += p("**V1 can be sold in the US with no emissions certification, but it has not been tested against a single standard.** The US route is self-certification: the maker states the bike meets every applicable FMVSS and files with NHTSA. Nothing in the design blocks that. The EU route (type approval) is a separate, larger job and stays \u201clater\u201d. Everything below is on paper.")
     body += table(["Area", "Rows", "Met by design", "Needs test", "Open"], [r for r in comp_rows] + [("Total", *[str(v) for v in tot_vals])],
                   cls="tight", num_cols=(1, 2, 3, 4), total_last=True, widths=["40%", "12%", "18%", "15%", "15%"])
-    body += ul(["**The battery is the compliance risk.** A 23.8 kWh, 108 kg pack needs UN 38.3 to ship; its safety case (propagation, vents, crush) is the least proven part.",
-                "**Functional safety is a process, not a part.** The BMS is not ISO 26262 certified; a hazard analysis, ASIL targets and fault-injection tests are needed before any production claim.",
-                "**Supercharger access is separate from the NACS connector** and is open.",
-                "**Lamps, mirrors and tyres.** The rev D/E CAD ran a 91-check envelope screen covering FMVSS 108, 111 and 123 geometry; it is not a certification test."])
+    body += p("The battery carries the compliance risk. A 23.8 kWh, 108 kg pack needs UN 38.3 to ship, and its safety case (propagation, vents, crush) is the least proven part of the design.")
+    body += p("Functional safety is a process, not a part. The BMS is not ISO 26262 certified, so a hazard analysis, ASIL targets and fault-injection tests are needed before any production claim. Supercharger access is separate from the NACS connector and is still open. The rev D/E CAD ran a 91-check envelope screen covering FMVSS 108, 111 and 123 geometry for lamps, mirrors and tyres. It is not a certification test.")
     # DFMEA
     hi = [r for r in dfmea if r["action_priority"] == "H"]
     superseded = {"D24", "D30"}          # EMRAX-housing-as-yoke rows, replaced by the steel yoke (D47)
     top = sorted([r for r in hi if r["id"] not in superseded], key=lambda r: -int(r["SxOxD"]))[:8]
     c_df = chart_dfmea(dfmea)
     body += h2("Design FMEA (13): top risks")
-    body += p("**%d rows: %d High, %d Medium, %d Low; none has been tested.** Two of the High rows (D24, D30) describe the earlier motor-housing yoke and are superseded by D47 (steel pivot yoke), so they are left out of the list below. Scores are engineering judgement on a paper design (AIAG-VDA style, S x O x D); detection scores are poor because most controls are analysis only." % (
+    body += p("**%d rows: %d High, %d Medium, %d Low. None has been tested.** Two of the High rows (D24, D30) describe the earlier motor-housing yoke and are superseded by D47 (steel pivot yoke), so the list below leaves them out. Scores are engineering judgement on a paper design (AIAG-VDA style, S x O x D). Detection scores are poor because most controls are analysis only." % (
         len(dfmea), len(hi), sum(r["action_priority"] == "M" for r in dfmea), sum(r["action_priority"] == "L" for r in dfmea)))
     body += table(["ID", "Item and failure", "S", "O", "D", "Test"], [
         (r["id"], "%s: %s" % (r["item"], r["failure_mode"]), r["severity"], r["occurrence"], r["detection"], r["dvpr_tests"].replace(";", ", ")) for r in top],
@@ -930,14 +937,14 @@ def build(doc_imgs):
     body = title("08 Compliance and safety", "Risk picture", "DFMEA summary by system and what the top risks mean.")
     body += fig(c_df, "Figure 8.1. DFMEA rows by system and priority (`dfmea-v1.csv`).", width="85%")
     body += h2("What the High risks have in common")
-    body += ul(["**Battery fire safety**: single-cell short, propagation, vent sizing and blockage, case crash strength (5 mm front wall adopted, only the 4 mm wall analysed), rock strike. All need physical tests (V01-V05, V18-V21, V43).",
-                "**The belt loop**: steel pivot yoke (D47), cast arm fatigue and the pivot bearings. The yoke test (V08, about $70k, 6 weeks) decides the chassis architecture and is first in the plan.",
-                "**Brakes**: 125 mph stopping and regen with ABS.",
-                "**Steering damper failure (D48)**: if the scheduled damper fails unscheduled, wobble is unstable from 15 to 85 mph. The defined fail-safe state is test V53.",
-                "**Active discharge**: the inverter bus takes about 88 s to fall below 60 V; the specification calls for under 3 s (test V13)."])
+    body += ul(["Battery fire safety covers a single-cell short, propagation, vent sizing and blockage, case crash strength (5 mm front wall adopted, only the 4 mm wall analysed) and rock strike. All need physical tests (V01 to V05, V18 to V21, V43).",
+                "The belt loop covers the steel pivot yoke (D47), cast arm fatigue and the pivot bearings. The yoke test (V08, about $70k, 6 weeks) decides the chassis architecture and is first in the plan.",
+                "Brakes cover 125 mph stopping and regen with ABS.",
+                "Steering damper failure (D48) matters because wobble is unstable from 15 to 85 mph if the scheduled damper fails unscheduled. The defined fail-safe state is test V53.",
+                "Active discharge is slow: the inverter bus takes about 88 s to fall below 60 V, and the specification calls for under 3 s (test V13)."])
     body += h2("Open compliance items")
-    body += ul(["Parts 565 / 566 / 567 filing and the FMVSS tests happen in the last phase (V52).",
-                "Process FMEA, ISO 26262 hazard analysis and FMEDA do not exist yet; ASIL levels are proposals.",
+    body += ul(["The Parts 565 / 566 / 567 filing and the FMVSS tests happen in the last phase (V52).",
+                "Process FMEA, ISO 26262 hazard analysis and FMEDA do not exist yet, and ASIL levels are proposals.",
                 "EPA noise, EMC, UN 38.3 and homologation dates are planning figures only."])
     D.add("Compliance and safety", "Risk picture", body, toc=False)
 
@@ -948,13 +955,13 @@ def build(doc_imgs):
         phases[r["phase"]] = phases.get(r["phase"], 0) + int(float(r["cost_usd_estimate"] or 0))
     tot_dvpr = sum(phases.values())
     tests = [r for r in dvpr if r["id"].startswith("V")]
-    body = title("09 Verification plan", "DVP&R (14)", "Design verification plan and report: every line is planned; nothing has been done.")
+    body = title("09 Verification plan", "DVP&R (14)", "Design verification plan and report. Every line is planned and nothing has been done.")
     body += kpis([("$%sM" % F["dvpr"], "US verification budget", "about $4.9M to $10.6M plausible range"),
                   ("%s months" % F["months"], "To pre-production confirmation", "about 118 weeks to filing"),
                   ("%d" % len(tests), "Test lines", "each High DFMEA risk has a test"),
                   ("3 + 8", "Mules and pre-production bikes", "12 extra test packs")])
-    body += p("**Plan shape.** Test first what can kill the design cheaply: the steel yoke proof (V08), then the pivot rig (V07), cast-arm fatigue (V06), cell 2C charge life (V01, 26 weeks) and lane-module propagation (V02). A decision gate at week 14 confirms yoke, pivot, vent and brake size before the mules are built. UN 38.3 (V17) must finish before packs travel.")
-    body += fig(c_tl, "Figure 9.1. Build-and-test timeline in weeks from go (`14-dvpr.md`).", width="100%")
+    body += p("The plan tests first what can kill the design cheaply: the steel yoke proof (V08), then the pivot rig (V07), cast-arm fatigue (V06), cell 2C charge life (V01, 26 weeks) and lane-module propagation (V02). A decision gate at week 14 confirms yoke, pivot, vent and brake size before the mules are built. UN 38.3 (V17) must finish before packs travel.")
+    body += fig(c_tl, "Figure 9.1. Build-and-test timeline in weeks from go (`14-dvpr.md`).", width="74%")
     body += h2("Budget by phase (from dvpr-v1.csv)")
     ph_order = ["component", "prototype", "pre-production"]
     us_total = sum(phases.get(k, 0) for k in ph_order)
@@ -964,7 +971,7 @@ def build(doc_imgs):
     if other > 0:
         rows.append(("EU add-on (later, not in the headline)", "${:,.0f}".format(other)))
     body += table(["Phase", "Cost"], rows, cls="tight", num_cols=(1,), widths=["70%", "30%"], hl_rows=(len(ph_order),))
-    body += p("The headline is about $7.04M; the phase total here is $40k higher because it includes test V53 (steering-damper fail-safe), added on Nov 22. The plan is not reconciled with the $32.4M NRE in the cost model. Costs are planning figures scaled from an earlier study, not lab quotes.", "small")
+    body += p("The headline is about $7.04M. The phase total here is $40k higher because it includes test V53 (steering-damper fail-safe), added on Nov 22. The plan is not reconciled with the $32.4M NRE in the cost model. Costs are planning figures scaled from an earlier study, not lab quotes.", "small")
     body += h2("Which test closes which target")
     body += table(["Target", "Closing tests", "Target", "Closing tests"], [
         ("T1 mass", "V38 (weigh every prototype), V06, V30, V31", "T6 charging", "V22, V23, V34"),
@@ -986,11 +993,11 @@ def build(doc_imgs):
          ("T8", "Comfort, 77 mph gust stability, positive damping", "met-thin", "positive damping only with the scheduled damper (0.028 thinnest); dynamics run at rev D mass; no comfort or buffeting analysis; not verified"),
          ("T9", "Unit cost at most $32k at 10k / yr", "met-thin", "$29.5k estimate; $32.3k with cells, motor and inverter at 1k prices; no quotes"),
          ("T10", "Frozen appearance direction", "met-thin", "direction kept; pods 55 mm proud, no R15 on the lower body, second flank line open (V1.1)")]
-    body = title("10 Targets", "Targets T1 to T10: honest verdicts", "From `00-V1-final-spec.md` and the independent review (`19-independent-review.md`).")
+    body = title("10 Targets", "Targets T1 to T10 and the verdict on each", "From `00-V1-final-spec.md` and the independent review (`19-independent-review.md`).")
     body += table(["#", "Target", "Verdict", "Evidence"], [(a, b, pill(c), d) for a, b, c, d in T], cls="tight", widths=["5%", "24%", "13%", "58%"])
-    body += p("**Key.** Met = supported by analysis with margin. Met, thin = passes on paper with little margin or on an assumption. Not met = fails as written. Not verified = no analysis on the exact claim. **Nothing in V1 is met by test.**", "small")
-    body += callout("**Summary.** One target is met on analysis (T2), eight are met thinly, and one (T7) is not verified. No target is rejected by the analysis, but two fatigue checks need a small wall increase and several claims rest on assumed inputs. That is a reasonable state for a paper design, and it is why the verification plan starts with the cheap tests that could kill the design.")
-    D.add("Targets", "Targets T1 to T10", body, toc=True, num="10", toc_title="Targets T1 to T10: verdicts")
+    body += p("Met means supported by analysis with margin. Met, thin means it passes on paper with little margin or on an assumption. Not met means it fails as written. Not verified means there is no analysis on the exact claim. **Nothing in V1 is met by test.**", "small")
+    body += callout("**One target is met on analysis (T2) and nine are met thinly.** No target is rejected by the analysis. The last fatigue fix (+0.45 kg of wall) was sized by scaling, and several claims rest on assumed inputs. That is a fair state for a paper design, and it is why the verification plan starts with the cheap tests that could kill the design.")
+    D.add("Targets", "Targets T1 to T10", body, toc=True, num="10", toc_title="Targets T1 to T10, verdicts")
 
     # ---------------- roadmap
     body = title("11 Roadmap", "V1.1 and beyond", "A V1 with a planned improvement path.")
@@ -1002,37 +1009,35 @@ def build(doc_imgs):
         ("Two-up variant", "Passenger seat, rear subframe and suspension, higher gross mass", "A second use case on the same platform", "Later; solo is the V1 load case"),
     ], cls="", widths=["14%", "34%", "32%", "20%"])
     body += h2("Why this order")
-    body += ul(["**Cells and drag move range**, the claim the bike is judged on, with no change to the architecture.",
-                "**The chassis levers move mass.** They were identified in the Gate A log, but none has been analysed, so about 10 kg is a candidate list, not a promise.",
-                "**Styling** is cheap and visible but touches tooling, so it is decided before any hard tooling is cut.",
-                "**Two-up** needs a re-run of structures, dynamics and brakes at a higher gross mass, so it follows a verified solo bike."])
+    body += p("Cells and drag come first because they move range, the claim the bike is judged on, with no change to the architecture. The chassis levers move mass. They were identified in the Gate A log, but none has been analysed, so about 10 kg is a candidate list, not a promise.")
+    body += p("Styling is cheap and visible but touches tooling, so I decide it before any hard tooling is cut. The two-up variant needs structures, dynamics and brakes re-run at a higher gross mass, so it follows a verified solo bike.")
     body += h2("Before V1.1 can start")
-    body += ul(["Aero result and a V1 CdA.", "Cell charge-life data from Molicel and supplier confirmation from EMRAX and Cascadia at the 360 V bus.", "The first weighed parts and the yoke proof test (V08).", "Re-run of structures and dynamics at the final mass and geometry."])
-    D.add("Roadmap", "Roadmap", body, toc=True, num="11", toc_title="Roadmap: V1.1 and beyond")
+    body += ul(["An aero result and a V1 CdA.", "Cell charge-life data from Molicel, and supplier confirmation from EMRAX and Cascadia at the 360 V bus.", "The first weighed parts and the yoke proof test (V08).", "A re-run of structures and dynamics at the final mass and geometry."])
+    D.add("Roadmap", "Roadmap", body, toc=True, num="11", toc_title="Roadmap, V1.1 and beyond")
 
     # ---------------- status and limitations
-    body = title("12 Status", "Status and limitations", "Stated plainly.")
-    body += callout("**This is a simulation- and analysis-based design. Nothing has been built or physically tested. Supplier prices are estimates and no supplier has quoted.** The design is coherent and carefully caveated; it is not a verified product.", dark=True)
+    body = title("12 Status", "Status and limitations", "What exists, what does not, and where V1 is weakest.")
+    body += callout("**This is a simulation- and analysis-based design. Nothing has been built or physically tested. Supplier prices are estimates and no supplier has quoted.** The design is coherent and carefully caveated, but it is not a verified product.", dark=True)
     body += h2("What exists")
     body += ul(["A CAD model (rev E, 91 of 91 envelope checks pass) and a 223-line bill of materials that ties to the parts ledger and mass roll-up at 257.9 kg.",
                 "Structures, thermal, dynamics, drive, electrical, cost, compliance, DFMEA and DVP&R studies, and an independent review of all of them.",
                 "Nine concept drawing sheets (not for manufacture)."])
     body += h2("What does not exist")
     body += ul(["No weighed part, no coast-down, no bench or crash test. The 257.9 kg is 0 kg measured.",
-                "No aerodynamic result: CdA is an assumption, so range is a calculation on an assumed input.",
-                "No supplier quote or confirmation (Molicel, EMRAX, Cascadia); the P60B fast-charge life above 2C is unknown.",
-                "No Supercharger or Plug and Charge access; native NACS is a connector and a protocol design.",
+                "No aerodynamic result. CdA is an assumption, so range is a calculation on an assumed input.",
+                "No supplier quote or confirmation (Molicel, EMRAX, Cascadia), and the P60B fast-charge life above 2C is unknown.",
+                "No Supercharger or Plug and Charge access. Native NACS is a connector and a protocol design.",
                 "No controls specification (BMS limits, regen and ABS blending, NACS handshake, damper schedule, limp mode, cybersecurity).",
                 "No wiring, hoses, ribbons or vents in the CAD; no motor mount or torque-reaction analysis; concept-level drawings (no GD&T, welds or fits).",
                 "Structures not fully re-run at the final mass; dynamics not re-run on rev E."])
     body += h2("Known weak points")
-    body += ul(["Mass headroom is 2.1 kg (0.8%); belt-to-tyre gap has zero margin; two fatigue checks need a small wall increase.",
+    body += ul(["Mass headroom is 2.1 kg (0.8%). The belt-to-tyre gap has zero margin, and two fatigue checks need a small wall increase.",
                 "T3 range passes only while CdA stays below about 0.407.",
                 "Wobble is stable only with a speed-scheduled damper (0.028 thinnest margin).",
-                "Cost passes by $2.5k on estimates; it misses by $0.3k if cells, motor and inverter stay at 1k prices.",
+                "Cost passes by $2.5k on estimates, and misses by $0.3k if cells, motor and inverter stay at 1k prices.",
                 "Competitor figures come from published pages, not from tests."])
     body += h2("About this document")
-    body += p("Prepared by Bavuso Motors. The engineering analysis was carried out with AI engineering agents (Claude) under the owner\u2019s direction; an independent reviewer agent checked the work and its findings are in `19-independent-review.md`. The authority for every number is `00-V1-final-spec.md`.", "")
+    body += p("Bavuso Motors prepared this dossier. AI engineering agents (Claude) carried out the engineering analysis under my direction, and an independent reviewer agent checked the work. Its findings are in `19-independent-review.md`. The authority for every number is `00-V1-final-spec.md`.", "")
     D.add("Status and limitations", "Status", body, toc=True, num="12", toc_title="Status and limitations")
 
     # ---------------- appendix: drawings
@@ -1049,7 +1054,7 @@ def build(doc_imgs):
     body += p("Concept-level, **not for manufacture**: no GD&T, weld symbols, surface finish, threads or fits. Seven sheets come from CAD solids and two (lid, cell holder) are derived concept shapes. Sheet masses are from an earlier ledger snapshot; the ledger, BOM and this dossier govern (the rolled-up total is 257.9 kg).", "small")
     if sheets:
         body += fig("assets/drawings/%s.png" % sheets[0], "Sheet 1: %s (%s)." % (pn_name[sheets[0]], sheets[0]), width="100%", cls="sheet")
-    D.add("Appendix", "Drawing pack", body, toc=True, num="13", toc_title="Appendix A: concept drawing pack")
+    D.add("Appendix", "Drawing pack", body, toc=True, num="13", toc_title="Appendix A, concept drawing pack")
     # remaining sheets, two per page
     rest = sheets[1:]
     for j in range(0, len(rest), 2):
@@ -1079,7 +1084,7 @@ def build(doc_imgs):
     docs.append(("17-aero.md", "Bavuso V1 aerodynamics", "done" if AERO["status"] == "done" else "pending"))
     docs = sorted(set(docs), key=lambda d: d[0])
     body += table(["File (program/)", "Title", "Status"], docs, cls="tight", widths=["24%", "52%", "24%"])
-    D.add("Appendix", "BOM and document index", body, toc="sub", toc_title="Appendix B: BOM summary; C: document index")
+    D.add("Appendix", "BOM and document index", body, toc="sub", toc_title="Appendices B and C, BOM and document index")
 
     return D
 
@@ -1095,9 +1100,9 @@ def toc_html(D):
     body += '<div class="rule"></div>'
     body += '<table class="toc"><tbody>%s</tbody></table>' % "".join(rows)
     body += h2("About this document")
-    body += p("This dossier presents the Bavuso V1 electric adventure-touring motorcycle as a design: what it is, why it has these numbers, how it was analysed and what the analysis does not prove. It is a design freeze at **Rev E, November 22, 2026**.")
-    body += p("**Credit.** Bavuso Motors. The engineering analysis was carried out with AI engineering agents (Claude) under the owner\u2019s direction.")
-    body += p("**Evidence labels.** Numbers carry one of four labels: measured, supplier, calculated, estimate. No part has been weighed and nothing has been tested, so there are no measured values from hardware. The single source of truth for every number is `program/00-V1-final-spec.md`.")
+    body += p("This dossier describes the Bavuso V1 electric adventure-touring motorcycle as a design. It covers what the bike is, why it has these numbers, how it was analysed and what the analysis does not prove. It is a design freeze at **Rev E, November 22, 2026**.")
+    body += p("Bavuso Motors prepared it. AI engineering agents (Claude) carried out the engineering analysis under my direction.")
+    body += p("Numbers carry one of four labels: measured, supplier, calculated or estimate. No part has been weighed and nothing has been tested, so no value comes from hardware. The single source for every number is `program/00-V1-final-spec.md`.")
     if AERO["status"] != "done":
         body += callout("**" + AERO_PENDING_TEXT + ".**")
     return body
@@ -1110,9 +1115,9 @@ def build_summary(I, D_main):
     # page 1
     b = ('<div style="display:flex;gap:0.25in;align-items:center;margin-bottom:10pt"><img src="%s" style="width:4.5in;flex:none;display:block">'
          '<div><div class="stamp">Bavuso Motors &middot; Summary</div>'
-         '<h1 style="font-size:19pt;margin-top:4pt">Bavuso V1: Electric Adventure-Touring Motorcycle</h1>'
-         '<div style="color:#6B7078;font-size:9.5pt">Rev E design freeze · November 22, 2026</div></div></div>') % (I.get("hero", ""),)
-    b += '<div class="lead" style="font-size:10pt">V1 is a <b>deliberate compromise</b>. The original goals, under 400 lb and 200 miles at 70 mph, cannot both be met with today\u2019s cells: 400 lb carries only about 11 kWh (about 74 mi) and 200 mi needs about 32 kWh and a 631 lb bike. V1 is the buildable optimum: <b>about 258 kg / 569 lb, 23.8 kWh, about 150 mi at 70 mph, 125 mph sustained, native NACS charging</b>, with a planned path to better range and lower mass.</div>'
+         '<h1 style="font-size:15pt;margin-top:4pt">Bavuso V1<br>Electric adventure-touring motorcycle</h1>'
+         '<div style="color:#6F6B66;font-size:9.5pt">Rev E design freeze, November 22, 2026</div></div></div>') % (I.get("hero", ""),)
+    b += '<div class="lead" style="font-size:10pt">Under 400 lb and 200 miles at 70 mph cannot both close with today\u2019s cells. A 400 lb bike carries only about 11 kWh (about 74 mi), and 200 mi needs about 32 kWh and a 631 lb bike. V1 is a <b>deliberate compromise</b>. I chose a buildable bike: <b>about 258 kg / 569 lb, 23.8 kWh, about 150 mi at 70 mph, 125 mph sustained and native NACS charging</b>, with a planned path to better range and lower mass.</div>'
     b += kpis([("%s kg" % F["mass_kg"], "Wet mass", "%s lb; T1 at most 260 kg" % F["mass_lb"]), ("%s kWh" % F["kwh_gross"], "Pack, gross", "%s kWh usable, %s V" % (F["kwh_usable"], F["volts"])),
                ("%s mi" % AERO["r70"], "Range, 70 mph", "calculated, CdA %s%s" % (AERO["cda"], " assumed" if AERO["status"] != "done" else "")), ("%s kW" % F["peak_kw"], "Peak power", "%s kW continuous" % F["cont_kw"]),
                ("%s s" % F["z60"], "0-60 mph", "calculated"), ("125 mph", "Sustained", "%s limit, governed %s" % (F["top"], F["gov"])),
@@ -1127,7 +1132,7 @@ def build_summary(I, D_main):
         b += callout("**" + AERO_PENDING_TEXT + "** (152.4 / 132.2 mi at 70 / 77 mph).")
     S.add("Summary", "Summary", b)
     # page 2
-    b = title("", "How it was designed, and what it proves")
+    b = title("", "What was designed and what it proves")
     b += cols2_summary()
     b += h2("Targets T1 to T10")
     short = [("T1", "Mass at most 260 kg", "met-thin", "257.9 kg; 2.1 kg headroom; nothing weighed"),
@@ -1141,9 +1146,9 @@ def build_summary(I, D_main):
              ("T9", "Unit cost at most $32k at 10k/yr", "met-thin", "$29.5k estimate; $32.3k at 1k cell, motor, inverter prices"),
              ("T10", "Frozen appearance", "met-thin", "pods, edge radii, second line open (V1.1)")]
     b += table(["#", "Target", "Verdict", "Evidence"], [(a, bb, pill(c), d) for a, bb, c, d in short], cls="tight", widths=["5%", "30%", "13%", "52%"])
-    b += h2("Roadmap: V1.1 and beyond")
-    b += p("Better cells (more range at the same mass), lower drag (aero refinement), a lighter chassis (about 10 kg of identified levers: wheels and brakes, short HV bus, aluminium yoke, cell-to-chassis pack, flush radiator pods), styling refinement (pods, edge radii) and a two-up variant.")
-    b += callout("**Status.** A simulation- and analysis-based design. Nothing has been built or physically tested; supplier prices are estimates. %s. The full dossier (`Bavuso-V1-Design-Dossier.pdf`) carries the validation, cost, compliance and verification detail. Prepared by Bavuso Motors; the engineering analysis was carried out with AI engineering agents (Claude) under the owner\u2019s direction." % aero_note)
+    b += h2("Roadmap, V1.1 and beyond")
+    b += p("Better cells add range at the same mass, and aero refinement lowers drag. A lighter chassis has about 10 kg of identified levers: wheels and brakes, a short HV bus, an aluminium yoke, a cell-to-chassis pack and flush radiator pods. Styling refinement (pods, edge radii) and a two-up variant follow.")
+    b += callout("**This is a simulation- and analysis-based design.** Nothing has been built or physically tested, and supplier prices are estimates. %s. The full dossier (`Bavuso-V1-Design-Dossier.pdf`) carries the validation, cost, compliance and verification detail. Bavuso Motors prepared it, with AI engineering agents (Claude) doing the engineering analysis under my direction." % aero_note)
     S.add("Summary", "Summary", b)
     return S
 
@@ -1157,12 +1162,12 @@ def cols2_summary():
         "Structures (FEA), thermal, dynamics, drive and electrical models; mass ledger tied to the BOM; independent review.",
         "Cost $29.5k at 10k/yr, $39.3k at 1k, $58.0k at 100 (estimates).",
         "91 of 91 CAD envelope checks; 45-row compliance matrix; 48-row DFMEA; $7.04M, 28-month verification plan."]) +
-        '</div><div>' + h2("Mass: 328 to 258 kg") + ul([
+        '</div><div>' + h2("Mass, 328 to 258 kg") + ul([
         "Concept ledger 328.4 kg, reconciled 319.6 kg, rev C CAD 255.3 kg, final 257.9 kg.",
-        "The pack, body panels and wiring gave most of the saving; the chassis grew to about 31 kg because the belt-on-one-side layout needs a steel yoke.",
-        "Mass headroom is 2.1 kg; the ledger\u2019s growth rule gives about 287 kg."]) + h2("Limits") + ul([
+        "The pack, body panels and wiring gave most of the saving. The chassis grew to about 31 kg because the belt-on-one-side layout needs a steel yoke.",
+        "Mass headroom is 2.1 kg, and the ledger\u2019s growth rule gives about 287 kg."]) + h2("Limits") + ul([
         "Range is calculated at an assumed CdA (break-even about 0.407).",
-        "Real-world range about 15-20% lower than calculated.",
+        "Real-world range is about 15 to 20% lower than calculated.",
         "No part weighed, no test run, no supplier quote.",
         "Supercharger access not established."]) + '</div></div>')
 
