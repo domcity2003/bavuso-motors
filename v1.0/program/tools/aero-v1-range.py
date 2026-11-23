@@ -41,11 +41,23 @@ else:
     R = json.load(open(os.path.join(OUT, 'aero-results.json')))
     cdas = [R['headline']['cda_m2']]
 res = {'check_vs_06': cruise_range(70, 0.38), 'note_check': '06-drive-performance.md quotes 154 mi at CdA 0.38 and 140 mi at 0.43'}
-res['at_cda'] = [cruise_range(70, c) for c in cdas]
+res['at_cda'] = [cruise_range(70, c) for c in cdas] + [cruise_range(77, c) for c in cdas]
 res['sensitivity'] = {f'{c:.2f}': cruise_range(70, c)['range_mi'] for c in (0.33, 0.38, 0.43, 0.48)}
-res['with_rev_E_mass_250.6kg'] = [cruise_range(70, c, mass_extra=10.57) for c in cdas]
+res['at_257.9kg_bike'] = [cruise_range(m, c, mass_extra=0.4) for c in cdas for m in (70, 77)]
+
 res['inputs'] = dict(bike_kg=dl.BIKE_KG, rider_kg=dl.RIDER_KG, crr=dl.CRR, aux_W=dl.AUX_W, rho=dl.RHO, pack_kwh=dl.PACK_KWH,
                      usable_soc=dl.USABLE_SOC, source='program/tools/drive-lib.py + cruise_range of drive-range.py (unchanged)')
 os.makedirs(OUT, exist_ok=True)
 json.dump(res, open(os.path.join(OUT, 'range-70mph.json'), 'w'), indent=1)
 print(json.dumps(res, indent=1))
+
+# hand the headline numbers to the dossier script: cda + range at 70 / 77 mph (bike 257.5 kg in drive-lib + 90 kg rider)
+rp = os.path.join(OUT, 'aero-results.json')
+if os.path.exists(rp):
+    R = json.load(open(rp))
+    c0 = cdas[0]
+    R['cda'] = c0
+    R['range_70_mi'] = cruise_range(70, c0)['range_mi']
+    R['range_77_mi'] = cruise_range(77, c0)['range_mi']
+    R['range_note'] = 'program/tools/aero-v1-range.py, drive-lib.py as found (bike 257.5 kg + 90 kg rider), CdA = finest-mesh value'
+    json.dump(R, open(rp, 'w'), indent=1)

@@ -6,13 +6,15 @@ November 22, 2026, US Central. Prepared by Claude Sonnet 5.5 (claude-sonnet-5-5)
 
 ## The plain answer
 
-V1 is a deliberate compromise: a buildable 257.9 kg (569 lb) solo adventure-touring EV with a 23.8 kWh pack, about 152 miles at 70 mph (calculated at an assumed CdA), a 135 mph speed limit and about 21-minute DC charging, instead of the brief's under-400 lb and 200-mile goals, which cannot both be met. It is a paper design with thin margins on mass, range and power, and nothing in it has been tested. The planned improvement path is better cells, lower drag, a lighter chassis and later a two-up variant.
+V1 is a deliberate compromise: a buildable 257.9 kg (569
+ lb) solo adventure-touring EV with a 23.8 kWh pack, about 132 miles at 70 mph (calculated on the CFD drag area of 0.46 m²; 139 mi at the extrapolated 0.43), a 135 mph speed limit and about 21-minute DC charging, instead of the brief's under-400 lb and 200-mile goals, which cannot both be met. It is a paper design with thin margins on mass and power, it misses the range target T3 (145 mi), and nothing in it has been tested. The planned improvement path is better cells, lower drag, a lighter chassis and later a two-up variant.
 
 ## Headline numbers
 
 | Quantity | Value | Source (document, section) | Type |
 |---|---|---|---|
-| Wet mass, no rider | **257.9 kg / 569 lb** (headroom 2.1 kg against T1) | `mass-rollup.json` `total_kg`; `parts-ledger.csv`; `bom-v1-reconcile.json` | calculated (0 kg measured; about 110 supplier, 75 calculated, 73 estimate) |
+| Wet mass, no rider | **257.9 kg / 569
+ lb** (headroom 2.1 kg against T1) | `mass-rollup.json` `total_kg`; `parts-ledger.csv`; `bom-v1-reconcile.json` | calculated (0 kg measured; about 110 supplier, 75 calculated, 73 estimate) |
 | Mass target T1 | <= 260 kg / 573 lb | `GATE-A-targets-locked.md` T1 and decision log | target |
 | Ledger growth-adjusted mass | about 287 kg | `data/mass-budget-report.csv` (ledger's own +15% concept, +10% proposed rule) | estimate, not a forecast |
 | Mass by system (kg) | pack 108.0, chassis about 31, running gear 43.2, drive 23.65, electronics 17.44, body and protection 14.4, cooling 6.9, wiring and fasteners 12.9 | `data/bom-v1-reconcile.json`; `mass-budget-report.csv` | calculated / estimate |
@@ -28,8 +30,8 @@ V1 is a deliberate compromise: a buildable 257.9 kg (569 lb) solo adventure-tou
 | 0-60 mph | **4.15 s** (4.44 s with 25 kg luggage; 5.47 s on a wet road) | `06` Final V1 update | calculated |
 | 0-100 km/h / 0-100 mph / 60-100 mph | 4.31 s / 7.26 s / 3.12 s | `06` Final V1 update | calculated |
 | Top speed | **135 mph limit** (6,500 rpm), governed at 130 mph; 125 mph sustained needs 43.5 kW at the wheel | `06` sections 1 and 2 | calculated (not verified) |
-| CdA | **PENDING AERO, currently calculated at assumed CdA 0.38** (unmeasured; `17-aero.md` does not exist yet) | `06`; `19-independent-review.md` section 2 | assumption |
-| Range at 70 / 77 mph | **PENDING AERO, currently calculated at assumed CdA 0.38: 152.4 / 132.2 mi** (flat, still air, 90 kg rider, 25 C). T3 fails above CdA about 0.407. Real-world about 15-20% lower | `06` Final V1 update | calculated |
+| CdA | **0.46 m² (finest of three meshes); band 0.43 to 0.46** (Richardson 0.430, GCI 8.3%; mesh convergence not met). The old assumption was 0.38 | `17-aero.md` | calculated |
+| Range at 70 / 77 mph | **131.8 / 113.4 mi at CdA 0.46** (138.8 / 119.8 mi at 0.43; flat, still air, 90 kg rider, 25 C). At the old assumed CdA 0.38 it was 152.4 / 132.2 mi. T3 fails above CdA about 0.407. Real-world about 15-20% lower | `17-aero.md`; `06` method | calculated |
 | DC charge 10-80% | **about 21 min** at 25 C, 2C cell cap (12 A per cell, about 137 A pack). Other conditions (`10-thermal.md`, 3C-cap model): 23.0 min at 35 C, 25.4 min at -10 C with the 3 kW heater (14.0 min pre-heated), 40.9 min at 45 C. At a 2C cap, 35 C takes 27.4 min | `06` Final V1 update; `10-thermal.md` | calculated |
 | AC charge | BROGEN PV1776 6.6 kW: 3.1 h for 10-90%, 2.7 h for 10-80%; no 120 V input on this unit class | `07` Final values | supplier / calculated |
 | NACS | Native J3400 inlet and DIN 70121 / ISO 15118 charge controller (design). **Supercharger access and Plug and Charge are not established** | `07` section 3 | design / open |
@@ -58,8 +60,8 @@ Key: **met** = supported by analysis with margin; **met-thin** = passes on paper
 |---|---|---|---|
 | T1 | Wet mass <= 260 kg | **Met-thin** | 257.9 kg, headroom 2.1 kg; nothing weighed; 28% estimate; the ledger's growth rule gives about 287 kg; group budgets were re-set to actuals, so "budget pass" proves little |
 | T2 | Pack 100s11p, 23.8 kWh, 360 V, <= 108 kg | **Met (revised)** | 23.76 / 21.4 kWh, 360 V, 108.0 kg; revised from 370 V / 103 kg on Nov 22 |
-| T3 | Range >= 145 mi at 70 mph | **Met-thin, not verified** | 152.4 mi at assumed CdA 0.38; fails above CdA about 0.407; aero pending |
-| T4 | 125 mph sustained, governed 130 | **Met-thin, not verified** | 135 mph limit, 2.4x power margin; 25 C thermal passes in two models; at 38 C derates to about 105 mph |
+| T3 | Range >= 145 mi at 70 mph | **Not met** | 131.8 mi at the CFD CdA 0.46 (138.8 mi at 0.43); needs CdA about 0.407 or less; the gap comes mainly from the larger design rider. Lower drag is the first V1.1 lever |
+| T4 | 125 mph sustained, governed 130 | **Met-thin, not verified** | 135 mph limit; 25 C thermal passes in two models at CdA 0.38; at CdA 0.46, 125 mph needs about 52 kW at the wheel (scaled from 43.5 kW) against 61.6 kW continuous, thermal not re-run; at 38 C derates to about 105 mph |
 | T5 | >= 90 kW peak, >= 55 kW continuous | **Met-thin** | 124 kW at high charge; 93 kW at 10% SOC and 87 kW at 5% (25 C, 350 A cap); 86 kW or less cold at low charge; continuous 61.6 kW, below 56 kW under 103 mph |
 | T6 | Native NACS, DC 10-80% <= 25 min, AC >= 3.3 kW | **Met-thin, not verified** | about 21 min at 25 C and a 2C cap; the 35 C and cold figures lean on a 3C cap the cell data does not confirm; AC 6.6 kW booked; Supercharger access not established |
 | T7 | Solo 90 kg + 25 kg luggage | **Met, thin** | FEA Round 3 (`09-structures.md`) at 257.3 kg + 90 kg rider + 25 kg luggage, yoke at Z545: all strength cases pass after +0.45 kg of wall increases (D1 arm SF about 1.25 vs 1.2; fatigue Miner D ≤ 0.5). Not tested. The rider is 1,755 mm, about the adult male average (not the 95th percentile) |
@@ -69,7 +71,7 @@ Key: **met** = supported by analysis with margin; **met-thin** = passes on paper
 
 ## Open items carried forward
 
-- **PENDING AERO:** CdA, range at 70 / 77 mph, cooling-duct pressure and gust side force wait for `17-aero.md`. The lead finalises them.
+- **Aero (`17-aero.md`, Nov 22):** CdA 0.43 to 0.46 m², T3 not met. Still open: a fourth mesh, the opposite-side yaw case, a closed duct for the radiator pods (CFD flow goes outward through the cores; thermal assumed inward ram air), and a dynamics gust re-run with the CFD side force (149 N at 10 degrees yaw, centre of pressure 1.04 m ahead of the rear axle, 0.67 m high; dynamics assumed 0.80 m and 0.95 m).
 - Ledger follow-ups: 70 mm2 motor phase cables (about +0.3 kg) are not booked; the ledger and CAD names for the motor ("HV", "MV") and charger (`OBC_3p3kW`) are stale labels; the cost sheet still labels the rear disc 245 x 5 and the cable set 35 mm2.
 - Structures were not re-run at the final mass or at the yoke's built height of Z545; dynamics were not re-run on rev E (the 177 mm pulley flange gives 48.6 deg, exactly the "pegs + 3 deg" rule).
 - Nothing measured: no weighed part, no coast-down, no bench or crash test; P60B charge life above 2C and all supplier confirmations are missing.

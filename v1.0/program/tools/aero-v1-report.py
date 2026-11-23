@@ -76,7 +76,7 @@ def case_result(case):
     res['solver_hours'] = round(float(et[-1]) / 3600, 2) if et else None
     return res, hist, q, ehat
 
-cases = sorted([p for p in RUN.iterdir() if p.is_dir() and (p / 'DONE').exists()])
+cases = sorted([p for p in RUN.iterdir() if p.is_dir() and (p / 'DONE').exists() and (p / 'case.json').exists()])
 results = {}; hists = {}
 for c in cases:
     r, h, q, e = case_result(c); results[c.name] = r; hists[c.name] = (h, q, e)
@@ -191,6 +191,7 @@ if len(seq) >= 2:
 # ---------------------------------------------------------------- VTK pictures and pod analysis (finest 0-degree case)
 import vtk
 from vtk.util.numpy_support import vtk_to_numpy
+vtk_name = [n for n in seq if list((RUN / n / 'VTK' / 'screen').glob('screen_[1-9]*.vtk'))][-1]; best_name = vtk_name; best = results[best_name]
 bc = RUN / best_name; U0 = best['air_speed_ms']; Q = best['q_Pa']
 def faces(case, part):
     f = sorted((case / 'VTK' / part).glob(f'{part}_[1-9]*.vtk'))[-1]
@@ -256,7 +257,7 @@ def foam_field(path):
     i = b_.index(b'internalField'); head = b_[i:i + 200].decode('latin1')
     m = re.search(r'List<(\w+)>\s*(\d+)\s*\(', head)
     typ, n = m.group(1), int(m.group(2)); start = i + m.end()
-    if b'format      binary' in b_[:400] or b'format binary' in b_[:400]:
+    if re.search(rb'format\s+binary', b_[:1500]):
         k = 3 if typ == 'vector' else 1
         return np.frombuffer(b_, dtype='<f8', count=n * k, offset=start).reshape(n, k)
     txt = b_[start:].decode('latin1').split(')\n;')[0]

@@ -3,7 +3,7 @@
 November 21, 2026, US Central. Decided by Claude Opus 5.5 (program lead), on the owner's instruction to complete V1. The evidence is in `01-targets.md`, `02-hardware.md` and `03-mass-ledger.md`. The owner can revise these targets later.
 
 ## The plain answer
-**V1 is a 258 kg (569 lb) solo adventure-touring EV** (final roll-up 257.9 kg against T1 ≤ 260 kg; the program started from a 240 kg target, see the decision log). It does about 150 miles at 70 mph (calculated at the assumed CdA), reaches 125+ mph, and charges 10–80% in about 20 minutes on native NACS.
+**V1 is a 258 kg (569 lb) solo adventure-touring EV** (final roll-up 257.9 kg against T1 ≤ 260 kg; the program started from a 240 kg target, see the decision log). It does about 132 miles at 70 mph (calculated on the CFD drag area; target T3 is missed, see the decision log), reaches 125+ mph, and charges 10–80% in about 20 minutes on native NACS.
 
 It replaces the brief's "under 400 lb + 200 mi" targets, which cannot both be met:
 - At 400 lb the bike carries about 11 kWh, enough for roughly 74 miles.
@@ -67,6 +67,7 @@ The final V1 sits about 6 lb under the Energica Experia (573 lb), 23 lb over the
   
   **Final V1 roll-up: 257.9 kg / 569 lb (after the rear disc and the structures Round 3 walls). T1 is now ≤ 260 kg / 573 lb.** Budgets are in `data/budgets.csv`, with about 2.7 kg of true headroom; `budget_pass` and `ledger_clean` are both true. That is on par with the Energica Experia (260 kg) and about 4% heavier than the Zero DSR/X, while carrying about 38% more energy than the DSR/X. The V1.1 levers above (about 10 kg) still apply.
 - **Nov 22: steering damper.** Speed-scheduled semi-active damper (`15-dynamics.md`). Without it the model shows wobble from 15 to 85 mph.
+- **Nov 22: aero result, T3 not met.** CFD on rev E with the 90 kg rider (`17-aero.md`) gives CdA 0.46 m² on the finest mesh and 0.43 extrapolated, against the 0.38 the range target assumed. Range at 70 mph is 131.8 mi (138.8 at 0.43) against T3's 145 mi. I keep T3 as written and record the miss. The cause is mostly the larger design rider (frontal area 0.824 m² against 0.766). Lower drag (screen, rider pocket, pods with closed ducts) is the first V1.1 lever; CdA 0.38 restores about 152 mi.
 - **Nov 22: look frozen at rev E.** Open items go to V1.1:
   - pods 55 mm proud;
   - no R15 edges on the lower body;

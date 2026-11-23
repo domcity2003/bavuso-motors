@@ -118,7 +118,7 @@ def save(fig, name):
 def chart_target_tradeoff():
     # three anchor points quoted in Gate A and 01-targets.md
     pts = [("Original goal A:\nunder 400 lb", 400, 74, "11 kWh, about 74 mi"),
-           ("V1 (chosen)", 569, 152.4, "23.8 kWh, 152 mi (calculated)"),
+           ("V1 (chosen)", 569, 131.8, "23.8 kWh, 132 mi (CFD drag)"),
            ("Original goal B:\n200 mi", 631, 200, "32 kWh, 631 lb")]
     fig, ax = plt.subplots(figsize=(6.6, 2.5))
     ax.plot([p[1] for p in pts], [p[2] for p in pts], color=LIGHT, lw=2, zorder=1)
@@ -215,14 +215,15 @@ def chart_cost_sens(rows):
 
 
 def chart_range_cda():
-    pts = [(0.38, 152.4), (0.40, 147.0), (0.41, 143.9), (0.43, 138.8)]
+    pts = [(0.38, 152.4), (0.40, 147.0), (0.41, 143.9), (0.43, 138.8), (0.46, 131.8)]
     fig, ax = plt.subplots(figsize=(5.6, 2.6))
     ax.plot([p[0] for p in pts], [p[1] for p in pts], color=INK, lw=1.6, marker="o", ms=4)
     ax.axhline(145, color=GREY, ls="--", lw=1); ax.text(0.3805, 145.6, "T3 floor: 145 mi", fontsize=7.5, color=GREY)
     ax.axvline(0.407, color=ACCENT, lw=1); ax.text(0.4085, 150.2, "break-even\nCdA about 0.407", fontsize=7.5, color=ACCENT)
     if AERO["status"] == "done":
         ax.scatter([float(AERO["cda"])], [float(AERO["r70"])], color=ACCENT, s=60, zorder=4)
-        ax.annotate("aero result", (float(AERO["cda"]), float(AERO["r70"])), xytext=(6, 6), textcoords="offset points",
+        ax.axvspan(0.43, 0.46, color=ACCENT, alpha=0.08, lw=0); ax.text(0.4315, 151.0, "CFD band\n0.43 to 0.46", fontsize=7.5, color=ACCENT)
+        ax.annotate("CFD, finest mesh\nCdA 0.46, 132 mi", (float(AERO["cda"]), float(AERO["r70"])), xytext=(-78, 4), textcoords="offset points",
                     fontsize=8, color=ACCENT)
     else:
         ax.scatter([0.38], [152.4], color=ACCENT, s=60, zorder=4)
@@ -551,7 +552,7 @@ def build(doc_imgs):
         ("about %s mi at 70 mph at a CdA of %s" % (AERO["r70"], AERO["cda"]))
     body = title("01 Executive summary", "A deliberate compromise that can be built")
     body += '<div class="lead">Under 400 lb and 200 miles at 70 mph cannot both close with today\u2019s cells. A 400 lb bike carries about 11 kWh, enough for about 74 miles, and 200 miles needs about 32 kWh and a 631 lb bike. V1 is a <b>deliberate compromise</b> between the two.</div>'
-    body += p("I chose a buildable bike: **about 258 kg / 569 lb, a 23.8 kWh pack, about 150 miles at 70 mph, 125 mph sustained and native NACS fast charging.** It is a V1 with a planned improvement path (section 11): better cells, lower drag, a lighter chassis and, later, a two-up variant.")
+    body += p("I chose a buildable bike: **about 258 kg / 569 lb, a 23.8 kWh pack, about 130 miles at 70 mph, 125 mph sustained and native NACS fast charging.** Range came in under my 145-mile target once the airflow analysis gave a real drag figure, and I say so in section 10. It is a V1 with a planned improvement path (section 11): better cells, lower drag, a lighter chassis and, later, a two-up variant.")
     body += kpis([("%s kg" % F["mass_kg"], "Wet mass, no rider", "%s lb; target at most 260 kg" % F["mass_lb"]),
                   ("%s kWh" % F["kwh_gross"], "Pack energy, gross", "%s kWh usable, %s V, 100s11p" % (F["kwh_usable"], F["volts"])),
                   ("%s mi" % AERO["r70"], "Range at 70 mph", "calculated at CdA %s%s" % (AERO["cda"], " (assumed)" if AERO["status"] != "done" else "")),
@@ -563,7 +564,7 @@ def build(doc_imgs):
     body += h2("What V1 is")
     body += p("V1 is a solo adventure-touring motorcycle. It has a Molicel P60B 21700 pack (100s11p, 1,100 cells) in a structural aluminium case that forms the lower body, an EMRAX 228 axial-flux motor with a Cascadia CM200DX inverter, and a single 8 mm Gates belt at 3.60:1. The frame is steel tube with cast nodes and a steel pivot yoke, with a cast single-sided swingarm. V1 is level with the Energica Experia (260 kg) and about 4% heavier than the Zero DSR/X (247 kg). It carries about 38% more energy than the DSR/X.")
     body += h2("How far the evidence goes")
-    body += p("The design is **coherent and checked on paper**. The parts ledger, the bill of materials and the CAD roll-up agree on %s kg, and structures, thermal, dynamics, drive, electrical and cost models were run on it. **Nothing is built, weighed or tested**, supplier prices are estimates, and several margins are thin (mass headroom %s kg, range break-even at CdA about %s). The aerodynamic result is still pending. Sections 10 and 12 give the verdict on each target and the limits." % (F["mass_kg"], F["headroom"], F["cda_break"]))
+    body += p("The design is **coherent and checked on paper**. The parts ledger, the bill of materials and the CAD roll-up agree on %s kg, and structures, thermal, dynamics, drive, electrical and cost models were run on it. **Nothing is built, weighed or tested**, supplier prices are estimates, and several margins are thin (mass headroom %s kg). **One target is missed: the CFD drag area is 0.43 to 0.46 m\u00b2 against the 0.38 the range target assumed, so range at 70 mph is about 132 to 139 mi against 145 (T3).** Sections 10 and 12 give the verdict on each target and the limits." % (F["mass_kg"], F["headroom"]))
     if AERO["status"] != "done":
         body += callout("**" + AERO_PENDING_TEXT + "** (152.4 mi at 70 mph, 132.2 mi at 77 mph). Treat range as a calculation, not a finding.")
     D.add("Executive summary", "Executive summary", body, toc=True, num="01")
@@ -581,8 +582,8 @@ def build(doc_imgs):
         ("0-60 mph", "%s s (%s s with 25 kg luggage; %s s on a wet road)" % (F["z60"], F["z60_lug"], F["z60_wet"]), "calculated"),
         ("0-100 km/h / 0-100 mph / 60-100 mph", "%s s / %s s / %s s" % (F["z100kmh"], F["z100mph"], F["r60_100"]), "calculated"),
         ("Top speed", "%s mph limit (6,500 rpm), governed at %s mph; 125 mph needs %s kW at the wheel" % (F["top"], F["gov"], F["p125"]), "calculated"),
-        ("CdA", ("%s m\u00b2 assumed (aero pending)" % AERO["cda"]) if AERO["status"] != "done" else "%s m\u00b2 (aero result)" % AERO["cda"], "assumption" if AERO["status"] != "done" else "calculated"),
-        ("Range at 70 / 77 mph", "%s / %s mi (flat, still air, 90 kg rider, 25 C). Real-world about 15 to 20%% lower%s" % (AERO["r70"], AERO["r77"], ("; fails T3 above CdA about " + F["cda_break"]) if AERO["status"] != "done" else ""), "calculated"),
+        ("CdA", ("%s m\u00b2 assumed (aero pending)" % AERO["cda"]) if AERO["status"] != "done" else "%s m\u00b2 (CFD, finest of three meshes; extrapolated 0.43)" % AERO["cda"], "assumption" if AERO["status"] != "done" else "calculated"),
+        ("Range at 70 / 77 mph", "%s / %s mi (flat, still air, 90 kg rider, 25 C). Real-world about 15 to 20%% lower%s" % (AERO["r70"], AERO["r77"], ("; fails T3 above CdA about " + F["cda_break"]) if AERO["status"] != "done" else "; misses T3 (145 mi)"), "calculated"),
         ("DC charging 10-80%", "about %s min at 25 C, 2C cell cap (23.0 min at 35 C, 25.4 min at -10 C with heater, 40.9 min at 45 C)" % F["chg"], "calculated"),
         ("AC charging / NACS", "BROGEN PV1776 6.6 kW (3.1 h for 10-90%); native J3400 inlet, DIN 70121 / ISO 15118 controller. Supercharger access not established", "supplier / design"),
         ("Brakes", "320 x 5 mm front discs, 267 x 5 mm rear disc; front discs 362-375 C in a 125-0 mph stop (limit about 450 C)", "measured (CAD) / calculated"),
@@ -618,7 +619,7 @@ def build(doc_imgs):
     body += ul([
         "**Mass.** V1 is level with the Experia, about 4% (10 kg) heavier than the DSR/X and 44 lb over the petrol GS. It beats none of them on weight. It matches the electric class while carrying more energy.",
         "**Energy.** 23.76 kWh is about 38% more than the DSR/X (17.3 kWh) and about 6% more than the Experia (22.5 kWh).",
-        "**Range.** A calculated 152 mi at 70 mph does not compare directly with maker claims. Real-world V1 range should be about 120 to 130 mi.",
+        "**Range.** A calculated 132 mi at 70 mph does not compare directly with maker claims. Real-world V1 range should be about 105 to 115 mi.",
         "**Charging.** V1 is designed around a native NACS inlet. The Experia uses CCS and the DSR/X has no DC fast charging. Supercharger network access is not established for V1.",
     ])
     body += h2("Why V1 gives up 400 lb")
@@ -781,14 +782,24 @@ def build(doc_imgs):
             ("T3 break-even CdA", "about %s" % F["cda_break"], "T3 (at least 145 mi at 70 mph) fails above this"),
         ], cls="tight", widths=["34%", "30%", "36%"])
     else:
-        body += p("CdA is %s m\u00b2 with the rider. Range is %s mi at 70 mph and %s mi at 77 mph." % (AERO["cda"], AERO["r70"], AERO["r77"]))
-        if AERO.get("body"):
-            body += callout(AERO["body"][:1500])
-        if AERO.get("note"):
-            body += p(AERO["note"], "small")
-    body += fig(c_cda, "Figure 5.2. Range at 70 mph against CdA (257.3 kg re-run of the drive model; 25 C, flat, still air, 90 kg rider). The break-even CdA for the 145 mi target is about 0.407.", width="80%")
-    body += h2("Still needed from aero")
-    body += ul(["A V1 CdA with rider and its mesh convergence.", "Cooling-duct pressure for the radiator model (the thermal study assumes a ram-air factor of 0.25).", "Side force and centre of pressure for the gust analysis (dynamics currently assumes them)."])
+        body += callout("**The drag area of V1 with its rider is 0.43 to 0.46 m\u00b2, not the 0.38 the range target assumed.** At 0.46 the bike does %s mi at 70 mph and %s mi at 77 mph, so T3 (145 mi) is missed by about 13 mi. The main cause is the larger design rider: frontal area is 0.824 m\u00b2 against 0.766 in the earlier study." % (AERO["r70"], AERO["r77"]), dark=True)
+        body += p("I ran OpenFOAM (steady RANS, k-omega SST, moving road, rotating wheels) on the rev E bike with the 90 kg upright rider at 70 mph, on three meshes. CdA fell as the mesh got finer, so I quote the finest mesh and the extrapolated value as a band.")
+        body += table(["Mesh", "Cells", "CdA, m\u00b2", "Note"], [
+            ("Coarse", "0.90 M", "0.503", ""),
+            ("Medium", "1.68 M", "0.478", "\u22125.1%"),
+            ("Fine", "3.25 M", "0.460", "\u22123.7% (goal 2%)"),
+            ("Extrapolated", "", "0.430", "GCI 8.3%"),
+        ], cls="tight", widths=["22%", "18%", "20%", "40%"])
+        body += table(["Quantity", "Result", "What it changes"], [
+            ("Range at 70 / 77 mph, CdA 0.46", "%s / %s mi" % (AERO["r70"], AERO["r77"]), "T3 not met"),
+            ("Range at 70 / 77 mph, CdA 0.43", "138.8 / 119.8 mi", "T3 still not met"),
+            ("Wheel power at 125 mph", "about 52 kW (scaled from 43.5 kW)", "still under 61.6 kW continuous; thermal not re-run"),
+            ("Side wind, 10 degrees yaw", "149 N; centre of pressure 1.04 m ahead of the rear axle, 0.67 m high", "dynamics assumed 0.80 m and 0.95 m; gust case to re-run"),
+            ("Radiator pods", "flow goes outward through the cores, about 6.2 m/s", "thermal assumed inward ram air; pods need a closed duct"),
+        ], cls="tight", widths=["30%", "38%", "32%"])
+    body += fig(c_cda, "Figure 5.2. Range at 70 mph against CdA (257.3 kg re-run of the drive model; 25 C, flat, still air, 90 kg rider). The break-even CdA for the 145 mi target is about 0.407; the shaded band is the CFD result.", width="58%")
+    body += h2("Still open in aero")
+    body += ul(["A fourth mesh (about 6 M cells) to close mesh convergence, and the opposite-side yaw case.", "A closed duct for the radiator pods, then a thermal re-run with the real core flow.", "A dynamics re-run of the gust case with the CFD side force and centre of pressure.", "A wind-tunnel or coast-down check. Nothing here is measured."])
     D.add("Validation", "Aerodynamics", body, toc="sub", toc_title="Aerodynamics (pending)" if AERO["status"] != "done" else "Aerodynamics")
 
     # ---------------- validation: dynamics
@@ -802,7 +813,7 @@ def build(doc_imgs):
         ("Front disc, three 0.6 g stops", "444 / 460 C", "450 C", Raw('<span class="pill thin">Marginal</span>')),
         ("Lean clearance, pegs", "45.2-45.6 degrees", "45-50 degrees", Raw('<span class="pill met">Pass</span>')),
         ("Lean, belt-side pulley flange", "48.6 degrees after the flange moved 181 to 177 mm", "pegs + 3 degrees", Raw('<span class="pill thin">Exactly at the rule</span>')),
-        ("Sidewind 10 m/s at 77 mph", "lean 9.7 degrees, 5 Nm on the bars", "10 Nm screen", Raw('<span class="pill thin">Pass, assumed CoP</span>')),
+        ("Sidewind 10 m/s at 77 mph", "lean 9.7 degrees, 5 Nm on the bars (CoP assumed 0.80 m; CFD gives 1.04 m, re-run open)", "10 Nm screen", Raw('<span class="pill thin">Pass, assumed CoP</span>')),
     ], cls="tight", widths=["30%", "34%", "17%", "19%"])
     if "dyn-damper-schedule.png" in I:
         body += fig(I["dyn-damper-schedule.png"], "Figure 5.3. Speed-scheduled damper (`damper-schedule.png`).", width="92%")
@@ -820,7 +831,7 @@ def build(doc_imgs):
         ("Top speed", "%s mph limit" % F["top"], "6,500 rpm limit, not power; governed at %s mph" % F["gov"]),
         ("Wheel power at 125 / 130 mph", "%s / 48.7 kW" % F["p125"], "2.4x power margin at 125 mph"),
         ("Peak / continuous power", "%s kW / %s kW" % (F["peak_kw"], F["cont_kw"]), "continuous is inverter-limited and below 56 kW under 103 mph"),
-        ("Range, 70 / 77 / 125 mph", "%s / %s / 56.9 mi" % (AERO["r70"], AERO["r77"]), "at CdA %s%s" % (AERO["cda"], " (assumed)" if AERO["status"] != "done" else "")),
+        ("Range, 70 / 77 mph", "%s / %s mi" % (AERO["r70"], AERO["r77"]), "at CdA %s%s" % (AERO["cda"], " (assumed)" if AERO["status"] != "done" else "")),
         ("DC charge 10-80%", "about %s min" % F["chg"], "25 C, 2C cell cap, 51 kW average"),
     ], cls="tight", widths=["30%", "22%", "48%"])
     body += fig(c_pw, "Figure 5.4. Peak shaft power against state of charge at the 350 A DC cap. T5 (at least 90 kW) holds above about 10% charge at 25 C and is not met on a cold, nearly empty pack unless pre-warmed.", width="80%")
@@ -985,8 +996,8 @@ def build(doc_imgs):
     # ---------------- targets verdict
     T = [("T1", "Wet mass at most 260 kg", "met-thin", "257.9 kg, headroom 2.1 kg; nothing weighed; 28% estimate; the ledger\u2019s growth rule gives about 287 kg; group budgets were re-set to actuals"),
          ("T2", "Pack 100s11p, 23.8 kWh, 360 V, at most 108 kg", "met", "23.76 / 21.4 kWh, 360 V, 108.0 kg (revised Nov 22 from 370 V / 103 kg). Met on analysis; cells are supplier data, case and internals are estimates"),
-         ("T3", "Range at least 145 mi at 70 mph", "met-thin", ("152.4 mi at an assumed CdA 0.38 (aero pending); fails above CdA about 0.407" if AERO["status"] != "done" else "%s mi at CdA %s from the aero result (see section 5); fails above CdA about 0.407" % (AERO["r70"], AERO["cda"])) + "; not verified"),
-         ("T4", "125 mph sustained, governed 130", "met-thin", "135 mph limit, 2.4x power margin; 25 C thermal passes in two models; at 38 C derates to about 105 mph; not verified"),
+         ("T3", "Range at least 145 mi at 70 mph", "not met", "%s mi at the CFD CdA of 0.46 (138.8 mi at the extrapolated 0.43); the target needs CdA about 0.407 or less; lower drag is the first V1.1 lever" % AERO["r70"]),
+         ("T4", "125 mph sustained, governed 130", "met-thin", "135 mph limit; 25 C thermal passes in two models at CdA 0.38; at the CFD drag, 125 mph needs about 52 kW at the wheel against 61.6 kW continuous (thermal not re-run); at 38 C derates to about 105 mph; not verified"),
          ("T5", "At least 90 kW peak, 55 kW continuous", "met-thin", "124 kW at high charge; 93 kW at 10% charge and 87 kW at 5% (25 C); 86 kW or less cold at low charge; continuous 61.6 kW, below 56 kW under 103 mph"),
          ("T6", "Native NACS; DC 10-80% in 25 min or less; AC 3.3 kW or more", "met-thin", "about 21 min at 25 C and a 2C cap; 35 C and cold figures lean on a 3C cap the cell data does not confirm; AC 6.6 kW; Supercharger access not established; not verified"),
          ("T7", "Solo 90 kg rider + 25 kg luggage", "met-thin", "FEA Round 3 at 257.3 kg + rider + luggage passes after +0.45 kg of wall increases (sized by scaling, not re-run); not tested; the \u201c95th percentile\u201d label is wrong (about the adult male average)"),
@@ -996,14 +1007,14 @@ def build(doc_imgs):
     body = title("10 Targets", "Targets T1 to T10 and the verdict on each", "From `00-V1-final-spec.md` and the independent review (`19-independent-review.md`).")
     body += table(["#", "Target", "Verdict", "Evidence"], [(a, b, pill(c), d) for a, b, c, d in T], cls="tight", widths=["5%", "24%", "13%", "58%"])
     body += p("Met means supported by analysis with margin. Met, thin means it passes on paper with little margin or on an assumption. Not met means it fails as written. Not verified means there is no analysis on the exact claim. **Nothing in V1 is met by test.**", "small")
-    body += callout("**One target is met on analysis (T2) and nine are met thinly.** No target is rejected by the analysis. The last fatigue fix (+0.45 kg of wall) was sized by scaling, and several claims rest on assumed inputs. That is a fair state for a paper design, and it is why the verification plan starts with the cheap tests that could kill the design.")
+    body += callout("**One target is met on analysis (T2), eight are met thinly and one is missed: T3, range.** The CFD drag area came in at 0.43 to 0.46 m\u00b2 against the 0.38 the range target assumed, which puts range at about 132 to 139 mi against 145. I kept the target as written and booked the miss rather than move the goalposts. The last fatigue fix (+0.45 kg of wall) was sized by scaling, and several claims rest on assumed inputs. That is a fair state for a paper design, and it is why the verification plan starts with the cheap tests that could kill the design.")
     D.add("Targets", "Targets T1 to T10", body, toc=True, num="10", toc_title="Targets T1 to T10, verdicts")
 
     # ---------------- roadmap
     body = title("11 Roadmap", "V1.1 and beyond", "A V1 with a planned improvement path.")
     body += table(["Step", "What changes", "What it buys", "Status"], [
         ("Better cells", "Higher-energy-density cells in the same case and mass", "More range at the same mass, or the same range at lower mass; relaxes the CdA break-even", "Market-dependent; needs cell qualification"),
-        ("Lower drag", "Aero refinement from the CFD: screen, fairing and pod shapes, cooling-duct routing", "Range at 70 and 77 mph; lower cooling and gust loads", "CFD in progress"),
+        ("Lower drag", "Aero refinement from the CFD: screen, fairing and pod shapes, cooling-duct routing", "Back to CdA 0.38 restores about 152 mi at 70 mph", "CFD done: CdA 0.43 to 0.46 today"),
         ("Lighter chassis", "About 10 kg of identified levers: wheels and brakes (magnesium or forged package), a short HV bus, an aluminium yoke with a redesigned section, a cell-to-chassis pack with no case walls, flush radiator pods", "Mass and margin against T1 (listed, not computed)", "Not analysed"),
         ("Styling refinement", "Flush or smaller pods, R15 edge radii on the lower body, a second flank line", "Closes the open T10 items", "Logged for V1.1"),
         ("Two-up variant", "Passenger seat, rear subframe and suspension, higher gross mass", "A second use case on the same platform", "Later; solo is the V1 load case"),
@@ -1012,7 +1023,7 @@ def build(doc_imgs):
     body += p("Cells and drag come first because they move range, the claim the bike is judged on, with no change to the architecture. The chassis levers move mass. They were identified in the Gate A log, but none has been analysed, so about 10 kg is a candidate list, not a promise.")
     body += p("Styling is cheap and visible but touches tooling, so I decide it before any hard tooling is cut. The two-up variant needs structures, dynamics and brakes re-run at a higher gross mass, so it follows a verified solo bike.")
     body += h2("Before V1.1 can start")
-    body += ul(["An aero result and a V1 CdA.", "Cell charge-life data from Molicel, and supplier confirmation from EMRAX and Cascadia at the 360 V bus.", "The first weighed parts and the yoke proof test (V08).", "A re-run of structures and dynamics at the final mass and geometry."])
+    body += ul(["A converged CdA (fourth mesh) and a wind-tunnel or coast-down check.", "Cell charge-life data from Molicel, and supplier confirmation from EMRAX and Cascadia at the 360 V bus.", "The first weighed parts and the yoke proof test (V08).", "A re-run of structures and dynamics at the final mass and geometry."])
     D.add("Roadmap", "Roadmap", body, toc=True, num="11", toc_title="Roadmap, V1.1 and beyond")
 
     # ---------------- status and limitations
@@ -1024,7 +1035,7 @@ def build(doc_imgs):
                 "Nine concept drawing sheets (not for manufacture)."])
     body += h2("What does not exist")
     body += ul(["No weighed part, no coast-down, no bench or crash test. The 257.9 kg is 0 kg measured.",
-                "No aerodynamic result. CdA is an assumption, so range is a calculation on an assumed input.",
+                "No measured drag. The CdA is CFD on three meshes that are not fully converged (0.43 to 0.46).",
                 "No supplier quote or confirmation (Molicel, EMRAX, Cascadia), and the P60B fast-charge life above 2C is unknown.",
                 "No Supercharger or Plug and Charge access. Native NACS is a connector and a protocol design.",
                 "No controls specification (BMS limits, regen and ABS blending, NACS handshake, damper schedule, limp mode, cybersecurity).",
@@ -1032,7 +1043,7 @@ def build(doc_imgs):
                 "Structures not fully re-run at the final mass; dynamics not re-run on rev E."])
     body += h2("Known weak points")
     body += ul(["Mass headroom is 2.1 kg (0.8%). The belt-to-tyre gap has zero margin, and two fatigue checks need a small wall increase.",
-                "T3 range passes only while CdA stays below about 0.407.",
+                "T3 range is missed: about 132 mi at 70 mph against 145. Getting CdA back to about 0.40 closes it.",
                 "Wobble is stable only with a speed-scheduled damper (0.028 thinnest margin).",
                 "Cost passes by $2.5k on estimates, and misses by $0.3k if cells, motor and inverter stay at 1k prices.",
                 "Competitor figures come from published pages, not from tests."])
@@ -1111,13 +1122,13 @@ def toc_html(D):
 # ----------------------------------------------------------------------------- summary (2 pages)
 def build_summary(I, D_main):
     S = Doc("Bavuso V1: Summary", label="Summary")
-    aero_note = AERO_PENDING_TEXT if AERO["status"] != "done" else ("CdA %s m\u00b2 from the aero result" % AERO["cda"])
+    aero_note = AERO_PENDING_TEXT if AERO["status"] != "done" else ("Range uses the CFD drag area of %s m\u00b2" % AERO["cda"])
     # page 1
     b = ('<div style="display:flex;gap:0.25in;align-items:center;margin-bottom:10pt"><img src="%s" style="width:4.5in;flex:none;display:block">'
          '<div><div class="stamp">Bavuso Motors &middot; Summary</div>'
          '<h1 style="font-size:15pt;margin-top:4pt">Bavuso V1<br>Electric adventure-touring motorcycle</h1>'
          '<div style="color:#6F6B66;font-size:9.5pt">Rev E design freeze, November 22, 2026</div></div></div>') % (I.get("hero", ""),)
-    b += '<div class="lead" style="font-size:10pt">Under 400 lb and 200 miles at 70 mph cannot both close with today\u2019s cells. A 400 lb bike carries only about 11 kWh (about 74 mi), and 200 mi needs about 32 kWh and a 631 lb bike. V1 is a <b>deliberate compromise</b>. I chose a buildable bike: <b>about 258 kg / 569 lb, 23.8 kWh, about 150 mi at 70 mph, 125 mph sustained and native NACS charging</b>, with a planned path to better range and lower mass.</div>'
+    b += '<div class="lead" style="font-size:10pt">Under 400 lb and 200 miles at 70 mph cannot both close with today\u2019s cells. A 400 lb bike carries only about 11 kWh (about 74 mi), and 200 mi needs about 32 kWh and a 631 lb bike. V1 is a <b>deliberate compromise</b>. I chose a buildable bike: <b>about 258 kg / 569 lb, 23.8 kWh, about 130 mi at 70 mph, 125 mph sustained and native NACS charging</b>, with a planned path to better range and lower mass.</div>'
     b += kpis([("%s kg" % F["mass_kg"], "Wet mass", "%s lb; T1 at most 260 kg" % F["mass_lb"]), ("%s kWh" % F["kwh_gross"], "Pack, gross", "%s kWh usable, %s V" % (F["kwh_usable"], F["volts"])),
                ("%s mi" % AERO["r70"], "Range, 70 mph", "calculated, CdA %s%s" % (AERO["cda"], " assumed" if AERO["status"] != "done" else "")), ("%s kW" % F["peak_kw"], "Peak power", "%s kW continuous" % F["cont_kw"]),
                ("%s s" % F["z60"], "0-60 mph", "calculated"), ("125 mph", "Sustained", "%s limit, governed %s" % (F["top"], F["gov"])),
@@ -1137,7 +1148,7 @@ def build_summary(I, D_main):
     b += h2("Targets T1 to T10")
     short = [("T1", "Mass at most 260 kg", "met-thin", "257.9 kg; 2.1 kg headroom; nothing weighed"),
              ("T2", "Pack 100s11p, 23.8 kWh, at most 108 kg", "met", "23.76 kWh, 360 V, 108.0 kg"),
-             ("T3", "Range at least 145 mi at 70 mph", "met-thin", "%s mi at CdA %s; fails above about 0.407; not verified" % (AERO["r70"], AERO["cda"])),
+             ("T3", "Range at least 145 mi at 70 mph", "not met", "%s mi at the CFD CdA %s; needs about 0.407" % (AERO["r70"], AERO["cda"])),
              ("T4", "125 mph sustained", "met-thin", "135 mph limit; derate to about 105 mph at 38 C; not verified"),
              ("T5", "At least 90 kW peak, 55 kW continuous", "met-thin", "124 kW; 93 kW at 10% charge; 61.6 kW continuous"),
              ("T6", "NACS, DC 10-80% in 25 min or less", "met-thin", "about 21 min at 25 C; Supercharger access not established"),
@@ -1180,7 +1191,7 @@ def check_against_spec():
     probes = {k: v for k, v in F.items()}
     probes.update({"rollup": "257.9", "wb": "1,490", "belt": "545.9", "rear disc": "267 x 5", "front disc": "320 x 5",
                    "z545": "Z545", "damper": "0.028", "cell": "100s11p", "esc": "3.60:1", "dc cap": "350 A", "fuse": "450 A",
-                   "break-even": "0.407", "r70r77": "152.4 / 132.2", "charge": "23.0 min at 35 C", "charge2": "25.4 min at -10 C",
+                   "break-even": "0.407", "r70r77": "152.4 / 132.2", "cfd range": "131.8 / 113.4", "cfd cda": "0.43 to 0.46", "charge": "23.0 min at 35 C", "charge2": "25.4 min at -10 C",
                    "charge3": "40.9 min at 45 C", "peaks": "124 / 109 / 100 / 93 / 87"})
     skip = {"cost_stress", "z100kmh", "z100mph"}
     for k, v in probes.items():
